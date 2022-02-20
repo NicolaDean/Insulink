@@ -3,16 +3,23 @@ import { Text, View,FlatList,Button,TextInput, StyleSheet } from 'react-native';
 
 import { useState,useEffect } from 'react';
 
-export const FetchComponent = () =>{
+import {Food} from './food'
+
+export const FoodSearchExample = ({ navigation }) =>{
   const apiLink = "https://api.edamam.com/api/food-database/v2/parser?";
   const appId  = "21f2be32";
   const apiKey = "d0e8b5d4eecb5c925ab79b75c85d0583";
 
-  const [foodData, setData] = useState([]);
+  //USE STATE
 
+//HOW WORKS USESTATE -> [var,functionName] = useState(init) 
+// it create a function (functionName) usable to update the variable (var) and set an initial value (init)
+  
+  const [foodData, setData] = useState([]);
   const [foodSelected,setFood] = useState("banana");
 
 
+  //Define a function to retrive date from API
   const getData = async () => {
     try {
       //Generate the Link to query food using API
@@ -31,7 +38,7 @@ export const FetchComponent = () =>{
      setLoading(false);
    }
   }
-
+  
   const getUrl = (userInput) =>{
       return apiLink +
             "app_id=" + appId + "&" +
@@ -48,7 +55,7 @@ export const FetchComponent = () =>{
            <FlatList
             data={foodData}
             renderItem={({ item }) => (
-            <Text>{item.food.label},{item.food.category}, {item.food.categoryLabel}</Text>
+            <Food data = {item.food}></Food>
           )}
         />
        </View> 
@@ -64,4 +71,4 @@ export const FetchComponent = () =>{
           )}
         />
 */
-export default FetchComponent;
+export default FoodSearchExample;

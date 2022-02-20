@@ -7,22 +7,39 @@
  */
 
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { StyleSheet,Text,View } from 'react-native';
 
+
 //ALLOW TO IMPORT OUR COMPONENTS FROM SEPARATE FILE
-import {FetchComponent} from './customComponents/fetchExample'
+import FoodSearchExample from './pages/foodSearch/foodSearchExample';
+import Home from './pages/home/home';
+
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
  
   return(
     
-    <View> 
-     <FetchComponent></FetchComponent>
-    </View>
+    <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={Home}
+
+      />
+      <Stack.Screen name="FoodSearch" component={FoodSearchExample} />
+    </Stack.Navigator>
+  </NavigationContainer>
   );
 };
 
+const Scc = ({navigation}) =>{
+  return <Text>BANANAAAA</Text>;
+}
 const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,
