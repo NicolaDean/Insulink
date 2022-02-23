@@ -1,8 +1,7 @@
 import React from 'react';
-import { Text, View,FlatList,Button,TextInput, StyleSheet } from 'react-native';
-
+import {TouchableOpacity, Text, View,FlatList,Button,TextInput, StyleSheet } from 'react-native';
 import { useState,useEffect } from 'react';
-
+import styles from './style'
 import {Food} from './food'
 import * as api from '../utils/apiQuery';
 
@@ -35,6 +34,10 @@ export const FoodSearchExample = ({ navigation }) =>{
      //setLoading(false);
    }
   }
+  const AppButton = ({ onPress, title }) => (
+    <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
+      <Text style={styles.appButtonText}>{title}</Text>
+    </TouchableOpacity>);
   
   const getUrl = (userInput) =>{
       return apiLink +
@@ -44,12 +47,15 @@ export const FoodSearchExample = ({ navigation }) =>{
   }
   
     return (
-       <View>
-           <Button title="Get Data" onPress={() => getData()}/>
+       <View style={styles.sectionContainer}>
 
-           <TextInput placeholder="insert food" onChangeText={setFood}/>
+           <TextInput style={styles.searchBox} placeholder="insert food!" onChangeText={setFood}/>
 
-           <FlatList
+           <AppButton style={styles.button} title="Get Data"
+              onPress={() => getData()}
+            />
+
+            <FlatList
             data={foodData}
             renderItem={({ item }) => (
             <Food data = {item} nav = {navigation}></Food>
