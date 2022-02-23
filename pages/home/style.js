@@ -9,6 +9,7 @@ export default StyleSheet.create({
     sectionTitle: {
       fontSize: 24,
       fontWeight: '600',
+      alignContent: 'center'
     },
     sectionDescription: {
       marginTop: 8,
@@ -33,6 +34,7 @@ export default StyleSheet.create({
         backgroundColor: "rgba(112,202,230,1)",
         borderRadius: 10,
         paddingVertical: 10,
-        paddingHorizontal: 12
-      }
+        paddingHorizontal: 12,
+        marginVertical: 60
+            }
   });

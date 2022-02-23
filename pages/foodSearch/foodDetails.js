@@ -1,7 +1,16 @@
-
 import React from 'react';
-import { Text, View, Image, StyleSheet } from 'react-native';
-import { useState } from 'react';
+import {TouchableOpacity, Text, View,Button, StyleSheet, Dimensions  } from 'react-native';
+import styles from './style'
+import {
+    LineChart,
+    BarChart,
+    PieChart,
+    ProgressChart,
+    ContributionGraph,
+    StackedBarChart
+  } from "react-native-chart-kit";
+  const marginOffset=10;
+  const screenWidth = Dimensions.get("window").width-marginOffset;
 
 import * as api from "../utils/apiQuery";
 const debug = false;
@@ -30,6 +39,40 @@ export const FoodDetails = ({navigator,route}) =>{
     //let nutrients = data.nutrients;
 
 
+    //CHART CONFIG AND STYLE
+const chartConfig = {
+    //General
+    backgroundColor: "#e26a00",
+    backgroundGradientFrom: "#fb8c00",
+    backgroundGradientTo: "#ffa726",
+    decimalPlaces: 2, // optional, defaults to 2dp
+    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+    labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+   
+    
+      //LineChart
+  
+      //TODO fit better the chart 
+    propsForDots: {
+      r: "6",
+      strokeWidth: "2",
+      stroke: "#ffa726"
+    },
+      barPercentage: 0.5,
+      marginRight:marginOffset,
+      marginLeft:marginOffset,
+      useShadowColorFromDataset: false, // optional
+      
+    };
+    
+    const chartStyle ={
+    
+      marginRight:marginOffset,
+      marginLeft:marginOffset,
+      marginVertical: 8,
+      borderRadius: 16
+    
+  };
 
     //TODO CREATE CHART WITH NUTRIENTS
     return (
