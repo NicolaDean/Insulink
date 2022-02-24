@@ -4,6 +4,7 @@ import { useState,useEffect } from 'react';
 import styles from './style'
 import {Food} from './food'
 import * as api from '../utils/apiQuery';
+import { DonutChart } from '../utils/chart';
 
 export const FoodSearchExample = ({ navigation }) =>{
   const apiLink = "https://api.edamam.com/api/food-database/v2/parser?";
@@ -23,9 +24,10 @@ export const FoodSearchExample = ({ navigation }) =>{
   //Define a function to retrive date from API
   const getData =async () => {
     try {
-    
+  //GET API DATA
      const json = (await api.getIngredentList(foodSelected));
-     
+     console.log(json);
+  //SET DATA
      setData(json.results);
   //HANDLING ERRORS
    } catch (error) {
@@ -48,7 +50,7 @@ export const FoodSearchExample = ({ navigation }) =>{
   
     return (
        <View style={styles.sectionContainer}>
-
+          <DonutChart/>
            <TextInput style={styles.searchBox} placeholder="insert food!" onChangeText={setFood}/>
 
            <AppButton style={styles.button} title="Get Data"
@@ -64,34 +66,6 @@ export const FoodSearchExample = ({ navigation }) =>{
        </View> 
     );
     
-}//<Food data = {item.food} nav = {navigation}></Food>
-
-const jsonTesting = {
-  "results": [
-      {
-          "id": 19400,
-          "name": "banana chips",
-          "image": "banana-chips.jpg"
-      },
-      {
-          "id": 93779,
-          "name": "banana liqueur",
-          "image": "limoncello.jpg"
-      }
-  ],
-  "offset": 0,
-  "number": 2,
-  "totalResults": 13
 }
 
-
-/*
-<FlatList
-          data={data}
-          keyExtractor={({ id }, index) => id}
-          renderItem={({ item }) => (
-            <Text>{item.title}, {item.releaseYear}</Text>
-          )}
-        />
-*/
 export default FoodSearchExample;

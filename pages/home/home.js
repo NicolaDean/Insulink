@@ -3,12 +3,10 @@ import {TouchableOpacity, Text, View,Button, StyleSheet, Dimensions  } from 'rea
 import styles from './style'
 import {
     LineChart,
-    BarChart,
-    PieChart,
     ProgressChart,
-    ContributionGraph,
-    StackedBarChart
   } from "react-native-chart-kit";
+
+import { DonutChart } from '../utils/chart';
   const marginOffset=10;
   const screenWidth = Dimensions.get("window").width-marginOffset;
 
@@ -106,6 +104,8 @@ export default Home = ({ navigation }) =>{
     bezier
     style={chartStyle}
   />
+
+  <DonutChart></DonutChart>
   
 <ProgressChart
   data={data2}
