@@ -50,7 +50,6 @@ export const FoodSearchExample = ({ navigation }) =>{
   
     return (
        <View style={styles.sectionContainer}>
-          <DonutChart/>
            <TextInput style={styles.searchBox} placeholder="insert food!" onChangeText={setFood}/>
 
            <AppButton style={styles.button} title="Get Data"

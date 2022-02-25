@@ -5,7 +5,6 @@ import styles from './style'
 import { foodDetails } from '../utils/testingJsons';//Default food
 
 import * as api from "../utils/apiQuery";
-import { DonutChart } from '../utils/chart';
 import { VictoryPie } from 'victory-native';
 
 const debug = false;

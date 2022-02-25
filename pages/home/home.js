@@ -6,7 +6,6 @@ import {
     ProgressChart,
   } from "react-native-chart-kit";
 
-import { DonutChart } from '../utils/chart';
   const marginOffset=10;
   const screenWidth = Dimensions.get("window").width-marginOffset;
 
@@ -104,8 +103,6 @@ export default Home = ({ navigation }) =>{
     bezier
     style={chartStyle}
   />
-
-  <DonutChart></DonutChart>
   
 <ProgressChart
   data={data2}
@@ -119,9 +116,9 @@ export default Home = ({ navigation }) =>{
 />
 
             <AppButton
-            
                 title='Food Search'
-                onPress={() => navigation.navigate('FoodSearch',{}) }/>
+                onPress={() => navigation.navigate('FoodSearch',{}) }
+            />
 </View>
     );
 
