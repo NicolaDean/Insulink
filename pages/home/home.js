@@ -5,6 +5,7 @@ import {
     LineChart,
     ProgressChart,
   } from "react-native-chart-kit";
+import { BottomNavigator } from '../navigator/bottomNavigator';
 
   const marginOffset=10;
   const screenWidth = Dimensions.get("window").width-marginOffset;
@@ -73,7 +74,7 @@ const chartConfig = {
       ]
     
   }
-export default Home = ({ navigation }) =>{
+export const Home = ({ navigation }) =>{
 
     return(
         <View>
@@ -114,13 +115,15 @@ export default Home = ({ navigation }) =>{
   hideLegend={false}
   style={chartStyle}
 />
-
             <AppButton
                 title='Food Search'
                 onPress={() => navigation.navigate('FoodSearch',{}) }
             />
+            
 </View>
     );
 
 
 }
+
+export default Home;

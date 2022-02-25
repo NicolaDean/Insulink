@@ -34,5 +34,10 @@ export default StyleSheet.create({
         borderRadius: 10,
         paddingVertical: 10,
         paddingHorizontal: 12
+      },
+      foodImage: {
+        height: 300,
+        width: 300,
+        align
       }
   });
