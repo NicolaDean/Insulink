@@ -16,7 +16,9 @@ import { StyleSheet,Text,View } from 'react-native';
 //ALLOW TO IMPORT OUR COMPONENTS FROM SEPARATE FILE
 import FoodSearchExample from './pages/foodSearch/foodSearchExample';
 import Home from './pages/home/home';
+import PersonalData from './pages/settings/PersonalData';
 import { FoodDetails } from './pages/foodSearch/foodDetails';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +31,7 @@ const App = () => {
       <Stack.Screen name="Home" component={Home}/>
       <Stack.Screen name="FoodSearch" component={FoodSearchExample} />
       <Stack.Screen name="FoodDetails" component={FoodDetails}/>
+      <Stack.Screen name="PersonalData" component={PersonalData}/>
     </Stack.Navigator>
   </NavigationContainer>
   );

@@ -82,7 +82,7 @@ export default Home = ({ navigation }) =>{
   <LineChart
     data={data3}
     width={screenWidth} // from react-native
-    height={200}
+    height={100}
     yAxisLabel=""
     yAxisSuffix="mg/dL"
     yAxisInterval={1} // optional, defaults to 1
@@ -118,10 +118,13 @@ export default Home = ({ navigation }) =>{
   style={chartStyle}
 />
 
-            <AppButton
-            
+             <AppButton
                 title='Food Search'
                 onPress={() => navigation.navigate('FoodSearch',{}) }/>
+        
+             <AppButton
+            title='Personal Data'
+            onPress={() => navigation.navigate('PersonalData',{}) }/>
 </View>
     );
 
