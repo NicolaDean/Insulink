@@ -11,12 +11,12 @@ const getData =async () => {
 */
 export const PersonalData = ({ navigation }) =>{
 
-    const [weight, setWeight] = useState([]);
-    const [height, setHeight] = useState([]);
-    const [age, setAge] = useState([]);
-    const [name, setName] = useState([]);
-    const [ISF, setISF] = useState([]);
-    const [CHORatio, setCHORatio] = useState([]);
+    const [weight, setWeight] = useState(0);
+    const [height, setHeight] = useState(0);
+    const [age, setAge] = useState(0);
+    const [name, setName] = useState("");
+    const [ISF, setISF] = useState(0);
+    const [CHORatio, setCHORatio] = useState(0);
 
     const getData =async () => {
         try {

@@ -34,6 +34,8 @@ const App = () => {
       <Stack.Screen name="PersonalData" component={PersonalData}/>
     </Stack.Navigator>
   </NavigationContainer>
+
+  
   );
 };
 

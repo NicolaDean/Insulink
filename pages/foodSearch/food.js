@@ -1,7 +1,6 @@
 import React from 'react';
 import { Text, View, Image,TouchableHighlight, StyleSheet} from 'react-native';
 
-
 export const Food = (props) =>{
 
     let data = props.data;
@@ -14,8 +13,8 @@ export const Food = (props) =>{
     
     return (
         <TouchableHighlight  underlayColor={"COLOR"}  onPress={()=>{props.nav.navigate('FoodDetails',{id : {id}}) }}>
-            <View>
-                <Text>{name}</Text>
+            <View style={styles.contentBox}>
+                <Text style={styles.title}>{name}</Text>
                 
                 <Image 
                     style={{width: 100, height: 100}}
@@ -30,5 +29,32 @@ export const Food = (props) =>{
     }
    
 }
+const styles = StyleSheet.create(
+    {
+        contentBox:{
+            width:"90%",
+            marginTop:10,
+            marginLeft:"5%",
+            borderRadius:30,
+            backgroundColor:"white",
+            shadowColor: "#000",
+            shadowOffset: {
+                width: 0,
+                height: 2,
+            },
+            shadowOpacity: 0.23,
+            shadowRadius: 2.62,
+
+            elevation: 4
+        },
+        title:{
+            marginLeft:20,
+            fontSize:20,
+            fontWeight:"bold"
+        }
+    }
+);
+
 //<Text>{data.label},{data.category}, {data.categoryLabel}</Text>
 export default Food;
+

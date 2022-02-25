@@ -1,7 +1,8 @@
 
-export const colors = {
+export default {
     primary:"",
     secondary:"",
     black:"",
-    white:""
+    white:"",
+    background:"white"
 }
