@@ -9,6 +9,7 @@ import { VictoryPie } from 'victory-native';
 import { ScrollView, TouchableHighlight } from 'react-native-gesture-handler';
 
 import colors from '../utils/colorPalette'
+import CustomButton from '../../customComponents/customButton';
 
 const debug = false;
 export const FoodDetails = ({navigator,route}) =>{
@@ -52,7 +53,7 @@ export const FoodDetails = ({navigator,route}) =>{
                 <Image style={styles.foodImage} source={{uri:image}}/>
                 <Text style ={styles.sectionTitle}> {name}</Text>
            </View>
-
+           
            <View style={styles.bodySection}>
                 <View style={styles.graphBox}>
                     <VictoryPie
@@ -72,14 +73,9 @@ export const FoodDetails = ({navigator,route}) =>{
                         <Text>Protein : {nutrients["Protein"].amount}g</Text>
                     </View>
                 </View>
-            
+           <CustomButton style={styles.addButton} title="Add To Meal"/>
            </View>
-           
-           <View style={styles.addButton}>
-                        <TouchableHighlight>
 
-                        </TouchableHighlight>
-           </View>
        </View>
            
             
@@ -118,13 +114,14 @@ const styles = StyleSheet.create(
             marginTop:10
         },
         bodySection:{
-            marginTop:10            
+            marginTop:10,
+            width:"100%"         
         },
         graphBox:{
             marginLeft:"5%",
             width:"90%",
             borderRadius:40,
-            backgroundColor:"#a8d5ff",
+            backgroundColor:"#F7F7F7",
             flexDirection: 'row',
             shadowColor: "#000",
             shadowOffset: {
@@ -140,6 +137,9 @@ const styles = StyleSheet.create(
             flexDirection: 'column',
             height:"50%",
             justifyContent: 'space-around',
+        },
+        addButton:{
+           marginTop:10
         }
         
         

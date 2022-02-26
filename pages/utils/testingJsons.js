@@ -1,20 +1,31 @@
 export const ingredientList = {
-    "results": [
-        {
-            "id": 19400,
-            "name": "banana chips",
-            "image": "banana-chips.jpg"
-        },
-        {
-            "id": 93779,
-            "name": "banana liqueur",
-            "image": "limoncello.jpg"
-        }
-    ],
-    "offset": 0,
-    "number": 2,
-    "totalResults": 13
-  }
+"code":402,
+"number":4,
+"offset":0,
+"results":[
+   {
+      "id":9003,
+      "image":"apple.jpg",
+      "name":"apple"
+   },
+   {
+      "id":9019,
+      "image":"applesauce.png",
+      "name":"applesauce"
+   },
+   {
+      "id":9016,
+      "image":"apple-juice.jpg",
+      "name":"apple juice"
+   },
+   {
+      "id":1009016,
+      "image":"apple-cider.jpg",
+      "name":"apple cider"
+   }
+],
+"totalResults":39
+}
   
   export const foodDetails ={
     "id": 9266,

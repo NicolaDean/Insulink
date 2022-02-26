@@ -38,6 +38,5 @@ export default StyleSheet.create({
       foodImage: {
         height: 300,
         width: 300,
-        align
       }
   });

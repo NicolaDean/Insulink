@@ -1,20 +1,13 @@
 import React from 'react';
 import {TouchableOpacity, Text, View,Button, StyleSheet, Dimensions  } from 'react-native';
 import styles from './style'
-import {
-    LineChart,
-    ProgressChart,
-  } from "react-native-chart-kit";
-import { BottomNavigator } from '../navigator/bottomNavigator';
+import {LineChart,ProgressChart} from "react-native-chart-kit";
+
+import CustomButton from '../../customComponents/customButton'
 
   const marginOffset=10;
   const screenWidth = Dimensions.get("window").width-marginOffset;
 
-// App Button declaration
-const AppButton = ({ onPress, title }) => (
-    <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
-      <Text style={styles.appButtonText}>{title}</Text>
-    </TouchableOpacity>);
 
 //CHART CONFIG AND STYLE
 const chartConfig = {
@@ -100,8 +93,6 @@ export const Home = ({ navigation }) =>{
         stroke: "#ffa726"
       }
     }}
-    
-    bezier
     style={chartStyle}
   />
   
@@ -115,9 +106,13 @@ export const Home = ({ navigation }) =>{
   hideLegend={false}
   style={chartStyle}
 />
-            <AppButton
+            <CustomButton
                 title='Food Search'
                 onPress={() => navigation.navigate('FoodSearch',{}) }
+            />
+            <CustomButton
+                title='PersonalData'
+                onPress={() => navigation.navigate('PersonalData',{}) }
             />
             
 </View>

@@ -2,6 +2,7 @@ import React from 'react';
 import {TouchableOpacity,Image, Text, View,Button, TextInput,StyleSheet, Dimensions  } from 'react-native';
 import { useState } from 'react';
 import styles from './style'
+import CustomButton from '../../customComponents/customButton';
 
 /*
 FUNCTION TO GET DATA
@@ -9,7 +10,7 @@ const getData =async () => {
 }
 
 */
-export const PersonalData = ({ navigation }) =>{
+export const EditPersonalData = ({ navigation }) =>{
 
     const [weight, setWeight] = useState(0);
     const [height, setHeight] = useState(0);
@@ -26,11 +27,6 @@ export const PersonalData = ({ navigation }) =>{
              }
     }
 
-    const AppButton = ({ onPress, title }) => (
-        <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
-          <Text style={styles.appButtonText}>{title}</Text>
-        </TouchableOpacity>);
-
 return (
     <View style={styles.sectionContainer}>
 <TextInput style={styles.searchBox} placeholder="Name" onChangeText={setName}/>        
@@ -41,7 +37,7 @@ return (
 <TextInput style={styles.searchBox} placeholder="CHO Ratio (grams of CHO per 1 unit) (Optional)" onChangeText={setCHORatio}/>
 
 
-<AppButton style={styles.button} title="Confirm"
+<CustomButton style={styles.button} title="Confirm"
               onPress={() => getData()}
             />
 
@@ -51,4 +47,4 @@ return (
     
 }
 
-export default PersonalData;
+export default EditPersonalData;
