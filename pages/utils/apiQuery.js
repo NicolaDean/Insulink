@@ -58,6 +58,16 @@ export const extractNutrients = (nutrientsJson) =>{
 
     return nutrients;
 }
+
+export const extractProperties = (propertiesJson) =>{
+    let properties = {};
+
+    propertiesJson.forEach( p =>{
+        properties[p.name] = p; //Map each properties name to its content
+    })
+
+    return properties;
+}
 /**
  * Do a fetch operation on the query given in input and return the json response from API
  * @param {*} query API QUERY

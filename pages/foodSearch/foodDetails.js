@@ -6,17 +6,19 @@ import { foodDetails } from '../utils/testingJsons';//Default food
 
 import * as api from "../utils/apiQuery";
 import { VictoryPie } from 'victory-native';
-import { ScrollView, TouchableHighlight } from 'react-native-gesture-handler';
+import { ScrollView, TextInput, TouchableHighlight } from 'react-native-gesture-handler';
 
 import colors from '../utils/colorPalette'
 import CustomButton from '../../customComponents/customButton';
+import SelectDropdown from 'react-native-select-dropdown'
 
-const debug = false;
 export const FoodDetails = ({navigator,route}) =>{
 
     let id = route.params.id.id;
 
     const [details, setDetails] = useState(foodDetails);
+    const [unit,setUnit] = useState('g');
+    const [amount,setAmount] = useState('100');
 
     const getData = async (id)=>
     {
@@ -30,6 +32,8 @@ export const FoodDetails = ({navigator,route}) =>{
     const image = api.imgUrl + details.image;
     const name = details.name;
     const nutrients = api.extractNutrients(details.nutrition.nutrients);
+    const properties = api.extractProperties(details.nutrition.properties);
+    const units = details.possibleUnits;
 
     const data = [
         {x:"Carb",y:nutrients["Carbohydrates"].amount },
@@ -51,10 +55,29 @@ export const FoodDetails = ({navigator,route}) =>{
 
            <View style={styles.headerSection}>
                 <Image style={styles.foodImage} source={{uri:image}}/>
-                <Text style ={styles.sectionTitle}> {name}</Text>
+
+                <View style={styles.headerTitle}>
+                    <Text style ={styles.sectionTitle}> {name}</Text>
+                    <View style={{flexDirection:'column'}}>
+                        <View style={{flexDirection:'row'}}>
+                            <Text > Unit:</Text>
+                            <SelectDropdown data={units} onSelect={(selectedItem, index) => {
+		                                console.log(selectedItem, index);
+	                                }}/>
+                        </View>
+                        <View style={{flexDirection:'row'}}>
+                            <Text > Amount:</Text>
+                            
+                            <TextInput placeholder='amount' keyboardType="numeric"/>
+                       </View>
+                       
+                    </View>
+                </View>
+                
            </View>
            
            <View style={styles.bodySection}>
+                <Text>Calories: {nutrients["Calories"].amount}</Text>
                 <View style={styles.graphBox}>
                     <VictoryPie
                         colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
@@ -100,6 +123,10 @@ const styles = StyleSheet.create(
             elevation: 4
 
         },
+        headerTitle:{
+            flexDirection:'row',
+            justifyContent:'flex-start'
+        },
         sectionTitle:{
             fontSize: 24,
             fontWeight: '600',
@@ -135,7 +162,6 @@ const styles = StyleSheet.create(
         },
         graphLegend:{
             flexDirection: 'column',
-            height:"50%",
             justifyContent: 'space-around',
         },
         addButton:{
