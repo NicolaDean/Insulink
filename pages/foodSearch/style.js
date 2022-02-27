@@ -5,6 +5,7 @@ export default StyleSheet.create({
     sectionContainer: {
       marginTop: 30,
       paddingHorizontal: 25,
+      flex:1
     },
     sectionTitle: {
       fontSize: 24,
