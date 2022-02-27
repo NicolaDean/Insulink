@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image, Text, View,Button, StyleSheet, Dimensions, StatusBar  } from 'react-native';
 import { useState } from 'react';
+import styles from './style'
 
 import { foodDetails } from '../utils/testingJsons';//Default food
 
@@ -46,51 +47,36 @@ export const FoodDetails = ({navigator,route}) =>{
     ]
 
     const chartConfig = {
-        //General
-        backgroundColor: "#e26a00",
+        
         backgroundGradientFrom: "#fb8c00",
         backgroundGradientTo: "#ffa726",
-        decimalPlaces: 2, // optional, defaults to 2dp
         color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-        labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-       
-    //TODO fit better the chart 
-  propsForDots: {
-    r: "6",
-    strokeWidth: "2",
-    stroke: "#ffa726"
-  },
-    barPercentage: 0.5,
-    marginRight:marginOffset,
-    marginLeft:marginOffset,
-    useShadowColorFromDataset: false, // optional
+        
     
   };     
     //TODO CREATE CHART WITH NUTRIENTS
     return (
-       <View
-        style={{
-            width : '100%',
-            height :'100%',
-            position :'relative',
-        }}  
+       <ScrollView style={{
+        width : '100%',
+        height :'100%',
+    }}  
        >
 
            <StatusBar />
 
-           <View style={styles.headerSection}>
+           <View style={styles.sectionContainer} >
                 <Image style={styles.foodImage} source={{uri:image}}/>
 
-                <View style={styles.headerTitle}>
+                <View >
                     <Text style ={styles.sectionTitle}> {name}</Text>
-                    <View style={{flexDirection:'column'}}>
-                        <View style={{flexDirection:'row'}}>
+                    <View style={{flexDirection:'column',margin:5}}>
+                        <View style={{flexDirection:'row',margin: 5}}>
                             <Text > Unit:</Text>
                             <SelectDropdown buttonStyle = {{height:30,width:100}} data={units} onSelect={(selectedItem, index) => {
 		                                console.log(selectedItem, index);
 	                                }}/>
                         </View>
-                        <View style={{flexDirection:'row'}}>
+                        <View style={{flexDirection:'row',margin: 5}}>
                             <Text > Amount:</Text>
                             
                             <TextInput placeholder='amount' keyboardType="numeric"/>
@@ -101,21 +87,28 @@ export const FoodDetails = ({navigator,route}) =>{
                 
            </View>
            
-           <View style={styles.bodySection}>
-           <PieChart
+           <View style={{
+       alignItems: 'center'}} >
+           <PieChart 
             data={xxx}
-            width={screenWidth}
-            height={220}
+            width={screenWidth+10}
+            height={200}
             chartConfig={chartConfig}
             accessor={"population"}
-            backgroundColor={"transparent"}
-            paddingLeft={"15"}
-            center={[10, 50]}
-            absolute
+
+            backgroundColor={"#ffa726"}
+            
+            
+            style={{
+                marginVertical: 8,
+                borderRadius: 17
+              }}
+            paddingLeft={"10"}
+
             />
                 <Text>Calories: {nutrients["Calories"].amount}</Text>
-                <View style={styles.graphBox}>
-                    <VictoryPie
+                <View style={styles.graphBox} >
+                    <VictoryPie 
                         colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
                         data={data}
                         width={200}
@@ -132,86 +125,18 @@ export const FoodDetails = ({navigator,route}) =>{
                         <Text>Protein : {nutrients["Protein"].amount}g</Text>
                     </View>
                 </View>
-           <CustomButton style={styles.addButton} title="Add To Meal"/>
+           <CustomButton title="Add To Meal"/>
            
            </View>
            
 
-       </View>
+       </ScrollView>
            
             
            
     );
 }
-const styles = StyleSheet.create(
-    {
-        headerSection:{
-            marginTop:5,
-            borderBottomColor: "red",
-            borderBottomWidth: StyleSheet.hairlineWidth,
-            backgroundColor: "white",
-            shadowColor: "#000",
-            shadowOffset: {
-                width: 0,
-                height: 2,
-            },
-            shadowOpacity: 0.23,
-            shadowRadius: 2.62,
 
-            elevation: 4
-
-        },
-        headerTitle:{
-            flexDirection:'row',
-            justifyContent:'flex-start'
-        },
-        sectionTitle:{
-            fontSize: 24,
-            fontWeight: '600',
-            marginTop:20,
-            marginLeft:20,
-            marginBottom:10
-        },
-        foodImage:{
-            width:200,
-            height:200,
-            alignSelf:"center",
-            marginTop:10
-        },
-        bodySection:{
-            marginTop:10,
-            width:"100%"         
-        },
-        graphBox:{
-            marginLeft:"5%",
-            width:"90%",
-            borderRadius:40,
-            backgroundColor:"#F7F7F7",
-            flexDirection: 'row',
-            shadowColor: "#000",
-            shadowOffset: {
-                width: 0,
-                height: 2,
-            },
-            shadowOpacity: 0.23,
-            shadowRadius: 2.62,
-
-            elevation: 4
-        },
-        graphLegend:{
-            flexDirection: 'column',
-            justifyContent: 'space-around',
-        },
-        addButton:{
-           marginTop:10
-        },
-        dropdown:{
-            heigth:"10"
-        }
-        
-        
-    }
-);
 
 const xxx = [
     {

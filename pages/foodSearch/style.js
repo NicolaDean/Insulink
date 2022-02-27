@@ -1,11 +1,23 @@
 import { StyleSheet} from 'react-native';
+import { RollInRight } from 'react-native-reanimated';
+import {Dimensions  } from 'react-native';
 
+const screenWidth = Dimensions.get("window")
 
 export default StyleSheet.create({
     sectionContainer: {
-      marginTop: 30,
-      paddingHorizontal: 25,
-      flex:1
+      justifyContent: 'center',
+       alignItems: 'center',
+      
+            borderBottomWidth: StyleSheet.hairlineWidth,
+            backgroundColor: "white",
+            shadowColor: "#000",
+            shadowOffset: {
+                width: 0,
+                height: 2,
+            },
+            shadowOpacity: 0.23,
+            shadowRadius: 2.62,
     },
     sectionTitle: {
       fontSize: 24,
@@ -23,8 +35,38 @@ export default StyleSheet.create({
       fontSize: 18,
       width: "80%"
     },
-      foodImage: {
-        height: 300,
-        width: 300,
-      }
+    foodImage: {
+      width: 200,
+      height: 200,
+      margin:20,
+    
+     },
+      graphLegend: {
+      },
+      graphBox:{
+        
+        marginLeft:"5%",
+        width:"90%",
+        borderRadius:40,
+        backgroundColor:"#F7F7F7",
+        flexDirection: 'row',
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+
+        elevation: 4
+      },
+      appButtonContainer: {
+        elevation: 8,
+        backgroundColor: "rgba(112,202,230,1)",
+        borderRadius: 10,
+        paddingVertical: 10,
+        paddingHorizontal: 12,
+        
+
+            }
   });
