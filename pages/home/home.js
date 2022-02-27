@@ -112,7 +112,7 @@ export const Home = ({ navigation }) =>{
             />
             <CustomButton
                 title='PersonalData'
-                onPress={() => navigation.navigate('PersonalData',{}) }
+                onPress={() => navigation.navigate('EditPersonalData',{}) }
             />
             
 </View>
