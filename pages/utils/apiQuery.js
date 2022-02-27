@@ -17,7 +17,7 @@ const apiIngr = "food/ingredients/";
  * @param {*} id id of the ingredients
  * @returns details of ingredients
  */
-export const getIngredientDetails = (id)=>{
+export const getIngredientDetails = (id,amount,unit = "grams")=>{
 
     if(debug) return testingJson.foodDetails;
 
@@ -43,6 +43,22 @@ export const getIngredentList = (userInput) =>{
     return getJson(query);
 }
 
+/**
+ * eg: https://api.spoonacular.com/food/search?query=apple&number=2
+ * 
+ * @param {*} userInput 
+ * @returns list of all foods/recipes/articles/menu item related to query
+ */
+export const getAllRelatedFood = (userInput) =>{
+
+    if(debug){
+        return testingJson.allFoodList;
+    }
+    
+    let query = apiRoot + "food/search?query=" + userInput + "&number=4&" + apiKey;
+    console.log("QUERY: " + query);
+    return getJson(query);
+}
 /**
  * given a nutrientsJson map each nutritions name to its contents/values
  * @param {*} nutrientsJson 

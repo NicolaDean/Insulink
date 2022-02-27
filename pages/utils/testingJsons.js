@@ -261,3 +261,144 @@ export const ingredientList = {
         "fruit"
     ]
   }
+
+  export const allFoodList = {
+    "query": "apple",
+    "totalResults": 5826,
+    "limit": 2,
+    "offset": 0,
+    "searchResults": [
+      {
+        "name": "Recipes",
+        "totalResults": 167,
+        "results": [
+          {
+            "id": 632485,
+            "name": "Apple Cake",
+            "image": "https://spoonacular.com/recipeImages/632485-312x231.jpg",
+            "link": "https://spoonacular.com/recipes/apple-cake-632485",
+            "type": "HTML",
+            "relevance": 10000,
+            "content": "Apple Cake might be just the dessert you are searching for..."
+          },
+          {
+            "id": 632522,
+            "name": "Apple Crumble",
+            "image": "https://spoonacular.com/recipeImages/632522-312x231.jpg",
+            "link": "https://spoonacular.com/recipes/apple-crumble-632522",
+            "type": "HTML",
+            "relevance": 9999,
+            "content": "Apple Crumble might be just the dessert you are searching for..."
+          }
+        ]
+      },
+      {
+        "name": "Products",
+        "totalResults": 3219,
+        "results": [
+          {
+            "id": 428571,
+            "name": "Pleasant Valley Apple Wine",
+            "image": "https://spoonacular.com/productImages/469604-312x231.jpg",
+            "link": "https://spoonacular.com/products/pleasant-valley-apple-wine-469604",
+            "type": "HTML",
+            "relevance": 10000
+          },
+          {
+            "id": 428573,
+            "name": "NV Georgetown Vineyards Apple Wine",
+            "image": "https://spoonacular.com/productImages/428573-312x231.jpg",
+            "link": "https://spoonacular.com/products/nv-georgetown-vineyards-apple-wine-428573",
+            "type": "HTML",
+            "relevance": 9999
+          }
+        ]
+      },
+      {
+        "name": "Menu Items",
+        "totalResults": 2410,
+        "results": [
+          {
+            "id": 334550,
+            "name": "Old Chicago Applewood Spiced BBQ Chicken Pizza, Chicago Thick, 12 Inch (Slice)",
+            "image": null,
+            "link": "https://spoonacular.com/menu-items/old-chicago-applewood-spiced-bbq-chicken-pizza-chicago-thick-12-inch--334550",
+            "type": "HTML",
+            "relevance": 10000
+          },
+          {
+            "id": 422013,
+            "name": "Huddle House Apple Cobbler a la mode",
+            "image": null,
+            "link": "https://spoonacular.com/menu-items/huddle-house-apple-cobbler-a-la-mode-422013",
+            "type": "HTML",
+            "relevance": 9999
+          }
+        ]
+      },
+      {
+        "name": "Articles",
+        "totalResults": 28,
+        "results": [
+          {
+            "name": "Apples",
+            "image": "https://spoonacular.com/cdn/ingredients_100x100/braeburn-apples.jpg",
+            "link": "https://spoonacular.com/academy/apples",
+            "type": "HTML",
+            "relevance": 90.46
+          },
+          {
+            "name": "Vinegar",
+            "image": "https://spoonacular.com/cdn/ingredients_100x100/red-wine-vinegar.jpg",
+            "link": "https://spoonacular.com/academy/vinegar",
+            "type": "HTML",
+            "relevance": 23.80
+          }
+        ]
+      },
+      {
+        "name": "Videos",
+        "totalResults": 2,
+        "results": [
+          {
+            "id": "G0HENy59YkE",
+            "name": "Pineapple Bundt Cake",
+            "image": "https://i.ytimg.com/vi/G0HENy59YkE/hqdefault.jpg",
+            "link": "https://www.youtube.com/watch?v=G0HENy59YkE",
+            "type": "YOUTUBE_VIDEO",
+            "relevance": 10000,
+            "content": "FULL RECIPE HERE: https://tatyanaseverydayfood.com/recipe-items/pineapple-bundt-cake/..."
+          },
+          {
+            "id": "xEENgO5Z5To",
+            "name": "Pineapple Shrimp Tacos",
+            "image": "https://i.ytimg.com/vi/xEENgO5Z5To/mqdefault.jpg",
+            "link": null,
+            "type": "YOUTUBE_VIDEO",
+            "relevance": 9999,
+            "content": "RECIPE: Below in description.\nThese Pineapple Shrimp Tacos cook in 5 minutes and assembly is a breeze..."
+          }
+        ]
+      },
+      {
+        "name": "Simple Foods",
+        "totalResults": 2,
+        "results": [
+          {
+            "id": 78541,
+            "name": "apple",
+            "image": "apple.jpg",
+            "type": "HTML",
+            "relevance": 10000
+          },
+          {
+            "id": 8782,
+            "name": "applesauce",
+            "image": "applesauce.png",
+            "type": "HTML",
+            "relevance": 9999
+          }
+        ]
+      }
+    ]
+  }
