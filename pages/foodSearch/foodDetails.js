@@ -101,7 +101,7 @@ export const FoodDetails = ({navigator,route}) =>{
                         <Text>Protein : {nutrients["Protein"].amount}g</Text>
                     </View>
                 </View>
-           <CustomButton style={styles.addButton} title="Add To Meal"/>
+           <CustomButton style={styles.addButton} title="Add Food To Meal"/>
            </View>
            
 
