@@ -1,5 +1,7 @@
 import { StyleSheet} from 'react-native';
+import { Dimensions  } from 'react-native';
 
+const screenWidth = Dimensions.get("window")
 
 export default StyleSheet.create({
     sectionContainer: {
@@ -9,7 +11,7 @@ export default StyleSheet.create({
     sectionTitle: {
       fontSize: 24,
       fontWeight: '600',
-      alignContent: 'center'
+      margin:5
     },
     sectionDescription: {
       marginTop: 8,

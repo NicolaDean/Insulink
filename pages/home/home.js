@@ -19,9 +19,6 @@ const chartConfig = {
   color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
   labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
  
-  
-    //LineChart
-
     //TODO fit better the chart 
   propsForDots: {
     r: "6",
@@ -112,7 +109,7 @@ export const Home = ({ navigation }) =>{
             />
             <CustomButton
                 title='PersonalData'
-                onPress={() => navigation.navigate('EditPersonalData',{}) }
+                onPress={() => navigation.navigate('PersonalData',{}) }
             />
             
 </View>

@@ -18,6 +18,7 @@ import FoodSearchExample from './pages/foodSearch/foodSearchExample';
 import Home from './pages/home/home';
 import EditPersonalData from './pages/settings/editPersonalData';
 import { FoodDetails } from './pages/foodSearch/foodDetails';
+import { PersonalData } from './pages/settings/personalData';
 
 
 const Stack = createNativeStackNavigator();
@@ -31,6 +32,7 @@ const App = () => {
       <Stack.Screen name="Home" component={Home}/>
       <Stack.Screen name="FoodSearch" component={FoodSearchExample} />
       <Stack.Screen name="FoodDetails" component={FoodDetails}/>
+      <Stack.Screen name="PersonalData" component={PersonalData}/>
       <Stack.Screen name="EditPersonalData" component={EditPersonalData}/>
     </Stack.Navigator>
   </NavigationContainer>

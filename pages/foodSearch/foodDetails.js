@@ -1,6 +1,7 @@
 import React from 'react';
 import {Image, Text, View,Button, StyleSheet, Dimensions, StatusBar  } from 'react-native';
 import { useState } from 'react';
+import styles from './style'
 
 import { foodDetails } from '../utils/testingJsons';//Default food
 
@@ -43,25 +44,23 @@ export const FoodDetails = ({navigator,route}) =>{
     const data = [
         {x:"Carb",y:nutrients["Carbohydrates"].amount },
         { x: "Fat",y:nutrients["Fat"].amount},
-        {x: "Prot",y:nutrients["Protein"].amount },
+        {x: "Prot",y:nutrients["Protein"].amount }
     ]
          
     //TODO CREATE CHART WITH NUTRIENTS
     return (
-       <View
-        style={{
-            width : '100%',
-            height :'100%',
-            position :'relative',
-        }}  
+       <ScrollView style={{
+        width : '100%',
+        height :'100%',
+    }}  
        >
 
            <StatusBar />
 
-           <View style={styles.headerSection}>
+           <View style={styles.sectionContainer} >
                 <Image style={styles.foodImage} source={{uri:image}}/>
 
-                <View style={styles.headerTitle}>
+                <View >
                     <Text style ={styles.sectionTitle}> {name}</Text>
                     <View style={{flexDirection:'column',alignSelf:'flex-end'}}>
                         <View style={{flexDirection:'row'}}>
@@ -70,7 +69,7 @@ export const FoodDetails = ({navigator,route}) =>{
 		                                console.log(selectedItem, index);
 	                                }}/>
                         </View>
-                        <View style={{flexDirection:'row'}}>
+                        <View style={{flexDirection:'row',margin: 5}}>
                             <Text > Amount:</Text>
                             
                             <TextInput placeholder='amount' keyboardType="numeric"/>
@@ -84,8 +83,8 @@ export const FoodDetails = ({navigator,route}) =>{
            <View style={styles.bodySection}>
        
                 <Text>Calories: {nutrients["Calories"].amount}</Text>
-                <View style={styles.graphBox}>
-                    <VictoryPie
+                <View style={styles.graphBox} >
+                    <VictoryPie 
                         colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
                         data={data}
                         width={200}
@@ -106,80 +105,9 @@ export const FoodDetails = ({navigator,route}) =>{
            </View>
            
 
-       </View>
-           
-            
-           
+       </ScrollView>
     );
 }
-const styles = StyleSheet.create(
-    {
-        headerSection:{
-            marginTop:5,
-            borderBottomColor: "red",
-            borderBottomWidth: StyleSheet.hairlineWidth,
-            backgroundColor: "white",
-            shadowColor: "#000",
-            shadowOffset: {
-                width: 0,
-                height: 2,
-            },
-            shadowOpacity: 0.23,
-            shadowRadius: 2.62,
 
-            elevation: 4
-
-        },
-        headerTitle:{
-            flexDirection:'row',
-            justifyContent:'flex-start'
-        },
-        sectionTitle:{
-            fontSize: 24,
-            fontWeight: '600',
-            marginTop:20,
-            marginLeft:20,
-            marginBottom:10
-        },
-        foodImage:{
-            width:200,
-            height:200,
-            alignSelf:"center",
-            marginTop:10
-        },
-        bodySection:{
-            marginTop:10,
-            width:"100%"         
-        },
-        graphBox:{
-            marginLeft:"5%",
-            width:"90%",
-            borderRadius:40,
-            backgroundColor:"#F7F7F7",
-            flexDirection: 'row',
-            shadowColor: "#000",
-            shadowOffset: {
-                width: 0,
-                height: 2,
-            },
-            shadowOpacity: 0.23,
-            shadowRadius: 2.62,
-
-            elevation: 4
-        },
-        graphLegend:{
-            flexDirection: 'column',
-            justifyContent: 'space-around',
-        },
-        addButton:{
-           marginTop:10
-        },
-        dropdown:{
-            heigth:"10"
-        }
-        
-        
-    }
-);
 
 //{"CHOCDF": 47.29999923706055, "ENERC_KCAL": 203, "FAT": 0, "FIBTG": 1.399999976158142, "PROCNT": 1.350000023841858}
