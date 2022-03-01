@@ -111,6 +111,11 @@ export const Home = ({ navigation }) =>{
                 title='PersonalData'
                 onPress={() => navigation.navigate('PersonalData',{}) }
             />
+
+<CustomButton
+                title='Meal Diary'
+                onPress={() => navigation.navigate('MealDiary',{}) }
+            />
             
 </View>
     );

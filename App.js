@@ -19,6 +19,10 @@ import Home from './pages/home/home';
 import EditPersonalData from './pages/settings/editPersonalData';
 import { FoodDetails } from './pages/foodSearch/foodDetails';
 import { PersonalData } from './pages/settings/personalData';
+import { MealDiary } from './pages/diary/mealDiary';
+import { AddMeal } from './pages/diary/addMeal';
+
+
 
 
 const Stack = createNativeStackNavigator();
@@ -34,6 +38,8 @@ const App = () => {
       <Stack.Screen name="FoodDetails" component={FoodDetails}/>
       <Stack.Screen name="PersonalData" component={PersonalData}/>
       <Stack.Screen name="EditPersonalData" component={EditPersonalData}/>
+      <Stack.Screen name="MealDiary" component={MealDiary}/>
+      <Stack.Screen name="AddMeal" component={AddMeal}/>
     </Stack.Navigator>
   </NavigationContainer>
 

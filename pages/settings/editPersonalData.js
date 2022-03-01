@@ -3,6 +3,8 @@ import {TouchableOpacity,Image, Text, View,Button, TextInput,StyleSheet, Dimensi
 import { useState } from 'react';
 import styles from './style'
 import CustomButton from '../../customComponents/customButton';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 /*
 FUNCTION TO GET DATA
@@ -19,13 +21,24 @@ export const EditPersonalData = ({ navigation }) =>{
     const [ISF, setISF] = useState(0);
     const [CHORatio, setCHORatio] = useState(0);
 
-    const getData =async () => {
+    const storeData = async () => {
         try {
-             } catch (error) {
-            
-             } finally {
-             }
-    }
+          await AsyncStorage.setItem('weight', weight)
+        } catch (e) {
+          // saving error
+        }
+      }
+      const getData = async () => {
+        try {
+          const value = await AsyncStorage.getItem('weight')
+          console.log(value)
+          if(value !== null) {
+            // value previously stored
+          }
+        } catch(e) {
+          // error reading value
+        }
+      }
 
 return (
     <View style={styles.sectionContainer}>
@@ -38,7 +51,15 @@ return (
 
 
 <CustomButton style={styles.button} title="Confirm"
-              onPress={() => getData()}
+              onPress={() => storeData()
+            
+            }
+            />
+
+<CustomButton style={styles.button} title="Confirm"
+              onPress={() => getData()
+              
+            }
             />
 
 </View> 
