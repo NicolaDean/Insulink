@@ -1,3 +1,5 @@
+
+
 export class InsulineCalculator {
     actualGlycemia;
     targetGlycemia;

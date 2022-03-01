@@ -4,6 +4,8 @@ import { useState } from 'react';
 import styles from './style'
 import CustomButton from '../../customComponents/customButton';
 import InsulineCalculator, { calculator } from '../utils/insulineCalculator';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 /*Params
 var actualGlycemia;
@@ -18,6 +20,7 @@ var totalInsulineDaily;
 var weight
 var basal  //backgound insuline daily
 */
+
 
 
 export const PersonalData = ({ navigation }) =>{
