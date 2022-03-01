@@ -60,13 +60,5 @@ export default StyleSheet.create({
 
         elevation: 4
       },
-      appButtonContainer: {
-        elevation: 8,
-        backgroundColor: "rgba(112,202,230,1)",
-        borderRadius: 10,
-        paddingVertical: 10,
-        paddingHorizontal: 12,
-        
 
-            }
   });
