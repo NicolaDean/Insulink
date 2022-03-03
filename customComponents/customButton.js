@@ -1,7 +1,8 @@
 
 import React from 'react';
-import { Text, StyleSheet,TouchableOpacity, View} from 'react-native';
+import { Text, StyleSheet,TouchableOpacity, View,Image} from 'react-native';
 
+//Color light blue --> #70CAE6
 
 export const CustomButton = (
     {   onPress,

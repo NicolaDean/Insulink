@@ -18,7 +18,6 @@ export const getEmptyUser = () =>{
 
 export const getUserData = async () =>{
     var data = await getData("userData");
-
     console.log("User data: " +  JSON.stringify(data));
     return data;
 }

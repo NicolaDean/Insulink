@@ -26,7 +26,7 @@ export const PersonalData = ({ navigation , route}) =>{
     var calculator = new InsulineCalculator;
     
     const [counter,setCounter] = useState(0);
-    const [userData,setUserData] = useState(localStorage.getEmptyUser());
+    const [userData,setUserData] = useState(localStorage.getE<mptyUser());
     
 
     //TODO UNDERSTAND WHY NOT CALLED ALWAYS
@@ -57,7 +57,7 @@ export const PersonalData = ({ navigation , route}) =>{
             </View>
             <View style={styles.fieldContainer}>
                 <Text style={styles.fieldTitle}>Height:</Text>
-                <Text >{userData.weight}</Text>
+                <Text >{userData.height}</Text>
             </View>
             <View style={styles.fieldContainer}>
                 <Text style={styles.fieldTitle}>Age:</Text>
