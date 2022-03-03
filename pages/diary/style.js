@@ -1,7 +1,11 @@
 import { StyleSheet} from 'react-native';
 import { Dimensions  } from 'react-native';
 
-const screenWidth = Dimensions.get("window")
+/*
+Use device sizes
+width: Dimensions.get('window').width,
+height: Dimensions.get('window').height
+*/
 
 export default StyleSheet.create({
     sectionContainer: {
@@ -38,5 +42,17 @@ export default StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 12,
         marginVertical: 60
-            }
+            },
+            appLogoContainer: {
+              justifyContent: 'center',
+              alignItems: 'center',
+            },
+      LogoSize: {
+
+        width: Dimensions.get('window').width*0.2,
+        height: Dimensions.get('window').height*0.2,
+        resizeMode: 'contain',
+        top: Dimensions.get('window').height*0.75,
+          },
+                  
   });

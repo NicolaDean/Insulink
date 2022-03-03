@@ -13,13 +13,13 @@ export const CustomButton = (
         title="Button",
          image="plus",
         style,
-        size=""
+        iconStyle
     }) =>{
 
         return(
             <View style={style}>
-                    <TouchableOpacity onPress={onPress} style={{}}>
-                        <Image source={images[image].uri}  style={{width: 40, height: 40}}  />
+                    <TouchableOpacity onPress={onPress} >
+                        <Image source={images[image].uri} style={iconStyle} />
                     </TouchableOpacity>
             </View>
            

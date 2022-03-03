@@ -59,6 +59,17 @@ export default StyleSheet.create({
         shadowRadius: 2.62,
 
         elevation: 4
+      },     
+        appLogoContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
       },
+      LogoSize: {
+
+  width: Dimensions.get('window').width*0.2,
+  height: Dimensions.get('window').height*0.2,
+  resizeMode: 'contain',
+  top: Dimensions.get('window').height*0.75,
+    },
 
   });
