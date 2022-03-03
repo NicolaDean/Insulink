@@ -8,6 +8,7 @@ import CustomButton from '../../customComponents/customButton'
 import CustomImageButton from '../../customComponents/customImageButton'
 
 import { Switch } from 'react-native-gesture-handler';
+import style from '../diary/style';
 
 export const FoodSearchExample = ({ navigation }) =>{
 
@@ -40,9 +41,9 @@ export const FoodSearchExample = ({ navigation }) =>{
   }
   
     return (
-       <View style={styles.sectionContainer}>
+       <View >
            
-           <View style={{flexDirection:'row'}}>
+           <View style={styles.header}>
               <TextInput style={styles.searchBox} placeholder="insert food!" onChangeText={setFood}/>
               <Switch trackColor={{ false: "#767577", true: "#81b0ff" }}
                   thumbColor={apiSelected ? "#f5dd4b" : "#f4f3f4"}
@@ -59,29 +60,18 @@ export const FoodSearchExample = ({ navigation }) =>{
 
            </View>
 
+           <FlatList 
 
+data={foodData}
+  numColumns={3}
 
-           <SafeAreaView  style={{  flex: 1,
-    justifyContent: 'center',
-    backgroundColor: 'white'}}>
-           <FlatList
-
-        data={foodData}
-      renderItem={({ item }) => (
-  <View
-            style={{ flex: 1, 
-              flexDirection: 'column',
-              margin: 15
-            }}>
-<Food data = {item} nav = {navigation}></Food></View>)}
-        //Setting the number of column
-        numColumns={2}
-        keyExtractor={(item, index) => index}
-      />
-    </SafeAreaView>
-
+renderItem={({ item }) => (
   
-       </View> 
+<Food style={styles.food} data = {item} nav = {navigation}></Food>)}
+/>
+
+</View>
+  
     );
     
 }
@@ -93,7 +83,10 @@ export default FoodSearchExample;
 <FlatList
 
             data={foodData}
+              numColumns={3}
+
             renderItem={({ item }) => (
+              
             <Food data = {item} nav = {navigation}></Food>)}
         />
         */

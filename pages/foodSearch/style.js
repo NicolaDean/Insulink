@@ -7,17 +7,21 @@ const screenWidth = Dimensions.get("window")
 export default StyleSheet.create({
     sectionContainer: {
       justifyContent: 'center',
-       alignItems:'flex-start',
-      
-            borderBottomWidth: StyleSheet.hairlineWidth,
-            backgroundColor: "white",
-            shadowColor: "#000",
-            shadowOffset: {
-                width: 0,
-                height: 2,
-            },
-            shadowOpacity: 0.23,
-            shadowRadius: 2.62,
+       alignItems:'center',
+      flex:1
+            
+    },
+    header:{
+      flexDirection:'row',
+      borderBottomWidth: StyleSheet.hairlineWidth,
+      backgroundColor: "white",
+      shadowColor: "#000",
+      shadowOffset: {
+          width: 0,
+          height: 2,
+      },
+      shadowOpacity: 0.23,
+      shadowRadius: 2.62,
     },
     sectionTitle: {
       fontSize: 24,
@@ -71,6 +75,12 @@ export default StyleSheet.create({
   top:0,
 
   marginLeft:20
-      }
+      },
+      food:{
+        justifyContent: 'center',
+        alignItems:'center',
+        width: "30%",
+        height: "30%"
+      },
 
   });
