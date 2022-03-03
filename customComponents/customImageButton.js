@@ -5,13 +5,19 @@ import { Text, StyleSheet,TouchableOpacity, View, Image } from 'react-native';
 const images = {
     plus: {
       uri: require('../assets/plus.png')
-    }
+    },
+    camera: {
+        uri: require('../assets/camera.png')
+      },
+      search: {
+          uri: require('../assets/search.png')
+        }
   }
 
 export const CustomButton = (
     {   onPress,
         title="Button",
-         image="plus",
+         image="",
         style,
         iconStyle
     }) =>{

@@ -7,7 +7,7 @@ const screenWidth = Dimensions.get("window")
 export default StyleSheet.create({
     sectionContainer: {
       justifyContent: 'center',
-       alignItems: 'center',
+       alignItems:'flex-start',
       
             borderBottomWidth: StyleSheet.hairlineWidth,
             backgroundColor: "white",
@@ -33,7 +33,8 @@ export default StyleSheet.create({
     },
     searchBox: { 
       fontSize: 18,
-      width: "80%"
+      width: "50%",
+      marginLeft:10
     },
     foodImage: {
       width: 200,
@@ -57,19 +58,19 @@ export default StyleSheet.create({
         },
         shadowOpacity: 0.23,
         shadowRadius: 2.62,
-
         elevation: 4
       },     
         appLogoContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
+          
       },
       LogoSize: {
 
-  width: Dimensions.get('window').width*0.2,
-  height: Dimensions.get('window').height*0.2,
+  width: Dimensions.get('window').width*0.1,
+  height: Dimensions.get('window').height*0.1,
   resizeMode: 'contain',
-  top: Dimensions.get('window').height*0.75,
-    },
+  top:0,
+
+  marginLeft:20
+      }
 
   });

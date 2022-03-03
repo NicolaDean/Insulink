@@ -19,7 +19,7 @@ return (
  
 <View>
 
-<CustomImageButton tile="Home" style={styles.appLogoContainer} iconStyle={styles.LogoSize}/>
+<CustomImageButton tile="Home" image='plus' style={styles.appLogoContainer} iconStyle={styles.LogoSize}/>
                 </View>
     );
 }
