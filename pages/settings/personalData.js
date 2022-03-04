@@ -26,16 +26,13 @@ export const PersonalData = ({ navigation , route}) =>{
 
     var calculator = new InsulineCalculator;
     
-<<<<<<< HEAD
-    //const [userData,setUserData] = useState(localStorage.getEmptyUser());
-    const [userData,setUserData] = useContext(UserDataContext);
-=======
     const [counter,setCounter] = useState(0);
     const [userData,setUserData] = useState(localStorage.getEmptyUser());
     
 
     //TODO UNDERSTAND WHY NOT CALLED ALWAYS
     useEffect(()=>{
+
         const loadData = async()=>{
             var data = await localStorage.getEmptyUser();
 
@@ -48,14 +45,13 @@ export const PersonalData = ({ navigation , route}) =>{
 
         loadData();
     },[]);
->>>>>>> 249b05b59babbc9a5555e97d96cfa873a9f5495e
 
     //TODO understand how to load info after rendering (useEffect (?))
 
     return (
 
         <View>
-            <Text style={{fontWeight:"bold",fontSize:24}}>Personal Data:</Text>
+            <Text style={{fontWeight:"bold",fontSize:24}}>Personal User Data :</Text>
 
             <View style={styles.fieldContainer}>
                 <Text style={styles.fieldTitle}>Weight:</Text>

@@ -60,7 +60,7 @@ return (
 <TextInput style={styles.searchBox} value={CHORatio}  placeholder="CHO Ratio (grams of CHO per 1 unit) (Optional)" onChangeText={setCHORatio}/>
 
 
-<CustomButton style={styles.button} title="Save Changes"
+<CustomButton style={styles.button} title="Save Change"
               onPress={() => saveData()
             }
             />
