@@ -2,11 +2,13 @@
 import React,{ useState, createContext, useEffect } from 'react';
 import EditPersonalData from '../pages/settings/editPersonalData';
 import { PersonalData } from '../pages/settings/personalData';
+import * as localStorage from '../pages/utils/localStoreManager'
 
 export const UserDataContext = createContext();
 
 export const UserDataProvider = (props) =>{
 
+    //Create a state shader between all components inside UserDataProvidr
     const [userData,setUserData] = useState({
             weight: 0,
             height: 0,
