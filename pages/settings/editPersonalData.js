@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useContext } from 'react';
 import {TouchableOpacity,Image, Text, View,Button, TextInput,StyleSheet, Dimensions  } from 'react-native';
 import { useState } from 'react';
 import styles from './style'
 import CustomButton from '../../customComponents/customButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as localStorage from '../utils/localStoreManager'
-import { set } from 'react-native-reanimated';
-
+import { UserDataContext } from '../../stateManager/userDataProvider';
 /*
 FUNCTION TO GET DATA
 const getData =async () => {
@@ -15,6 +14,9 @@ const getData =async () => {
 */
 export const EditPersonalData = ({ navigation }) =>{
     
+
+    const [userData, setUserData] = useContext(UserDataContext);
+
     const [weight, setWeight] = useState(0);
     const [height, setHeight] = useState(0);
     const [age, setAge] = useState(0);
@@ -24,26 +26,30 @@ export const EditPersonalData = ({ navigation }) =>{
 
 
     const saveData = async () => {
-       localStorage.saveUserData({
-         weight:weight,
-         height:height,
-         age:age,
-         name:name,
-         ISF:ISF,
-         CHORatio:CHORatio
-       });
 
+        //Save context variable containing user data
+       setUserData({
+        weight:weight,
+        height:height,
+        age:age,
+        name:name,
+        ISF:ISF,
+        CHORatio:CHORatio
+      });
+      //Save updated user data to local storage
+       localStorage.saveUserData(userData);
+      //navigate back to Personal Data
        navigation.navigate('PersonalData',{})
     }
 
     const getData = async () => {
-        var data = await localStorage.getUserData();
-        setWeight(data.weight);
-        setAge(data.age);
-        setHeight(data.height);
-        setCHORatio(data.CHORatio);
-        setISF(data.ISF);
-        setName(data.name);
+        
+        setWeight(userData.weight);
+        setAge(userData.age);
+        setHeight(userData.height);
+        setCHORatio(userData.CHORatio);
+        setISF(userData.ISF);
+        setName(userData.name);
     }
 
     useEffect(()=>{

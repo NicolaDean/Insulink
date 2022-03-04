@@ -27,24 +27,9 @@ export const PersonalData = ({ navigation , route}) =>{
     var calculator = new InsulineCalculator;
     
     const [counter,setCounter] = useState(0);
-    const [userData,setUserData] = useState(localStorage.getEmptyUser());
-    
+    //const [userData,setUserData] = useState(localStorage.getEmptyUser());
+    const [userData, setUserData] = useContext(UserDataContext);
 
-    //TODO UNDERSTAND WHY NOT CALLED ALWAYS
-    useEffect(()=>{
-
-        const loadData = async()=>{
-            var data = await localStorage.getEmptyUser();
-
-            console.log("R:"+counter + JSON.stringify(data));
-    
-            setUserData(data);
-            setCounter(counter+1);//Contatore di debug per vedere quante volte viene chiamata
-            return;
-        };
-
-        loadData();
-    },[]);
 
     //TODO understand how to load info after rendering (useEffect (?))
 

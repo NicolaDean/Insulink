@@ -1,5 +1,5 @@
 
-import react,{ useState, createContext, useEffect } from 'react';
+import React,{ useState, createContext, useEffect } from 'react';
 import EditPersonalData from '../pages/settings/editPersonalData';
 import { PersonalData } from '../pages/settings/personalData';
 
@@ -15,16 +15,18 @@ export const UserDataProvider = (props) =>{
             ISF: 0,
             CHORatio: 0});
     
-    const loadData = async ()=>{
-        let data = await localStorage.getUserData();
-
-        console.log("R:"+counter + JSON.stringify(data));
-    
-        setUserData(data);
-    }
-    useEffect(()=>{
-        // loadData();
-    },[]);
+            const getData = async () => {
+                var data = await localStorage.getUserData();
+                
+                console.log("load data");
+                setUserData(data);
+            }
+        
+            //LOAD DATA FROM LOCAL STORAGE
+            useEffect(()=>{
+                console.log("load data");
+                getData();
+            },[]);
 
     return (
         <UserDataContext.Provider value={[userData,setUserData]}>

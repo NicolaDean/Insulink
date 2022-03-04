@@ -4,7 +4,7 @@ import { StyleSheet} from 'react-native';
 export default StyleSheet.create({
   sectionContainer: {
     justifyContent: 'center',
-     alignItems: 'left',
+    alignItems: 'flex-start'
         
   },
     sectionTitle: {
@@ -23,28 +23,12 @@ export default StyleSheet.create({
     searchBox: { 
       fontSize: 18,
     },
-      appButtonText:{
-        fontSize: 18,
-        color: "#fff",
-        fontWeight: "bold",
-        alignSelf: "center",
-        textTransform: "uppercase"
-      },
-      appButtonContainer: {
-        elevation: 8,
-        backgroundColor: "rgba(112,202,230,1)",
-        borderRadius: 10,
-        paddingVertical: 10,
-        paddingHorizontal: 12,
-        marginVertical: 60
-            },
-            fieldTitle:{
-              fontSize: 24,
+    fieldTitle:{
+      fontSize: 24,
               
-            },
-            fieldContainer:{
-              fontSize: 18,
-
-            }
+    },
+    fieldContainer:{
+      fontSize: 18,
+    }
 
   });
