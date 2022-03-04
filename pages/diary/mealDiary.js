@@ -21,6 +21,7 @@ const chartConfig = {
     decimalPlaces: 2, // optional, defaults to 2dp
     color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
     labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+
    
       //TODO fit better the chart 
     propsForDots: {
@@ -34,16 +35,19 @@ const chartConfig = {
     };
     
     const chartStyle ={
+        paddingRight:screenWidth*0.65,
         marginRight:marginOffset,
         marginLeft:"5%",
       top: "5%",
       borderRadius: 16,
+      
+
     
   };
   
  //SAMPLE DATA FOR CHARTS
  const data2 = {
-    labels: ["Swim", "Bike", "Run"], // optional
+    labels: ["Carbo", "Fat", "Proteins"], // optional
     data: [0.4, 0.6, 0.8]
   };
 

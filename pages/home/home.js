@@ -18,7 +18,7 @@ const chartConfig = {
   decimalPlaces: 2, // optional, defaults to 2dp
   color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
   labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
- 
+  
     //TODO fit better the chart 
   propsForDots: {
     r: "6",
@@ -33,12 +33,22 @@ const chartConfig = {
   };
   
   const chartStyle ={
-  
+    paddingRight:screenWidth*0.25,
     marginRight:marginOffset,
     marginLeft:marginOffset,
     marginVertical: 8,
-    borderRadius: 16
+    borderRadius: 16,
+    
   
+};
+
+const chartProgressStyle ={
+  marginRight:marginOffset,
+  marginLeft:marginOffset,
+  marginVertical: 8,
+  borderRadius: 16,
+  
+
 };
 
   //SAMPLE DATA FOR CHARTS
@@ -53,12 +63,11 @@ const chartConfig = {
       datasets: [
         {
           data: [
-            Math.random() * 100,
-            Math.random() * 100,
-            Math.random() * 100,
-            Math.random() * 100,
-            Math.random() * 100,
-          
+            300,
+            200,
+            120,
+            80
+            
           ]
         }
       ]
@@ -68,29 +77,28 @@ export const Home = ({ navigation }) =>{
 
     return(
         <View>
-           <Text style={styles.sectionTitle}>Glycemia</Text>
   <LineChart
     data={data3}
     width={screenWidth} // from react-native
-    height={100}
-    yAxisLabel=""
-    yAxisSuffix="mg/dL"
+    height={Dimensions.get("window").height*0.3}
+    yAxisSuffix=" mg/dL"
     yAxisInterval={1} // optional, defaults to 1
     chartConfig={{
       backgroundColor: "#e26a00",
       backgroundGradientFrom: "#fb8c00",
       backgroundGradientTo: "#ffa726",
-      decimalPlaces: 4, // optional, defaults to 2dp
+      decimalPlaces: 0, // optional, defaults to 2dp
       color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
       labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
       segments: 5,
       propsForDots: {
         r: "6",
-        strokeWidth: "2",
+        strokeWidth: "7",
         stroke: "#ffa726"
       }
     }}
     style={chartStyle}
+    bezier
   />
   
 <ProgressChart
@@ -101,7 +109,7 @@ export const Home = ({ navigation }) =>{
   radius={32}
   chartConfig={chartConfig}
   hideLegend={false}
-  style={chartStyle}
+  style={chartProgressStyle}
 />
             <CustomButton
                 title='Food Search'
