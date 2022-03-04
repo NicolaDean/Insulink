@@ -1,8 +1,9 @@
 import {Text, View ,StyleSheet} from 'react-native';
-import React,{ useState,useEffect } from 'react';
+import React,{ useState,useEffect, useContext } from 'react';
 import CustomButton from '../../customComponents/customButton';
 import InsulineCalculator, { calculator } from '../utils/insulineCalculator';
 import * as localStorage from '../utils/localStoreManager'
+import { UserDataContext } from '../../stateManager/userDataProvider';
 
 /*Params
 var actualGlycemia;
@@ -25,24 +26,8 @@ export const PersonalData = ({ navigation , route}) =>{
 
     var calculator = new InsulineCalculator;
     
-    const [counter,setCounter] = useState(0);
-    const [userData,setUserData] = useState(localStorage.getEmptyUser());
-    
-
-    //TODO UNDERSTAND WHY NOT CALLED ALWAYS
-    useEffect(()=>{
-        const loadData = async()=>{
-            var data = await localStorage.getUserData();
-
-            console.log("R:"+counter + JSON.stringify(data));
-    
-            setUserData(data);
-            setCounter(counter+1);//Contatore di debug per vedere quante volte viene chiamata
-            return;
-        };
-
-        loadData();
-    },[]);
+    //const [userData,setUserData] = useState(localStorage.getEmptyUser());
+    const [userData,setUserData] = useContext(UserDataContext);
 
     //TODO understand how to load info after rendering (useEffect (?))
 
