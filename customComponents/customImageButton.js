@@ -17,7 +17,7 @@ const images = {
 export const CustomButton = (
     {   onPress,
         title="Button",
-         image="",
+        image="",
         style,
         iconStyle
     }) =>{
