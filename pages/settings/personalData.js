@@ -26,13 +26,13 @@ export const PersonalData = ({ navigation , route}) =>{
     var calculator = new InsulineCalculator;
     
     const [counter,setCounter] = useState(0);
-    const [userData,setUserData] = useState(localStorage.getE<mptyUser());
+    const [userData,setUserData] = useState(localStorage.getEmptyUser());
     
 
     //TODO UNDERSTAND WHY NOT CALLED ALWAYS
     useEffect(()=>{
         const loadData = async()=>{
-            var data = await localStorage.getUserData();
+            var data = await localStorage.getEmptyUser();
 
             console.log("R:"+counter + JSON.stringify(data));
     
@@ -61,7 +61,7 @@ export const PersonalData = ({ navigation , route}) =>{
             </View>
             <View style={styles.fieldContainer}>
                 <Text style={styles.fieldTitle}>Age:</Text>
-                <Text >{userData.weight}</Text>
+                <Text >{userData.age}</Text>
             </View>
             <View style={styles.fieldContainer}>
                 <Text style={styles.fieldTitle}>Name:</Text>

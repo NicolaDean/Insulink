@@ -5,9 +5,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const getEmptyUser = () =>{
   var userJson = {
-    weight: 0,
-    height: 0,
-    age: 0,
+    weight: 10,
+    height: 12,
+    age: 3,
     name: "pagliaccio",
     ISF: 0,
     CHORatio: 0
@@ -19,7 +19,10 @@ export const getEmptyUser = () =>{
 export const getUserData = async () =>{
     var data = await getData("userData");
     console.log("User data: " +  JSON.stringify(data));
-    return data;
+    if (data!=null){
+      return data;
+    }
+    else return getEmptyUser();
 }
 
 export const saveUserData = (userData) =>{
