@@ -26,8 +26,29 @@ export const PersonalData = ({ navigation , route}) =>{
 
     var calculator = new InsulineCalculator;
     
+<<<<<<< HEAD
     //const [userData,setUserData] = useState(localStorage.getEmptyUser());
     const [userData,setUserData] = useContext(UserDataContext);
+=======
+    const [counter,setCounter] = useState(0);
+    const [userData,setUserData] = useState(localStorage.getEmptyUser());
+    
+
+    //TODO UNDERSTAND WHY NOT CALLED ALWAYS
+    useEffect(()=>{
+        const loadData = async()=>{
+            var data = await localStorage.getEmptyUser();
+
+            console.log("R:"+counter + JSON.stringify(data));
+    
+            setUserData(data);
+            setCounter(counter+1);//Contatore di debug per vedere quante volte viene chiamata
+            return;
+        };
+
+        loadData();
+    },[]);
+>>>>>>> 249b05b59babbc9a5555e97d96cfa873a9f5495e
 
     //TODO understand how to load info after rendering (useEffect (?))
 
@@ -42,11 +63,11 @@ export const PersonalData = ({ navigation , route}) =>{
             </View>
             <View style={styles.fieldContainer}>
                 <Text style={styles.fieldTitle}>Height:</Text>
-                <Text >{userData.weight}</Text>
+                <Text >{userData.height}</Text>
             </View>
             <View style={styles.fieldContainer}>
                 <Text style={styles.fieldTitle}>Age:</Text>
-                <Text >{userData.weight}</Text>
+                <Text >{userData.age}</Text>
             </View>
             <View style={styles.fieldContainer}>
                 <Text style={styles.fieldTitle}>Name:</Text>

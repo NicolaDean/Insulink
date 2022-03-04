@@ -1,11 +1,14 @@
 import React from 'react';
-import {TouchableOpacity, Text, View,FlatList,Button,TextInput, StyleSheet } from 'react-native';
+import {TouchableOpacity, Text, SafeAreaView,View,FlatList,Button,TextInput, StyleSheet } from 'react-native';
 import { useState,useEffect } from 'react';
 import styles from './style'
 import {Food} from './food'
 import * as api from '../utils/apiQuery';
 import CustomButton from '../../customComponents/customButton'
+import CustomImageButton from '../../customComponents/customImageButton'
+
 import { Switch } from 'react-native-gesture-handler';
+import style from '../diary/style';
 
 export const FoodSearchExample = ({ navigation }) =>{
 
@@ -38,9 +41,9 @@ export const FoodSearchExample = ({ navigation }) =>{
   }
   
     return (
-       <View style={styles.sectionContainer}>
+       <View >
            
-           <View style={{flexDirection:'row'}}>
+           <View style={styles.header}>
               <TextInput style={styles.searchBox} placeholder="insert food!" onChangeText={setFood}/>
               <Switch trackColor={{ false: "#767577", true: "#81b0ff" }}
                   thumbColor={apiSelected ? "#f5dd4b" : "#f4f3f4"}
@@ -48,21 +51,42 @@ export const FoodSearchExample = ({ navigation }) =>{
                   onValueChange={()=>setApi(previousState => !previousState)}
                   value={apiSelected}
               />
-           </View>
-
-           <CustomButton style={styles.button} title="Get Data"
+              <CustomImageButton image='search'  iconStyle={styles.LogoSize} title="Get Data"
+              onPress={() => getData()} />
+           
+            <CustomImageButton image='camera'   iconStyle={styles.LogoSize}
               onPress={() => getData()}
             />
 
-            <FlatList
-            data={foodData}
-            renderItem={({ item }) => (
-            <Food data = {item} nav = {navigation}></Food>
-          )}
-        />
-       </View> 
+           </View>
+
+           <FlatList 
+
+data={foodData}
+  numColumns={3}
+
+renderItem={({ item }) => (
+  
+<Food style={styles.food} data = {item} nav = {navigation}></Food>)}
+/>
+
+</View>
+  
     );
     
 }
 
 export default FoodSearchExample;
+
+//TODO FIX GRID 
+/*
+<FlatList
+
+            data={foodData}
+              numColumns={3}
+
+            renderItem={({ item }) => (
+              
+            <Food data = {item} nav = {navigation}></Food>)}
+        />
+        */

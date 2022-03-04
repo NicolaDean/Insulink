@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image,TouchableHighlight, StyleSheet} from 'react-native';
+import { Text, View, Image,TouchableHighlight, StyleSheet,Dimensions} from 'react-native';
 
 export const Food = (props) =>{
 
@@ -12,12 +12,13 @@ export const Food = (props) =>{
 
     
     return (
-        <TouchableHighlight  underlayColor={"COLOR"}  onPress={()=>{props.nav.navigate('FoodDetails',{id : {id}}) }}>
+        <TouchableHighlight  style={{    justifyContent: 'center',
+        alignItems:'center',margin:3}}underlayColor={"COLOR"}  onPress={()=>{props.nav.navigate('FoodDetails',{id : {id}}) }}>
             <View style={styles.contentBox}>
                 <Text style={styles.title}>{name}</Text>
                 
                 <Image 
-                    style={{width: 100, height: 100}}
+                    style={{width: Dimensions.get('window').width*0.2, height: Dimensions.get('window').width*0.2}}
                     source ={{uri:image}}/>
             </View>
         </TouchableHighlight>
@@ -32,9 +33,11 @@ export const Food = (props) =>{
 const styles = StyleSheet.create(
     {
         contentBox:{
-            width:"90%",
-            marginTop:10,
-            marginLeft:"5%",
+            width: Dimensions.get('window').width*0.3, height: Dimensions.get('window').width*0.3,
+            justifyContent: 'center',
+            alignItems:'center',
+            marginHorizontal:3,
+            marginTop:15,
             borderRadius:30,
             backgroundColor:"white",
             shadowColor: "#000",
@@ -48,8 +51,9 @@ const styles = StyleSheet.create(
             elevation: 4
         },
         title:{
-            marginLeft:20,
-            fontSize:20,
+            
+            fontSize:15,
+            marginBottom:10,
             fontWeight:"bold"
         }
     }
