@@ -9,6 +9,18 @@ height: Dimensions.get('window').height
 
 export default StyleSheet.create({
 
+      title:{
+          fontSize:30,
+          fontWeight:"bold",
+          color:"black",
+          alignSelf:'flex-start',
+          marginLeft:"5%",
+          marginTop:10
+      },
+      graphBox:{
+         width:"60%",
+         marginLeft:"20%",
+      },
       mealContainer:{
         width:"90%",
         height: 40,
@@ -38,7 +50,10 @@ export default StyleSheet.create({
         height: 20,
       },
       addBox:{
-        alignContent:'flex-end'
+        width:"100%",
+        flexShrink:1,
+        flexDirection:'row',
+        justifyContent:'flex-end',
       },
       addIcon:{
         alignSelf: 'center',

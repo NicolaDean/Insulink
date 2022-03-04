@@ -9,16 +9,22 @@ import CustomImageButton from '../../customComponents/customImageButton'
 
 import { Switch } from 'react-native-gesture-handler';
 import style from '../diary/style';
+import { MealDataProvider } from '../../stateManager/mealsDataProvider';
 
-export const FoodSearchExample = ({ navigation }) =>{
+export const FoodSearchExample = ({ navigation,route }) =>{
 
 //HOW WORKS USESTATE -> [var,functionName] = useState(init) 
 // it create a function (functionName) usable to update the variable (var) and set an initial value (init)
   
+
   const [foodData, setData] = useState([]);
   const [foodSelected, setFood] = useState("apple");
   const [apiSelected, setApi] = useState(false);
 
+  let mealType;
+  if(route.mealtype) mealType = route.mealtype;
+
+  console.log("MEAL TYPE:" + mealType);
 
   //Define a function to retrive date from API
   const getData = async () => {
@@ -67,7 +73,11 @@ data={foodData}
 
 renderItem={({ item }) => (
   
-<Food style={styles.food} data = {item} nav = {navigation}></Food>)}
+  <MealDataProvider>
+    <Food style={styles.food} data = {item} nav = {navigation}></Food>
+  </MealDataProvider>
+  
+  )}
 />
 
 </View>

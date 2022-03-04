@@ -8,17 +8,40 @@ import CustomButton from '../../customComponents/customButton';
 import { exp } from 'react-native/Libraries/Animated/Easing';
 
 import Meal from './meal';
+import { MealDataProvider } from '../../stateManager/mealsDataProvider';
+import { VictoryPie } from 'victory-native';
 
+const data = [
+    {x:"Carb",y:100 },
+    { x: "Fat",y:20},
+    {x: "Prot",y:60 }
+]
 
-export const MealDiary = ({navigator}) =>{
+export const MealDiary = ({navigation}) =>{
 
 return (
- 
+ //TODO ADD THE TOTAL MEALS MACRO GRAPH
 <View>
-    <Meal name ="Colazione" icon ="breakfast" />
-    <Meal name ="Pranzo" icon ="lunch" />
-    <Meal name ="Cena" icon ="dinner" />
-    <Meal name ="Snack" icon ="snack" />
+        <Text style={styles.title}>Today's Meals:</Text>
+        <View style={styles.graphBox}> 
+            <VictoryPie 
+                colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
+                data={data}
+                width={200}
+                height={200}
+                innerRadius={30}
+                style={{
+                    labels: {
+                    fill: 'gray', fontSize: 20, padding: 7,
+                }, }}
+                /> 
+        </View>
+                
+
+        <Meal navigation = {navigation} name ="Colazione"   icon ="breakfast"   id="breakfast"/>
+        <Meal navigation = {navigation} name ="Pranzo"      icon ="lunch"       id="lunch"/>
+        <Meal navigation = {navigation} name ="Cena"        icon ="dinner"      id="dinner"/>
+        <Meal navigation = {navigation} name ="Snack"       icon ="snack"       id="snack"/>
 </View>
     );
 }//<CustomImageButton tile="Home" image='plus' style={styles.appLogoContainer}  iconStyle={styles.LogoSize}/>

@@ -1,7 +1,14 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { Text, View, Image,TouchableHighlight, StyleSheet,Dimensions} from 'react-native';
+import { MealDataContext } from '../../stateManager/mealsDataProvider';
 
 export const Food = (props) =>{
+
+
+    //const {mealType,foodList} = useContext(MealDataContext);
+    const [currentMealType,setMealType] = useContext(MealDataContext);
+
+    console.log("State:" + currentMealType);
 
     let data = props.data;
 

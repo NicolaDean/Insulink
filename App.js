@@ -14,6 +14,7 @@ import { PersonalData } from './pages/settings/personalData';
 import { MealDiary } from './pages/diary/mealDiary';
 import { AddMeal } from './pages/diary/addMeal';
 import { UserDataProvider } from './stateManager/userDataProvider';
+import { MealDataProvider } from './stateManager/mealsDataProvider';
 
 
 const Stack = createNativeStackNavigator();
@@ -23,18 +24,19 @@ const App = () => {
   return(
     
     <NavigationContainer>
-      <UserDataProvider>
-        <Stack.Navigator>
-          
-          <Stack.Screen name="Home" component={Home}/>
-          <Stack.Screen name="FoodSearch" component={FoodSearchExample} />
-          <Stack.Screen name="FoodDetails" component={FoodDetails}/>
-          <Stack.Screen name="MealDiary" component={MealDiary}/>
-          <Stack.Screen name="AddMeal" component={AddMeal}/>          
-          <Stack.Screen name="PersonalData" component={PersonalData}/>
-          <Stack.Screen name="EditPersonalData" component={EditPersonalData}/>
-        </Stack.Navigator>
-      </UserDataProvider>
+      <MealDataProvider>
+        <UserDataProvider>
+          <Stack.Navigator>
+            <Stack.Screen name="Home" component={Home}/>
+            <Stack.Screen name="FoodSearch" component={FoodSearchExample} />
+            <Stack.Screen name="FoodDetails" component={FoodDetails}/>
+            <Stack.Screen name="MealDiary" component={MealDiary}/>
+            <Stack.Screen name="AddMeal" component={AddMeal}/>          
+            <Stack.Screen name="PersonalData" component={PersonalData}/>
+            <Stack.Screen name="EditPersonalData" component={EditPersonalData}/>
+          </Stack.Navigator>
+        </UserDataProvider>
+      </MealDataProvider>
   </NavigationContainer>
 
   
