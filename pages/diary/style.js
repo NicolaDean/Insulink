@@ -8,7 +8,11 @@ height: Dimensions.get('window').height
 */
 
 export default StyleSheet.create({
-
+      sectionContainer:{
+        justifyContent: 'flex-start',
+        alignItems:'flex-start',
+        flex:1,
+      },
       title:{
           fontSize:30,
           fontWeight:"bold",
@@ -23,7 +27,7 @@ export default StyleSheet.create({
       },
       mealContainer:{
         width:"90%",
-        height: 40,
+        height: "10%",
         marginLeft:"5%",
         marginTop:10,
         backgroundColor:"white",
@@ -35,7 +39,7 @@ export default StyleSheet.create({
         },
         shadowOpacity: 0.23,
         shadowRadius: 2.62,
-        elevation: 4
+        elevation: 4,
       },
       mealName:{
           fontSize:20,
@@ -72,5 +76,8 @@ export default StyleSheet.create({
         resizeMode: 'contain',
         top: Dimensions.get('window').height*0.75,
           },
+          mealBar: {
+              
+          }
                   
   });
