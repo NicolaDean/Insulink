@@ -24,8 +24,8 @@ const App = () => {
   return(
     
     <NavigationContainer>
-      <MealDataProvider>
         <UserDataProvider>
+          <MealDataProvider>          
           <Stack.Navigator>
             <Stack.Screen name="Home" component={Home}/>
             <Stack.Screen name="FoodSearch" component={FoodSearchExample} />
@@ -35,8 +35,10 @@ const App = () => {
             <Stack.Screen name="PersonalData" component={PersonalData}/>
             <Stack.Screen name="EditPersonalData" component={EditPersonalData}/>
           </Stack.Navigator>
+          </MealDataProvider>
         </UserDataProvider>
-      </MealDataProvider>
+        
+
   </NavigationContainer>
 
   

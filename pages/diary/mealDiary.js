@@ -1,14 +1,11 @@
 import React from 'react';
-import {Image, Text, View,Button, StyleSheet, Dimensions, StatusBar} from 'react-native';
+import { Text, View} from 'react-native';
 import styles from './style'
 
-import { TouchableOpacity } from 'react-native-gesture-handler';
-import CustomImageButton from '../../customComponents/customImageButton';
+import {  } from 'react-native-gesture-handler';
 import CustomButton from '../../customComponents/customButton';
-import { exp } from 'react-native/Libraries/Animated/Easing';
 
 import Meal from './meal';
-import { MealDataProvider } from '../../stateManager/mealsDataProvider';
 import { VictoryPie } from 'victory-native';
 
 const data = [
@@ -42,6 +39,8 @@ return (
         <Meal navigation = {navigation} name ="Pranzo"      icon ="lunch"       id="lunch"/>
         <Meal navigation = {navigation} name ="Cena"        icon ="dinner"      id="dinner"/>
         <Meal navigation = {navigation} name ="Snack"       icon ="snack"       id="snack"/>
+
+        <CustomButton title='Add Custom Meal' onPress={()=>{}}/>
 </View>
     );
 }//<CustomImageButton tile="Home" image='plus' style={styles.appLogoContainer}  iconStyle={styles.LogoSize}/>

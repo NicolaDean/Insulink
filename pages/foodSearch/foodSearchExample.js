@@ -1,17 +1,12 @@
 import React from 'react';
-import {TouchableOpacity, Text, SafeAreaView,View,FlatList,Button,TextInput, StyleSheet } from 'react-native';
+import {TouchableOpacity, Text, SafeAreaView,View,FlatList,Button,TextInput, StyleSheet,Switch } from 'react-native';
 import { useState,useEffect } from 'react';
 import styles from './style'
 import {Food} from './food'
 import * as api from '../utils/apiQuery';
 import CustomButton from '../../customComponents/customButton'
 import CustomImageButton from '../../customComponents/customImageButton'
-
-import { Switch } from 'react-native-gesture-handler';
-import style from '../diary/style';
-import { MealDataProvider } from '../../stateManager/mealsDataProvider';
-
-export const FoodSearchExample = ({ navigation,route }) =>{
+export const FoodSearchExample = ({ navigation }) =>{
 
 //HOW WORKS USESTATE -> [var,functionName] = useState(init) 
 // it create a function (functionName) usable to update the variable (var) and set an initial value (init)
@@ -20,11 +15,6 @@ export const FoodSearchExample = ({ navigation,route }) =>{
   const [foodData, setData] = useState([]);
   const [foodSelected, setFood] = useState("apple");
   const [apiSelected, setApi] = useState(false);
-
-  let mealType;
-  if(route.mealtype) mealType = route.mealtype;
-
-  console.log("MEAL TYPE:" + mealType);
 
   //Define a function to retrive date from API
   const getData = async () => {
@@ -72,11 +62,7 @@ data={foodData}
   numColumns={3}
 
 renderItem={({ item }) => (
-  
-  <MealDataProvider>
     <Food style={styles.food} data = {item} nav = {navigation}></Food>
-  </MealDataProvider>
-  
   )}
 />
 

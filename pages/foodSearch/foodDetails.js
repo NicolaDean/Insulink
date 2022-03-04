@@ -1,29 +1,32 @@
 import React from 'react';
-import {Image, Text, View,Button, StyleSheet, Dimensions, StatusBar  } from 'react-native';
-import { useState } from 'react';
+import {Image, Text, View, ScrollView, TextInput, Dimensions, StatusBar  } from 'react-native';
+import { useState,useContext } from 'react';
 import styles from './style'
 
 import { foodDetails } from '../utils/testingJsons';//Default food
 
 import * as api from "../utils/apiQuery";
 import { VictoryPie } from 'victory-native';
-import { ScrollView, TextInput, TouchableHighlight } from 'react-native-gesture-handler';
-
-import colors from '../utils/colorPalette'
 import CustomButton from '../../customComponents/customButton';
 import SelectDropdown from 'react-native-select-dropdown'
-import { PieChart } from 'react-native-chart-kit';
-
+import { MealDataContext } from '../../stateManager/mealsDataProvider';
 const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset;
 
-export const FoodDetails = ({navigator,route}) =>{
+export const FoodDetails = ({navigation,route}) =>{
 
     let id = route.params.id.id;
 
     const [details, setDetails] = useState(foodDetails);
     const [unit,setUnit] = useState('g');
     const [amount,setAmount] = useState('100');
+
+    const {mealType,foodList} = useContext(MealDataContext);
+
+    const [currentMealType,setMealType] = mealType;
+    const [foods,setFoods] = foodList;
+
+    
 
     const getData = async (id)=>
     {
@@ -39,14 +42,28 @@ export const FoodDetails = ({navigator,route}) =>{
     const nutrients = api.extractNutrients(details.nutrition.nutrients);
     const properties = api.extractProperties(details.nutrition.properties);
     const units = details.possibleUnits;
-
-    console.log(details.nutrition.nutrients);
     const data = [
         {x:"Carb",y:nutrients["Carbohydrates"].amount },
         { x: "Fat",y:nutrients["Fat"].amount},
         {x: "Prot",y:nutrients["Protein"].amount }
     ]
          
+
+    const addFood = () =>{
+
+        var food ={
+            id:id,
+            name:name,
+            image:image,
+            carbs:nutrients["Carbohydrates"].amount,
+            fat:nutrients["Fat"].amount,
+            prot:nutrients["Protein"].amount
+        }
+
+        setFoods(list => [...list,food]);
+
+        console.log("LISTA:" + foods);
+    }
     //TODO CREATE CHART WITH NUTRIENTS
     return (
        <ScrollView style={{
@@ -101,7 +118,7 @@ export const FoodDetails = ({navigator,route}) =>{
                         <Text>Protein : {nutrients["Protein"].amount}g</Text>
                     </View>
                 </View>
-           <CustomButton style={styles.addButton} title="Add Food To Meal"/>
+           <CustomButton style={styles.addButton} title="Add Food To Meal" onPress={()=>{addFood()}}/>
            </View>
            
 

@@ -7,17 +7,17 @@ export const MealDataContext = createContext();
 
 export const MealDataProvider = (props) =>{
 
-    const [currentMealType,setMealType] = useState("breakfast");
-    const [foods,setFoods] = useState({
+    const [currentMealType,setMealType] = useState("");
+    /*const [foods,setFoods] = useState({
         breakfast:[],
         lunch:[],
         dinner:[],
         snack:[]
-    });
+    });*/
 
-
+    const [foods,setFoods] = useState([]);
     return (
-        <MealDataContext.Provider value = { [currentMealType,setMealType] }>
+        <MealDataContext.Provider value = {{mealType: [currentMealType,setMealType] , foodList:[foods,setFoods]}}>
             {props.children}
         </MealDataContext.Provider>
     );

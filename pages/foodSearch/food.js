@@ -6,17 +6,29 @@ export const Food = (props) =>{
 
 
     //const {mealType,foodList} = useContext(MealDataContext);
-    const [currentMealType,setMealType] = useContext(MealDataContext);
+    const {mealType,foodList} = useContext(MealDataContext);
 
-    console.log("State:" + currentMealType);
+    const [currentMealType,setMealType] = mealType;
+    const [foods,setFoods] = foodList;
 
     let data = props.data;
+
+    const addFood = () =>{
+
+        var food ={
+            
+        }
+        setFoods(list => {
+            list = list;
+            list[currentMealType] = [...list[currentMealType],]
+        });
+    }
 
     //Spoonacular
     let id = data.id;
     let image = "https://spoonacular.com/cdn/ingredients_100x100/" + data.image;
     let name = data.name;
-
+    
     
     return (
         <TouchableHighlight  style={{    justifyContent: 'center',

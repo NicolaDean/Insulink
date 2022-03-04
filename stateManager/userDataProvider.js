@@ -29,7 +29,6 @@ export const UserDataProvider = (props) =>{
                 console.log("load data");
                 getData();
             },[]);
-
     return (
         <UserDataContext.Provider value={[userData,setUserData]}>
             {props.children}

@@ -97,10 +97,10 @@ const getJson = async (query) =>{
     const json = await(await response).json();
 
     if(json.code = 402){
-        console.log(json)
-        console.log("FINISHED DAILY API CALL");
+        //console.log(json)
+        //console.log("FINISHED DAILY API CALL");
     } 
-    else console.log(json);
+    //else console.log(json);
     //Return
     return json;
 }
