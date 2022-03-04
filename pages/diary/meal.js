@@ -12,6 +12,11 @@ const mealIcons ={
     snack:{uri:require("../../assets/snack.png")},
 }
 
+//IDEA:
+/*
+EACH MEAL HAS AN ID
+WHEN I CLICK ON THE + button i pass the id as props so that i can add food to the global context of that meal
+*/
 export const Meal = ({name = "", icon = "breakfast"}) => {
     
     return (
