@@ -4,6 +4,7 @@ import CustomButton from '../../customComponents/customButton';
 import InsulineCalculator, { calculator } from '../utils/insulineCalculator';
 import * as localStorage from '../utils/localStoreManager'
 import { UserDataContext } from '../../stateManager/userDataProvider';
+import styles from './style'
 
 /*Params
 var actualGlycemia;
@@ -36,31 +37,35 @@ export const PersonalData = ({ navigation , route}) =>{
     return (
 
         <View>
-            <Text style={{fontWeight:"bold",fontSize:24}}>Personal User Data :</Text>
+            <View style={styles.header}>
+            <Text style={styles.headerTitle}>Personal User Data</Text>
+        </View>
+            <View style={styles.fieldContainer}>
+                <Text adjustsFontSizeToFit style={styles.fieldTitle}>Name:</Text>
+                <Text adjustsFontSizeToFit style={styles.value}>{userData.name}</Text>
+            </View>
 
             <View style={styles.fieldContainer}>
-                <Text style={styles.fieldTitle}>Weight:</Text>
-                <Text >{userData.weight}</Text>
+                <Text adjustsFontSizeToFit style={styles.fieldTitle}>Age:</Text>
+                <Text adjustsFontSizeToFit style={styles.value}>{userData.age}</Text>
+            </View>
+
+            <View style={styles.fieldContainer}>
+                <Text adjustsFontSizeToFit style={styles.fieldTitle}>Weight:</Text>
+                <Text  adjustsFontSizeToFit style={styles.value}>{userData.weight}</Text>
             </View>
             <View style={styles.fieldContainer}>
-                <Text style={styles.fieldTitle}>Height:</Text>
-                <Text >{userData.height}</Text>
+                <Text adjustsFontSizeToFit style={styles.fieldTitle}>Height:</Text>
+                <Text adjustsFontSizeToFit style={styles.value}>{userData.height}</Text>
+            </View>
+
+            <View style={styles.fieldContainer}>
+                <Text adjustsFontSizeToFit style={styles.fieldTitle}>ISF:</Text>
+                <Text adjustsFontSizeToFit style={styles.value} >{userData.ISF}</Text>
             </View>
             <View style={styles.fieldContainer}>
-                <Text style={styles.fieldTitle}>Age:</Text>
-                <Text >{userData.age}</Text>
-            </View>
-            <View style={styles.fieldContainer}>
-                <Text style={styles.fieldTitle}>Name:</Text>
-                <Text >{userData.name}</Text>
-            </View>
-            <View style={styles.fieldContainer}>
-                <Text style={styles.fieldTitle}>ISF:</Text>
-                <Text >{userData.ISF}</Text>
-            </View>
-            <View style={styles.fieldContainer}>
-                <Text style={styles.fieldTitle}>CHORatio:</Text>
-                <Text >{userData.CHORatio}</Text>
+                <Text adjustsFontSizeToFit style={styles.fieldTitle}>CHORatio:</Text>
+                <Text adjustsFontSizeToFit style={styles.value}>{userData.CHORatio}</Text>
             </View>
             
             <CustomButton
@@ -75,8 +80,4 @@ export const PersonalData = ({ navigation , route}) =>{
     //TODO create a method to load usefull data from firebase or local storage and call methods of insulineCalculator       
     //TODO show all user data and put an "add button"
 }
-const styles = StyleSheet.create({
-    fieldContainer:{
-        flexDirection:'row'
-    }
-});
+export default PersonalData;

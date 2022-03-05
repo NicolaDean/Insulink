@@ -6,12 +6,18 @@ import CustomButton from '../../customComponents/customButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as localStorage from '../utils/localStoreManager'
 import { UserDataContext } from '../../stateManager/userDataProvider';
+import {StyleTextInput} from '../../customComponents/StyleTextInput'
 /*
 FUNCTION TO GET DATA
 const getData =async () => {
 }
 
+
 */
+
+
+
+
 export const EditPersonalData = ({ navigation }) =>{
     
 
@@ -58,15 +64,27 @@ export const EditPersonalData = ({ navigation }) =>{
 
 return (
     <View style={styles.sectionContainer}>
-<TextInput style={styles.searchBox} value={name}      placeholder="Name" onChangeText={setName}/>        
-<TextInput style={styles.searchBox} value={weight}    placeholder="Weight [kg]" onChangeText={setWeight}/>
-<TextInput style={styles.searchBox} value={height}    placeholder="Height [cm]" onChangeText={setHeight}/>
-<TextInput style={styles.searchBox} value={age}       placeholder="Age" onChangeText={setAge}/>
-<TextInput style={styles.searchBox} value={ISF}       placeholder="Insuline Sensitivity Factor (Optional)" onChangeText={setISF}/>
-<TextInput style={styles.searchBox} value={CHORatio}  placeholder="CHO Ratio (grams of CHO per 1 unit) (Optional)" onChangeText={setCHORatio}/>
+        <View style={styles.fieldContainer}>
+<TextInput  style={styles.field} value={name}      placeholder="Name" onChangeText={setName}/> 
+</View>
+    <View style={styles.fieldContainer}>
+<TextInput style={styles.field} value={weight}    placeholder="Weight [kg]" onChangeText={setWeight}/>
+</View>
+    <View style={styles.fieldContainer}>
+<TextInput style={styles.field} value={height}    placeholder="Height [cm]" onChangeText={setHeight}/>
+</View>
+    <View style={styles.fieldContainer}>
+<TextInput style={styles.field} value={age}       placeholder="Age" onChangeText={setAge}/>
+</View>
+    <View style={styles.fieldContainer}>
+<TextInput style={styles.field} value={ISF}       placeholder="Insuline Sensitivity Factor (Optional)" onChangeText={setISF}/>
+</View>
+    <View style={styles.fieldContainer}>
+<TextInput style={styles.field} value={CHORatio}  placeholder="Grams of CHO per 1 unit (Optional)" onChangeText={setCHORatio}/>
+</View>
+    
 
-
-<CustomButton style={styles.button} title="Save Change"
+<CustomButton  title="Save Change"
               onPress={() => saveData()
             }
             />
