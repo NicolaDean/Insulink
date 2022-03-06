@@ -2,7 +2,7 @@ import {Text, View ,StyleSheet} from 'react-native';
 import React,{ useState,useEffect, useContext } from 'react';
 import CustomButton from '../../customComponents/customButton';
 import InsulineCalculator, { calculator } from '../utils/insulineCalculator';
-import * as localStorage from '../utils/localStoreManager'
+import * as localStorage from './../utils/localStoreManager'
 import { UserDataContext } from '../../stateManager/userDataProvider';
 import styles from './style'
 
@@ -38,7 +38,7 @@ export const PersonalData = ({ navigation , route}) =>{
 
         <View>
             <View style={styles.header}>
-            <Text style={styles.headerTitle}>Personal User Data</Text>
+            <Text style={styles.headerTitle}>Personal User Data:</Text>
         </View>
             <View style={styles.fieldContainer}>
                 <Text adjustsFontSizeToFit style={styles.fieldTitle}>Name:</Text>
