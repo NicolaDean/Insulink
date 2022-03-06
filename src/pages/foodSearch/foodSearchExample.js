@@ -3,7 +3,7 @@ import {TouchableOpacity, Text, SafeAreaView,View,FlatList,Button,TextInput, Sty
 import { useState,useEffect } from 'react';
 import styles from './style'
 import {Food} from './food'
-import * as api from '../utils/apiQuery';
+import * as api from '../../utils/apiQuery';
 import CustomButton from '../../customComponents/customButton'
 import CustomImageButton from '../../customComponents/customImageButton'
 export const FoodSearchExample = ({ navigation }) =>{
@@ -58,13 +58,12 @@ export const FoodSearchExample = ({ navigation }) =>{
 
            <FlatList 
 
-data={foodData}
-  numColumns={3}
-
-renderItem={({ item }) => (
-    <Food style={styles.food} data = {item} nav = {navigation}></Food>
-  )}
-/>
+            data={foodData}
+              numColumns={3}
+            renderItem={({ item }) => (
+                <Food style={styles.food} data = {item} nav = {navigation}></Food>
+              )}
+            />
 
 </View>
   

@@ -4,7 +4,7 @@ import { useState } from 'react';
 import styles from './style'
 import CustomButton from '../../customComponents/customButton';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as localStorage from './../utils/localStoreManager'
+import * as localStorage from '../../utils/localStoreManager'
 import { UserDataContext } from '../../stateManager/userDataProvider';
 import {StyleTextInput} from '../../customComponents/StyleTextInput'
 /*

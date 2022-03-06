@@ -2,7 +2,7 @@
 import React,{ useState, createContext, useEffect } from 'react';
 import EditPersonalData from '../pages/settings/editPersonalData';
 import { PersonalData } from '../pages/settings/personalData';
-import * as localStorage from '../pages/utils/localStoreManager'
+import * as localStorage from '../utils/localStoreManager'
 
 export const UserDataContext = createContext();
 

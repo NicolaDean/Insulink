@@ -1,11 +1,11 @@
 import React from 'react';
 import {Image, Text, View, ScrollView, TextInput, Dimensions, StatusBar  } from 'react-native';
-import { useState,useContext } from 'react';
+import { useState,useContext,useEffect} from 'react';
 import styles from './style'
 
-import { foodDetails } from '../utils/testingJsons';//Default food
+import { foodDetails } from '../../utils/testingJsons';//Default food
 
-import * as api from "../utils/apiQuery";
+import * as api from "../../utils/apiQuery";
 import { VictoryPie } from 'victory-native';
 import CustomButton from '../../customComponents/customButton';
 import SelectDropdown from 'react-native-select-dropdown'
@@ -35,7 +35,9 @@ export const FoodDetails = ({navigation,route}) =>{
         setDetails(res);
     }
 
-    getData(id);
+    useEffect(()=>{
+        getData(id);
+    },[]);
 
     const image = api.imgUrl + details.image;
     const name = details.name;
@@ -62,17 +64,13 @@ export const FoodDetails = ({navigation,route}) =>{
 
         setFoods(list => [...list,food]);
 
-        console.log("LISTA:" + foods);
+        console.log("LISTA a:" + foods);
 
         navigation.navigate('MealDiary',{});
     }
     //TODO CREATE CHART WITH NUTRIENTS
     return (
-       <ScrollView style={{
-        width : '100%',
-        height :'100%',
-    }}  
-       >
+       <ScrollView style={{width : '100%',height :'100%' }}  >
 
            <StatusBar />
 

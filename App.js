@@ -5,14 +5,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet,Text,View } from 'react-native';
 
 
-//ALLOW TO IMPORT OUR COMPONENTS FROM SEPARATE FILE
-import FoodSearchExample from './pages/foodSearch/foodSearchExample';
-import Home from './pages/home/home';
-import EditPersonalData from './pages/settings/editPersonalData';
-import { FoodDetails } from './pages/foodSearch/foodDetails';
-import { PersonalData } from './pages/settings/personalData';
-import { MealDiary } from './pages/diary/mealDiary';
-import { AddMeal } from './pages/diary/addMeal';
+import FoodSearchExample from './src/pages/foodSearch/foodSearchExample';
+import Home from './src/pages/home/home';
+import EditPersonalData from './src/pages/settings/editPersonalData';
+import { FoodDetails } from './src/pages/foodSearch/foodDetails';
+import { PersonalData } from './src/pages/settings/personalData';
+import { MealDiary } from './src/pages/diary/mealDiary';
+import { AddMeal } from './src/pages/diary/addMeal';
 import { UserDataProvider } from './src/stateManager/userDataProvider';
 import { MealDataProvider } from './src/stateManager/mealsDataProvider';
 
@@ -24,6 +23,7 @@ const App = () => {
   return(
     
     <NavigationContainer>
+      <Text>ciao</Text>
         <UserDataProvider>
           <MealDataProvider>          
           <Stack.Navigator>

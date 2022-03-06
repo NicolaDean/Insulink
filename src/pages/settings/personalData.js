@@ -1,8 +1,8 @@
 import {Text, View ,StyleSheet} from 'react-native';
 import React,{ useState,useEffect, useContext } from 'react';
 import CustomButton from '../../customComponents/customButton';
-import InsulineCalculator, { calculator } from '../utils/insulineCalculator';
-import * as localStorage from './../utils/localStoreManager'
+import InsulineCalculator, { calculator } from '../../utils/insulineCalculator';
+import * as localStorage from '../../utils/localStoreManager'
 import { UserDataContext } from '../../stateManager/userDataProvider';
 import styles from './style'
 
