@@ -2,7 +2,7 @@
 import React from 'react';
 import * as testingJson from "./testingJsons"
 
-const debug = true;
+const debug = false;
 
 export const imgUrl = "https://spoonacular.com/cdn/ingredients_100x100/";
 const ingredientSearch = "";

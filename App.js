@@ -13,8 +13,8 @@ import { FoodDetails } from './pages/foodSearch/foodDetails';
 import { PersonalData } from './pages/settings/personalData';
 import { MealDiary } from './pages/diary/mealDiary';
 import { AddMeal } from './pages/diary/addMeal';
-import { UserDataProvider } from './stateManager/userDataProvider';
-import { MealDataProvider } from './stateManager/mealsDataProvider';
+import { UserDataProvider } from './src/stateManager/userDataProvider';
+import { MealDataProvider } from './src/stateManager/mealsDataProvider';
 
 
 const Stack = createNativeStackNavigator();

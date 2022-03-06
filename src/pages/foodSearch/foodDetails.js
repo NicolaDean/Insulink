@@ -63,6 +63,8 @@ export const FoodDetails = ({navigation,route}) =>{
         setFoods(list => [...list,food]);
 
         console.log("LISTA:" + foods);
+
+        navigation.navigate('MealDiary',{});
     }
     //TODO CREATE CHART WITH NUTRIENTS
     return (
