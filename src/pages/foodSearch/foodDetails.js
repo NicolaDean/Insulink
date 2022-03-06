@@ -10,6 +10,9 @@ import { VictoryPie } from 'victory-native';
 import CustomButton from '../../customComponents/customButton';
 import SelectDropdown from 'react-native-select-dropdown'
 import { MealDataContext } from '../../stateManager/mealsDataProvider';
+import { useSelector,useDispatch } from 'react-redux';
+import { addFood } from '../../stateManager/reduxStates/actions/macroTracker';
+
 const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset;
 
@@ -17,6 +20,7 @@ export const FoodDetails = ({navigation,route}) =>{
 
     let id = route.params.id.id;
 
+    const dispatch = useDispatch();
     const [details, setDetails] = useState(foodDetails);
     const [unit,setUnit] = useState('g');
     const [amount,setAmount] = useState('100');
@@ -51,7 +55,7 @@ export const FoodDetails = ({navigation,route}) =>{
     ]
          
 
-    const addFood = () =>{
+    const addItem = () =>{
 
         var food ={
             id:id,
@@ -62,10 +66,8 @@ export const FoodDetails = ({navigation,route}) =>{
             prot:nutrients["Protein"].amount
         }
 
-        setFoods(list => [...list,food]);
-
-        console.log("LISTA a:" + foods);
-
+        dispatch(addFood(food));
+        
         navigation.navigate('MealDiary',{});
     }
     //TODO CREATE CHART WITH NUTRIENTS
@@ -118,7 +120,7 @@ export const FoodDetails = ({navigation,route}) =>{
                         <Text>Protein : {nutrients["Protein"].amount}g</Text>
                     </View>
                 </View>
-           <CustomButton style={styles.addButton} title="Add Food To Meal" onPress={()=>{addFood()}}/>
+           <CustomButton style={styles.addButton} title="Add Food To Meal" onPress={()=>{addItem()}}/>
            </View>
            
 

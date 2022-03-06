@@ -5,6 +5,8 @@ import React,{ useState,useEffect, useContext } from 'react';
 
 import { MealDataContext } from '../../stateManager/mealsDataProvider';
 import CustomButton from '../../customComponents/customButton';
+import { useDispatch } from 'react-redux';
+import { selectMealType } from '../../stateManager/reduxStates/actions/macroTracker';
 
 const mealIcons ={
     breakfast: {uri:require("../../assets/breakfast.png")},
@@ -20,18 +22,15 @@ WHEN I CLICK ON THE + button i pass the id as props so that i can add food to th
 */
 export const Meal = ({navigation,name = "", icon = "breakfast", id}) => {
     
-    const {mealType,foodList} = useContext(MealDataContext);
-
-    const [foods,setFoods] = foodList;
-    const [currentMealType,setMealType] = mealType;
+    
+    const dispatch = useDispatch();
+    
     //const [currentMealType,setMealType] = useContext(MealDataContext);
-
-    console.log(foods);
     //setMealType("PASTOO CASUALE");
 
     const addFoods = () =>{
-        console.log("Click from: " + id);
-        setMealType(p => p = id);
+        
+        dispatch(selectMealType(id));
 
         navigation.navigate('FoodSearch',{});
     }

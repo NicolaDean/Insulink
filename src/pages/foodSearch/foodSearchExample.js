@@ -6,6 +6,7 @@ import {Food} from './food'
 import * as api from '../../utils/apiQuery';
 import CustomButton from '../../customComponents/customButton'
 import CustomImageButton from '../../customComponents/customImageButton'
+
 export const FoodSearchExample = ({ navigation }) =>{
 
 //HOW WORKS USESTATE -> [var,functionName] = useState(init) 
@@ -36,6 +37,7 @@ export const FoodSearchExample = ({ navigation }) =>{
    }
   }
   
+
     return (
        <View >
            

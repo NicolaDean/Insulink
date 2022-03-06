@@ -14,7 +14,8 @@ import { MealDiary } from './src/pages/diary/mealDiary';
 import { AddMeal } from './src/pages/diary/addMeal';
 import { UserDataProvider } from './src/stateManager/userDataProvider';
 import { MealDataProvider } from './src/stateManager/mealsDataProvider';
-
+import { store } from './src/stateManager/reduxStates/store';
+import { Provider } from 'react-redux';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,21 +24,21 @@ const App = () => {
   return(
     
     <NavigationContainer>
-      <Text>ciao</Text>
-        <UserDataProvider>
-          <MealDataProvider>          
-          <Stack.Navigator>
-            <Stack.Screen name="Home" component={Home}/>
-            <Stack.Screen name="FoodSearch" component={FoodSearchExample} />
-            <Stack.Screen name="FoodDetails" component={FoodDetails}/>
-            <Stack.Screen name="MealDiary" component={MealDiary}/>
-            <Stack.Screen name="AddMeal" component={AddMeal}/>          
-            <Stack.Screen name="PersonalData" component={PersonalData}/>
-            <Stack.Screen name="EditPersonalData" component={EditPersonalData}/>
-          </Stack.Navigator>
-          </MealDataProvider>
-        </UserDataProvider>
-        
+      <Provider store={store}>
+          <UserDataProvider>
+            <MealDataProvider>          
+            <Stack.Navigator>
+              <Stack.Screen name="Home" component={Home}/>
+              <Stack.Screen name="FoodSearch" component={FoodSearchExample} />
+              <Stack.Screen name="FoodDetails" component={FoodDetails}/>
+              <Stack.Screen name="MealDiary" component={MealDiary}/>
+              <Stack.Screen name="AddMeal" component={AddMeal}/>          
+              <Stack.Screen name="PersonalData" component={PersonalData}/>
+              <Stack.Screen name="EditPersonalData" component={EditPersonalData}/>
+            </Stack.Navigator>
+            </MealDataProvider>
+          </UserDataProvider>
+        </Provider>
 
   </NavigationContainer>
 
