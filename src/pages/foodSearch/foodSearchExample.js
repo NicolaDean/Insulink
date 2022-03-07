@@ -6,7 +6,7 @@ import {Food} from './food'
 import * as api from '../../utils/apiQuery';
 import CustomButton from '../../customComponents/customButton'
 import CustomImageButton from '../../customComponents/customImageButton'
-
+import axios from 'axios';
 export const FoodSearchExample = ({ navigation }) =>{
 
 //HOW WORKS USESTATE -> [var,functionName] = useState(init) 
@@ -22,13 +22,20 @@ export const FoodSearchExample = ({ navigation }) =>{
     try {
   //GET API DATA
   let json = "";
-    if(apiSelected)
-      json = (await api.getAllRelatedFood(foodSelected));
-    else
+    if(apiSelected){
+      json = (await api.getFoodListAlternative(foodSelected));
+      //console.log("UFF:" + json);     
+      setData(json.common);
+    }
+    else{
       json = (await api.getIngredentList(foodSelected));
+      setData(json.results);
+    }
+      
 
   //SET DATA
-     setData(json.results);
+     //
+
   //HANDLING ERRORS
    } catch (error) {
      console.error(error);
@@ -63,7 +70,7 @@ export const FoodSearchExample = ({ navigation }) =>{
             data={foodData}
               numColumns={3}
             renderItem={({ item }) => (
-                <Food style={styles.food} data = {item} nav = {navigation}></Food>
+                <Food style={styles.food} data = {item} nav = {navigation} api={apiSelected}></Food>
               )}
             />
 

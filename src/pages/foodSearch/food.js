@@ -6,28 +6,29 @@ export const Food = (props) =>{
 
 
     //const {mealType,foodList} = useContext(MealDataContext);
-    const {mealType,foodList} = useContext(MealDataContext);
-
-    const [currentMealType,setMealType] = mealType;
-    const [foods,setFoods] = foodList;
+    
 
     let data = props.data;
+    let name ="";
+    let image;
+    let id;
 
-    const addFood = () =>{
-
-        var food ={
-            
-        }
-        setFoods(list => {
-            list = list;
-            list[currentMealType] = [...list[currentMealType],]
-        });
+    //let data = {name:"",photo:"https://it.wikipedia.org/wiki/Mela#/media/File:Sundown_and_cross_section.jpg"}
+    if(props.api){
+        image = data.photo.thumb;
+        name = data.food_name;
+        //console.log("FOOD : " + JSON.stringify(data));
+        id=data;
+    }else{
+        //Spoonacular
+        id = data.id;
+        image = "https://spoonacular.com/cdn/ingredients_100x100/" + data.image;
+        name = data.name;
     }
+   
 
-    //Spoonacular
-    let id = data.id;
-    let image = "https://spoonacular.com/cdn/ingredients_100x100/" + data.image;
-    let name = data.name;
+    
+
     
     
     return (
