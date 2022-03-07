@@ -141,22 +141,35 @@ export const getFoodListAlternative =async (userInput) =>{
 
 export const getIngredientDetailsAlternative = async  (userInput) =>{
     console.log("QUERY : " + userInput);
-    //curl -X POST "https://trackapi.nutritionix.com/v2/natural/nutrients" -H "accept: application/json" -H "x-app-id: e29d5b1a" -H "x-app-key: 4bfbc69b7095239b9768d1f7b3f47e56" -H "x-remote-user-id: 0" -H "Content-Type: application/json" -d "{ \"query\": \"shrimp tempura\", \"num_servings\": 1}"
-    const response = await axios.post(
-        'https://trackapi.nutritionix.com/v2/natural/nutrients',{
+
+    /*const response = await fetch('https://trackapi.nutritionix.com/v2/natural/nutrients',
+    {
+        method:'post',
             headers:{
                 'x-app-id':nutrixAppId,
                 'x-app-key':nutrixAppKey,
                 'x-remote-user-id': 0
             },
             params:{
+                query: "apple"
+            }
+    });*/
+    
+    //curl -X POST "https://trackapi.nutritionix.com/v2/natural/nutrients" -H "accept: application/json" -H "x-app-id: e29d5b1a" -H "x-app-key: 4bfbc69b7095239b9768d1f7b3f47e56" -H "x-remote-user-id: 0" -H "Content-Type: application/json" -d "{ \"query\": \"shrimp tempura\", \"num_servings\": 1}"
+    const response = await axios({
+            url:'https://trackapi.nutritionix.com/v2/natural/nutrients',
+            method:'post',
+            headers:{
+                'x-app-id':nutrixAppId,
+                'x-app-key':nutrixAppKey,
+                'x-remote-user-id': 0
+            },
+            data:{
                 query:userInput,
                 num_servings:1
             },
             responseType: 'json'
-        }
-        
-    ).then( (response) => {
+        }).then( (response) => {
         return (response.data);
       })
       .catch( (error)=> {

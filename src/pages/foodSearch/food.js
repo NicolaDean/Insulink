@@ -14,7 +14,7 @@ export const Food = (props) =>{
     let id;
 
     //let data = {name:"",photo:"https://it.wikipedia.org/wiki/Mela#/media/File:Sundown_and_cross_section.jpg"}
-    if(props.api){
+    if(!props.api){
         image = data.photo.thumb;
         name = data.food_name;
         //console.log("FOOD : " + JSON.stringify(data));

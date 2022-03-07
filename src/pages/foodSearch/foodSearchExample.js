@@ -22,7 +22,7 @@ export const FoodSearchExample = ({ navigation }) =>{
     try {
   //GET API DATA
   let json = "";
-    if(apiSelected){
+    if(!apiSelected){
       json = (await api.getFoodListAlternative(foodSelected));
       //console.log("UFF:" + json);     
       setData(json.common);
