@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View,Dimensions} from 'react-native';
 import styles from './style'
 import { useSelector,useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
 import {  } from 'react-native-gesture-handler';
 import CustomButton from '../../customComponents/customButton';
@@ -9,11 +10,16 @@ import {LineChart,ProgressChart} from "react-native-chart-kit";
 
 import Meal from './meal';
 import { VictoryPie } from 'victory-native';
+import {Comment} from './TodoController';
+import { getTimeMeasureUtils } from '@reduxjs/toolkit/dist/utils';
 
 const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset*3;
 
 
+
+// USE SELECTOR WAY
+//const diary = useSelector(state => state.macroTracker);
 const chartConfig = {
     //General
     backgroundColor: "#e26a00",
@@ -58,10 +64,11 @@ const data = [
     {x: "Prot",y:60 }
 ]
 
+ 
+
 export const MealDiary = ({navigation}) =>{
 
-  const diary = useSelector(state => state.macroTracker);
-  console.log("Stato:" + JSON.stringify(diary));
+  
 
 return (
  //TODO ADD THE TOTAL MEALS MACRO GRAPH
@@ -86,12 +93,17 @@ return (
         <Meal navigation = {navigation} name ="Pranzo"      icon ="lunch"       id="lunch"/>
         <Meal navigation = {navigation} name ="Cena"        icon ="dinner"      id="dinner"/>
         <Meal navigation = {navigation} name ="Snack"       icon ="snack"       id="snack"/>
-         <Text> {JSON.stringify(diary)} </Text>
-        <CustomButton title='Add Custom Meal' onPress={()=>{}}/>
+                <CustomButton title='Add Custom Meal' onPress={()=>{}}/>
 </View>
     );
 }//<CustomImageButton tile="Home" image='plus' style={styles.appLogoContainer}  iconStyle={styles.LogoSize}/>
-    
-/** */
-export default MealDiary;
 
+/*
+function mapStateToProps(state) {
+  return {diary: state.macroTracker };
+};
+
+export default connect(mapStateToProps)(MealDiary)
+*/
+
+export default MealDiary;
