@@ -1,8 +1,7 @@
 import React from 'react';
-import {TouchableOpacity, Text, View,Button, StyleSheet, Dimensions  } from 'react-native';
-import styles from './style'
+import { Text, View, Dimensions  } from 'react-native';
 import {LineChart,ProgressChart} from "react-native-chart-kit";
-
+import { connect } from 'react-redux';
 import CustomButton from '../../customComponents/customButton'
 
   const marginOffset=10;
@@ -73,7 +72,7 @@ const chartProgressStyle ={
       ]
     
   }
-export const Home = ({ navigation }) =>{
+export const Home = ({ navigation,diary }) =>{
 
     return(
         <View>
@@ -111,19 +110,23 @@ export const Home = ({ navigation }) =>{
   hideLegend={false}
   style={chartProgressStyle}
 />
+
+
             <CustomButton
                 title='Food Search'
                 onPress={() => navigation.navigate('FoodSearch',{}) }
             />
             <CustomButton
+                title='Meal Diary'
+                onPress={() => navigation.navigate('MealDiary',{}) }
+            />
+<Text>{JSON.stringify(diary)}</Text>
+            <CustomButton
                 title='PersonalData'
                 onPress={() => navigation.navigate('PersonalData',{}) }
             />
 
-            <CustomButton
-                title='Meal Diary'
-                onPress={() => navigation.navigate('MealDiary',{}) }
-            />
+            
             
 </View>
     );
@@ -131,4 +134,9 @@ export const Home = ({ navigation }) =>{
 
 }
 
-export default Home;
+//export default Home;
+const mapStateToProps = (state, ownProps = {}) => {
+  return{diary: state.macroTracker};
+}
+
+export default connect(mapStateToProps)(Home);

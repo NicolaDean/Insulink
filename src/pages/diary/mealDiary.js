@@ -1,18 +1,12 @@
 import React from 'react';
 import { Text, View,Dimensions} from 'react-native';
 import styles from './style'
-import { useSelector,useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
 
-import {  } from 'react-native-gesture-handler';
 import CustomButton from '../../customComponents/customButton';
-import {LineChart,ProgressChart} from "react-native-chart-kit";
+import {ProgressChart} from "react-native-chart-kit";
 
 import Meal from './meal';
-import { VictoryPie } from 'victory-native';
-import {Comment} from './TodoController';
-import { getTimeMeasureUtils } from '@reduxjs/toolkit/dist/utils';
-
 const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset*3;
 
@@ -66,10 +60,18 @@ const data = [
 
  
 
-export const MealDiary = ({navigation}) =>{
+export const MealDiary = ({ navigation,diary }) =>{
 
+
+  const maxCarb = 200;
+  const maxProt = 100;
+  const maxFat  = 100;
+
+  const graph = {
+    labels: ["Carbo", "Fat", "Proteins"], // optional
+    data: [diary.totMacro.carb/maxCarb, diary.totMacro.fat/maxFat, diary.totMacro.prot/maxProt]
+  }
   
-
 return (
  //TODO ADD THE TOTAL MEALS MACRO GRAPH
 <View  style={styles.sectionContainer}>
@@ -77,7 +79,7 @@ return (
         <Text style={styles.title}>Meal Diary:</Text>
         <View style={{marginBottom:"5%"}}>
         <ProgressChart 
-  data={data2}
+  data={graph}
   width={screenWidth}
   height={180}
   strokeWidth={10}
@@ -86,9 +88,8 @@ return (
   hideLegend={false}
   style={chartStyle}
 />
-                    </View>
 
-
+        </View>
         <Meal navigation = {navigation} name ="Colazione"   icon ="breakfast"   id="breakfast"/>
         <Meal navigation = {navigation} name ="Pranzo"      icon ="lunch"       id="lunch"/>
         <Meal navigation = {navigation} name ="Cena"        icon ="dinner"      id="dinner"/>
@@ -98,12 +99,10 @@ return (
     );
 }//<CustomImageButton tile="Home" image='plus' style={styles.appLogoContainer}  iconStyle={styles.LogoSize}/>
 
-/*
-function mapStateToProps(state) {
-  return {diary: state.macroTracker };
-};
 
-export default connect(mapStateToProps)(MealDiary)
-*/
+//export default Home;
+const mapStateToProps = (state, ownProps = {}) => {
+  return{diary: state.macroTracker};
+}
 
-export default MealDiary;
+export default connect(mapStateToProps)(MealDiary);

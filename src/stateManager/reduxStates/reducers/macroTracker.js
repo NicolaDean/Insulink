@@ -1,28 +1,45 @@
 
 const initialState = {
     currentMeal:"breakfast",
+    totMacro:{cal:0,carb:0,fat:0,prot:0},
     meals:{
-        breakfast:[],
-        lunch:[],
-        dinner:[],
-        snack:[]
+        breakfast:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
+        lunch:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
+        dinner:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
+        snack:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}}
     } 
 }
 
 const selectMeal = (state,data)=>{
-    state.currentMeal = data.mealType;
+    const newState = {
+        ...state,
+        currentMeal: data.mealType}
 
     console.log("Current Meal:" + state.currentMeal);
-    return state;
+    return newState;
 }
 
 const addFood = (state,data)=>{
     
-    state.meals[state.currentMeal].push(data.food);
+    const newstate ={...state};
+    newstate.meals[state.currentMeal].foods.push(data.food);
+    let macro = state.meals[state.currentMeal].macro;
 
-    console.log("STATE CHANGE: " + JSON.stringify(state));
+    newstate.totMacro['carb'] = newstate.totMacro['carb'] + data.food['carbs'];
+    newstate.totMacro['prot'] = newstate.totMacro['prot'] + data.food['prot'];
+    newstate.totMacro['fat'] = newstate.totMacro['fat'] + data.food['fat'];
+    newstate.totMacro['cal'] = newstate.totMacro['cal'] + data.food['cal'];
+    
+    macro['cal'] = macro['cal'] + data.food['cal'];
+    macro['carb'] = macro['carb'] + data.food['carbs'];
+    macro['prot'] =   macro['carb'] + data.food['prot'];
+    macro['fat'] =  macro['carb'] +data.food['fat'];
+
+    newstate.meals[state.currentMeal].macro = macro;
+
+    //console.log("STATE CHANGE: " + JSON.stringify(newstate));
     //TODO PUT FOOD INTO STATE
-    return state;
+    return newstate;
 }
 
 const removeFood = (state,data)=>{

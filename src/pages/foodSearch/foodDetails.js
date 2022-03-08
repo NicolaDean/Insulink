@@ -84,12 +84,6 @@ export const FoodDetails = ({navigation,route}) =>{
 
     
     //const properties = api.extractProperties(details.nutrition.properties);
-    //
-   /* const data = [
-        {x:"Carb",y:nutrients["Carbohydrates"].amount },
-        { x: "Fat",y:nutrients["Fat"].amount},
-        {x: "Prot",y:nutrients["Protein"].amount }
-    ]*/
     
          
 
@@ -99,14 +93,13 @@ export const FoodDetails = ({navigation,route}) =>{
             id:id,
             name:name,
             image:image,
+            cal:nutrients["Calories"].amount,
             carbs:nutrients["Carbohydrates"].amount,
             fat:nutrients["Fat"].amount,
             prot:nutrients["Protein"].amount
         }
 
         dispatch(addFood(food));
-
-        
 
         navigation.navigate('MealDiary',{});
     }
@@ -167,6 +160,8 @@ export const FoodDetails = ({navigation,route}) =>{
        </ScrollView>
     );
 }
+
+export default FoodDetails;
 
 /* 
 

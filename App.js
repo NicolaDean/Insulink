@@ -10,7 +10,7 @@ import Home from './src/pages/home/home';
 import EditPersonalData from './src/pages/settings/editPersonalData';
 import { FoodDetails } from './src/pages/foodSearch/foodDetails';
 import { PersonalData } from './src/pages/settings/personalData';
-import { MealDiary } from './src/pages/diary/mealDiary';
+import  MealDiary  from './src/pages/diary/mealDiary';
 import { AddMeal } from './src/pages/diary/addMeal';
 import { UserDataProvider } from './src/stateManager/userDataProvider';
 import { MealDataProvider } from './src/stateManager/mealsDataProvider';
@@ -21,6 +21,7 @@ const Stack = createNativeStackNavigator();
 
 const App = () => {
  
+  
   return(
     
     <NavigationContainer>
