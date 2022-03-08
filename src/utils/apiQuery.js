@@ -156,6 +156,7 @@ export const getIngredientDetailsAlternative = async  (userInput) =>{
     });*/
     
     //curl -X POST "https://trackapi.nutritionix.com/v2/natural/nutrients" -H "accept: application/json" -H "x-app-id: e29d5b1a" -H "x-app-key: 4bfbc69b7095239b9768d1f7b3f47e56" -H "x-remote-user-id: 0" -H "Content-Type: application/json" -d "{ \"query\": \"shrimp tempura\", \"num_servings\": 1}"
+    // Used instead of Fetch
     const response = await axios({
             url:'https://trackapi.nutritionix.com/v2/natural/nutrients',
             method:'post',

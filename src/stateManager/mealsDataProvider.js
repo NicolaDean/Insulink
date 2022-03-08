@@ -2,6 +2,7 @@
 import React,{ useState, createContext, useEffect } from 'react';
 import * as localStorage from '../utils/localStoreManager'
 
+
 export const MealDataContext = createContext();
 
 

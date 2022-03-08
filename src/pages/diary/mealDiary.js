@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View,Dimensions} from 'react-native';
 import styles from './style'
+import { useSelector,useDispatch } from 'react-redux';
 
 import {  } from 'react-native-gesture-handler';
 import CustomButton from '../../customComponents/customButton';
@@ -59,6 +60,9 @@ const data = [
 
 export const MealDiary = ({navigation}) =>{
 
+  const diary = useSelector(state => state.macroTracker);
+  console.log("Stato:" + JSON.stringify(diary));
+
 return (
  //TODO ADD THE TOTAL MEALS MACRO GRAPH
 <View  style={styles.sectionContainer}>
@@ -82,7 +86,7 @@ return (
         <Meal navigation = {navigation} name ="Pranzo"      icon ="lunch"       id="lunch"/>
         <Meal navigation = {navigation} name ="Cena"        icon ="dinner"      id="dinner"/>
         <Meal navigation = {navigation} name ="Snack"       icon ="snack"       id="snack"/>
-
+         <Text> {JSON.stringify(diary)} </Text>
         <CustomButton title='Add Custom Meal' onPress={()=>{}}/>
 </View>
     );
