@@ -1,7 +1,9 @@
 
-import {Animated,Image, Dimensions,Text, SafeAreaView,View,TouchableOpacity,LayoutAnimation, UIManager} from 'react-native';
+import {Animated,Image, Dimensions,FlatList,Text, SafeAreaView,View,TouchableOpacity,LayoutAnimation, UIManager} from 'react-native';
 import styles from './style'
 import renderIf from './renderIf'
+import * as api from "../../utils/apiQuery";
+import {Food} from '../foodSearch/food'
 
 import React,{ useState,useEffect, useContext } from 'react';
 import { Dropdown } from 'react-native-material-dropdown';
@@ -42,6 +44,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     //setMealType("PASTOO CASUALE");
 
     let macro = diary.meals[id].macro;
+    let food= diary.meals[id].foods;
 
     console.log("macro:" + JSON.stringify(macro));
 
@@ -52,8 +55,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
         navigation.navigate('FoodSearch',{});
     }
   
-    
- 
+  
 
 
     
@@ -62,9 +64,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
         <TouchableOpacity  style={{
             width: "90%",
             marginLeft:"5%",
-           
             backgroundColor:"white",
-            flexDirection:'row',
             shadowColor: "#000",
             shadowOffset: {
                 width: 0,
@@ -83,7 +83,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut); 
                         setExpanded(!expanded ); 
                     }}
-                      style={{}} > 
+                      style={{flexDirection:'column'}} > 
     <SafeAreaView  style={{flexDirection:'row'}}>
                      
                   <Image source={mealIcons[icon].uri} style={styles.mealImage} />
@@ -95,11 +95,18 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                 </View>
                  </SafeAreaView>
                          
-                           <SafeAreaView style={{ height: expanded ? null : 0,overflow: 'scroll',width:"90%"}}> 
-
-                           <Text style={styles.text}> {JSON.stringify(diary.meals[icon])} 
-                           </Text> 
-                           </SafeAreaView>
+                           <View style={{ height: expanded ? null : 0,overflow: 'scroll',width:"90%",fontSize:20}}> 
+                           <FlatList 
+                            
+                            data={food}
+                             numColumns={3}
+                             renderItem={({ item }) => (
+                            <Text style={{flex:1,fontSize:20,marginLeft:10}} >{item.name} 
+                            {'\n'}
+                            </Text>
+                             )}
+                            />
+                           </View>
                            
 </TouchableOpacity>
                               

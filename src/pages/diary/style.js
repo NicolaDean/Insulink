@@ -122,6 +122,10 @@ export default StyleSheet.create({
                       marginTop: "5%",
                       flexDirection:'row',
                       zIndex: 1 
+                      },foodText:{
+                        fontSize:20,
+                        marginLeft:5,
+                        marginTop:5
                       }
 
                   
