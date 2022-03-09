@@ -58,6 +58,7 @@ const data = [
     {x: "Prot",y:60 }
 ]
 
+
  
 
 export const MealDiary = ({ navigation,diary }) =>{
@@ -69,7 +70,7 @@ export const MealDiary = ({ navigation,diary }) =>{
 
   const graph = {
     labels: ["Carbo", "Fat", "Proteins"], // optional
-    data: [diary.totMacro.carb/maxCarb, diary.totMacro.fat/maxFat, diary.totMacro.prot/maxProt]
+    data: [(((diary.totMacro.prot.toFixed(2)/maxProt)<1) ? (diary.totMacro.prot.toFixed(2)/maxProt) : 1),(((diary.totMacro.fat.toFixed(2)/maxFat)<1) ? (diary.totMacro.fat.toFixed(2)/maxFat) : 1),(((diary.totMacro.carb.toFixed(2)/maxCarb)<1) ? (diary.totMacro.carb.toFixed(2)/maxCarb) : 1)]
   }
   
 return (
