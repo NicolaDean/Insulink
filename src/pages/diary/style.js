@@ -44,7 +44,7 @@ export default StyleSheet.create({
       mealName:{
           fontSize:20,
           fontWeight:"bold",
-          marginLeft:15,
+          marginLeft:5,
           alignSelf:'flex-start',
           justifyContent:'flex-start',
           marginVertical:"14%",

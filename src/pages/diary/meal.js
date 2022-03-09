@@ -110,7 +110,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                            
 </TouchableOpacity>
                               
-<TouchableOpacity style={styles.addBox} onPress={()=>{addFoods()}}>
+<TouchableOpacity style={styles.addBox} >
 <View style={styles.macroContainer}>
                 <Image source={mealIcons['cal'].uri} style={styles.macroImage} />
                 <Text>{diary.meals[id].macro['cal'].toFixed(2)}</Text>
@@ -127,8 +127,11 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                 <Image source={mealIcons['protein'].uri} style={styles.macroImage} />
                 <Text>{diary.meals[id].macro['prot'].toFixed(2)}</Text>
                 </View>
+                <TouchableOpacity  onPress={()=>{addFoods()}}>
                     <Image source={require('../../assets/plus.png')} style={styles.addIcon}/>
                 </TouchableOpacity>
+                </TouchableOpacity>
+
 
         </TouchableOpacity>
 
