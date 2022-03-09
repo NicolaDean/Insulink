@@ -19,9 +19,9 @@ const chartConfig = {
     backgroundColor: "#e26a00",
     backgroundGradientFrom: "#fb8c00",
     backgroundGradientTo: "#ffa726",
-    decimalPlaces: 2, // optional, defaults to 2dp
     color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
     labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+    
 
    
       //TODO fit better the chart 
@@ -29,34 +29,13 @@ const chartConfig = {
       r: "6",
       strokeWidth: "2",
       stroke: "#ffa726"
+    
     },
     
       barPercentage: 0.5,
       useShadowColorFromDataset: false, // optional
     };
-    
-    const chartStyle ={
-        paddingRight:screenWidth*0.65,
-        marginRight:marginOffset,
-        marginLeft:"5%",
-      top: "5%",
-      borderRadius: 15,
-      
 
-    
-  };
-  
- //SAMPLE DATA FOR CHARTS
- const data2 = {
-    labels: ["Carbo", "Fat", "Proteins"], // optional
-    data: [0.4, 0.6, 0.8]
-  };
-
-const data = [
-    {x:"Carb",y:100 },
-    { x: "Fat",y:20},
-    {x: "Prot",y:60 }
-]
 
 
  
@@ -75,7 +54,8 @@ export const MealDiary = ({ navigation,diary }) =>{
   
 return (
  //TODO ADD THE TOTAL MEALS MACRO GRAPH
-<View  style={styles.sectionContainer}>
+ 
+<View  >
 
         <Text style={styles.title}>Meal Diary:</Text>
         <View style={{marginBottom:"5%"}}>
@@ -87,7 +67,7 @@ return (
   radius={32}
   chartConfig={chartConfig}
   hideLegend={false}
-  style={chartStyle}
+  style={styles.chartStyle}
 />
 
         </View>

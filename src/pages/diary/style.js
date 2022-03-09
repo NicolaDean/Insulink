@@ -9,9 +9,7 @@ height: Dimensions.get('window').height
 
 export default StyleSheet.create({
       sectionContainer:{
-        justifyContent: 'flex-start',
-        alignItems:'flex-start',
-        flex:1,
+        
       },
       title:{
           fontSize:30,
@@ -92,6 +90,14 @@ export default StyleSheet.create({
             margin:3, 
             justifyContent: 'center',
           alignItems:'center',
+        },
+        chartStyle: {
+          marginRight:10,
+          marginLeft:"5%",
+        top: "5%",
+        borderRadius: 15,
+        marginVertical: 8,
+        borderRadius: 15,
         }
                   
   });
