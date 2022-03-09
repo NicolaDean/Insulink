@@ -42,10 +42,11 @@ export default StyleSheet.create({
         flexDirection:'row'
       },
       mealName:{
-          fontSize:20,
+          fontSize:25,
           fontWeight:"bold",
           marginLeft:15,
-          alignSelf:'center',
+          alignSelf:'flex-start',
+          marginVertical:"5%",
           marginRight:10,
       },
       mealImage:{
@@ -58,6 +59,8 @@ export default StyleSheet.create({
         width:"100%",
         flexShrink:1,
         flexDirection:'row',
+        justifyContent:'flex-end',
+        alignItems:'baseline'
       },
       addIcon:{
         alignSelf: 'center',

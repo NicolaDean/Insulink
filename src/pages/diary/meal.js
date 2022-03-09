@@ -90,7 +90,21 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
 
                 <Text style={styles.mealName}>{name}</Text>
                 <View style={{justifyContent:'flex-end',flexShrink:1,flexDirection:'row'}}>
-                <View style={styles.macroContainer}>
+                
+            
+                </View>
+                 </SafeAreaView>
+                         
+                           <SafeAreaView style={{ height: expanded ? null : 0,overflow: 'scroll',width:"90%"}}> 
+
+                           <Text style={styles.text}> {JSON.stringify(diary.meals[icon])} 
+                           </Text> 
+                           </SafeAreaView>
+                           
+</TouchableOpacity>
+                              
+<TouchableOpacity style={styles.addBox} onPress={()=>{addFoods()}}>
+<View style={styles.macroContainer}>
                 <Image source={mealIcons['cal'].uri} style={styles.macroImage} />
                 <Text>{diary.meals[id].macro['cal'].toFixed(2)}</Text>
                 </View>
@@ -106,21 +120,8 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                 <Image source={mealIcons['protein'].uri} style={styles.macroImage} />
                 <Text>{diary.meals[id].macro['prot'].toFixed(2)}</Text>
                 </View>
-                <View style={styles.addBox}>
-                    <Image source={require('../../assets/plus.png')} style={styles.addIcon} />
-                </View>
-                </View>
-                 </SafeAreaView>
-                         
-                           <SafeAreaView style={{ height: expanded ? null : 0,overflow: 'scroll',width:"90%"}}> 
-
-                           <Text style={styles.text}> {JSON.stringify(diary.meals[icon])} 
-                           </Text> 
-                           </SafeAreaView>
-                           
-</TouchableOpacity>
-                              
-                             
+                    <Image source={require('../../assets/plus.png')} style={styles.addIcon}/>
+                </TouchableOpacity>
 
         </TouchableOpacity>
 
