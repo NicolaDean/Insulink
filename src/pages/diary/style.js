@@ -42,11 +42,12 @@ export default StyleSheet.create({
         flexDirection:'row'
       },
       mealName:{
-          fontSize:25,
+          fontSize:20,
           fontWeight:"bold",
           marginLeft:15,
           alignSelf:'flex-start',
-          marginVertical:"5%",
+          justifyContent:'flex-start',
+          marginVertical:"14%",
           marginRight:10,
       },
       mealImage:{

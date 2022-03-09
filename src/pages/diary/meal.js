@@ -101,7 +101,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                             data={food}
                              numColumns={3}
                              renderItem={({ item }) => (
-                            <Text style={{flex:1,fontSize:20,marginLeft:10}} >{item.name} 
+                            <Text style={{flex:1,fontSize:20,marginLeft:10,flexDirection:'row'}} >{item.name} 
                             {'\n'}
                             </Text>
                              )}
