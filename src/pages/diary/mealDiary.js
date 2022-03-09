@@ -40,7 +40,7 @@ const chartConfig = {
         marginRight:marginOffset,
         marginLeft:"5%",
       top: "5%",
-      borderRadius: 16,
+      borderRadius: 15,
       
 
     

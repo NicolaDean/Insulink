@@ -36,7 +36,7 @@ const chartConfig = {
     marginRight:marginOffset,
     marginLeft:marginOffset,
     marginVertical: 8,
-    borderRadius: 16,
+    borderRadius: 15,
     
   
 };
@@ -45,7 +45,7 @@ const chartProgressStyle ={
   marginRight:marginOffset,
   marginLeft:marginOffset,
   marginVertical: 8,
-  borderRadius: 16,
+  borderRadius: 15,
   
 
 };

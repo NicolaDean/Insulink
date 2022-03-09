@@ -14,6 +14,10 @@ const mealIcons ={
     lunch:{uri:require("../../assets/lunch.png")},
     dinner:{uri:require("../../assets/dinner.png")},
     snack:{uri:require("../../assets/snack.png")},
+    cal:{uri:require("../../assets/calories.png")},
+    fat:{uri:require("../../assets/fat.png")},
+    protein:{uri:require("../../assets/protein.png")},
+    carbo:{uri:require("../../assets/carbohydrates.png")},
 }
 
 //IDEA:
@@ -42,9 +46,23 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary}) => {
     
     return (
         <TouchableOpacity  style={styles.mealContainer} onPress={()=>{addFoods()}}>
-                <Image source={mealIcons[icon].uri} style={styles.mealImage} />
                 <Text style={styles.mealName}>{name}</Text>
-                <Text>{JSON.stringify(diary.meals[id].macro)}</Text>
+                <View style={styles.macroContainer}>
+                <Image source={mealIcons['cal'].uri} style={styles.macroImage} />
+                <Text>{diary.meals[id].macro['cal'].toFixed(2)}</Text>
+                </View>
+                <View style={styles.macroContainer}>
+                <Image source={mealIcons['carbo'].uri} style={styles.macroImage} />
+                <Text>{diary.meals[id].macro['carb'].toFixed(2)}</Text>
+                </View>
+                <View style={styles.macroContainer}>
+                <Image source={mealIcons['fat'].uri} style={styles.macroImage} />
+                <Text>{diary.meals[id].macro['fat'].toFixed(2)}</Text>
+                </View>
+                <View style={styles.macroContainer}>
+                <Image source={mealIcons['protein'].uri} style={styles.macroImage} />
+                <Text>{diary.meals[id].macro['prot'].toFixed(2)}</Text>
+                </View>
                 <View style={styles.addBox}>
                     <Image source={require('../../assets/plus.png')} style={styles.addIcon} />
                 </View>

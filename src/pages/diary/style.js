@@ -37,6 +37,7 @@ export default StyleSheet.create({
             width: 0,
             height: 2,
         },
+        borderRadius:15,
         shadowOpacity: 0.23,
         shadowRadius: 2.62,
         elevation: 4,
@@ -44,8 +45,9 @@ export default StyleSheet.create({
       mealName:{
           fontSize:20,
           fontWeight:"bold",
-          marginLeft:10,
-          alignSelf:'center'
+          marginLeft:15,
+          alignSelf:'center',
+          marginRight:10,
       },
       mealImage:{
         alignSelf: 'center',
@@ -78,6 +80,18 @@ export default StyleSheet.create({
           },
           mealBar: {
               
-          }
+          },
+          macroImage: {
+            
+            width: 30,
+        height:30,
+          },
+          macroContainer:{
+            flexDirection:'column',
+            marginTop:10,
+            margin:3, 
+            justifyContent: 'center',
+          alignItems:'center',
+        }
                   
   });
