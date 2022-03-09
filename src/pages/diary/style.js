@@ -99,5 +99,28 @@ export default StyleSheet.create({
         marginVertical: 8,
         borderRadius: 15,
         }
+      ,
+      container: { 
+        flex:1 ,
+        zIndex: 1 ,
+        paddingHorizontal: 10,},
+         text: { 
+           fontSize: 17,
+             padding: 10 },
+              btnText: {
+                flex:1 ,
+                zIndex: 1 ,
+                  fontSize: 20 
+                }
+                , btnTextHolder: {
+                  flex:1 ,
+                  zIndex: 1 
+                  },
+                    Btn: { 
+                      flex:1 ,
+                      flexDirection:'row',
+                      zIndex: 1 
+                      }
+
                   
   });

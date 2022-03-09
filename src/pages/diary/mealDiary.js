@@ -11,7 +11,6 @@ const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset*3;
 
 
-
 // USE SELECTOR WAY
 //const diary = useSelector(state => state.macroTracker);
 const chartConfig = {

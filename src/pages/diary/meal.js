@@ -1,13 +1,18 @@
 
-import {Image, Text, View,TouchableOpacity} from 'react-native';
+import {Animated,Image, Dimensions,Text, View,TouchableOpacity,LayoutAnimation, UIManager} from 'react-native';
 import styles from './style'
+import renderIf from './renderIf'
+
 import React,{ useState,useEffect, useContext } from 'react';
+import { Dropdown } from 'react-native-material-dropdown';
 
 import { MealDataContext } from '../../stateManager/mealsDataProvider';
 import CustomButton from '../../customComponents/customButton';
 import { useDispatch } from 'react-redux';
 import { selectMealType } from '../../stateManager/reduxStates/actions/macroTracker';
 import { connect } from 'react-redux';
+
+
 
 const mealIcons ={
     breakfast: {uri:require("../../assets/breakfast.png")},
@@ -25,9 +30,10 @@ const mealIcons ={
 EACH MEAL HAS AN ID
 WHEN I CLICK ON THE + button i pass the id as props so that i can add food to the global context of that meal
 */
-export const Meal = ({navigation,name = "", icon = "breakfast", id,diary}) => {
+export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     
-    
+    const [expanded,setExpanded] = useState( false )
+
     const dispatch = useDispatch();
     
     //const [currentMealType,setMealType] = useContext(MealDataContext);
@@ -43,9 +49,23 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary}) => {
 
         navigation.navigate('FoodSearch',{});
     }
+  
+    
+ 
+
+
     
     return (
-        <TouchableOpacity  style={styles.mealContainer} onPress={()=>{addFoods()}}>
+        
+        <TouchableOpacity  style={styles.mealContainer}>
+
+<View style={styles.container}>
+                     <TouchableOpacity activeOpacity={0.2}
+                      onPress={() => { 
+                        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut); 
+                        setExpanded(!expanded ); 
+                    }}
+                      style={styles.Btn} > 
                 <Text style={styles.mealName}>{name}</Text>
                 <View style={styles.macroContainer}>
                 <Image source={mealIcons['cal'].uri} style={styles.macroImage} />
@@ -66,6 +86,17 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary}) => {
                 <View style={styles.addBox}>
                     <Image source={require('../../assets/plus.png')} style={styles.addIcon} />
                 </View>
+                
+                         </TouchableOpacity>
+                           <View style={{ height: expanded ? null : 0, overflow: 'hidden',marginBottom:20}}> 
+
+                           <Text style={styles.text}> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. 
+                           </Text> 
+                           </View> 
+
+                             </View> 
+                             
+
         </TouchableOpacity>
 
        
@@ -76,6 +107,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary}) => {
 
 //export default Home;
 const mapStateToProps = (state, ownProps = {}) => {
+    
     return{diary: state.macroTracker};
   }
   
