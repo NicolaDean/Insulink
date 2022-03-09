@@ -39,6 +39,7 @@ export default StyleSheet.create({
         shadowOpacity: 0.23,
         shadowRadius: 2.62,
         elevation: 4,
+        flexDirection:'row'
       },
       mealName:{
           fontSize:20,
@@ -57,7 +58,6 @@ export default StyleSheet.create({
         width:"100%",
         flexShrink:1,
         flexDirection:'row',
-        justifyContent:'flex-end',
       },
       addIcon:{
         alignSelf: 'center',
@@ -113,11 +113,10 @@ export default StyleSheet.create({
                   fontSize: 20 
                 }
                 , btnTextHolder: {
-                  flex:1 ,
                   zIndex: 1 
                   },
                     Btn: { 
-                      flex:1 ,
+                      marginTop: "5%",
                       flexDirection:'row',
                       zIndex: 1 
                       }

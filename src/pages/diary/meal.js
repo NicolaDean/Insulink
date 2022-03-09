@@ -1,5 +1,5 @@
 
-import {Animated,Image, Dimensions,Text, View,TouchableOpacity,LayoutAnimation, UIManager} from 'react-native';
+import {Animated,Image, Dimensions,Text, SafeAreaView,View,TouchableOpacity,LayoutAnimation, UIManager} from 'react-native';
 import styles from './style'
 import renderIf from './renderIf'
 
@@ -35,6 +35,8 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     const [expanded,setExpanded] = useState( false )
 
     const dispatch = useDispatch();
+
+    const dropViewHeight=100
     
     //const [currentMealType,setMealType] = useContext(MealDataContext);
     //setMealType("PASTOO CASUALE");
@@ -57,16 +59,37 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     
     return (
         
-        <TouchableOpacity  style={styles.mealContainer}>
+        <TouchableOpacity  style={{
+            width: "90%",
+            marginLeft:"5%",
+           
+            backgroundColor:"white",
+            flexDirection:'row',
+            shadowColor: "#000",
+            shadowOffset: {
+                width: 0,
+                height: 2,
+            },
+            borderRadius:15,
+            shadowOpacity: 0.23,
+            shadowRadius: 2.62,
+            elevation: 4,
+            flexDirection:'row'
+            ,marginBottom: 20,
 
-<View style={styles.container}>
-                     <TouchableOpacity activeOpacity={0.2}
+          }}>
+<TouchableOpacity activeOpacity={0.2}
                       onPress={() => { 
                         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut); 
                         setExpanded(!expanded ); 
                     }}
-                      style={styles.Btn} > 
+                      style={{}} > 
+    <SafeAreaView  style={{flexDirection:'row'}}>
+                     
+                  <Image source={mealIcons[icon].uri} style={styles.mealImage} />
+
                 <Text style={styles.mealName}>{name}</Text>
+                <View style={{justifyContent:'flex-end',flexShrink:1,flexDirection:'row'}}>
                 <View style={styles.macroContainer}>
                 <Image source={mealIcons['cal'].uri} style={styles.macroImage} />
                 <Text>{diary.meals[id].macro['cal'].toFixed(2)}</Text>
@@ -86,15 +109,17 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                 <View style={styles.addBox}>
                     <Image source={require('../../assets/plus.png')} style={styles.addIcon} />
                 </View>
-                
-                         </TouchableOpacity>
-                           <View style={{ height: expanded ? null : 0, overflow: 'hidden',marginBottom:20}}> 
+                </View>
+                 </SafeAreaView>
+                         
+                           <SafeAreaView style={{ height: expanded ? null : 0,overflow: 'scroll',width:"90%"}}> 
 
-                           <Text style={styles.text}> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. 
+                           <Text style={styles.text}> {JSON.stringify(diary.meals[icon])} 
                            </Text> 
-                           </View> 
-
-                             </View> 
+                           </SafeAreaView>
+                           
+</TouchableOpacity>
+                              
                              
 
         </TouchableOpacity>
