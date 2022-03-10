@@ -54,7 +54,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     const renderListItem = (item) =>{
         return(
             <View style={{alignContent:'center'}}>
-                <Food style={styles.food} data = {item.id} nav = {navigation} api={apiSelected} activeView={false}></Food>
+                <Food style={styles.food} data = {item.id} nav = {navigation} api={apiSelected} activeView={true}></Food>
                 <Text style={{fontSize:15,marginLeft:10,marginBottom:10}} >{item.id.serving_unit} </Text >
             </View>
         );

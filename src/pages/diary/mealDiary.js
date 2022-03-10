@@ -1,12 +1,13 @@
 import React from 'react';
-import {ScrollView, Text, View,Dimensions} from 'react-native';
+import {ScrollView, Text, View,Dimensions,StyleSheet} from 'react-native';
 import styles from './style'
 import { connect } from 'react-redux';
-
+import {ChartSlider} from './chartSlider'
 import CustomButton from '../../customComponents/customButton';
 import {ProgressChart} from "react-native-chart-kit";
-
 import Meal from './meal';
+import Slick from 'react-native-slick';
+
 const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset*3;
 
@@ -51,13 +52,15 @@ export const MealDiary = ({ navigation,diary }) =>{
     data: [(((diary.totMacro.prot.toFixed(2)/maxProt)<1) ? (diary.totMacro.prot.toFixed(2)/maxProt) : 1),(((diary.totMacro.fat.toFixed(2)/maxFat)<1) ? (diary.totMacro.fat.toFixed(2)/maxFat) : 1),(((diary.totMacro.carb.toFixed(2)/maxCarb)<1) ? (diary.totMacro.carb.toFixed(2)/maxCarb) : 1)]
   }
   
+  
 return (
- //TODO ADD THE TOTAL MEALS MACRO GRAPH
- 
+ //TODO ADD THE TOTAL MEALS MACRO GRAPHù
+ <View>
+
 <ScrollView >
 
-        <Text style={styles.title}>Meal Diary:</Text>
-        <View style={{marginBottom:"5%"}}>
+<Slick style={styles.wrapper} showsButtons={false}>
+        <View style={styles.slide}>
         <ProgressChart 
             data={graph}
             width={screenWidth}
@@ -68,14 +71,43 @@ return (
             hideLegend={false}
             style={styles.chartStyle}
           />
-
         </View>
+        <View style={styles.slide}>
+        <ProgressChart 
+            data={graph}
+            width={screenWidth}
+            height={180}
+            strokeWidth={10}
+            radius={32}
+            chartConfig={chartConfig}
+            hideLegend={false}
+            style={styles.chartStyle}
+          />
+        </View>
+        <View style={styles.slide}>
+        <ProgressChart 
+            data={graph}
+            width={screenWidth}
+            height={180}
+            strokeWidth={10}
+            radius={32}
+            chartConfig={chartConfig}
+            hideLegend={false}
+            style={styles.chartStyle}
+          />
+        </View>
+      </Slick>
+
+<Text style={styles.title}>Meal Diary:</Text>
+        
+        
         <Meal navigation = {navigation} name ="Colazione"   icon ="breakfast"   id="breakfast"/>
         <Meal navigation = {navigation} name ="Pranzo"      icon ="lunch"       id="lunch"/>
         <Meal navigation = {navigation} name ="Cena"        icon ="dinner"      id="dinner"/>
         <Meal navigation = {navigation} name ="Snack"       icon ="snack"       id="snack"/>
                 <CustomButton title='Add Custom Meal' onPress={()=>{}}/>
 </ScrollView>
+</View>
     );
 }//<CustomImageButton tile="Home" image='plus' style={styles.appLogoContainer}  iconStyle={styles.LogoSize}/>
 
