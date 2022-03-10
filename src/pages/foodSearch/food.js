@@ -32,13 +32,14 @@ export const Food = (props) =>{
     
     
     return (
-        <TouchableHighlight  style={{    justifyContent: 'center',
+        <TouchableHighlight  style={ {justifyContent: 'center',
         alignItems:'center',margin:3}} underlayColor={"COLOR"}  onPress={()=>{props.nav.navigate('FoodDetails',{id : {id}}) }}>
-            <View style={styles.contentBox}>
+            <View style={props.activeView?styles.contentBox: {marginBottom:15, justifyContent: 'center',
+            alignItems:'center',}}>
                 <Text style={styles.title}>{name}</Text>
                 
                 <Image 
-                    style={{width: Dimensions.get('window').width*0.2, height: Dimensions.get('window').width*0.2}}
+                    style={props.activeView?{width: Dimensions.get('window').width*0.2, height: Dimensions.get('window').width*0.2}: {width:70,height:70}}
                     source ={{uri:image}}/>
             </View>
         </TouchableHighlight>

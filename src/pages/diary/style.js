@@ -137,7 +137,7 @@ export default StyleSheet.create({
                       },food:{
                         justifyContent: 'center',
                         alignItems:'center',
-                      
+                        borderRadius:15
                       },
 
                   

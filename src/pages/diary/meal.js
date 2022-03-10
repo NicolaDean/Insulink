@@ -96,16 +96,16 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                 </View>
                  </TouchableOpacity>
                          
-                           <View style={{ height: expanded ? null : 0,overflow: 'scroll',width:"90%",fontSize:20}}> 
+                           <View style={{ height: expanded ? null : 0,overflow: 'scroll',fontSize:20,justifyContent:'center'}}> 
 
                            <FlatList 
                             data={food}//id,name,image,cal,carbs,fat,prot
                             //food_name,serving_unit,tag_name,tag_id
                              numColumns={3}
-                             style={{flexDirection:'row'}}
+                             style={{height: expanded ? null : 0,overflow: 'scroll',}}
                              renderItem={({ item }) => (<View>
-                            <Food style={styles.food} data = {item.id} nav = {navigation} api={apiSelected} ></Food>
-<Text style={{fontSize:15,marginLeft:10,marginBottom:10}} >{item.id.serving_unit}</Text >
+                            <Food style={styles.food} data = {item.id} nav = {navigation} api={apiSelected} activeView={false}></Food>
+<Text style={{fontSize:15,marginLeft:10,marginBottom:10}} >{item.id.serving_unit} </Text >
                             </View>
                              )}
                             />
