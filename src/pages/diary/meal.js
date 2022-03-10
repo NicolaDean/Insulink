@@ -13,6 +13,7 @@ import CustomButton from '../../customComponents/customButton';
 import { useDispatch } from 'react-redux';
 import { selectMealType } from '../../stateManager/reduxStates/actions/macroTracker';
 import { connect } from 'react-redux';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 
 
 
@@ -46,7 +47,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     let macro = diary.meals[id].macro;
     let food= diary.meals[id].foods;
 
-    console.log("macro:" + JSON.stringify(macro));
+    console.log("macro:" + JSON.stringify(macro) + typeof(macro) +typeof(macro.id));
 
     const addFoods = () =>{
         
@@ -55,13 +56,12 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
         navigation.navigate('FoodSearch',{});
     }
   
-  
 
 
     
     return (
         
-        <TouchableOpacity  style={{
+        <SafeAreaView  style={{
             width: "90%",
             marginLeft:"5%",
             backgroundColor:"white",
@@ -78,13 +78,13 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
             ,marginBottom: 20,
 
           }}>
-<TouchableOpacity activeOpacity={0.2}
-                      onPress={() => { 
+<SafeAreaView activeOpacity={0.2}
+                      
+                      style={{flexDirection:'column'}} > 
+    <TouchableOpacity  style={{flexDirection:'row'}} onPress={() => { 
                         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut); 
                         setExpanded(!expanded ); 
-                    }}
-                      style={{flexDirection:'column'}} > 
-    <SafeAreaView  style={{flexDirection:'row'}}>
+                    }}>
                      
                   <Image source={mealIcons[icon].uri} style={styles.mealImage} />
 
@@ -93,28 +93,32 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                 
             
                 </View>
-                 </SafeAreaView>
+                 </TouchableOpacity>
                          
                            <View style={{ height: expanded ? null : 0,overflow: 'scroll',width:"90%",fontSize:20}}> 
 
                            <FlatList 
                             data={food}//id,name,image,cal,carbs,fat,prot
+                            //food_name,serving_unit,tag_name,tag_id
                              numColumns={3}
-                             renderItem={({ item }) => (
-                                 <View style={{flexDirection:'column',alignContent:'stretch'}}>
+                             renderItem={({ item }) => (<View>
+                                                        <TouchableOpacity onPress={()=>{navigation.navigate('FoodDetails',{id : item.id})}} style={{flexDirection:'column',alignContent:'stretch'}}>
                             <Image source={ {uri: item.image}} style={styles.foodImage}/>
-                            <Text style={{fontSize:20,marginLeft:10}} >{item.name}: cal {item.prot}Kcal, carbo {item.carbs}g, fat  {item.fat}g, proteins {item.prot}g
-                            {'\n'}
-                            </Text>
-                            </View>
+                            
+                             </TouchableOpacity> 
+<Text style={{fontSize:20,marginLeft:10}} >{item.name} {item.id.tag_id}: cal {item.prot}Kcal, carbo {item.carbs}g, fat  {item.fat}g, proteins {item.prot}g
+                            {'\n'} 
+                            </Text >
 
+                            
+                            </View>
                              )}
                             />
                            </View>
                            
-</TouchableOpacity>
+</SafeAreaView>
                               
-<TouchableOpacity style={styles.addBox} >
+<View style={styles.addBox} >
 <View style={styles.macroContainer}>
                 <Image source={mealIcons['cal'].uri} style={styles.macroImage} />
                 <Text>{diary.meals[id].macro['cal'].toFixed(2)}</Text>
@@ -134,10 +138,10 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                 <TouchableOpacity  onPress={()=>{addFoods()}}>
                     <Image source={require('../../assets/plus.png')} style={styles.addIcon}/>
                 </TouchableOpacity>
-                </TouchableOpacity>
+                </View>
 
 
-        </TouchableOpacity>
+        </SafeAreaView>
 
        
     );
