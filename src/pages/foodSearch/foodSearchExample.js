@@ -70,7 +70,7 @@ export const FoodSearchExample = ({ navigation }) =>{
             data={foodData}
               numColumns={3}
             renderItem={({ item }) => (
-                <Food style={styles.food} data = {item} nav = {navigation} api={apiSelected} activeView={true}></Food>
+                <Food style={styles.food} data = {item} nav = {navigation} api={apiSelected}></Food>
               )}
             />
 
@@ -81,16 +81,3 @@ export const FoodSearchExample = ({ navigation }) =>{
 }
 
 export default FoodSearchExample;
-
-//TODO FIX GRID 
-/*
-<FlatList
-
-            data={foodData}
-              numColumns={3}
-
-            renderItem={({ item }) => (
-              
-            <Food data = {item} nav = {navigation}></Food>)}
-        />
-        */
