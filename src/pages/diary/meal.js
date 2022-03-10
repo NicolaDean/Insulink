@@ -96,14 +96,18 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                  </SafeAreaView>
                          
                            <View style={{ height: expanded ? null : 0,overflow: 'scroll',width:"90%",fontSize:20}}> 
+
                            <FlatList 
-                            
-                            data={food}
+                            data={food}//id,name,image,cal,carbs,fat,prot
                              numColumns={3}
                              renderItem={({ item }) => (
-                            <Text style={{flex:1,fontSize:20,marginLeft:10,flexDirection:'row'}} >{item.name} 
+                                 <View style={{flexDirection:'column',alignContent:'stretch'}}>
+                            <Image source={ {uri: item.image}} style={styles.foodImage}/>
+                            <Text style={{fontSize:20,marginLeft:10}} >{item.name}: cal {item.prot}Kcal, carbo {item.carbs}g, fat  {item.fat}g, proteins {item.prot}g
                             {'\n'}
                             </Text>
+                            </View>
+
                              )}
                             />
                            </View>

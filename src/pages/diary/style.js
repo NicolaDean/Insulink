@@ -127,6 +127,13 @@ export default StyleSheet.create({
                         fontSize:20,
                         marginLeft:5,
                         marginTop:5
+                      },
+                      foodImage:{
+                        marginTop:5,
+                          marginLeft:10,
+                          width: 30,
+                          height: 30,
+                        
                       }
 
                   
