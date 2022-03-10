@@ -134,7 +134,11 @@ export default StyleSheet.create({
                           width: 30,
                           height: 30,
                         
-                      }
+                      },food:{
+                        justifyContent: 'center',
+                        alignItems:'center',
+                      
+                      },
 
                   
   });

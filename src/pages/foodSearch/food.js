@@ -33,7 +33,7 @@ export const Food = (props) =>{
     
     return (
         <TouchableHighlight  style={{    justifyContent: 'center',
-        alignItems:'center',margin:3}}underlayColor={"COLOR"}  onPress={()=>{props.nav.navigate('FoodDetails',{id : {id}}) }}>
+        alignItems:'center',margin:3}} underlayColor={"COLOR"}  onPress={()=>{props.nav.navigate('FoodDetails',{id : {id}}) }}>
             <View style={styles.contentBox}>
                 <Text style={styles.title}>{name}</Text>
                 

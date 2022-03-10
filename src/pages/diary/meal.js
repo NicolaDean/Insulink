@@ -36,6 +36,7 @@ WHEN I CLICK ON THE + button i pass the id as props so that i can add food to th
 export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     
     const [expanded,setExpanded] = useState( false )
+    const [apiSelected, setApi] = useState(false);
 
     const dispatch = useDispatch();
 
@@ -101,16 +102,10 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                             data={food}//id,name,image,cal,carbs,fat,prot
                             //food_name,serving_unit,tag_name,tag_id
                              numColumns={3}
+                             style={{flexDirection:'row'}}
                              renderItem={({ item }) => (<View>
-                                                        <TouchableOpacity onPress={()=>{navigation.navigate('FoodDetails',{id : item.id})}} style={{flexDirection:'column',alignContent:'stretch'}}>
-                            <Image source={ {uri: item.image}} style={styles.foodImage}/>
-                            
-                             </TouchableOpacity> 
-<Text style={{fontSize:20,marginLeft:10}} >{item.name} {item.id.tag_id}: cal {item.prot}Kcal, carbo {item.carbs}g, fat  {item.fat}g, proteins {item.prot}g
-                            {'\n'} 
-                            </Text >
-
-                            
+                            <Food style={styles.food} data = {item.id} nav = {navigation} api={apiSelected} ></Food>
+<Text style={{fontSize:15,marginLeft:10,marginBottom:10}} >{item.id.serving_unit}</Text >
                             </View>
                              )}
                             />
