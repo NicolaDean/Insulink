@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View,Dimensions} from 'react-native';
+import {ScrollView, Text, View,Dimensions} from 'react-native';
 import styles from './style'
 import { connect } from 'react-redux';
 
@@ -54,7 +54,7 @@ export const MealDiary = ({ navigation,diary }) =>{
 return (
  //TODO ADD THE TOTAL MEALS MACRO GRAPH
  
-<View  >
+<ScrollView >
 
         <Text style={styles.title}>Meal Diary:</Text>
         <View style={{marginBottom:"5%"}}>
@@ -75,7 +75,7 @@ return (
         <Meal navigation = {navigation} name ="Cena"        icon ="dinner"      id="dinner"/>
         <Meal navigation = {navigation} name ="Snack"       icon ="snack"       id="snack"/>
                 <CustomButton title='Add Custom Meal' onPress={()=>{}}/>
-</View>
+</ScrollView>
     );
 }//<CustomImageButton tile="Home" image='plus' style={styles.appLogoContainer}  iconStyle={styles.LogoSize}/>
 

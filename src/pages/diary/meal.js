@@ -9,7 +9,6 @@ import { useDispatch } from 'react-redux';
 import { selectMealType } from '../../stateManager/reduxStates/actions/macroTracker';
 import { connect } from 'react-redux';
 
-import Collapsible from 'react-native-collapsible';
 
 const mealIcons ={
     breakfast: {uri:require("../../assets/breakfast.png")},
@@ -54,7 +53,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
 
     const renderListItem = (item) =>{
         return(
-            <View >
+            <View style={{alignContent:'center'}}>
                 <Food style={styles.food} data = {item.id} nav = {navigation} api={apiSelected} activeView={false}></Food>
                 <Text style={{fontSize:15,marginLeft:10,marginBottom:10}} >{item.id.serving_unit} </Text >
             </View>
@@ -63,14 +62,14 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
 
     const showExpansion = () =>{
         return (
-            <View style={{ width:"100%", overflow: 'scroll',fontSize:20,justifyContent:'center'}}> 
+            <ScrollView horizontal={true} style={{ width:"100%", overflow: 'scroll',fontSize:20}}> 
                 <FlatList 
                     data={food}//id,name,image,cal,carbs,fat,prot,food_name,serving_unit,tag_name,tag_id
                     numColumns={3}
                     style={{overflow: 'scroll',}}
                     renderItem={({ item }) => (renderListItem(item))}
                 />
-            </View>
+            </ScrollView>
         );
     }
 
