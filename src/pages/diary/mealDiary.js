@@ -59,15 +59,15 @@ return (
         <Text style={styles.title}>Meal Diary:</Text>
         <View style={{marginBottom:"5%"}}>
         <ProgressChart 
-  data={graph}
-  width={screenWidth}
-  height={180}
-  strokeWidth={10}
-  radius={32}
-  chartConfig={chartConfig}
-  hideLegend={false}
-  style={styles.chartStyle}
-/>
+            data={graph}
+            width={screenWidth}
+            height={180}
+            strokeWidth={10}
+            radius={32}
+            chartConfig={chartConfig}
+            hideLegend={false}
+            style={styles.chartStyle}
+          />
 
         </View>
         <Meal navigation = {navigation} name ="Colazione"   icon ="breakfast"   id="breakfast"/>

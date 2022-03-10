@@ -8,8 +8,8 @@ import { StyleSheet,Text,View } from 'react-native';
 import FoodSearchExample from './src/pages/foodSearch/foodSearchExample';
 import Home from './src/pages/home/home';
 import EditPersonalData from './src/pages/settings/editPersonalData';
-import { FoodDetails } from './src/pages/foodSearch/foodDetails';
-import { PersonalData } from './src/pages/settings/personalData';
+import  FoodDetails  from './src/pages/foodSearch/foodDetails';
+import  PersonalData  from './src/pages/settings/personalData';
 import  MealDiary  from './src/pages/diary/mealDiary';
 import { AddMeal } from './src/pages/diary/addMeal';
 import { UserDataProvider } from './src/stateManager/userDataProvider';
@@ -21,7 +21,7 @@ const Stack = createNativeStackNavigator();
 
 const App = () => {
  
-  
+    //options={{ headerShown: false }}
   return(
     
     <NavigationContainer>
@@ -29,7 +29,7 @@ const App = () => {
           <UserDataProvider>
             <MealDataProvider>          
             <Stack.Navigator>
-              <Stack.Screen name="Home" component={Home}/>
+              <Stack.Screen name="Home" component={Home} />
               <Stack.Screen name="FoodSearch" component={FoodSearchExample} />
               <Stack.Screen name="FoodDetails" component={FoodDetails}/>
               <Stack.Screen name="MealDiary" component={MealDiary}/>

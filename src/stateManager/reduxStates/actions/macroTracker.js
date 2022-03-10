@@ -1,21 +1,22 @@
+import { foodMethods } from "../../../constants/reducers"
 
 export const addFood = (food) =>{
     return{
-        type: 'ADD_FOOD',
+        type: foodMethods.addFood,
         payload: {food:food}
     }
 } 
 
 export const removeFood = (food) =>{
     return{
-        type: 'REMOVE_FOOD',
+        type: foodMethods.removeFood,
         payload: {food:food}
     }
 } 
 
 export const selectMealType = (mealType) =>{
     return{
-        type: 'SELECT_MEAL',
+        type: foodMethods.selectMeal,
         payload: {mealType:mealType}
     }
 }

@@ -111,70 +111,68 @@ const getJson = async (query) =>{
 
 //OTHER API TEST: NUTRITIONIX
 
+const rootUrl = 'https://trackapi.nutritionix.com/v2';
 const nutrixAppId = 'e29d5b1a';
 const nutrixAppKey = '4bfbc69b7095239b9768d1f7b3f47e56';
 
-export const getFoodListAlternative =async (userInput) =>{
-
-    const response = await
-     axios.get('https://trackapi.nutritionix.com/v2/search/instant',{
-        headers:{
-            'x-app-id':nutrixAppId,
-            'x-app-key':nutrixAppKey
-        },
-        params: {
-          query: userInput
-        },
-        responseType: 'json'
-      })
-      .then( (response) => {
-        return (response.data);
-      })
-      .catch( (error)=> {
-        console.log("Some Errors, 400");
-        console.log(JSON.stringify(error));
-      });
-
-
-      return response;
+const headers = {
+    'x-app-id':nutrixAppId,
+    'x-app-key':nutrixAppKey,
+    'x-remote-user-id': 0
 }
 
-export const getIngredientDetailsAlternative = async  (userInput) =>{
-    console.log("QUERY : " + userInput);
+/**
+ * allow to search for foods on the API database, both common and branded foods
+ * @param {*} userInput food to search
+ * @returns a list of foods
+ */
+export const getFoodListAlternative =async (userInput) =>{
 
-    /*const response = await fetch('https://trackapi.nutritionix.com/v2/natural/nutrients',
-    {
-        method:'post',
-            headers:{
-                'x-app-id':nutrixAppId,
-                'x-app-key':nutrixAppKey,
-                'x-remote-user-id': 0
-            },
-            params:{
-                query: "apple"
-            }
-    });*/
+    const param = {
+        query: userInput
+    }
+
+    return await doRequest('get','/search/instant',param);
+}
+
+/**
+ * Allow to retrive details of specific foods
+ * @param {*} userInput id/name of food
+ * @returns details of food
+ */
+export const getIngredientDetailsAlternative = async  (userInput) =>{
     
-    //curl -X POST "https://trackapi.nutritionix.com/v2/natural/nutrients" -H "accept: application/json" -H "x-app-id: e29d5b1a" -H "x-app-key: 4bfbc69b7095239b9768d1f7b3f47e56" -H "x-remote-user-id: 0" -H "Content-Type: application/json" -d "{ \"query\": \"shrimp tempura\", \"num_servings\": 1}"
-    // Used instead of Fetch
+    const param = {
+        query:userInput,
+        num_servings:1
+    }
+
+    return await doRequest('post','/natural/nutrients',param);
+}
+
+
+/**
+ * General purpose function to do API request with axios 
+ * @param {*} method method to use (POST,GET)
+ * @param {*} query relative path to the API request
+ * @param {*} param parameters of request (eg query,foodAmount...)
+ * @returns JSON with API response
+ */
+const doRequest = async(method,query,param) =>{
+    console.log("QUERY : " + query);
+    
     const response = await axios({
-            url:'https://trackapi.nutritionix.com/v2/natural/nutrients',
-            method:'post',
-            headers:{
-                'x-app-id':nutrixAppId,
-                'x-app-key':nutrixAppKey,
-                'x-remote-user-id': 0
-            },
-            data:{
-                query:userInput,
-                num_servings:1
-            },
+            url:rootUrl + query,
+            method:method,
+            headers:headers,
+            params:param, //TODO put data into params for GET and in data for POST
+            data:param,
             responseType: 'json'
         }).then( (response) => {
         return (response.data);
       })
       .catch( (error)=> {
-        console.log("Some Errors, 400");
+        console.log("Some Errors:\n");
         console.log(JSON.stringify(error));
       });
 

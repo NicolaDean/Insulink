@@ -1,4 +1,8 @@
 
+import { macroConstants } from "../../../constants/states";
+
+const macro = macroConstants;
+
 const initialState = {
     currentMeal:"breakfast",
     totMacro:{cal:0,carb:0,fat:0,prot:0},
@@ -19,31 +23,74 @@ const selectMeal = (state,data)=>{
     return newState;
 }
 
+/**
+ * Merge 2 macro into a single one by summing its values
+ * @param {*} base first macro
+ * @param {*} toSum second macro
+ * @returns merged macros
+ */
+const sumMacro = (base,toSum) =>{
+
+    let result = {};
+
+    result[macro.cal] = base[macro.cal] + toSum[macro.cal];
+    result[macro.fat] = base[macro.fat] + toSum[macro.fat];
+    result[macro.carb] = base[macro.carb] + toSum[macro.carb];
+    result[macro.prot] = base[macro.prot] + toSum[macro.prot];
+
+    return result;
+}
+/**
+ * Merge 2 macro into a single one by subbing its values
+ * @param {*} base first macro
+ * @param {*} toSum second macro
+ * @returns merged macros
+ */
+const subMacro = (base,toRemove) =>{
+
+    let result = {};
+
+    result[macro.cal] = base[macro.cal] - toRemove[macro.cal];
+    result[macro.fat] = base[macro.fat] - toRemove[macro.fat];
+    result[macro.carb] = base[macro.carb] - toRemove[macro.carb];
+    result[macro.prot] = base[macro.prot] - toRemove[macro.prot];
+
+    return result;
+}
+/**
+ * add a food to the global state representing meals of today
+ * @param {*} state today meals
+ * @param {*} data food to add
+ * @returns new state with the new food added to the current selected meal
+ */
 const addFood = (state,data)=>{
     
     const newstate ={...state};
-    newstate.meals[state.currentMeal].foods.push(data.food);
-    let macro = state.meals[state.currentMeal].macro;
-
-    newstate.totMacro['carb'] = newstate.totMacro['carb'] + data.food['carbs'];
-    newstate.totMacro['prot'] = newstate.totMacro['prot'] + data.food['prot'];
-    newstate.totMacro['fat'] = newstate.totMacro['fat'] + data.food['fat'];
-    newstate.totMacro['cal'] = newstate.totMacro['cal'] + data.food['cal'];
     
-    macro['cal'] = macro['cal'] + data.food['cal'];
-    macro['carb'] = macro['carb'] + data.food['carbs'];
-    macro['prot'] =   macro['carb'] + data.food['prot'];
-    macro['fat'] =  macro['carb'] +data.food['fat'];
+    newstate.meals[state.currentMeal].foods.push(data.food);
+    let m = state.meals[state.currentMeal].macro;
 
-    newstate.meals[state.currentMeal].macro = macro;
+    newstate.totMacro  = sumMacro(newstate.totMacro,data.food);
+    newstate.meals[state.currentMeal].macro = sumMacro(m,data.food);
 
-    //console.log("STATE CHANGE: " + JSON.stringify(newstate));
-    //TODO PUT FOOD INTO STATE
     return newstate;
 }
-
+/**
+ * remove a food to the global state representing meals of today
+ * @param {*} state today meals
+ * @param {*} data food to add
+ * @returns new state with the selected food removed to the current selected meal
+ */
 const removeFood = (state,data)=>{
 
+    const newstate ={...state};
+
+    let m = state.meals[state.currentMeal].macro;
+
+    newstate.totMacro  = subMacro(newstate.totMacro,data.food);
+    newstate.meals[state.currentMeal].macro = subMacro(m,data.food);
+
+    return newstate;
 }
 
 //TODO PUT THE NAME OF ACTIONS INTO COSNTANT FILE

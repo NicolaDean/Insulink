@@ -1,21 +1,15 @@
 
-import {Animated,Image, Dimensions,FlatList,Text, SafeAreaView,View,TouchableOpacity,LayoutAnimation, UIManager} from 'react-native';
+import {ScrollView,Image,FlatList,Text, SafeAreaView,View,TouchableOpacity,LayoutAnimation} from 'react-native';
 import styles from './style'
-import renderIf from './renderIf'
-import * as api from "../../utils/apiQuery";
 import {Food} from '../foodSearch/food'
 
 import React,{ useState,useEffect, useContext } from 'react';
-import { Dropdown } from 'react-native-material-dropdown';
 
-import { MealDataContext } from '../../stateManager/mealsDataProvider';
-import CustomButton from '../../customComponents/customButton';
 import { useDispatch } from 'react-redux';
 import { selectMealType } from '../../stateManager/reduxStates/actions/macroTracker';
 import { connect } from 'react-redux';
-import { TouchableHighlight } from 'react-native-gesture-handler';
 
-
+import Collapsible from 'react-native-collapsible';
 
 const mealIcons ={
     breakfast: {uri:require("../../assets/breakfast.png")},
@@ -28,13 +22,9 @@ const mealIcons ={
     carbo:{uri:require("../../assets/carbohydrates.png")},
 }
 
-//IDEA:
-/*
-EACH MEAL HAS AN ID
-WHEN I CLICK ON THE + button i pass the id as props so that i can add food to the global context of that meal
-*/
 export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     
+    //This variable keep track of the expansios status of meal (can be shrinked or growed by click)
     const [expanded,setExpanded] = useState( false )
     const [apiSelected, setApi] = useState(false);
 
@@ -57,93 +47,83 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
         navigation.navigate('FoodSearch',{});
     }
   
+    const expandMeal = () =>{
+        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut); 
+        setExpanded(expanded => !expanded); 
+    }
 
+    const renderListItem = (item) =>{
+        return(
+            <View >
+                <Food style={styles.food} data = {item.id} nav = {navigation} api={apiSelected} activeView={false}></Food>
+                <Text style={{fontSize:15,marginLeft:10,marginBottom:10}} >{item.id.serving_unit} </Text >
+            </View>
+        );
+    }
+
+    const showExpansion = () =>{
+        return (
+            <View style={{ width:"100%", overflow: 'scroll',fontSize:20,justifyContent:'center'}}> 
+                <FlatList 
+                    data={food}//id,name,image,cal,carbs,fat,prot,food_name,serving_unit,tag_name,tag_id
+                    numColumns={3}
+                    style={{overflow: 'scroll',}}
+                    renderItem={({ item }) => (renderListItem(item))}
+                />
+            </View>
+        );
+    }
 
     
     return (
         
-        <SafeAreaView  style={{
-            width: "90%",
-            marginLeft:"5%",
-            backgroundColor:"white",
-            shadowColor: "#000",
-            shadowOffset: {
-                width: 0,
-                height: 2,
-            },
-            borderRadius:15,
-            shadowOpacity: 0.23,
-            shadowRadius: 2.62,
-            elevation: 4,
-            flexDirection:'row'
-            ,marginBottom: 20,
-
-          }}>
-<SafeAreaView activeOpacity={0.2}
-                      
-                      style={{flexDirection:'column'}} > 
-    <TouchableOpacity  style={{flexDirection:'row'}} onPress={() => { 
-                        LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut); 
-                        setExpanded(!expanded ); 
-                    }}>
-                     
-                  <Image source={mealIcons[icon].uri} style={styles.mealImage} />
-
+<SafeAreaView  style={styles.mealView}>
+    <View style={{width:'100%',flexDirection:'row'}}>
+        <View activeOpacity={0.2} style={{flex:1,flexDirection:'column'}} > 
+            <TouchableOpacity  style={{flexDirection:'row'}} onPress = {expandMeal}>
+                <Image source={mealIcons[icon].uri} style={styles.mealImage} />
                 <Text style={styles.mealName}>{name}</Text>
                 <View style={{justifyContent:'flex-end',flexShrink:1,flexDirection:'row'}}>
-                
-            
                 </View>
-                 </TouchableOpacity>
-                         
-                           <View style={{ height: expanded ? null : 0,overflow: 'scroll',fontSize:20,justifyContent:'center'}}> 
-
-                           <FlatList 
-                            data={food}//id,name,image,cal,carbs,fat,prot
-                            //food_name,serving_unit,tag_name,tag_id
-                             numColumns={3}
-                             style={{height: expanded ? null : 0,overflow: 'scroll',}}
-                             renderItem={({ item }) => (<View>
-                            <Food style={styles.food} data = {item.id} nav = {navigation} api={apiSelected} activeView={false}></Food>
-<Text style={{fontSize:15,marginLeft:10,marginBottom:10}} >{item.id.serving_unit} </Text >
-                            </View>
-                             )}
-                            />
-                           </View>
-                           
+            </TouchableOpacity>                  
+        </View>
+                                
+        <View style={styles.addBox} >
+                    <View style={styles.macroContainer}>
+                        <Image source={mealIcons['cal'].uri} style={styles.macroImage} />
+                        <Text>{diary.meals[id].macro['cal'].toFixed(2)}</Text>
+                    </View>
+                    <View style={styles.macroContainer}>
+                    <Image source={mealIcons['carbo'].uri} style={styles.macroImage} />
+                    <Text>{diary.meals[id].macro['carb'].toFixed(2)}</Text>
+                    </View>
+                    <View style={styles.macroContainer}>
+                    <Image source={mealIcons['fat'].uri} style={styles.macroImage} />
+                    <Text>{diary.meals[id].macro['fat'].toFixed(2)}</Text>
+                    </View>
+                    <View style={styles.macroContainer}>
+                    <Image source={mealIcons['protein'].uri} style={styles.macroImage} />
+                    <Text>{diary.meals[id].macro['prot'].toFixed(2)}</Text>
+                    </View>
+                    <TouchableOpacity  onPress={()=>{addFoods()}}>
+                        <Image source={require('../../assets/plus.png')} style={styles.addIcon}/>
+                    </TouchableOpacity>
+        </View>
+    </View>
+  
+        {
+            //SHOW THE LIST OF FOODS ONLY IF EXPANDED IS TRUE
+            expanded ? (showExpansion()):null
+        }
+        
 </SafeAreaView>
-                              
-<View style={styles.addBox} >
-<View style={styles.macroContainer}>
-                <Image source={mealIcons['cal'].uri} style={styles.macroImage} />
-                <Text>{diary.meals[id].macro['cal'].toFixed(2)}</Text>
-                </View>
-                <View style={styles.macroContainer}>
-                <Image source={mealIcons['carbo'].uri} style={styles.macroImage} />
-                <Text>{diary.meals[id].macro['carb'].toFixed(2)}</Text>
-                </View>
-                <View style={styles.macroContainer}>
-                <Image source={mealIcons['fat'].uri} style={styles.macroImage} />
-                <Text>{diary.meals[id].macro['fat'].toFixed(2)}</Text>
-                </View>
-                <View style={styles.macroContainer}>
-                <Image source={mealIcons['protein'].uri} style={styles.macroImage} />
-                <Text>{diary.meals[id].macro['prot'].toFixed(2)}</Text>
-                </View>
-                <TouchableOpacity  onPress={()=>{addFoods()}}>
-                    <Image source={require('../../assets/plus.png')} style={styles.addIcon}/>
-                </TouchableOpacity>
-                </View>
-
-
-        </SafeAreaView>
 
        
-    );
+    );//
    
 
 }
-
+/*                */
 //export default Home;
 const mapStateToProps = (state, ownProps = {}) => {
     

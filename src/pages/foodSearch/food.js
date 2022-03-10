@@ -2,54 +2,32 @@ import React,{useContext} from 'react';
 import { Text, View, Image,TouchableHighlight, StyleSheet,Dimensions} from 'react-native';
 import { MealDataContext } from '../../stateManager/mealsDataProvider';
 
-export const Food = (props) =>{
+export const Food = ({data,nav,activeView}) =>{
 
-
-    //const {mealType,foodList} = useContext(MealDataContext);
-    
-
-    let data = props.data;
-    let name ="";
-    let image;
-    let id;
-
-    //let data = {name:"",photo:"https://it.wikipedia.org/wiki/Mela#/media/File:Sundown_and_cross_section.jpg"}
-    if(!props.api){
-        image = data.photo.thumb;
-        name = data.food_name;
-        //console.log("FOOD : " + JSON.stringify(data));
-        id=data;
-    }else{
-        //Spoonacular
-        id = data.id;
-        image = "https://spoonacular.com/cdn/ingredients_100x100/" + data.image;
-        name = data.name;
+    let image = data.photo.thumb;
+    let name = data.food_name;
+    let id=data;
+   
+    const getDetails = (id) =>{
+        nav.navigate('FoodDetails',{id : {id}}) 
     }
    
-
-    
-
-    
-    
     return (
         <TouchableHighlight  style={ {justifyContent: 'center',
-        alignItems:'center',margin:3}} underlayColor={"COLOR"}  onPress={()=>{props.nav.navigate('FoodDetails',{id : {id}}) }}>
-            <View style={props.activeView?styles.contentBox: {marginBottom:15, justifyContent: 'center',
+        alignItems:'center',margin:3}} underlayColor={"COLOR"}  onPress={()=>{getDetails(id)}}>
+            <View style={activeView?styles.contentBox: {marginBottom:15, justifyContent: 'center',
             alignItems:'center',}}>
                 <Text style={styles.title}>{name}</Text>
                 
                 <Image 
-                    style={props.activeView?{width: Dimensions.get('window').width*0.2, height: Dimensions.get('window').width*0.2}: {width:70,height:70}}
+                    style={activeView?{width: Dimensions.get('window').width*0.2, height: Dimensions.get('window').width*0.2}: {width:70,height:70}}
                     source ={{uri:image}}/>
             </View>
         </TouchableHighlight>
        
     );
 
-    const getDetails = (data) =>{
-        props.nav.navigate('FoodDetails',{data : {data}}) 
-    }
-   
+
 }
 const styles = StyleSheet.create(
     {

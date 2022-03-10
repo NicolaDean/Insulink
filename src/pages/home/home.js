@@ -111,28 +111,19 @@ export const Home = ({ navigation,diary }) =>{
   style={chartProgressStyle}
 />
 
-
-            <CustomButton
-                title='Food Search'
-                onPress={() => navigation.navigate('FoodSearch',{}) }
-            />
             <CustomButton
                 title='Meal Diary'
                 onPress={() => navigation.navigate('MealDiary',{}) }
             />
-<Text>{JSON.stringify(diary)}</Text>
             <CustomButton
                 title='PersonalData'
                 onPress={() => navigation.navigate('PersonalData',{}) }
-            />
-
-            
-            
+            />            
 </View>
     );
-
-
 }
+
+
 
 //export default Home;
 const mapStateToProps = (state, ownProps = {}) => {
@@ -140,3 +131,11 @@ const mapStateToProps = (state, ownProps = {}) => {
 }
 
 export default connect(mapStateToProps)(Home);
+
+/*
+
+            <CustomButton
+                title='Food Search'
+                onPress={() => navigation.navigate('FoodSearch',{}) }
+            />
+*/

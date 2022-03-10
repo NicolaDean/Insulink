@@ -11,6 +11,8 @@ import CustomButton from '../../customComponents/customButton';
 import SelectDropdown from 'react-native-select-dropdown'
 import { useSelector,useDispatch } from 'react-redux';
 import { addFood } from '../../stateManager/reduxStates/actions/macroTracker';
+import { macroConstants } from '../../constants/states';
+
 
 import axios from 'axios';
 const marginOffset=10;
@@ -28,59 +30,44 @@ export const FoodDetails = ({navigation,route}) =>{
 
     let image = "https://nix-tag-images.s3.amazonaws.com/384_thumb.jpg";
     let name ="";
-    let nutrients="";
+    let macro= {};
     let data = [
-        {x:"Carb",y:10},
-        { x: "Fat",y:200},
-        {x: "Prot",y:30}];
+        {x:macroConstants.carb,y:10},
+        {x: macroConstants.prot,y:200},
+        {x: macroConstants.fat,y:30}];
     let units = [];
 
+    //Retrive API food details data
     const getData = async (id)=>
     {
         let res;
-        if(typeof id == "object"){
-            console.log("DETAILLS:");
-            res = (await api.getIngredientDetailsAlternative(id.food_name));
-            res = res.foods[0];
-        }
-        else{
-            res = (await api.getIngredientDetails(id));
-        }
+        res = (await api.getIngredientDetailsAlternative(id.food_name));
+        res = res.foods[0];
 
         setDetails(res);
-       
     }
 
+    //Call on first render
     useEffect(()=>{
         getData(id);
         
     },[]);
 
-    if(typeof id == "object"){
+    //Define macro nutrients with api result
+    macro[macroConstants.carb]  = details.nf_total_carbohydrate;
+    macro[macroConstants.prot]  = details.nf_protein;
+    macro[macroConstants.fat]   = details.nf_total_fat;
+    macro[macroConstants.cal]   = details.nf_calories;
 
-        nutrients = {};
-
+    //Fill some others filds
+    image = id.photo.thumb;
+    name = id.food_name;
             
-        nutrients["Carbohydrates"] = {amount:details.nf_total_carbohydrate};
-        nutrients["Protein"] = {amount:details.nf_protein};
-        nutrients["Fat"] = {amount:details.nf_total_fat};
-        nutrients["Calories"] = {amount:details.nf_calories};
-        console.log(nutrients);
-
-        image = id.photo.thumb;
-        name = id.food_name;
-            
-    }else{
-            nutrients = api.extractNutrients(details.nutrition.nutrients);
-            image = api.imgUrl + res.image;
-            name = id.food_name;
-            units = details.possibleUnits;
-    }
 
     data = [
-        {x:"Carb",y:nutrients["Carbohydrates"].amount },
-        { x: "Fat",y:nutrients["Fat"].amount},
-        {x: "Prot",y:nutrients["Protein"].amount }];
+        {x:"Carb"  ,y:macro[macroConstants.carb] },
+        {x:"Fat"   ,y:macro[macroConstants.fat]},
+        {x:"Prot"  ,y:macro[macroConstants.prot] }];
 
     
     //const properties = api.extractProperties(details.nutrition.properties);
@@ -90,13 +77,13 @@ export const FoodDetails = ({navigation,route}) =>{
     const addItem = () =>{
 
         var food ={
-            id:id,
-            name:name,
-            image:image,
-            cal:nutrients["Calories"].amount,
-            carbs:nutrients["Carbohydrates"].amount,
-            fat:nutrients["Fat"].amount,
-            prot:nutrients["Protein"].amount
+            id:     id,
+            name:   name,
+            image:  image,
+            cal:    macro[macroConstants.cal],
+            carb:   macro[macroConstants.carb],
+            fat:    macro[macroConstants.fat],
+            prot:   macro[macroConstants.prot]
         }
 
         dispatch(addFood(food));
@@ -134,7 +121,7 @@ export const FoodDetails = ({navigation,route}) =>{
            
            <View style={styles.bodySection}>
        
-           <Text>Calories: {nutrients["Calories"].amount}</Text>
+           <Text>Calories: {macro[macroConstants.cal]}</Text>
                 <View style={styles.graphBox} >
                     <VictoryPie 
                         colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
@@ -148,9 +135,9 @@ export const FoodDetails = ({navigation,route}) =>{
                         }, }}
                     /> 
                     <View style={styles.graphLegend}> 
-                        <Text>Carbohydrates : {nutrients["Carbohydrates"].amount} g</Text>
-                        <Text>Fat : {nutrients["Fat"].amount}g</Text>
-                        <Text>Protein : {nutrients["Protein"].amount}g</Text>
+                        <Text>Carbohydrates : {macro[macroConstants.carb]} g</Text>
+                        <Text>Fat : {macro[macroConstants.fat]}g</Text>
+                        <Text>Protein : {macro[macroConstants.prot]}g</Text>
                     </View>
                 </View>
            <CustomButton style={styles.addButton} title="Add Food To Meal" onPress={()=>{addItem()}}/>

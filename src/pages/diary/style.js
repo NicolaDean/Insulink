@@ -57,7 +57,7 @@ export default StyleSheet.create({
         height: 20,
       },
       addBox:{
-        width:"100%",
+        flex:1,
         flexShrink:1,
         flexDirection:'row',
         justifyContent:'flex-end',
@@ -104,6 +104,24 @@ export default StyleSheet.create({
         borderRadius: 15,
         }
       ,
+      mealView:{
+        flexDirection: 'column',
+        justifyContent: 'center',
+        width: "90%",
+        marginLeft:"5%",
+        backgroundColor:"white",
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        borderRadius:15,
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+        elevation: 4,
+        marginBottom: 20,
+
+      },
       container: { 
         flex:1 ,
         zIndex: 1 ,
