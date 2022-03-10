@@ -96,9 +96,7 @@ export default StyleSheet.create({
           alignItems:'center',
         },
         chartStyle: {
-        
-          marginRight:10,
-          marginLeft:"5%",
+          marginLeft:15,
         top: "5%",
         borderRadius: 15,
         marginVertical: 8,
@@ -161,8 +159,8 @@ export default StyleSheet.create({
                         height:Dimensions.get('window').height*0.35
                       },
                       slide: {
-                        justifyContent: 'center',
-                        alignItems: 'center',
+                        justifyContent: 'space-evenly',
+                        alignItems: 'stretch',
                       }
 
                   

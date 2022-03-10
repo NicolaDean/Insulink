@@ -23,13 +23,16 @@ const chartConfig = {
     labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
     
 
-   
+
       //TODO fit better the chart 
     propsForDots: {
       r: "6",
-      strokeWidth: "2",
+        strokeWidth: "7",
       stroke: "#ffa726"
     
+    },
+    propsForLabels:{
+
     },
     
       barPercentage: 0.5,
@@ -48,7 +51,7 @@ export const MealDiary = ({ navigation,diary }) =>{
   const maxFat  = 100;
 
   const graph = {
-    labels: ["Carbo", "Fat", "Proteins"], // optional
+    labels: ["Carbo", "Fat", "Pro"], // optional
     data: [(((diary.totMacro.prot.toFixed(2)/maxProt)<1) ? (diary.totMacro.prot.toFixed(2)/maxProt) : 1),(((diary.totMacro.fat.toFixed(2)/maxFat)<1) ? (diary.totMacro.fat.toFixed(2)/maxFat) : 1),(((diary.totMacro.carb.toFixed(2)/maxCarb)<1) ? (diary.totMacro.carb.toFixed(2)/maxCarb) : 1)]
   }
   
@@ -59,14 +62,14 @@ return (
 
 <ScrollView >
 
-<Slick style={styles.wrapper} showsButtons={false}>
+<Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
         <View style={styles.slide}>
         <ProgressChart 
             data={graph}
             width={screenWidth}
             height={180}
-            strokeWidth={10}
-            radius={32}
+            strokeWidth={15}
+             radius={32}
             chartConfig={chartConfig}
             hideLegend={false}
             style={styles.chartStyle}
@@ -77,8 +80,8 @@ return (
             data={graph}
             width={screenWidth}
             height={180}
-            strokeWidth={10}
-            radius={32}
+            strokeWidth={15}
+             radius={32}
             chartConfig={chartConfig}
             hideLegend={false}
             style={styles.chartStyle}
@@ -89,8 +92,8 @@ return (
             data={graph}
             width={screenWidth}
             height={180}
-            strokeWidth={10}
-            radius={32}
+            strokeWidth={15}
+             radius={32}
             chartConfig={chartConfig}
             hideLegend={false}
             style={styles.chartStyle}
