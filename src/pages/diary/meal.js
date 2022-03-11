@@ -75,7 +75,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                     renderItem={({ item }) => (renderListItem(item))}
                 />
                 
-            </ScrollView><CustomButton /></View>
+            </ScrollView><CustomButton title='Dose' style={{ width:"100%", overflow: 'scroll'}} onPress={()=>{}}/></View>
         );
     }
 

@@ -41,9 +41,9 @@ export class InsulineCalculator {
         console.log("banana");
         return "Ciao";
     };
-    //Dose calculator
+    //Dose calculator FLOOR TODO IF BETTER USE BOTH
     mealDose(carbo){
-        return (carbo / Math.floor(this.CHORatio));
+        return Math.floor(carbo / Math.floor(this.CHORatio));
     };
 
     correctionDose(actualGlycemia, targetGlycemia, insulineSensitivity) {
