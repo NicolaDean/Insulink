@@ -11,11 +11,27 @@ export class InsulineCalculator {
     limit = 180;
     totalInsulineDaily;
     weight;
-    basal; //backgound insuline daily
+    basal; //backgound insuline daily TODO
 
-    constructor() {
-        //TODO
+    constructor(CHORatio,insulineSensitivity) {
+        if(insulineSensitivity==null || insulineSensitivity==0){
+            totalInsulineDaily();
+            correctionFactorCalculate();
+        }else {
+                    this.insulineSensitivity=insulineSensitivity;
+
+        }
+
+        if(CHORatio==null || CHORatio==0){
+            totalInsulineDaily()
+            CHORatioCalculate()
+        }else{
+            this.CHORatio=CHORatio;
+        }
+
     }
+
+    
 
     calc(userInfo) {
         //Set all user parameters or load from file info
@@ -26,8 +42,8 @@ export class InsulineCalculator {
         return "Ciao";
     };
     //Dose calculator
-    mealDose(actualGlycemia, carbo, CHORatio) {
-        return carbo / Math.floor(CHORatio);
+    mealDose(carbo){
+        return (carbo / Math.floor(this.CHORatio));
     };
 
     correctionDose(actualGlycemia, targetGlycemia, insulineSensitivity) {
@@ -45,19 +61,19 @@ export class InsulineCalculator {
 
     //Standard prediction funcions (Preferred if inserted from user)
     totalInsulineDaily() {
-        totalInsulineDaily = 0, 55 * weight;
+        this.totalInsulineDaily = 0, 55 * this.weight;
     };
 
     basal(){
-        basal = totalInsulineDaily / 2;
+        this.basal = this.totalInsulineDaily / 2;
     };
 
     CHORatioCalculate() {
-        CHORatio = 500 / totalInsulineDaily;
+        this.CHORatio = 500 / this.totalInsulineDaily;
     };
 
     correctionFactorCalculate() {
-        insulineSensitivity = 1800 / totalInsulineDaily;
+        this.insulineSensitivity = 1800 / this.totalInsulineDaily;
     };
     
    

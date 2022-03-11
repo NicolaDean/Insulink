@@ -2,12 +2,14 @@
 import {ScrollView,Image,FlatList,Text, SafeAreaView,View,TouchableOpacity,LayoutAnimation} from 'react-native';
 import styles from './style'
 import {Food} from '../foodSearch/food'
-
+import InsulineCalculator, {mealDose} from '../../utils/insulineCalculator'
 import React,{ useState,useEffect, useContext } from 'react';
+import { UserDataContext } from '../../stateManager/userDataProvider';
 
 import { useDispatch } from 'react-redux';
 import { selectMealType } from '../../stateManager/reduxStates/actions/macroTracker';
 import { connect } from 'react-redux';
+import CustomButton from '../../customComponents/customButton';
 
 
 const mealIcons ={
@@ -19,6 +21,7 @@ const mealIcons ={
     fat:{uri:require("../../assets/fat.png")},
     protein:{uri:require("../../assets/protein.png")},
     carbo:{uri:require("../../assets/carbohydrates.png")},
+    insuline:{uri:require('../../assets/insuline.png')}
 }
 
 export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
@@ -26,10 +29,11 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     //This variable keep track of the expansios status of meal (can be shrinked or growed by click)
     const [expanded,setExpanded] = useState( false )
     const [apiSelected, setApi] = useState(false);
-
+    const [userData, setUserData] = useContext(UserDataContext);
     const dispatch = useDispatch();
 
     const dropViewHeight=100
+    const ic = new InsulineCalculator(10,120);//Insted of arguments -->UserData.CHORatio
     
     //const [currentMealType,setMealType] = useContext(MealDataContext);
     //setMealType("PASTOO CASUALE");
@@ -62,6 +66,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
 
     const showExpansion = () =>{
         return (
+            <View>
             <ScrollView horizontal={true} style={{ width:"100%", overflow: 'scroll',fontSize:20}}> 
                 <FlatList 
                     data={food}//id,name,image,cal,carbs,fat,prot,food_name,serving_unit,tag_name,tag_id
@@ -69,7 +74,8 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                     style={{overflow: 'scroll',}}
                     renderItem={({ item }) => (renderListItem(item))}
                 />
-            </ScrollView>
+                
+            </ScrollView><CustomButton /></View>
         );
     }
 
@@ -89,20 +95,24 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                                 
         <View style={styles.addBox} >
                     <View style={styles.macroContainer}>
+                        <Image source={mealIcons['insuline'].uri} style={styles.macroImage} />
+                        <Text>{JSON.stringify(ic.mealDose(diary.meals[id].macro['carb'].toFixed(2)))}</Text>
+                    </View>
+                    <View style={styles.macroContainer}>
                         <Image source={mealIcons['cal'].uri} style={styles.macroImage} />
-                        <Text>{diary.meals[id].macro['cal'].toFixed(2)}</Text>
+                        <Text>{diary.meals[id].macro['cal'].toFixed(1)}</Text>
                     </View>
                     <View style={styles.macroContainer}>
                     <Image source={mealIcons['carbo'].uri} style={styles.macroImage} />
-                    <Text>{diary.meals[id].macro['carb'].toFixed(2)}</Text>
+                    <Text>{diary.meals[id].macro['carb'].toFixed(1)}</Text>
                     </View>
                     <View style={styles.macroContainer}>
                     <Image source={mealIcons['fat'].uri} style={styles.macroImage} />
-                    <Text>{diary.meals[id].macro['fat'].toFixed(2)}</Text>
+                    <Text>{diary.meals[id].macro['fat'].toFixed(1)}</Text>
                     </View>
                     <View style={styles.macroContainer}>
                     <Image source={mealIcons['protein'].uri} style={styles.macroImage} />
-                    <Text>{diary.meals[id].macro['prot'].toFixed(2)}</Text>
+                    <Text>{diary.meals[id].macro['prot'].toFixed(1)}</Text>
                     </View>
                     <TouchableOpacity  onPress={()=>{addFoods()}}>
                         <Image source={require('../../assets/plus.png')} style={styles.addIcon}/>

@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const getEmptyUser = () =>{
   var userJson = {
-    weight: 10,
+    weight: 60,
     height: 12,
     age: 3,
     name: "pagliaccio",

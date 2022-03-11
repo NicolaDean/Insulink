@@ -25,7 +25,6 @@ var basal  //backgound insuline daily
 export const PersonalData = ({ navigation , route}) =>{
     
 
-    var calculator = new InsulineCalculator;
     
     const [counter,setCounter] = useState(0);
     //const [userData,setUserData] = useState(localStorage.getEmptyUser());
