@@ -1,5 +1,6 @@
 
 import { macroConstants } from "../../../constants/states";
+import { foodMethods } from "../../../constants/reducers"
 
 const macro = macroConstants;
 
@@ -96,11 +97,11 @@ const removeFood = (state,data)=>{
 //TODO PUT THE NAME OF ACTIONS INTO COSNTANT FILE
 const macroReducer = (state = initialState, action) => {
     switch(action.type){
-        case 'ADD_FOOD':
+        case foodMethods.addFood:
             return addFood(state,action.payload);
-        case 'REMOVE_FOOD':
+        case foodMethods.removeFood:
             return removeFood(state,action.payload);
-        case 'SELECT_MEAL':
+        case foodMethods.selectMeal:
             return selectMeal(state,action.payload);
         default:
             return state;

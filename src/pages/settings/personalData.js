@@ -2,9 +2,11 @@ import {Text, View ,StyleSheet} from 'react-native';
 import React,{ useState,useEffect, useContext } from 'react';
 import CustomButton from '../../customComponents/customButton';
 import { UserDataContext } from '../../stateManager/userDataProvider';
+import { useDispatch } from 'react-redux';
 import styles from './style'
 
 import * as database from '../../utils/firebaseQuery'
+import { register } from '../../stateManager/reduxStates/actions/userAction';
 /*Params
 var actualGlycemia;
 var targetGlycemia;
@@ -27,6 +29,7 @@ export const PersonalData = ({ navigation , route}) =>{
     //const [userData,setUserData] = useState(localStorage.getEmptyUser());
     const [userData, setUserData] = useContext(UserDataContext);
 
+    const dispatch = useDispatch();
 
     const getData = async () =>{
         const email = 'nicola@gmail.com';
@@ -37,6 +40,11 @@ export const PersonalData = ({ navigation , route}) =>{
         console.log("User: " + JSON.stringify(user));
         console.log("Glicemy: " + JSON.stringify(glicemy));
         console.log("----------------------------------------")
+
+        //dispatch(register({email:"paolo@gmail.com",name:"Paolo",surname:"Dean"}));
+
+        //await database.addGlicemyValue("paolo@gmail.com",{value:10,time:{seconds:1000,nanoseconds:0}})
+        
     }
 
     useEffect(()=>{
