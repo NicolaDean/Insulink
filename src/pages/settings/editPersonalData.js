@@ -7,6 +7,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as localStorage from '../../utils/localStoreManager'
 import { UserDataContext } from '../../stateManager/userDataProvider';
 import {StyleTextInput} from '../../customComponents/StyleTextInput'
+import { login } from '../../stateManager/reduxStates/actions/userAction';
+import { useDispatch } from 'react-redux';
 /*
 FUNCTION TO GET DATA
 const getData =async () => {
@@ -20,7 +22,7 @@ const getData =async () => {
 
 export const EditPersonalData = ({ navigation }) =>{
     
-
+    const dispatch = useDispatch();
     const [userData, setUserData] = useContext(UserDataContext);
 
     const [weight, setWeight] = useState(0);
@@ -56,6 +58,8 @@ export const EditPersonalData = ({ navigation }) =>{
         setCHORatio(userData.CHORatio);
         setISF(userData.ISF);
         setName(userData.name);
+
+        dispatch(login("",""));
     }
 
     useEffect(()=>{

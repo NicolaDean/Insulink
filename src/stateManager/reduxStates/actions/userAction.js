@@ -17,7 +17,7 @@ export const del = (user) =>{
 
 export const login = (email,psw) =>{
     return{
-        type: userMethods.registerUser,
+        type: userMethods.login,
         payload: {
             email:email,
             psw:psw,

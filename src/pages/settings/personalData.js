@@ -2,11 +2,12 @@ import {Text, View ,StyleSheet} from 'react-native';
 import React,{ useState,useEffect, useContext } from 'react';
 import CustomButton from '../../customComponents/customButton';
 import { UserDataContext } from '../../stateManager/userDataProvider';
-import { useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import styles from './style'
 
 import * as database from '../../utils/firebaseQuery'
-import { register } from '../../stateManager/reduxStates/actions/userAction';
+import { login, register } from '../../stateManager/reduxStates/actions/userAction';
+import { loginStatus } from '../../constants/states';
 /*Params
 var actualGlycemia;
 var targetGlycemia;
@@ -21,16 +22,23 @@ var weight
 var basal  //backgound insuline daily
 */
 
-export const PersonalData = ({ navigation , route}) =>{
-    
-
+export const PersonalData = ({ navigation, route, status}) =>{
     
     const [counter,setCounter] = useState(0);
     //const [userData,setUserData] = useState(localStorage.getEmptyUser());
-    const [userData, setUserData] = useContext(UserDataContext);
+    const [userData, setUserData] = useState(status.userData);//useContext(UserDataContext);
 
     const dispatch = useDispatch();
 
+    //CHECK IF USER IS LOGGED OR NOT
+    if(status.status == loginStatus.unlogged){
+        console.log(status.status);
+
+        //TODO REDIRECT TO LOGIN
+    } 
+    else console.log(status.status);
+
+    //TEST, TO BE REMOVED
     const getData = async () =>{
         const email = 'nicola@gmail.com';
         const user = (await database.getUserData(email));
@@ -40,6 +48,7 @@ export const PersonalData = ({ navigation , route}) =>{
         console.log("User: " + JSON.stringify(user));
         console.log("Glicemy: " + JSON.stringify(glicemy));
         console.log("----------------------------------------")
+
 
         //dispatch(register({email:"paolo@gmail.com",name:"Paolo",surname:"Dean"}));
 
@@ -51,6 +60,7 @@ export const PersonalData = ({ navigation , route}) =>{
         getData();
     },[])
     //TODO understand how to load info after rendering (useEffect (?))
+
 
     return (
 
@@ -79,11 +89,11 @@ export const PersonalData = ({ navigation , route}) =>{
 
             <View style={styles.fieldContainer}>
                 <Text adjustsFontSizeToFit style={styles.fieldTitle}>ISF:</Text>
-                <Text adjustsFontSizeToFit style={styles.value} >{userData.ISF}</Text>
+                <Text adjustsFontSizeToFit style={styles.value} >{userData.isf}</Text>
             </View>
             <View style={styles.fieldContainer}>
                 <Text adjustsFontSizeToFit style={styles.fieldTitle}>CHORatio:</Text>
-                <Text adjustsFontSizeToFit style={styles.value}>{userData.CHORatio}</Text>
+                <Text adjustsFontSizeToFit style={styles.value}>{userData.choratio}</Text>
             </View>
             
             <CustomButton
@@ -98,4 +108,9 @@ export const PersonalData = ({ navigation , route}) =>{
     //TODO create a method to load usefull data from firebase or local storage and call methods of insulineCalculator       
     //TODO show all user data and put an "add button"
 }
-export default PersonalData;
+
+const mapStateToProps = (state, ownProps = {}) => {
+    return{status: state.userReducer};
+  }
+
+export default connect(mapStateToProps)(PersonalData);
