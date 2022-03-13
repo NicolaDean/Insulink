@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "503937751847",
+    "project_id": "insulinecalculator",
+    "storage_bucket": "insulinecalculator.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503937751847:android:649cece4cb0810cf71e702",
+        "android_client_info": {
+          "package_name": "com.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503937751847-f3p5g4fv6pa6l41v65avpobugi0f2bjd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_yCmn8RajSVvj_obUJlMfexPnJcFX5ys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503937751847-f3p5g4fv6pa6l41v65avpobugi0f2bjd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

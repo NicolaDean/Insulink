@@ -1,11 +1,10 @@
 import {Text, View ,StyleSheet} from 'react-native';
 import React,{ useState,useEffect, useContext } from 'react';
 import CustomButton from '../../customComponents/customButton';
-import InsulineCalculator, { calculator } from '../../utils/insulineCalculator';
-import * as localStorage from '../../utils/localStoreManager'
 import { UserDataContext } from '../../stateManager/userDataProvider';
 import styles from './style'
 
+import * as database from '../../utils/firebaseQuery'
 /*Params
 var actualGlycemia;
 var targetGlycemia;
@@ -20,8 +19,6 @@ var weight
 var basal  //backgound insuline daily
 */
 
-
-
 export const PersonalData = ({ navigation , route}) =>{
     
 
@@ -31,6 +28,20 @@ export const PersonalData = ({ navigation , route}) =>{
     const [userData, setUserData] = useContext(UserDataContext);
 
 
+    const getData = async () =>{
+        const email = 'nicola@gmail.com';
+        const user = (await database.getUserData(email));
+        const glicemy = (await database.getUserGlicemy(email));
+
+        console.log("-------------USER DATA:-----------------")
+        console.log("User: " + JSON.stringify(user));
+        console.log("Glicemy: " + JSON.stringify(glicemy));
+        console.log("----------------------------------------")
+    }
+
+    useEffect(()=>{
+        getData();
+    },[])
     //TODO understand how to load info after rendering (useEffect (?))
 
     return (
