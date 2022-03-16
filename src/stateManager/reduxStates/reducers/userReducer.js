@@ -2,7 +2,7 @@ import { userMethods } from "../../../constants/reducers"
 import { registerUser } from "../../../utils/firebaseQuery";
 import { loginStatus } from "../../../constants/states";
 
-import * as database from "../../../utils/firebaseQuery"
+
 
 
 const initialState = {
@@ -17,38 +17,50 @@ const initialState = {
         birthday:{seconds:0,nanoseconds:0},
         isf:0,
         choratio:0,
+        glicemy:[],
     }
 }
 
 const login = (state,payload) =>{
-    //TODO SEE HOW USE MIDDLEWARE TO DO ASYNCH REQ INSIDE REDUCER 
-    const email = payload.email;
-    const psw = payload.psw;
-
+    const usrData = payload.usrData;
 
     const newState = {...state};
 
     newState.status = loginStatus.logged;
+    newState.userData = usrData;
 
     return newState;
-
 }
 
 const del = (state,payload) =>{
     
 }
 
+
 const register = (state,payload) =>{
     const newstate ={...state};
 
-    //TODO CHECK USER INPUT LIKE PASSWORD ETC... (save hash of psw and not psw)
-
     newstate.userData = payload.user;
-    database.registerUser(newstate.userData);
+    newstate.status = loginStatus.logged;
 
     return newstate;
 }
 
+const addGlicemy = (state,payload) =>{
+    const newstate ={...state};
+
+    newstate.userData.glicemy.push(payload.glicemy);
+
+    return newstate;
+}
+
+const update = (state,payload) =>{
+    const newstate = {...state};
+
+    newstate.userData = payload.user;
+
+    return newstate;
+}
 
 const userReducer = (state = initialState, action) => {
     switch(action.type){
@@ -58,6 +70,10 @@ const userReducer = (state = initialState, action) => {
             return del(state,action.payload);
         case userMethods.registerUser:
             return register(state,action.payload);
+        case userMethods.updateUser:
+            return update(state,action.payload);
+        case userMethods.addGlicemy:
+            return addGlicemy(state,action.payload);
         case userMethods.logout:
             return initialState;
         default:

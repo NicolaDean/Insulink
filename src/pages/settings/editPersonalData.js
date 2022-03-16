@@ -7,84 +7,55 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as localStorage from '../../utils/localStoreManager'
 import { UserDataContext } from '../../stateManager/userDataProvider';
 import {StyleTextInput} from '../../customComponents/StyleTextInput'
-import { login } from '../../stateManager/reduxStates/actions/userAction';
-import { useDispatch } from 'react-redux';
-/*
-FUNCTION TO GET DATA
-const getData =async () => {
-}
-
-
-*/
+import { editUserData, login } from '../../stateManager/reduxStates/actions/userAction';
+import { connect, useDispatch } from 'react-redux';
+import { userDataTypes } from '../../constants/states';
 
 
 
 
-export const EditPersonalData = ({ navigation }) =>{
+
+
+export const EditPersonalData = ({ navigation,status }) =>{
+    
     
     const dispatch = useDispatch();
-    const [userData, setUserData] = useContext(UserDataContext);
+    const [userData, setUserData] = useState(status.userData);
 
-    const [weight, setWeight] = useState(0);
-    const [height, setHeight] = useState(0);
-    const [age, setAge] = useState(0);
-    const [name, setName] = useState("");
-    const [ISF, setISF] = useState(0);
-    const [CHORatio, setCHORatio] = useState(0);
-
+    const setInputField = (type,data) =>{
+        setUserData(state =>({...state,[type]: data}));
+    }
 
     const saveData = async () => {
+      //TODO CHANGE STATE
 
-        //Save context variable containing user data
-       setUserData({
-        weight:weight,
-        height:height,
-        age:age,
-        name:name,
-        ISF:ISF,
-        CHORatio:CHORatio
-      });
-      //Save updated user data to local storage
-       localStorage.saveUserData(userData);
+      console.log(userData);
+      dispatch(editUserData(userData));
+      
       //navigate back to Personal Data
-       navigation.navigate('PersonalData',{})
+      navigation.navigate('PersonalData',{})
     }
 
-    const getData = async () => {
-        
-        setWeight(userData.weight);
-        setAge(userData.age);
-        setHeight(userData.height);
-        setCHORatio(userData.CHORatio);
-        setISF(userData.ISF);
-        setName(userData.name);
-
-        dispatch(login("",""));
-    }
-
-    useEffect(()=>{
-        getData();
-    },[]);
 
 return (
     <View style={styles.sectionContainer}>
         <View style={styles.fieldContainer}>
-<TextInput  style={styles.field} value={name}      placeholder="Name" onChangeText={setName}/> 
+<TextInput  style={styles.field} value={userData.name}      placeholder="Name" onChangeText={val => setInputField(userDataTypes.name,val)}/> 
 </View>
     <View style={styles.fieldContainer}>
-<TextInput style={styles.field} value={weight}    placeholder="Weight [kg]" onChangeText={setWeight}/>
+<TextInput style={styles.field} value={userData.weight}    placeholder="Weight [kg]" onChangeText={val => setInputField(userDataTypes.weight,val)}/>
 </View>
     <View style={styles.fieldContainer}>
-<TextInput style={styles.field} value={height}    placeholder="Height [cm]" onChangeText={setHeight}/>
+<TextInput style={styles.field} value={userData.height}    placeholder="Height [cm]" onChangeText={val => setInputField(userDataTypes.height,val)}/>
 </View>
     <View style={styles.fieldContainer}>
-<TextInput style={styles.field} value={age}       placeholder="Age" onChangeText={setAge}/>
+<TextInput style={styles.field} value={userData.age}       placeholder="Age" onChangeText={val => setInputField(userDataTypes.age,val)}/>
 </View>
     <View style={styles.fieldContainer}>
-<TextInput style={styles.field} value={ISF}       placeholder="Insuline Sensitivity Factor (Optional)" onChangeText={setISF}/>
+<TextInput style={styles.field} value={userData.isf}       placeholder="Insuline Sensitivity Factor (Optional)" onChangeText={val => setInputField(userDataTypes.isf,val)}/>
 </View>
     <View style={styles.fieldContainer}>
-<TextInput style={styles.field} value={CHORatio}  placeholder="Grams of CHO per 1 unit (Optional)" onChangeText={setCHORatio}/>
+<TextInput style={styles.field} value={userData.choratio}  placeholder="Grams of CHO per 1 unit (Optional)" onChangeText={val => setInputField(userDataTypes.choratio,val)}/>
 </View>
     
 
@@ -99,4 +70,8 @@ return (
     
 }
 
-export default EditPersonalData;
+const mapStateToProps = (state, ownProps = {}) => {
+    return{status: state.userReducer};
+  }
+
+export default connect(mapStateToProps)(EditPersonalData);

@@ -4,8 +4,6 @@ import styles from './style'
 import {Food} from '../foodSearch/food'
 import InsulineCalculator, {mealDose} from '../../utils/insulineCalculator'
 import React,{ useState,useEffect, useContext } from 'react';
-import { UserDataContext } from '../../stateManager/userDataProvider';
-
 import { useDispatch } from 'react-redux';
 import { selectMealType } from '../../stateManager/reduxStates/actions/macroTracker';
 import { connect } from 'react-redux';
@@ -29,7 +27,6 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     //This variable keep track of the expansios status of meal (can be shrinked or growed by click)
     const [expanded,setExpanded] = useState( false )
     const [apiSelected, setApi] = useState(false);
-    const [userData, setUserData] = useContext(UserDataContext);
     const dispatch = useDispatch();
 
     const dropViewHeight=100
@@ -41,7 +38,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     let macro = diary.meals[id].macro;
     let food= diary.meals[id].foods;
 
-    console.log("macro:" + JSON.stringify(macro) + typeof(macro) +typeof(macro.id));
+    console.log("macro :" + JSON.stringify(macro) + typeof(macro) +typeof(macro.id));
 
     const addFoods = () =>{
         

@@ -7,10 +7,10 @@ export const addFood = (food) =>{
     }
 } 
 
-export const removeFood = (food) =>{
+export const removeFood = (food,mealType) =>{
     return{
         type: foodMethods.removeFood,
-        payload: {food:food}
+        payload: {food:food,mealType:mealType}
     }
 } 
 

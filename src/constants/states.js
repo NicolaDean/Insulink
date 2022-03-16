@@ -10,3 +10,15 @@ export const loginStatus = {
     unlogged: "UNLOGGED",
     pending: "PENDING_UPDATE",
 }
+
+export const userDataTypes = {
+    name: "name",
+    surname: "surname",
+    email: "email",
+    height: "height",
+    weight: "weight",
+    age: "age",
+    isf: "isf",
+    choratio: "choratio",
+    glicemu: "glicemy"
+}

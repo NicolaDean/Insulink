@@ -1,8 +1,9 @@
 import React from 'react';
 import { Text, View, Dimensions  } from 'react-native';
 import {LineChart,ProgressChart} from "react-native-chart-kit";
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import CustomButton from '../../customComponents/customButton'
+import { addGlicemy, login, register } from '../../stateManager/reduxStates/actions/userAction';
 
   const marginOffset=10;
   const screenWidth = Dimensions.get("window").width-marginOffset;
@@ -38,7 +39,6 @@ const chartConfig = {
     marginVertical: 8,
     borderRadius: 15,
     
-  
 };
 
 const chartProgressStyle ={
@@ -73,6 +73,8 @@ const chartProgressStyle ={
     
   }
 export const Home = ({ navigation,diary }) =>{
+
+  const dispatch = useDispatch();
 
     return(
         <View>
@@ -118,7 +120,15 @@ export const Home = ({ navigation,diary }) =>{
             <CustomButton
                 title='PersonalData'
                 onPress={() => navigation.navigate('PersonalData',{}) }
-            />            
+            />    
+            <CustomButton
+                title='Add Glicemy Test'
+                onPress={() => dispatch(addGlicemy("nicola@gmail.com",100)) }
+            />      
+            <CustomButton
+                title='Login Test'
+                onPress={() => dispatch(login("nicola@gmail.com","")) }
+            />           
 </View>
     );
 }

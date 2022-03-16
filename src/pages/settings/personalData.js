@@ -1,7 +1,6 @@
 import {Text, View ,StyleSheet} from 'react-native';
 import React,{ useState,useEffect, useContext } from 'react';
 import CustomButton from '../../customComponents/customButton';
-import { UserDataContext } from '../../stateManager/userDataProvider';
 import { connect, useDispatch } from 'react-redux';
 import styles from './style'
 
@@ -25,16 +24,16 @@ var basal  //backgound insuline daily
 export const PersonalData = ({ navigation, route, status}) =>{
     
     const [counter,setCounter] = useState(0);
-    //const [userData,setUserData] = useState(localStorage.getEmptyUser());
-    const [userData, setUserData] = useState(status.userData);//useContext(UserDataContext);
 
-    const dispatch = useDispatch();
+    const userData = status.userData;
+    //const dispatch = useDispatch();
 
     //CHECK IF USER IS LOGGED OR NOT
     if(status.status == loginStatus.unlogged){
         console.log(status.status);
 
-        //TODO REDIRECT TO LOGIN
+         //TODO REDIRECT TO LOGIN
+        //navigation.navigate('Home',{});  
     } 
     else console.log(status.status);
 
@@ -57,7 +56,7 @@ export const PersonalData = ({ navigation, route, status}) =>{
     }
 
     useEffect(()=>{
-        getData();
+       // getData();
     },[])
     //TODO understand how to load info after rendering (useEffect (?))
 

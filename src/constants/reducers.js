@@ -9,4 +9,6 @@ export const userMethods = {
     deleteUser: 'DELETE_USER',
     logout: 'LOGOUT_USER',
     login: 'LOGIN_USER',
+    updateUser: 'UPDATE_USER',
+    addGlicemy: 'ADD_GLICEMY',
 }
