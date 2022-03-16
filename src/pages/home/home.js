@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, View, Dimensions  } from 'react-native';
 import {LineChart,ProgressChart} from "react-native-chart-kit";
 import { connect, useDispatch } from 'react-redux';
 import CustomButton from '../../customComponents/customButton'
+import { checkStateConsistency } from '../../stateManager/reduxStates/actions/rootAction';
 import { addGlicemy, login, register } from '../../stateManager/reduxStates/actions/userAction';
 
   const marginOffset=10;
@@ -76,42 +77,35 @@ export const Home = ({ navigation,diary }) =>{
 
   const dispatch = useDispatch();
 
+
+  //REDIRECT USER TO LOGIN IF NOT LOGGED
+  useEffect(()=>{
+    dispatch(checkStateConsistency(diary.userReducer.status,navigation));
+  },[]);
+
     return(
         <View>
-  <LineChart
-    data={data3}
-    width={screenWidth} // from react-native
-    height={Dimensions.get("window").height*0.3}
-    yAxisSuffix=" mg/dL"
-    yAxisInterval={1} // optional, defaults to 1
-    chartConfig={{
-      backgroundColor: "#e26a00",
-      backgroundGradientFrom: "#fb8c00",
-      backgroundGradientTo: "#ffa726",
-      decimalPlaces: 0, // optional, defaults to 2dp
-      color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-      labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-      segments: 5,
-      propsForDots: {
-        r: "6",
-        strokeWidth: "7",
-        stroke: "#ffa726"
-      }
-    }}
-    style={chartStyle}
-    bezier
-  />
+            <LineChart
+              data={data3}
+              width={screenWidth} // from react-native
+              height={Dimensions.get("window").height*0.3}
+              yAxisSuffix=" mg/dL"
+              yAxisInterval={1} // optional, defaults to 1
+              chartConfig={chartConfig}
+              style={chartStyle}
+              bezier
+            />
   
-<ProgressChart
-  data={data2}
-  width={screenWidth}
-  height={200}
-  strokeWidth={19}
-  radius={32}
-  chartConfig={chartConfig}
-  hideLegend={false}
-  style={chartProgressStyle}
-/>
+            <ProgressChart
+              data={data2}
+              width={screenWidth}
+              height={200}
+              strokeWidth={19}
+              radius={32}
+              chartConfig={chartConfig}
+              hideLegend={false}
+              style={chartProgressStyle}
+            />
 
             <CustomButton
                 title='Meal Diary'
@@ -121,14 +115,12 @@ export const Home = ({ navigation,diary }) =>{
                 title='PersonalData'
                 onPress={() => navigation.navigate('PersonalData',{}) }
             />    
+                
             <CustomButton
                 title='Add Glicemy Test'
                 onPress={() => dispatch(addGlicemy("nicola@gmail.com",100)) }
             />      
-            <CustomButton
-                title='Login Test'
-                onPress={() => dispatch(login("nicola@gmail.com","")) }
-            />           
+                  
 </View>
     );
 }
@@ -137,7 +129,7 @@ export const Home = ({ navigation,diary }) =>{
 
 //export default Home;
 const mapStateToProps = (state, ownProps = {}) => {
-  return{diary: state.macroTracker};
+  return{diary: state};
 }
 
 export default connect(mapStateToProps)(Home);

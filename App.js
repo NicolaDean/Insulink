@@ -1,10 +1,10 @@
+//REACT LIBRARY
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
 import { StyleSheet,Text,View } from 'react-native';
 
-
+//ALL PAGES OF APP
 import FoodSearchExample from './src/pages/foodSearch/foodSearchExample';
 import Home from './src/pages/home/home';
 import EditPersonalData from './src/pages/settings/editPersonalData';
@@ -12,15 +12,19 @@ import  FoodDetails  from './src/pages/foodSearch/foodDetails';
 import  PersonalData  from './src/pages/settings/personalData';
 import  MealDiary  from './src/pages/diary/mealDiary';
 import { AddMeal } from './src/pages/diary/addMeal';
-import { UserDataProvider } from './src/stateManager/userDataProvider';
-import { MealDataProvider } from './src/stateManager/mealsDataProvider';
+
+//REDUX
 import { store } from './src/stateManager/reduxStates/store';
-import { Provider } from 'react-redux';
+import { Provider, useDispatch } from 'react-redux';
+import Login from './src/pages/login/login';
+
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
  
+
+
     //options={{ headerShown: false }}
   return(
     
@@ -34,6 +38,7 @@ const App = () => {
               <Stack.Screen name="AddMeal" component={AddMeal}/>          
               <Stack.Screen name="PersonalData" component={PersonalData}/>
               <Stack.Screen name="EditPersonalData" component={EditPersonalData}/>
+              <Stack.Screen name="Login" component={Login} />
             </Stack.Navigator>
         </Provider>
 

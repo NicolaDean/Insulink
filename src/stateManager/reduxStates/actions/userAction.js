@@ -74,7 +74,10 @@ export const login = (email,psw) => async dispatch =>{
 
     usrData.glicemy = glicemy;
 
-    console.log("GLICEMY = " + JSON.stringify(glicemy));
+    //CHECK FOR EMPTY DATA:
+    usrData.age = 20; //TODO CALCULATE AGE FROM BIRTHDAY
+    
+    console.log("Login ok" + JSON.stringify(usrData));
 
     //SAVE DATA TO LOCAL STORAGE
 

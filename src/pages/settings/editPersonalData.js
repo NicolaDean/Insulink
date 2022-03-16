@@ -1,19 +1,15 @@
-import React, { useEffect,useContext } from 'react';
-import {TouchableOpacity,Image, Text, View,Button, TextInput,StyleSheet, Dimensions  } from 'react-native';
-import { useState } from 'react';
+//LIBRARY IMPORT
+import React, { useState } from 'react';
+import {View, TextInput } from 'react-native';
+import { connect, useDispatch } from 'react-redux';
+
+//GUI IMPORT
 import styles from './style'
 import CustomButton from '../../customComponents/customButton';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import * as localStorage from '../../utils/localStoreManager'
-import { UserDataContext } from '../../stateManager/userDataProvider';
-import {StyleTextInput} from '../../customComponents/StyleTextInput'
-import { editUserData, login } from '../../stateManager/reduxStates/actions/userAction';
-import { connect, useDispatch } from 'react-redux';
+
+//REDUX IMPORT
+import { editUserData } from '../../stateManager/reduxStates/actions/userAction';
 import { userDataTypes } from '../../constants/states';
-
-
-
-
 
 
 export const EditPersonalData = ({ navigation,status }) =>{
@@ -40,22 +36,22 @@ export const EditPersonalData = ({ navigation,status }) =>{
 return (
     <View style={styles.sectionContainer}>
         <View style={styles.fieldContainer}>
-<TextInput  style={styles.field} value={userData.name}      placeholder="Name" onChangeText={val => setInputField(userDataTypes.name,val)}/> 
+<TextInput  style={styles.field} value={userData.name} placeholder="Name" onChangeText={val => setInputField(userDataTypes.name,val)}/> 
 </View>
     <View style={styles.fieldContainer}>
-<TextInput style={styles.field} value={userData.weight}    placeholder="Weight [kg]" onChangeText={val => setInputField(userDataTypes.weight,val)}/>
+<TextInput style={styles.field} value={userData.weight.toString()} keyboardType="numeric"    placeholder="Weight [kg]" onChangeText={val => setInputField(userDataTypes.weight,val)}/>
 </View>
     <View style={styles.fieldContainer}>
-<TextInput style={styles.field} value={userData.height}    placeholder="Height [cm]" onChangeText={val => setInputField(userDataTypes.height,val)}/>
+<TextInput style={styles.field} value={userData.height.toString()} keyboardType="numeric"    placeholder="Height [cm]" onChangeText={val => setInputField(userDataTypes.height,val)}/>
 </View>
     <View style={styles.fieldContainer}>
-<TextInput style={styles.field} value={userData.age}       placeholder="Age" onChangeText={val => setInputField(userDataTypes.age,val)}/>
+<TextInput style={styles.field} value={userData.age.toString()} keyboardType="numeric"      placeholder="Age" onChangeText={val => setInputField(userDataTypes.age,val)}/>
 </View>
     <View style={styles.fieldContainer}>
-<TextInput style={styles.field} value={userData.isf}       placeholder="Insuline Sensitivity Factor (Optional)" onChangeText={val => setInputField(userDataTypes.isf,val)}/>
+<TextInput style={styles.field} value={userData.isf.toString()} keyboardType="numeric"      placeholder="Insuline Sensitivity Factor (Optional)" onChangeText={val => setInputField(userDataTypes.isf,val)}/>
 </View>
     <View style={styles.fieldContainer}>
-<TextInput style={styles.field} value={userData.choratio}  placeholder="Grams of CHO per 1 unit (Optional)" onChangeText={val => setInputField(userDataTypes.choratio,val)}/>
+<TextInput style={styles.field} value={userData.choratio.toString()}  keyboardType="numeric" placeholder="Grams of CHO per 1 unit (Optional)" onChangeText={val => setInputField(userDataTypes.choratio,val)}/>
 </View>
     
 

@@ -38,7 +38,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     let macro = diary.meals[id].macro;
     let food= diary.meals[id].foods;
 
-    console.log("macro :" + JSON.stringify(macro) + typeof(macro) +typeof(macro.id));
+    //console.log("macro :" + JSON.stringify(macro) + typeof(macro) +typeof(macro.id));
 
     const addFoods = () =>{
         
@@ -56,7 +56,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
         return(
             <View style={{alignContent:'center'}}>
                 <Food style={styles.food} data = {item.id} nav = {navigation} api={apiSelected} activeView={true}></Food>
-                <Text style={{fontSize:15,marginLeft:10,marginBottom:10}} >{item.id.serving_unit} </Text >
+                <Text style={{fontSize:15,marginLeft:10,marginBottom:10}} >{item.id.serving_unit} aa</Text >
             </View>
         );
     }
