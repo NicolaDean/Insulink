@@ -1,12 +1,19 @@
 import React from 'react';
-import {ScrollView, Text, View,Dimensions,StyleSheet} from 'react-native';
-import styles from './style'
-import { connect } from 'react-redux';
-import {ChartSlider} from './chartSlider'
+import {ScrollView, Text, View,Dimensions} from 'react-native';
+import Slick from 'react-native-slick';
 import CustomButton from '../../customComponents/customButton';
 import {ProgressChart} from "react-native-chart-kit";
+
+
+//CUSTOM COMPONENTS
 import Meal from './meal';
-import Slick from 'react-native-slick';
+import styles from './style'
+
+//REDUX
+import { connect } from 'react-redux';
+
+
+
 
 const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset*3;

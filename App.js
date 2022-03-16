@@ -5,25 +5,22 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StyleSheet,Text,View } from 'react-native';
 
 //ALL PAGES OF APP
-import FoodSearchExample from './src/pages/foodSearch/foodSearchExample';
+import FoodSearch from './src/pages/foodSearch/foodSearch';
 import Home from './src/pages/home/home';
 import EditPersonalData from './src/pages/settings/editPersonalData';
 import  FoodDetails  from './src/pages/foodSearch/foodDetails';
 import  PersonalData  from './src/pages/settings/personalData';
 import  MealDiary  from './src/pages/diary/mealDiary';
-import { AddMeal } from './src/pages/diary/addMeal';
 
 //REDUX
 import { store } from './src/stateManager/reduxStates/store';
-import { Provider, useDispatch } from 'react-redux';
+import { Provider } from 'react-redux';
 import Login from './src/pages/login/login';
 
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
- 
-
 
     //options={{ headerShown: false }}
   return(
@@ -32,10 +29,9 @@ const App = () => {
       <Provider store={store}>     
             <Stack.Navigator>
               <Stack.Screen name="Home" component={Home} />
-              <Stack.Screen name="FoodSearch" component={FoodSearchExample} />
+              <Stack.Screen name="FoodSearch" component={FoodSearch} />
               <Stack.Screen name="FoodDetails" component={FoodDetails}/>
-              <Stack.Screen name="MealDiary" component={MealDiary}/>
-              <Stack.Screen name="AddMeal" component={AddMeal}/>          
+              <Stack.Screen name="MealDiary" component={MealDiary}/>        
               <Stack.Screen name="PersonalData" component={PersonalData}/>
               <Stack.Screen name="EditPersonalData" component={EditPersonalData}/>
               <Stack.Screen name="Login" component={Login} />

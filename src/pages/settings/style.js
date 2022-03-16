@@ -1,5 +1,5 @@
 import { StyleSheet} from 'react-native';
-
+import { colors, dim } from '../../constants/appAspect';
 
 export default StyleSheet.create({
   header:{
@@ -14,7 +14,7 @@ export default StyleSheet.create({
     shadowOpacity: 0.23,
     shadowRadius: 2.62,
     marginBottom: "5%",
-    backgroundColor: "rgba(112,202,230,1)"
+    backgroundColor: colors.primary
   },
   headerTitle:{
     fontSize:20 ,   marginBottom: "5%",
@@ -61,10 +61,10 @@ export default StyleSheet.create({
       height: "10%",
       marginLeft:"5%",
       flexDirection:'row',
-      backgroundColor: "white",
+      backgroundColor: colors.white,
       borderRadius: 17,
     borderWidth: 3,
-    borderColor: '#fff'
+    borderColor: colors.white
     },
     field:{
       fontSize:30,

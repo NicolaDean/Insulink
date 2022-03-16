@@ -4,8 +4,10 @@ import { foodMethods } from "../../../constants/reducers"
 
 const macro = macroConstants;
 
+//TODO Each diary will have a Date, if Date < Today it will be saved localy/firabase and resetted for new day
 const initialState = {
     currentMeal:"breakfast",
+    currentDate:{},
     totMacro:{cal:0,carb:0,fat:0,prot:0},
     meals:{
         breakfast:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
@@ -58,6 +60,7 @@ const subMacro = (base,toRemove) =>{
 
     return result;
 }
+
 /**
  * add a food to the global state representing meals of today
  * @param {*} state today meals

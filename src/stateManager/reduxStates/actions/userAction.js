@@ -18,6 +18,7 @@ export const register = async (user) => async dispatch =>{
     
     console.log("REGISTER OK");
 
+    await localStorage.setDataAvailability(true);
     //SAVE DATA TO LOCAL STORAGE
 
     //REDUX DISPATCH
@@ -79,7 +80,8 @@ export const login = (email,psw) => async dispatch =>{
     
     console.log("Login ok" + JSON.stringify(usrData));
 
-    //SAVE DATA TO LOCAL STORAGE
+    await localStorage.setDataAvailability(true);
+    await localStorage.saveUserData(usrData);
 
     //if(login not good) return false;
 
@@ -102,6 +104,8 @@ export const login = (email,psw) => async dispatch =>{
  */
 export const logout = (email) => async dispatch =>{
     //ASYNC ACTION (eg check values on DB)
+
+    await localStorage.resetUser();
 
     //REDUX DISPATCH
     dispatch({

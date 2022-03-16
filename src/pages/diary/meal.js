@@ -1,14 +1,17 @@
 
-import {ScrollView,Image,FlatList,Text, SafeAreaView,View,TouchableOpacity,LayoutAnimation} from 'react-native';
-import styles from './style'
-import {Food} from '../foodSearch/food'
-import InsulineCalculator, {mealDose} from '../../utils/insulineCalculator'
 import React,{ useState,useEffect, useContext } from 'react';
+import {ScrollView,Image,FlatList,Text, SafeAreaView,View,TouchableOpacity,LayoutAnimation} from 'react-native';
+import InsulineCalculator from '../../utils/insulineCalculator'
+
+//CUSTOM COMPONENTS
+import CustomButton from '../../customComponents/customButton';
+import {Food} from '../foodSearch/food'
+import styles from './style'
+
+//REDUX
 import { useDispatch } from 'react-redux';
 import { selectMealType } from '../../stateManager/reduxStates/actions/macroTracker';
 import { connect } from 'react-redux';
-import CustomButton from '../../customComponents/customButton';
-
 
 const mealIcons ={
     breakfast: {uri:require("../../assets/breakfast.png")},

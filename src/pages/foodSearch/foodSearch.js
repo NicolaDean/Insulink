@@ -1,46 +1,34 @@
 import React from 'react';
-import {TouchableOpacity, Text, SafeAreaView,View,FlatList,Button,TextInput, StyleSheet,Switch } from 'react-native';
-import { useState,useEffect } from 'react';
+import {View,FlatList,TextInput,Switch } from 'react-native';
+import { useState } from 'react';
 import styles from './style'
 import {Food} from './food'
 import * as api from '../../utils/apiQuery';
-import CustomButton from '../../customComponents/customButton'
 import CustomImageButton from '../../customComponents/customImageButton'
-import axios from 'axios';
-export const FoodSearchExample = ({ navigation }) =>{
 
-//HOW WORKS USESTATE -> [var,functionName] = useState(init) 
-// it create a function (functionName) usable to update the variable (var) and set an initial value (init)
-  
+
+
+export const FoodSearch = ({ navigation }) =>{
 
   const [foodData, setData] = useState([]);
   const [foodSelected, setFood] = useState("apple");
   const [apiSelected, setApi] = useState(false);
 
   //Define a function to retrive date from API
-  const getData = async () => {
-    try {
-  //GET API DATA
-  let json = "";
-    if(!apiSelected){
-      json = (await api.getFoodListAlternative(foodSelected));
-      //console.log("UFF:" + json);     
+  const getData = async () => 
+  {
+    try 
+    {
+      //GET API DATA
+      const json = (await api.getFoodListAlternative(foodSelected));  
       setData(json.common);
-    }
-    else{
-      json = (await api.getIngredentList(foodSelected));
-      setData(json.results);
-    }
-      
-
-  //SET DATA
-     //
-
-  //HANDLING ERRORS
-   } catch (error) {
+   } 
+   catch (error) 
+   {
      console.error(error);
-   } finally {
-     //setLoading(false);
+   } 
+   finally {
+     //setLoading(false); //TODO
    }
   }
   
@@ -68,7 +56,7 @@ export const FoodSearchExample = ({ navigation }) =>{
            <FlatList 
 
             data={foodData}
-              numColumns={3}
+            numColumns={3}
             renderItem={({ item }) => (
                 <Food style={styles.food} data = {item} nav = {navigation} api={apiSelected} activeView={true}></Food>
               )}
@@ -80,4 +68,4 @@ export const FoodSearchExample = ({ navigation }) =>{
     
 }
 
-export default FoodSearchExample;
+export default FoodSearch;

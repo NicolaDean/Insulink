@@ -20,3 +20,7 @@ export const selectMealType = (mealType) =>{
         payload: {mealType:mealType}
     }
 }
+
+export const loadRemoteDiary = (email,date) =>{
+    
+}

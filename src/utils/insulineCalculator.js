@@ -1,4 +1,17 @@
 
+/*Params
+var actualGlycemia;
+var targetGlycemia;
+var carbo;
+var proteins;
+var fats;
+var CHORatio;
+var insulineSensitivity;
+var limit=180;
+var totalInsulineDaily;
+var weight
+var basal  //backgound insuline daily
+*/
 
 export class InsulineCalculator {
     actualGlycemia;

@@ -1,5 +1,10 @@
 import React from 'react'
-import { Text, View, Dimensions  } from 'react-native';
+import { View  } from 'react-native';
+
+//CUSTOM COMPONENTS
+
+//REDUX
+
 export const Register = ({}) =>{
 
     return (

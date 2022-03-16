@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Text, StyleSheet,TouchableOpacity, View,Image} from 'react-native';
+import { Text, StyleSheet,TouchableOpacity, View} from 'react-native';
+import { colors } from '../constants/appAspect';
 
 //Color light blue --> #70CAE6
 
@@ -23,14 +24,14 @@ export const CustomButton = (
 const styles =  StyleSheet.create({
     appButtonText:{
         fontSize: 18,
-        color: "#fff",
+        color: colors.white,
         fontWeight: "bold",
         alignSelf: "center",
         textTransform: "uppercase"
       },
       appButtonContainer: {
         elevation: 8,
-        backgroundColor: "rgba(112,202,230,1)",
+        backgroundColor: colors.primary,
         borderRadius: 10,
         paddingVertical: 10,
         paddingHorizontal: 12,

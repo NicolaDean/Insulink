@@ -1,5 +1,6 @@
 import { StyleSheet} from 'react-native';
 import { Dimensions  } from 'react-native';
+import { colors, dim } from '../../constants/appAspect';
 
 const screenWidth = Dimensions.get("window")
 
@@ -26,14 +27,14 @@ export default StyleSheet.create({
     },
       appButtonText:{
         fontSize: 18,
-        color: "#fff",
+        color: colors.white,
         fontWeight: "bold",
         alignSelf: "center",
         textTransform: "uppercase"
       },
       appButtonContainer: {
         elevation: 8,
-        backgroundColor: "rgba(112,202,230,1)",
+        backgroundColor: colors.primary,
         borderRadius: 10,
         paddingVertical: 10,
         paddingHorizontal: 12,

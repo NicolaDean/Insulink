@@ -1,6 +1,7 @@
 import { StyleSheet} from 'react-native';
 import { RollInRight } from 'react-native-reanimated';
 import {Dimensions  } from 'react-native';
+import { colors, dim } from '../../constants/appAspect';
 
 const screenWidth = Dimensions.get("window")
 
@@ -14,7 +15,7 @@ export default StyleSheet.create({
     header:{
       flexDirection:'row',
       borderBottomWidth: StyleSheet.hairlineWidth,
-      backgroundColor: "white",
+      backgroundColor: colors.white,
       shadowColor: "#000",
       shadowOffset: {
           width: 0,
@@ -69,7 +70,7 @@ export default StyleSheet.create({
       },
       LogoSize: {
 
-  width: Dimensions.get('window').width*0.1,
+  width: dim.width*0.1,
   height: Dimensions.get('window').height*0.1,
   resizeMode: 'contain',
   top:0,

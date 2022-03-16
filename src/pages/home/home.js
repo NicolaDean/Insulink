@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { Text, View, Dimensions  } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Dimensions  } from 'react-native';
 import {LineChart,ProgressChart} from "react-native-chart-kit";
-import { connect, useDispatch } from 'react-redux';
+
+//CUSTOM COMPONENTS
 import CustomButton from '../../customComponents/customButton'
+
+//REDUX
+import { connect, useDispatch } from 'react-redux';
 import { checkStateConsistency } from '../../stateManager/reduxStates/actions/rootAction';
-import { addGlicemy, login, register } from '../../stateManager/reduxStates/actions/userAction';
 
   const marginOffset=10;
   const screenWidth = Dimensions.get("window").width-marginOffset;
@@ -115,11 +118,7 @@ export const Home = ({ navigation,diary }) =>{
                 title='PersonalData'
                 onPress={() => navigation.navigate('PersonalData',{}) }
             />    
-                
-            <CustomButton
-                title='Add Glicemy Test'
-                onPress={() => dispatch(addGlicemy("nicola@gmail.com",100)) }
-            />      
+                   
                   
 </View>
     );

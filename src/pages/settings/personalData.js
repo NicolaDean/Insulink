@@ -1,25 +1,18 @@
-import {Text, View ,StyleSheet} from 'react-native';
+import {Text, View } from 'react-native';
 import React,{ useState,useEffect, useContext } from 'react';
+
+//CUSTOM COMPONENTS
 import CustomButton from '../../customComponents/customButton';
-import { connect, useDispatch } from 'react-redux';
 import styles from './style'
 
+//API
 import * as database from '../../utils/firebaseQuery'
-import { login, register } from '../../stateManager/reduxStates/actions/userAction';
+
+//REDUX
+import { connect } from 'react-redux';
 import { loginStatus } from '../../constants/states';
-/*Params
-var actualGlycemia;
-var targetGlycemia;
-var carbo;
-var proteins;
-var fats;
-var CHORatio;
-var insulineSensitivity;
-var limit=180;
-var totalInsulineDaily;
-var weight
-var basal  //backgound insuline daily
-*/
+
+
 
 export const PersonalData = ({ navigation, route, status}) =>{
     

@@ -1,6 +1,5 @@
-import React,{useContext} from 'react';
+import React from 'react';
 import { Text, View, Image,TouchableHighlight, StyleSheet,Dimensions} from 'react-native';
-import { MealDataContext } from '../../stateManager/mealsDataProvider';
 
 export const Food = ({data,nav,activeView}) =>{
 
@@ -20,7 +19,7 @@ export const Food = ({data,nav,activeView}) =>{
                 <Text style={styles.title}>{name}</Text>
                 
                 <Image 
-                    style={activeView?{width: Dimensions.get('window').width*0.2, height: Dimensions.get('window').width*0.2}: {width:70,height:70}}
+                    style={activeView?{width: dim.width*0.2, height: dim.width*0.2}: {width:70,height:70}}
                     source ={{uri:image}}/>
             </View>
         </TouchableHighlight>
@@ -32,7 +31,7 @@ export const Food = ({data,nav,activeView}) =>{
 const styles = StyleSheet.create(
     {
         contentBox:{
-            width: Dimensions.get('window').width*0.3, height: Dimensions.get('window').width*0.3,
+            width: dim.width*0.3, height: dim.width*0.3,
             justifyContent: 'center',
             alignItems:'center',
             marginHorizontal:3,

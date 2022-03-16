@@ -1,25 +1,31 @@
 import React from 'react';
 import {Image, Text, View, ScrollView, TextInput, Dimensions, StatusBar  } from 'react-native';
-import { useState,useContext,useEffect} from 'react';
-import styles from './style'
-
-import { foodDetails } from '../../utils/testingJsons';//Default food
-
-import * as api from "../../utils/apiQuery";
+import { useState,useEffect} from 'react';
 import { VictoryPie } from 'victory-native';
+
+//CUSTOM ASPECT AND COMPONENTS
+import { foodDetails } from '../../utils/testingJsons';//Default food
 import CustomButton from '../../customComponents/customButton';
 import SelectDropdown from 'react-native-select-dropdown'
-import { useSelector,useDispatch } from 'react-redux';
-import { addFood } from '../../stateManager/reduxStates/actions/macroTracker';
+import styles from './style'
+
+//API
+import * as api from "../../utils/apiQuery";
 import { macroConstants } from '../../constants/states';
 
+//REDUX
+import { useDispatch } from 'react-redux';
+import { addFood } from '../../stateManager/reduxStates/actions/macroTracker';
 
-import axios from 'axios';
+
+
+
 const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset;
 
 export const FoodDetails = ({navigation,route}) =>{
 
+    //TODO ADD A "LOADING BAR" UNTIL DATA ARENT LOADED
     let id = route.params.id.id;
 
     const dispatch = useDispatch();
@@ -50,7 +56,6 @@ export const FoodDetails = ({navigation,route}) =>{
     //Call on first render
     useEffect(()=>{
         getData(id);
-        
     },[]);
 
     //Define macro nutrients with api result
@@ -72,8 +77,6 @@ export const FoodDetails = ({navigation,route}) =>{
     
     //const properties = api.extractProperties(details.nutrition.properties);
     
-         
-
     const addItem = () =>{
 
         var food ={
@@ -90,6 +93,7 @@ export const FoodDetails = ({navigation,route}) =>{
 
         navigation.navigate('MealDiary',{});
     }
+
     //TODO CREATE CHART WITH NUTRIENTS
     return (
        <ScrollView style={{width : '100%',height :'100%' }}  >

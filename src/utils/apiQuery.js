@@ -1,5 +1,3 @@
-
-import React from 'react';
 import * as testingJson from "./testingJsons"
 import axios from 'axios';
 

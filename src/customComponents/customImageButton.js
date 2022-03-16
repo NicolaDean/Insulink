@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Text, StyleSheet,TouchableOpacity, View, Image } from 'react-native';
+import {  StyleSheet,TouchableOpacity, View, Image } from 'react-native';
+import { colors } from '../constants/appAspect';
 
 const images = {
     plus: {
@@ -35,7 +36,7 @@ export const CustomButton = (
 const styles =  StyleSheet.create({
     appButtonText:{
         fontSize: 18,
-        color: "#fff",
+        color: colors.white,
         fontWeight: "bold",
         alignSelf: "center",
         textTransform: "uppercase"

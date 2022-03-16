@@ -1,9 +1,10 @@
 import { StyleSheet} from 'react-native';
 import { Dimensions  } from 'react-native';
+import { colors, dim } from '../../constants/appAspect';
 
 /*
 Use device sizes
-width: Dimensions.get('window').width,
+width: dim.width,
 height: Dimensions.get('window').height
 */
 
@@ -28,7 +29,7 @@ export default StyleSheet.create({
         height: "10%",
         marginLeft:"5%",
         marginTop:10,
-        backgroundColor:"white",
+        backgroundColor:colors.white,
         flexDirection:'row',
         shadowColor: "#000",
         shadowOffset: {
@@ -74,41 +75,38 @@ export default StyleSheet.create({
               alignItems: 'center',
       },
       LogoSize: {
-
-        width: Dimensions.get('window').width*0.2,
+        width: dim.width*0.2,
         height: Dimensions.get('window').height*0.2,
         resizeMode: 'contain',
         top: Dimensions.get('window').height*0.75,
-          },
-          mealBar: {
-              
-          },
-          macroImage: {
-            
-            width: 30,
+      },
+      mealBar: {
+          
+     },
+      macroImage: {    
+        width: 30,
         height:30,
-          },
-          macroContainer:{
-            flexDirection:'column',
-            marginTop:10,
-            margin:3, 
-            justifyContent: 'center',
-          alignItems:'center',
-        },
-        chartStyle: {
-          marginLeft:15,
+      },
+      macroContainer:{
+        flexDirection:'column',
+        marginTop:10,
+        margin:3, 
+        justifyContent: 'center',
+        alignItems:'center',
+      },
+      chartStyle: {
+        marginLeft:15,
         top: "5%",
         borderRadius: 15,
         marginVertical: 8,
         borderRadius: 15,
-        }
-      ,
+        },
       mealView:{
         flexDirection: 'column',
         justifyContent: 'center',
         width: "90%",
         marginLeft:"5%",
-        backgroundColor:"white",
+        backgroundColor:"#fff",
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -125,43 +123,46 @@ export default StyleSheet.create({
         flex:1 ,
         zIndex: 1 ,
         paddingHorizontal: 10,},
-         text: { 
-           fontSize: 17,
-             padding: 10 },
-              btnText: {
-                flex:1 ,
-                zIndex: 1 ,
-                  fontSize: 20 
-                }
-                , btnTextHolder: {
-                  zIndex: 1 
-                  },
-                    Btn: { 
-                      marginTop: "5%",
-                      flexDirection:'row',
-                      zIndex: 1 
-                      },foodText:{
-                        fontSize:20,
-                        marginLeft:5,
-                        marginTop:5
-                      },
-                      foodImage:{
-                        marginTop:5,
-                          marginLeft:10,
-                          width: 30,
-                          height: 30,
-                        
-                      },food:{
-                        justifyContent: 'center',
-                        alignItems:'center',
-                        borderRadius:15
-                      },wrapper: {
-                        height:Dimensions.get('window').height*0.35
-                      },
-                      slide: {
-                        justifyContent: 'space-evenly',
-                        alignItems: 'stretch',
-                      }
+        text: { 
+          fontSize: 17,
+          padding: 10 
+        },
+        btnText: {
+          flex:1 ,
+          zIndex: 1 ,
+          fontSize: 20 
+        },
+        btnTextHolder: {
+          zIndex: 1 
+        },
+        Btn: { 
+          marginTop: "5%",
+          flexDirection:'row',
+          zIndex: 1 
+        },
+        foodText:{
+          fontSize:20,
+          marginLeft:5,
+          marginTop:5
+        },
+        foodImage:{
+          marginTop:5,
+          marginLeft:10,
+          width: 30,
+          height: 30,
+        },
+        food:{
+          justifyContent: 'center',
+          alignItems:'center',
+          borderRadius:15
+        },
+        wrapper: {
+          height:Dimensions.get('window').height*0.35
+        },
+        slide: {
+          justifyContent: 'space-evenly',
+          alignItems: 'stretch',
+        }
 
                   
   });

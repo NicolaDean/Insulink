@@ -1,8 +1,12 @@
 
 import React from 'react'
-import { Text, View, Dimensions  } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { View  } from 'react-native';
+
+//CUSTOM COMPONENTS
 import CustomButton from '../../customComponents/customButton';
+
+//REDUX
+import { useDispatch } from 'react-redux';
 import { login } from '../../stateManager/reduxStates/actions/userAction';
 
 export const Login = ({navigation}) =>{
