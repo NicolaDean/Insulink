@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View, Image,TouchableHighlight, StyleSheet,Dimensions} from 'react-native';
-
+import { dim } from '../../constants/appAspect';
 export const Food = ({data,nav,activeView}) =>{
 
     let image = data.photo.thumb;
