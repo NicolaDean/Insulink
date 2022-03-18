@@ -3,21 +3,29 @@ import { Text, View, Image,TouchableHighlight, StyleSheet,Dimensions, Vibration,
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { dim } from '../../constants/appAspect';
 import CustomImageButton from '../../customComponents/customImageButton'
+import { Shake } from "react-native-motion";
 
 
 export const Food = ({data,nav,deletable}) =>{
 
     const [expanded,setExpanded] = useState( false )
+    const [state,setState] = useState( 0)
+
     let image = data.photo.thumb;
     let name = data.food_name;
     let id=data;
    
     const getDetails = (id) =>{
         nav.navigate('FoodDetails',{id : {id}}) 
+        setExpanded(false);
     }
     const expandMeal = () =>{
         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut); 
         setExpanded(expanded => !expanded); 
+        if (deletable) {
+            setState(state+1);
+            
+        }
     }
 
     const deleteFood = (id) =>{
@@ -28,14 +36,18 @@ export const Food = ({data,nav,deletable}) =>{
     const showExpansion = () =>{
         return (
             <View >
-                <CustomImageButton image='camera'   iconStyle={styles.deleteButton}
+                <Shake value={state} type="timing" useNativeDriver={true}>
+                <CustomImageButton image='delete'   iconStyle={styles.deleteButton}
               onPress={() => {deleteFood(id)}}/>
+              </Shake>
             </View> );
     }
+   
 
     return (
         <SafeAreaView>
-             
+                             <Shake value={state} type="timing" useNativeDriver={true}>
+
         <TouchableHighlight  style={ {justifyContent: 'center',
         alignItems:'center',margin:3}} underlayColor={"COLOR"}  onPress={()=>{getDetails(id)} } onLongPress={expandMeal}>
             <View style={styles.contentBox}>
@@ -50,7 +62,7 @@ export const Food = ({data,nav,deletable}) =>{
                     source ={{uri:image}}/>
             </View>
         </TouchableHighlight>
-    
+    </Shake>
         
         </SafeAreaView>
        

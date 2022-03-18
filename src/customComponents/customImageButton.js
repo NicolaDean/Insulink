@@ -12,7 +12,10 @@ const images = {
       },
       search: {
           uri: require('../assets/search.png')
-        }
+        },
+        delete: {
+            uri: require('../assets/delete.png')
+          }
   }
 
 export const CustomButton = (
