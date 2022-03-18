@@ -58,7 +58,7 @@ export const FoodSearch = ({ navigation }) =>{
             data={foodData}
             numColumns={3}
             renderItem={({ item }) => (
-                <Food style={styles.food} data = {item} nav = {navigation} api={apiSelected} activeView={true}></Food>
+                <Food style={styles.food} data = {item} nav = {navigation} api={apiSelected} deletable={false}></Food>
               )}
             />
 

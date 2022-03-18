@@ -54,11 +54,18 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut); 
         setExpanded(expanded => !expanded); 
     }
+    const handlerLongClick = () => {
+        //handler for Long Click
+        alert('Button Long Pressed');
+      };
+    
 
     const renderListItem = (item) =>{
         return(
-            <View style={{alignContent:'center'}}>
-                <Food style={styles.food} data = {item.id} nav = {navigation} api={apiSelected} activeView={true}></Food>
+            <View>
+            <TouchableOpacity style={{alignContent:'center'}} >
+                <Food style={styles.food} data = {item.id} nav = {navigation} api={apiSelected} deletable={true} ></Food>
+                </TouchableOpacity>
                 <Text style={{fontSize:15,marginLeft:10,marginBottom:10}} >{item.id.serving_unit} aa</Text >
             </View>
         );
