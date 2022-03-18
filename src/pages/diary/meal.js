@@ -62,11 +62,11 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
 
     const renderListItem = (item) =>{
         return(
-            <View>
+            <View  style={{alignContent:'center',justifyContent:'center'}}>
             <TouchableOpacity style={{alignContent:'center'}} >
-                <Food style={styles.food} data = {item.id} nav = {navigation} api={apiSelected} deletable={true} ></Food>
+                <Food style={styles.food} data = {item.id} nav = {navigation} api={apiSelected} deletable={true} serving={item.id.serving_unit} ></Food>
                 </TouchableOpacity>
-                <Text style={{fontSize:15,marginLeft:10,marginBottom:10}} >{item.id.serving_unit} aa</Text >
+                <Text style={{fontSize:15,marginLeft:10,marginBottom:10}} >{item.id.serving_unit}</Text >
             </View>
         );
     }

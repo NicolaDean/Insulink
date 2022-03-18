@@ -6,7 +6,7 @@ import CustomImageButton from '../../customComponents/customImageButton'
 import { Shake } from "react-native-motion";
 
 
-export const Food = ({data,nav,deletable}) =>{
+export const Food = ({data,nav,deletable,serving}) =>{
 
     const [expanded,setExpanded] = useState( false )
     const [state,setState] = useState( 0)
@@ -50,7 +50,7 @@ export const Food = ({data,nav,deletable}) =>{
 
         <TouchableHighlight  style={ {justifyContent: 'center',
         alignItems:'center',margin:3}} underlayColor={"COLOR"}  onPress={()=>{getDetails(id)} } onLongPress={expandMeal}>
-            <View style={styles.contentBox}>
+            <View style={deletable? [styles.contentBox,{width: dim.width*0.4, height: dim.width*0.4}]:[styles.contentBox,{width: dim.width*0.3, height: dim.width*0.3,paddingTop:20}]}>
             {
             //SHOW THE DELET BUTTON
             (expanded && deletable) ? (showExpansion()):null
@@ -60,6 +60,8 @@ export const Food = ({data,nav,deletable}) =>{
                 <Image 
                     style={{width: dim.width*0.2, height: dim.width*0.2}}
                     source ={{uri:image}}/>
+
+                    <Text>{serving}</Text>
             </View>
         </TouchableHighlight>
     </Shake>
@@ -92,9 +94,11 @@ const styles = StyleSheet.create(
         },
         title:{
             
-            fontSize:15,
-            marginBottom:10,
-            fontWeight:"bold"
+            fontSize:13,
+            
+            marginBottom:5,
+            fontWeight:"bold",
+            alignSelf:'center'
         },deleteButton:{
             width: Dimensions.get('window').width*0.05,
             height: Dimensions.get('window').height*0.05,
