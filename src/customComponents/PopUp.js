@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 import CustomButton from "./customButton";
+import CustomImageButton from "./customImageButton";
+
 
 export const PopUp = (
     {name_to_open="open",name_to_close="close"}
@@ -19,11 +21,14 @@ export const PopUp = (
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
-            <CustomButton
+              <CustomImageButton
               title={name_to_close}
+              image="close"
+              iconStyle={styles.buttonClose}
               onPress={() => setModalVisible(!modalVisible)}
             />
+            <Text style={styles.modalText}>Hello World!</Text>
+            
               <Text style={styles.textStyle}>Hide Modal</Text>
           </View>
         </View>
@@ -41,12 +46,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
+    marginTop: 10
   },
   modalView: {
-    margin: 20,
+    
     backgroundColor: "white",
-    borderRadius: 20,
+    borderRadius: 14,
     padding: 35,
     alignItems: "center",
     shadowColor: "#000",
@@ -56,13 +61,17 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5
+    elevation: 4
   },
   buttonOpen: {
     backgroundColor: "#F194FF",
   },
   buttonClose: {
-    backgroundColor: "#2196F3",
+    width: 22,
+    height: 22,
+    right:0,
+    left:70,
+    bottom:40
   },
   textStyle: {
     color: "white",

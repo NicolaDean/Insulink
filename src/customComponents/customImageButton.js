@@ -15,7 +15,10 @@ const images = {
         },
         delete: {
             uri: require('../assets/delete.png')
-          }
+          },
+          close: {
+              uri: require('../assets/close.png')
+            }
   }
 
 export const CustomButton = (
