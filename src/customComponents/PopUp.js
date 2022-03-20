@@ -9,6 +9,7 @@ import { Dimensions  } from 'react-native';
 //REDUX IMPORT
 import { editUserData } from '../../stateManager/reduxStates/actions/userAction';
 import { userDataTypes } from '../../constants/states';
+import { colors } from "../constants/appAspect";
 
 export const PopUp = (
     {name_to_open="open",name_to_close="close"}
@@ -36,12 +37,24 @@ export const PopUp = (
               iconStyle={styles.buttonClose}
               onPress={() => setModalVisible(!modalVisible)}
             />
+            <View style={{justifyContent:'space-around',flexDirection:'row'}}>
+            <View style={{borderRightColor:colors.black,borderRightWidth:StyleSheet.hairlineWidth,marginLeft:10}}>
+              <View style={{margin:10,marginVertical:'50%'}}>
+<Text>Use my last glycemia</Text>
+<CustomButton
+        title="Skip"
+        onPress={() => {console.log("Used Last Glycemia")}}/>
+</View>
+
+            </View>
+            <View style={{margin:10,marginTop:'15%'}}>
             <Text style={styles.modalText}>Place you glycemia here:</Text>
             <TextInput style={styles.field}  keyboardType="numeric"   placeholder="mg/dL" onChangeText={val => {console.log("glycemia: " + val)}}/>
             <CustomButton
         title="Insert"
         onPress={() => {console.log("Inserted")}}/>
-              <Text style={styles.textStyle}>Hide Modal</Text>
+        </View>
+        </View>
           </View>
         </View>
       </Modal>
@@ -58,13 +71,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 5
   },
   modalView: {
     
     backgroundColor: "white",
     borderRadius: 14,
-    padding: 25,
+    paddingBottom:20,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -81,11 +93,10 @@ const styles = StyleSheet.create({
   buttonClose: {
     width: 24,
     height: 24,
-    right:0,
-    left: 98,
+    left: 170,
     position: 'relative',
 
-    bottom:35
+    bottom:10
   },
   textStyle: {
     color: "white",
