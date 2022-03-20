@@ -7,6 +7,8 @@ import InsulineCalculator from '../../utils/insulineCalculator'
 import CustomButton from '../../customComponents/customButton';
 import {Food} from '../foodSearch/food'
 import styles from './style'
+import PopUp from '../../customComponents/PopUp';
+
 
 //REDUX
 import { useDispatch } from 'react-redux';
@@ -82,7 +84,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                     renderItem={({ item }) => (renderListItem(item))}
                 />
                 
-            </ScrollView><CustomButton title='Dose' style={{ width:"100%", overflow: 'scroll'}} onPress={()=>{}}/></View>
+            </ScrollView><PopUp name_to_open='Dose' name_to_close='close'/></View>
         );
     }
 
