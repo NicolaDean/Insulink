@@ -1,13 +1,22 @@
 import React, { useState } from "react";
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
+import { Alert,TextInput, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 import CustomButton from "./customButton";
 import CustomImageButton from "./customImageButton";
+import { connect, useDispatch } from 'react-redux';
+import { Dimensions  } from 'react-native';
 
+
+//REDUX IMPORT
+import { editUserData } from '../../stateManager/reduxStates/actions/userAction';
+import { userDataTypes } from '../../constants/states';
 
 export const PopUp = (
     {name_to_open="open",name_to_close="close"}
     ) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const setInputField = (type,data) =>{
+    setUserData(state =>({...state,[type]: data}));
+}
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -27,8 +36,11 @@ export const PopUp = (
               iconStyle={styles.buttonClose}
               onPress={() => setModalVisible(!modalVisible)}
             />
-            <Text style={styles.modalText}>Hello World!</Text>
-            
+            <Text style={styles.modalText}>Place you glycemia here:</Text>
+            <TextInput style={styles.field}  keyboardType="numeric"   placeholder="mg/dL" onChangeText={val => {console.log("glycemia: " + val)}}/>
+            <CustomButton
+        title="Insert"
+        onPress={() => {console.log("Inserted")}}/>
               <Text style={styles.textStyle}>Hide Modal</Text>
           </View>
         </View>
@@ -46,13 +58,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 10
+    marginTop: 5
   },
   modalView: {
     
     backgroundColor: "white",
     borderRadius: 14,
-    padding: 35,
+    padding: 25,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -67,11 +79,13 @@ const styles = StyleSheet.create({
     backgroundColor: "#F194FF",
   },
   buttonClose: {
-    width: 22,
-    height: 22,
+    width: 24,
+    height: 24,
     right:0,
-    left:70,
-    bottom:40
+    left: 98,
+    position: 'relative',
+
+    bottom:35
   },
   textStyle: {
     color: "white",
@@ -81,7 +95,14 @@ const styles = StyleSheet.create({
   modalText: {
     marginBottom: 15,
     textAlign: "center"
-  }
+  },field:{
+    fontSize:30,
+  } 
+
 });
+
+const mapStateToProps = (state, ownProps = {}) => {
+    return{status: state.userReducer};
+  }
 
 export default PopUp;
