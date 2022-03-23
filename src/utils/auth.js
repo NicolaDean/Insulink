@@ -12,7 +12,7 @@ export const login = async (email,psw) => {
 
     //CHECK INPUTS:
     await auth().signInWithEmailAndPassword(email,psw).then((usr)=>{
-      console.log('User account created & signed in!' +usr.user);
+      console.log('User signed in! ID:' +usr.user.uid);
       user = usr.user;
     })
     .catch(error => {
@@ -34,7 +34,7 @@ export const register = async (email,psw) =>{
   let user = {};
 
   await auth().createUserWithEmailAndPassword(email,psw).then((usr)=>{
-      console.log('User account created & signed in!' +usr.user);
+      console.log('User account created & signed in! ID:' +usr.user.uid);
       user = usr.user;
     })
   .catch(error => {

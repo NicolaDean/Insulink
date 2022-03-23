@@ -35,14 +35,11 @@ export const Login = ({navigation}) =>{
     const tryLogin = async() =>
     {
         console.log("TRY LOGIN");
-        //const user = await authSys.login("99niky99.nd@gmail.com","123456");
-
+        
         dispatch(login("marcofasa99@gmail.com","123456"));
         //dispatch(addGlicemy("zLZqvcoV2egpiguiJKxN5i9vrPK2",34));
 
-        //console.log("USER: " + JSON.stringify(user));
-        //dispatch(login("nicola@gmail.com",""));
-        //navigation.navigate('Home',{});
+        navigation.navigate('Home',{});
     }
     
     return (
