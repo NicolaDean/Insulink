@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Dimensions  } from 'react-native';
 import {LineChart,ProgressChart} from "react-native-chart-kit";
 
@@ -80,12 +80,15 @@ export const Home = ({ navigation,diary }) =>{
 
   const dispatch = useDispatch();
 
+  const [init,setInit] = useState(true);
 
   //REDIRECT USER TO LOGIN IF NOT LOGGED
   useEffect(()=>{
-    dispatch(checkStateConsistency(diary.userReducer.status,navigation));
+    dispatch(checkStateConsistency(diary.userReducer.status,navigation,[init,setInit]));
   },[]);
 
+  if(init) return null;
+  
     return(
         <View>
             <LineChart

@@ -4,7 +4,7 @@ import { loginStatus } from "../../../constants/states";
 import * as database from "../../../utils/firebaseQuery"
 import * as localStorage from '../../../utils/localStoreManager'
 
-export const checkStateConsistency = (login,nav) => async dispatch =>{
+export const checkStateConsistency = (login,nav,[init,setInit]) => async dispatch =>{
 
     //CHECK IF LOCAL DATA ARE AVAILABLE
 
@@ -23,6 +23,7 @@ export const checkStateConsistency = (login,nav) => async dispatch =>{
     const diaryData = {};
 
     console.log("HOME LOADED!!");
+    setInit(false);
     //IF NOT DATA AVAILABLE CALL DISPATCH FUNCTION TO SAVE LOADED STATE
    /* dispatch({
         type: 'CHECK_CONSISTENCY',

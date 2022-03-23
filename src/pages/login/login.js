@@ -1,5 +1,4 @@
-
-import React from 'react'
+import React, { useState,useEffect }  from 'react'
 import { View  } from 'react-native';
 
 //CUSTOM COMPONENTS
@@ -7,16 +6,43 @@ import CustomButton from '../../customComponents/customButton';
 
 //REDUX
 import { useDispatch } from 'react-redux';
-import { login } from '../../stateManager/reduxStates/actions/userAction';
+import { addGlicemy, login, register } from '../../stateManager/reduxStates/actions/userAction';
+import * as authSys from '../../utils/auth'
+
+//FIREBASE
+import auth from '@react-native-firebase/auth';
 
 export const Login = ({navigation}) =>{
 
     const dispatch = useDispatch();
 
-    const tryLogin = () =>
+    const [init, setInit] = useState(true);
+
+    // Handle user state changes
+    function onAuthStateChanged(user) {
+        //setUser(user);
+        //console.log("USER: " + JSON.stringify(user));
+        if (init) setInit(false);
+    }
+
+    useEffect(() => {
+        const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
+        return subscriber; // unsubscribe on unmount
+    }, []);
+
+    if (init) return null;
+
+    const tryLogin = async() =>
     {
-        dispatch(login("nicola@gmail.com",""))
-        navigation.navigate('Home',{});
+        console.log("TRY LOGIN");
+        //const user = await authSys.login("99niky99.nd@gmail.com","123456");
+
+        dispatch(login("marcofasa99@gmail.com","123456"));
+        //dispatch(addGlicemy("zLZqvcoV2egpiguiJKxN5i9vrPK2",34));
+
+        //console.log("USER: " + JSON.stringify(user));
+        //dispatch(login("nicola@gmail.com",""));
+        //navigation.navigate('Home',{});
     }
     
     return (

@@ -3,6 +3,7 @@ import { userMethods } from "../../../constants/reducers"
 
 import * as database from "../../../utils/firebaseQuery"
 import * as localStorage from '../../../utils/localStoreManager'
+import * as authSys from '../../../utils/auth'
 
 /**
  * check all user inputs and try to register
@@ -11,10 +12,15 @@ import * as localStorage from '../../../utils/localStoreManager'
  * @param {*} user user data to register
  * @returns error code
  */
-export const register = async (user) => async dispatch =>{
+export const register = (user,password) => async dispatch =>{
     //ASYNC ACTION:
     //TODO CHECK USER INPUTS ARE OK (psw length, email not exist etc...)
-    await database.registerUser(user);
+
+    console.log("Reg Start:");
+    const id = (await authSys.register(user.email,password)).uid;
+
+    console.log("Reg END:" + id);
+    await database.registerUser(id,user);
     
     console.log("REGISTER OK");
 
@@ -69,9 +75,14 @@ export const del = (user) =>{
 export const login = (email,psw) => async dispatch =>{
 
     //ASYNC ACTION (eg check values on DB)
+
+    //CHECK LOGIN DATA
+    const user = await authSys.login(email,psw);
+
     //Get user data
-    const usrData = (await database.getUserData(email));
-    const glicemy = (await database.getUserGlicemy(email));
+    const usrData = (await database.getUserData(user.uid));
+    
+    const glicemy = (await database.getUserGlicemy(user.uid));
 
     usrData.glicemy = glicemy;
 
@@ -119,14 +130,14 @@ export const logout = (email) => async dispatch =>{
  * @param {*} glicemyValue an integer representing the value of glicemy in this specific moment
  * @returns nothing
  */
-export const addGlicemy = (email,glicemyValue) => async dispatch =>{
+export const addGlicemy = (userId,glicemyValue) => async dispatch =>{
 
     const time = firebase.firestore.FieldValue.serverTimestamp();
     //GET TIMESTAMP
     const glicemy = {value: glicemyValue,time:time};
 
     //UPDATE FIREBASE IF POSSIBLE; IF NOT ADD A PENDING UPDATE (TODO)
-    database.addGlicemyValue(email,glicemy);
+    database.addGlicemyValue(userId,glicemy);
 
     //REDUX DISPATCH
     dispatch({

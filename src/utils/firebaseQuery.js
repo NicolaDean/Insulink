@@ -21,8 +21,8 @@ export const getUserData = async (email) =>{
     return user;
 }
 
-export const registerUser = async (userData) =>{
-    await (users.doc(userData.email).set(userData));
+export const registerUser = async (id,userData) =>{
+    await (users.doc(id).set(userData));
 }
 
 export const udpateUser = async (userData) =>{
