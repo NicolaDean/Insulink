@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from "react";
 import {ScrollView, Text, View,Dimensions} from 'react-native';
 import Slick from 'react-native-slick';
 import CustomButton from '../../customComponents/customButton';
 import {ProgressChart} from "react-native-chart-kit";
-
+import { MacroChart } from '../../customComponents/macroChart';
 
 //CUSTOM COMPONENTS
 import Meal from './meal';
@@ -56,7 +56,7 @@ export const MealDiary = ({ navigation,diary,user }) =>{
   const maxCarb = 200;
   const maxProt = 100;
   const maxFat  = 100;
-
+ 
   const graph = {
     labels: ["Carbo", "Fat", "Pro"], // optional
     data: [(((diary.totMacro.prot.toFixed(2)/maxProt)<1) ? (diary.totMacro.prot.toFixed(2)/maxProt) : 1),(((diary.totMacro.fat.toFixed(2)/maxFat)<1) ? (diary.totMacro.fat.toFixed(2)/maxFat) : 1),(((diary.totMacro.carb.toFixed(2)/maxCarb)<1) ? (diary.totMacro.carb.toFixed(2)/maxCarb) : 1)]
@@ -74,40 +74,13 @@ return (
 
 <Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
         <View style={styles.slide}>
-        <ProgressChart 
-            data={graph}
-            width={screenWidth}
-            height={180}
-            strokeWidth={15}
-             radius={32}
-            chartConfig={chartConfig}
-            hideLegend={false}
-            style={styles.chartStyle}
-          />
+        <MacroChart diary={diary} user={user}/>
         </View>
         <View style={styles.slide}>
-        <ProgressChart 
-            data={graph}
-            width={screenWidth}
-            height={180}
-            strokeWidth={15}
-             radius={32}
-            chartConfig={chartConfig}
-            hideLegend={false}
-            style={styles.chartStyle}
-          />
+        <MacroChart diary={diary} user={user}/>
         </View>
         <View style={styles.slide}>
-        <ProgressChart 
-            data={graph}
-            width={screenWidth}
-            height={180}
-            strokeWidth={15}
-             radius={32}
-            chartConfig={chartConfig}
-            hideLegend={false}
-            style={styles.chartStyle}
-          />
+        <MacroChart diary={diary} user={user}/>
         </View>
       </Slick>
 

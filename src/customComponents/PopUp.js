@@ -5,7 +5,6 @@ import CustomImageButton from "./customImageButton";
 import { connect, useDispatch } from 'react-redux';
 import { Dimensions  } from 'react-native';
 
-
 //REDUX IMPORT
 import { editUserData } from '../../stateManager/reduxStates/actions/userAction';
 import { userDataTypes } from '../../constants/states';
