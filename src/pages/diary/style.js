@@ -157,7 +157,7 @@ export default StyleSheet.create({
           borderRadius:15
         },
         wrapper: {
-          height:Dimensions.get('window').height*0.35
+          height:Dimensions.get("window").height*0.40
         },
         slide: {
           justifyContent: 'space-evenly',

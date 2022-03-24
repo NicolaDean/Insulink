@@ -4,7 +4,7 @@ import Slick from 'react-native-slick';
 import CustomButton from '../../customComponents/customButton';
 import {ProgressChart} from "react-native-chart-kit";
 import { MacroChart } from '../../customComponents/macroChart';
-
+import { GlycemiaChart } from '../../customComponents/glycemiaChart';
 //CUSTOM COMPONENTS
 import Meal from './meal';
 import styles from './style'
@@ -80,7 +80,7 @@ return (
         <MacroChart diary={diary} user={user}/>
         </View>
         <View style={styles.slide}>
-        <MacroChart diary={diary} user={user}/>
+        <GlycemiaChart diary={diary} user={user}/>
         </View>
       </Slick>
 

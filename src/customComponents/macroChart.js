@@ -52,7 +52,7 @@ export const MacroChart = ({
  <ProgressChart 
             data={graph}
             width={screenWidth}
-            height={180}
+            height={Dimensions.get("window").height*0.3}
             strokeWidth={15}
              radius={32}
             chartConfig={chartConfig}
