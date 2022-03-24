@@ -9,6 +9,10 @@ const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset*3;
 
 
+const todayDate=new Date();
+//  const todaydate=new Date().toDateString();
+
+
 const chartConfig = {
     //General
     backgroundColor: "#e26a00",
@@ -30,29 +34,40 @@ const chartConfig = {
       useShadowColorFromDataset: false, // optional
 };
 
-const data = {
-  
-    labels: ["0 am", "3 am", "9 am", "3 pm", "6pm", "9 pm"],
-    datasets: [
-      {
-        data: [
-          300,
-          200,
-          120,
-          80
-          
-        ]
-      }
-    ]
-  
-}
+
+
+
     
 export const GlycemiaChart = ({
      navigation,
      diary,
      user }) =>{
 
+        function getTodayGlycemia(){
+            var len = user.userData.glicemy.length ;
+            var data = [];
+            var i=0;
+            todayDate.setHours(0,0,0,0);
+            var lastGlicemy = user.userData.glicemy[0];
+            console.log(lastGlicemy.time);
+            while(i<len && lastGlicemy!=null){
+             data.push(lastGlicemy.value);
+             i=i+1;
+             lastGlicemy = user.userData.glicemy[i];
+            }
+          return data;
+        }
 
+        const data = {
+  
+            labels: ["0 am", "3 am", "9 am", "3 pm", "6pm", "9 pm"],
+            datasets: [
+              {
+                data: getTodayGlycemia()
+              }
+            ]
+          
+        }
 
 
         

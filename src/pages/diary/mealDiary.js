@@ -66,6 +66,8 @@ export const MealDiary = ({ navigation,diary,user }) =>{
 
   const lastGlicemy = user.userData.glicemy[len-1];
   console.log(lastGlicemy);
+  console.log(lastGlicemy.value);
+
 return (
  //TODO ADD THE TOTAL MEALS MACRO GRAPHù
  <View>
@@ -85,7 +87,7 @@ return (
       </Slick>
 
 <Text style={styles.title}>Meal Diary:</Text>
-        <Text>{JSON.stringify(lastGlicemy)}</Text>
+        <Text>{JSON.stringify(user.userData.glicemy.value)}</Text>
 
         <Meal navigation = {navigation} name ="Colazione"   icon ="breakfast"   id="breakfast"/>
         <Meal navigation = {navigation} name ="Pranzo"      icon ="lunch"       id="lunch"/>
