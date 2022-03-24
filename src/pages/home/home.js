@@ -8,6 +8,7 @@ import CustomButton from '../../customComponents/customButton'
 //REDUX
 import { connect, useDispatch } from 'react-redux';
 import { checkStateConsistency } from '../../stateManager/reduxStates/actions/rootAction';
+import GlycemiaChart from '../../customComponents/glycemiaChart';
 
   const marginOffset=10;
   const screenWidth = Dimensions.get("window").width-marginOffset;
@@ -91,17 +92,8 @@ export const Home = ({ navigation,diary }) =>{
   
     return(
         <View>
-            <LineChart
-              data={data3}
-              width={screenWidth} // from react-native
-              height={Dimensions.get("window").height*0.3}
-              yAxisSuffix=" mg/dL"
-              yAxisInterval={1} // optional, defaults to 1
-              chartConfig={chartConfig}
-              style={chartStyle}
-              bezier
-            />
-  
+            
+            {init ?  null: <GlycemiaChart user={diary.userReducer}/> }
             <ProgressChart
               data={data2}
               width={screenWidth}
@@ -128,7 +120,18 @@ export const Home = ({ navigation,diary }) =>{
 }
 
 
-
+/*
+<LineChart
+              data={data3}
+              width={screenWidth} // from react-native
+              height={Dimensions.get("window").height*0.3}
+              yAxisSuffix=" mg/dL"
+              yAxisInterval={1} // optional, defaults to 1
+              chartConfig={chartConfig}
+              style={chartStyle}
+              bezier
+            />
+*/
 //export default Home;
 const mapStateToProps = (state, ownProps = {}) => {
   return{diary: state};

@@ -3,6 +3,8 @@ import React from 'react';
 import {  StyleSheet,Dimensions,TouchableOpacity, View, Image } from 'react-native';
 import {LineChart} from "react-native-chart-kit";
 import { connect, useDispatch } from 'react-redux';
+import { glicemyChartFormatter } from '../utils/chartDataFormatter';
+import { glicemyDateFormatter } from '../utils/firebaseQuery';
 
 const marginOffset=10;
 
@@ -37,44 +39,45 @@ const chartConfig = {
 
 
 
-    
+const data3 = {
+  
+  labels: ["0 am", "3 am", "9 am", "3 pm", "6pm", "9 pm"],
+  datasets: [
+    {
+      data: [
+        300,
+        200,
+        120,
+        80
+        
+      ]
+    }
+  ]
+
+}
 export const GlycemiaChart = ({
      navigation,
      diary,
      user }) =>{
 
-        function getTodayGlycemia(){
-            var len = user.userData.glicemy.length ;
-            var data = [];
-            var i=0;
-            todayDate.setHours(0,0,0,0);
-            var lastGlicemy = user.userData.glicemy[0];
-            console.log(lastGlicemy.time);
-            while(i<len && lastGlicemy!=null){
-             data.push(lastGlicemy.value);
-             i=i+1;
-             lastGlicemy = user.userData.glicemy[i];
-            }
-          return data;
+        const getTodayGlycemia = () =>{
+
+          let id = glicemyDateFormatter();
+          console.log("AAAA:" + id);
+          g = user.userData.glicemy[id];
+          console.log("GG:" + JSON.stringify(user.userData.glicemy[id]));
+          return g;
         }
+        
+        const data = glicemyChartFormatter(getTodayGlycemia());
+        //const data = glicemyChartFormatter(getTodayGlycemia());
 
-        const data = {
-  
-            labels: ["0 am", "3 am", "9 am", "3 pm", "6pm", "9 pm"],
-            datasets: [
-              {
-                data: getTodayGlycemia()
-              }
-            ]
-          
-        }
-
-
+        //console.log("CHART:"  + JSON.stringify(data));
         
     return (
       
         <LineChart
-        data={data}
+        data={data3}
         width={screenWidth} // from react-native
         height={Dimensions.get("window").height*0.3}
         yAxisSuffix=" mg/dL"

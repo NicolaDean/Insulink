@@ -132,9 +132,9 @@ export const logout = (email) => async dispatch =>{
  */
 export const addGlicemy = (userId,glicemyValue) => async dispatch =>{
 
-    const time = firebase.firestore.FieldValue.serverTimestamp();
+    const date = new Date();
     //GET TIMESTAMP
-    const glicemy = {value: glicemyValue,time:time};
+    const glicemy = {value: glicemyValue,time:date};
 
     //UPDATE FIREBASE IF POSSIBLE; IF NOT ADD A PENDING UPDATE (TODO)
     database.addGlicemyValue(userId,glicemy);
