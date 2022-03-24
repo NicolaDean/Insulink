@@ -50,7 +50,7 @@ const chartConfig = {
 
  
 
-export const MealDiary = ({ navigation,diary }) =>{
+export const MealDiary = ({ navigation,diary,user }) =>{
 
 
   const maxCarb = 200;
@@ -62,7 +62,10 @@ export const MealDiary = ({ navigation,diary }) =>{
     data: [(((diary.totMacro.prot.toFixed(2)/maxProt)<1) ? (diary.totMacro.prot.toFixed(2)/maxProt) : 1),(((diary.totMacro.fat.toFixed(2)/maxFat)<1) ? (diary.totMacro.fat.toFixed(2)/maxFat) : 1),(((diary.totMacro.carb.toFixed(2)/maxCarb)<1) ? (diary.totMacro.carb.toFixed(2)/maxCarb) : 1)]
   }
   
-  
+  const len = user.userData.glicemy.length;
+
+  const lastGlicemy = user.userData.glicemy[len-1];
+  console.log(lastGlicemy);
 return (
  //TODO ADD THE TOTAL MEALS MACRO GRAPHù
  <View>
@@ -109,8 +112,8 @@ return (
       </Slick>
 
 <Text style={styles.title}>Meal Diary:</Text>
-        
-        
+        <Text>{JSON.stringify(lastGlicemy)}</Text>
+
         <Meal navigation = {navigation} name ="Colazione"   icon ="breakfast"   id="breakfast"/>
         <Meal navigation = {navigation} name ="Pranzo"      icon ="lunch"       id="lunch"/>
         <Meal navigation = {navigation} name ="Cena"        icon ="dinner"      id="dinner"/>
@@ -124,7 +127,7 @@ return (
 
 //export default Home;
 const mapStateToProps = (state, ownProps = {}) => {
-  return{diary: state.macroTracker};
+  return{diary: state.macroTracker,user: state.userReducer};
 }
 
 export default connect(mapStateToProps)(MealDiary);

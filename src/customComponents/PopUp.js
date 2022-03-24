@@ -10,14 +10,32 @@ import { Dimensions  } from 'react-native';
 import { editUserData } from '../../stateManager/reduxStates/actions/userAction';
 import { userDataTypes } from '../../constants/states';
 import { colors } from "../constants/appAspect";
+import { addGlicemy } from "../stateManager/reduxStates/actions/userAction";
+
 
 export const PopUp = (
-    {name_to_open="open",name_to_close="close"}
+      {
+        name_to_open="open",
+        name_to_close="close",
+        status
+      }
     ) => {
+
+  const dispatch = useDispatch();
   const [modalVisible, setModalVisible] = useState(false);
-  const setInputField = (type,data) =>{
-    setUserData(state =>({...state,[type]: data}));
-}
+  const [glicemy, setGlicemy] = useState(0);
+
+
+  
+
+  const addNewGlicemy = () =>
+  {
+    console.log("ADD NEW GLICEMY : " + glicemy);
+    const id = status.userId;
+
+    dispatch(addGlicemy(id,glicemy));
+  }
+
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -49,10 +67,10 @@ export const PopUp = (
             </View>
             <View style={{margin:10,marginTop:'15%'}}>
             <Text style={styles.modalText}>Place you glycemia here:</Text>
-            <TextInput style={styles.field}  keyboardType="numeric"   placeholder="mg/dL" onChangeText={val => {console.log("glycemia: " + val)}}/>
+            <TextInput style={styles.field}  keyboardType="numeric"   placeholder="mg/dL" onChangeText={setGlicemy}/>
             <CustomButton
         title="Insert"
-        onPress={() => {console.log("Inserted")}}/>
+        onPress={addNewGlicemy}/>
         </View>
         </View>
           </View>
@@ -116,4 +134,6 @@ const mapStateToProps = (state, ownProps = {}) => {
     return{status: state.userReducer};
   }
 
-export default PopUp;
+//export default PopUp;
+
+export default connect(mapStateToProps)(PopUp);

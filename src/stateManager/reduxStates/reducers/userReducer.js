@@ -7,6 +7,7 @@ import { loginStatus } from "../../../constants/states";
 
 const initialState = {
     status:loginStatus.unlogged,
+    userId:"zLZqvcoV2egpiguiJKxN5i9vrPK2",
     userData:{
         email:"",
         password:"",

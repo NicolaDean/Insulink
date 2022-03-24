@@ -40,7 +40,7 @@ export const getUserGlicemy = async (email) =>{
 
     const glicemy_records = [];
 
-   await (users.doc(email).collection(glicemyTable).get())
+   await (users.doc(email).collection(glicemyTable).orderBy('time').get())
     .then((item)=>{
         item.forEach((doc) => 
         {
