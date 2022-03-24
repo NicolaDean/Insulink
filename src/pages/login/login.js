@@ -34,8 +34,8 @@ export const Login = ({navigation}) =>{
 
     const tryLogin = async() =>
     {
-        console.log("TRY LOGIN");
-        
+        console.log("TRY LOGIafdN");
+    
         dispatch(login("marcofasa99@gmail.com","123456"));
         //dispatch(addGlicemy("zLZqvcoV2egpiguiJKxN5i9vrPK2",34));
 
