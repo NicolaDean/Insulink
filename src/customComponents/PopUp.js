@@ -29,7 +29,18 @@ export const PopUp = (
   const [glicemy, setGlicemy] = useState(0);
   const [actionTriggered, setActionTriggered] = useState('DOSE_CHECK'); 
   const ic = new InsulineCalculator(10,120);//Insted of arguments -->UserData.CHORatio
+  const [modalWidth,setModalWidth] =useState(0);
 
+  const find_dimesions=(layout) =>{
+    const {x, y, width, height} = layout;
+    /*
+    console.warn(x);
+    console.warn(y);
+    console.warn(width);
+    console.warn(height);
+    */
+    setModalWidth(width);
+  }
 
   
 
@@ -53,12 +64,12 @@ export const PopUp = (
         }}
       >
         {actionTriggered === 'DOSE_CHECK' ?
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
+        <View style={styles.centeredView}  >
+          <View style={styles.modalView} onLayout={(event) => { find_dimesions(event.nativeEvent.layout) }}>
               <CustomImageButton
               title={name_to_close}
               image="close"
-              iconStyle={styles.buttonClose}
+              iconStyle={[styles.buttonClose,{left:modalWidth/2}]}
               onPress={() => {setActionTriggered(''),setModalVisible(false)}}
             />
             <View style={{justifyContent:'space-around',flexDirection:'row'}}>
@@ -89,11 +100,11 @@ export const PopUp = (
       actionTriggered === 'DOSE_RESULT' ?
       <View style={styles.centeredView}>
 
-          <View style={styles.modalView}>
+          <View style={styles.modalView} onLayout={(event) => { find_dimesions(event.nativeEvent.layout) }}>
           <CustomImageButton
               title={name_to_close}
               image="close"
-              iconStyle={styles.buttonClose}
+              iconStyle={[styles.buttonClose,{left:modalWidth/2}]}
               onPress={() => {setActionTriggered(''),setModalVisible(false)}}
             />
       <Text style={styles.modalText}>We suggest you to make</Text>
@@ -140,8 +151,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#F194FF",
   },
   buttonClose: {
-    width: 24,
-    height: 24,
+    width: 32,
+    height: 32,
     left: 170,
     position: 'relative',
 
@@ -161,7 +172,6 @@ const styles = StyleSheet.create({
     marginLeft:'10%'
   } ,
   doseText: {
-    width:'20%',
     textAlign: "center",
     fontWeight: "bold",
     shadowOpacity: 0.25,
