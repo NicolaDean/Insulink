@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Dimensions  } from 'react-native';
-import {LineChart,ProgressChart} from "react-native-chart-kit";
+import Slick from 'react-native-slick';
+import styles from './style'
 
 //CUSTOM COMPONENTS
 import CustomButton from '../../customComponents/customButton'
@@ -9,6 +10,8 @@ import CustomButton from '../../customComponents/customButton'
 import { connect, useDispatch } from 'react-redux';
 import { checkStateConsistency } from '../../stateManager/reduxStates/actions/rootAction';
 import GlycemiaChart from '../../customComponents/glycemiaChart';
+import { MacroChart } from '../../customComponents/macroChart';
+import { ScrollView } from 'react-native-gesture-handler';
 
   const marginOffset=10;
   const screenWidth = Dimensions.get("window").width-marginOffset;
@@ -77,7 +80,7 @@ const chartProgressStyle ={
       ]
     
   }
-export const Home = ({ navigation,diary }) =>{
+export const Home = ({ navigation,state,user,diary }) =>{
 
   const dispatch = useDispatch();
 
@@ -85,26 +88,25 @@ export const Home = ({ navigation,diary }) =>{
 
   //REDIRECT USER TO LOGIN IF NOT LOGGED
   useEffect(()=>{
-    dispatch(checkStateConsistency(diary.userReducer.status,navigation,[init,setInit]));
+    dispatch(checkStateConsistency(state.userReducer.status,navigation,[init,setInit]));
   },[]);
 
   if(init) return null;
   
     return(
         <View>
-            
-            {init ?  null: <GlycemiaChart user={diary.userReducer}/> }
-            <ProgressChart
-              data={data2}
-              width={screenWidth}
-              height={200}
-              strokeWidth={19}
-              radius={32}
-              chartConfig={chartConfig}
-              hideLegend={false}
-              style={chartProgressStyle}
-            />
+            <ScrollView>
+            <Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
 
+        <View style={styles.slide}>
+            {init ?  null: <GlycemiaChart user={user}/> }
+            </View>
+
+            <View style={styles.slide}>
+
+            <MacroChart diary={diary} user={user}/>
+            </View>
+            </Slick>
             <CustomButton
                 title='Meal Diary'
                 onPress={() => navigation.navigate('MealDiary',{}) }
@@ -113,7 +115,8 @@ export const Home = ({ navigation,diary }) =>{
                 title='PersonalData'
                 onPress={() => navigation.navigate('PersonalData',{}) }
             />    
-                   
+                   </ScrollView>
+
                   
 </View>
     );
@@ -134,7 +137,7 @@ export const Home = ({ navigation,diary }) =>{
 */
 //export default Home;
 const mapStateToProps = (state, ownProps = {}) => {
-  return{diary: state};
+  return{diary: state.macroTracker,user: state.userReducer,state:state};
 }
 
 export default connect(mapStateToProps)(Home);

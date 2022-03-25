@@ -11,7 +11,7 @@
 13. maxCarb,Prot,.. deve essere un valore scelto dall'utente
 14. Glycemia must be between 10 and 999
 15. CHO ratio e insuline sensitivity come parametri dei costruttori di tutti gli insuline calculator
-
+16. maybe diary in Glycemia chart is useless and user in Macro chart also
 --------
 7. Log in
 8. Firebase implementation

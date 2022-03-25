@@ -8,6 +8,8 @@ export default StyleSheet.create({
     sectionContainer: {
       marginTop: 30,
       paddingHorizontal: 25,
+    }, wrapper: {
+      height:Dimensions.get("window").height*0.40
     },
     sectionTitle: {
       fontSize: 24,
@@ -39,5 +41,9 @@ export default StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 12,
         marginVertical: 60
+            },
+            slide: {
+              justifyContent: 'space-evenly',
+              alignItems: 'stretch',
             }
   });
