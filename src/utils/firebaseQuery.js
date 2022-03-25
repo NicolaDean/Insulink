@@ -112,8 +112,7 @@ export const getTodayLastGlicemy =(glicemy) =>
    const todayGlycemia= glicemy[today];
    
    if(todayGlycemia!=undefined){
-        const len=Object.keys(todayGlycemia).length;
-       console.log('AAA' + JSON.stringify(todayGlycemia[len-1].value))
+      const len=Object.keys(todayGlycemia).length;
       return todayGlycemia[len-1].value;
    }
    else return 120;

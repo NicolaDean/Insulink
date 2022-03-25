@@ -4,6 +4,7 @@ import CustomButton from "./customButton";
 import CustomImageButton from "./customImageButton";
 import { connect, useDispatch } from 'react-redux';
 import { Dimensions  } from 'react-native';
+import InsulineCalculator from "../utils/insulineCalculator";
 
 //REDUX IMPORT
 import { editUserData } from '../../stateManager/reduxStates/actions/userAction';
@@ -17,7 +18,9 @@ export const PopUp = (
       {
         name_to_open="open",
         name_to_close="close",
-        status
+        status,
+        diary,
+        id
             }
     ) => {
 
@@ -25,6 +28,7 @@ export const PopUp = (
   const [modalVisible, setModalVisible] = useState(false);
   const [glicemy, setGlicemy] = useState(0);
   const [actionTriggered, setActionTriggered] = useState('DOSE_CHECK'); 
+  const ic = new InsulineCalculator(10,120);//Insted of arguments -->UserData.CHORatio
 
 
   
@@ -60,7 +64,9 @@ export const PopUp = (
             <View style={{justifyContent:'space-around',flexDirection:'row'}}>
             <View style={{borderRightColor:colors.black,borderRightWidth:StyleSheet.hairlineWidth,marginLeft:10}}>
               <View style={{margin:10,marginVertical:'50%'}}>
-<Text>Use my last glycemia</Text>
+<Text style={styles.modalText}>Use my last</Text>
+<Text style={styles.modalText}>Glycemia</Text>
+
 <CustomButton
         title="Skip"
         onPress={() => {setActionTriggered('DOSE_RESULT')}}/>
@@ -68,7 +74,9 @@ export const PopUp = (
 
             </View>
             <View style={{margin:10,marginTop:'15%'}}>
-            <Text style={styles.modalText}>Place you glycemia here:</Text>
+            <Text style={styles.modalText}>Place your</Text>
+            <Text style={styles.modalText}>Glycemia here:</Text>
+
             <TextInput style={styles.field}  keyboardType="numeric"   placeholder="mg/dL" onChangeText={setGlicemy}/>
             <CustomButton
               title="Insert"
@@ -88,8 +96,15 @@ export const PopUp = (
               iconStyle={styles.buttonClose}
               onPress={() => {setActionTriggered(''),setModalVisible(false)}}
             />
-      <Text>{JSON.stringify(getTodayLastGlicemy(status.userData.glicemy)) }</Text>
-      <Text>AAAAAAA</Text>
+      <Text style={styles.modalText}>We suggest you to make</Text>
+      <Text style={styles.doseText}>{ic.totalDose(getTodayLastGlicemy(status.userData.glicemy),diary.meals[id].macro['carb'].toFixed(2))}</Text>
+      <Text style={styles.modalText}>doses of insuline</Text>
+      <CustomImageButton
+              title={name_to_close}
+              image="ok"
+              iconStyle={styles.buttonOK}
+              onPress={() => {setActionTriggered(''),setModalVisible(false)}}
+            />
       </View>
       </View> : null}
     </Modal><CustomButton
@@ -110,6 +125,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 14,
     paddingBottom:20,
+    paddingHorizontal:20,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -137,16 +153,39 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   modalText: {
-    marginBottom: 15,
+    fontSize:15,
+    marginBottom: 10,
     textAlign: "center"
   },field:{
     fontSize:30,
-  } 
+    marginLeft:'10%'
+  } ,
+  doseText: {
+    width:'20%',
+    textAlign: "center",
+    fontWeight: "bold",
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 4,
+    fontSize:30,
+    backgroundColor: "#F194FF",
+    borderRadius: 14,
+    padding:10,
+    marginVertical:10,
+    paddingHorizontal:20,
+
+  }, buttonOK: {
+    width: 64,
+    height: 64,
+    position: 'relative',
+    paddingHorizontal:20,
+    padding:25
+  },
 
 });
 
 const mapStateToProps = (state, ownProps = {}) => {
-    return{status: state.userReducer};
+    return{status: state.userReducer,diary: state.macroTracker};
   }
 
 //export default PopUp;

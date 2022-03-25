@@ -15,7 +15,7 @@ var basal  //backgound insuline daily
 
 export class InsulineCalculator {
     actualGlycemia;
-    targetGlycemia;
+    targetGlycemia=120;
     carbo;
     proteins;
     fats;
@@ -59,17 +59,16 @@ export class InsulineCalculator {
         return Math.floor(carbo / Math.floor(this.CHORatio));
     };
 
-    correctionDose(actualGlycemia, targetGlycemia, insulineSensitivity) {
-        return (actualGlycemia - targetGlycemia) / insulineSensitivity;
-    };
-
-    totalDose(actualGlycemia, carbo, CHORatio, targetGlycemia, insulineSensitivity) {
-        var mealDose = mealDose(actualGlycemia, carbo, CHORatio);
-        var correctionDose = 0;
-        if (actualGlycemia >= limit) {
-            correctionDose = correctionDose(actualGlycemia, targetGlycemia, insulineSensitivity);
+    totalDose(actualGlycemia, carbo) {
+        var mealInsulineDose = Math.floor(carbo / Math.floor(this.CHORatio));
+        var correctionInsulineDose = 0;
+        if (actualGlycemia >= this.limit) {
+            correctionInsulineDose = (actualGlycemia - this.targetGlycemia) / this.insulineSensitivity;
         }
-        return mealDose + correctionDose;
+        var totalInsulineDose= mealInsulineDose + correctionInsulineDose;
+        if(Math.floor(totalInsulineDose)==Math.floor(totalInsulineDose+0.5)){
+            return new String(Math.floor(totalInsulineDose))
+        }else {return new String(Math.floor(totalInsulineDose) +'-'+Math.floor(totalInsulineDose+0.5))}
     };
 
     //Standard prediction funcions (Preferred if inserted from user)

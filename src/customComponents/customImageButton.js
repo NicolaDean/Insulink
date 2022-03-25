@@ -18,7 +18,10 @@ const images = {
           },
           close: {
               uri: require('../assets/close.png')
-            }
+            },
+            ok: {
+                uri: require('../assets/ok.png')
+              }
   }
 
 export const CustomButton = (

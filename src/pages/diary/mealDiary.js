@@ -82,7 +82,6 @@ return (
       </Slick>
 
 <Text style={styles.title}>Meal Diary:</Text>
-        <Text>{JSON.stringify(user.userData.glicemy.value)}</Text>
 
         <Meal navigation = {navigation} name ="Colazione"   icon ="breakfast"   id="breakfast"/>
         <Meal navigation = {navigation} name ="Pranzo"      icon ="lunch"       id="lunch"/>

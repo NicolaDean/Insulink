@@ -84,7 +84,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                     renderItem={({ item }) => (renderListItem(item))}
                 />
                 
-            </ScrollView><PopUp name_to_open='Dose' name_to_close='close'/></View>
+            </ScrollView><PopUp name_to_open='Dose' name_to_close='close' id={id}/></View>
         );
     }
 
