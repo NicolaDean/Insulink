@@ -11,10 +11,6 @@ const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset*3;
 
 
-const todayDate=new Date();
-//  const todaydate=new Date().toDateString();
-
-
 const chartConfig = {
     //General
     backgroundColor: "#e26a00",
@@ -36,37 +32,15 @@ const chartConfig = {
       useShadowColorFromDataset: false, // optional
 };
 
-
-
-
-const data3 = {
-  
-  labels: ["0 am", "3 am", "9 am", "3 pm", "6pm", "9 pm"],
-  datasets: [
-    {
-      data: [
-        300,
-        200,
-        120,
-        80
-        
-      ]
-    }
-  ]
-
-}
 export const GlycemiaChart = ({
      navigation,
      diary,
      user }) =>{
 
     
-      const data = glicemyChartFormatter(getTodayGlicemy(user.userData.glicemy));
-        console.log(JSON.stringify(data));
-        //const data = glicemyChartFormatter(getTodayGlycemia());
+    const data = glicemyChartFormatter(getTodayGlicemy(user.userData.glicemy));
+    //console.log(JSON.stringify(data));
 
-        //console.log("CHART:"  + JSON.stringify(data));
-        
     return (
       
         <LineChart
@@ -85,12 +59,12 @@ export const GlycemiaChart = ({
 const styles=StyleSheet.create({
     chartStyle:{
         paddingRight:screenWidth*0.25,
-        marginVertical: 8,
+        marginTop:8,
+        marginBottom:8,
         borderRadius: 15,
         marginLeft:15,
         top: '5%',
         borderRadius: 15,
-        marginVertical: 8,
         borderRadius: 15,
         
     }

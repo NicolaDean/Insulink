@@ -71,7 +71,6 @@ const chartProgressStyle ={
             200,
             120,
             80
-            
           ]
         }
       ]
@@ -94,6 +93,7 @@ export const Home = ({ navigation,diary }) =>{
         <View>
             
             {init ?  null: <GlycemiaChart user={diary.userReducer}/> }
+
             <ProgressChart
               data={data2}
               width={screenWidth}
@@ -112,37 +112,16 @@ export const Home = ({ navigation,diary }) =>{
             <CustomButton
                 title='PersonalData'
                 onPress={() => navigation.navigate('PersonalData',{}) }
-            />    
-                   
+            />              
                   
 </View>
     );
 }
 
 
-/*
-<LineChart
-              data={data3}
-              width={screenWidth} // from react-native
-              height={Dimensions.get("window").height*0.3}
-              yAxisSuffix=" mg/dL"
-              yAxisInterval={1} // optional, defaults to 1
-              chartConfig={chartConfig}
-              style={chartStyle}
-              bezier
-            />
-*/
-//export default Home;
+
 const mapStateToProps = (state, ownProps = {}) => {
   return{diary: state};
 }
 
 export default connect(mapStateToProps)(Home);
-
-/*
-
-            <CustomButton
-                title='Food Search'
-                onPress={() => navigation.navigate('FoodSearch',{}) }
-            />
-*/
