@@ -1,5 +1,5 @@
 import { userMethods } from "../../../constants/reducers"
-import { registerUser } from "../../../utils/firebaseQuery";
+import { changeGlicemyTimeFormat, glicemyDateFormatter, registerUser } from "../../../utils/firebaseQuery";
 import { loginStatus } from "../../../constants/states";
 
 
@@ -50,8 +50,11 @@ const register = (state,payload) =>{
 const addGlicemy = (state,payload) =>{
     const newstate ={...state};
 
-    newstate.userData.glicemy.push(payload.glicemy);
+    const id = glicemyDateFormatter();
 
+    const g = {...payload.glicemy};//;
+
+    newstate.userData.glicemy[id].push(changeGlicemyTimeFormat(g));
     return newstate;
 }
 

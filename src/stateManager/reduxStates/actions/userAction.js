@@ -136,6 +136,7 @@ export const addGlicemy = (userId,glicemyValue) => async dispatch =>{
     //GET TIMESTAMP
     const glicemy = {value: glicemyValue,time:date};
 
+    console.log("G: " + JSON.stringify(glicemy));
     //UPDATE FIREBASE IF POSSIBLE; IF NOT ADD A PENDING UPDATE (TODO)
     database.addGlicemyValue(userId,glicemy);
 

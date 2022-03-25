@@ -52,17 +52,13 @@ export const getUserGlicemy = async (email) =>{
             console.log("ID: " + id);
             glicemy_records[id] = [];
 
-            day.forEach(glicemy_item =>{
-                let time = new Date(glicemy_item.time.seconds*1000);
-
-                let date = zeroPad(time.getDate(),2) +"/"+ zeroPad(time.getMonth(),2);
-                let hours = zeroPad(time.getHours(),2) +":"+ zeroPad(time.getMinutes(),2);
-
-                glicemy_item.time = {date:date,hours:hours};
-
-                glicemy_records[id].push(glicemy_item);
-                
-            });
+            if(day != undefined)
+            {
+                day.forEach(glicemy_item =>{
+                    glicemy_records[id].push(changeGlicemyTimeFormat(glicemy_item));
+                    
+                });
+            }
             
         })
     });
@@ -100,4 +96,31 @@ export const glicemyDateFormatter = () =>
     let id = zeroPad(today.getDate(),2) +"-"+ zeroPad(today.getMonth(),2) +"-"+ today.getFullYear();
 
     return id;
+}
+
+export const getTodayGlicemy = (glicemy) =>
+{
+    const today = glicemyDateFormatter();
+
+    return glicemy[today];
+}
+
+
+export const changeGlicemyTimeFormat = (glicemy) => 
+{
+    let time = {};
+    if(typeof(glicemy) == Date)
+    {
+         time = new Date(glicemy.time);
+    }
+    else{
+        time = new Date(glicemy.time.seconds*1000);
+    }
+    
+
+    let date = zeroPad(time.getDate(),2) +"/"+ zeroPad(time.getMonth(),2);
+    let hours = zeroPad(time.getHours(),2) +":"+ zeroPad(time.getMinutes(),2);
+
+    glicemy.time = {date:date,hours:hours};
+    return glicemy;
 }

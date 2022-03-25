@@ -32,7 +32,7 @@ export const PopUp = (
     console.log("ADD NEW GLICEMY : " + glicemy);
     const id = status.userId;
 
-    dispatch(addGlicemy(id,glicemy));
+    dispatch(addGlicemy(id,parseInt(glicemy)));
   }
 
   return (

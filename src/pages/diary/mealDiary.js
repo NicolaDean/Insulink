@@ -62,11 +62,6 @@ export const MealDiary = ({ navigation,diary,user }) =>{
     data: [(((diary.totMacro.prot.toFixed(2)/maxProt)<1) ? (diary.totMacro.prot.toFixed(2)/maxProt) : 1),(((diary.totMacro.fat.toFixed(2)/maxFat)<1) ? (diary.totMacro.fat.toFixed(2)/maxFat) : 1),(((diary.totMacro.carb.toFixed(2)/maxCarb)<1) ? (diary.totMacro.carb.toFixed(2)/maxCarb) : 1)]
   }
   
-  const len = user.userData.glicemy.length;
-
-  const lastGlicemy = user.userData.glicemy[len-1];
-  console.log(lastGlicemy);
-  console.log(lastGlicemy.value);
 
 return (
  //TODO ADD THE TOTAL MEALS MACRO GRAPHù
