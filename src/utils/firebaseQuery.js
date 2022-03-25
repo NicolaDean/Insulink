@@ -105,6 +105,20 @@ export const getTodayGlicemy = (glicemy) =>
     return glicemy[today];
 }
 
+export const getTodayLastGlicemy =(glicemy) =>
+{
+    const today = glicemyDateFormatter();
+
+   const todayGlycemia= glicemy[today];
+   
+   if(todayGlycemia!=undefined){
+        const len=Object.keys(todayGlycemia).length;
+       console.log('AAA' + JSON.stringify(todayGlycemia[len-1].value))
+      return todayGlycemia[len-1].value;
+   }
+   else return 120;
+}
+
 
 export const changeGlicemyTimeFormat = (glicemy) => 
 {

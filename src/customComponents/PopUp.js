@@ -10,6 +10,7 @@ import { editUserData } from '../../stateManager/reduxStates/actions/userAction'
 import { userDataTypes } from '../../constants/states';
 import { colors } from "../constants/appAspect";
 import { addGlicemy } from "../stateManager/reduxStates/actions/userAction";
+import { getTodayLastGlicemy } from "../utils/firebaseQuery";
 
 
 export const PopUp = (
@@ -17,12 +18,13 @@ export const PopUp = (
         name_to_open="open",
         name_to_close="close",
         status
-      }
+            }
     ) => {
 
   const dispatch = useDispatch();
   const [modalVisible, setModalVisible] = useState(false);
   const [glicemy, setGlicemy] = useState(0);
+  const [actionTriggered, setActionTriggered] = useState('DOSE_CHECK'); 
 
 
   
@@ -36,7 +38,7 @@ export const PopUp = (
   }
 
   return (
-    <View style={styles.centeredView}>
+    <View>
       <Modal
         animationType="fade"
         transparent={true}
@@ -46,13 +48,14 @@ export const PopUp = (
           setModalVisible(!modalVisible);
         }}
       >
+        {actionTriggered === 'DOSE_CHECK' ?
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
               <CustomImageButton
               title={name_to_close}
               image="close"
               iconStyle={styles.buttonClose}
-              onPress={() => setModalVisible(!modalVisible)}
+              onPress={() => {setActionTriggered(''),setModalVisible(false)}}
             />
             <View style={{justifyContent:'space-around',flexDirection:'row'}}>
             <View style={{borderRightColor:colors.black,borderRightWidth:StyleSheet.hairlineWidth,marginLeft:10}}>
@@ -60,7 +63,7 @@ export const PopUp = (
 <Text>Use my last glycemia</Text>
 <CustomButton
         title="Skip"
-        onPress={() => {console.log("Used Last Glycemia")}}/>
+        onPress={() => {setActionTriggered('DOSE_RESULT')}}/>
 </View>
 
             </View>
@@ -68,18 +71,31 @@ export const PopUp = (
             <Text style={styles.modalText}>Place you glycemia here:</Text>
             <TextInput style={styles.field}  keyboardType="numeric"   placeholder="mg/dL" onChangeText={setGlicemy}/>
             <CustomButton
-        title="Insert"
-        onPress={addNewGlicemy}/>
+              title="Insert"
+              onPress={() => {addNewGlicemy(),setActionTriggered('DOSE_RESULT')}}/>
         </View>
         </View>
           </View>
         </View>
-      </Modal>
-      <CustomButton
+      :
+      actionTriggered === 'DOSE_RESULT' ?
+      <View style={styles.centeredView}>
+
+          <View style={styles.modalView}>
+          <CustomImageButton
+              title={name_to_close}
+              image="close"
+              iconStyle={styles.buttonClose}
+              onPress={() => {setActionTriggered(''),setModalVisible(false)}}
+            />
+      <Text>{JSON.stringify(getTodayLastGlicemy(status.userData.glicemy)) }</Text>
+      <Text>AAAAAAA</Text>
+      </View>
+      </View> : null}
+    </Modal><CustomButton
         title={name_to_open}
-        onPress={() => setModalVisible(true)}/>
-        <Text style={styles.textStyle}>Show Modal</Text>
-    </View>
+        onPress={() => {setModalVisible(true),setActionTriggered('DOSE_CHECK')}}/>
+        </View>
   );
 };
 
