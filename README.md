@@ -10,6 +10,7 @@
 12. Make chart CustomComponent
 13. maxCarb,Prot,.. deve essere un valore scelto dall'utente
 14. Glycemia must be between 10 and 999
+15. CHO ratio e insuline sensitivity come parametri dei costruttori di tutti gli insuline calculator
 
 --------
 7. Log in

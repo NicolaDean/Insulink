@@ -54,7 +54,6 @@ export class InsulineCalculator {
         console.log("banana");
         return "Ciao";
     };
-    //Dose calculator FLOOR TODO IF BETTER USE BOTH
     mealDose(carbo){
         return Math.floor(carbo / Math.floor(this.CHORatio));
     };
@@ -66,6 +65,8 @@ export class InsulineCalculator {
             correctionInsulineDose = (actualGlycemia - this.targetGlycemia) / this.insulineSensitivity;
         }
         var totalInsulineDose= mealInsulineDose + correctionInsulineDose;
+
+        //If the dose is enough close to its floor value, it returns just that value while if it's in the middle both floor and roof
         if(Math.floor(totalInsulineDose)==Math.floor(totalInsulineDose+0.5)){
             return new String(Math.floor(totalInsulineDose))
         }else {return new String(Math.floor(totalInsulineDose) +'-'+Math.floor(totalInsulineDose+0.5))}
