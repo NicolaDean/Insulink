@@ -3,7 +3,7 @@
 export const glicemyChartFormatter = (glicemyData) =>{
 
     let chart_data = {
-        labels:["",""],
+        labels:[],
         datasets:
         [
             {
@@ -20,10 +20,22 @@ export const glicemyChartFormatter = (glicemyData) =>{
 
     const d = [];
     const l = [];
-    
-    chart_data.labels = [];
+
+    //The lenght is divided by a fixed variable that will be a counter of the index of time label to add (floor of the division)
+    // and the when you reach that index it passes to the next in order to have alway a fixed number of labels
+
+    const numberOfLabels=10;
+    var i=0;
+    const lenght=Object.keys(glicemyData).length-1;
+    var len=Math.floor(Object.keys(glicemyData).length/numberOfLabels);
+    console.log('todays number of glycemias '+Object.keys(glicemyData).length)
     glicemyData.forEach( elem =>{
+        if(i== 0 || len==i || i==lenght ){
         chart_data.labels.push(elem.time.hours);
+        len=len*2;
+        i++;
+    }
+        else i++;
         d.push(elem.value);
     })
 
