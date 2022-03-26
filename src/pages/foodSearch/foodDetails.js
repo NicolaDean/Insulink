@@ -1,25 +1,19 @@
 import React from 'react';
-import {ActivityIndicator,Image, Text, View, ScrollView, TextInput, Dimensions, StatusBar  } from 'react-native';
+import {ActivityIndicator,Image, Text, View, ScrollView, TextInput, Dimensions  } from 'react-native';
 import { useState,useEffect} from 'react';
 import { VictoryPie } from 'victory-native';
 
 //CUSTOM ASPECT AND COMPONENTS
-import { foodDetails } from '../../utils/testingJsons';//Default food
 import CustomButton from '../../customComponents/customButton';
-import SelectDropdown from 'react-native-select-dropdown'
 import styles from './style'
 import DropDownPicker from 'react-native-dropdown-picker';
 
 //API
 import * as api from "../../utils/apiQuery";
-import { macroConstants } from '../../constants/states';
 
 //REDUX
 import { useDispatch } from 'react-redux';
 import { addFood } from '../../stateManager/reduxStates/actions/macroTracker';
-
-
-
 
 const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset;
@@ -36,15 +30,6 @@ export const FoodDetails = ({navigation,route}) =>{
     const [items,setItems] = useState([{label:'',value:''}]);
     const [open, setOpen] = useState(false);
     
-    //let image = "https://nix-tag-images.s3.amazonaws.com/384_thumb.jpg";
-    let name ="";
-    let macro= {};
-    let data = [
-        {x:macroConstants.carb,y:10},
-        {x: macroConstants.prot,y:200},
-        {x: macroConstants.fat,y:30}];
-    let units = [];
-    
     //Retrive API food details data
     const getData = async (id)=>
     {
@@ -53,12 +38,13 @@ export const FoodDetails = ({navigation,route}) =>{
         if(typeof(res.foods) === undefined) return;
         
         res = res.foods[0];
+        const tmp = [];
         res.alt_measures.forEach(measure=>{
-            units.push({label:measure.measure,value:measure.measure});
+            tmp.push({label:measure.measure,value:measure.measure});
 
         });        
         res.image = res.photo.highres;
-        res.units = units;
+        res.units = tmp;
         res.name = id.food_name;
         
         res.chartData = [
@@ -83,7 +69,7 @@ export const FoodDetails = ({navigation,route}) =>{
 
         var food ={
             id:     id,
-            name:   name,
+            name:   details.name,
             image:  details.image,
             cal:    details.nf_calories ,
             carb:   details.nf_total_carbohydrate,
@@ -137,9 +123,9 @@ export const FoodDetails = ({navigation,route}) =>{
                         }, }}
                     /> 
                     <View style={styles.graphLegend}> 
-                        <Text>Carbohydrates : {macro[macroConstants.carb]} g</Text>
-                        <Text>Fat : {macro[macroConstants.fat]}g</Text>
-                        <Text>Protein : {macro[macroConstants.prot]}g</Text>
+                        <Text>Carbohydrates : {details.nf_total_carbohydrate} g</Text>
+                        <Text>Fat : {details.nf_total_fat}g</Text>
+                        <Text>Protein : {details.nf_protein}g</Text>
                     </View>
                 </View>
                 <View style={{flex:1,width:'90%',marginLeft:'5%',marginTop:10}}>
