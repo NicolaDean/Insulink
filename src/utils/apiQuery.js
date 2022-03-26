@@ -157,7 +157,7 @@ export const getIngredientDetailsAlternative = async  (userInput) =>{
  * @returns JSON with API response
  */
 const doRequest = async(method,query,param) =>{
-    console.log("QUERY : " + query);
+    console.log("QUERY : " + query + JSON.stringify(param));
     
     const response = await axios({
             url:rootUrl + query,
@@ -170,7 +170,8 @@ const doRequest = async(method,query,param) =>{
         return (response.data);
       })
       .catch( (error)=> {
-        console.log("Some Errors:\n");
+
+        console.log(error);
         if(error.status == 401) {
             console.log("ENDED STUDENT LIMITS!!!!!!!!!!!!!!!!!!!!");
         }

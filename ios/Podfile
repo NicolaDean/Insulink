@@ -3,7 +3,7 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '11.0'
 
-target 'myapp' do
+target 'InsuLink' do
   config = use_native_modules!
 
   use_react_native!(
@@ -14,7 +14,7 @@ target 'myapp' do
 
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
-  target 'myappTests' do
+  target 'InsuLinkTests' do
     inherit! :complete
     # Pods for testing
   end

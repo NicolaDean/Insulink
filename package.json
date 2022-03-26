@@ -1,5 +1,5 @@
 {
-  "name": "myapp",
+  "name": "InsuLink",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -19,7 +19,7 @@
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/native-stack": "^6.5.0",
     "@reduxjs/toolkit": "^1.8.0",
-    "axios": "^0.26.0",
+    "axios": "^0.26.1",
     "react": "17.0.2",
     "react-native": "0.67.2",
     "react-native-chart-kit": "^6.12.0",
@@ -28,6 +28,7 @@
     "react-native-material-dropdown": "^0.11.1",
     "react-native-motion": "^1.0.5",
     "react-native-reanimated": "^2.4.1",
+    "react-native-rename": "^2.9.0",
     "react-native-safe-area-context": "^3.4.1",
     "react-native-screens": "^3.12.0",
     "react-native-select-dropdown": "^1.8.0",
