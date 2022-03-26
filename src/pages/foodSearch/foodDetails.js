@@ -12,13 +12,13 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import * as api from "../../utils/apiQuery";
 
 //REDUX
-import { useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { addFood } from '../../stateManager/reduxStates/actions/macroTracker';
 
 const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset;
 
-export const FoodDetails = ({navigation,route}) =>{
+export const FoodDetails = ({navigation,route,identifier}) =>{
 
     //TODO ADD A "LOADING BAR" UNTIL DATA ARENT LOADED
     let id = route.params.id.id;
@@ -26,33 +26,52 @@ export const FoodDetails = ({navigation,route}) =>{
     const dispatch = useDispatch();
     const [details, setDetails] = useState(false);
     const [unit,setUnit] = useState('g');
-    const [amount,setAmount] = useState('100');
+    const [amount,setAmount] = useState(1);
     const [items,setItems] = useState([{label:'',value:''}]);
     const [open, setOpen] = useState(false);
     
     //Retrive API food details data
     const getData = async (id)=>
     {
+        //RETRIVE DATA
         let res;
         res = (await api.getIngredientDetailsAlternative(id.food_name));
         if(typeof(res.foods) === undefined) return;
-        
         res = res.foods[0];
+
+        //RETRIVE DIFFERENT SERVING UNITS AND BUILD DROPDOWN DATA STRUCTURE
         const tmp = [];
+        const dictionary = {};
         res.alt_measures.forEach(measure=>{
             tmp.push({label:measure.measure,value:measure.measure});
+            dictionary[measure.measure] = measure; 
+        });   
 
-        });        
+        //FIX SOME VALUES IN MORE EASY WAY
         res.image = res.photo.highres;
         res.units = tmp;
+        res.units_dic = dictionary;
         res.name = id.food_name;
         
+        //CURRENT MACRO NUTRIENTS (needed for the custom amount)
+        res.current_carb    = res.nf_total_carbohydrate;
+        res.current_fat     = res.nf_total_fat;
+        res.current_prot    = res.nf_protein;
+        res.current_cal     = res.nf_calories;
+
+        //BUILD CHART DATA STRUCT
         res.chartData = [
             {x:"Carb"  ,y:res.nf_total_carbohydrate },
             {x:"Fat"   ,y:res.nf_total_fat},
             {x:"Prot"  ,y:res.nf_protein }];
         
-        console.log("Graph Data: " + JSON.stringify(res.chartData));
+        console.log("Graph Data: " + JSON.stringify(res.alt_measures));
+        console.log("Current Unit: " + JSON.stringify(id.serving_unit));
+        console.log("Unit: " + JSON.stringify(dictionary[id.serving_unit]));
+        console.log("grams: " + JSON.stringify(res.serving_weight_grams));
+
+        setItems(res.units);
+        //SET DETAILS VARIABLE
         setDetails(res);
     }
 
@@ -74,7 +93,9 @@ export const FoodDetails = ({navigation,route}) =>{
             cal:    details.nf_calories ,
             carb:   details.nf_total_carbohydrate,
             fat:    details.nf_total_fat,
-            prot:   details.nf_protein
+            prot:   details.nf_protein,
+            quantity: amount,
+            identifier: identifier,
         }
 
         dispatch(addFood(food));
@@ -82,23 +103,63 @@ export const FoodDetails = ({navigation,route}) =>{
         navigation.navigate('MealDiary',{});
     }
 
+    const updateAmount = (a) =>{
+        let q = parseInt(a);
+
+        if(isNaN(q)){
+            console.log('Invalid Qty!!!');
+            q = 1;
+        }
+        setAmount(q);
+        makeProportions(unit,q);
+    }
+
+    const makeProportions = (item,qty=1) =>{
+
+        
+        const measure = details.units_dic[item];
+        console.log(JSON.stringify(measure));
+
+        const proportion = {...details};
+
+        const ratio = (measure.serving_weight*qty)/details.serving_weight_grams;
+
+        proportion.current_carb    = (ratio*proportion.nf_total_carbohydrate).toFixed(1);
+        proportion.current_fat     = (ratio*proportion.nf_total_fat).toFixed(1);
+        proportion.current_prot    = (ratio*proportion.nf_protein).toFixed(1);
+        proportion.current_cal     = (ratio*proportion.nf_calories).toFixed(1);
+
+        proportion.chartData = [
+            {x:"Carb"  ,y:proportion.current_carb },
+            {x:"Fat"   ,y:proportion.current_fat},
+            {x:"Prot"  ,y:proportion.current_prot }];
+
+        setDetails(proportion);
+    }
+
     const renderDetails = () =>{
         return (
-            <View style={{flex: 1,flexDirection: 'column'}}>
+            
+        <View style={{flex: 1,flexDirection: 'column'}}>
+                
+            <ScrollView style={{flex:1}}>
             <View style={{flex: 2,backgroundColor: 'white'}}>
                 <Image style={styles.foodImage} source={{uri:details.image}}/>
                 <Text style ={styles.sectionTitle}> {details.name}</Text>
             </View>
-            <View style={{flex: 4,backgroundColor: 'skyblue',flexDirection:'column'}}>
-                <ScrollView style={{flex:1}}>
-                <View style={{flex:1.3,width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white'}}>
+            <View style={{flex: 4,backgroundColor: 'rgba(255, 203, 126, 0.49)',flexDirection:'column'}}>
+                
+                <View style={{flex:1.3,width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'rgba(255, 203, 126, 0.19)'}}>
                     <View style={{marginLeft:10,marginRight:10,marginTop:10,flexDirection:'row'}}>
-                        <TextInput style={{backgroundColor:'white',borderColor:'black',borderWidth:1,width:'20%'}}placeholder='amount' keyboardType="numeric"/>
+                        <TextInput defaultValue="1" style={{backgroundColor:'white',borderColor:'black',borderWidth:1,width:'20%'}} onChangeText={a=>{updateAmount(a)}} placeholder='amount' keyboardType="numeric"/>
                         <DropDownPicker
-                            style={{width:'70%',marginLeft:'10%'}}
+                            onSelectItem={(item) => {
+                                makeProportions(item.value);
+                            }}
+                            style={{width:'70%',marginLeft:'10%',zIndex: 20,}}
                             open={open}
                             value={unit}
-                            items={details.units}
+                            items={items}
                             setOpen={setOpen}
                             setValue={setUnit}
                             setItems={setItems}
@@ -107,7 +168,7 @@ export const FoodDetails = ({navigation,route}) =>{
                         
                     </View>
                     <View style={{width:'90%',flexDirection:'row',marginLeft:'5%',marginTop:10}}>
-                        <Text style={{fontSize:28,color:'black'}}> {details.nf_calories} Kcal</Text>
+                        <Text style={{fontSize:28,color:'black'}}> {details.current_cal} Kcal</Text>
                     </View>
                 </View>
                 <View style={{flex:2,flexDirection:'row',width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white'}}>
@@ -123,16 +184,20 @@ export const FoodDetails = ({navigation,route}) =>{
                         }, }}
                     /> 
                     <View style={styles.graphLegend}> 
-                        <Text>Carbohydrates : {details.nf_total_carbohydrate} g</Text>
-                        <Text>Fat : {details.nf_total_fat}g</Text>
-                        <Text>Protein : {details.nf_protein}g</Text>
+                        <Text>Carbohydrates : {details.current_carb} g</Text>
+                        <Text>Fat : {details.current_fat}g</Text>
+                        <Text>Protein : {details.current_prot}g</Text>
                     </View>
                 </View>
                 <View style={{flex:1,width:'90%',marginLeft:'5%',marginTop:10}}>
                     <CustomButton style={styles.addButton} title="Add Food To Meal" onPress={()=>{addItem()}}/>
                 </View>
-                </ScrollView>
+                <View style={{flex:2,width:'90%',marginLeft:'5%',marginTop:10}}>
+                    <CustomButton style={styles.addButton} title="Add Food To Meal" onPress={()=>{addItem()}}/>
+                </View>
+                
             </View>
+            </ScrollView>
         </View>
         );
     }
@@ -146,8 +211,12 @@ export const FoodDetails = ({navigation,route}) =>{
     );
 }
 
-export default FoodDetails;
-
+const mapStateToProps = (state, ownProps = {}) => {
+    
+    return{identifier: state.macroTracker.id};
+  }
+  
+  export default connect(mapStateToProps)(FoodDetails);
 /* 
 <View style={styles.sectionContainer} >
                 {(details.image === "") ? 

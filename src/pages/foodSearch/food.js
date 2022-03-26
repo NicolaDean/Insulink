@@ -4,9 +4,11 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { dim } from '../../constants/appAspect';
 import CustomImageButton from '../../customComponents/customImageButton'
 import { Shake } from "react-native-motion";
+import { useDispatch } from 'react-redux';
+import { removeFood } from '../../stateManager/reduxStates/actions/macroTracker';
 
 
-export const Food = ({data,nav,deletable,serving}) =>{
+export const Food = ({data,nav,deletable,identifier=0}) =>{
 
     const [expanded,setExpanded] = useState( false )
     const [state,setState] = useState( 0)
@@ -14,7 +16,10 @@ export const Food = ({data,nav,deletable,serving}) =>{
     let image = data.photo.thumb;
     let name = data.food_name;
     let id=data;
+    let serving = id.serving_unit;
    
+    const dispatch = useDispatch();
+
     const getDetails = (id) =>{
         nav.navigate('FoodDetails',{id : {id}}) 
         setExpanded(false);
@@ -30,6 +35,8 @@ export const Food = ({data,nav,deletable,serving}) =>{
 
     const deleteFood = (id) =>{
         console.log('deleted food'+id)
+        console.log("ID TO DELETE : " + identifier);
+        dispatch(removeFood(identifier))
     }
     
 
@@ -37,35 +44,41 @@ export const Food = ({data,nav,deletable,serving}) =>{
         return (
             <View >
                 <Shake value={state} type="timing" useNativeDriver={true}>
-                <CustomImageButton image='delete'   iconStyle={styles.deleteButton}
-              onPress={() => {deleteFood(id)}}/>
+                    <CustomImageButton  image='delete' 
+                                        iconStyle={styles.deleteButton}
+                                        onPress={() => {deleteFood(id)}}
+                    />
               </Shake>
             </View> );
     }
    
 
+    const deletableStyle = [styles.contentBox,{width: dim.width*0.4, height: dim.width*0.4}];
+    const normalStyle    = [styles.contentBox,{width: dim.width*0.3, height: dim.width*0.3,paddingTop:20}];
     return (
         <SafeAreaView>
-                             <Shake value={state} type="timing" useNativeDriver={true}>
+        <Shake value={state} type="timing" useNativeDriver={true}>
+            <TouchableHighlight  style={ {justifyContent: 'center',alignItems:'center',margin:3}}
+                                underlayColor={"COLOR"}  
+                                onPress={()=>{getDetails(id)} } 
+                                onLongPress={expandMeal}
+            >
+                <View style={deletable? deletableStyle:normalStyle}>
+                    {
+                        //SHOW THE DELET BUTTON
+                        (expanded && deletable) ? (showExpansion()):null
+                    }
+                    <Text style={styles.title}>{name}</Text>
+                        
+                    <Image 
+                        style={{width: dim.width*0.2, height: dim.width*0.2}}
+                        source ={{uri:image}}
+                    />
 
-        <TouchableHighlight  style={ {justifyContent: 'center',
-        alignItems:'center',margin:3}} underlayColor={"COLOR"}  onPress={()=>{getDetails(id)} } onLongPress={expandMeal}>
-            <View style={deletable? [styles.contentBox,{width: dim.width*0.4, height: dim.width*0.4}]:[styles.contentBox,{width: dim.width*0.3, height: dim.width*0.3,paddingTop:20}]}>
-            {
-            //SHOW THE DELET BUTTON
-            (expanded && deletable) ? (showExpansion()):null
-        }
-                <Text style={styles.title}>{name}</Text>
-                
-                <Image 
-                    style={{width: dim.width*0.2, height: dim.width*0.2}}
-                    source ={{uri:image}}/>
-
-                    <Text>{serving}</Text>
-            </View>
-        </TouchableHighlight>
-    </Shake>
-        
+                <Text>{serving}</Text>
+                </View>
+            </TouchableHighlight>
+        </Shake>
         </SafeAreaView>
        
     );

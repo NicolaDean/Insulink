@@ -25,9 +25,7 @@ export default StyleSheet.create({
       shadowRadius: 2.62,
     },
     sectionTitle: {
-      position:'absolute',
-      bottom:10,
-      zIndex: 20,
+      marginTop:200,
       color:"black",
       fontSize: 30,
       fontWeight: '600',
@@ -46,6 +44,8 @@ export default StyleSheet.create({
       marginLeft:10
     },
     foodImage: {
+      position:'absolute',
+      zIndex:-1,
       width: 200,
       height: 200,
       alignSelf:'center'

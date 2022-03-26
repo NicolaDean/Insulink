@@ -124,7 +124,7 @@ const headers = {
  * @param {*} userInput food to search
  * @returns a list of foods
  */
-export const getFoodListAlternative =async (userInput) =>{
+export const getFoodListAlternative = async (userInput) =>{
 
     const param = {
         query: userInput
@@ -171,9 +171,13 @@ const doRequest = async(method,query,param) =>{
       })
       .catch( (error)=> {
         console.log("Some Errors:\n");
-        console.log(JSON.stringify(error));
+        if(error.status == 401) {
+            console.log("ENDED STUDENT LIMITS!!!!!!!!!!!!!!!!!!!!");
+        }
+        //console.log(JSON.stringify(error));
+        
+        return (testingJson.foodDetails);
       });
-
 
       return response;
 }

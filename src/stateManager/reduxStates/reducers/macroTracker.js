@@ -9,6 +9,7 @@ const initialState = {
     currentMeal:"breakfast",
     currentDate:{},
     totMacro:{cal:0,carb:0,fat:0,prot:0},
+    id:1,
     meals:{
         breakfast:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
         lunch:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
@@ -69,11 +70,15 @@ const subMacro = (base,toRemove) =>{
  */
 const addFood = (state,data)=>{
     
+    const food = data.food;
+    //COPY STATE
     const newstate ={...state};
-    
+    //INCREMENT ID
+    newstate.id = newstate.id + 1;
+    //PUSH FOOD
     newstate.meals[state.currentMeal].foods.push(data.food);
+    //CALCULATE TOT MACRO
     let m = state.meals[state.currentMeal].macro;
-
     newstate.totMacro  = sumMacro(newstate.totMacro,data.food);
     newstate.meals[state.currentMeal].macro = sumMacro(m,data.food);
 
@@ -87,12 +92,51 @@ const addFood = (state,data)=>{
  */
 const removeFood = (state,data)=>{
 
+    const food_id = data.food;
+    //COPY STATE
     const newstate ={...state};
-
     let m = state.meals[state.currentMeal].macro;
 
-    newstate.totMacro  = subMacro(newstate.totMacro,data.food);
+    //REMOVE FOOD FROM MACRO
+    //(BISOGNA PASSARE IL CIBO VERO E PROPRIO MO VIENE PASSATO L'ID)
     newstate.meals[state.currentMeal].macro = subMacro(m,data.food);
+    newstate.totMacro  = subMacro(newstate.totMacro,data.food);
+
+    //REMOVING FOOD FROM LIST:
+    let found = false;
+    let m_found = false;
+
+    let meal_types = Object.keys(newstate.meals);
+
+    //FOR EACH MEAL
+    meal_types.forEach((key,index) =>{
+        if(found != false){ return;}
+        let i = 0;
+        let tmp = [];
+        tmp =newstate.meals[key].foods;
+
+        //FOR EACH FOOD
+        tmp.forEach(x =>{
+            //CHECK IDENTIFIER TO REMOVE
+            if(x.identifier === food_id)
+            {
+                //IF FOUNDED MARK INDEX AND MEAL FROM WICH REMOVE
+                found = i;
+                m_found = key;
+            }
+            i++;
+        });        
+    });
+
+    console.log("F: " + found);
+    //REMOVE FROM MEAL THE FOOD AT THE SPECIFIC INDEX MARKED
+    if((found+1) != false){
+        console.log("removing " + found + " element from " + m_found);
+        newstate.meals[m_found].foods.splice(found,1);
+    }
+
+    console.log("Updated state: " + JSON.stringify(newstate));
+    
 
     return newstate;
 }
