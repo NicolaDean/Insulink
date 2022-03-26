@@ -13,9 +13,16 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
     const [expanded,setExpanded] = useState( false )
     const [state,setState] = useState( 0)
 
-    let image = data.photo.thumb;
-    let name = data.food_name;
-    let id=data;
+    
+    let id = {};
+    if(deletable){
+        id = data.id;
+    }else{
+        id=data;
+    }
+    let image = id.photo.thumb;
+    let name = id.food_name;
+
     let serving = id.serving_unit;
    
     const dispatch = useDispatch();
@@ -35,8 +42,7 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
 
     const deleteFood = (id) =>{
         console.log('deleted food'+id)
-        console.log("ID TO DELETE : " + identifier);
-        dispatch(removeFood(identifier))
+        dispatch(removeFood(data))
     }
     
 

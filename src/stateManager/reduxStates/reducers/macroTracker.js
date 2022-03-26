@@ -92,15 +92,15 @@ const addFood = (state,data)=>{
  */
 const removeFood = (state,data)=>{
 
-    const food_id = data.food;
+    const food = data.food;
     //COPY STATE
     const newstate ={...state};
     let m = state.meals[state.currentMeal].macro;
 
     //REMOVE FOOD FROM MACRO
     //(BISOGNA PASSARE IL CIBO VERO E PROPRIO MO VIENE PASSATO L'ID)
-    newstate.meals[state.currentMeal].macro = subMacro(m,data.food);
-    newstate.totMacro  = subMacro(newstate.totMacro,data.food);
+    newstate.meals[state.currentMeal].macro = subMacro(m,food);
+    newstate.totMacro  = subMacro(newstate.totMacro,food);
 
     //REMOVING FOOD FROM LIST:
     let found = false;
@@ -118,7 +118,7 @@ const removeFood = (state,data)=>{
         //FOR EACH FOOD
         tmp.forEach(x =>{
             //CHECK IDENTIFIER TO REMOVE
-            if(x.identifier === food_id)
+            if(x.identifier === food.identifier)
             {
                 //IF FOUNDED MARK INDEX AND MEAL FROM WICH REMOVE
                 found = i;
@@ -130,7 +130,7 @@ const removeFood = (state,data)=>{
 
     console.log("F: " + found);
     //REMOVE FROM MEAL THE FOOD AT THE SPECIFIC INDEX MARKED
-    if((found+1) != false){
+    if((found-1 === -1) || found != false){
         console.log("removing " + found + " element from " + m_found);
         newstate.meals[m_found].foods.splice(found,1);
     }
