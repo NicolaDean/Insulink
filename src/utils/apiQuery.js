@@ -164,9 +164,9 @@ const doRequest = async(method,query,param) =>{
             method:method,
             headers:headers,
             params:param, //TODO put data into params for GET and in data for POST
-            data:param,
+            data:undefined,
             responseType: 'json'
-        }).then( (response) => {
+            }).then( (response) => {
         return (response.data);
       })
       .catch( (error)=> {
