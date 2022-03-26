@@ -26,7 +26,13 @@ export const ingredientList = {
 ],
 "totalResults":39
 }
-  
+
+export const foodDetails ={
+  name:"apple",
+  image:"",
+  units:[],
+}
+  /*
   export const foodDetails ={
     "id": 9266,
     "original": "pineapples",
@@ -401,4 +407,4 @@ export const ingredientList = {
         ]
       }
     ]
-  }
+  }*/

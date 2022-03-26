@@ -25,7 +25,11 @@ export default StyleSheet.create({
       shadowRadius: 2.62,
     },
     sectionTitle: {
-      fontSize: 24,
+      position:'absolute',
+      bottom:10,
+      zIndex: 20,
+      color:"black",
+      fontSize: 30,
       fontWeight: '600',
     },
     sectionDescription: {
@@ -44,7 +48,7 @@ export default StyleSheet.create({
     foodImage: {
       width: 200,
       height: 200,
-      margin:20,
+      alignSelf:'center'
     
      },
       graphLegend: {
