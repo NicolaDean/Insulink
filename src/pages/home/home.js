@@ -11,6 +11,7 @@ import { connect, useDispatch } from 'react-redux';
 import { checkStateConsistency } from '../../stateManager/reduxStates/actions/rootAction';
 import GlycemiaChart from '../../customComponents/glycemiaChart';
 import { MacroChart } from '../../customComponents/macroChart';
+import { getSportCalories } from '../../utils/apiQuery';
   const marginOffset=10;
   const screenWidth = Dimensions.get("window").width-marginOffset;
 
@@ -62,8 +63,14 @@ export const Home = ({ navigation,state,user,diary }) =>{
 
   const [init,setInit] = useState(true);
 
+  
+  const getSportExample = async () =>{
+    const x = await getSportCalories("gym",user.userData);
+    console.log("SPORT: " + JSON.stringify(x));
+  }
   //REDIRECT USER TO LOGIN IF NOT LOGGED
   useEffect(()=>{
+    //getSportExample()
     dispatch(checkStateConsistency(state.userReducer.status,navigation,[init,setInit]));
   },[]);
 
