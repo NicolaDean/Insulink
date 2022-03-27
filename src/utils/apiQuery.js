@@ -113,6 +113,10 @@ const rootUrl = 'https://trackapi.nutritionix.com/v2';
 const nutrixAppId = 'e29d5b1a';
 const nutrixAppKey = '4bfbc69b7095239b9768d1f7b3f47e56';
 
+const methods = {
+    get:"GET",
+    post:"POST"
+}
 const headers = {
     'x-app-id':nutrixAppId,
     'x-app-key':nutrixAppKey,
@@ -130,7 +134,7 @@ export const getFoodListAlternative = async (userInput) =>{
         query: userInput
     }
 
-    return await doRequest('get','/search/instant',param);
+    return await doRequest(methods.get,'/search/instant',param);
 }
 
 /**
@@ -145,7 +149,7 @@ export const getIngredientDetailsAlternative = async  (userInput) =>{
         num_servings:1
     }
 
-    return await doRequest('post','/natural/nutrients',param);
+    return await doRequest(methods.post,'/natural/nutrients',param);
 }
 
 
@@ -162,9 +166,9 @@ const doRequest = async(method,query,param) =>{
     const response = await axios({
             url:rootUrl + query,
             method:method,
-            headers:headers,
-            params:param, //TODO put data into params for GET and in data for POST
-            data:undefined,
+            headers:headers,//TODO put data into params for GET and in data for POST
+            params:(method == methods.get)? param : undefined, 
+            data:(method == methods.post)? param : undefined,
             responseType: 'json'
             }).then( (response) => {
         return (response.data);

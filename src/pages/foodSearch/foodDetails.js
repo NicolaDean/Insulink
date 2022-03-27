@@ -65,10 +65,10 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
             {x:"Fat"   ,y:res.nf_total_fat},
             {x:"Prot"  ,y:res.nf_protein }];
         
-        console.log("Graph Data: " + JSON.stringify(res.alt_measures));
-        console.log("Current Unit: " + JSON.stringify(id.serving_unit));
-        console.log("Unit: " + JSON.stringify(dictionary[id.serving_unit]));
-        console.log("grams: " + JSON.stringify(res.serving_weight_grams));
+        //console.log("Graph Data: " + JSON.stringify(res.alt_measures));
+        //console.log("Current Unit: " + JSON.stringify(id.serving_unit));
+        //console.log("Unit: " + JSON.stringify(dictionary[id.serving_unit]));
+        //console.log("grams: " + JSON.stringify(res.serving_weight_grams));
 
         setItems(res.units);
         //SET DETAILS VARIABLE
