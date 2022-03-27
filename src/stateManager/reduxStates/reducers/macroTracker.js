@@ -128,14 +128,10 @@ const removeFood = (state,data)=>{
         });        
     });
 
-    console.log("F: " + found);
     //REMOVE FROM MEAL THE FOOD AT THE SPECIFIC INDEX MARKED
     if((found-1 === -1) || found != false){
-        console.log("removing " + found + " element from " + m_found);
         newstate.meals[m_found].foods.splice(found,1);
     }
-
-    console.log("Updated state: " + JSON.stringify(newstate));
     
 
     return newstate;
