@@ -34,7 +34,7 @@ export const FoodSearch = ({ navigation }) =>{
   
 
     return (
-       <View >
+       <View style={{flex:1}}>
            
            <View style={styles.header}>
               <TextInput style={styles.searchBox} placeholder="insert food!" onChangeText={setFood}/>
@@ -52,15 +52,18 @@ export const FoodSearch = ({ navigation }) =>{
             />
 
            </View>
-
+           <View style={{flex:1}}>
            <FlatList 
 
             data={foodData}
             numColumns={3}
+            
+            contentContainerStyle={{}}
             renderItem={({ item }) => (
                 <Food style={styles.food} data = {item} nav = {navigation} api={apiSelected} deletable={false}></Food>
               )}
             />
+            </View>
 
 </View>
   

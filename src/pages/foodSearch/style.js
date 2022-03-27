@@ -84,9 +84,7 @@ export default StyleSheet.create({
       food:{
         justifyContent: 'center',
         alignItems:'center',
-        width: "30%",
-        height: "30%"
-      },deleteButton:{
+          },deleteButton:{
         width: Dimensions.get('window').width*0.1,
         height: Dimensions.get('window').height*0.1,
         resizeMode: 'contain',

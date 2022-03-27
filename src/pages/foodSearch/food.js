@@ -62,7 +62,7 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
     const deletableStyle = [styles.contentBox,{width: dim.width*0.4, height: dim.width*0.4}];
     const normalStyle    = [styles.contentBox,{width: dim.width*0.3, height: dim.width*0.3,paddingTop:20}];
     return (
-        <SafeAreaView>
+        <SafeAreaView >
         <Shake value={state} type="timing" useNativeDriver={true}>
             <TouchableHighlight  style={ {justifyContent: 'center',alignItems:'center',margin:3}}
                                 underlayColor={"COLOR"}  
@@ -81,7 +81,7 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
                         source ={{uri:image}}
                     />
 
-                <Text>{serving}</Text>
+                <Text>{deletable? serving:null}</Text>
                 </View>
             </TouchableHighlight>
         </Shake>
@@ -98,7 +98,6 @@ const styles = StyleSheet.create(
             justifyContent: 'center',
             alignItems:'center',
             marginHorizontal:3,
-            marginBottom:5,
             borderRadius:30,
             backgroundColor:"white",
             shadowColor: "#000",
