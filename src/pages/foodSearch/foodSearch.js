@@ -3,7 +3,7 @@ import {View,FlatList,TextInput,Switch } from 'react-native';
 import { useState } from 'react';
 import styles from './style'
 import {Food} from './food'
-import * as api from '../../utils/apiQuery';
+import {Food_API} from '../../utils/apiQuery';
 import CustomImageButton from '../../customComponents/customImageButton'
 
 
@@ -20,7 +20,7 @@ export const FoodSearch = ({ navigation }) =>{
     try 
     {
       //GET API DATA
-      const json = (await api.getFoodListAlternative(foodSelected));  
+      const json = (await Food_API.getFoodListAlternative(foodSelected));  
       setData(json.common);
    } 
    catch (error) 
@@ -60,7 +60,7 @@ export const FoodSearch = ({ navigation }) =>{
             
             contentContainerStyle={{}}
             renderItem={({ item }) => (
-                <Food style={styles.food} data = {item} nav = {navigation} api={apiSelected} deletable={false}></Food>
+                <Food style={styles.food} data ={item} nav = {navigation} api={apiSelected} deletable={false}></Food>
               )}
             />
             </View>

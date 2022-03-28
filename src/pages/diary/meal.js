@@ -14,18 +14,9 @@ import PopUp from '../../customComponents/PopUp';
 import { useDispatch } from 'react-redux';
 import { selectMealType } from '../../stateManager/reduxStates/actions/macroTracker';
 import { connect } from 'react-redux';
+import mealIcons from '../../assets/mealIcons';
 
-const mealIcons ={
-    breakfast: {uri:require("../../assets/breakfast.png")},
-    lunch:{uri:require("../../assets/lunch.png")},
-    dinner:{uri:require("../../assets/dinner.png")},
-    snack:{uri:require("../../assets/snack.png")},
-    cal:{uri:require("../../assets/calories.png")},
-    fat:{uri:require("../../assets/fat.png")},
-    protein:{uri:require("../../assets/protein.png")},
-    carbo:{uri:require("../../assets/carbohydrates.png")},
-    insuline:{uri:require('../../assets/insuline.png')}
-}
+
 
 export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     

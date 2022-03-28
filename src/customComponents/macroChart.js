@@ -32,21 +32,22 @@ const screenWidth = Dimensions.get("window").width-marginOffset*3;
           useShadowColorFromDataset: false, // optional
         };
     
-export const MacroChart = ({
-     navigation,
-     diary,
-     user }) =>{
+        const maxValueCheck = (val,max) =>{
+          return ((val/max)<1 ? (val/max):1);
+        }
+
+export const MacroChart = ({diary,user }) =>{
+
     const maxCarb = 200;
     const maxProt = 100;
     const maxFat  = 100;
+
     const graph = {
         labels: ["Carbo", "Fat", "Pro"], // optional
-        data: [(((diary.totMacro.prot.toFixed(2)/maxProt)<1) ? (diary.totMacro.prot.toFixed(2)/maxProt) : 1),(((diary.totMacro.fat.toFixed(2)/maxFat)<1) ? (diary.totMacro.fat.toFixed(2)/maxFat) : 1),(((diary.totMacro.carb.toFixed(2)/maxCarb)<1) ? (diary.totMacro.carb.toFixed(2)/maxCarb) : 1)]
+        data: [maxValueCheck(diary.totMacro.prot,maxProt),
+               maxValueCheck(diary.totMacro.fat,maxFat),
+               maxValueCheck(diary.totMacro.carb,maxCarb)]
       }
-
-
-
-        
     return (
       
  <ProgressChart 

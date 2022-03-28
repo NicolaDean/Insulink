@@ -7,9 +7,10 @@ import { VictoryPie } from 'victory-native';
 import CustomButton from '../../customComponents/customButton';
 import styles from './style'
 import DropDownPicker from 'react-native-dropdown-picker';
+import mealIcons from '../../assets/mealIcons';
 
 //API
-import * as api from "../../utils/apiQuery";
+import {Food_API} from "../../utils/apiQuery";
 
 //REDUX
 import { connect, useDispatch } from 'react-redux';
@@ -35,7 +36,7 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
     {
         //RETRIVE DATA
         let res;
-        res = (await api.getIngredientDetailsAlternative(id.food_name));
+        res = (await Food_API.getIngredientDetailsAlternative(id.food_name));
         if(typeof(res.foods) === undefined) return;
         res = res.foods[0];
 
@@ -124,16 +125,17 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
 
         const ratio = (measure.serving_weight*qty)/details.serving_weight_grams;
 
-        proportion.current_carb    = (ratio*proportion.nf_total_carbohydrate).toFixed(1);
-        proportion.current_fat     = (ratio*proportion.nf_total_fat).toFixed(1);
-        proportion.current_prot    = (ratio*proportion.nf_protein).toFixed(1);
-        proportion.current_cal     = (ratio*proportion.nf_calories).toFixed(1);
+        proportion.current_carb    = (ratio*proportion.nf_total_carbohydrate).toFixed(2);
+        proportion.current_fat     = (ratio*proportion.nf_total_fat).toFixed(2);
+        proportion.current_prot    = (ratio*proportion.nf_protein).toFixed(2);
+        proportion.current_cal     = (ratio*proportion.nf_calories).toFixed(2);
 
         proportion.chartData = [
             {x:"Carb"  ,y:proportion.current_carb },
             {x:"Fat"   ,y:proportion.current_fat},
             {x:"Prot"  ,y:proportion.current_prot }];
 
+        console.log(proportion.chartData);
         setDetails(proportion);
     }
 
@@ -172,6 +174,7 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
                     </View>
                 </View>
                 <View style={{flex:2,flexDirection:'row',width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white'}}>
+                {console.log("Update:" + JSON.stringify(details.chartData))}
                 <VictoryPie 
                         colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
                         data={details.chartData}
@@ -184,9 +187,18 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
                         }, }}
                     /> 
                     <View style={styles.graphLegend}> 
-                        <Text>Carbohydrates : {details.current_carb} g</Text>
-                        <Text>Fat : {details.current_fat}g</Text>
-                        <Text>Protein : {details.current_prot}g</Text>
+                        <View style={styles.macroContainer}>
+                            <Image source={mealIcons['carbo'].uri} style={styles.macroImage} />
+                            <Text>CARB: {details.current_carb} g</Text>
+                        </View>
+                        <View style={styles.macroContainer}>
+                            <Image source={mealIcons['fat'].uri} style={styles.macroImage} />
+                            <Text>FAT: {details.current_fat} g</Text>
+                        </View>
+                        <View style={styles.macroContainer}>
+                            <Image source={mealIcons['protein'].uri} style={styles.macroImage} />
+                            <Text>PROT: {details.current_prot} g</Text>
+                        </View>
                     </View>
                 </View>
                 <View style={{flex:1,width:'90%',marginLeft:'5%',marginTop:10}}>

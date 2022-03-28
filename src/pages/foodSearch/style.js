@@ -12,6 +12,26 @@ export default StyleSheet.create({
       flex:1
             
     },
+    shadowEffect:{
+      shadowColor: "#000",
+      shadowOffset: {
+          width: 0,
+          height: 2,
+      },
+      shadowOpacity: 0.23,
+      shadowRadius: 2.62,
+    },
+    macroContainer:{
+      flexDirection:'column',
+      marginTop:10,
+      margin:3, 
+      justifyContent: 'center',
+      alignItems:'center',
+    },
+    macroImage: {    
+      width: 30,
+      height:30,
+    },
     header:{
       flexDirection:'row',
       borderBottomWidth: StyleSheet.hairlineWidth,
