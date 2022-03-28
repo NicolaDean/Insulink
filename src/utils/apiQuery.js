@@ -109,92 +109,105 @@ const getJson = async (query) =>{
 
 //OTHER API TEST: NUTRITIONIX
 
-const rootUrl = 'https://trackapi.nutritionix.com/v2';
-const nutrixAppId = 'e29d5b1a';
-const nutrixAppKey = '4bfbc69b7095239b9768d1f7b3f47e56';
+rootUrl = 'https://trackapi.nutritionix.com/v2';
+nutrixAppId = 'e29d5b1a';
+nutrixAppKey = '4bfbc69b7095239b9768d1f7b3f47e56';
 
-const methods = {
+methods = {
     get:"GET",
     post:"POST"
 }
-const headers = {
+
+headers = {
     'x-app-id':nutrixAppId,
     'x-app-key':nutrixAppKey,
     'x-remote-user-id': 0
 }
 
-/**
- * allow to search for foods on the API database, both common and branded foods
- * @param {*} userInput food to search
- * @returns a list of foods
- */
-export const getFoodListAlternative = async (userInput) =>{
+class Api{
+    
+    constructor(){}
+    /**
+     * 
+     * @param {*} userInput 
+     * @param {*} userData 
+     * @returns 
+     */
+    getSportCalories = async (userInput,userData) =>{
 
-    const param = {
-        query: userInput
+        //TODO ADD AGE AND GENDER TO PERSONAL DATA
+        const param = {
+            "query":userInput,
+            "gender":"male",
+            "weight_kg":userData.weight,
+            "height_cm":userData.height,
+            "age":30
+           }
+    
+           return await this.doRequest(methods.post,'/natural/exercise',param);
+    
     }
 
-    return await doRequest(methods.get,'/search/instant',param);
-}
+    /**
+     * allow to search for foods on the API database, both common and branded foods
+     * @param {*} userInput food to search
+     * @returns a list of foods
+     */
+    getFoodListAlternative = async (userInput) =>{
 
-export const getSportCalories = async (userInput,userData) =>{
-
-    //TODO ADD AGE AND GENDER TO PERSONAL DATA
-    const param = {
-        "query":userInput,
-        "gender":"male",
-        "weight_kg":userData.weight,
-        "height_cm":userData.height,
-        "age":30
-       }
-
-       return await doRequest(methods.post,'/natural/exercise',param);
-
-}
-/**
- * Allow to retrive details of specific foods
- * @param {*} userInput id/name of food
- * @returns details of food
- */
-export const getIngredientDetailsAlternative = async  (userInput) =>{
-    
-    const param = {
-        query:userInput,
-        num_servings:1
-    }
-
-    return await doRequest(methods.post,'/natural/nutrients',param);
-}
-
-
-/**
- * General purpose function to do API request with axios 
- * @param {*} method method to use (POST,GET)
- * @param {*} query relative path to the API request
- * @param {*} param parameters of request (eg query,foodAmount...)
- * @returns JSON with API response
- */
-const doRequest = async(method,query,param) =>{
-    console.log("QUERY : " + query + JSON.stringify(param));
-    
-    const response = await axios({
-            url:rootUrl + query,
-            method:method,
-            headers:headers,//TODO put data into params for GET and in data for POST
-            params:(method == methods.get)? param : undefined, 
-            data:(method == methods.post)? param : undefined,
-            responseType: 'json'
-            }).then( (response) => {
-        return (response.data);
-      })
-      .catch( (error)=> {
-
-        console.log(error);
-        if(error.status == 401) {
-            console.log("ENDED STUDENT LIMITS!!!!!!!!!!!!!!!!!!!!");
+        const param = {
+            query: userInput
         }
-        return (testingJson.foodDetails);
-      });
 
-      return response;
+        return await this.doRequest(methods.get,'/search/instant',param);
+    }
+
+    /**
+     * Allow to retrive details of specific foods
+     * @param {*} userInput id/name of food
+     * @returns details of food
+     */
+    getIngredientDetailsAlternative = async  (userInput) =>{
+    
+        const param = {
+            query:userInput,
+            num_servings:1
+        }
+
+        return await this.doRequest(methods.post,'/natural/nutrients',param);
+    }
+    /**
+     * General purpose function to do API request with axios 
+     * @param {*} method method to use (POST,GET)
+     * @param {*} query relative path to the API request
+     * @param {*} param parameters of request (eg query,foodAmount...)
+     * @returns JSON with API response
+     */
+    doRequest = async(method,query,param) =>{
+        console.log("QUERY : " + query + JSON.stringify(param));
+        
+        const response = await axios({
+                url:rootUrl + query,
+                method:method,
+                headers:headers,//TODO put data into params for GET and in data for POST
+                params:(method == methods.get)? param : undefined, 
+                data:(method == methods.post)? param : undefined,
+                responseType: 'json'
+                }).then( (response) => {
+            return (response.data);
+          })
+          .catch( (error)=> {
+    
+            console.log(error);
+            if(error.status == 401) {
+                console.log("ENDED STUDENT LIMITS!!!!!!!!!!!!!!!!!!!!");
+            }
+            return (testingJson.foodDetails);
+          });
+    
+          return response;
+    }
+
 }
+
+export const Food_API = new Api();
