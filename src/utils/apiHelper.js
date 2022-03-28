@@ -1,4 +1,33 @@
 
+const apiMacros = 
+[
+    "calories",
+    "total_fat",
+    "saturated_fat",
+    "cholesterol",
+    "sodium",
+    "total_carbohydrate",
+    "dietary_fiber",
+    "sugars",
+    "protein",
+    "potassium",
+    "p",
+    "polyunsaturated",
+    "monounsaturated",
+    "trans_fat",
+]
+
+const findNutrient = (nutrients,id) =>{
+    let res = undefined;
+    nutrients.forEach(nut => {
+        if(nut.attr_id == id){
+            res =  nut.value;
+        } 
+    })
+
+    return res;
+}
+
 class Helper{
 
     constructor(){}
@@ -18,17 +47,24 @@ class Helper{
         details.units_dic = dictionary;
         details.name = details.food_name;
         
+        //Some extra values
+        details.nf_polyunsaturated = findNutrient(details.full_nutrients,646);
+        details.nf_monounsaturated = findNutrient(details.full_nutrients,645);
+        details.nf_trans_fat = findNutrient(details.full_nutrients,605);
+
         //CURRENT MACRO NUTRIENTS (needed for the custom amount)
-        details.current_carb    = details.nf_total_carbohydrate;
-        details.current_fat     = details.nf_total_fat;
-        details.current_prot    = details.nf_protein;
-        details.current_cal     = details.nf_calories;
+
+        apiMacros.forEach(macro =>{
+            details["current_" + macro] = details["nf_" + macro];
+            console.log(macro + ": " + details["nf_" + macro]);
+        });
+
 
         //BUILD CHART DATA STRUCT
         details.chartData = [
-            {x:"Carb"  ,y:details.nf_total_carbohydrate },
-            {x:"Fat"   ,y:details.nf_total_fat},
-            {x:"Prot"  ,y:details.nf_protein }];
+            {x:"Carb"  ,y:details.current_total_carbohydrate },
+            {x:"Fat"   ,y:details.current_total_fat},
+            {x:"Prot"  ,y:details.current_protein}];
         
         //console.log("Graph Data: " + JSON.stringify(details.alt_measudetails));
         //console.log("Current Unit: " + JSON.stringify(id.serving_unit));
@@ -50,16 +86,16 @@ class Helper{
 
         const ratio = (measure.serving_weight*qty)/details.serving_weight_grams;
 
-        proportion.current_carb    = (ratio*proportion.nf_total_carbohydrate).toFixed(2);
-        proportion.current_fat     = (ratio*proportion.nf_total_fat).toFixed(2);
-        proportion.current_prot    = (ratio*proportion.nf_protein).toFixed(2);
-        proportion.current_cal     = (ratio*proportion.nf_calories).toFixed(2);
+        apiMacros.forEach(macro =>{
+            proportion["current_" + macro] = (ratio*details["nf_" + macro]).toFixed(2);
+        });
 
         proportion.chartData = [
-            {x:"Carb"  ,y:proportion.current_carb },
-            {x:"Fat"   ,y:proportion.current_fat},
-            {x:"Prot"  ,y:proportion.current_prot }];
+            {x:"Carb"  ,y:proportion.current_total_carbohydrate },
+            {x:"Fat"   ,y:proportion.current_total_fat},
+            {x:"Prot"  ,y:proportion.current_protein}];
 
+            //console.log("BBB" + JSON.stringify(proportion));
         return proportion;
     };
 

@@ -11,11 +11,13 @@ import mealIcons from '../../assets/mealIcons';
 
 //API
 import {Food_API} from "../../utils/apiQuery";
+import { ApiHelper } from '../../utils/apiHelper';
 
 //REDUX
 import { connect, useDispatch } from 'react-redux';
 import { addFood } from '../../stateManager/reduxStates/actions/macroTracker';
-import { ApiHelper } from '../../utils/apiHelper';
+import MacroTable from './macroTable';
+
 
 const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset;
@@ -54,20 +56,16 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
         getData(id);
     },[]);
 
-
-    
-    //const properties = api.extractProperties(details.nutrition.properties);
-    
     const addItem = () =>{
 
         var food ={
             id:     id,
             name:   details.name,
             image:  details.image,
-            cal:    details.nf_calories ,
-            carb:   details.nf_total_carbohydrate,
-            fat:    details.nf_total_fat,
-            prot:   details.nf_protein,
+            cal:    details.current_calories ,
+            carb:   details.current_total_carbohydrate,
+            fat:    details.current_total_fat,
+            prot:   details.current_protein,
             quantity: amount,
             identifier: identifier,
         }
@@ -98,8 +96,9 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
     const renderDetails = () =>{
         return (
             
+        
         <View style={{flex: 1,flexDirection: 'column'}}>
-                
+            
             <ScrollView style={{flex:1}}>
             <View style={{flex: 2,backgroundColor: 'white'}}>
                 <Image style={styles.foodImage} source={{uri:details.image}}/>
@@ -126,7 +125,7 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
                         
                     </View>
                     <View style={{width:'90%',flexDirection:'row',marginLeft:'5%',marginTop:10}}>
-                        <Text style={{fontSize:28,color:'black'}}> {details.current_cal} Kcal</Text>
+                        <Text style={{fontSize:28,color:'black'}}> {details.current_calories} Kcal</Text>
                     </View>
                 </View>
                 <View style={{flex:2,flexDirection:'row',width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white'}}>
@@ -145,18 +144,19 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
                     <View style={styles.graphLegend}> 
                         <View style={styles.macroContainer}>
                             <Image source={mealIcons['carbo'].uri} style={styles.macroImage} />
-                            <Text>CARB: {details.current_carb} g</Text>
+                            <Text>CARB: {details.current_total_carbohydrate} g</Text>
                         </View>
                         <View style={styles.macroContainer}>
                             <Image source={mealIcons['fat'].uri} style={styles.macroImage} />
-                            <Text>FAT: {details.current_fat} g</Text>
+                            <Text>FAT: {details.current_total_fat} g</Text>
                         </View>
                         <View style={styles.macroContainer}>
                             <Image source={mealIcons['protein'].uri} style={styles.macroImage} />
-                            <Text>PROT: {details.current_prot} g</Text>
+                            <Text>PROT: {details.current_protein} g</Text>
                         </View>
                     </View>
                 </View>
+                <MacroTable data={details}/>
                 <View style={{flex:1,width:'90%',marginLeft:'5%',marginTop:10}}>
                     <CustomButton style={styles.addButton} title="Add Food To Meal" onPress={()=>{addItem()}}/>
                 </View>
