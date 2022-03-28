@@ -1,6 +1,8 @@
 import React from 'react';
 import {Text, View } from 'react-native';
 
+const name_offset = "current_";
+
 const Line =({structure,data}) =>{
     
     const line_name = name_offset + structure.line;
@@ -31,7 +33,6 @@ const SubLine = ({structure,data}) => {
 
 const tableStructure =  
     [
-        
         {line:"total_fat",subline:["saturated_fat","trans_fat","polyunsaturated","monounsaturated"]},
         {line:"cholesterol",subline:[]},
         {line:"sodium",subline:[]},
@@ -40,7 +41,7 @@ const tableStructure =
         {line:"protein",subline:[]},
     ]
 
-const name_offset = "nf_";
+
 
 export const MacroTable = ({data}) =>{
 
@@ -48,7 +49,6 @@ export const MacroTable = ({data}) =>{
         <View>
             {
                 tableStructure.map(line => {
-                    
                     return (<Line structure={line} data={data}></Line>);
                 })
             }

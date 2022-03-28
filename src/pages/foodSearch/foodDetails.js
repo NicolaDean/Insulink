@@ -157,6 +157,7 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
                     </View>
                 </View>
                 <MacroTable data={details}/>
+
                 <View style={{flex:1,width:'90%',marginLeft:'5%',marginTop:10}}>
                     <CustomButton style={styles.addButton} title="Add Food To Meal" onPress={()=>{addItem()}}/>
                 </View>
