@@ -137,6 +137,20 @@ export const getFoodListAlternative = async (userInput) =>{
     return await doRequest(methods.get,'/search/instant',param);
 }
 
+export const getSportCalories = async (userInput,userData) =>{
+
+    //TODO ADD AGE AND GENDER TO PERSONAL DATA
+    const param = {
+        "query":userInput,
+        "gender":"male",
+        "weight_kg":userData.weight,
+        "height_cm":userData.height,
+        "age":30
+       }
+
+       return await doRequest(methods.post,'/natural/exercise',param);
+
+}
 /**
  * Allow to retrive details of specific foods
  * @param {*} userInput id/name of food
@@ -179,8 +193,6 @@ const doRequest = async(method,query,param) =>{
         if(error.status == 401) {
             console.log("ENDED STUDENT LIMITS!!!!!!!!!!!!!!!!!!!!");
         }
-        //console.log(JSON.stringify(error));
-        
         return (testingJson.foodDetails);
       });
 
