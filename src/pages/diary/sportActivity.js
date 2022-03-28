@@ -40,16 +40,23 @@ export const SportActivity = ({ navigation,diary,user }) =>{
        'soccer',
        'fitness',
        'basket',
-       'running'
+       'running',
+       'swimming'
    ]}
    numColumns={3} 
-   contentContainerStyle={{}}
+   contentContainerStyle={{paddingBottom:'50%'}}
    renderItem={({item})=>{
     return(
     <CustomImageButton image={item} style={styles.sportImageContainer}  iconStyle={styles.sportImage} />
 
     )}}
   />
+  <View style={{flexDirection:'row'}}>
+      <CustomImageButton image="more" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} />
+      <CustomImageButton image="less" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} />
+</View>
+<CustomButton title="Add Activity" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} />
+
   <Text >{time}</Text>
   </View>
       );

@@ -30,6 +30,12 @@ const images = {
                 uri: require('../assets/fitness.png')
               },basket: {
                 uri: require('../assets/basket.png')
+              },swimming: {
+                uri: require('../assets/swimming.png')
+              },more: {
+                uri: require('../assets/more.png')
+              },less: {
+                uri: require('../assets/less.png')
               },
   }
 
