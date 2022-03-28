@@ -15,6 +15,7 @@ import {Food_API} from "../../utils/apiQuery";
 //REDUX
 import { connect, useDispatch } from 'react-redux';
 import { addFood } from '../../stateManager/reduxStates/actions/macroTracker';
+import { ApiHelper } from '../../utils/apiHelper';
 
 const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset;
@@ -40,37 +41,9 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
         if(typeof(res.foods) === undefined) return;
         res = res.foods[0];
 
-        //RETRIVE DIFFERENT SERVING UNITS AND BUILD DROPDOWN DATA STRUCTURE
-        const tmp = [];
-        const dictionary = {};
-        res.alt_measures.forEach(measure=>{
-            tmp.push({label:measure.measure,value:measure.measure});
-            dictionary[measure.measure] = measure; 
-        });   
-
-        //FIX SOME VALUES IN MORE EASY WAY
-        res.image = res.photo.highres;
-        res.units = tmp;
-        res.units_dic = dictionary;
-        res.name = id.food_name;
+        //DO SOME PREPROCESSING TO THE DATA 
+        res = ApiHelper.enrichDatails(res);
         
-        //CURRENT MACRO NUTRIENTS (needed for the custom amount)
-        res.current_carb    = res.nf_total_carbohydrate;
-        res.current_fat     = res.nf_total_fat;
-        res.current_prot    = res.nf_protein;
-        res.current_cal     = res.nf_calories;
-
-        //BUILD CHART DATA STRUCT
-        res.chartData = [
-            {x:"Carb"  ,y:res.nf_total_carbohydrate },
-            {x:"Fat"   ,y:res.nf_total_fat},
-            {x:"Prot"  ,y:res.nf_protein }];
-        
-        //console.log("Graph Data: " + JSON.stringify(res.alt_measures));
-        //console.log("Current Unit: " + JSON.stringify(id.serving_unit));
-        //console.log("Unit: " + JSON.stringify(dictionary[id.serving_unit]));
-        //console.log("grams: " + JSON.stringify(res.serving_weight_grams));
-
         setItems(res.units);
         //SET DETAILS VARIABLE
         setDetails(res);
@@ -117,25 +90,8 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
 
     const makeProportions = (item,qty=1) =>{
 
-        
-        const measure = details.units_dic[item];
-        console.log(JSON.stringify(measure));
-
-        const proportion = {...details};
-
-        const ratio = (measure.serving_weight*qty)/details.serving_weight_grams;
-
-        proportion.current_carb    = (ratio*proportion.nf_total_carbohydrate).toFixed(2);
-        proportion.current_fat     = (ratio*proportion.nf_total_fat).toFixed(2);
-        proportion.current_prot    = (ratio*proportion.nf_protein).toFixed(2);
-        proportion.current_cal     = (ratio*proportion.nf_calories).toFixed(2);
-
-        proportion.chartData = [
-            {x:"Carb"  ,y:proportion.current_carb },
-            {x:"Fat"   ,y:proportion.current_fat},
-            {x:"Prot"  ,y:proportion.current_prot }];
-
-        console.log(proportion.chartData);
+        const proportion = ApiHelper.makeProportion(details,item,qty);
+        console.log("prop:" + proportion);
         setDetails(proportion);
     }
 
