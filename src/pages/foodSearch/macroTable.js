@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View } from 'react-native';
+import {Text, View,StyleSheet } from 'react-native';
 
 const name_offset = "current_";
 
@@ -9,8 +9,8 @@ const Line =({structure,data}) =>{
     console.log("->" + line_name);
 
     return (
-        <View>
-            <Text>{structure.line}: {data[line_name]}</Text>
+        <View style={styles.lineContainer}>
+            <Text style={styles.lineName}>{structure.line}: {data[line_name]}</Text>
             {
                structure.subline.map(subline =>{
                     return <SubLine data={data} structure={subline}></SubLine>
@@ -25,8 +25,8 @@ const SubLine = ({structure,data}) => {
 
     const line_name = name_offset + structure;
     return(
-        <View>
-            <Text>-------{structure}:{data[line_name]}</Text>
+        <View style={styles.subLineContainer}>
+            <Text style={styles.subLineName}>{structure}:{data[line_name]}</Text>
         </View>
     );
 }
@@ -46,7 +46,7 @@ const tableStructure =
 export const MacroTable = ({data}) =>{
 
     return (
-        <View>
+        <View style={styles.tableContainer}>
             {
                 tableStructure.map(line => {
                     return (<Line structure={line} data={data}></Line>);
@@ -57,4 +57,33 @@ export const MacroTable = ({data}) =>{
     );
 
 }
+const styles = StyleSheet.create({
+    tableContainer:{
+        width:'90%',
+        marginLeft:'5%',
+        marginTop:10,
+        backgroundColor:'white'
+    },
+    lineContainer:{
+        borderTopWidth:2,
+        borderColor:'black',
+    },
+    lineName:{
+        fontSize:20,
+        fontWeight:'bold',
+        color:'black',
+        marginLeft:'2%',
+    },
+    subLineContainer:{
+        marginLeft:'15%',
+        borderBottomWidth:1,
+        borderColor:'black',
+    },
+    subLineName:{
+        fontSize:15,
+        fontWeight:'bold',
+        color:'gray',
+        marginLeft:'2%',
+    }
+});
 export default MacroTable;
