@@ -19,9 +19,18 @@ const images = {
           close: {
               uri: require('../assets/close.png')
             },
-            ok: {
-                uri: require('../assets/ok.png')
-              }
+            running: {
+                uri: require('../assets/running.png')
+              },
+              soccer: {
+                uri: require('../assets/soccer.png')
+              },tennis: {
+                uri: require('../assets/tennis.png')
+              },fitness: {
+                uri: require('../assets/fitness.png')
+              },basket: {
+                uri: require('../assets/basket.png')
+              },
   }
 
 export const CustomButton = (

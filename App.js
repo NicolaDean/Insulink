@@ -16,6 +16,7 @@ import  MealDiary  from './src/pages/diary/mealDiary';
 import { store } from './src/stateManager/reduxStates/store';
 import { Provider } from 'react-redux';
 import Login from './src/pages/login/login';
+import  SportActivity from './src/pages/diary/sportActivity';
 
 
 const Stack = createNativeStackNavigator();
@@ -35,6 +36,8 @@ const App = () => {
               <Stack.Screen name="PersonalData" component={PersonalData}/>
               <Stack.Screen name="EditPersonalData" component={EditPersonalData}/>
               <Stack.Screen name="Login" component={Login} />
+              <Stack.Screen name="SportActivity" component={SportActivity} />
+
             </Stack.Navigator>
         </Provider>
 

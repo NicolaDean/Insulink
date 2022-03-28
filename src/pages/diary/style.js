@@ -162,6 +162,17 @@ export default StyleSheet.create({
         slide: {
           justifyContent: 'space-evenly',
           alignItems: 'stretch',
+        },sportImageContainer: {
+          marginVertical:'10%',
+          marginHorizontal:'5%'
+        } ,
+        sportImage: {
+          width: 64,
+          height: 64,
+        },grid:{
+          justifyContent: 'center',
+       alignItems:'center',
+      flex:1
         }
 
                   

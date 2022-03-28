@@ -5,6 +5,7 @@ import CustomButton from '../../customComponents/customButton';
 import {ProgressChart} from "react-native-chart-kit";
 import { MacroChart } from '../../customComponents/macroChart';
 import { GlycemiaChart } from '../../customComponents/glycemiaChart';
+import { SportActivity } from "./sportActivity";
 //CUSTOM COMPONENTS
 import Meal from './meal';
 import styles from './style'
@@ -88,6 +89,8 @@ return (
         <Meal navigation = {navigation} name ="Cena"        icon ="dinner"      id="dinner"/>
         <Meal navigation = {navigation} name ="Snack"       icon ="snack"       id="snack"/>
                 <CustomButton title='Add Custom Meal' onPress={()=>{}}/>
+                <CustomButton title='Add Sport Activity' onPress={() => navigation.navigate('SportActivity',{})}/>
+
 </ScrollView>
 </View>
     );
