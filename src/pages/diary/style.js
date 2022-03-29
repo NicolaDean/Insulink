@@ -174,7 +174,7 @@ export default StyleSheet.create({
           justifyContent: 'center',
        alignItems:'center',
       flex:1
-        }
+        },
 
                   
   });
