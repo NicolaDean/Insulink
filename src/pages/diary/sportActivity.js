@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {ScrollView, Text, View,Dimensions,FlatList} from 'react-native';
+import {ScrollView,TouchableOpacity,Pressable, Text, View,Dimensions,FlatList} from 'react-native';
 import Slick from 'react-native-slick';
 import CustomButton from '../../customComponents/customButton';
 import {ProgressChart} from "react-native-chart-kit";
@@ -15,6 +15,7 @@ import styles from './style'
 
 //REDUX
 import { connect } from 'react-redux';
+import { colors } from "../../constants/appAspect";
 
 
 export const SportActivity = ({ navigation,diary,user }) =>{
@@ -26,6 +27,12 @@ export const SportActivity = ({ navigation,diary,user }) =>{
       minutes: 0,
     });
  
+   const typeSelected=(value)=> {
+      Alert.alert(value);
+      this.setState({
+          itemPressed: value
+      });
+   }
     const handleChange = (newValue) => {
       setValue(newValue);
       console.log(newValue)
@@ -104,8 +111,15 @@ export const SportActivity = ({ navigation,diary,user }) =>{
    contentContainerStyle={{paddingBottom:'50%'}}
    renderItem={({item})=>{
     return(
-    <CustomImageButton image={item} style={styles.sportImageContainer}  iconStyle={styles.sportImage} onPress ={()=>{setSportString(item)}} />
-
+      <View
+      style={{  
+        backgroundColor: sportString  === item ? colors.primary : null,
+        borderRadius:10
+    }}>
+  
+    <CustomImageButton image={item} style={[{margin:30}]}  iconStyle={styles.sportImage} onPress ={()=>{setSportString(item)}} />
+  
+    </View>
     )}}
   />
       

@@ -170,6 +170,7 @@ export default StyleSheet.create({
           width: 64,
           height: 64,
         },grid:{
+          marginTop:'10%',
           justifyContent: 'center',
        alignItems:'center',
       flex:1
