@@ -7,7 +7,7 @@ import { MacroChart } from '../../customComponents/macroChart';
 import { GlycemiaChart } from '../../customComponents/glycemiaChart';
 import CustomImageButton from '../../customComponents/customImageButton'
 import { Food_API } from "../../utils/apiQuery";
-import TimePicker from "../../customComponents/timePicker";
+import {TimePicker, ValueMap} from 'react-native-simple-time-picker';
 
 //CUSTOM COMPONENTS
 import Meal from './meal';
@@ -20,16 +20,16 @@ import { connect } from 'react-redux';
 export const SportActivity = ({ navigation,diary,user }) =>{
   
     const [time, setTime] = useState('');
+    const [value, setValue] = useState({
+      hours: 1,
+      minutes: 0,
+    });
+ 
+    const handleChange = (newValue) => {
+      setValue(newValue);
+      console.log(newValue)
+    };
 
-  
-    const onCancel=()=> {
-        TimePicker.close();
-      }
-     
-     const  onConfirm=(hour, minute)=> {
-        setTime(`${hour}:${minute}` );
-        TimePicker.close();
-      }
 
   return (
    //TODO ADD THE TOTAL MEALS MACRO GRAPHù
@@ -56,7 +56,7 @@ export const SportActivity = ({ navigation,diary,user }) =>{
       <CustomImageButton image="less" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} />
 </View>
 <CustomButton title="Add Activity" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} />
-
+<TimePicker value={value} onChange={handleChange} />
   <Text >{time}</Text>
   </View>
       );

@@ -34,6 +34,7 @@
     "react-native-safe-area-context": "^3.4.1",
     "react-native-screens": "^3.12.0",
     "react-native-select-dropdown": "^1.8.0",
+    "react-native-simple-time-picker": "^1.3.11",
     "react-native-slick": "^1.6.0",
     "react-native-svg": "^12.1.1",
     "react-native-swipe-list-view": "^3.2.9",
