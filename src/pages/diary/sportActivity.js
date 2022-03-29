@@ -108,7 +108,7 @@ export const SportActivity = ({ navigation,diary,user }) =>{
        'swimming'
    ]}
    numColumns={3} 
-   contentContainerStyle={{paddingBottom:'50%'}}
+   contentContainerStyle={{}}
    renderItem={({item})=>{
     return(
       <View
@@ -124,11 +124,11 @@ export const SportActivity = ({ navigation,diary,user }) =>{
   />
       
   <View style={{flex:1,flexDirection:'row'}}>
-      <CustomImageButton image="more" style={{left:'15%',marginTop:'3%'}} iconStyle={{width: 32,height: 32}} onPress={moreTime} />
+      <CustomImageButton image="more" style={{left:'0%',marginTop:'3%'}} iconStyle={{width: 32,height: 32}} onPress={moreTime} />
       <View style={{width:'70%',}}>
       <TimePicker value={value} onChange={handleChange}  hoursUnit='h' minutesUnit="m" minutesInterval={5}/>
       </View>
-      <CustomImageButton image="less"  style={{right:'15%',marginTop:'3%'}} iconStyle={{width: 32,height: 32}} onPress={lessTime} />
+      <CustomImageButton image="less"  style={{right:'0%',marginTop:'3%'}} iconStyle={{width: 32,height: 32}} onPress={lessTime} />
 
 </View>
 <CustomButton title="Add Activity" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} onPress={addActivity} />
