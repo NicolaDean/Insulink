@@ -2,8 +2,10 @@ import { firebase } from "@react-native-firebase/firestore";
 import { userMethods } from "../../../constants/reducers"
 
 import * as database from "../../../utils/firebaseQuery"
-import * as localStorage from '../../../utils/localStoreManager'
+import { localStorage } from "../../../utils/localStoreManager";
+
 import * as authSys from '../../../utils/auth'
+import { loginStatus } from "../../../constants/states";
 
 /**
  * check all user inputs and try to register
@@ -24,7 +26,7 @@ export const register = (user,password) => async dispatch =>{
     
     console.log("REGISTER OK");
 
-    await localStorage.setDataAvailability(true);
+    //await localStorage.setDataAvailability(true);
     //SAVE DATA TO LOCAL STORAGE
 
     //REDUX DISPATCH
@@ -81,7 +83,7 @@ export const login = (email,psw) => async dispatch =>{
 
     //Get user data
     const usrData = (await database.getUserData(user.uid));
-    
+
     const glicemy = (await database.getUserGlicemy(user.uid));
 
     usrData.glicemy = glicemy;
@@ -91,7 +93,6 @@ export const login = (email,psw) => async dispatch =>{
     
     console.log("Login ok" + JSON.stringify(usrData));
 
-    await localStorage.setDataAvailability(true);
     await localStorage.saveUserData(usrData);
 
     //if(login not good) return false;
@@ -107,6 +108,32 @@ export const login = (email,psw) => async dispatch =>{
     return true;
 } 
 
+/**
+ * try to load user data from memory, if not possible return false
+ * @returns true if user is logged, false if not
+ */
+export const loadUserLocalData = () =>async dispatch => {
+    
+    let userData = await localStorage.getUserData();
+
+    console.log("Load Data used");
+
+    console.log(userData);
+
+    if(userData === null){
+        return false;
+    }else{
+        //Fake Login (Load data from local storage)
+        dispatch({
+            type: userMethods.login,
+            payload: {
+                usrData: userData
+            }
+        });
+        
+        return true;
+    }
+}
 
 /**
  * remove all user data from local storage and execute logout
@@ -136,9 +163,9 @@ export const addGlicemy = (userId,glicemyValue) => async dispatch =>{
     //GET TIMESTAMP
     const glicemy = {value: glicemyValue,time:date};
 
-    console.log("G: " + JSON.stringify(glicemy));
     //UPDATE FIREBASE IF POSSIBLE; IF NOT ADD A PENDING UPDATE (TODO)
     database.addGlicemyValue(userId,glicemy);
+    localStorage.storeGlicemyData(glicemy);
 
     //REDUX DISPATCH
     dispatch({

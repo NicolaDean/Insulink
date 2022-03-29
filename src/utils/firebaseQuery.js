@@ -38,11 +38,22 @@ const zeroPad = (num, places) => String(num).padStart(places, '0');
  * @param {*} email email that identify user
  * @returns an array containing the glicemy data
  */
-export const getUserGlicemy = async (email) =>{
+export const getUserGlicemy = async (userId,date=new Date()) =>{
 
-    const glicemy_records = {};
+    let glicemy_records = {};
+    date = glicemyDateFormatter(date);
+    glicemy_records[date] = [];
+    //const today = "27-02-2022";
+    const res = (await (users.doc(userId).collection(glicemyTable).doc(date).get())).data();
+    
+    if(res == undefined) return [];
 
-   await (users.doc(email).collection(glicemyTable).get())
+    res.data.forEach(g => {
+        glicemy_records[date].push(changeGlicemyTimeFormat(g));
+    });
+
+    console.log("_>>>>" + JSON.stringify(glicemy_records));
+   /*await (users.doc(userId).collection(glicemyTable).get())
     .then((item)=>{
         item.forEach((doc) => 
         {
@@ -61,9 +72,8 @@ export const getUserGlicemy = async (email) =>{
             }
             
         })
-    });
+    });*/
 
-    
     return glicemy_records;
 }
 
@@ -89,10 +99,10 @@ export const addGlicemyValue = async (userId,glicemyData) =>{
 
 }
 
-export const glicemyDateFormatter = () =>
+export const glicemyDateFormatter = (date = new Date()) =>
 {
 
-    const today = new Date();
+    const today = date;
     let id = zeroPad(today.getDate(),2) +"-"+ zeroPad(today.getMonth(),2) +"-"+ today.getFullYear();
 
     return id;

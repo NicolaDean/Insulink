@@ -1,10 +1,10 @@
 import React from 'react';
-import {View,FlatList,TextInput,Switch } from 'react-native';
+import {View,FlatList,TextInput,Switch,ActivityIndicator } from 'react-native';
 import { useState } from 'react';
 import styles from './style'
 import {Food} from './food'
 import {Food_API} from '../../utils/apiQuery';
-import CustomImageButton from '../../customComponents/customImageButton'
+import { CustomImageButton } from '../../customComponents/customImageButton';
 
 
 
@@ -13,6 +13,7 @@ export const FoodSearch = ({ navigation }) =>{
   const [foodData, setData] = useState([]);
   const [foodSelected, setFood] = useState("apple");
   const [apiSelected, setApi] = useState(false);
+  const [loading,setLoading] = useState(false);
 
   //Define a function to retrive date from API
   const getData = async () => 
@@ -20,6 +21,7 @@ export const FoodSearch = ({ navigation }) =>{
     try 
     {
       //GET API DATA
+      setLoading(false);
       const json = (await Food_API.getFoodListAlternative(foodSelected));  
       setData(json.common);
    } 
@@ -28,11 +30,25 @@ export const FoodSearch = ({ navigation }) =>{
      console.error(error);
    } 
    finally {
-     //setLoading(false); //TODO
+    setLoading(true);
    }
   }
   
 
+  const printFoods = () => {
+    return (
+      <FlatList 
+
+      data={foodData}
+      numColumns={3}
+      
+      contentContainerStyle={{}}
+      renderItem={({ item }) => (
+          <Food style={styles.food} data ={item} nav = {navigation} api={apiSelected} deletable={false}></Food>
+        )}
+      />
+    );
+  }
     return (
        <View style={{flex:1}}>
            
@@ -53,16 +69,7 @@ export const FoodSearch = ({ navigation }) =>{
 
            </View>
            <View style={{flex:1}}>
-           <FlatList 
-
-            data={foodData}
-            numColumns={3}
-            
-            contentContainerStyle={{}}
-            renderItem={({ item }) => (
-                <Food style={styles.food} data ={item} nav = {navigation} api={apiSelected} deletable={false}></Food>
-              )}
-            />
+              {loading ? <ActivityIndicator size="large"/> : printFoods()}
             </View>
 
 </View>

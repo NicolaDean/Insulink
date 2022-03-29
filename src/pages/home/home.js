@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Dimensions ,ScrollView } from 'react-native';
+import { View, Dimensions ,ScrollView,ActivityIndicator } from 'react-native';
 import Slick from 'react-native-slick';
 import styles from './style'
 
@@ -12,7 +12,10 @@ import { checkStateConsistency } from '../../stateManager/reduxStates/actions/ro
 import GlycemiaChart from '../../customComponents/glycemiaChart';
 import { MacroChart } from '../../customComponents/macroChart';
 import { Food_API } from '../../utils/apiQuery';
-
+import { localStorage } from '../../utils/localStoreManager';
+import { loadUserLocalData } from '../../stateManager/reduxStates/actions/userAction';
+import Login from '../login/login';
+import { loginStatus } from '../../constants/states';
   const marginOffset=10;
   const screenWidth = Dimensions.get("window").width-marginOffset;
 
@@ -64,46 +67,47 @@ export const Home = ({ navigation,state,user,diary }) =>{
 
   const [init,setInit] = useState(true);
 
+  const logged = (user.status == loginStatus.logged);
   
-  const getSportExample = async () =>{
-    const x = await Food_API.getSportCalories("gym",user.userData);
-    
-    console.log("SPORT: " + JSON.stringify(x));
-  }
-
   //REDIRECT USER TO LOGIN IF NOT LOGGED
   useEffect(()=>{
-    getSportExample()
-    dispatch(checkStateConsistency(state.userReducer.status,navigation,[init,setInit]));
+    dispatch(loadUserLocalData());
+    if(!logged) navigation.navigate('Login',{});
+    //console.log("U : " + u);
+    //dispatch(checkStateConsistency(state.userReducer.status,navigation,[init,setInit]));
   },[]);
 
-  if(init) return null;
-  
+  const renderHome = () =>{
+    return (
+      <ScrollView>
+      <Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
+
+          <View style={styles.slide}>
+            {!logged ?  null: <GlycemiaChart user={user}/> }
+          </View>
+
+          <View style={styles.slide}>
+            <MacroChart diary={diary} user={user}/>
+          </View>
+        </Slick>
+            <CustomButton
+                title='Meal Diary'
+                onPress={() => navigation.navigate('MealDiary',{}) }
+            />
+            <CustomButton
+                title='PersonalData'
+                onPress={() => navigation.navigate('PersonalData',{}) }
+            />    
+    </ScrollView>   
+    );
+  }
+  console.log("BBB: " +  (user.status == loginStatus.logged));
+ 
     return(
-        <View>
-          <ScrollView>
-            <Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
-
-                <View style={styles.slide}>
-                  {init ?  null: <GlycemiaChart user={user}/> }
-                </View>
-
-                <View style={styles.slide}>
-                  <MacroChart diary={diary} user={user}/>
-                </View>
-              </Slick>
-                  <CustomButton
-                      title='Meal Diary'
-                      onPress={() => navigation.navigate('MealDiary',{}) }
-                  />
-                  <CustomButton
-                      title='PersonalData'
-                      onPress={() => navigation.navigate('PersonalData',{}) }
-                  />    
-          </ScrollView>
-
-                  
-</View>
+      
+      <View>
+          {logged?(renderHome()):<ActivityIndicator size="large"/>}
+      </View>
     );
 }
 

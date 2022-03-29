@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { storageKeys } from '../constants/localStorageKeys';
 import { loginStatus } from '../constants/states';
+import { glicemyDateFormatter } from './firebaseQuery';
 
 
 const dummy_user = {
@@ -90,3 +91,79 @@ const getData = async (key) => {
       // error reading value
     }
   }
+
+const keys = {
+  glicemy: "glicemy_",
+  userData: "userData",
+  foodDiary: "food_diary_"
+}
+
+  class LocalStorage {
+
+    constructor(){}
+
+    /**
+     * Save into local Storage new glicemy value
+     * @param {*} new_glicemy 
+     */
+    storeGlicemyData = async (new_glicemy) =>{
+      const today = keys.glicemy + glicemyDateFormatter(new Date());
+
+      let currentValues = await getData(today);
+
+      if(currentValues == null) currentValues = [];
+
+      currentValues.push(new_glicemy);
+
+      storeData(today,currentValues);
+    }
+
+    /**
+     * get Glicemy Data of a specific date
+     */
+    getGlicemyData = async (date) =>{
+      const today = keys.glicemy + glicemyDateFormatter(date);
+
+      const glicemy = await getData(today);
+
+      return glicemy;
+    }
+
+    /**
+     * get user Data from local storage
+     * @returns 
+     */
+    getUserData = async () => {
+
+      const glicemy = await this.getGlicemyData(new Date());
+      let userData = await getData(keys.userData);
+      
+      if(userData != null){
+        userData.glicemy = glicemy;
+      }else{
+        userData = null;//dummy_user?
+      } 
+
+      console.log("User data: " +  JSON.stringify(userData));
+      return userData;
+    }
+
+    /**
+     * save user data to local storage
+     * @param {*} userData 
+     */
+    saveUserData = async (userData) =>{
+      await storeData(storageKeys.userData,userData);
+    }
+
+    /**
+     * Logout of user, remove all his data from local Storage
+     */
+    resetUser = async () =>{
+      AsyncStorage.removeItem(storageKeys.userData);
+      AsyncStorage.removeItem(storageKeys.foodDiary);
+      setDataAvailability(false);
+    }
+  }
+
+  export const localStorage = new LocalStorage()

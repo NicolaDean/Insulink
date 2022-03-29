@@ -17,6 +17,8 @@ import { ApiHelper } from '../../utils/apiHelper';
 import { connect, useDispatch } from 'react-redux';
 import { addFood } from '../../stateManager/reduxStates/actions/macroTracker';
 import MacroTable from './macroTable';
+import { CustomImageButton } from '../../customComponents/customImageButton';
+import { buttonIconsNames } from '../../assets/buttonIcons';
 
 
 const marginOffset=10;
@@ -103,6 +105,7 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
             <View style={{flex: 2,backgroundColor: 'white'}}>
                 <Image style={styles.foodImage} source={{uri:details.image}}/>
                 <Text style ={styles.sectionTitle}> {details.name}</Text>
+                <CustomImageButton image={buttonIconsNames.plus} iconStyle={styles.LogoSize} onPress={addItem()}/>
             </View>
             <View style={{flex: 4,backgroundColor: 'rgba(255, 203, 126, 0.49)',flexDirection:'column'}}>
                 
@@ -185,58 +188,4 @@ const mapStateToProps = (state, ownProps = {}) => {
     return{identifier: state.macroTracker.id};
   }
   
-  export default connect(mapStateToProps)(FoodDetails);
-/* 
-<View style={styles.sectionContainer} >
-                {(details.image === "") ? 
-                    <ActivityIndicator size="small" color="#0000ff" /> :
-                    <Image style={styles.foodImage} source={{uri:details.image}}/>
-                 }
-
-                <View >
-                    <Text style ={styles.sectionTitle}> {name}</Text>
-                    <View style={{flexDirection:'column',alignSelf:'flex-end'}}>
-                        <View style={{flexDirection:'row'}}>
-                            <Text > Unit:</Text>
-                            <SelectDropdown buttonStyle = {{height:40,width:200}} data={details.units} onSelect={(selectedItem, index) => {
-		                                console.log(selectedItem, index);
-	                                }}/>
-                        </View>
-                        <View style={{flexDirection:'row',margin: 5}}>
-                            <Text > Amount:</Text>
-                            
-                            <TextInput placeholder='amount' keyboardType="numeric"/>
-                       </View>
-                       
-                    </View>
-                </View>
-                
-           </View>
-           
-           <View style={styles.bodySection}>
-       
-           <Text>Calories: {macro[macroConstants.cal]}</Text>
-                <View style={styles.graphBox} >
-                    <VictoryPie 
-                        colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
-                        data={data}
-                        width={200}
-                        height={200}
-                        innerRadius={30}
-                        style={{
-                            labels: {
-                            fill: 'gray', fontSize: 20, padding: 7,
-                        }, }}
-                    /> 
-                    <View style={styles.graphLegend}> 
-                        <Text>Carbohydrates : {macro[macroConstants.carb]} g</Text>
-                        <Text>Fat : {macro[macroConstants.fat]}g</Text>
-                        <Text>Protein : {macro[macroConstants.prot]}g</Text>
-                    </View>
-                </View>
-           <CustomButton style={styles.addButton} title="Add Food To Meal" onPress={()=>{addItem()}}/>
-           </View>
-*/
-
-
-//{"CHOCDF": 47.29999923706055, "ENERC_KCAL": 203, "FAT": 0, "FIBTG": 1.399999976158142, "PROCNT": 1.350000023841858}
+export default connect(mapStateToProps)(FoodDetails);

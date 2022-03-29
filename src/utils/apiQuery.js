@@ -199,6 +199,7 @@ class Api{
           .catch( (error)=> {
     
             console.log(error);
+            //console.log(JSON.stringify(error));
             if(error.status == 401) {
                 console.log("ENDED STUDENT LIMITS!!!!!!!!!!!!!!!!!!!!");
             }

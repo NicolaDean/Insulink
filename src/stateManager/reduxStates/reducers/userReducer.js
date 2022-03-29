@@ -2,16 +2,13 @@ import { userMethods } from "../../../constants/reducers"
 import { changeGlicemyTimeFormat, glicemyDateFormatter, registerUser } from "../../../utils/firebaseQuery";
 import { loginStatus } from "../../../constants/states";
 
-
-
-
 const initialState = {
     status:loginStatus.unlogged,
     userId:"zLZqvcoV2egpiguiJKxN5i9vrPK2",
     userData:{
         email:"",
         password:"",
-        name:"Nicola",
+        name:"dummy",
         surname:"",
         weight:80,
         height:180,
@@ -19,6 +16,9 @@ const initialState = {
         isf:0,
         choratio:0,
         glicemy:[],
+        maxCarb:200,
+        maxFat:100,
+        maxProt:40,
     }
 }
 

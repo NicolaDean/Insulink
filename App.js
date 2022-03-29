@@ -46,10 +46,6 @@ const App = () => {
   
   );
 };
-
-const Scc = ({navigation}) =>{
-  return <Text>BANANAAAA</Text>;
-}
 const styles = StyleSheet.create({
   sectionContainer: {
     marginTop: 32,

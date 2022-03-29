@@ -1,45 +1,12 @@
 
 import React from 'react';
 import {  StyleSheet,TouchableOpacity, View, Image } from 'react-native';
+import { buttonIcons } from '../assets/buttonIcons';
 import { colors } from '../constants/appAspect';
 
-const images = {
-    plus: {
-      uri: require('../assets/plus.png')
-    },
-    camera: {
-        uri: require('../assets/camera.png')
-      },
-      search: {
-          uri: require('../assets/search.png')
-        },
-        delete: {
-            uri: require('../assets/delete.png')
-          },
-          close: {
-              uri: require('../assets/close.png')
-            },
-            running: {
-                uri: require('../assets/running.png')
-              },
-              soccer: {
-                uri: require('../assets/soccer.png')
-              },tennis: {
-                uri: require('../assets/tennis.png')
-              },fitness: {
-                uri: require('../assets/fitness.png')
-              },basket: {
-                uri: require('../assets/basket.png')
-              },swimming: {
-                uri: require('../assets/swimming.png')
-              },more: {
-                uri: require('../assets/more.png')
-              },less: {
-                uri: require('../assets/less.png')
-              },
-  }
 
-export const CustomButton = (
+
+export const CustomImageButton = (
     {   onPress,
         title="Button",
         image="",
@@ -50,7 +17,7 @@ export const CustomButton = (
         return(
             <View style={style}>
                     <TouchableOpacity onPress={onPress} >
-                        <Image source={images[image].uri} style={iconStyle} />
+                        <Image source={buttonIcons[image].uri} style={iconStyle} />
                     </TouchableOpacity>
             </View>
            
@@ -67,4 +34,4 @@ const styles =  StyleSheet.create({
       }
 });
 
-export default CustomButton;
+export default CustomImageButton;

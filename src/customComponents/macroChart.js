@@ -8,7 +8,6 @@ const marginOffset=10;
 
 const screenWidth = Dimensions.get("window").width-marginOffset*3;
 
-
     const chartConfig = {
         //General
         backgroundColor: "#e26a00",
@@ -32,16 +31,22 @@ const screenWidth = Dimensions.get("window").width-marginOffset*3;
           useShadowColorFromDataset: false, // optional
         };
     
-        const maxValueCheck = (val,max) =>{
-          return ((val/max)<1 ? (val/max):1);
-        }
+/**
+ * Avoid overflow on donut chart
+ * @param {*} val val to plot
+ * @param {*} max max donut support
+ * @returns value to plot
+ */
+const maxValueCheck = (val,max) =>{
+  return ((val/max)<1 ? (val/max):1);
+}
 
 export const MacroChart = ({diary,user }) =>{
 
-    const maxCarb = 200;
-    const maxProt = 100;
-    const maxFat  = 100;
-
+    const maxCarb = user.maxCarb != undefined ? user.maxCarb : 200;
+    const maxProt = user.maxCarb != undefined ? user.maxCarb : 100;
+    const maxFat  = user.maxCarb != undefined ? user.maxCarb : 100;
+    
     const graph = {
         labels: ["Carbo", "Fat", "Pro"], // optional
         data: [maxValueCheck(diary.totMacro.prot,maxProt),
