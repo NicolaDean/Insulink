@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {ScrollView,TouchableOpacity,Pressable, Text, View,Dimensions,FlatList} from 'react-native';
+import {ScrollView,StyleSheet,TextInput,TouchableOpacity,Pressable, Text, View,Dimensions,FlatList} from 'react-native';
 import Slick from 'react-native-slick';
 import CustomButton from '../../customComponents/customButton';
 import {ProgressChart} from "react-native-chart-kit";
@@ -20,7 +20,7 @@ import { colors } from "../../constants/appAspect";
 
 export const SportActivity = ({ navigation,diary,userData }) =>{
   
-    const[timeString,setTimeString]=useState('');
+    const[timeString,setTimeString]=useState("");
     const[sportString,setSportString]=useState('')
     const [value, setValue] = useState({
       hours: 1,
@@ -80,22 +80,21 @@ export const SportActivity = ({ navigation,diary,userData }) =>{
 
     }
    const addActivity=async()=>{
+     if(timeString == "" || timeString==null){
      let s='I made '
+     let min=value.minutes;
       if(value.hours!=0){
-        s=s+value.hours+' hours '
+        min=min+60*value.hours;
       }
-      if(value.minutes!=0){
-        s=s+value.minutes+' minutes'
-      }
-      s=s+' of '+ sportString;
-      
+        s=s+min+' minutes'+' of '+ sportString;
+        setTimeString(s)
+    }
 
-      setTimeString(s)
       try 
       {
         //GET API DATA
-        const cal = (await Food_API.getSportCalories(s,userData))
-      console.log(s)
+        const cal = (await Food_API.getSportCalories(timeString,userData))
+      console.log(timeString)
       console.log(cal)
 
     } 
@@ -111,6 +110,7 @@ export const SportActivity = ({ navigation,diary,userData }) =>{
   return (
    //TODO ADD THE TOTAL MEALS MACRO GRAPHù
    <View style={styles.grid} >
+     <View style={styles.grid}>
    <FlatList
    data={[
        'tennis',
@@ -142,8 +142,14 @@ export const SportActivity = ({ navigation,diary,userData }) =>{
       <TimePicker value={value} onChange={handleChange}  hoursUnit='h' minutesUnit="m" minutesInterval={5}/>
       </View>
       <CustomImageButton image="less"  style={{right:'0%',marginTop:'3%'}} iconStyle={{width: 32,height: 32}} onPress={lessTime} />
-
 </View>
+<Text>Or</Text>
+<View style={{borderRightColor:colors.black,borderTopWidth:StyleSheet.hairlineWidth,flex:1}}>
+      <TextInput style={styles.field}   placeholder="Write directly your activity!" onChangeText={
+            (value) => setTimeString(value)
+          }/>
+     </View>
+     </View>
 <CustomButton title="Add Activity" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} onPress={addActivity} />
   </View>
       );
