@@ -19,7 +19,7 @@ import { connect } from 'react-redux';
 
 export const SportActivity = ({ navigation,diary,user }) =>{
   
-    const [time, setTime] = useState('');
+
     const [value, setValue] = useState({
       hours: 1,
       minutes: 0,
@@ -29,6 +29,47 @@ export const SportActivity = ({ navigation,diary,user }) =>{
       setValue(newValue);
       console.log(newValue)
     };
+    const moreTime=()=>{
+      var newValue={
+        hours: 0,
+        minutes: 0,
+      };
+      
+
+      if(value.minutes<=50){
+        newValue.hours=value.hours;
+
+      newValue.minutes=value.minutes+5;
+    handleChange(newValue)
+  }else
+  {
+    newValue.hours=value.hours+1;
+    newValue.minutes=0;
+    handleChange(newValue)
+      }
+
+    }
+
+    const lessTime=()=>{
+      var newValue={
+        hours: 0,
+        minutes: 0,
+      };
+      
+
+      if(value.minutes>=5){
+
+        newValue.hours=value.hours;
+        newValue.minutes=value.minutes-5;
+    handleChange(newValue)
+  }else
+  {
+    newValue.hours=value.hours-1;
+    newValue.minutes=value.minutes-5+60;
+    handleChange(newValue)
+      }
+
+    }
 
 
   return (
@@ -51,13 +92,16 @@ export const SportActivity = ({ navigation,diary,user }) =>{
 
     )}}
   />
-  <View style={{flexDirection:'row'}}>
-      <CustomImageButton image="more" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} />
-      <CustomImageButton image="less" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} />
+      
+  <View style={{flex:1,flexDirection:'row'}}>
+      <CustomImageButton image="more" style={{left:'15%',marginTop:'3%'}} iconStyle={{width: 32,height: 32}} onPress={moreTime} />
+      <View style={{width:'70%',}}>
+      <TimePicker value={value} onChange={handleChange}  hoursUnit='h' minutesUnit="m" minutesInterval={5}/>
+      </View>
+      <CustomImageButton image="less"  style={{right:'15%',marginTop:'3%'}} iconStyle={{width: 32,height: 32}} onPress={lessTime} />
+
 </View>
 <CustomButton title="Add Activity" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} />
-<TimePicker value={value} onChange={handleChange} />
-  <Text >{time}</Text>
   </View>
       );
   }
