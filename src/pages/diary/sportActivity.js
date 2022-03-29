@@ -6,7 +6,7 @@ import {ProgressChart} from "react-native-chart-kit";
 import { MacroChart } from '../../customComponents/macroChart';
 import { GlycemiaChart } from '../../customComponents/glycemiaChart';
 import CustomImageButton from '../../customComponents/customImageButton'
-import { Food_API } from "../../utils/apiQuery";
+import {Food_API} from "../../utils/apiQuery";
 import {TimePicker, ValueMap} from 'react-native-simple-time-picker';
 
 //CUSTOM COMPONENTS
@@ -18,7 +18,7 @@ import { connect } from 'react-redux';
 import { colors } from "../../constants/appAspect";
 
 
-export const SportActivity = ({ navigation,diary,user }) =>{
+export const SportActivity = ({ navigation,diary,userData }) =>{
   
     const[timeString,setTimeString]=useState('');
     const[sportString,setSportString]=useState('')
@@ -79,7 +79,7 @@ export const SportActivity = ({ navigation,diary,user }) =>{
       }
 
     }
-   const addActivity=()=>{
+   const addActivity=async()=>{
      let s='I made '
       if(value.hours!=0){
         s=s+value.hours+' hours '
@@ -91,8 +91,21 @@ export const SportActivity = ({ navigation,diary,user }) =>{
       
 
       setTimeString(s)
+      try 
+      {
+        //GET API DATA
+        const cal = (await Food_API.getSportCalories(s,userData))
       console.log(s)
+      console.log(cal)
 
+    } 
+    catch (error) 
+    {
+      console.error(error);
+    } 
+    finally {
+      //setLoading(false); //TODO
+    }
    }
 
   return (
@@ -141,7 +154,7 @@ export const SportActivity = ({ navigation,diary,user }) =>{
   
   //export default Home;
   const mapStateToProps = (state, ownProps = {}) => {
-    return{diary: state.macroTracker,user: state.userReducer};
+    return{diary: state.macroTracker,userData: state.userReducer.userData};
   }
   
   export default connect(mapStateToProps)(SportActivity);
