@@ -19,7 +19,8 @@ import { connect } from 'react-redux';
 
 export const SportActivity = ({ navigation,diary,user }) =>{
   
-
+    const[timeString,setTimeString]=useState('');
+    const[sportString,setSportString]=useState('')
     const [value, setValue] = useState({
       hours: 1,
       minutes: 0,
@@ -29,6 +30,7 @@ export const SportActivity = ({ navigation,diary,user }) =>{
       setValue(newValue);
       console.log(newValue)
     };
+
     const moreTime=()=>{
       var newValue={
         hours: 0,
@@ -70,7 +72,21 @@ export const SportActivity = ({ navigation,diary,user }) =>{
       }
 
     }
+   const addActivity=()=>{
+     let s='I made '
+      if(value.hours!=0){
+        s=s+value.hours+' hours '
+      }
+      if(value.minutes!=0){
+        s=s+value.minutes+' minutes'
+      }
+      s=s+' of '+ sportString;
+      
 
+      setTimeString(s)
+      console.log(s)
+
+   }
 
   return (
    //TODO ADD THE TOTAL MEALS MACRO GRAPHù
@@ -88,7 +104,7 @@ export const SportActivity = ({ navigation,diary,user }) =>{
    contentContainerStyle={{paddingBottom:'50%'}}
    renderItem={({item})=>{
     return(
-    <CustomImageButton image={item} style={styles.sportImageContainer}  iconStyle={styles.sportImage} />
+    <CustomImageButton image={item} style={styles.sportImageContainer}  iconStyle={styles.sportImage} onPress ={()=>{setSportString(item)}} />
 
     )}}
   />
@@ -101,7 +117,7 @@ export const SportActivity = ({ navigation,diary,user }) =>{
       <CustomImageButton image="less"  style={{right:'15%',marginTop:'3%'}} iconStyle={{width: 32,height: 32}} onPress={lessTime} />
 
 </View>
-<CustomButton title="Add Activity" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} />
+<CustomButton title="Add Activity" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} onPress={addActivity} />
   </View>
       );
   }
