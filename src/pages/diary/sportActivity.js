@@ -81,13 +81,11 @@ export const SportActivity = ({ navigation,diary,userData }) =>{
     }
    const addActivity=async()=>{
      let s='I made '
+     let min=value.minutes;
       if(value.hours!=0){
-        s=s+value.hours+' hours '
+        min=min+60*value.hours;
       }
-      if(value.minutes!=0){
-        s=s+value.minutes+' minutes'
-      }
-      s=s+' of '+ sportString;
+        s=s+min+' minutes'+' of '+ sportString;
       
 
       setTimeString(s)
