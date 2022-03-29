@@ -11,10 +11,13 @@ import mealIcons from '../../assets/mealIcons';
 
 //API
 import {Food_API} from "../../utils/apiQuery";
+import { ApiHelper } from '../../utils/apiHelper';
 
 //REDUX
 import { connect, useDispatch } from 'react-redux';
 import { addFood } from '../../stateManager/reduxStates/actions/macroTracker';
+import MacroTable from './macroTable';
+
 
 const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset;
@@ -40,37 +43,9 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
         if(typeof(res.foods) === undefined) return;
         res = res.foods[0];
 
-        //RETRIVE DIFFERENT SERVING UNITS AND BUILD DROPDOWN DATA STRUCTURE
-        const tmp = [];
-        const dictionary = {};
-        res.alt_measures.forEach(measure=>{
-            tmp.push({label:measure.measure,value:measure.measure});
-            dictionary[measure.measure] = measure; 
-        });   
-
-        //FIX SOME VALUES IN MORE EASY WAY
-        res.image = res.photo.highres;
-        res.units = tmp;
-        res.units_dic = dictionary;
-        res.name = id.food_name;
+        //DO SOME PREPROCESSING TO THE DATA 
+        res = ApiHelper.enrichDatails(res);
         
-        //CURRENT MACRO NUTRIENTS (needed for the custom amount)
-        res.current_carb    = res.nf_total_carbohydrate;
-        res.current_fat     = res.nf_total_fat;
-        res.current_prot    = res.nf_protein;
-        res.current_cal     = res.nf_calories;
-
-        //BUILD CHART DATA STRUCT
-        res.chartData = [
-            {x:"Carb"  ,y:res.nf_total_carbohydrate },
-            {x:"Fat"   ,y:res.nf_total_fat},
-            {x:"Prot"  ,y:res.nf_protein }];
-        
-        //console.log("Graph Data: " + JSON.stringify(res.alt_measures));
-        //console.log("Current Unit: " + JSON.stringify(id.serving_unit));
-        //console.log("Unit: " + JSON.stringify(dictionary[id.serving_unit]));
-        //console.log("grams: " + JSON.stringify(res.serving_weight_grams));
-
         setItems(res.units);
         //SET DETAILS VARIABLE
         setDetails(res);
@@ -81,20 +56,16 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
         getData(id);
     },[]);
 
-
-    
-    //const properties = api.extractProperties(details.nutrition.properties);
-    
     const addItem = () =>{
 
         var food ={
             id:     id,
             name:   details.name,
             image:  details.image,
-            cal:    details.nf_calories ,
-            carb:   details.nf_total_carbohydrate,
-            fat:    details.nf_total_fat,
-            prot:   details.nf_protein,
+            cal:    details.current_calories ,
+            carb:   details.current_total_carbohydrate,
+            fat:    details.current_total_fat,
+            prot:   details.current_protein,
             quantity: amount,
             identifier: identifier,
         }
@@ -117,33 +88,17 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
 
     const makeProportions = (item,qty=1) =>{
 
-        
-        const measure = details.units_dic[item];
-        console.log(JSON.stringify(measure));
-
-        const proportion = {...details};
-
-        const ratio = (measure.serving_weight*qty)/details.serving_weight_grams;
-
-        proportion.current_carb    = (ratio*proportion.nf_total_carbohydrate).toFixed(2);
-        proportion.current_fat     = (ratio*proportion.nf_total_fat).toFixed(2);
-        proportion.current_prot    = (ratio*proportion.nf_protein).toFixed(2);
-        proportion.current_cal     = (ratio*proportion.nf_calories).toFixed(2);
-
-        proportion.chartData = [
-            {x:"Carb"  ,y:proportion.current_carb },
-            {x:"Fat"   ,y:proportion.current_fat},
-            {x:"Prot"  ,y:proportion.current_prot }];
-
-        console.log(proportion.chartData);
+        const proportion = ApiHelper.makeProportion(details,item,qty);
+        console.log("prop:" + proportion);
         setDetails(proportion);
     }
 
     const renderDetails = () =>{
         return (
             
+        
         <View style={{flex: 1,flexDirection: 'column'}}>
-                
+            
             <ScrollView style={{flex:1}}>
             <View style={{flex: 2,backgroundColor: 'white'}}>
                 <Image style={styles.foodImage} source={{uri:details.image}}/>
@@ -170,7 +125,7 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
                         
                     </View>
                     <View style={{width:'90%',flexDirection:'row',marginLeft:'5%',marginTop:10}}>
-                        <Text style={{fontSize:28,color:'black'}}> {details.current_cal} Kcal</Text>
+                        <Text style={{fontSize:28,color:'black'}}> {details.current_calories} Kcal</Text>
                     </View>
                 </View>
                 <View style={{flex:2,flexDirection:'row',width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white'}}>
@@ -189,18 +144,20 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
                     <View style={styles.graphLegend}> 
                         <View style={styles.macroContainer}>
                             <Image source={mealIcons['carbo'].uri} style={styles.macroImage} />
-                            <Text>CARB: {details.current_carb} g</Text>
+                            <Text>CARB: {details.current_total_carbohydrate} g</Text>
                         </View>
                         <View style={styles.macroContainer}>
                             <Image source={mealIcons['fat'].uri} style={styles.macroImage} />
-                            <Text>FAT: {details.current_fat} g</Text>
+                            <Text>FAT: {details.current_total_fat} g</Text>
                         </View>
                         <View style={styles.macroContainer}>
                             <Image source={mealIcons['protein'].uri} style={styles.macroImage} />
-                            <Text>PROT: {details.current_prot} g</Text>
+                            <Text>PROT: {details.current_protein} g</Text>
                         </View>
                     </View>
                 </View>
+                <MacroTable data={details}/>
+
                 <View style={{flex:1,width:'90%',marginLeft:'5%',marginTop:10}}>
                     <CustomButton style={styles.addButton} title="Add Food To Meal" onPress={()=>{addItem()}}/>
                 </View>
