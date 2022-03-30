@@ -75,7 +75,14 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                     renderItem={({ item }) => (renderListItem(item))}
                 />
                 
-            </ScrollView><PopUp name_to_open='Dose' name_to_close='close' id={id}/></View>
+            </ScrollView>
+            <View style={{flexDirection:'row',justifyContent:'center'}}>
+            <CustomButton onPress={()=>{addFoods()}} title='Add Food'/>
+            <PopUp name_to_open='Dose' name_to_close='close' id={id}/>
+            <CustomButton onPress={()=>{addSport()}} title='Add Sport'/>
+                </View>
+                
+                </View>
         );
     }
 
@@ -114,9 +121,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                     <Image source={mealIcons['protein'].uri} style={styles.macroImage} />
                     <Text>{diary.meals[id].macro['prot'].toFixed(1)}</Text>
                     </View>
-                    <TouchableOpacity  onPress={()=>{addFoods()}}>
-                        <Image source={require('../../assets/plus.png')} style={styles.addIcon}/>
-                    </TouchableOpacity>
+    
         </View>
     </View>
   

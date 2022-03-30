@@ -122,9 +122,13 @@ export const PopUp = (
         actionTriggered === 'DOSE_CHECK' ? DoseCheck() :
         actionTriggered === 'DOSE_RESULT'? DoseResult():null
        }
-    </Modal><CustomButton
+    </Modal><CustomImageButton
         title={name_to_open}
-        onPress={() => {setModalVisible(true),setActionTriggered('DOSE_CHECK')}}/>
+        onPress={() => {setModalVisible(true),setActionTriggered('DOSE_CHECK')}}
+        image='dose'
+        iconStyle={{height:40,width:40}}
+        />
+       
         </View>
   );
 };
