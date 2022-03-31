@@ -170,6 +170,7 @@ export default StyleSheet.create({
           width: 64,
           height: 64,
         },grid:{
+          felx:1,
           marginTop:'10%',
           justifyContent: 'center',
        alignItems:'center',

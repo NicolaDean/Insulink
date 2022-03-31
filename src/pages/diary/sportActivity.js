@@ -110,7 +110,6 @@ export const SportActivity = ({ navigation,diary,userData }) =>{
   return (
    //TODO ADD THE TOTAL MEALS MACRO GRAPHù
    <View style={styles.grid} >
-     <View style={styles.grid}>
    <FlatList
    data={[
        'tennis',
@@ -136,7 +135,7 @@ export const SportActivity = ({ navigation,diary,userData }) =>{
     )}}
   />
       
-  <View style={{flex:1,flexDirection:'row'}}>
+  <View style={{flexDirection:'row'}}>
       <CustomImageButton image="more" style={{left:'0%',marginTop:'3%'}} iconStyle={{width: 32,height: 32}} onPress={moreTime} />
       <View style={{width:'70%',}}>
       <TimePicker value={value} onChange={handleChange}  hoursUnit='h' minutesUnit="m" minutesInterval={5}/>
@@ -144,13 +143,13 @@ export const SportActivity = ({ navigation,diary,userData }) =>{
       <CustomImageButton image="less"  style={{right:'0%',marginTop:'3%'}} iconStyle={{width: 32,height: 32}} onPress={lessTime} />
 </View>
 <Text>Or</Text>
-<View style={{borderRightColor:colors.black,borderTopWidth:StyleSheet.hairlineWidth,flex:1}}>
-      <TextInput style={styles.field}   placeholder="Write directly your activity!" onChangeText={
+<View style={{borderRightColor:colors.black,borderTopWidth:StyleSheet.hairlineWidth}}>
+      <TextInput style={{}}   placeholder="Write directly your activity!" onChangeText={
             (value) => setTimeString(value)
           }/>
+          <CustomButton title="Add Activity" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} onPress={addActivity} />
+
      </View>
-     </View>
-<CustomButton title="Add Activity" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} onPress={addActivity} />
   </View>
       );
   }
