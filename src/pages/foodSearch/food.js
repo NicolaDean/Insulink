@@ -6,6 +6,7 @@ import CustomImageButton from '../../customComponents/customImageButton'
 import { Shake } from "react-native-motion";
 import { useDispatch } from 'react-redux';
 import { removeFood } from '../../stateManager/reduxStates/actions/macroTracker';
+import { connect } from 'react-redux';
 
 
 export const Food = ({data,nav,deletable,identifier=0}) =>{
@@ -41,9 +42,9 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
     
     
 
-    function deleteFood() {
+    const deleteFood=() =>{
         console.log('deleted food'+id)
-        dispatch(removeFood(data))
+        dispatch(removeFood(data));
     }
     
 
@@ -53,7 +54,7 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
                 <Shake value={state} type="timing" useNativeDriver={true}>
                     <CustomImageButton  image='delete' 
                                         iconStyle={styles.deleteButton}
-                                        onPress={() => deleteFood()}
+                                        onPress={()=>deleteFood()}
                     />
               </Shake>
             </View> );
@@ -130,5 +131,4 @@ const styles = StyleSheet.create(
 );
 
 //<Text>{data.label},{data.category}, {data.categoryLabel}</Text>
-export default Food;
-
+export default (Food);
