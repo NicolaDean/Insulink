@@ -2,7 +2,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StyleSheet,Text,View } from 'react-native';
+import { StyleSheet,Text,View,Image } from 'react-native';
 
 //ALL PAGES OF APP
 import FoodSearch from './src/pages/foodSearch/foodSearch';
@@ -18,25 +18,34 @@ import { Provider } from 'react-redux';
 import Login from './src/pages/login/login';
 import  SportActivity from './src/pages/diary/sportActivity';
 
+import CustomImageButton from './src/customComponents/customImageButton';
+import { Button } from 'react-native-paper';
+import { colors } from './src/constants/appAspect';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+import BottomTab from './src/pages/navigationTab/bottomTab';
+import home from './src/pages/home/home';
+import { header } from './src/pages/navigationTab/header';
 
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
 
 const App = () => {
 
-    //options={{ headerShown: false }}
   return(
     
     <NavigationContainer>
-      <Provider store={store}>     
+      <Provider store={store}>    
             <Stack.Navigator>
-              <Stack.Screen name="Home" component={Home} />
-              <Stack.Screen name="FoodSearch" component={FoodSearch} />
+              <Stack.Screen name="BottomTab" component={BottomTab} options={header}/>
               <Stack.Screen name="FoodDetails" component={FoodDetails}/>
-              <Stack.Screen name="MealDiary" component={MealDiary}/>        
+              <Stack.Screen name="SportActivity" component={SportActivity} />
+
               <Stack.Screen name="PersonalData" component={PersonalData}/>
               <Stack.Screen name="EditPersonalData" component={EditPersonalData}/>
               <Stack.Screen name="Login" component={Login} />
-              <Stack.Screen name="SportActivity" component={SportActivity} />
+              
 
             </Stack.Navigator>
         </Provider>

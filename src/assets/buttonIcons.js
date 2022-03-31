@@ -13,7 +13,9 @@ export const buttonIcons = {
     swimming: {uri: require('./swimming.png')},
     more: {uri: require('./more.png')},
     less: {uri: require('./less.png')},
-    ok: {uri: require('./ok.png')}
+    ok: {uri: require('./ok.png')},
+    settings: {uri: require('./settings.png')},
+    return:{uri:require('./return.png')}
 }
 
 export const buttonIconsNames = {
@@ -30,5 +32,8 @@ export const buttonIconsNames = {
     swimming: 'swimming',
     more: 'more',
     less:'less',
+    ok:'ok',
+    settings:'settings',
+    return:'return'
 }
 

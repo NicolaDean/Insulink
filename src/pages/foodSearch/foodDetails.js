@@ -104,10 +104,12 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
             <ScrollView style={{flex:1}}>
             <View style={{flex: 2,backgroundColor: 'white'}}>
                 <Image style={styles.foodImage} source={{uri:details.image}}/>
-                <Text style ={styles.sectionTitle}> {details.name}</Text>
-                <CustomImageButton image={buttonIconsNames.plus} iconStyle={styles.LogoSize} onPress={addItem()}/>
-            </View>
-            <View style={{flex: 4,backgroundColor: 'rgba(255, 203, 126, 0.49)',flexDirection:'column'}}>
+                <View style={{marginTop:200,flexDirection:'row',alignContent:'center'}}>
+                    <Text style ={styles.sectionTitle}> {details.name}</Text>
+                    <CustomImageButton image={buttonIconsNames.plus} style={styles.addPlus} iconStyle={styles.addPlus} onPress={addItem}/>
+                </View>
+             </View>
+            <View style={{flex: 4,backgroundColor: 'rgba(112,202,230, 0.30)',flexDirection:'column'}}>
                 
                 <View style={{flex:1.3,width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'rgba(255, 203, 126, 0.19)'}}>
                     <View style={{marginLeft:10,marginRight:10,marginTop:10,flexDirection:'row'}}>
@@ -128,7 +130,7 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
                         
                     </View>
                     <View style={{width:'90%',flexDirection:'row',marginLeft:'5%',marginTop:10}}>
-                        <Text style={{fontSize:28,color:'black'}}> {details.current_calories} Kcal</Text>
+                        <Text style={{fontSize:28,color:'black'}}> {details.current_calories} </Text><Image source={mealIcons['cal'].uri} style={styles.macroImage} />
                     </View>
                 </View>
                 <View style={{flex:2,flexDirection:'row',width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white'}}>
@@ -159,12 +161,9 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
                         </View>
                     </View>
                 </View>
-                <MacroTable data={details}/>
+                <MacroTable title={"Details"}data={details}/>
 
                 <View style={{flex:1,width:'90%',marginLeft:'5%',marginTop:10}}>
-                    <CustomButton style={styles.addButton} title="Add Food To Meal" onPress={()=>{addItem()}}/>
-                </View>
-                <View style={{flex:2,width:'90%',marginLeft:'5%',marginTop:10}}>
                     <CustomButton style={styles.addButton} title="Add Food To Meal" onPress={()=>{addItem()}}/>
                 </View>
                 

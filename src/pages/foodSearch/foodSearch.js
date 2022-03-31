@@ -21,7 +21,7 @@ export const FoodSearch = ({ navigation }) =>{
     try 
     {
       //GET API DATA
-      setLoading(false);
+      setLoading(true);
       const json = (await Food_API.getFoodListAlternative(foodSelected));  
       setData(json.common);
    } 
@@ -30,7 +30,7 @@ export const FoodSearch = ({ navigation }) =>{
      console.error(error);
    } 
    finally {
-    setLoading(true);
+    setLoading(false);
    }
   }
   
