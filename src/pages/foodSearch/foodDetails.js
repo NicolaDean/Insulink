@@ -106,7 +106,7 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
                 <Image style={styles.foodImage} source={{uri:details.image}}/>
                 <View style={{marginTop:200,flexDirection:'row',alignContent:'center'}}>
                     <Text style ={styles.sectionTitle}> {details.name}</Text>
-                    <CustomImageButton image={buttonIconsNames.plus} style={styles.addPlus} iconStyle={styles.addPlus} onPress={addItem}/>
+                    <CustomImageButton image={buttonIconsNames.plus} style={styles.addPlus} iconStyle={styles.addPlus} onPress={()=>{addItem()}}/>
                 </View>
              </View>
             <View style={{flex: 4,backgroundColor: 'rgba(112,202,230, 0.30)',flexDirection:'column'}}>

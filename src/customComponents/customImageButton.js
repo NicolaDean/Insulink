@@ -15,11 +15,11 @@ export const CustomImageButton = (
     }) =>{
 
         return(
-            <View style={style}>
-                    <TouchableOpacity onPress={onPress} style={image == 'dose' ?styles.appButtonContainerRound:null}>
+            <TouchableOpacity onPress={onPress} style={style}>
+                    <View  style={image == 'dose' ?styles.appButtonContainerRound:null}>
                         <Image source={buttonIcons[image].uri} style={iconStyle} />
-                    </TouchableOpacity>
-            </View>
+                    </View>
+            </TouchableOpacity>
            
         );
 }

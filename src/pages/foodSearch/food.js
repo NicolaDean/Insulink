@@ -13,7 +13,7 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
     const [expanded,setExpanded] = useState( false )
     const [state,setState] = useState( 0)
 
-    
+    const dispatch = useDispatch();
     let id = {};
     if(deletable){
         id = data.id;
@@ -22,10 +22,9 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
     }
     let image = id.photo.thumb;
     let name = id.food_name;
-
     let serving = id.serving_unit;
-   
-    const dispatch = useDispatch();
+    
+    
 
     const getDetails = (id) =>{
         nav.navigate('FoodDetails',{id : {id}}) 
@@ -39,8 +38,10 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
             
         }
     }
+    
+    
 
-    const deleteFood = (id) =>{
+    const deleteFood = () =>{
         console.log('deleted food'+id)
         dispatch(removeFood(data))
     }
@@ -52,7 +53,7 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
                 <Shake value={state} type="timing" useNativeDriver={true}>
                     <CustomImageButton  image='delete' 
                                         iconStyle={styles.deleteButton}
-                                        onPress={() => {deleteFood(id)}}
+                                        onPress={() => {deleteFood()}}
                     />
               </Shake>
             </View> );
@@ -118,10 +119,11 @@ const styles = StyleSheet.create(
             fontWeight:"bold",
             alignSelf:'center'
         },deleteButton:{
-            width: Dimensions.get('window').width*0.05,
-            height: Dimensions.get('window').height*0.05,
+            width: Dimensions.get('window').width*0.07,
+            height: Dimensions.get('window').height*0.07 ,
             resizeMode: 'contain',
-            left:dim.width*0.15,
+            left:dim.width*0.18,
+            bottom:4
           }
     
     }

@@ -179,7 +179,7 @@ export default StyleSheet.create({
           backgroundColor: colors.primary,
           borderRadius: 10,
           paddingVertical: 20,
-          paddingHorizontal:20
+          paddingHorizontal:15
           }
 
                   
