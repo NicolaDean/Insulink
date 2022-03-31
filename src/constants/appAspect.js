@@ -1,10 +1,12 @@
 import { Dimensions  } from 'react-native';
 // primary in hex: #70CAE6
+// 204883
+//245194
 export const themeBlue = {
     white:"#fff",
     black:"black",
     primary:"rgb(112,202,230)",
-    secondary:"rgb(100,100,255)",
+    secondary:"#285AA4",
 
 };
 

@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
         width:'90%',
         marginLeft:'5%',
         marginTop:10,
-        backgroundColor:'white'
+        backgroundColor:'white',
+        borderRadius:10
     },
     sectionTitle: {
         alignSelf:'flex-start',
