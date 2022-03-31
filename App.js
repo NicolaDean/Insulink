@@ -32,18 +32,18 @@ const Tab = createBottomTabNavigator();
 
 
 const App = () => {
-
+//{headerShown: false}
   return(
     
     <NavigationContainer>
       <Provider store={store}>    
             <Stack.Navigator>
-              <Stack.Screen name="BottomTab" component={BottomTab} options={header}/>
-              <Stack.Screen name="FoodDetails" component={FoodDetails}/>
-              <Stack.Screen name="SportActivity" component={SportActivity} />
+              <Stack.Screen name="BottomTab" component={BottomTab} options={{headerShown: false}}/>
+              <Stack.Screen name="FoodDetails" component={FoodDetails} options={header}/>
+              <Stack.Screen name="SportActivity" component={SportActivity}options={header} />
 
-              <Stack.Screen name="PersonalData" component={PersonalData}/>
-              <Stack.Screen name="EditPersonalData" component={EditPersonalData}/>
+              <Stack.Screen name="PersonalData" component={PersonalData}options={header}/>
+              <Stack.Screen name="EditPersonalData" component={EditPersonalData}options={header}/>
               <Stack.Screen name="Login" component={Login} />
               
 

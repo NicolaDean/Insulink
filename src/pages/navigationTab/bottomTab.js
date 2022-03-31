@@ -12,6 +12,8 @@ import mealDiary from '../diary/mealDiary';
 import { colors } from '../../constants/appAspect';
 import { navigationIcons } from '../../assets/navigationIcons';
 import { bottomBarStyle, screenNames } from './configuration';
+import CustomImageButton from '../../customComponents/customImageButton';
+import { bottomNavHeader, CustomHeader, header } from './header';
 
 
 const Tab = createBottomTabNavigator();
@@ -34,17 +36,17 @@ export const BottomTab = () => {
 
         <Tab.Screen
 			name={screenNames.foodSearch}
-            options={{tabBarIcon: tabBarIcon(navigationIcons.foodSearch)}}
+            options={bottomNavHeader(navigationIcons.foodSearch)}
 			component={FoodSearch}
 		/>
 		<Tab.Screen
 			name={screenNames.home}
-			options={{tabBarIcon: tabBarIcon(navigationIcons.home)}}
+			options={bottomNavHeader(navigationIcons.home)}
 			component={home}
 		/>
      <Tab.Screen
 			name={screenNames.mealDiary}
-			options={{tabBarIcon: tabBarIcon(navigationIcons.mealDiary)}}
+			options={bottomNavHeader(navigationIcons.mealDiary)}
 			component={mealDiary}
 		/>
     </Tab.Navigator>

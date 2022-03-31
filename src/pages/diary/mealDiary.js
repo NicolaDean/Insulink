@@ -12,6 +12,7 @@ import styles from './style'
 
 //REDUX
 import { connect } from 'react-redux';
+import { Calendar } from "../../customComponents/calendarPicker";
 
 
 
@@ -69,7 +70,7 @@ return (
  <View>
 
 <ScrollView >
-
+<Calendar></Calendar>
 <Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
         <View style={styles.slide}>
         <MacroChart diary={diary} user={user}/>
