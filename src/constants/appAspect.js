@@ -4,7 +4,7 @@ export const themeBlue = {
     white:"#fff",
     black:"black",
     primary:"rgb(112,202,230)",
-    secondary:"",
+    secondary:"rgb(100,100,255)",
 
 };
 

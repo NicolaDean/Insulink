@@ -45,10 +45,18 @@ export default StyleSheet.create({
       shadowRadius: 2.62,
     },
     sectionTitle: {
-      marginTop:200,
+      alignSelf:'center',
       color:"black",
       fontSize: 30,
       fontWeight: '600',
+    },
+    addPlus:{
+      alignSelf:'flex-end',
+      width: Dimensions.get('window').width*0.1,
+      height: Dimensions.get('window').height*0.1,
+      resizeMode: 'contain',
+      top:0,
+      marginLeft:20
     },
     sectionDescription: {
       marginTop: 8,

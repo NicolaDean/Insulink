@@ -33,7 +33,7 @@ const styles =  StyleSheet.create({
         textTransform: "uppercase"
       },appButtonContainerRound: {
         elevation: 8,
-        height:64,
+        height:64, 
         width:64,
         backgroundColor: colors.primary,
         borderRadius: 100,

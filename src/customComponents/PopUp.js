@@ -58,7 +58,7 @@ export const PopUp = (
               <CustomImageButton
               title={name_to_close}
               image="close"
-              iconStyle={[styles.buttonClose,{left:modalWidth/2-10}]}
+              iconStyle={[styles.buttonClose,{left:modalWidth/2-15}]}
               onPress={() => {setActionTriggered(''),setModalVisible(false)}}
             />
         <View style={{justifyContent:'space-around',flexDirection:'row'}}>
@@ -91,7 +91,7 @@ export const PopUp = (
         <CustomImageButton
                 title={name_to_close}
                 image="close"
-                iconStyle={[styles.buttonClose,{left:modalWidth/2-10}]}
+                iconStyle={[styles.buttonClose,{left:modalWidth/2-15}]}
                 onPress={() => {setActionTriggered(''),setModalVisible(false)}}
               />
         <Text style={styles.modalText}>We suggest you to make</Text>
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     position: 'relative',
-
+    top:0,
     bottom:10
   },
   textStyle: {

@@ -43,16 +43,17 @@ const tableStructure =
 
 
 
-export const MacroTable = ({data}) =>{
-
+export const MacroTable = ({title,data}) =>{
+    //TODO MAKE MACRO TABLE EXPANDABLE (a tendina)
+    //EG: make a "DETAILS" text with a little arrow if click all table appears
     return (
         <View style={styles.tableContainer}>
+            <Text style={styles.sectionTitle}>{title}</Text>
             {
                 tableStructure.map(line => {
                     return (<Line structure={line} data={data}></Line>);
                 })
             }
-
         </View>
     );
 
@@ -63,6 +64,12 @@ const styles = StyleSheet.create({
         marginLeft:'5%',
         marginTop:10,
         backgroundColor:'white'
+    },
+    sectionTitle: {
+        alignSelf:'flex-start',
+        color:"black",
+        fontSize: 30,
+        fontWeight: '600',
     },
     lineContainer:{
         borderTopWidth:2,

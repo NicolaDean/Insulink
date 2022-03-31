@@ -67,7 +67,8 @@ export const Home = ({ navigation,state,user,diary }) =>{
 
   const [init,setInit] = useState(true);
 
-  const logged = (user.status == loginStatus.logged);
+  console.log(user);
+  const logged = (user.status && user.status == loginStatus.logged);
   
   //REDIRECT USER TO LOGIN IF NOT LOGGED
   useEffect(()=>{
