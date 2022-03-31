@@ -142,9 +142,10 @@ export const SportActivity = ({ navigation,diary,userData }) =>{
       </View>
       <CustomImageButton image="less"  style={{right:'0%',marginTop:'3%'}} iconStyle={{width: 32,height: 32}} onPress={lessTime} />
 </View>
-<Text>Or</Text>
-<View style={{borderRightColor:colors.black,borderTopWidth:StyleSheet.hairlineWidth}}>
-      <TextInput style={{}}   placeholder="Write directly your activity!" onChangeText={
+<Text style={{fontSize:20}}>or</Text>
+<Text style={{fontSize:14}}>Describe youe training and we will do the rest!</Text>
+<View style={{borderStartColor:colors.black,borderTopWidth:StyleSheet.hairlineWidth,marginTop:'10%'}}>
+      <TextInput style={{fontSize:16}}   placeholder="What have you been up?" onChangeText={
             (value) => setTimeString(value)
           }/>
           <CustomButton title="Add Activity" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} onPress={addActivity} />
