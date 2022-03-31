@@ -7,7 +7,7 @@ export const addFood = (food) =>{
     }
 } 
 
-export const removeFood = async(food) =>{
+export const removeFood = (food) =>{
     return{
         type: foodMethods.removeFood,
         payload: {food:food}

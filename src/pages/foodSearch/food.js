@@ -41,7 +41,7 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
     
     
 
-    const deleteFood = () =>{
+    function deleteFood() {
         console.log('deleted food'+id)
         dispatch(removeFood(data))
     }
@@ -53,7 +53,7 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
                 <Shake value={state} type="timing" useNativeDriver={true}>
                     <CustomImageButton  image='delete' 
                                         iconStyle={styles.deleteButton}
-                                        onPress={() => {deleteFood()}}
+                                        onPress={() => deleteFood()}
                     />
               </Shake>
             </View> );
