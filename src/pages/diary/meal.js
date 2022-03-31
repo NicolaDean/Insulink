@@ -15,6 +15,8 @@ import { useDispatch } from 'react-redux';
 import { selectMealType } from '../../stateManager/reduxStates/actions/macroTracker';
 import { connect } from 'react-redux';
 import mealIcons from '../../assets/mealIcons';
+import { color } from 'react-native-reanimated';
+import { colors } from '../../constants/appAspect';
 
 
 
@@ -42,6 +44,11 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
 
         navigation.navigate('FoodSearch',{});
     }
+    const addSport=()=>{
+        dispatch(selectMealType(id));
+
+        navigation.navigate('SportActivity',{});
+    }
   
     const expandMeal = () =>{
         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut); 
@@ -66,7 +73,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
 
     const showExpansion = () =>{
         return (
-            <View>
+            <View style>
             <ScrollView horizontal={true} style={{ width:"100%", overflow: 'scroll',fontSize:20}}> 
                 <FlatList 
                     data={food}//id,name,image,cal,carbs,fat,prot,food_name,serving_unit,tag_name,tag_id
@@ -76,10 +83,10 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                 />
                 
             </ScrollView>
-            <View style={{flexDirection:'row',justifyContent:'center'}}>
-            <CustomButton onPress={()=>{addFoods()}} title='Add Food'/>
+            <View style={{flexDirection:'row',justifyContent:'center',alignContent:'center',backgroundColor:colors.primary,borderBottomEndRadius: 10,borderBottomLeftRadius:10}}>
+             <CustomButton onPress={()=>{addSport()}} title='Add Sport' style={styles.appButtonContainer} useDefaultStyle={false}/>
             <PopUp name_to_open='Dose' name_to_close='close' id={id}/>
-            <CustomButton onPress={()=>{addSport()}} title='Add Sport'/>
+            <CustomButton onPress={()=>{addFoods()}} title='Add Food' style={styles.appButtonContainer} useDefaultStyle={false}/>
                 </View>
                 
                 </View>

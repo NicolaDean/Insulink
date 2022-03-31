@@ -175,7 +175,12 @@ export default StyleSheet.create({
           justifyContent: 'center',
        alignItems:'center',
       flex:1
-        },
+        },appButtonContainer: {
+          backgroundColor: colors.primary,
+          borderRadius: 10,
+          paddingVertical: 20,
+          paddingHorizontal:20
+          }
 
                   
   });

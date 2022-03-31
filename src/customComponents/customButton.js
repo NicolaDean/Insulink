@@ -8,12 +8,13 @@ import { colors } from '../constants/appAspect';
 export const CustomButton = (
     {   onPress,
         title="Button",
-        style
+        style,
+        useDefaultStyle=true
     }) =>{
 
         return(
             <View style={style}>
-                    <TouchableOpacity onPress={onPress} style={styles.appButtonContainer}>
+                    <TouchableOpacity onPress={onPress} style={useDefaultStyle?styles.appButtonContainer: null}>
                         <Text style={styles.appButtonText}>{title}</Text>
                     </TouchableOpacity>
             </View>

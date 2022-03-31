@@ -58,7 +58,7 @@ export const PopUp = (
               <CustomImageButton
               title={name_to_close}
               image="close"
-              iconStyle={[styles.buttonClose,{left:modalWidth/2}]}
+              iconStyle={[styles.buttonClose,{left:modalWidth/2-10}]}
               onPress={() => {setActionTriggered(''),setModalVisible(false)}}
             />
         <View style={{justifyContent:'space-around',flexDirection:'row'}}>
@@ -91,7 +91,7 @@ export const PopUp = (
         <CustomImageButton
                 title={name_to_close}
                 image="close"
-                iconStyle={[styles.buttonClose,{left:modalWidth/2}]}
+                iconStyle={[styles.buttonClose,{left:modalWidth/2-10}]}
                 onPress={() => {setActionTriggered(''),setModalVisible(false)}}
               />
         <Text style={styles.modalText}>We suggest you to make</Text>
@@ -127,6 +127,7 @@ export const PopUp = (
         onPress={() => {setModalVisible(true),setActionTriggered('DOSE_CHECK')}}
         image='dose'
         iconStyle={{height:40,width:40}}
+        style={{}}
         />
        
         </View>
@@ -158,9 +159,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#F194FF",
   },
   buttonClose: {
-    width: 32,
-    height: 32,
-    left: 170,
+    width: 36,
+    height: 36,
     position: 'relative',
 
     bottom:10
