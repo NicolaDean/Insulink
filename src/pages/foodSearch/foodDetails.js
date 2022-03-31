@@ -115,10 +115,12 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
                     <View style={{marginLeft:10,marginRight:10,marginTop:10,flexDirection:'row'}}>
                         <TextInput defaultValue="1" style={{backgroundColor:'white',borderColor:'black',borderWidth:1,width:'20%'}} onChangeText={a=>{updateAmount(a)}} placeholder='amount' keyboardType="numeric"/>
                         <DropDownPicker
+                            zIndex={1000}
                             onSelectItem={(item) => {
                                 makeProportions(item.value);
                             }}
-                            style={{width:'70%',marginLeft:'10%',zIndex: 20,}}
+                            containerStyle={{zIndex: 20}}
+                            style={{width:'70%',marginLeft:'10%',}}
                             open={open}
                             value={unit}
                             items={items}
@@ -133,7 +135,7 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
                         <Text style={{fontSize:28,color:'black'}}> {details.current_calories} </Text><Image source={mealIcons['cal'].uri} style={styles.macroImage} />
                     </View>
                 </View>
-                <View style={{flex:2,flexDirection:'row',width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white'}}>
+                <View style={{zIndex:-1,flex:2,flexDirection:'row',width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white'}}>
                 {console.log("Update:" + JSON.stringify(details.chartData))}
                 <VictoryPie 
                         colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
