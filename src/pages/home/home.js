@@ -97,7 +97,7 @@ export const Home = ({ navigation,state,user,diary }) =>{
         <View style={{justifyContent: 'space-evenly',
               alignItems: 'flex-start',flexDirection:'row',marginBottom:10}}>
           <CustomImageButton
-          image='glucose'
+          image='statistics'
                 onPress={() => navigation.navigate('MealDiary',{}) }
                 useDefaultStyle={false}
                 iconStyle={styles.icon}

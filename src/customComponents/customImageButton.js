@@ -16,7 +16,7 @@ export const CustomImageButton = (
 
         return(
             <TouchableOpacity onPress={onPress} style={style}>
-                    <View  style={image == 'dose' ?styles.appButtonContainerRound: image == ('glucose' || 'statistics')? styles.appButtonContainerSquare: null}>
+                    <View  style={image == 'dose' ?styles.appButtonContainerRound: (image =='glucose' || image== 'statistics')? styles.appButtonContainerSquare: null}>
                         <Image source={buttonIcons[image].uri} style={iconStyle} />
                     </View>
             </TouchableOpacity>
