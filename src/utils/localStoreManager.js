@@ -2,7 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { storageKeys } from '../constants/localStorageKeys';
 import { loginStatus } from '../constants/states';
 import { initialDiaryState } from '../stateManager/reduxStates/reducers/macroTracker';
-import { glicemyDateFormatter } from './firebaseQuery';
+import { changeGlicemyTimeFormat, glicemyDateFormatter } from './firebaseQuery';
 
 
 const dummy_user = {
@@ -21,7 +21,7 @@ const dummy_user = {
 
 export const getUserData = async () =>{
     var data = await getData("userData");
-    console.log("User data: " +  JSON.stringify(data));
+    //console.log("User data: " +  JSON.stringify(data));
     if (data!=null){
       return data;
     }
@@ -107,16 +107,24 @@ const keys = {
      * Save into local Storage new glicemy value
      * @param {*} new_glicemy 
      */
-    storeGlicemyData = async (new_glicemy) =>{
-      const today = keys.glicemy + glicemyDateFormatter(new Date());
+    storeGlicemyData = async (new_glicemy,date=new Date()) =>{
 
+      const today = keys.glicemy + glicemyDateFormatter(date);
+      let updatedValue = {...new_glicemy};
+      console.log(date);
+      updatedValue = changeGlicemyTimeFormat(updatedValue,true);
+
+      console.log("CHANGED GLICEMY LOCAL: " + JSON.stringify(updatedValue));
+      //CHANGE DATE FORMAT FOR LOCAL GLICEMY
       let currentValues = await getData(today);
 
       if(currentValues == null) currentValues = [];
 
-      currentValues.push(new_glicemy);
+      currentValues.push(updatedValue);
 
-      storeData(today,currentValues);
+      await storeData(today,currentValues);
+
+      console.log(currentValues)
     }
 
     /**
@@ -137,15 +145,16 @@ const keys = {
     getUserData = async () => {
 
       const glicemy = await this.getGlicemyData(new Date());
-      let userData = await getData(keys.userData);
+      let userData = await getData(storageKeys.userData);
       
+      const today = glicemyDateFormatter(new Date());
       if(userData != null){
-        userData.glicemy = glicemy;
+        userData.glicemy[today] = glicemy;
       }else{
         userData = null;//dummy_user?
       } 
 
-      console.log("User data: " +  JSON.stringify(userData));
+      //console.log("User data: " +  JSON.stringify(userData));
       return userData;
     }
 

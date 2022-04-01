@@ -112,11 +112,13 @@ export const getTodayGlicemy = (glicemy) =>
 {
     const today = glicemyDateFormatter();
 
+    if(glicemy==null) return null;
     return glicemy[today];
 }
 
 export const getTodayLastGlicemy =(glicemy) =>
 {
+    if(glicemy==null) {return null};
     const today = glicemyDateFormatter();
 
    const todayGlycemia= glicemy[today];
@@ -129,12 +131,12 @@ export const getTodayLastGlicemy =(glicemy) =>
 }
 
 
-export const changeGlicemyTimeFormat = (glicemy) => 
+export const changeGlicemyTimeFormat = (glicemy,realdate=false) => 
 {
     let time = {};
-    if(typeof(glicemy) == Date)
+    if(realdate)
     {
-         time = new Date(glicemy.time);
+         time = glicemy.time;
     }
     else{
         time = new Date(glicemy.time.seconds*1000);

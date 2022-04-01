@@ -1,5 +1,5 @@
-import React from 'react';
-import {Image } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import {Image,View } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {BottomFabBar} from 'rn-wave-bottom-bar';
 
@@ -14,6 +14,9 @@ import { navigationIcons } from '../../assets/navigationIcons';
 import { bottomBarStyle, screenNames } from './configuration';
 import CustomImageButton from '../../customComponents/customImageButton';
 import { bottomNavHeader, CustomHeader, header } from './header';
+import { useDispatch } from 'react-redux';
+import { loadUserLocalData } from '../../stateManager/reduxStates/actions/userAction';
+import Login from '../login/login';
 
 
 const Tab = createBottomTabNavigator();
@@ -25,18 +28,22 @@ const tabBarIcon = (icon) => ({
   }) => <Image source={icon.uri} style={{width:40,height:40}}></Image>;
 
   
-export const BottomTab = () => {
-    return(
-        <Tab.Navigator
-            screenOptions={bottomBarStyle}
-            initialRouteName={screenNames.home}
-		    tabBar={(props) => (
+export const BottomTab = ({navigation}) => {
+
+	const dispatch = useDispatch();
+
+
+	return(
+		<Tab.Navigator
+			screenOptions={bottomBarStyle}
+			initialRouteName={screenNames.home}
+			tabBar={(props) => (
 			<BottomFabBar color={colors.primary} {...props} isRtl={false}/>
 		)}>
 
-        <Tab.Screen
+		<Tab.Screen
 			name={screenNames.foodSearch}
-            options={bottomNavHeader(navigationIcons.foodSearch)}
+			options={bottomNavHeader(navigationIcons.foodSearch)}
 			component={FoodSearch}
 		/>
 		<Tab.Screen
@@ -44,13 +51,15 @@ export const BottomTab = () => {
 			options={bottomNavHeader(navigationIcons.home)}
 			component={home}
 		/>
-     <Tab.Screen
+	 <Tab.Screen
 			name={screenNames.mealDiary}
 			options={bottomNavHeader(navigationIcons.mealDiary)}
 			component={mealDiary}
 		/>
-    </Tab.Navigator>
-    );
+	</Tab.Navigator>
+	);
+
+    
 }
 
 export default BottomTab;

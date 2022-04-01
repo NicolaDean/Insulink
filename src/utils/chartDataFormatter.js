@@ -2,6 +2,7 @@
 
 export const glicemyChartFormatter = (glicemyData) =>{
 
+
     let chart_data = {
         labels:[],
         datasets:
@@ -13,7 +14,7 @@ export const glicemyChartFormatter = (glicemyData) =>{
     }
 
 
-    if(glicemyData === undefined){
+    if(glicemyData === undefined || glicemyData===null){
         console.log("UNDEFINED GLICEMY DATA");
         return chart_data;
     } 
@@ -29,6 +30,7 @@ export const glicemyChartFormatter = (glicemyData) =>{
     const lenght=Object.keys(glicemyData).length-1;
     var len=Math.floor(Object.keys(glicemyData).length/numberOfLabels);
     console.log('todays number of glycemias '+Object.keys(glicemyData).length)
+
     glicemyData.forEach( elem =>{
         if(i== 0 || i==lenght ){
             chart_data.labels.push(elem.time.hours);

@@ -84,7 +84,6 @@ class Helper{
 
         const proportion = {...details};
 
-        console.log("proportion:" + JSON.stringify(proportion));
         const ratio = (measure.serving_weight*qty)/details.serving_weight_grams;
 
         apiMacros.forEach(macro =>{
@@ -96,7 +95,6 @@ class Helper{
             {x:"Fat"   ,y:proportion.current_total_fat},
             {x:"Prot"  ,y:proportion.current_protein}];
 
-        console.log("BBB" + JSON.stringify(proportion));
         return proportion;
     };
 

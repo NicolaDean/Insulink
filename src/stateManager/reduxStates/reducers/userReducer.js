@@ -54,6 +54,8 @@ const addGlicemy = (state,payload) =>{
 
     const g = {...payload.glicemy};//;
 
+    console.log("MAH:" + JSON.stringify(newstate.userData));
+    if(newstate.userData.glicemy[id] == undefined) newstate.userData.glicemy[id] = [];
     newstate.userData.glicemy[id].push(changeGlicemyTimeFormat(g));
     return newstate;
 }

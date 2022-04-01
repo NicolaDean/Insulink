@@ -37,7 +37,7 @@ const App = () => {
     
     <NavigationContainer>
       <Provider store={store}>    
-            <Stack.Navigator>
+            <Stack.Navigator initialRouteName={"Login"}>
               <Stack.Screen name="BottomTab" component={BottomTab} options={{headerShown: false}}/>
               <Stack.Screen name="FoodDetails" component={FoodDetails} options={header}/>
               <Stack.Screen name="SportActivity" component={SportActivity}options={header} />

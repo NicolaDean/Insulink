@@ -16,6 +16,7 @@ export const login = async (email,psw) => {
       user = usr.user;
     })
     .catch(error => {
+      user = null;
       if (error.code === 'auth/email-already-in-use') {
         console.log('That email address is already in use!');
       }

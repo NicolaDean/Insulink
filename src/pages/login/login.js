@@ -5,18 +5,35 @@ import { View  } from 'react-native';
 import CustomButton from '../../customComponents/customButton';
 
 //REDUX
-import { useDispatch } from 'react-redux';
-import { addGlicemy, login, register } from '../../stateManager/reduxStates/actions/userAction';
+import { connect, useDispatch } from 'react-redux';
+import { addGlicemy, loadUserLocalData, login, register } from '../../stateManager/reduxStates/actions/userAction';
 import * as authSys from '../../utils/auth'
 
 //FIREBASE
 import auth from '@react-native-firebase/auth';
+import { loginStatus } from '../../constants/states';
 
-export const Login = ({navigation}) =>{
+export const Login = ({navigation,status}) =>{
 
     const dispatch = useDispatch();
 
     const [init, setInit] = useState(true);
+
+    const [logged,setLogged] = useState(false);
+	
+	//TODO ADD A LOADING BARR (Unlogged -> loading -> Logged) so dosnt seem slow app
+	useEffect(()=>{
+        console.log("STATUS: " + status);
+		if(status == loginStatus.unlogged){
+			console.log("BAR CHECK LOGIN");
+			dispatch(loadUserLocalData([logged,setLogged]));
+		}
+		else{
+			console.log("Logged");
+			navigation.navigate('BottomTab',{});
+		}
+		
+	},[status])
 
     // Handle user state changes
     function onAuthStateChanged(user) {
@@ -34,12 +51,12 @@ export const Login = ({navigation}) =>{
 
     const tryLogin = async() =>
     {
-        console.log("TRY LOGIafdN");
+        console.log("TRY LOGIN");
     
         dispatch(login("marcofasa99@gmail.com","123456"));
         //dispatch(addGlicemy("zLZqvcoV2egpiguiJKxN5i9vrPK2",34));
 
-        navigation.navigate('Home',{});
+        navigation.navigate('BottomTab',{});
     }
     
     return (
@@ -52,4 +69,9 @@ export const Login = ({navigation}) =>{
     );
 }
 
-export default Login;
+
+const mapStateToProps = (state, ownProps = {}) => {
+    return{status:state.userReducer.status};
+  }
+  
+export default connect(mapStateToProps)(Login);

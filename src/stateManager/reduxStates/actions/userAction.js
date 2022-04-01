@@ -81,21 +81,20 @@ export const login = (email,psw) => async dispatch =>{
     //CHECK LOGIN DATA
     const user = await authSys.login(email,psw);
 
+    if(user == null) {return null}; //BAD LOGIN (make return an error)
+
     //Get user data
     const usrData = (await database.getUserData(user.uid));
-
     const glicemy = (await database.getUserGlicemy(user.uid));
-
     usrData.glicemy = glicemy;
+
 
     //CHECK FOR EMPTY DATA:
     usrData.age = 20; //TODO CALCULATE AGE FROM BIRTHDAY
-    
     console.log("Login ok" + JSON.stringify(usrData));
 
+    //SAVE DATA TO LOCAL STORAGE
     await localStorage.saveUserData(usrData);
-
-    //if(login not good) return false;
 
     //REDUX DISPATCH
     dispatch({
@@ -104,21 +103,9 @@ export const login = (email,psw) => async dispatch =>{
             usrData: usrData
         }
     });
+   
 
-     //LOAD MEAL DIARY IF EXIST AND STORE IT INTO REDUX
-     let mealDiary = await localStorage.loadFoodDiary(database.glicemyDateFormatter());
-
-     console.log("LOADED DIARY FROM STORAGE")
-     console.log("DIARY: " + JSON.stringify(mealDiary))
-     if(mealDiary!=null){
-         dispatch({
-             type: foodMethods.loadFoodDiary,
-             payload:{
-                 diary:mealDiary
-             }
-         })
-     }
-
+    //LOAD OTHER USER DATA FROM FIREBASE (EG: MEAL DIARY)
     return true;
 } 
 
@@ -126,25 +113,37 @@ export const login = (email,psw) => async dispatch =>{
  * try to load user data from memory, if not possible return false
  * @returns true if user is logged, false if not
  */
-export const loadUserLocalData = () =>async dispatch => {
+export const loadUserLocalData = ([logged,setLogged]) =>async dispatch => {
     
+    //LOAD USER DATA FROM LOCAL STORAGE
     let userData = await localStorage.getUserData();
 
-    console.log("Load Data used");
-
-    console.log(userData);
-
+    //CHECK IF DATA ARE AVAILABLE OR NULL IS RETURNED
     if(userData === null){
         return false;
     }else{
-        //Fake Login (Load data from local storage)
+        //DO A Fake Login (Load data from local storage to redux)
         dispatch({
             type: userMethods.login,
             payload: {
                 usrData: userData
             }
         });
+        setLogged(true);
     
+        //LOAD MEAL DIARY IF EXIST AND STORE IT INTO REDUX
+        let mealDiary = await localStorage.loadFoodDiary(database.glicemyDateFormatter());
+
+        console.log("LOADED DIARY FROM STORAGE")
+        console.log("DIARY: " + JSON.stringify(mealDiary))
+        if(mealDiary!=null){
+            dispatch({
+                type: foodMethods.loadFoodDiary,
+                payload:{
+                    diary:mealDiary
+                }
+            })
+        }
 
         return true;
     }

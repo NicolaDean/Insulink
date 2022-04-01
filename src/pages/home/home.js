@@ -72,7 +72,6 @@ export const Home = ({ navigation,state,user,diary }) =>{
   
   //REDIRECT USER TO LOGIN IF NOT LOGGED
   useEffect(()=>{
-    dispatch(loadUserLocalData());
     if(!logged) navigation.navigate('Login',{});
     //console.log("U : " + u);
     //dispatch(checkStateConsistency(state.userReducer.status,navigation,[init,setInit]));
