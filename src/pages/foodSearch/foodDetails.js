@@ -49,6 +49,7 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
         //DO SOME PREPROCESSING TO THE DATA 
         res = ApiHelper.enrichDatails(res);
         
+        setUnit(res.serving_unit);
         setItems(res.units);
         //SET DETAILS VARIABLE
         setDetails(res);
