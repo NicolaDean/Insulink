@@ -70,7 +70,9 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
             fat:    details.current_total_fat,
             prot:   details.current_protein,
             quantity: amount,
+            unit: unit,
             identifier: identifier,
+
         }
 
         dispatch(addFood(food));
@@ -100,19 +102,19 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
         return (
             
         
-        <View style={{flex: 1,flexDirection: 'column',backgroundColor:colors.secondary}}>
+        <View style={{flex: 1,flexDirection: 'column'}}>
             
             <ScrollView style={{flex:1}}>
             <View style={{flex: 2,backgroundColor: 'white'}}>
                 <Image style={styles.foodImage} source={{uri:details.image}}/>
                 <View style={{marginTop:200,flexDirection:'row',alignContent:'center'}}>
                     <Text style ={styles.sectionTitle}> {details.name}</Text>
-                    <CustomImageButton image={buttonIconsNames.plus} style={styles.addPlus} iconStyle={styles.addPlus} onPress={()=>{addItem()}}/>
+                    <CustomImageButton image={buttonIconsNames.plus} style={styles.addPlus} iconStyle={styles.addPlus} onPress={addItem}/>
                 </View>
              </View>
             <View style={{flex: 4,backgroundColor: 'rgba(112,202,230, 0.30)',flexDirection:'column'}}>
                 
-                <View style={{flex:1.3,width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white',borderRadius:10}}>
+                <View style={{flex:1.3,width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'rgba(255, 203, 126, 0.19)'}}>
                     <View style={{marginLeft:10,marginRight:10,marginTop:10,flexDirection:'row'}}>
                         <TextInput defaultValue="1" style={{backgroundColor:'white',borderColor:'black',borderWidth:1,width:'20%'}} onChangeText={a=>{updateAmount(a)}} placeholder='amount' keyboardType="numeric"/>
                         <DropDownPicker
@@ -136,7 +138,7 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
                         <Text style={{fontSize:28,color:'black'}}> {details.current_calories} </Text><Image source={mealIcons['cal'].uri} style={styles.macroImage} />
                     </View>
                 </View>
-                <View style={{zIndex:-1,flex:2,flexDirection:'row',width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white',borderRadius:10}}>
+                <View style={{zIndex:-1,flex:2,flexDirection:'row',width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white'}}>
                 {console.log("Update:" + JSON.stringify(details.chartData))}
                 <VictoryPie 
                         colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
@@ -187,7 +189,7 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
 
 const mapStateToProps = (state, ownProps = {}) => {
     
-    return{identifier: state.macroTracker.id};
+    return{identifier: state.macroTracker.id,currentMeal: state.macroTracker.currentMeal};
   }
   
 export default connect(mapStateToProps)(FoodDetails);

@@ -2,6 +2,7 @@ export const foodMethods = {
     addFood:'ADD_FOOD',
     removeFood:'REMOVE_FOOD',
     selectMeal:'SELECT_MEAL',
+    loadFoodDiary:'LOAD_FOOD_DIARY',
 }
 
 export const userMethods = {

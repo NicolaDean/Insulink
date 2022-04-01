@@ -1,5 +1,5 @@
 import { firebase } from "@react-native-firebase/firestore";
-import { userMethods } from "../../../constants/reducers"
+import { foodMethods, userMethods } from "../../../constants/reducers"
 
 import * as database from "../../../utils/firebaseQuery"
 import { localStorage } from "../../../utils/localStoreManager";
@@ -105,6 +105,20 @@ export const login = (email,psw) => async dispatch =>{
         }
     });
 
+     //LOAD MEAL DIARY IF EXIST AND STORE IT INTO REDUX
+     let mealDiary = await localStorage.loadFoodDiary(database.glicemyDateFormatter());
+
+     console.log("LOADED DIARY FROM STORAGE")
+     console.log("DIARY: " + JSON.stringify(mealDiary))
+     if(mealDiary!=null){
+         dispatch({
+             type: foodMethods.loadFoodDiary,
+             payload:{
+                 diary:mealDiary
+             }
+         })
+     }
+
     return true;
 } 
 
@@ -130,7 +144,8 @@ export const loadUserLocalData = () =>async dispatch => {
                 usrData: userData
             }
         });
-        
+    
+
         return true;
     }
 }
