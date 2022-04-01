@@ -19,6 +19,7 @@ export const buttonIcons = {
     dose: {uri: require('./dose.png')},
     glucose: {uri: require('./glucose.png')},
     statistics:{uri: require('./statistics.png')},
+    calendar:{uri: require('./calendar.png')},
 }
 
 export const buttonIconsNames = {
@@ -41,5 +42,6 @@ export const buttonIconsNames = {
     does: 'dose',
     glucose: 'glucose',
     statistics: 'statistics',
+    calendar: 'calendar'
 }
 

@@ -95,7 +95,7 @@ export const Home = ({ navigation,state,user,diary }) =>{
         <View style={{justifyContent: 'space-between',
               alignItems: 'stretch',flexDirection:'column'}}>
         <View style={{justifyContent: 'space-evenly',
-              alignItems: 'flex-start',flexDirection:'row',marginBottom:10}}>
+              alignItems: 'flex-start',flexDirection:'row',marginBottom:10,marginHorizontal:40}}>
           <CustomImageButton
           image='statistics'
                 onPress={() => navigation.navigate('MealDiary',{}) }
@@ -111,9 +111,9 @@ export const Home = ({ navigation,state,user,diary }) =>{
             />
         </View>
         <View style={{justifyContent: 'space-evenly',
-              alignItems: 'flex-start',flexDirection:'row'}}>
+              alignItems: 'flex-start',flexDirection:'row',marginHorizontal:40}}>
           <CustomImageButton
-          image='glucose'
+          image='calendar'
                 onPress={() => navigation.navigate('MealDiary',{}) }
                 useDefaultStyle={false}
                 iconStyle={styles.icon}
