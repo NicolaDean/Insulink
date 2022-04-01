@@ -16,7 +16,7 @@ export const CustomImageButton = (
 
         return(
             <TouchableOpacity onPress={onPress} style={style}>
-                    <View  style={image == 'dose' ?styles.appButtonContainerRound:null}>
+                    <View  style={image == 'dose' ?styles.appButtonContainerRound: (image =='glucose' || image== 'statistics'|| image== 'calendar')? styles.appButtonContainerSquare: null}>
                         <Image source={buttonIcons[image].uri} style={iconStyle} />
                     </View>
             </TouchableOpacity>
@@ -40,6 +40,11 @@ const styles =  StyleSheet.create({
         paddingVertical: 12,
         paddingHorizontal: 12,
         marginRight:7
+      },appButtonContainerSquare: {
+        backgroundColor: colors.primary,
+        borderRadius: 10,
+        paddingVertical:30,
+        paddingHorizontal:30
       }
 });
 

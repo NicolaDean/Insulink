@@ -16,9 +16,7 @@ export default StyleSheet.create({
           fontSize:30,
           fontWeight:"bold",
           color:"black",
-          alignSelf:'flex-start',
-          marginLeft:"5%",
-          marginTop:10
+          alignSelf:'center',
       },
       graphBox:{
          width:"60%",

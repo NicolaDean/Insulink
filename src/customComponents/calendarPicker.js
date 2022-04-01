@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Text, StyleSheet,TouchableOpacity, View,LayoutAnimation} from 'react-native';
+import { Text, Image,StyleSheet,TouchableOpacity, View,LayoutAnimation} from 'react-native';
 import { colors } from '../constants/appAspect';
 import CalendarPicker from 'react-native-calendar-picker';
+import CustomImageButton from './customImageButton';
+import { buttonIcons } from '../assets/buttonIcons';
 
 
 export const Calendar = () => {
@@ -17,7 +19,6 @@ export const Calendar = () => {
     const expanded = () =>{
         return(
             <View>
-                <Text>Expanded</Text>
                 <CalendarPicker
                     onDateChange={onDateChange}
                 />
@@ -28,7 +29,6 @@ export const Calendar = () => {
     const notExpanded = () =>{
         return(
             <View>
-                 <Text>Not Expanded</Text>
             </View>
         );
     }
@@ -39,11 +39,24 @@ export const Calendar = () => {
     }
 
     return (
-        <View>
+        <View style={{justifyContent:'center',alignContent:'center',alignSelf:'center',flexDirection:'column'}}>
             <TouchableOpacity onPress={expandCalendar}>
-                <Text>{currentDate.toString()}</Text>
+                <View style={{justifyContent:'space-evenly',alignContent:'stretch',alignSelf:'center',flexDirection:'row',marginVertical:10}}>
+                <Text style={{alignSelf:'center'}} >{currentDate.toString()}</Text>
+                <Image source={buttonIcons['calendar'].uri} style={styles.icon} /> 
+                </View>
                 {isexpanded ? expanded():notExpanded()}
             </TouchableOpacity>
         </View>
     );
 }
+
+const styles =  StyleSheet.create({
+    icon:{
+        width: 32,
+         height: 32,
+         position: 'relative',
+         top:0,
+         bottom:10,
+        }
+});

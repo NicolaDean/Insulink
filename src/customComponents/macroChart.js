@@ -3,6 +3,7 @@ import React from 'react';
 import {  StyleSheet,Dimensions,TouchableOpacity, View, Image } from 'react-native';
 import {ProgressChart} from "react-native-chart-kit";
 import { connect, useDispatch } from 'react-redux';
+import { colors } from '../constants/appAspect';
 
 const marginOffset=10;
 
@@ -12,7 +13,7 @@ const screenWidth = Dimensions.get("window").width-marginOffset*3;
         //General
         backgroundColor: "#e26a00",
         backgroundGradientFrom: "#fb8c00",
-        backgroundGradientTo: "#ffa726",
+        backgroundGradientTo: colors.orange,
         color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
         labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
     

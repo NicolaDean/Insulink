@@ -45,5 +45,11 @@ export default StyleSheet.create({
             slide: {
               justifyContent: 'space-evenly',
               alignItems: 'stretch',
-            }
+            },icon:{
+               width: 80,
+                height: 80,
+                position: 'relative',
+                top:0,
+                bottom:10}
+            
   });

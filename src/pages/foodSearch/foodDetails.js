@@ -103,7 +103,7 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
         return (
             
         
-        <View style={{flex: 1,flexDirection: 'column'}}>
+        <View style={{flex: 1,flexDirection: 'column',backgroundColor:colors.secondary}}>
             
             <ScrollView style={{flex:1}}>
             <View style={{flex: 2,backgroundColor: 'white'}}>
@@ -115,7 +115,7 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
              </View>
             <View style={{flex: 4,backgroundColor: 'rgba(112,202,230, 0.30)',flexDirection:'column'}}>
                 
-                <View style={{flex:1.3,width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'rgba(255, 203, 126, 0.19)'}}>
+                <View style={{flex:1.3,width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white',borderRadius:10}}>
                     <View style={{marginLeft:10,marginRight:10,marginTop:10,flexDirection:'row'}}>
                         <TextInput defaultValue="1" style={{backgroundColor:'white',borderColor:'black',borderWidth:1,width:'20%'}} onChangeText={a=>{updateAmount(a)}} placeholder='amount' keyboardType="numeric"/>
                         <DropDownPicker
@@ -139,7 +139,7 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
                         <Text style={{fontSize:28,color:'black'}}> {details.current_calories} </Text><Image source={mealIcons['cal'].uri} style={styles.macroImage} />
                     </View>
                 </View>
-                <View style={{zIndex:-1,flex:2,flexDirection:'row',width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white'}}>
+                <View style={{zIndex:-1,flex:2,flexDirection:'row',width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white',borderRadius:10}}>
                 {console.log("Update:" + JSON.stringify(details.chartData))}
                 <VictoryPie 
                         colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}

@@ -70,7 +70,9 @@ return (
  //TODO ADD THE TOTAL MEALS MACRO GRAPHù
  <View>
 <ScrollView >
-<Calendar/>
+<View style={{justifyContent:'space-around',alignContent:'center',flexDirection:'column'}}>
+      <Calendar></Calendar>
+</View>
 <Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
         <View style={styles.slide}>
         <MacroChart diary={diary} user={user}/>
@@ -82,8 +84,9 @@ return (
         <GlycemiaChart diary={diary} user={user}/>
         </View>
       </Slick>
-
-<Text style={styles.title}>Meal Diary:</Text>
+      <View style={{justifyContent:'space-around',alignContent:'center',flexDirection:'column'}}>
+      <Text style={styles.title}>Meal Diary</Text>
+</View>
 
         <Meal navigation = {navigation} name ="Colazione"   icon ="breakfast"   id="breakfast"/>
         <Meal navigation = {navigation} name ="Pranzo"      icon ="lunch"       id="lunch"/>
