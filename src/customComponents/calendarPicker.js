@@ -29,8 +29,6 @@ export const Calendar = () => {
     const notExpanded = () =>{
         return(
             <View>
-           <Image source={buttonIcons['calendar'].uri} style={styles.icon} /> 
-
             </View>
         );
     }
@@ -43,7 +41,10 @@ export const Calendar = () => {
     return (
         <View style={{justifyContent:'center',alignContent:'center',alignSelf:'center',flexDirection:'column'}}>
             <TouchableOpacity onPress={expandCalendar}>
-                <Text >{currentDate.toString()}</Text>
+                <View style={{justifyContent:'space-evenly',alignContent:'stretch',alignSelf:'center',flexDirection:'row',marginVertical:10}}>
+                <Text style={{alignSelf:'center'}} >{currentDate.toString()}</Text>
+                <Image source={buttonIcons['calendar'].uri} style={styles.icon} /> 
+                </View>
                 {isexpanded ? expanded():notExpanded()}
             </TouchableOpacity>
         </View>
@@ -57,6 +58,5 @@ const styles =  StyleSheet.create({
          position: 'relative',
          top:0,
          bottom:10,
-        alignSelf:'center'
-        ,marginVertical:10}
+        }
 });

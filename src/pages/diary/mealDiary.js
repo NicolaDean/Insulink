@@ -70,7 +70,9 @@ return (
  <View>
 
 <ScrollView >
-
+<View style={{justifyContent:'space-around',alignContent:'center',flexDirection:'column'}}>
+      <Calendar></Calendar>
+</View>
 <Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
         <View style={styles.slide}>
         <MacroChart diary={diary} user={user}/>
@@ -84,7 +86,6 @@ return (
       </Slick>
       <View style={{justifyContent:'space-around',alignContent:'center',flexDirection:'column'}}>
       <Text style={styles.title}>Meal Diary</Text>
-      <Calendar></Calendar>
 </View>
 
         <Meal navigation = {navigation} name ="Colazione"   icon ="breakfast"   id="breakfast"/>
