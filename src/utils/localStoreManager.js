@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { storageKeys } from '../constants/localStorageKeys';
 import { loginStatus } from '../constants/states';
+import { initialDiaryState } from '../stateManager/reduxStates/reducers/macroTracker';
 import { glicemyDateFormatter } from './firebaseQuery';
 
 
@@ -164,6 +165,21 @@ const keys = {
       AsyncStorage.removeItem(storageKeys.foodDiary);
       setDataAvailability(false);
     }
+
+    loadFoodDiary = async (date) =>{
+        let key = keys.foodDiary + date;
+
+        const data = await getData(key);
+
+        return data;
+    }
+
+    storeFoodDiary = async (date,data) => {
+      let key = keys.foodDiary + date;
+      await storeData(key,data);
+      console.log("Diary Stored on Local Storage");
+    }
+
   }
 
   export const localStorage = new LocalStorage()

@@ -5,7 +5,7 @@ import { foodMethods } from "../../../constants/reducers"
 const macro = macroConstants;
 
 //TODO Each diary will have a Date, if Date < Today it will be saved localy/firabase and resetted for new day
-const initialState = {
+export const initialDiaryState = {
     currentMeal:"breakfast",
     currentDate:{},
     totMacro:{cal:0,carb:0,fat:0,prot:0},
@@ -137,8 +137,12 @@ const removeFood = (state,data)=>{
     return newstate;
 }
 
+const loadMeals = (state,payload) =>{
+    
+    return payload.diary;
+}
 //TODO PUT THE NAME OF ACTIONS INTO COSNTANT FILE
-const macroReducer = (state = initialState, action) => {
+const macroReducer = (state = initialDiaryState, action) => {
     switch(action.type){
         case foodMethods.addFood:
             return addFood(state,action.payload);
@@ -146,6 +150,8 @@ const macroReducer = (state = initialState, action) => {
             return removeFood(state,action.payload);
         case foodMethods.selectMeal:
             return selectMeal(state,action.payload);
+        case foodMethods.loadFoodDiary:
+            return loadMeals(state,action.payload);
         default:
             return state;
         }

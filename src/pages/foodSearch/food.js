@@ -23,7 +23,7 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
     }
     let image = id.photo.thumb;
     let name = id.food_name;
-    let serving = id.serving_unit;
+    
     
     
 
@@ -83,7 +83,7 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
                         source ={{uri:image}}
                     />
 
-                <Text>{deletable? serving:null}</Text>
+                <Text>{deletable? (data.quantity +"-"+ data.unit):null}</Text>
                 </View>
             </TouchableHighlight>
         </Shake>

@@ -59,16 +59,16 @@ export const MealDiary = ({ navigation,diary,user }) =>{
   const maxProt = 100;
   const maxFat  = 100;
  
+  console.log("DIARIO BABBANO: " + JSON.stringify(diary));
+  
   const graph = {
     labels: ["Carbo", "Fat", "Pro"], // optional
     data: [(((diary.totMacro.prot.toFixed(2)/maxProt)<1) ? (diary.totMacro.prot.toFixed(2)/maxProt) : 1),(((diary.totMacro.fat.toFixed(2)/maxFat)<1) ? (diary.totMacro.fat.toFixed(2)/maxFat) : 1),(((diary.totMacro.carb.toFixed(2)/maxCarb)<1) ? (diary.totMacro.carb.toFixed(2)/maxCarb) : 1)]
   }
   
-
 return (
  //TODO ADD THE TOTAL MEALS MACRO GRAPHù
  <View>
-
 <ScrollView >
 <View style={{justifyContent:'space-around',alignContent:'center',flexDirection:'column'}}>
       <Calendar></Calendar>
