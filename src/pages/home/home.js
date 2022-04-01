@@ -5,6 +5,7 @@ import styles from './style'
 
 //CUSTOM COMPONENTS
 import CustomButton from '../../customComponents/customButton'
+import CustomImageButton from '../../customComponents/customImageButton'
 
 //REDUX
 import { connect, useDispatch } from 'react-redux';
@@ -91,14 +92,42 @@ export const Home = ({ navigation,state,user,diary }) =>{
             <MacroChart diary={diary} user={user}/>
           </View>
         </Slick>
-            <CustomButton
-                title='Meal Diary'
+        <View style={{justifyContent: 'space-between',
+              alignItems: 'stretch',flexDirection:'column'}}>
+        <View style={{justifyContent: 'space-evenly',
+              alignItems: 'flex-start',flexDirection:'row',marginBottom:10}}>
+          <CustomImageButton
+          image='glucose'
                 onPress={() => navigation.navigate('MealDiary',{}) }
+                useDefaultStyle={false}
+                iconStyle={styles.icon}
+                
             />
-            <CustomButton
-                title='PersonalData'
-                onPress={() => navigation.navigate('PersonalData',{}) }
-            />    
+             <CustomImageButton
+          image='glucose'
+                onPress={() => navigation.navigate('MealDiary',{}) }
+                useDefaultStyle={false}
+                iconStyle={styles.icon}
+            />
+        </View>
+        <View style={{justifyContent: 'space-evenly',
+              alignItems: 'flex-start',flexDirection:'row'}}>
+          <CustomImageButton
+          image='glucose'
+                onPress={() => navigation.navigate('MealDiary',{}) }
+                useDefaultStyle={false}
+                iconStyle={styles.icon}
+                style={{}}
+            />
+             <CustomImageButton
+          image='glucose'
+                onPress={() => navigation.navigate('MealDiary',{}) }
+                useDefaultStyle={false}
+                iconStyle={styles.icon}
+            />
+        </View>
+        </View>
+            
     </ScrollView>   
     );
   }
