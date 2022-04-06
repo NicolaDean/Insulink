@@ -37,3 +37,16 @@ export const selectMealType = (mealType) =>{
 export const loadRemoteDiary = (email,date) =>{
     
 }
+
+export const addActivityToDiary = (activity) => async( dispatch, getState) =>{
+
+    console.log("ADD ACTIVITY");
+    dispatch({
+        type: foodMethods.addActivity,
+        payload: {activity:activity}
+    });
+
+    //Update LOCAL STORAGE
+    const state = getState();
+    localStorage.storeFoodDiary(glicemyDateFormatter(),state.macroTracker);
+}

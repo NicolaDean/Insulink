@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet,Text,View,Image } from 'react-native';
 import { colors } from '../../constants/appAspect';
 import CustomImageButton from '../../customComponents/customImageButton';
+import { localStorage } from '../../utils/localStoreManager';
 
 export const CustomHeader = (props) =>{
     return(
@@ -18,12 +19,12 @@ export const CustomHeader = (props) =>{
 ),
   */
 
-
 export const header = { 
     headerTitle: (props) => <CustomHeader {...props} />,
 
     headerRight: () => (
-        <CustomImageButton  image='settings' style={{marginRight:20}} iconStyle={{ width: 30, height: 30 }}/>
+        <CustomImageButton  image='settings' style={{marginRight:20}} iconStyle={{ width: 30, height: 30 }}
+        onPress={() => {localStorage.resetUser()}}/>
     ),
     headerStyle: {
         backgroundColor: colors.primary,

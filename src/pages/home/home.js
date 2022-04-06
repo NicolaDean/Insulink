@@ -113,7 +113,7 @@ export const Home = ({ navigation,state,user,diary }) =>{
               alignItems: 'flex-start',flexDirection:'row',marginHorizontal:40}}>
           <CustomImageButton
           image='calendar'
-                onPress={() => navigation.navigate('MealDiary',{}) }
+                onPress={() => navigation.navigate('Registration',{}) }
                 useDefaultStyle={false}
                 iconStyle={styles.icon}
                 style={{}}

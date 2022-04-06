@@ -111,10 +111,7 @@ const keys = {
 
       const today = keys.glicemy + glicemyDateFormatter(date);
       let updatedValue = {...new_glicemy};
-      console.log(date);
       updatedValue = changeGlicemyTimeFormat(updatedValue,true);
-
-      console.log("CHANGED GLICEMY LOCAL: " + JSON.stringify(updatedValue));
       //CHANGE DATE FORMAT FOR LOCAL GLICEMY
       let currentValues = await getData(today);
 
@@ -153,7 +150,6 @@ const keys = {
       }else{
         userData = null;//dummy_user?
       } 
-
       //console.log("User data: " +  JSON.stringify(userData));
       return userData;
     }
@@ -171,7 +167,8 @@ const keys = {
      */
     resetUser = async () =>{
       AsyncStorage.removeItem(storageKeys.userData);
-      AsyncStorage.removeItem(storageKeys.foodDiary);
+      //TODO; FIND A WAY TO REMOVE ALL FOOD/GLICEMY KEYS (EG: TRACKING DATES)
+      //AsyncStorage.removeItem(storageKeys.foodDiary);
       setDataAvailability(false);
     }
 

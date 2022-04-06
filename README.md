@@ -13,4 +13,8 @@
 15. CHO ratio e insuline sensitivity come parametri dei costruttori di tutti gli insuline calculator
 --------
 7. Log in
+16. Registration
+17. Add Meals in remote
+18. Add Sport In Meals Page (and redux)
+19. Fix IPAD dimensions (eg 4 columns in foodSearch)
 7. Logo

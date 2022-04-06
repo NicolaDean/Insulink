@@ -15,9 +15,22 @@ export const initialDiaryState = {
         lunch:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
         dinner:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
         snack:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}}
-    } 
+    },
+    totCalBurned:0,
+    activities:{
+        breakfast:{sports:[],totCal:0},
+        lunch:{sports:[],totCal:0},
+        dinner:{sports:[],totCal:0},
+        snack:{sports:[],totCal:0}
+    }
 }
 
+/**
+ * Select current meal to assign added food to
+ * @param {*} state 
+ * @param {*} data 
+ * @returns 
+ */
 const selectMeal = (state,data)=>{
     const newState = {
         ...state,
@@ -84,6 +97,27 @@ const addFood = (state,data)=>{
 
     return newstate;
 }
+
+const addActivity = (state,data) =>{
+    const activity = data.activity;
+
+    //COPY STATE
+    const newstate ={...state};
+    //
+    newstate.activities[newstate.currentMeal].sports.push(activity);
+    newstate.activities[newstate.currentMeal].totCal += activity.calories;
+    newstate.totCalBurned += activity.calories;
+
+    return newstate;
+}
+
+const removeActivity = (state,date) =>{
+    //COPY STATE
+    const newstate ={...state};
+
+    //TODO REMOVE ACTIVITY
+    return newstate;
+}
 /**
  * remove a food to the global state representing meals of today
  * @param {*} state today meals
@@ -137,10 +171,20 @@ const removeFood = (state,data)=>{
     return newstate;
 }
 
+const modifyFood = () =>{
+    //TODO
+}
+
+/**
+ * Load Meals data from memory
+ * @param {*} state 
+ * @param {*} payload 
+ * @returns 
+ */
 const loadMeals = (state,payload) =>{
-    
     return payload.diary;
 }
+
 //TODO PUT THE NAME OF ACTIONS INTO COSNTANT FILE
 const macroReducer = (state = initialDiaryState, action) => {
     switch(action.type){
@@ -152,6 +196,8 @@ const macroReducer = (state = initialDiaryState, action) => {
             return selectMeal(state,action.payload);
         case foodMethods.loadFoodDiary:
             return loadMeals(state,action.payload);
+        case foodMethods.addActivity:
+            return addActivity(state,action.payload);
         default:
             return state;
         }

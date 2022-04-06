@@ -98,6 +98,20 @@ class Helper{
         return proportion;
     };
 
+    getSportJson = (sport) =>{
+        
+        const json = sport.exercises[0];
+
+        let result = {
+            name:json.name,
+            calories:json.nf_calories,
+            duration:json.duration_min,
+            photo:json.photo
+        }
+
+        return result;
+    }
+
     
 }
 

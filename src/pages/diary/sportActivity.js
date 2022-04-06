@@ -14,14 +14,18 @@ import Meal from './meal';
 import styles from './style'
 
 //REDUX
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { colors } from "../../constants/appAspect";
+import { ApiHelper } from "../../utils/apiHelper";
+import { addActivityToDiary } from "../../stateManager/reduxStates/actions/macroTracker";
 
 
 export const SportActivity = ({ navigation,diary,userData }) =>{
   
+    const dispatch = useDispatch();
+
     const[timeString,setTimeString]=useState("");
-    const[sportString,setSportString]=useState('')
+    const[sportString,setSportString]=useState('');
     const [value, setValue] = useState({
       hours: 1,
       minutes: 0,
@@ -33,59 +37,57 @@ export const SportActivity = ({ navigation,diary,userData }) =>{
           itemPressed: value
       });
    }
+
     const handleChange = (newValue) => {
       setValue(newValue);
       console.log(newValue)
     };
 
-    const moreTime=()=>{
+  const moreTime=()=>{
       var newValue={
         hours: 0,
         minutes: 0,
       };
       
-
       if(value.minutes<=50){
         newValue.hours=value.hours;
-
-      newValue.minutes=value.minutes+5;
-    handleChange(newValue)
-  }else
-  {
-    newValue.hours=value.hours+1;
-    newValue.minutes=0;
-    handleChange(newValue)
+        newValue.minutes=value.minutes+5;
+        handleChange(newValue)
       }
+      else
+      {
+        newValue.hours=value.hours+1;
+        newValue.minutes=0;
+        handleChange(newValue)
+      }
+  }
 
-    }
-
-    const lessTime=()=>{
+  const lessTime=()=>{
       var newValue={
         hours: 0,
         minutes: 0,
       };
       
-
       if(value.minutes>=5){
-
         newValue.hours=value.hours;
         newValue.minutes=value.minutes-5;
-    handleChange(newValue)
-  }else
-  {
-    newValue.hours=value.hours-1;
-    newValue.minutes=value.minutes-5+60;
-    handleChange(newValue)
+        handleChange(newValue)
       }
+      else
+      {
+        newValue.hours=value.hours-1;
+        newValue.minutes=value.minutes-5+60;
+        handleChange(newValue)
+      }
+  }
 
-    }
-   const addActivity=async()=>{
+const addActivity = async() =>{
      if(timeString == "" || timeString==null){
-     let s='I made '
-     let min=value.minutes;
-      if(value.hours!=0){
-        min=min+60*value.hours;
-      }
+      let s='I made '
+      let min=value.minutes;
+        if(value.hours!=0){
+          min=min+60*value.hours;
+        }
         s=s+min+' minutes'+' of '+ sportString;
         setTimeString(s)
     }
@@ -94,17 +96,19 @@ export const SportActivity = ({ navigation,diary,userData }) =>{
       {
         //GET API DATA
         const cal = (await Food_API.getSportCalories(timeString,userData))
-      console.log(timeString)
-      console.log(cal)
+        console.log(timeString)
+        console.log(cal);
 
-    } 
-    catch (error) 
-    {
-      console.error(error);
-    } 
-    finally {
-      //setLoading(false); //TODO
-    }
+        const activity = ApiHelper.getSportJson(cal);
+        dispatch(addActivityToDiary(activity));
+      } 
+      catch (error) 
+      {
+        console.error(error);
+      } 
+      finally {
+        //setLoading(false); //TODO
+      }
    }
 
   return (

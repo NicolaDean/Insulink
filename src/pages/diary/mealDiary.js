@@ -13,6 +13,9 @@ import styles from './style'
 //REDUX
 import { connect } from 'react-redux';
 import { Calendar } from "../../customComponents/calendarPicker";
+import { CustomNumberPicker } from "../../customComponents/customNumberPicker";
+import { InputContainer } from "../../customComponents/containers/inputsContainer";
+import { MarginContainer } from "../../customComponents/containers/marginContainer";
 
 
 
@@ -88,6 +91,9 @@ return (
       <Text style={styles.title}>Meal Diary</Text>
 </View>
 
+
+     
+        
         <Meal navigation = {navigation} name ="Colazione"   icon ="breakfast"   id="breakfast"/>
         <Meal navigation = {navigation} name ="Pranzo"      icon ="lunch"       id="lunch"/>
         <Meal navigation = {navigation} name ="Cena"        icon ="dinner"      id="dinner"/>
