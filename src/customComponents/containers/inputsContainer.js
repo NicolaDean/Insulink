@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Text, StyleSheet,TouchableOpacity, TextInput,View} from 'react-native';
 import { colors } from '../../constants/appAspect';
 
-export const InputContainer = ({children,name}) =>{
+export const InputContainer = ({children,name,style,childrenStyle}) =>{
 
     return(
-        <View style={styles.container}>
+        <View style={[styles.container,style]}>
             <Text style={styles.name}>{name}</Text>
-            <View style={styles.children}>
+            <View style={[styles.children,childrenStyle]}>
                 {children}
             </View>
             

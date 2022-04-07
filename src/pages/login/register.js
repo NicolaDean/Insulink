@@ -11,7 +11,7 @@ import { RegStep4 } from './registration/step4';
 
 export const Registration = ({}) =>{
 
-    const [step,setStep] = useState(3);
+    const [step,setStep] = useState(4);
 
     const renderStep = () =>{
 

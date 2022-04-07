@@ -7,7 +7,7 @@ import { MarginContainer } from '../../../customComponents/containers/marginCont
 import { WaitLoading } from '../../../customComponents/containers/waitLoading';
 import CustomButton from '../../../customComponents/customButton';
 import { CustomNumberPicker } from '../../../customComponents/customNumberPicker';
-import { PageStepBar } from '../../../customComponents/pageStepBar';
+import { PageStepBar } from './pageStepBar';
 
 export const RegStep3 = ({step,setStep}) =>{
 

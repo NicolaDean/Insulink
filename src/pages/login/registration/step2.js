@@ -1,17 +1,39 @@
 import React, { useState } from 'react';
 import {View,StyleSheet,Text,TextInput} from 'react-native';
+import { buttonIcons, buttonIconsNames } from '../../../assets/buttonIcons';
 import { colors } from '../../../constants/appAspect';
 import { InputBlock } from '../../../customComponents/containers/inputsBlock';
 import { InputContainer } from '../../../customComponents/containers/inputsContainer';
 import { MarginContainer } from '../../../customComponents/containers/marginContainer';
 import { WaitLoading } from '../../../customComponents/containers/waitLoading';
 import CustomButton from '../../../customComponents/customButton';
+import CustomImageButton from '../../../customComponents/customImageButton';
 import { CustomNumberPicker } from '../../../customComponents/customNumberPicker';
 import { PageStepBar } from './pageStepBar';
 
+
+const Gender = ({gender,selected,setGender}) =>{
+
+    const style = {
+        backgroundColor:(selected==gender) ? colors.primary:null,
+        width:70,
+        height:70,
+        borderRadius:50,
+        justifyContent:'center',
+        alignItems:'center',
+    }
+        
+    return(
+        <View style={style}>
+            <CustomImageButton iconStyle={{width:50,height:50}} style={{}} onPress={()=>{setGender(gender)}} image={gender}/>
+        </View>
+    );
+}
+
+
 export const RegStep2 = ({step,setStep}) =>{
 
-
+    const [gender,setGender] = useState("male");
     const [loading,setLoading] = useState(true);
 
     return (
@@ -26,6 +48,14 @@ export const RegStep2 = ({step,setStep}) =>{
                             <TextInput style={styles.textInput} />
                         </InputContainer>
                         <InputContainer name={"Surname: "}>
+                            <TextInput style={styles.textInput}/>
+                        </InputContainer>
+                        <InputContainer name={"Gender: "} childrenStyle={styles.genders}>
+                            <Gender gender={buttonIconsNames.male} selected={gender} setGender={setGender}/>
+                            <Gender gender={buttonIconsNames.female} selected={gender} setGender={setGender}/>
+                            <Gender gender={buttonIconsNames.nonbinary} selected={gender} setGender={setGender}/>
+                        </InputContainer>
+                        <InputContainer name={"Birthday: "}>
                             <TextInput style={styles.textInput}/>
                         </InputContainer>
                     </InputBlock>
@@ -71,5 +101,8 @@ const styles = StyleSheet.create({
     },
     stepBar:{
         marginBottom:0
+    },
+    genders:{
+        flexDirection:'row'
     }
 })

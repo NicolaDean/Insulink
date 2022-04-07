@@ -40,17 +40,6 @@ export const RegStep1 = ({step,setStep}) =>{
         
     );
 }
-/*
- <InputBlock name={"Phisical Info:"}>
-                        <InputContainer name={"Weight: "}>
-                            <CustomNumberPicker/>
-                        </InputContainer>
-
-                        <InputContainer name={"Height: "}>
-                            <CustomNumberPicker/>
-                        </InputContainer>
-                    </InputBlock>
-*/
 const styles = StyleSheet.create({
     container:{
         height:'100%',
@@ -73,5 +62,8 @@ const styles = StyleSheet.create({
     },
     stepBar:{
         marginBottom:0
+    },
+    genders:{
+        flexDirection:'row'
     }
 })

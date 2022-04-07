@@ -20,6 +20,11 @@ export const buttonIcons = {
     glucose: {uri: require('./glucose.png')},
     statistics:{uri: require('./statistics.png')},
     calendar:{uri: require('./calendar.png')},
+    height:{uri: require('./height.png')},
+    weigth:{uri: require('./weight.png')},
+    male:{uri: require('./male.png')},
+    female:{uri: require('./female.png')},
+    nonbinary:{uri: require('./nonbinary.png')},
 }
 
 export const buttonIconsNames = {
@@ -42,6 +47,11 @@ export const buttonIconsNames = {
     does: 'dose',
     glucose: 'glucose',
     statistics: 'statistics',
-    calendar: 'calendar'
+    calendar: 'calendar',
+    height:'height',
+    weigth:'weight',
+    male:'male',
+    female:'female',
+    nonbinary:'nonbinary'
 }
 
