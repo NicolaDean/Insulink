@@ -17,6 +17,7 @@ import { localStorage } from '../../utils/localStoreManager';
 import { loadUserLocalData } from '../../stateManager/reduxStates/actions/userAction';
 import Login from '../login/login';
 import { loginStatus } from '../../constants/states';
+import { WaitLoading } from '../../customComponents/containers/waitLoading';
   const marginOffset=10;
   const screenWidth = Dimensions.get("window").width-marginOffset;
 
@@ -66,20 +67,26 @@ export const Home = ({ navigation,state,user,diary }) =>{
 
   const dispatch = useDispatch();
 
-  const [init,setInit] = useState(true);
+  const [loading,setLoading] = useState(true);
 
   console.log(user);
   const logged = (user.status && user.status == loginStatus.logged);
   
   //REDIRECT USER TO LOGIN IF NOT LOGGED
   useEffect(()=>{
-    if(!logged) navigation.navigate('Login',{});
+    if(!logged){
+      navigation.navigate('Login',{});
+    } else{
+      setLoading(false);
+    }
     //console.log("U : " + u);
     //dispatch(checkStateConsistency(state.userReducer.status,navigation,[init,setInit]));
-  },[]);
+  },[logged]);
 
   const renderHome = () =>{
     return (
+      <WaitLoading loadingState={[loading,setLoading]}>
+
       <ScrollView>
       <Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
 
@@ -128,6 +135,7 @@ export const Home = ({ navigation,state,user,diary }) =>{
         </View>
             
     </ScrollView>   
+    </WaitLoading>
     );
   }
   console.log("BBB: " +  (user.status == loginStatus.logged));

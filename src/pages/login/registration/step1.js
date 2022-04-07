@@ -7,29 +7,30 @@ import { MarginContainer } from '../../../customComponents/containers/marginCont
 import { WaitLoading } from '../../../customComponents/containers/waitLoading';
 import CustomButton from '../../../customComponents/customButton';
 import { CustomNumberPicker } from '../../../customComponents/customNumberPicker';
-import { PageStepBar } from '../../../customComponents/pageStepBar';
+import { PageStepBar } from './pageStepBar';
 
-export const RegStep3 = ({step,setStep}) =>{
+export const RegStep1 = ({step,setStep}) =>{
 
-
+    //const [step,setStep] = state;
     const [loading,setLoading] = useState(true);
 
     return (
         
         <View style={styles.container}>
             <MarginContainer style={styles.container}>
+                
                 <Text style={styles.step}>STEP {step}/5:</Text>
                 <View>
                     <Text style={styles.title}></Text>
-                    <InputBlock name={"Phisical Info:"}>
-                        <InputContainer name={"Weight: "}>
-                            <CustomNumberPicker style={styles.numberPicker}/>
+                    <InputBlock name={"Login Info:"}>
+                        <InputContainer name={"Email: "}>
+                            <TextInput style={styles.textInput} keyboardType="email-address"/>
                         </InputContainer>
-
-                        <InputContainer name={"Height: "}>
-                            <CustomNumberPicker style={styles.numberPicker}/>
+                        <InputContainer name={"Password: "}>
+                            <TextInput style={styles.textInput} secureTextEntry={true}/>
                         </InputContainer>
                     </InputBlock>
+                   
                 </View>
                 <CustomButton title='Next' onPress={()=>{setStep(step+1)}}/>
                 <PageStepBar step={step} style={styles.stepBar}/> 
@@ -39,7 +40,17 @@ export const RegStep3 = ({step,setStep}) =>{
         
     );
 }
+/*
+ <InputBlock name={"Phisical Info:"}>
+                        <InputContainer name={"Weight: "}>
+                            <CustomNumberPicker/>
+                        </InputContainer>
 
+                        <InputContainer name={"Height: "}>
+                            <CustomNumberPicker/>
+                        </InputContainer>
+                    </InputBlock>
+*/
 const styles = StyleSheet.create({
     container:{
         height:'100%',
@@ -59,9 +70,6 @@ const styles = StyleSheet.create({
         alignSelf:'center',
         backgroundColor:colors.primary,
 
-    },
-    numberPicker:{
-        /*alignSelf:'center'*/
     },
     stepBar:{
         marginBottom:0

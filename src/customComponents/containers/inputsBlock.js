@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Text, StyleSheet,TouchableOpacity, TextInput,View} from 'react-native';
+import { colors } from '../../constants/appAspect';
 import { MarginContainer } from './marginContainer';
 
 export const InputBlock = ({children,name}) =>{
@@ -20,13 +21,13 @@ export const InputBlock = ({children,name}) =>{
 const styles = StyleSheet.create({
     container:{
         marginTop:10,
-        backgroundColor:'white'
+        backgroundColor:colors.secondary
     },
     title:{
         fontSize:20,
     },
     inputs:{
         width:'100%',
-        flexDirection:'row',
+        flexDirection:'column',
     }
 })

@@ -12,12 +12,13 @@ import * as authSys from '../../utils/auth'
 //FIREBASE
 import auth from '@react-native-firebase/auth';
 import { loginStatus } from '../../constants/states';
+import { WaitLoading } from '../../customComponents/containers/waitLoading';
 
 export const Login = ({navigation,status}) =>{
 
     const dispatch = useDispatch();
 
-    const [init, setInit] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const [logged,setLogged] = useState(false);
 	
@@ -39,7 +40,7 @@ export const Login = ({navigation,status}) =>{
     function onAuthStateChanged(user) {
         //setUser(user);
         //console.log("USER: " + JSON.stringify(user));
-        if (init) setInit(false);
+        if (loading) setLoading(false);
     }
 
     useEffect(() => {
@@ -47,24 +48,27 @@ export const Login = ({navigation,status}) =>{
         return subscriber; // unsubscribe on unmount
     }, []);
 
-    if (init) return null;
+    if (loading) return null;
 
     const tryLogin = async() =>
     {
+        setLoading(true);
         console.log("TRY LOGIN");
     
         dispatch(login("marcofasa99@gmail.com","123456"));
         //dispatch(addGlicemy("zLZqvcoV2egpiguiJKxN5i9vrPK2",34));
 
-        navigation.navigate('BottomTab',{});
+        //navigation.navigate('BottomTab',{});
     }
     
     return (
         <View>
-            <CustomButton
-                title='Login Test'
-                onPress={tryLogin}
-            /> 
+            <WaitLoading loadingState={[loading, setLoading]}>
+                <CustomButton
+                    title='Login Test'
+                    onPress={tryLogin}
+                /> 
+            </WaitLoading>
         </View>
     );
 }

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Text, StyleSheet,TouchableOpacity, TextInput,View} from 'react-native';
+import { colors } from '../../constants/appAspect';
 
 export const InputContainer = ({children,name}) =>{
 
@@ -17,17 +18,18 @@ export const InputContainer = ({children,name}) =>{
 const styles = StyleSheet.create({
     container:{
         marginLeft:10,
-        flex:2,
-        flexDirection:'column',
         marginTop:10,
+        flexDirection:'column',
         justifyContent:'center',
     },
     name:{
         fontSize:18,
-        fontWeight:'400',
-        alignSelf:'center'
+        fontWeight:'600',
+        /*alignSelf:'center'*/
+        marginLeft:10,
+        color:colors.primary,
     },
     children:{
-        alignSelf:'center'
+
     }
 })
