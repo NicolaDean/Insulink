@@ -152,6 +152,8 @@ const removeFood = (state,data)=>{
         //FOR EACH FOOD
         tmp.forEach(x =>{
             //CHECK IDENTIFIER TO REMOVE
+            console.log("(" + x.identifier + " , " + food.identifier+ ")");
+        
             if(x.identifier === food.identifier)
             {
                 //IF FOUNDED MARK INDEX AND MEAL FROM WICH REMOVE
@@ -171,8 +173,59 @@ const removeFood = (state,data)=>{
     return newstate;
 }
 
-const modifyFood = () =>{
-    //TODO
+//TODO CHECK HOW ADD NEW MACRO AND REMOVE OLD MACRO
+const editFood = (state,data) =>{
+    const food = data.food;
+    //COPY STATE
+    const newstate ={...state};
+    let m = state.meals[state.currentMeal].macro;
+    //REMOVE FOOD FROM MACRO
+    //(BISOGNA PASSARE IL CIBO VERO E PROPRIO MO VIENE PASSATO L'ID)
+    newstate.meals[state.currentMeal].macro = sumMacro(m,food);
+    newstate.totMacro  = sumMacro(newstate.totMacro,food);
+    
+
+    //REMOVING FOOD FROM LIST:
+    let found = false;
+    let m_found = false;
+
+    let meal_types = Object.keys(newstate.meals);
+
+    //FOR EACH MEAL
+    meal_types.forEach((key,index) =>{
+        if(found != false){ return;}
+        let i = 0;
+        let tmp = [];
+        tmp =newstate.meals[key].foods;
+
+        //FOR EACH FOOD
+        tmp.forEach(x =>{
+            //CHECK IDENTIFIER TO REMOVE
+            console.log("(" + x.identifier + " , " + food.identifier+ ")");
+            console.log("IN STATE:\n" + JSON.stringify(x));
+            console.log("TO EDIT :\n" +JSON.stringify(food));
+            if(x.identifier === food.identifier)
+            {
+                //IF FOUNDED MARK INDEX AND MEAL FROM WICH REMOVE
+                found = i;
+                m_found = key;
+                //REMOVE OLD MACRO
+                newstate.meals[state.currentMeal].macro = subMacro(m,x);
+                newstate.totMacro  = subMacro(newstate.totMacro,x);
+            }
+            i++;
+        });        
+    });
+
+    //REMOVE FROM MEAL THE FOOD AT THE SPECIFIC INDEX MARKED
+    if((found-1 === -1) || found != false){
+        console.log("FOUND IN (" +m_found + ","+found+")" );
+        
+        newstate.meals[m_found].foods[found] = food;
+    }
+    
+
+    return newstate;
 }
 
 /**
@@ -192,6 +245,8 @@ const macroReducer = (state = initialDiaryState, action) => {
             return addFood(state,action.payload);
         case foodMethods.removeFood:
             return removeFood(state,action.payload);
+        case foodMethods.editFood:
+            return editFood(state,action.payload);
         case foodMethods.selectMeal:
             return selectMeal(state,action.payload);
         case foodMethods.loadFoodDiary:

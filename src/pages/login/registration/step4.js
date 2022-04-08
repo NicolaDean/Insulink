@@ -57,13 +57,13 @@ export const RegStep4 = ({step,setStep,userData,setUserData}) =>{
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Fitness Objective:"}>
                         <InputContainer name={"Carbohydrates: "}>
-                            <Slider onValueChange={(value)=>{changeMacro("Carb",value)}}/>
+                            <Slider value={userData.maxCarb} onValueChange={(value)=>{changeMacro("Carb",value)}} minimumValue={0} maximumValue={600} step={1}/>
                         </InputContainer>
                         <InputContainer name={"Fats: "}>
-                            <Slider onValueChange={(value)=>{changeMacro("Fat",value)}}/>
+                            <Slider value={userData.maxFat}onValueChange={(value)=>{changeMacro("Fat",value)}} minimumValue={0} maximumValue={600} step={1}/>
                         </InputContainer>
                         <InputContainer name={"Proteins: "}>
-                            <Slider onValueChange={(value)=>{changeMacro("Prot",value)}}/>
+                            <Slider value={userData.maxProt} onValueChange={(value)=>{changeMacro("Prot",value)}} minimumValue={0} maximumValue={600} step={1}/>
                         </InputContainer>
                         <InputContainer>
                              <View>

@@ -15,7 +15,7 @@ import { ApiHelper } from '../../utils/apiHelper';
 
 //REDUX
 import { connect, useDispatch } from 'react-redux';
-import { addFood } from '../../stateManager/reduxStates/actions/macroTracker';
+import { addFood, editFood, removeFood } from '../../stateManager/reduxStates/actions/macroTracker';
 import MacroTable from './macroTable';
 import { CustomImageButton } from '../../customComponents/customImageButton';
 import { buttonIconsNames } from '../../assets/buttonIcons';
@@ -25,24 +25,31 @@ import { colors } from '../../constants/appAspect';
 const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset;
 
-export const FoodDetails = ({navigation,route,identifier}) =>{
+export const FoodDetails = ({route,navigation,identifier}) =>{
 
     //TODO ADD A "LOADING BAR" UNTIL DATA ARENT LOADED
-    let id = route.params.id.id;
+    let data = route.params.data; //TODO IN FOOD IS WRONGLY PASSED ID INSTEAD OF DATA (try correct)
 
     const dispatch = useDispatch();
     const [details, setDetails] = useState(false);
-    const [unit,setUnit] = useState('g');
+    const [unit,setUnit] = useState(null);
     const [amount,setAmount] = useState(1);
     const [items,setItems] = useState([{label:'',value:''}]);
     const [open, setOpen] = useState(false);
     
+    const editable = route.params.editable;
+
+    const iconSelector = editable ? buttonIconsNames.edit : buttonIconsNames.plus;
+    const addButtonText = editable ? "Edit Food" : "Add Food To Meal";
+
+    const foodId = editable ? route.params.identifier : identifier;
+
     //Retrive API food details data
-    const getData = async (id)=>
+    const getData = async (data)=>
     {
         //RETRIVE DATA
         let res;
-        res = (await Food_API.getIngredientDetailsAlternative(id.food_name));
+        res = (await Food_API.getIngredientDetailsAlternative(data.food_name));
         if(typeof(res.foods) === undefined) return;
         res = res.foods[0];
 
@@ -57,13 +64,13 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
 
     //Call on first render
     useEffect(()=>{
-        getData(id);
+        getData(data);
     },[]);
 
     const addItem = () =>{
 
         var food ={
-            id:     id,
+            id:     data,
             name:   details.name,
             image:  details.image,
             cal:    details.current_calories ,
@@ -72,11 +79,15 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
             prot:   details.current_protein,
             quantity: amount,
             unit: unit,
-            identifier: identifier,
-
+            identifier: foodId,
         }
 
-        dispatch(addFood(food));
+        if(editable){
+            dispatch(editFood(food));
+        }else{
+            dispatch(addFood(food));
+        }
+        
 
         navigation.navigate('MealDiary',{});
     }
@@ -99,6 +110,29 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
         setDetails(proportion);
     }
 
+    const deleteButton = () =>{
+        return(
+            <CustomImageButton image={buttonIconsNames.bin} style={styles.addPlus} iconStyle={styles.addPlus} onPress={() =>{
+                dispatch(removeFood({
+                    id:     data,
+                    name:   details.name,
+                    image:  details.image,
+                    cal:    details.current_calories ,
+                    carb:   details.current_total_carbohydrate,
+                    fat:    details.current_total_fat,
+                    prot:   details.current_protein,
+                    quantity: amount,
+                    unit: unit,
+                    identifier: foodId,
+                }));
+                navigation.navigate('MealDiary',{});
+
+            }}/>      
+        );
+    }
+    
+    console.log("AMMOUNT: " + JSON.stringify(data));
+
     const renderDetails = () =>{
         return (
             
@@ -110,14 +144,15 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
                 <Image style={styles.foodImage} source={{uri:details.image}}/>
                 <View style={{marginTop:200,flexDirection:'row',alignContent:'center'}}>
                     <Text style ={styles.sectionTitle}> {details.name}</Text>
-                    <CustomImageButton image={buttonIconsNames.plus} style={styles.addPlus} iconStyle={styles.addPlus} onPress={addItem}/>
+                    <CustomImageButton image={iconSelector} style={styles.addPlus} iconStyle={styles.addPlus} onPress={addItem}/>
+                    {editable?deleteButton():null}
                 </View>
              </View>
             <View style={{flex: 4,backgroundColor: 'rgba(112,202,230, 0.30)',flexDirection:'column'}}>
                 
                 <View style={{flex:1.3,width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white',borderRadius:10}}>
                     <View style={{marginLeft:10,marginRight:10,marginTop:10,flexDirection:'row'}}>
-                        <TextInput defaultValue="1" style={{backgroundColor:'white',borderColor:'black',borderWidth:1,width:'20%'}} onChangeText={a=>{updateAmount(a)}} placeholder='amount' keyboardType="numeric"/>
+                        <TextInput value={data.amount} defaultValue="1" style={{backgroundColor:'white',borderColor:'black',borderWidth:1,width:'20%'}} onChangeText={a=>{updateAmount(a)}} placeholder='amount' keyboardType="numeric"/>
                         <DropDownPicker
                             zIndex={1000}
                             onSelectItem={(item) => {
@@ -170,7 +205,7 @@ export const FoodDetails = ({navigation,route,identifier}) =>{
                 <MacroTable title={"Details"}data={details}/>
 
                 <View style={{flex:1,width:'90%',marginLeft:'5%',marginTop:10}}>
-                    <CustomButton style={styles.addButton} title="Add Food To Meal" onPress={()=>{addItem()}}/>
+                    <CustomButton style={styles.addButton} title={addButtonText} onPress={()=>{addItem()} }/>
                 </View>
                 
             </View>

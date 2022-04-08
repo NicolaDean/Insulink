@@ -73,7 +73,7 @@ export const Login = ({navigation,status}) =>{
                 <Text style={styles.step}>Welcome to Insulink!!!</Text>
                 <View>
                     <Text style={styles.title}></Text>
-                    <InputBlock name={"Inserto Your Credential:"}>
+                    <InputBlock name={"Insert Your Credential:"}>
                         <InputContainer name={"Email: "}>
                             <TextInput style={styles.textInput} keyboardType="email-address"/>
                         </InputContainer>

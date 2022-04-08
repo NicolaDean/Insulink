@@ -1,0 +1,10 @@
+
+
+class InputChecker{
+
+
+    checkEmail = (email) =>{
+
+    } 
+
+}

@@ -8,12 +8,14 @@ const Line =({structure,data}) =>{
     const line_name = name_offset + structure.line;
     console.log("->" + line_name);
 
+    let i = 0;
     return (
         <View style={styles.lineContainer}>
             <Text style={styles.lineName}>{structure.line}: {data[line_name]}</Text>
             {
                structure.subline.map(subline =>{
-                    return <SubLine data={data} structure={subline}></SubLine>
+                    i++;
+                    return <SubLine key={i} data={data} structure={subline}></SubLine>
                })
 
             }
@@ -46,12 +48,14 @@ const tableStructure =
 export const MacroTable = ({title,data}) =>{
     //TODO MAKE MACRO TABLE EXPANDABLE (a tendina)
     //EG: make a "DETAILS" text with a little arrow if click all table appears
+    let i=0;
     return (
         <View style={styles.tableContainer}>
             <Text style={styles.sectionTitle}>{title}</Text>
             {
                 tableStructure.map(line => {
-                    return (<Line structure={line} data={data}></Line>);
+                    i++;
+                    return (<Line key={i} structure={line} data={data}></Line>);
                 })
             }
         </View>

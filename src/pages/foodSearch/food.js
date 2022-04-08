@@ -24,11 +24,10 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
     let image = id.photo.thumb;
     let name = id.food_name;
     
-    
-    
 
-    const getDetails = (id) =>{
-        nav.navigate('FoodDetails',{id : {id}}) 
+    const getDetails = () =>{
+        console.log("DET: " + JSON.stringify(data));
+        nav.navigate('FoodDetails',{data : id,identifier:data.identifier,editable : deletable}) 
         setExpanded(false);
     }
     const expandMeal = () =>{
@@ -68,7 +67,7 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
         <Shake value={state} type="timing" useNativeDriver={true}>
             <TouchableHighlight  style={ {justifyContent: 'center',alignItems:'center',margin:3}}
                                 underlayColor={"COLOR"}  
-                                onPress={()=>{getDetails(id)} } 
+                                onPress={()=>{getDetails()} } 
                                 onLongPress={expandMeal}
             >
                 <View style={deletable? deletableStyle:normalStyle}>

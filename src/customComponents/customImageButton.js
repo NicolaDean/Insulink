@@ -11,11 +11,12 @@ export const CustomImageButton = (
         title="Button",
         image="",
         style,
-        iconStyle
+        iconStyle,
+        disabled=false
     }) =>{
 
         return(
-            <TouchableOpacity onPress={onPress} style={style}>
+            <TouchableOpacity  disabled={disabled} onPress={onPress} style={style}>
                     <View  style={image == 'dose' ?styles.appButtonContainerRound: (image =='glucose' || image== 'statistics'|| image== 'calendar')? styles.appButtonContainerSquare: null}>
                         <Image source={buttonIcons[image].uri} style={iconStyle} />
                     </View>

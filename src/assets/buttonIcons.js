@@ -25,6 +25,8 @@ export const buttonIcons = {
     male:{uri: require('./male.png')},
     female:{uri: require('./female.png')},
     nonbinary:{uri: require('./nonbinary.png')},
+    bin:{uri: require('./bin.png')},
+    edit:{uri: require('./edit.png')},
 }
 
 export const buttonIconsNames = {
@@ -52,6 +54,8 @@ export const buttonIconsNames = {
     weigth:'weight',
     male:'male',
     female:'female',
-    nonbinary:'nonbinary'
+    nonbinary:'nonbinary',
+    bin:'bin',
+    edit:'edit',
 }
 

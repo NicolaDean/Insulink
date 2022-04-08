@@ -27,6 +27,13 @@ export const removeFood = (food) =>{
     }
 } 
 
+export const editFood = (food) =>{
+    return{
+        type: foodMethods.editFood,
+        payload: {food:food}
+    }
+} 
+
 export const selectMealType = (mealType) =>{
     return{
         type: foodMethods.selectMeal,
@@ -34,7 +41,7 @@ export const selectMealType = (mealType) =>{
     }
 }
 
-export const loadRemoteDiary = (email,date) =>{
+export const loadRemoteDiary = (email,date) =>{ b
     
 }
 
