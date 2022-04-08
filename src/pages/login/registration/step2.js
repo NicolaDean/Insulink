@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import {View,StyleSheet,Text,TextInput} from 'react-native';
 import { buttonIcons, buttonIconsNames } from '../../../assets/buttonIcons';
 import { colors } from '../../../constants/appAspect';
+import { userDataTypes } from '../../../constants/states';
 import { InputBlock } from '../../../customComponents/containers/inputsBlock';
 import { InputContainer } from '../../../customComponents/containers/inputsContainer';
 import { MarginContainer } from '../../../customComponents/containers/marginContainer';
@@ -31,10 +32,13 @@ const Gender = ({gender,selected,setGender}) =>{
 }
 
 
-export const RegStep2 = ({step,setStep}) =>{
+export const RegStep2 = ({step,setStep,userData,setUserData}) =>{
 
-    const [gender,setGender] = useState("male");
     const [loading,setLoading] = useState(true);
+
+    const setUserGender = (gender) =>{
+        setUserData("gender",gender);
+    }
 
     return (
         
@@ -45,22 +49,27 @@ export const RegStep2 = ({step,setStep}) =>{
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Personal Data:"}>
                         <InputContainer name={"Name: "}>
-                            <TextInput style={styles.textInput} />
+                            <TextInput value={userData.name} style={styles.textInput} onChangeText={val => setUserData(userDataTypes.name,val)}/>
                         </InputContainer>
                         <InputContainer name={"Surname: "}>
-                            <TextInput style={styles.textInput}/>
+                            <TextInput value={userData.surname} style={styles.textInput} onChangeText={val => setUserData(userDataTypes.surname,val)}/>
                         </InputContainer>
                         <InputContainer name={"Gender: "} childrenStyle={styles.genders}>
-                            <Gender gender={buttonIconsNames.male} selected={gender} setGender={setGender}/>
-                            <Gender gender={buttonIconsNames.female} selected={gender} setGender={setGender}/>
-                            <Gender gender={buttonIconsNames.nonbinary} selected={gender} setGender={setGender}/>
+                            <Gender gender={buttonIconsNames.male} selected={userData.gender} setGender={setUserGender}/>
+                            <Gender gender={buttonIconsNames.female} selected={userData.gender} setGender={setUserGender}/>
+                            <Gender gender={buttonIconsNames.nonbinary} selected={userData.gender} setGender={setUserGender}/>
                         </InputContainer>
                         <InputContainer name={"Birthday: "}>
                             <TextInput style={styles.textInput}/>
                         </InputContainer>
                     </InputBlock>
                 </View>
-                <CustomButton title='Next' onPress={()=>{setStep(step+1)}}/>
+                <View style={{flexDirection:'row'}}>
+                    <CustomButton title='Prev' onPress={()=>{setStep(step-1)}}/>
+                    <CustomButton title='Next' onPress={()=>{setStep(step+1)}}/>
+                </View>
+
+                
                 <PageStepBar step={step} style={styles.stepBar}/> 
             </MarginContainer>
         </View>
@@ -68,17 +77,7 @@ export const RegStep2 = ({step,setStep}) =>{
         
     );
 }
-/*
- <InputBlock name={"Phisical Info:"}>
-                        <InputContainer name={"Weight: "}>
-                            <CustomNumberPicker/>
-                        </InputContainer>
 
-                        <InputContainer name={"Height: "}>
-                            <CustomNumberPicker/>
-                        </InputContainer>
-                    </InputBlock>
-*/
 const styles = StyleSheet.create({
     container:{
         height:'100%',

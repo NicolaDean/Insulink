@@ -9,7 +9,7 @@ import CustomButton from '../../../customComponents/customButton';
 import { CustomNumberPicker } from '../../../customComponents/customNumberPicker';
 import { PageStepBar } from './pageStepBar';
 
-export const RegStep1 = ({step,setStep}) =>{
+export const RegStep1 = ({step,setStep,userData,setUserData}) =>{
 
     //const [step,setStep] = state;
     const [loading,setLoading] = useState(true);

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {View,StyleSheet,Text,TextInput} from 'react-native';
 import { colors } from '../../../constants/appAspect';
+import { userDataTypes } from '../../../constants/states';
 import { InputBlock } from '../../../customComponents/containers/inputsBlock';
 import { InputContainer } from '../../../customComponents/containers/inputsContainer';
 import { MarginContainer } from '../../../customComponents/containers/marginContainer';
@@ -9,9 +10,10 @@ import CustomButton from '../../../customComponents/customButton';
 import { CustomNumberPicker } from '../../../customComponents/customNumberPicker';
 import { PageStepBar } from './pageStepBar';
 
-export const RegStep3 = ({step,setStep}) =>{
+export const RegStep3 = ({step,setStep,userData,setUserData}) =>{
 
 
+    console.log(JSON.stringify(userData));
     const [loading,setLoading] = useState(true);
 
     return (
@@ -23,15 +25,18 @@ export const RegStep3 = ({step,setStep}) =>{
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Phisical Info:"}>
                         <InputContainer name={"Weight: "}>
-                            <CustomNumberPicker style={styles.numberPicker}/>
+                            <CustomNumberPicker style={styles.numberPicker} currVal={userData.weight} onChange={val => setUserData(userDataTypes.weight,val)}/>
                         </InputContainer>
 
                         <InputContainer name={"Height: "}>
-                            <CustomNumberPicker style={styles.numberPicker}/>
+                            <CustomNumberPicker style={styles.numberPicker} currVal={userData.height} onChange={val => setUserData(userDataTypes.height,val)}/>
                         </InputContainer>
                     </InputBlock>
                 </View>
-                <CustomButton title='Next' onPress={()=>{setStep(step+1)}}/>
+                <View style={{flexDirection:'row'}}>
+                    <CustomButton title='Prev' onPress={()=>{setStep(step-1)}}/>
+                    <CustomButton title='Next' onPress={()=>{setStep(step+1)}}/>
+                </View>
                 <PageStepBar step={step} style={styles.stepBar}/> 
             </MarginContainer>
         </View>
@@ -60,10 +65,10 @@ const styles = StyleSheet.create({
         backgroundColor:colors.primary,
 
     },
-    numberPicker:{
-        /*alignSelf:'center'*/
-    },
     stepBar:{
         marginBottom:0
+    },
+    genders:{
+        flexDirection:'row'
     }
 })

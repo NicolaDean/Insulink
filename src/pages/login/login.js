@@ -1,5 +1,5 @@
 import React, { useState,useEffect }  from 'react'
-import { View  } from 'react-native';
+import { View,StyleSheet,Text,TextInput  } from 'react-native';
 
 //CUSTOM COMPONENTS
 import CustomButton from '../../customComponents/customButton';
@@ -13,6 +13,10 @@ import * as authSys from '../../utils/auth'
 import auth from '@react-native-firebase/auth';
 import { loginStatus } from '../../constants/states';
 import { WaitLoading } from '../../customComponents/containers/waitLoading';
+import { colors } from '../../constants/appAspect';
+import { MarginContainer } from '../../customComponents/containers/marginContainer';
+import { InputBlock } from '../../customComponents/containers/inputsBlock';
+import { InputContainer } from '../../customComponents/containers/inputsContainer';
 
 export const Login = ({navigation,status}) =>{
 
@@ -62,20 +66,50 @@ export const Login = ({navigation,status}) =>{
     }
     
     return (
-        <View>
-            <WaitLoading loadingState={[loading, setLoading]}>
-                <CustomButton
-                    title='Login Test'
-                    onPress={tryLogin}
-                /> 
-            </WaitLoading>
+        
+        <View style={styles.container}>
+            <MarginContainer style={styles.container}>
+                
+                <Text style={styles.step}>Welcome to Insulink!!!</Text>
+                <View>
+                    <Text style={styles.title}></Text>
+                    <InputBlock name={"Inserto Your Credential:"}>
+                        <InputContainer name={"Email: "}>
+                            <TextInput style={styles.textInput} keyboardType="email-address"/>
+                        </InputContainer>
+                        <InputContainer name={"Password: "}>
+                            <TextInput style={styles.textInput} secureTextEntry={true}/>
+                        </InputContainer>
+                    </InputBlock>
+                </View>
+                <CustomButton title='Login' onPress={tryLogin}/>
+            </MarginContainer>
         </View>
+        
+        
     );
 }
+const styles = StyleSheet.create({
+    container:{
+        height:'100%',
+        backgroundColor:'orange'
+    },
+    textInput:{
+        height: 40,
+        width:'90%',
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+        alignSelf:'center',
+        backgroundColor:colors.primary,
+
+    },
+
+})
 
 
 const mapStateToProps = (state, ownProps = {}) => {
     return{status:state.userReducer.status};
-  }
+}
   
 export default connect(mapStateToProps)(Login);

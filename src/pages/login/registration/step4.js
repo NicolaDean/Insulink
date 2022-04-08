@@ -11,38 +11,41 @@ import { CustomNumberPicker } from '../../../customComponents/customNumberPicker
 import { PageStepBar } from './pageStepBar';
 
 import {Slider} from '@miblanchard/react-native-slider';
+import { userDataTypes } from '../../../constants/states';
 
 const dummy_data = [
-    {x:"Carb"  ,y:30},
+    {x:"Carb"  ,y:50},
     {x:"Fat"   ,y:30},
-    {x:"Prot"  ,y:30}];
+    {x:"Prot"  ,y:222}];
 
-export const RegStep4 = ({step,setStep}) =>{
+export const RegStep4 = ({step,setStep,userData,setUserData}) =>{
 
     const [chartData,setChartData] = useState(dummy_data);
 
+    console.log(JSON.stringify(userData));
     const changeMacro = (macro,value) =>{
-        let newChartData = [...chartData];
+        const newChartData = [...chartData];
+
         switch(macro){
             case 'Carb':
-                newChartData[0].y = value;
+                newChartData[0] = {x:"Carb"  ,y:value};
+                setUserData(userDataTypes.maxCarb,value);
                 break;
             case 'Fat':
-                newChartData[1].y = value;
+                newChartData[1] = {x:"Fat"  ,y:value};
+                setUserData(userDataTypes.maxFat,value);
                 break;
             case 'Prot':
-                newChartData[2].y = value;
+                newChartData[2] = {x:"Prot"  ,y:value};
+                setUserData(userDataTypes.maxProt,value);
                 break;
             default:
-                newChartData[0].y = value;
+                newChartData[0] = {x:"Carb"  ,y:value};
+                setUserData(userDataTypes.maxCarb,value);
                 break;
         }
-
-        console.log(newChartData);
         setChartData(newChartData);
     }
-
-    console.log("NEW CHART DATA:" + JSON.stringify(chartData));
     const [loading,setLoading] = useState(true);
 
     return (
@@ -54,13 +57,13 @@ export const RegStep4 = ({step,setStep}) =>{
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Fitness Objective:"}>
                         <InputContainer name={"Carbohydrates: "}>
-                            <Slider/>
+                            <Slider onValueChange={(value)=>{changeMacro("Carb",value)}}/>
                         </InputContainer>
                         <InputContainer name={"Fats: "}>
-                            <Slider />
+                            <Slider onValueChange={(value)=>{changeMacro("Fat",value)}}/>
                         </InputContainer>
                         <InputContainer name={"Proteins: "}>
-                            <Slider />
+                            <Slider onValueChange={(value)=>{changeMacro("Prot",value)}}/>
                         </InputContainer>
                         <InputContainer>
                              <View>
@@ -80,7 +83,6 @@ export const RegStep4 = ({step,setStep}) =>{
                     </InputBlock>
                 </View>
                 
-                <CustomButton title='Next' onPress={()=>{changeMacro("Carb",230)}}/>
                 <CustomButton title='Next' onPress={()=>{setStep(3)}}/>
                 <PageStepBar step={step} style={styles.stepBar}/> 
             </MarginContainer>

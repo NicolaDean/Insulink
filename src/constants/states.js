@@ -20,5 +20,8 @@ export const userDataTypes = {
     age: "age",
     isf: "isf",
     choratio: "choratio",
-    glicemu: "glicemy"
+    glicemu: "glicemy",
+    maxCarb: "maxCarb",
+    maxProt: "maxProt",
+    maxFat: "maxFat"
 }

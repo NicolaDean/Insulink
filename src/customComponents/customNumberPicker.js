@@ -9,14 +9,20 @@ const nullLambda = () =>{};
 export const CustomNumberPicker = ({
     initialValue = 0.0,
     onChange = nullLambda,
+    currVal = 0,
     style,
 }) =>{
 
-    const [value,setValue] = useState(0);
+    console.log(currVal);
+
+    //TODO SEARCH HOW TO SET VALUE FROM userData
+    const [value,setValue] = useState(currVal);
+    const [stringVal,setStringVal] = useState(currVal.toString());
 
     const changeValue = (value) =>{
         try{
-            //setValue(parseFloat(value));
+            setValue(parseFloat(value));
+            setStringVal(value);
             console.log("Change->" + value);
             onChange(value);
         }catch(error){
@@ -28,24 +34,26 @@ export const CustomNumberPicker = ({
         console.log("ADD");
     
         let newVal = (value + 0.1);
-        console.log("NEW VAL: " + newVal);
-        newVal = newVal.toFixed(1);
+        //console.log("NEW VAL: " + newVal);
+        //newVal = newVal.toFixed(1);
+        setStringVal(newVal.toString());
         setValue(newVal);
-        console.log("NEW VAL: " + newVal);
+        onChange(newVal);
     }
 
     const remove =  () =>{
-        let newVal = (value - 0.1);
-        console.log("NEW VAL: " + newVal);
-        newVal = newVal.toFixed(1);
-        setValue(newVal);
-        
-    }
 
+        let newVal = (value - 0.1);
+        //console.log("NEW VAL: " + newVal);
+        //newVal = newVal.toFixed(1);
+        setStringVal(newVal.toString());
+        setValue(newVal);
+        onChange(newVal);
+    }
     return(
         <View style={[styles.container,style]}>
             <CustomImageButton image={buttonIconsNames.less} iconStyle={styles.buttonIcon} onPress={remove}/>
-            <TextInput keyboardType="numeric" onChange={changeValue} value={value.toString()} style={styles.input}/>
+            <TextInput keyboardType="numeric" onChangeText={changeValue} value={stringVal} style={styles.input}/>
             <CustomImageButton image={buttonIconsNames.more} iconStyle={styles.buttonIcon} onPress={add}/>
         </View>
     );
