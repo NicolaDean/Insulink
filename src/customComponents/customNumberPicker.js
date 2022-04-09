@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     },
     buttonIcon:{
         width:25,
-        height:25
+        height:25,
     }
 
 })

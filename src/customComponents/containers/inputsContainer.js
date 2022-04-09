@@ -18,16 +18,17 @@ export const InputContainer = ({children,name,style,childrenStyle}) =>{
 const styles = StyleSheet.create({
     container:{
         marginLeft:10,
-        marginTop:10,
+        marginTop:5,
         flexDirection:'column',
         justifyContent:'center',
     },
     name:{
         fontSize:18,
         fontWeight:'600',
-        /*alignSelf:'center'*/
+    
+        alignSelf:'center',
         marginLeft:10,
-        color:colors.primary,
+        color:'white',
     },
     children:{
 

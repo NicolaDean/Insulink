@@ -11,7 +11,7 @@ import { CustomNumberPicker } from '../../../customComponents/customNumberPicker
 import { PageStepBar } from './pageStepBar';
 
 export const RegStep3 = ({step,setStep,userData,setUserData}) =>{
-
+// TODO non funziona bene il num picker
 
     console.log(JSON.stringify(userData));
     const [loading,setLoading] = useState(true);
@@ -21,18 +21,16 @@ export const RegStep3 = ({step,setStep,userData,setUserData}) =>{
         <View style={styles.container}>
             <MarginContainer style={styles.container}>
                 <Text style={styles.step}>STEP {step}/5:</Text>
-                <View>
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Phisical Info:"}>
                         <InputContainer name={"Weight: "}>
                             <CustomNumberPicker style={styles.numberPicker} currVal={userData.weight} onChange={val => setUserData(userDataTypes.weight,val)}/>
                         </InputContainer>
-
+                        
                         <InputContainer name={"Height: "}>
                             <CustomNumberPicker style={styles.numberPicker} currVal={userData.height} onChange={val => setUserData(userDataTypes.height,val)}/>
                         </InputContainer>
                     </InputBlock>
-                </View>
                 <View style={{flexDirection:'row'}}>
                     <CustomButton title='Prev' onPress={()=>{setStep(step-1)}}/>
                     <CustomButton title='Next' onPress={()=>{setStep(step+1)}}/>
@@ -48,7 +46,12 @@ export const RegStep3 = ({step,setStep,userData,setUserData}) =>{
 const styles = StyleSheet.create({
     container:{
         height:'100%',
-        backgroundColor:'orange'
+        backgroundColor:colors.light_orange,
+        
+    },title:{
+        alignSelf:'auto',
+        fontWeight:'bold',
+
     },
     step:{
         fontSize:25,
@@ -62,7 +65,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 10,
         alignSelf:'center',
-        backgroundColor:colors.primary,
+        backgroundColor:'white',
 
     },
     stepBar:{
@@ -70,5 +73,10 @@ const styles = StyleSheet.create({
     },
     genders:{
         flexDirection:'row'
+    },
+    numberPicker:{
+        
+        marginVertical:10,
+        
     }
 })

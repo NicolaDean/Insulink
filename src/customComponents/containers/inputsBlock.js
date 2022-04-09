@@ -21,7 +21,8 @@ export const InputBlock = ({children,name}) =>{
 const styles = StyleSheet.create({
     container:{
         marginTop:10,
-        backgroundColor:colors.secondary
+        borderRadius:8,
+        backgroundColor:colors.secondary,
     },
     title:{
         fontSize:20,

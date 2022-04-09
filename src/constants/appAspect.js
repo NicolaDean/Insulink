@@ -7,7 +7,8 @@ export const themeBlue = {
     black:"black",
     primary:"rgb(112,202,230)",
     secondary:"#285AA4",
-    orange: '#ffa726'
+    orange: '#ffa726',
+    light_orange:'#FBB84B'
 };
 
 export const colors = themeBlue;

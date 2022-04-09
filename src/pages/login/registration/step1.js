@@ -43,7 +43,7 @@ export const RegStep1 = ({step,setStep,userData,setUserData}) =>{
 const styles = StyleSheet.create({
     container:{
         height:'100%',
-        backgroundColor:'orange'
+        backgroundColor:colors.light_orange,
     },
     step:{
         fontSize:25,
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 10,
         alignSelf:'center',
-        backgroundColor:colors.primary,
+        backgroundColor:'white',
 
     },
     stepBar:{
