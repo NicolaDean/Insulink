@@ -48,18 +48,18 @@ export const RegStep2 = ({step,setStep,userData,setUserData}) =>{
                 <View>
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Personal Data:"}>
-                        <InputContainer name={"Name: "}>
+                        <InputContainer name={"Name "}>
                             <TextInput value={userData.name} style={styles.textInput} onChangeText={val => setUserData(userDataTypes.name,val)}/>
                         </InputContainer>
-                        <InputContainer name={"Surname: "}>
+                        <InputContainer name={"Surname "}>
                             <TextInput value={userData.surname} style={styles.textInput} onChangeText={val => setUserData(userDataTypes.surname,val)}/>
                         </InputContainer>
-                        <InputContainer name={"Gender: "} childrenStyle={styles.genders}>
+                        <InputContainer name={"Gender "} childrenStyle={styles.genders}>
                             <Gender gender={buttonIconsNames.male} selected={userData.gender} setGender={setUserGender}/>
                             <Gender gender={buttonIconsNames.female} selected={userData.gender} setGender={setUserGender}/>
                             <Gender gender={buttonIconsNames.nonbinary} selected={userData.gender} setGender={setUserGender}/>
                         </InputContainer>
-                        <InputContainer name={"Birthday: "}>
+                        <InputContainer name={"Birthday  "}>
                             <TextInput style={styles.textInput}/>
                         </InputContainer>
                     </InputBlock>

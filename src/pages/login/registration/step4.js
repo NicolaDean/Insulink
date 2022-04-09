@@ -56,13 +56,13 @@ export const RegStep4 = ({step,setStep,userData,setUserData}) =>{
                 <View>
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Fitness Objective:"}>
-                        <InputContainer name={"Carbohydrates: "}>
+                        <InputContainer name={"Carbohydrates  "}>
                             <Slider value={userData.maxCarb} onValueChange={(value)=>{changeMacro("Carb",value)}} minimumValue={0} maximumValue={600} step={1} thumbTintColor='white' minimumTrackTintColor='white'/>
                         </InputContainer>
-                        <InputContainer name={"Fats: "}>
+                        <InputContainer name={"Fats  "}>
                             <Slider value={userData.maxFat}onValueChange={(value)=>{changeMacro("Fat",value)}} minimumValue={0} maximumValue={600} step={1}  thumbTintColor='white' minimumTrackTintColor='white'/>
                         </InputContainer>
-                        <InputContainer name={"Proteins: "}>
+                        <InputContainer name={"Proteins  "}>
                             <Slider value={userData.maxProt} onValueChange={(value)=>{changeMacro("Prot",value)}} minimumValue={0} maximumValue={600} step={1}  thumbTintColor='white' minimumTrackTintColor='white'/>
                             </InputContainer>
 

@@ -23,13 +23,22 @@ export const RegStep3 = ({step,setStep,userData,setUserData}) =>{
                 <Text style={styles.step}>STEP {step}/5:</Text>
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Phisical Info:"}>
-                        <InputContainer name={"Weight: "}>
+                        <View style={{marginVertical:'10%'}}>
+                        <View style={{marginVertical:'5%'}}>
+
+                        <InputContainer name={"Weight  "}>
                             <CustomNumberPicker style={styles.numberPicker} currVal={userData.weight} onChange={val => setUserData(userDataTypes.weight,val)}/>
                         </InputContainer>
-                        
-                        <InputContainer name={"Height: "}>
+                        </View>
+
+                        <View style={{marginVertical:'5%'}}>
+
+                        <InputContainer name={"Height  "}>
                             <CustomNumberPicker style={styles.numberPicker} currVal={userData.height} onChange={val => setUserData(userDataTypes.height,val)}/>
                         </InputContainer>
+                        </View>
+
+                        </View>
                     </InputBlock>
                 <View style={{flexDirection:'row'}}>
                     <CustomButton title='Prev' onPress={()=>{setStep(step-1)}}/>
@@ -75,8 +84,9 @@ const styles = StyleSheet.create({
         flexDirection:'row'
     },
     numberPicker:{
-        
-        marginVertical:10,
+        alignSelf:'center',
+        marginTop: 10,
+        right:'80%'
         
     }
 })

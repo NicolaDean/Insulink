@@ -23,10 +23,10 @@ export const RegStep1 = ({step,setStep,userData,setUserData}) =>{
                 <View>
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Login Info:"}>
-                        <InputContainer name={"Email: "}>
+                        <InputContainer name={"Email  "}>
                             <TextInput style={styles.textInput} keyboardType="email-address"/>
                         </InputContainer>
-                        <InputContainer name={"Password: "}>
+                        <InputContainer name={"Password  "}>
                             <TextInput style={styles.textInput} secureTextEntry={true}/>
                         </InputContainer>
                     </InputBlock>
