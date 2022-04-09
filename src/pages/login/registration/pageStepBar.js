@@ -18,7 +18,7 @@ export const PageStepBar = ({step = 1, totStep =5,style ={}}) =>{
                     }
                     return(
                         <View key={num} style={[styles.step,s]}>
-                            <Text>{num}</Text>
+                            <Text style={{color:'white'}}>{num}</Text>
                         </View>
                     );  
                 })}
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         justifyContent:'center',
         alignItems:'center',
-        paddingHorizontal:1
+        paddingHorizontal:1,
     }
 
 })
