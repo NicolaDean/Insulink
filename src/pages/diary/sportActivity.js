@@ -24,8 +24,8 @@ export const SportActivity = ({ navigation,diary,userData }) =>{
   
     const dispatch = useDispatch();
 
-    const[timeString,setTimeString]=useState("");
-    const[sportString,setSportString]=useState('');
+    let timeString ="";
+    var[sportString,setSportString]=useState('');
     const [value, setValue] = useState({
       hours: 1,
       minutes: 0,
@@ -80,20 +80,22 @@ export const SportActivity = ({ navigation,diary,userData }) =>{
         handleChange(newValue)
       }
   }
+  const createQuery=()=>{
+    let min=value.minutes;
+      if(value.hours!=0){
+        min=min+60*value.hours;
+      }
+      timeString='I made '+min+' minutes'+' of '+ sportString;
+      
+  }
 
 const addActivity = async() =>{
-     if(timeString == "" || timeString==null){
-      let s='I made '
-      let min=value.minutes;
-        if(value.hours!=0){
-          min=min+60*value.hours;
-        }
-        s=s+min+' minutes'+' of '+ sportString;
-        setTimeString(s)
-    }
+     if(sportString != ""){
 
       try 
       {
+        createQuery()
+
         //GET API DATA
         const cal = (await Food_API.getSportCalories(timeString,userData))
         console.log(timeString)
@@ -110,6 +112,10 @@ const addActivity = async() =>{
         //setLoading(false); //TODO
       }
    }
+   else{
+     console.log('No sport picked')
+   }
+  }
 
   return (
    //TODO ADD THE TOTAL MEALS MACRO GRAPHù
@@ -150,9 +156,9 @@ const addActivity = async() =>{
 <Text style={{fontSize:14}}>Describe youe training and we will do the rest!</Text>
 <View style={{borderStartColor:colors.black,borderTopWidth:StyleSheet.hairlineWidth,marginTop:'10%'}}>
       <TextInput style={{fontSize:16}}   placeholder="What have you been up?" onChangeText={
-            (value) => setTimeString(value)
+            (value) => timeString=value
           }/>
-          <CustomButton title="Add Activity" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} onPress={() =>{addActivity()}} />
+          <CustomButton title="Add Activity" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} onPress={() =>addActivity()} />
 
      </View>
   </View>
