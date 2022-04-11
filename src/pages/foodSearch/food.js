@@ -84,7 +84,7 @@ export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
                         
                     <Image 
                         style={{width: dim.width*0.2, height: dim.width*0.2}}
-                        source ={sport? null : {uri:image}}
+                        source ={sport? buttonIcons['running'].uri : {uri:image}}
                     />
                 <Text>{(deletable && sport)? (data.duration+' minutes'):(deletable && !sport)?(data.quantity +" - "+ data.unit):null}</Text>
                 </View>
