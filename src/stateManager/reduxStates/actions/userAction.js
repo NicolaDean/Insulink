@@ -1,11 +1,11 @@
 import { firebase } from "@react-native-firebase/firestore";
 import { foodMethods, userMethods } from "../../../constants/reducers"
 
-import * as database from "../../../utils/firebaseQuery"
 import { localStorage } from "../../../utils/localStoreManager";
 
 import * as authSys from '../../../utils/auth'
 import { loginStatus } from "../../../constants/states";
+import { FirebaseQuery, glicemyDateFormatter } from "../../../utils/firebaseQuery";
 
 /**
  * check all user inputs and try to register
@@ -14,17 +14,22 @@ import { loginStatus } from "../../../constants/states";
  * @param {*} user user data to register
  * @returns error code
  */
-export const register = (user,password) => async dispatch =>{
+export const register = (user) => async dispatch =>{
     //ASYNC ACTION:
     //TODO CHECK USER INPUTS ARE OK (psw length, email not exist etc...)
 
     console.log("Reg Start:");
-    const id = (await authSys.register(user.email,password)).uid;
+    const id = (await authSys.register(user.email,user.password)).uid;
 
     console.log("Reg END:" + id);
-    await database.registerUser(id,user);
-    
+    await FirebaseQuery.registerUser(id,user);
     console.log("REGISTER OK");
+
+    let glicemyData = {};
+    let date = glicemyDateFormatter();
+    glicemyData[date] = [];
+
+    user.glicemy = glicemyData;
 
     //await localStorage.setDataAvailability(true);
     //SAVE DATA TO LOCAL STORAGE
@@ -84,10 +89,9 @@ export const login = (email,psw) => async dispatch =>{
     if(user == null) {return null}; //BAD LOGIN (make return an error)
 
     //Get user data
-    const usrData = (await database.getUserData(user.uid));
-    const glicemy = (await database.getUserGlicemy(user.uid));
+    const usrData = (await FirebaseQuery.getUserData(user.uid));
+    const glicemy = (await FirebaseQuery.getUserGlicemy(user.uid));
     usrData.glicemy = glicemy;
-
 
     //CHECK FOR EMPTY DATA:
     usrData.age = 20; //TODO CALCULATE AGE FROM BIRTHDAY
@@ -100,10 +104,10 @@ export const login = (email,psw) => async dispatch =>{
     dispatch({
         type: userMethods.login,
         payload: {
-            usrData: usrData
+            usrData: usrData,
+            userId:user.uid,
         }
     });
-   
 
     //LOAD OTHER USER DATA FROM FIREBASE (EG: MEAL DIARY)
     return true;
@@ -132,7 +136,7 @@ export const loadUserLocalData = ([logged,setLogged]) =>async dispatch => {
         setLogged(true);
     
         //LOAD MEAL DIARY IF EXIST AND STORE IT INTO REDUX
-        let mealDiary = await localStorage.loadFoodDiary(database.glicemyDateFormatter());
+        let mealDiary = await localStorage.loadFoodDiary(FirebaseQuery.glicemyDateFormatter());
 
         console.log("LOADED DIARY FROM STORAGE")
         console.log("DIARY: " + JSON.stringify(mealDiary))
@@ -178,8 +182,8 @@ export const addGlicemy = (userId,glicemyValue) => async dispatch =>{
     const glicemy = {value: glicemyValue,time:date};
 
     //UPDATE FIREBASE IF POSSIBLE; IF NOT ADD A PENDING UPDATE (TODO)
-    database.addGlicemyValue(userId,glicemy);
-    localStorage.storeGlicemyData(glicemy);
+    FirebaseQuery.addGlicemyValue(userId,glicemy);
+    localStorage.storeGlicemyData(glicemy,date);
 
     //REDUX DISPATCH
     dispatch({

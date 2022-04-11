@@ -23,9 +23,11 @@ export const Login = ({navigation,status}) =>{
     const dispatch = useDispatch();
 
     const [loading, setLoading] = useState(false);
-
     const [logged,setLogged] = useState(false);
 	
+    const [email,setEmail] = useState("");
+    const [psw,setPsw] = useState("");
+
 	//TODO ADD A LOADING BARR (Unlogged -> loading -> Logged) so dosnt seem slow app
 	useEffect(()=>{
         console.log("STATUS: " + status);
@@ -54,15 +56,21 @@ export const Login = ({navigation,status}) =>{
 
     if (loading) return null;
 
-    const tryLogin = async() =>
+    const testLogin = async() =>
     {
         setLoading(true);
         console.log("TRY LOGIN");
     
         dispatch(login("marcofasa99@gmail.com","123456"));
-        //dispatch(addGlicemy("zLZqvcoV2egpiguiJKxN5i9vrPK2",34));
+    }
 
-        //navigation.navigate('BottomTab',{});
+    const tryLogin = async() =>{
+        setLoading(true);
+       
+        console.log(email + "->" + psw);
+        //TODO CHECK EMAIL AND PSW
+        dispatch(login(email,psw));
+       
     }
     
     return (
@@ -75,14 +83,17 @@ export const Login = ({navigation,status}) =>{
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Insert Your Credential:"}>
                         <InputContainer name={"Email: "}>
-                            <TextInput style={styles.textInput} keyboardType="email-address"/>
+                            <TextInput style={styles.textInput} keyboardType="email-address" onChangeText={setEmail}/>
                         </InputContainer>
                         <InputContainer name={"Password: "}>
-                            <TextInput style={styles.textInput} secureTextEntry={true}/>
+                            <TextInput style={styles.textInput} secureTextEntry={true} onChangeText={setPsw}/>
                         </InputContainer>
                     </InputBlock>
                 </View>
+                <CustomButton title='Fast Test Login' onPress={testLogin}/>
                 <CustomButton title='Login' onPress={tryLogin}/>
+          
+                <CustomButton title='Register' onPress={()=>{navigation.navigate('Registration',{})}}/>
             </MarginContainer>
         </View>
         
