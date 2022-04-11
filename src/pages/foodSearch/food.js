@@ -19,13 +19,13 @@ export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
     let id = {};
     if(deletable){
         id = data.id;
+        
     }else{
         id=data;
     }
-    
     let image =sport?null: id.photo.thumb;
     let name = sport? data.name: id.food_name;
-
+   
     const getDetails = () =>{
         console.log("DET: " + JSON.stringify(data));
         nav.navigate('FoodDetails',{data : id,identifier:data.identifier,editable : deletable}) 
@@ -84,7 +84,7 @@ export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
                         
                     <Image 
                         style={{width: dim.width*0.2, height: dim.width*0.2}}
-                        source ={sport? {uri:buttonIcons.name}:{uri:image}}
+                        source ={sport? null : {uri:image}}
                     />
                 <Text>{(deletable && sport)? (data.duration+' minutes'):(deletable && !sport)?(data.quantity +" - "+ data.unit):null}</Text>
                 </View>
