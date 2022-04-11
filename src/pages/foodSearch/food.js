@@ -47,7 +47,7 @@ export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
         dispatch(removeFood(data));
     }
     const deleteSport=() =>{
-        console.log('deleted sport'+id)
+        console.log('deleted sport '+data.name)
         //TODO DISPATCH 
     }
     
