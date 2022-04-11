@@ -28,7 +28,7 @@ export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
     //const sportIMG=buttonIcons[].uri;
     const getDetails = () =>{
         console.log("DET: " + JSON.stringify(data));
-        nav.navigate('FoodDetails',{data : id,identifier:data.identifier,editable : deletable}) 
+        nav.navigate('FoodDetails',{data : id,foodInfo:data,editable : deletable}) 
         setExpanded(false);
     }
     const expandMeal = () =>{

@@ -47,7 +47,10 @@ export const register = async (email,psw) =>{
       console.log('That email address is invalid!');
     }
 
-    console.error(error);
+    if (error.code === 'auth/weak-password') {
+      console.log('Password too weeak');
+    }
+    
   });
 
   return user;

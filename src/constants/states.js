@@ -15,6 +15,7 @@ export const userDataTypes = {
     name: "name",
     surname: "surname",
     email: "email",
+    password:"password",
     height: "height",
     weight: "weight",
     age: "age",

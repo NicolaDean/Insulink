@@ -27,6 +27,7 @@ const login = (state,payload) =>{
 
     const newState = {...state};
 
+    newState.userId = payload.userId;
     newState.status = loginStatus.logged;
     newState.userData = usrData;
 

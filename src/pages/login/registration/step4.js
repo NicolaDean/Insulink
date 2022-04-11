@@ -56,17 +56,17 @@ export const RegStep4 = ({step,setStep,userData,setUserData}) =>{
                 <View>
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Fitness Objective:"}>
-                        <InputContainer name={"Carbohydrates  "}>
-                            <Slider value={userData.maxCarb} onValueChange={(value)=>{changeMacro("Carb",value)}} minimumValue={0} maximumValue={600} step={1} thumbTintColor='white' minimumTrackTintColor='white'/>
+                        <InputContainer name={"Carbohydrates: "}>
+                            <Slider value={userData.maxCarb} onValueChange={(value)=>{changeMacro("Carb",value)}} minimumValue={0} maximumValue={600} step={1}/>
                         </InputContainer>
-                        <InputContainer name={"Fats  "}>
-                            <Slider value={userData.maxFat}onValueChange={(value)=>{changeMacro("Fat",value)}} minimumValue={0} maximumValue={600} step={1}  thumbTintColor='white' minimumTrackTintColor='white'/>
+                        <InputContainer name={"Fats: "}>
+                            <Slider value={userData.maxFat} onValueChange={(value)=>{changeMacro("Fat",value)}} minimumValue={0} maximumValue={600} step={1}/>
                         </InputContainer>
-                        <InputContainer name={"Proteins  "}>
-                            <Slider value={userData.maxProt} onValueChange={(value)=>{changeMacro("Prot",value)}} minimumValue={0} maximumValue={600} step={1}  thumbTintColor='white' minimumTrackTintColor='white'/>
-                            </InputContainer>
-
-                             <View style={{alignSelf:'center'}}>
+                        <InputContainer name={"Proteins: "}>
+                            <Slider value={userData.maxProt} onValueChange={(value)=>{changeMacro("Prot",value)}} minimumValue={0} maximumValue={600} step={1}/>
+                        </InputContainer>
+                        <InputContainer>
+                             <View>
                             <VictoryPie 
                                     colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
                                     data={chartData}
@@ -79,12 +79,11 @@ export const RegStep4 = ({step,setStep,userData,setUserData}) =>{
                                     }, }}
                                 /> 
                             </View>
-
-                       
+                        </InputContainer>
                     </InputBlock>
                 </View>
                 
-                <CustomButton title='Next' onPress={()=>{setStep(3)}}/>
+                <CustomButton title='Next' onPress={()=>{setStep(5)}}/>
                 <PageStepBar step={step} style={styles.stepBar}/> 
             </MarginContainer>
         </View>
@@ -97,7 +96,7 @@ export const RegStep4 = ({step,setStep,userData,setUserData}) =>{
 const styles = StyleSheet.create({
     container:{
         height:'100%',
-        backgroundColor:colors.light_orange,
+        backgroundColor:'orange'
     },
     step:{
         fontSize:25,
@@ -111,7 +110,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 10,
         alignSelf:'center',
-        backgroundColor:'white',
+        backgroundColor:colors.primary,
 
     },
     stepBar:{

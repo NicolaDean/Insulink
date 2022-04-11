@@ -25,11 +25,13 @@ import { colors } from '../../constants/appAspect';
 const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset;
 
-export const FoodDetails = ({route,navigation,identifier}) =>{
+export const FoodDetails = ({route,navigation}) =>{
 
     //TODO ADD A "LOADING BAR" UNTIL DATA ARENT LOADED
     let data = route.params.data; //TODO IN FOOD IS WRONGLY PASSED ID INSTEAD OF DATA (try correct)
+    let foodInfo = route.params.foodInfo;
 
+    console.log("FOOD:" + JSON.stringify(foodInfo));
     const dispatch = useDispatch();
     const [details, setDetails] = useState(false);
     const [unit,setUnit] = useState(null);
@@ -42,7 +44,9 @@ export const FoodDetails = ({route,navigation,identifier}) =>{
     const iconSelector = editable ? buttonIconsNames.edit : buttonIconsNames.plus;
     const addButtonText = editable ? "Edit Food" : "Add Food To Meal";
 
-    const foodId = editable ? route.params.identifier : identifier;
+    const foodId = editable ? route.params.identifier : foodInfo.identifier;
+
+    const foodInitialAmount = editable ? foodInfo.quantity : 1;
 
     //Retrive API food details data
     const getData = async (data)=>
@@ -56,10 +60,16 @@ export const FoodDetails = ({route,navigation,identifier}) =>{
         //DO SOME PREPROCESSING TO THE DATA 
         res = ApiHelper.enrichDatails(res);
         
-        setUnit(res.serving_unit);
+        setAmount(foodInitialAmount);
+        setUnit(editable?foodInfo.unit : res.serving_unit);
         setItems(res.units);
         //SET DETAILS VARIABLE
-        setDetails(res);
+    
+        if(editable){
+            makeProportions(foodInfo.unit,foodInfo.quantity,res);
+        }else{
+            setDetails(res);
+        }
     }
 
     //Call on first render
@@ -103,9 +113,15 @@ export const FoodDetails = ({route,navigation,identifier}) =>{
         makeProportions(unit,q);
     }
 
-    const makeProportions = (item,qty=1) =>{
+    const makeProportions = (item,qty=1,res=null) =>{
 
-        const proportion = ApiHelper.makeProportion(details,item,qty);
+        let proportion;
+        if(res == null){
+            proportion = ApiHelper.makeProportion(details,item,qty);
+        }else{
+            proportion = ApiHelper.makeProportion(res,item,qty);
+        }
+        
         console.log("prop:" + proportion);
         setDetails(proportion);
     }
@@ -131,7 +147,7 @@ export const FoodDetails = ({route,navigation,identifier}) =>{
         );
     }
     
-    console.log("AMMOUNT: " + JSON.stringify(data));
+    console.log("AMMOUNT: " + JSON.stringify(amount));
 
     const renderDetails = () =>{
         return (
@@ -152,7 +168,7 @@ export const FoodDetails = ({route,navigation,identifier}) =>{
                 
                 <View style={{flex:1.3,width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white',borderRadius:10}}>
                     <View style={{marginLeft:10,marginRight:10,marginTop:10,flexDirection:'row'}}>
-                        <TextInput value={data.amount} defaultValue="1" style={{backgroundColor:'white',borderColor:'black',borderWidth:1,width:'20%'}} onChangeText={a=>{updateAmount(a)}} placeholder='amount' keyboardType="numeric"/>
+                        <TextInput defaultValue={foodInitialAmount.toString()} style={{backgroundColor:'white',borderColor:'black',borderWidth:1,width:'20%'}} onChangeText={a=>{updateAmount(a)}} placeholder='amount' keyboardType="numeric"/>
                         <DropDownPicker
                             zIndex={1000}
                             onSelectItem={(item) => {

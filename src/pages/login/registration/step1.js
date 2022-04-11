@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {View,StyleSheet,Text,TextInput} from 'react-native';
 import { colors } from '../../../constants/appAspect';
+import { userDataTypes } from '../../../constants/states';
 import { InputBlock } from '../../../customComponents/containers/inputsBlock';
 import { InputContainer } from '../../../customComponents/containers/inputsContainer';
 import { MarginContainer } from '../../../customComponents/containers/marginContainer';
@@ -24,10 +25,10 @@ export const RegStep1 = ({step,setStep,userData,setUserData}) =>{
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Login Info:"}>
                         <InputContainer name={"Email  "}>
-                            <TextInput style={styles.textInput} keyboardType="email-address"/>
+                            <TextInput style={styles.textInput} keyboardType="email-address" onChangeText={val => setUserData(userDataTypes.email,val)}/>
                         </InputContainer>
                         <InputContainer name={"Password  "}>
-                            <TextInput style={styles.textInput} secureTextEntry={true}/>
+                            <TextInput style={styles.textInput} secureTextEntry={true} onChangeText={val => setUserData(userDataTypes.password,val)}/>
                         </InputContainer>
                     </InputBlock>
                    

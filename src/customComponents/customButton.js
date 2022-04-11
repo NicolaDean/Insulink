@@ -13,7 +13,6 @@ export const CustomButton = (
         disabled = false
     }) =>{
 
-        console.log("INSIDE BUTTON EDITABLE: " + disabled);
         return(
             <View style={style}>
                     <TouchableOpacity disabled={disabled}onPress={onPress} 
