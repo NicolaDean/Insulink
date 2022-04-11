@@ -7,9 +7,10 @@ import { Shake } from "react-native-motion";
 import { useDispatch } from 'react-redux';
 import { removeFood } from '../../stateManager/reduxStates/actions/macroTracker';
 import { connect } from 'react-redux';
+import { buttonIcons } from '../../assets/buttonIcons';
 
 
-export const Food = ({data,nav,deletable,identifier=0}) =>{
+export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
 
     const [expanded,setExpanded] = useState( false )
     const [state,setState] = useState( 0)
@@ -18,13 +19,13 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
     let id = {};
     if(deletable){
         id = data.id;
+        
     }else{
         id=data;
     }
-    let image = id.photo.thumb;
-    let name = id.food_name;
-    
-
+    let image =sport?null: id.photo.thumb;
+    let name = sport? data.name: id.food_name;
+   
     const getDetails = () =>{
         console.log("DET: " + JSON.stringify(data));
         nav.navigate('FoodDetails',{data : id,foodInfo:data,editable : deletable}) 
@@ -45,6 +46,10 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
         console.log('deleted food'+id)
         dispatch(removeFood(data));
     }
+    const deleteSport=() =>{
+        console.log('deleted sport'+id)
+        //TODO DISPATCH 
+    }
     
 
     const showExpansion = () =>{
@@ -53,7 +58,7 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
                 <Shake value={state} type="timing" useNativeDriver={true}>
                     <CustomImageButton  image='delete' 
                                         iconStyle={styles.deleteButton}
-                                        onPress={()=>deleteFood()}
+                                        onPress={()=>{sport?deleteSport():deleteFood()}}
                     />
               </Shake>
             </View> );
@@ -67,7 +72,7 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
         <Shake value={state} type="timing" useNativeDriver={true}>
             <TouchableHighlight  style={ {justifyContent: 'center',alignItems:'center',margin:3}}
                                 underlayColor={"COLOR"}  
-                                onPress={()=>{getDetails()} } 
+                                onPress={()=>{sport?null:getDetails()}} 
                                 onLongPress={expandMeal}
             >
                 <View style={deletable? deletableStyle:normalStyle}>
@@ -79,10 +84,9 @@ export const Food = ({data,nav,deletable,identifier=0}) =>{
                         
                     <Image 
                         style={{width: dim.width*0.2, height: dim.width*0.2}}
-                        source ={{uri:image}}
+                        source ={sport? null : {uri:image}}
                     />
-
-                <Text>{deletable? (data.quantity +"-"+ data.unit):null}</Text>
+                <Text>{(deletable && sport)? (data.duration+' minutes'):(deletable && !sport)?(data.quantity +" - "+ data.unit):null}</Text>
                 </View>
             </TouchableHighlight>
         </Shake>

@@ -35,6 +35,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
 
     let macro = diary.meals[id].macro;
     let food= diary.meals[id].foods;
+    let sport= diary.activities[id].sports;
 
     //console.log("macro :" + JSON.stringify(macro) + typeof(macro) +typeof(macro.id));
 
@@ -70,6 +71,16 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
             </View>
         );
     }
+    const renderListItemSport = (item) =>{
+        return(
+            <View  style={{alignContent:'center',justifyContent:'center'}}>
+            <TouchableOpacity style={{alignContent:'center'}} >
+                <Food style={styles.food} data = {item} nav = {navigation} api={apiSelected} deletable={true} sport={true} ></Food>
+                </TouchableOpacity>
+                <Text style={{fontSize:15,marginLeft:10,marginBottom:10}} >{item.id}</Text >
+            </View>
+        );
+    }
 
     const showExpansion = () =>{
         return (
@@ -81,7 +92,12 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                     style={{overflow: 'scroll',}}
                     renderItem={({ item }) => (renderListItem(item))}
                 />
-                
+                <FlatList 
+                    data={sport}//id,name,image,cal,carbs,fat,prot,food_name,serving_unit,tag_name,tag_id
+                    numColumns={3}
+                    style={{overflow: 'scroll',}}
+                    renderItem={({ item }) => (renderListItemSport(item))}
+                />
             </ScrollView>
             <View style={{flexDirection:'row',justifyContent:'center',alignContent:'center',backgroundColor:colors.primary,borderBottomEndRadius: 10,borderBottomLeftRadius:10}}>
              <CustomButton onPress={()=>{addSport()}} title='Add Sport' style={styles.appButtonContainer} useDefaultStyle={false}/>

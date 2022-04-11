@@ -152,7 +152,7 @@ const addActivity = async() =>{
       <TextInput style={{fontSize:16}}   placeholder="What have you been up?" onChangeText={
             (value) => setTimeString(value)
           }/>
-          <CustomButton title="Add Activity" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} onPress={addActivity} />
+          <CustomButton title="Add Activity" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} onPress={() =>{addActivity()}} />
 
      </View>
   </View>
