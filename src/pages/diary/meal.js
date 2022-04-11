@@ -67,7 +67,6 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
             <TouchableOpacity style={{alignContent:'center'}} >
                 <Food style={styles.food} data = {item} nav = {navigation} api={apiSelected} deletable={true} ></Food>
                 </TouchableOpacity>
-                <Text style={{fontSize:15,marginLeft:10,marginBottom:10}} >{item.id.serving_unit}</Text >
             </View>
         );
     }

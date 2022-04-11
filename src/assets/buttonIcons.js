@@ -13,7 +13,7 @@ export const buttonIcons = {
     swimming: {uri: require('./swimming.png')},
     more: {uri: require('./more.png')},
     less: {uri: require('./less.png')},
-    ok: {uri: require('./ok.png')},
+    ok: {urxi: require('./ok.png')},
     settings: {uri: require('./settings.png')},
     return:{uri:require('./return.png')},
     dose: {uri: require('./dose.png')},
@@ -27,6 +27,7 @@ export const buttonIcons = {
     nonbinary:{uri: require('./nonbinary.png')},
     bin:{uri: require('./bin.png')},
     edit:{uri: require('./edit.png')},
+    walking:{uri: require('./fitness.png')}
 }
 
 export const buttonIconsNames = {

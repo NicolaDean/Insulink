@@ -14,7 +14,6 @@ export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
 
     const [expanded,setExpanded] = useState( false )
     const [state,setState] = useState( 0)
-
     const dispatch = useDispatch();
     let id = {};
     if(deletable){
@@ -24,8 +23,9 @@ export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
         id=data;
     }
     let image =sport?null: id.photo.thumb;
-    let name = sport? data.name: id.food_name;
+    var name = sport? data.name.toString(): id.food_name;
    
+    //const sportIMG=buttonIcons[].uri;
     const getDetails = () =>{
         console.log("DET: " + JSON.stringify(data));
         nav.navigate('FoodDetails',{data : id,identifier:data.identifier,editable : deletable}) 
@@ -84,7 +84,7 @@ export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
                         
                     <Image 
                         style={{width: dim.width*0.2, height: dim.width*0.2}}
-                        source ={sport? buttonIcons['running'].uri : {uri:image}}
+                        source ={sport? buttonIcons[data.name].uri: {uri:image}}
                     />
                 <Text>{(deletable && sport)? (data.duration+' minutes'):(deletable && !sport)?(data.quantity +" - "+ data.unit):null}</Text>
                 </View>
