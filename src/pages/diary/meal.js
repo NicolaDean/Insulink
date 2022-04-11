@@ -84,7 +84,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     const showExpansion = () =>{
         return (
             <View style>
-            <ScrollView horizontal={true} style={{ width:"100%",fontSize:20}}> 
+            <ScrollView  style={{ width:"100%",fontSize:20}}> 
                 <FlatList 
                     data={food}//id,name,image,cal,carbs,fat,prot,food_name,serving_unit,tag_name,tag_id
                     style={{}}
@@ -95,7 +95,6 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                     data={sport}//id,name,image,cal,carbs,fat,prot,food_name,serving_unit,tag_name,tag_id
                     style={{}}
                     horizontal={true}
-
                     renderItem={({ item }) => (renderListItemSport(item))}
                 />
             </ScrollView>
