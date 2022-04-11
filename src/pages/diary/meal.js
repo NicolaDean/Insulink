@@ -77,7 +77,6 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
             <TouchableOpacity style={{alignContent:'center'}} >
                 <Food style={styles.food} data = {item} nav = {navigation} api={apiSelected} deletable={true} sport={true} ></Food>
                 </TouchableOpacity>
-                <Text style={{fontSize:15,marginLeft:10,marginBottom:10}} >{item.id}</Text >
             </View>
         );
     }
@@ -85,17 +84,18 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     const showExpansion = () =>{
         return (
             <View style>
-            <ScrollView horizontal={true} style={{ width:"100%", overflow: 'scroll',fontSize:20}}> 
+            <ScrollView horizontal={true} style={{ width:"100%",fontSize:20}}> 
                 <FlatList 
                     data={food}//id,name,image,cal,carbs,fat,prot,food_name,serving_unit,tag_name,tag_id
-                    numColumns={3}
-                    style={{overflow: 'scroll',}}
+                    style={{}}
+                    horizontal={true}
                     renderItem={({ item }) => (renderListItem(item))}
                 />
                 <FlatList 
                     data={sport}//id,name,image,cal,carbs,fat,prot,food_name,serving_unit,tag_name,tag_id
-                    numColumns={3}
-                    style={{overflow: 'scroll',}}
+                    style={{}}
+                    horizontal={true}
+
                     renderItem={({ item }) => (renderListItemSport(item))}
                 />
             </ScrollView>
