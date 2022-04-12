@@ -13,7 +13,7 @@ export const buttonIcons = {
     swimming: {uri: require('./swimming.png')},
     more: {uri: require('./more.png')},
     less: {uri: require('./less.png')},
-    ok: {urxi: require('./ok.png')},
+    ok: {uri: require('./ok.png')},
     settings: {uri: require('./settings.png')},
     return:{uri:require('./return.png')},
     dose: {uri: require('./dose.png')},
