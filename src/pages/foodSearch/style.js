@@ -56,7 +56,8 @@ export default StyleSheet.create({
       height: Dimensions.get('window').height*0.1,
       resizeMode: 'contain',
       top:0,
-      marginLeft:20
+      marginLeft:20,
+      marginTop:5
     },
     sectionDescription: {
       marginTop: 8,

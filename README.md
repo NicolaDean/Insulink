@@ -11,6 +11,7 @@
 13. maxCarb,Prot,.. deve essere un valore scelto dall'utente
 14. Glycemia must be between 10 and 999 (check sul valore della glicemia)
 15. CHO ratio e insuline sensitivity come parametri dei costruttori di tutti gli insuline calculator
+16. tasto modify in realta fa un add in food details quando entri da mealdiary
 --------
 7. Log in
 16. Registration
