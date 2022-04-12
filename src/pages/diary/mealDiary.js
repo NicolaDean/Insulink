@@ -90,17 +90,11 @@ return (
       <View style={{justifyContent:'space-around',alignContent:'center',flexDirection:'column'}}>
       <Text style={styles.title}>Meal Diary</Text>
 </View>
-
-
-     
-        
         <Meal navigation = {navigation} name ="Colazione"   icon ="breakfast"   id="breakfast"/>
         <Meal navigation = {navigation} name ="Pranzo"      icon ="lunch"       id="lunch"/>
         <Meal navigation = {navigation} name ="Cena"        icon ="dinner"      id="dinner"/>
         <Meal navigation = {navigation} name ="Snack"       icon ="snack"       id="snack"/>
                 <CustomButton title='Add Custom Meal' onPress={()=>{}}/>
-                <CustomButton title='Add Sport Activity' onPress={() => navigation.navigate('SportActivity',{})}/>
-
 </ScrollView>
 </View>
     );

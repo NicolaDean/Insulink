@@ -124,7 +124,7 @@ const styles = StyleSheet.create(
             alignSelf:'center'
         },deleteButton:{
             width: Dimensions.get('window').width*0.07,
-            height: Dimensions.get('window').height*0.07 ,
+            height: Dimensions.get('window').height*0.04 ,
             resizeMode: 'contain',
             left:dim.width*0.18,
             bottom:4

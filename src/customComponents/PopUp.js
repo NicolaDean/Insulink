@@ -46,9 +46,19 @@ export const PopUp = (
   const addNewGlicemy = () =>
   {
     console.log("ADD NEW GLICEMY : " + glicemy);
-    const id = status.userId;
+    if (glicemy>30 && glicemy< 500){
+       const id = status.userId;
 
     dispatch(addGlicemy(id,parseInt(glicemy)));
+    setActionTriggered('DOSE_RESULT')
+    }
+    else Alert.alert(
+      "Glycemia not correct",
+      "Insert a corret glycemia value",
+      [
+        { text: "OK", onPress: () => console.log("OK Pressed") }
+      ]
+    );
   }
 
   const DoseCheck = () =>{
@@ -76,7 +86,7 @@ export const PopUp = (
               <TextInput style={styles.field}  keyboardType="numeric"   placeholder="mg/dL" onChangeText={setGlicemy}/>
               <CustomButton
                   title="Insert"
-                  onPress={() => {addNewGlicemy(),setActionTriggered('DOSE_RESULT')}}/>
+                  onPress={() => {addNewGlicemy()}}/>
           </View>
         </View>
       </View>

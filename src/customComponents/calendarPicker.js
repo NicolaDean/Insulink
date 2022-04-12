@@ -42,7 +42,7 @@ export const Calendar = () => {
         <View style={{justifyContent:'center',alignContent:'center',alignSelf:'center',flexDirection:'column'}}>
             <TouchableOpacity onPress={expandCalendar}>
                 <View style={{justifyContent:'space-evenly',alignContent:'stretch',alignSelf:'center',flexDirection:'row',marginVertical:10}}>
-                <Text style={{alignSelf:'center'}} >{currentDate.toString()}</Text>
+                <Text style={{alignSelf:'center',marginHorizontal:10}} >{currentDate.toString().slice(0,10)}</Text>
                 <Image source={buttonIcons['calendar'].uri} style={styles.icon} /> 
                 </View>
                 {isexpanded ? expanded():notExpanded()}
