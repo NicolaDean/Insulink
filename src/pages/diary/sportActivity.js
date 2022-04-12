@@ -103,6 +103,7 @@ const addActivity = async() =>{
 
         const activity = ApiHelper.getSportJson(cal);
         dispatch(addActivityToDiary(activity));
+        navigation.navigate('MealDiary',{})
       } 
       catch (error) 
       {
