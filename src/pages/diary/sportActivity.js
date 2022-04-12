@@ -90,11 +90,13 @@ export const SportActivity = ({ navigation,diary,userData }) =>{
   }
 
 const addActivity = async() =>{
-     if(sportString != ""){
-
+     if(sportString != "" || timeString!=''){
+       
       try 
       {
-        createQuery()
+        if (timeString==''){
+          createQuery()
+        }
 
         //GET API DATA
         const cal = (await Food_API.getSportCalories(timeString,userData))
