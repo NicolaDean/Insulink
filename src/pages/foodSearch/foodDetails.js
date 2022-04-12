@@ -18,7 +18,7 @@ import { connect, useDispatch } from 'react-redux';
 import { addFood, editFood, removeFood } from '../../stateManager/reduxStates/actions/macroTracker';
 import MacroTable from './macroTable';
 import { CustomImageButton } from '../../customComponents/customImageButton';
-import { buttonIconsNames } from '../../assets/buttonIcons';
+import { buttonIconsNames,buttonIcons } from '../../assets/buttonIcons';
 import { colors } from '../../constants/appAspect';
 
 
@@ -157,7 +157,7 @@ export const FoodDetails = ({route,navigation}) =>{
             
             <ScrollView style={{flex:1}}>
             <View style={{flex: 2,backgroundColor: 'white'}}>
-                <Image style={styles.foodImage} source={{uri:details.image}}/>
+                <Image style={styles.foodImage} source={details.image!=null?{uri:details.image}:buttonIcons['defaultDiet'].uri}/>
                 <View style={{marginTop:200,flexDirection:'row',alignContent:'center'}}>
                     <Text style ={styles.sectionTitle}> {details.name}</Text>
                     <CustomImageButton image={iconSelector} style={styles.addPlus} iconStyle={styles.addPlus} onPress={addItem}/>
