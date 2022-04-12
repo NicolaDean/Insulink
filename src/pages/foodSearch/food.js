@@ -84,7 +84,7 @@ export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
                         
                     <Image 
                         style={{width: dim.width*0.2, height: dim.width*0.2}}
-                        source ={sport && buttonIcons[data.name]!=undefined ? buttonIcons[data.name].uri:sport?buttonIcons['defaultSport'].uri: !sport&&id.photo.thumb!=undefined ? {uri:image}:buttonIcons['defaultDiet'].uri}
+                        source ={sport && buttonIcons[data.name]!=undefined ? buttonIcons[data.name].uri:sport?buttonIcons['defaultSport'].uri: !sport&&id.photo.thumb!="https://d2eawub7utcl6.cloudfront.net/images/nix-apple-grey.png" ? {uri:image}:buttonIcons['defaultDiet'].uri}
                     />
                 <Text>{(deletable && sport)? (data.duration+' minutes'):(deletable && !sport)?(data.quantity +" - "+ data.unit):null}</Text>
                 </View>
