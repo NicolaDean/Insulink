@@ -1,10 +1,11 @@
 import { foodMethods } from "../../../constants/reducers"
-import { glicemyDateFormatter } from "../../../utils/firebaseQuery"
+import { FirebaseQuery } from "../../../utils/firebaseQuery";
+
 import { localStorage } from "../../../utils/localStoreManager";
 
 export const addFood = (food,currentMeal) => async( dispatch, getState) =>{
 
-    let today = glicemyDateFormatter();
+    let today = FirebaseQuery.glicemyDateFormatter();
     
     dispatch({
         type: foodMethods.addFood,
@@ -15,7 +16,7 @@ export const addFood = (food,currentMeal) => async( dispatch, getState) =>{
 
     //Update LOCAL STORAGE
     const state = getState();
-    localStorage.storeFoodDiary(glicemyDateFormatter(),state.macroTracker);
+    localStorage.storeFoodDiary(FirebaseQuery.glicemyDateFormatter(),state.macroTracker);
 
     //THINK HOW MANTAIN CONSINSTENCY
 } 

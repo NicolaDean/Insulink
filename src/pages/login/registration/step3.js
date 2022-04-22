@@ -18,9 +18,7 @@ export const RegStep3 = ({step,setStep,userData,setUserData}) =>{
 
     return (
         
-        <View style={styles.container}>
-            <MarginContainer style={styles.container}>
-                <Text style={styles.step}>STEP {step}/5:</Text>
+                <View>
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Phisical Info:"}>
                         <View style={{marginVertical:'10%'}}>
@@ -40,13 +38,7 @@ export const RegStep3 = ({step,setStep,userData,setUserData}) =>{
 
                         </View>
                     </InputBlock>
-                <View style={{flexDirection:'row'}}>
-                    <CustomButton title='Prev' onPress={()=>{setStep(step-1)}}/>
-                    <CustomButton title='Next' onPress={()=>{setStep(step+1)}}/>
-                </View>
-                <PageStepBar step={step} style={styles.stepBar}/> 
-            </MarginContainer>
-        </View>
+            </View>
         
         
     );

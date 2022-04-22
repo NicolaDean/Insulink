@@ -1,5 +1,7 @@
 import * as testingJson from "./testingJsons"
 import axios from 'axios';
+import { networkErrors } from "../constants/registrationSteps";
+import { inputChecker } from "./inputChecker";
 
 const debug = true;
 
@@ -126,7 +128,14 @@ headers = {
 
 class Api{
     
+    errorFunc = (error) => { console.log("NETWORK ERROR: " + JSON.stringify(error))};
+
     constructor(){}
+
+    setErrorFunc = (func) =>{
+        this.errorFunc = func;
+    }
+    
     /**
      * 
      * @param {*} userInput 
@@ -185,7 +194,7 @@ class Api{
      */
     doRequest = async(method,query,param) =>{
         console.log("QUERY : " + query + JSON.stringify(param));
-        
+        this.errorFunc("");
         const response = await axios({
                 url:rootUrl + query,
                 method:method,
@@ -198,11 +207,15 @@ class Api{
           })
           .catch( (error)=> {
     
-            console.log(error);
+            //this.errorFunc(networkErrors.APIerror);
+
+            inputChecker.apiErrorHelper(error,this.errorFunc);
+
+            //console.log("BANANA" + JSON.stringify(error));
             //console.log(JSON.stringify(error));
-            if(error.status == 401) {
+            /*if(error.status == 401) {
                 console.log("ENDED STUDENT LIMITS!!!!!!!!!!!!!!!!!!!!");
-            }
+            }*/
             return (testingJson.foodDetails);
           });
     

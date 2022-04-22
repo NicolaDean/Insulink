@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     
         alignSelf:'center',
         marginLeft:10,
-        color:'white',
+        color:colors.white,
     },
     children:{
 

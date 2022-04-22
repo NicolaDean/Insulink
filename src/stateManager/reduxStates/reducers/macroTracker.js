@@ -238,6 +238,21 @@ const loadMeals = (state,payload) =>{
     return payload.diary;
 }
 
+/**
+ * reset the diary for a new day
+ * @param {*} state 
+ * @param {*} payload 
+ * @returns 
+ */
+const resetDiary = (state,payload) =>{
+
+    const newState = {...initialDiaryState};
+
+    newState.currentDate = payload.currentDate;
+
+    return newState;
+}
+
 //TODO PUT THE NAME OF ACTIONS INTO COSNTANT FILE
 const macroReducer = (state = initialDiaryState, action) => {
     switch(action.type){
@@ -253,6 +268,8 @@ const macroReducer = (state = initialDiaryState, action) => {
             return loadMeals(state,action.payload);
         case foodMethods.addActivity:
             return addActivity(state,action.payload);
+        case foodMethods.resetDiary:
+            return resetDiary(state,action.payload);
         default:
             return state;
         }

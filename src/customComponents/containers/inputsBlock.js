@@ -20,6 +20,9 @@ export const InputBlock = ({children,name}) =>{
 
 const styles = StyleSheet.create({
     container:{
+        elevation: 50,
+        paddingVertical: 25,
+        paddingHorizontal: 12,
         marginTop:10,
         borderRadius:8,
         backgroundColor:colors.secondary,

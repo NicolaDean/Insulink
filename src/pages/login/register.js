@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
-import { View ,Text } from 'react-native';
+import { View ,Text,StyleSheet } from 'react-native';
 import { useDispatch } from 'react-redux';
+import { steps } from '../../constants/registrationSteps';
+import { MarginContainer } from '../../customComponents/containers/marginContainer';
 import { WaitLoading } from '../../customComponents/containers/waitLoading';
 import CustomButton from '../../customComponents/customButton';
 import { register } from '../../stateManager/reduxStates/actions/userAction';
 import { FirebaseQuery } from '../../utils/firebaseQuery';
+import { inputChecker } from '../../utils/inputChecker';
 import login from './login';
+import { RegistrationErrorPopup } from './registration/errorsPopup';
+import { PageStepBar } from './registration/pageStepBar';
 import { RegStep1 } from './registration/step1';
 import { RegStep2 } from './registration/step2';
 import { RegStep3 } from './registration/step3';
@@ -37,10 +42,12 @@ const errors = {
     step4Error:"",
 }
 
+
 export const Registration = ({navigation}) =>{
 
     const [userData,setUserData] = useState(initialUserData);
-    const [errors,setErrors] = useState(errors);
+    const [errors,setErrors] = useState([]);
+    const [errorModalVisible, setErrorModalVisible] = useState(false);
 
     const [step,setStep] = useState(1);
     const [waitRegConfirm,setRegConfirmWait] = useState(false);
@@ -52,8 +59,15 @@ export const Registration = ({navigation}) =>{
         setUserData(state =>({...state,[type]: data}));
     }
 
-    const tryRegister = async() => {
+    const errorFunction = (error) =>{
+        setErrors(error);
+        if(JSON.stringify(error) != "[]") {
+            setErrorModalVisible(true);
+        }
         
+    }
+
+    const tryRegister = async() => {
         try{
             console.log("Try Creating account with " + userData.email + "->" +userData.password );
             setRegConfirmWait(true);
@@ -65,8 +79,8 @@ export const Registration = ({navigation}) =>{
         }catch{
             
         }
-       
     }
+    
     const lastStep = () =>{
 
         return(
@@ -76,25 +90,70 @@ export const Registration = ({navigation}) =>{
         );
     }
 
+    const nextStep = () =>{
+        if(checkError()){
+            setStep(step => step +1);
+        } 
+    }
+
+    const prevStep = () =>{
+        setStep(step => step -1);
+    }
+
+    const checkError = () =>{
+        return inputChecker.checkRegistrationInputs(userData,step,errorFunction);
+    }
+
     //TODO CREATE A GLOBAL STATE FOR ALL STEPS THAT CONTAIN USER DATA
     const renderStep = () =>{
-
         switch(step){
-            case 1: return (<RegStep1 step={step} setStep={setStep} userData={userData} setUserData={setInputField}/>);
-            case 2: return (<RegStep2 step={step} setStep={setStep} userData={userData} setUserData={setInputField}/>);
-            case 3: return (<RegStep3 step={step} setStep={setStep} userData={userData} setUserData={setInputField}/>);
-            case 4: return (<RegStep4 step={step} setStep={setStep} userData={userData} setUserData={setInputField}/>);
-            case 5: return(lastStep())
+            case steps.actual_reg: 
+                return (<RegStep1 step={step} setStep={setStep} userData={userData} setUserData={setInputField}/>);
+            case steps.personal_info: 
+                return (<RegStep2 step={step} setStep={setStep} userData={userData} setUserData={setInputField}/>);
+            case steps.phisical_info: 
+                return (<RegStep3 step={step} setStep={setStep} userData={userData} setUserData={setInputField}/>);
+            case steps.diet_info: 
+                return (<RegStep4 step={step} setStep={setStep} userData={userData} setUserData={setInputField}/>);
+            case steps.complete: 
+                return(lastStep())
             default: return null;
         }
-
     }
 
     return (
         <View>
-            {renderStep()}
+            <RegistrationErrorPopup visibilityFlag={ [errorModalVisible, setErrorModalVisible]} errors={errors}/>
+            <View style={styles.container}>
+                <MarginContainer style={styles.container}>
+                    <Text style={styles.step}>STEP {step}/5:</Text>
+                    
+                    {renderStep()}
+            
+                    <View style={{flexDirection:'row'}}>
+                        {step > 1 ? <CustomButton title='Prev' onPress={prevStep}/> : null}
+                        {step < 5 ? <CustomButton title='Next' onPress={nextStep}/> : null}
+                    </View>
+                    <PageStepBar step={step} style={styles.stepBar}/> 
+                </MarginContainer>
+            </View>
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    stepBar:{
+        marginBottom:0
+    },
+    container:{
+        height:'100%',
+        backgroundColor:'orange'
+    },
+    step:{
+        fontSize:25,
+        fontWeight:'bold',
+        color:'black'
+    },
+});
 
 export default Registration;

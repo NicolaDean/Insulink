@@ -49,10 +49,7 @@ export const RegStep4 = ({step,setStep,userData,setUserData}) =>{
     const [loading,setLoading] = useState(true);
 
     return (
-        
-        <View style={styles.container}>
-            <MarginContainer style={styles.container}>
-                <Text style={styles.step}>STEP {step}/5:</Text>
+    
                 <View>
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Fitness Objective:"}>
@@ -82,11 +79,6 @@ export const RegStep4 = ({step,setStep,userData,setUserData}) =>{
                         </InputContainer>
                     </InputBlock>
                 </View>
-                
-                <CustomButton title='Next' onPress={()=>{setStep(5)}}/>
-                <PageStepBar step={step} style={styles.stepBar}/> 
-            </MarginContainer>
-        </View>
         
         
     );
@@ -94,10 +86,7 @@ export const RegStep4 = ({step,setStep,userData,setUserData}) =>{
 
 
 const styles = StyleSheet.create({
-    container:{
-        height:'100%',
-        backgroundColor:'orange'
-    },
+
     step:{
         fontSize:25,
         fontWeight:'bold',

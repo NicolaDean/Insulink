@@ -16,26 +16,18 @@ export const RegStep1 = ({step,setStep,userData,setUserData}) =>{
     const [loading,setLoading] = useState(true);
 
     return (
-        
-        <View style={styles.container}>
-            <MarginContainer style={styles.container}>
-                
-                <Text style={styles.step}>STEP {step}/5:</Text>
-                <View>
-                    <Text style={styles.title}></Text>
-                    <InputBlock name={"Login Info:"}>
-                        <InputContainer name={"Email  "}>
-                            <TextInput style={styles.textInput} keyboardType="email-address" onChangeText={val => setUserData(userDataTypes.email,val)}/>
-                        </InputContainer>
-                        <InputContainer name={"Password  "}>
-                            <TextInput style={styles.textInput} secureTextEntry={true} onChangeText={val => setUserData(userDataTypes.password,val)}/>
-                        </InputContainer>
-                    </InputBlock>
-                   
-                </View>
-                <CustomButton title='Next' onPress={()=>{setStep(step+1)}}/>
-                <PageStepBar step={step} style={styles.stepBar}/> 
-            </MarginContainer>
+
+        <View>
+            <Text style={styles.title}></Text>
+            <InputBlock name={"Login Info:"}>
+                <InputContainer name={"Email  "}>
+                    <TextInput style={styles.textInput} keyboardType="email-address" onChangeText={val => setUserData(userDataTypes.email,val)}/>
+                </InputContainer>
+                <InputContainer name={"Password  "}>
+                    <TextInput style={styles.textInput} secureTextEntry={true} onChangeText={val => setUserData(userDataTypes.password,val)}/>
+                </InputContainer>
+            </InputBlock>
+           
         </View>
         
         

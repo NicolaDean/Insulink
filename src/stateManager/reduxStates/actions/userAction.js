@@ -5,7 +5,7 @@ import { localStorage } from "../../../utils/localStoreManager";
 
 import * as authSys from '../../../utils/auth'
 import { loginStatus } from "../../../constants/states";
-import { FirebaseQuery, glicemyDateFormatter } from "../../../utils/firebaseQuery";
+import { FirebaseQuery } from "../../../utils/firebaseQuery";
 
 /**
  * check all user inputs and try to register
@@ -26,7 +26,7 @@ export const register = (user) => async dispatch =>{
     console.log("REGISTER OK");
 
     let glicemyData = {};
-    let date = glicemyDateFormatter();
+    let date = FirebaseQuery.glicemyDateFormatter();
     glicemyData[date] = [];
 
     user.glicemy = glicemyData;
@@ -113,11 +113,48 @@ export const login = (email,psw) => async dispatch =>{
     return true;
 } 
 
+
+export const googleLogin = (uid,errorFunc) => async dispatch =>{
+
+    //Get user data
+    const usrData = (await FirebaseQuery.getUserData(uid));
+    const glicemy = (await FirebaseQuery.getUserGlicemy(uid));
+
+    if(usrData == null){
+        console.log("This google account isnt registered yet");
+        const error = [{title:"Not Registered",body:"Please register with this google account"}];
+        errorFunc(error);
+        return false;
+    }
+
+    usrData.glicemy = glicemy;
+
+    //CHECK FOR EMPTY DATA:
+    usrData.age = 20; //TODO CALCULATE AGE FROM BIRTHDAY
+    console.log("Login ok" + JSON.stringify(usrData));
+
+    //SAVE DATA TO LOCAL STORAGE
+    await localStorage.saveUserData(usrData);
+
+    //REDUX DISPATCH
+    dispatch({
+        type: userMethods.login,
+        payload: {
+            usrData: usrData,
+            userId:user.uid,
+        }
+    });
+
+    //LOAD OTHER USER DATA FROM FIREBASE (EG: MEAL DIARY)
+    return true;
+} 
+
+
 /**
  * try to load user data from memory, if not possible return false
  * @returns true if user is logged, false if not
  */
-export const loadUserLocalData = ([logged,setLogged]) =>async dispatch => {
+export const loadUserLocalData = ([logged,setLogged]) =>async( dispatch, getState) => {
     
     //LOAD USER DATA FROM LOCAL STORAGE
     let userData = await localStorage.getUserData();
@@ -135,8 +172,26 @@ export const loadUserLocalData = ([logged,setLogged]) =>async dispatch => {
         });
         setLogged(true);
     
-        //LOAD MEAL DIARY IF EXIST AND STORE IT INTO REDUX
-        let mealDiary = await localStorage.loadFoodDiary(FirebaseQuery.glicemyDateFormatter());
+        const currState = getState();
+
+        let mealDiary = null;
+
+        //CHECK IF "CurrentDate is Today, else reset the diary"
+        if(currState.macroTracker.currentDate == FirebaseQuery.glicemyDateFormatter()){
+            //LOAD MEAL DIARY IF EXIST AND STORE IT INTO REDUX
+            mealDiary = await localStorage.loadFoodDiary(FirebaseQuery.glicemyDateFormatter());
+        }
+        else{
+            //SAVE DATA LOCALY AND ON FIREBASE, THEN RESET DIARY
+            dispatch({
+                type: foodMethods.resetDiary,
+                payload: {
+                    date: FirebaseQuery.glicemyDateFormatter()
+                }
+            })
+        }
+
+
 
         console.log("LOADED DIARY FROM STORAGE")
         console.log("DIARY: " + JSON.stringify(mealDiary))

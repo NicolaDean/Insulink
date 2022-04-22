@@ -17,6 +17,7 @@ import { colors } from '../../constants/appAspect';
 import { MarginContainer } from '../../customComponents/containers/marginContainer';
 import { InputBlock } from '../../customComponents/containers/inputsBlock';
 import { InputContainer } from '../../customComponents/containers/inputsContainer';
+import { GoogleButton } from './socialLogin/googleLogin';
 
 export const Login = ({navigation,status}) =>{
 
@@ -94,6 +95,8 @@ export const Login = ({navigation,status}) =>{
                 <CustomButton title='Login' onPress={tryLogin}/>
           
                 <CustomButton title='Register' onPress={()=>{navigation.navigate('Registration',{})}}/>
+                <GoogleButton/>
+                
             </MarginContainer>
         </View>
         

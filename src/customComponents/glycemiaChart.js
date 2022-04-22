@@ -4,7 +4,7 @@ import {  StyleSheet,Dimensions,TouchableOpacity, View, Image } from 'react-nati
 import {LineChart} from "react-native-chart-kit";
 import { connect, useDispatch } from 'react-redux';
 import { glicemyChartFormatter } from '../utils/chartDataFormatter';
-import { getTodayGlicemy, glicemyDateFormatter } from '../utils/firebaseQuery';
+import { FirebaseQuery } from '../utils/firebaseQuery';
 
 const marginOffset=10;
 
@@ -38,7 +38,7 @@ export const GlycemiaChart = ({
      user }) =>{
 
     
-    const data = glicemyChartFormatter(getTodayGlicemy(user.userData.glicemy));
+    const data = glicemyChartFormatter(FirebaseQuery.getTodayGlicemy(user.userData.glicemy));
     //console.log(JSON.stringify(data));
 
     return (

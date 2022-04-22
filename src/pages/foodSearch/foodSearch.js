@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,FlatList,TextInput,Switch,ActivityIndicator } from 'react-native';
+import {View,FlatList,TextInput,Text,Switch,ActivityIndicator } from 'react-native';
 import { useState } from 'react';
 import styles from './style'
 import {Food} from './food'
@@ -15,6 +15,15 @@ export const FoodSearch = ({ navigation }) =>{
   const [apiSelected, setApi] = useState(false);
   const [loading,setLoading] = useState(false);
 
+  const [error,setError] = useState("");
+
+  const errorFunc = (error) =>{
+    console.log("Error during food search: " + JSON.stringify(error));
+
+    setError(error);
+  }
+
+  Food_API.setErrorFunc(errorFunc);
   //Define a function to retrive date from API
   const getData = async () => 
   {
@@ -68,6 +77,7 @@ export const FoodSearch = ({ navigation }) =>{
             />
 
            </View>
+           <Text>{JSON.stringify(error)}</Text>
            <View style={{flex:1}}>
               {loading ? <ActivityIndicator size="large"/> : printFoods()}
             </View>

@@ -2,7 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { storageKeys } from '../constants/localStorageKeys';
 import { loginStatus } from '../constants/states';
 import { initialDiaryState } from '../stateManager/reduxStates/reducers/macroTracker';
-import { changeGlicemyTimeFormat, glicemyDateFormatter } from './firebaseQuery';
+import {  FirebaseQuery } from './firebaseQuery';
 
 
 const dummy_user = {
@@ -109,9 +109,9 @@ const keys = {
      */
     storeGlicemyData = async (new_glicemy,date=new Date()) =>{
 
-      const today = keys.glicemy + glicemyDateFormatter(date);
+      const today = keys.glicemy + FirebaseQuery.glicemyDateFormatter(date);
       let updatedValue = {...new_glicemy};
-      updatedValue = changeGlicemyTimeFormat(updatedValue,true);
+      updatedValue = FirebaseQuery.changeGlicemyTimeFormat(updatedValue,true);
       //CHANGE DATE FORMAT FOR LOCAL GLICEMY
       let currentValues = await getData(today);
 
@@ -128,7 +128,7 @@ const keys = {
      * get Glicemy Data of a specific date
      */
     getGlicemyData = async (date) =>{
-      const today = keys.glicemy + glicemyDateFormatter(date);
+      const today = keys.glicemy + FirebaseQuery.glicemyDateFormatter(date);
 
       const glicemy = await getData(today);
 
@@ -144,7 +144,7 @@ const keys = {
       const glicemy = await this.getGlicemyData(new Date());
       let userData = await getData(storageKeys.userData);
       
-      const today = glicemyDateFormatter(new Date());
+      const today = FirebaseQuery.glicemyDateFormatter(new Date());
       if(userData != null){
         userData.glicemy[today] = glicemy;
       }else{
@@ -185,6 +185,7 @@ const keys = {
       await storeData(key,data);
       console.log("Diary Stored on Local Storage");
     }
+
 
   }
 

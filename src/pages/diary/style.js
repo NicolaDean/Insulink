@@ -15,7 +15,7 @@ export default StyleSheet.create({
       title:{
           fontSize:30,
           fontWeight:"bold",
-          color:"black",
+          color:colors.black,
           alignSelf:'center',
       },
       graphBox:{
@@ -104,7 +104,7 @@ export default StyleSheet.create({
         justifyContent: 'center',
         width: "90%",
         marginLeft:"5%",
-        backgroundColor:"#fff",
+        backgroundColor:colors.white,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
