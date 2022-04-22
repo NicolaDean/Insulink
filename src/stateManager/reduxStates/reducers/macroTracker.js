@@ -1,13 +1,14 @@
 
 import { macroConstants } from "../../../constants/states";
 import { foodMethods } from "../../../constants/reducers"
+import { FirebaseQuery } from "../../../utils/firebaseQuery";
 
 const macro = macroConstants;
 
 //TODO Each diary will have a Date, if Date < Today it will be saved localy/firabase and resetted for new day
 export const initialDiaryState = {
     currentMeal:"breakfast",
-    currentDate:{},
+    currentDate:"22-04-2022",
     totMacro:{cal:0,carb:0,fat:0,prot:0},
     id:1,
     meals:{
@@ -15,6 +16,22 @@ export const initialDiaryState = {
         lunch:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
         dinner:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
         snack:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}}
+    },
+    history:{
+        empty:true,
+        totMacro:{cal:0,carb:0,fat:0,prot:0},
+        meals:{
+            breakfast:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
+            lunch:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
+            dinner:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
+            snack:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}}
+        },
+        activities:{
+            breakfast:{sports:[],totCal:0},
+            lunch:{sports:[],totCal:0},
+            dinner:{sports:[],totCal:0},
+            snack:{sports:[],totCal:0}
+        }
     },
     totCalBurned:0,
     activities:{
@@ -253,6 +270,17 @@ const resetDiary = (state,payload) =>{
     return newState;
 }
 
+const loadHistory = (state,payload) => {
+    const newState = {...state};
+
+    newState.currentDate = payload.date;
+    if(payload.history!=null){
+        newState.history = payload.history;
+    }
+    
+    return newState;
+}
+
 //TODO PUT THE NAME OF ACTIONS INTO COSNTANT FILE
 const macroReducer = (state = initialDiaryState, action) => {
     switch(action.type){
@@ -270,6 +298,8 @@ const macroReducer = (state = initialDiaryState, action) => {
             return addActivity(state,action.payload);
         case foodMethods.resetDiary:
             return resetDiary(state,action.payload);
+        case foodMethods.loadHistory:
+            return loadHistory(state,action.payload);
         default:
             return state;
         }

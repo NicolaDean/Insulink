@@ -7,6 +7,7 @@ const userTable = "Users";
 const glicemyTable = "Glicemy";
 
 const users = firestore().collection(userTable);
+
 //USER QUERY:-------------------------------------------------------------------
 
 class firebaseQuery{
@@ -65,7 +66,7 @@ class firebaseQuery{
      */
     addGlicemyValue = async (userId,glicemyData) =>{
 
-        const id = glicemyDateFormatter();
+        const id = this.glicemyDateFormatter();
         const new_glicemy = await users.doc(userId).collection(glicemyTable).doc(id).get();
         
         if(new_glicemy && new_glicemy.exists)
@@ -83,7 +84,7 @@ class firebaseQuery{
     glicemyDateFormatter = (date = new Date()) =>
     {
         const today = date;
-        let id = this.zeroPad(today.getDate(),2) +"-"+ this.zeroPad(today.getMonth(),2) +"-"+ today.getFullYear();
+        let id = this.zeroPad(today.getDate(),2) +"-"+ this.zeroPad(today.getMonth()+1,2) +"-"+ today.getFullYear();
 
         return id;
     }
@@ -101,13 +102,13 @@ class firebaseQuery{
         if(glicemy==null) {return null};
         const today = this.glicemyDateFormatter();
 
-    const todayGlycemia= glicemy[today];
-    
-    if(todayGlycemia!=undefined){
-        const len=Object.keys(todayGlycemia).length;
-        return todayGlycemia[len-1].value;
-    }
-    else return 120;
+        const todayGlycemia= glicemy[today];
+        
+        if(todayGlycemia!=undefined){
+            const len=Object.keys(todayGlycemia).length;
+            return todayGlycemia[len-1].value;
+        }
+        else return 120;
     }
 
 

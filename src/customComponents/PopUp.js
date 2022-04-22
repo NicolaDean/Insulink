@@ -8,7 +8,7 @@ import InsulineCalculator from "../utils/insulineCalculator";
 //REDUX IMPORT
 import { colors } from "../constants/appAspect";
 import { addGlicemy } from "../stateManager/reduxStates/actions/userAction";
-import { getTodayLastGlicemy } from "../utils/firebaseQuery";
+import { FirebaseQuery } from "../utils/firebaseQuery";
 
 
 export const PopUp = (
@@ -49,8 +49,8 @@ export const PopUp = (
     if (glicemy>30 && glicemy< 500){
        const id = status.userId;
 
-    dispatch(addGlicemy(id,parseInt(glicemy)));
-    setActionTriggered('DOSE_RESULT')
+      dispatch(addGlicemy(id,parseInt(glicemy)));
+      setActionTriggered('DOSE_RESULT')
     }
     else Alert.alert(
       "Glycemia not correct",
@@ -105,7 +105,7 @@ export const PopUp = (
                 onPress={() => {setActionTriggered(''),setModalVisible(false)}}
               />
         <Text style={styles.modalText}>We suggest you to make</Text>
-        <Text style={styles.doseText}>{ic.totalDose(getTodayLastGlicemy(status.userData.glicemy),diary.meals[id].macro['carb'].toFixed(2))}</Text>
+        <Text style={styles.doseText}>{ic.totalDose(FirebaseQuery.getTodayLastGlicemy(status.userData.glicemy),diary.meals[id].macro['carb'].toFixed(2))}</Text>
         <Text style={styles.modalText}>doses of insuline</Text>
         <CustomImageButton
                 title={name_to_close}

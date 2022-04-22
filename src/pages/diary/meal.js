@@ -17,6 +17,7 @@ import { connect } from 'react-redux';
 import mealIcons from '../../assets/mealIcons';
 import { color } from 'react-native-reanimated';
 import { colors } from '../../constants/appAspect';
+import { FirebaseQuery } from '../../utils/firebaseQuery';
 
 
 
@@ -33,9 +34,23 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     //const [currentMealType,setMealType] = useContext(MealDataContext);
     //setMealType("PASTOO CASUALE");
 
-    let macro = diary.meals[id].macro;
-    let food= diary.meals[id].foods;
-    let sport= diary.activities[id].sports;
+    let macro;
+    let food;
+    let sport;
+
+    //console.log("CURR DATE:  " + diary.currentDate + " -> " + FirebaseQuery.glicemyDateFormatter());
+    if(diary.currentDate == FirebaseQuery.glicemyDateFormatter()){
+        //IF TODAY IS SELECTED
+        macro = diary.meals[id].macro;
+        food = diary.meals[id].foods;
+        sport = diary.activities[id].sports;
+    }else{
+        //OTHER DAY IS SELECTED
+        macro = diary.history.meals[id].macro;
+        food =  diary.history.meals[id].foods;
+        sport =  diary.history.activities[id].sports;
+    }
+    
 
     //console.log("macro :" + JSON.stringify(macro) + typeof(macro) +typeof(macro.id));
 
@@ -124,23 +139,23 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
         <View style={styles.addBox} >
                     <View style={styles.macroContainer}>
                         <Image source={mealIcons['insuline'].uri} style={styles.macroImage} />
-                        <Text>{JSON.stringify(ic.mealDose(diary.meals[id].macro['carb'].toFixed(2)))}</Text>
+                        <Text>{JSON.stringify(ic.mealDose(macro['carb'].toFixed(2)))}</Text>
                     </View>
                     <View style={styles.macroContainer}>
                         <Image source={mealIcons['cal'].uri} style={styles.macroImage} />
-                        <Text>{diary.meals[id].macro['cal'].toFixed(1)}</Text>
+                        <Text>{macro['cal'].toFixed(1)}</Text>
                     </View>
                     <View style={styles.macroContainer}>
                     <Image source={mealIcons['carbo'].uri} style={styles.macroImage} />
-                    <Text>{diary.meals[id].macro['carb'].toFixed(1)}</Text>
+                    <Text>{macro['carb'].toFixed(1)}</Text>
                     </View>
                     <View style={styles.macroContainer}>
                     <Image source={mealIcons['fat'].uri} style={styles.macroImage} />
-                    <Text>{diary.meals[id].macro['fat'].toFixed(1)}</Text>
+                    <Text>{macro['fat'].toFixed(1)}</Text>
                     </View>
                     <View style={styles.macroContainer}>
                     <Image source={mealIcons['protein'].uri} style={styles.macroImage} />
-                    <Text>{diary.meals[id].macro['prot'].toFixed(1)}</Text>
+                    <Text>{macro['prot'].toFixed(1)}</Text>
                     </View>
     
         </View>

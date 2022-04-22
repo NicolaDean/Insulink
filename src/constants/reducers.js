@@ -5,7 +5,8 @@ export const foodMethods = {
     selectMeal:'SELECT_MEAL',
     loadFoodDiary:'LOAD_FOOD_DIARY',
     addActivity:'ADD_ACTIVITY',
-    resetDiary:'RESET_DIARY'
+    resetDiary:'RESET_DIARY',
+    loadHistory:'LOAD_HISTORY'
 }
 
 export const userMethods = {

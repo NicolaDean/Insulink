@@ -4,9 +4,10 @@ import { colors } from '../constants/appAspect';
 import CalendarPicker from 'react-native-calendar-picker';
 import CustomImageButton from './customImageButton';
 import { buttonIcons } from '../assets/buttonIcons';
+import { FirebaseQuery } from '../utils/firebaseQuery';
 
 
-export const Calendar = () => {
+export const Calendar = ({onChange = (date)=>{}}) => {
 
     const [currentDate,setDate] = useState(new Date());
     const [isexpanded,setExpanded] = useState(false);
@@ -35,7 +36,11 @@ export const Calendar = () => {
 
     const onDateChange = (date) =>{
         //TODO ADD A REDUX ACTION TO RETRIVE DATA FROM LOCALSTORAGE/FIREBASE AND SHOW THEM
-        setDate(date);
+        const parseDate = new Date(date);
+        const currDate = FirebaseQuery.glicemyDateFormatter(parseDate);
+
+        setDate(currDate);
+        onChange(currDate);
     }
 
     return (

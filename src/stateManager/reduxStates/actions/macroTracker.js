@@ -42,8 +42,20 @@ export const selectMealType = (mealType) =>{
     }
 }
 
-export const loadRemoteDiary = (email,date) =>{ b
+export const loadRemoteDiary = (email,date) =>{ 
     
+}
+
+export const loadHistory = (date) => async( dispatch) =>{
+
+    const history = await localStorage.loadFoodDiary(date);
+
+    //console.log("HISTORY: " + JSON.stringify(history));
+
+    dispatch({
+        type: foodMethods.loadHistory,
+        payload: {date:date,history:history}
+    })
 }
 
 export const addActivityToDiary = (activity) => async( dispatch, getState) =>{
@@ -56,5 +68,5 @@ export const addActivityToDiary = (activity) => async( dispatch, getState) =>{
 
     //Update LOCAL STORAGE
     const state = getState();
-    localStorage.storeFoodDiary(glicemyDateFormatter(),state.macroTracker);
+    localStorage.storeFoodDiary(FirebaseQuery.glicemyDateFormatter(),state.macroTracker);
 }
