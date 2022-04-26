@@ -50,10 +50,6 @@ export class InsulineCalculator {
         //Set all user parameters or load from file info
     };
     
-    pippo () {
-        console.log("banana");
-        return "Ciao";
-    };
     mealDose(carbo){
         return Math.floor(carbo / Math.floor(this.CHORatio));
     };

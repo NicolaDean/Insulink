@@ -96,7 +96,7 @@ export const Login = ({navigation,status}) =>{
           
                 <CustomButton title='Register' onPress={()=>{navigation.navigate('Registration',{})}}/>
                 <GoogleButton/>
-                
+
             </MarginContainer>
         </View>
         

@@ -31,8 +31,6 @@ const tabBarIcon = (icon) => ({
 export const BottomTab = ({navigation}) => {
 
 	const dispatch = useDispatch();
-
-
 	return(
 		<Tab.Navigator
 			screenOptions={bottomBarStyle}

@@ -18,6 +18,7 @@ import mealIcons from '../../assets/mealIcons';
 import { color } from 'react-native-reanimated';
 import { colors } from '../../constants/appAspect';
 import { FirebaseQuery } from '../../utils/firebaseQuery';
+import { WaitLoading } from '../../customComponents/containers/waitLoading';
 
 
 
@@ -26,6 +27,8 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     //This variable keep track of the expansios status of meal (can be shrinked or growed by click)
     const [expanded,setExpanded] = useState( false )
     const [apiSelected, setApi] = useState(false);
+    const [available,setAvailable] = useState(true);
+
     const dispatch = useDispatch();
 
     const dropViewHeight=100
@@ -38,22 +41,40 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     let food;
     let sport;
 
-    //console.log("CURR DATE:  " + diary.currentDate + " -> " + FirebaseQuery.glicemyDateFormatter());
-    if(diary.currentDate == FirebaseQuery.glicemyDateFormatter()){
-        
-        //IF TODAY IS SELECTED
-        macro = diary.meals[id].macro;
-        food = diary.meals[id].foods;
-        sport = diary.activities[id].sports;
-    }else{
-        console.log("NOT TODAY -> "  +diary.currentDate + " ->" + FirebaseQuery.glicemyDateFormatter())
-        //OTHER DAY IS SELECTED
-        /*macro = diary.history.meals[id].macro;
-        food =  diary.history.meals[id].foods;
-        sport =  diary.history.activities[id].sports;*/
+    const loadInfo = () =>{
+        //console.log("CURR DATE:  " + diary.currentDate + " -> " + FirebaseQuery.glicemyDateFormatter());
+        if(diary.currentDate == FirebaseQuery.glicemyDateFormatter()){
+            //IF TODAY IS SELECTED
+            macro = diary.meals[id].macro;
+            food = diary.meals[id].foods;
+            sport = diary.activities[id].sports;
+            if(available==true){
+                setAvailable(false);
+            }
+            
+        }else{
+            console.log("NOT TODAY -> "  +diary.currentDate + " ->" + FirebaseQuery.glicemyDateFormatter())
+            //OTHER DAY IS SELECTED
+            
+            try{
+                macro = diary.history.meals[id].macro;
+                food =  diary.history.meals[id].foods;
+                sport =  diary.history.activities[id].sports;
+                if(available==true){
+                    setAvailable(false);
+                }
+            }catch(e){
+                setAvailable(true);
+                console.log("DATA NOT READY");
+                if(available==false){
+                    setAvailable(true);
+                }
+                //PRINT DATA NOT AVAILABE
+            }
+        }
     }
     
-
+    loadInfo();
     //console.log("macro :" + JSON.stringify(macro) + typeof(macro) +typeof(macro.id));
 
     const addFoods = () =>{
@@ -124,8 +145,10 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
         );
     }
 
-    
+
     return (
+
+        <WaitLoading loadingState={[available,setAvailable]} customLoad={(<View><Text> NO DATA</Text></View>)}>              
         
 <SafeAreaView  style={styles.mealView}>
     <View style={{width:'100%',flexDirection:'row'}}>
@@ -137,30 +160,30 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                 </View>
             </TouchableOpacity>                  
         </View>
-                                
-        <View style={styles.addBox} >
-                    <View style={styles.macroContainer}>
-                        <Image source={mealIcons['insuline'].uri} style={styles.macroImage} />
-                        <Text>{JSON.stringify(ic.mealDose(macro['carb'].toFixed(2)))}</Text>
-                    </View>
-                    <View style={styles.macroContainer}>
-                        <Image source={mealIcons['cal'].uri} style={styles.macroImage} />
-                        <Text>{macro['cal'].toFixed(1)}</Text>
-                    </View>
-                    <View style={styles.macroContainer}>
-                    <Image source={mealIcons['carbo'].uri} style={styles.macroImage} />
-                    <Text>{macro['carb'].toFixed(1)}</Text>
-                    </View>
-                    <View style={styles.macroContainer}>
-                    <Image source={mealIcons['fat'].uri} style={styles.macroImage} />
-                    <Text>{macro['fat'].toFixed(1)}</Text>
-                    </View>
-                    <View style={styles.macroContainer}>
-                    <Image source={mealIcons['protein'].uri} style={styles.macroImage} />
-                    <Text>{macro['prot'].toFixed(1)}</Text>
-                    </View>
-    
-        </View>
+    <View style={styles.addBox} >
+                        <View style={styles.macroContainer}>
+                            <Image source={mealIcons['insuline'].uri} style={styles.macroImage} />
+                            <Text>{JSON.stringify(ic.mealDose(macro['carb'].toFixed(2)))}</Text>
+                        </View>
+                        <View style={styles.macroContainer}>
+                            <Image source={mealIcons['cal'].uri} style={styles.macroImage} />
+                            <Text>{macro['cal'].toFixed(1)}</Text>
+                        </View>
+                        <View style={styles.macroContainer}>
+                        <Image source={mealIcons['carbo'].uri} style={styles.macroImage} />
+                        <Text>{macro['carb'].toFixed(1)}</Text>
+                        </View>
+                        <View style={styles.macroContainer}>
+                        <Image source={mealIcons['fat'].uri} style={styles.macroImage} />
+                        <Text>{macro['fat'].toFixed(1)}</Text>
+                        </View>
+                        <View style={styles.macroContainer}>
+                        <Image source={mealIcons['protein'].uri} style={styles.macroImage} />
+                        <Text>{macro['prot'].toFixed(1)}</Text>
+                        </View>
+        
+            </View>
+
     </View>
   
         {
@@ -169,6 +192,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
         }
         
 </SafeAreaView>
+</WaitLoading>   
 
        
     );//

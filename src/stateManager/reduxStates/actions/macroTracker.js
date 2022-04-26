@@ -48,8 +48,12 @@ export const loadRemoteDiary = (email,date) =>{
     
 }
 
-export const loadHistory = (date) => async( dispatch) =>{
+export const loadHistory = (date) => async( dispatch,getState) =>{
 
+     //Get updated state
+     const state = getState();
+
+     console.log("LOAD HISTORY FROM : " + date + " -> " + state.userReducer.userId);
     //Try LOADING FROM LOCAL STORAGE
     let history = await localStorage.loadFoodDiary(date);
 
@@ -59,7 +63,7 @@ export const loadHistory = (date) => async( dispatch) =>{
     if(history == null){
         //Load from firebase
         console.log("load from firebase")
-        history = FirebaseQuery.getFoodDiary(date);
+        history = await  FirebaseQuery.getFoodDiary(state.userReducer.userId,date);
         console.log("HISTORY: -> " + JSON.stringify(history));
     }
 

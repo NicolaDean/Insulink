@@ -48,7 +48,7 @@ export const register = async (email,psw) =>{
     }
 
     if (error.code === 'auth/weak-password') {
-      console.log('Password too weeak');
+      console.log('Password too weak,at least 6 character');
     }
     
   });

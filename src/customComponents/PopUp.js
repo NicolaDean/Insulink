@@ -39,10 +39,7 @@ export const PopUp = (
     setModalWidth(width);
   }
 
-  console.log("banana");
-
   
-
   const addNewGlicemy = () =>
   {
     console.log("ADD NEW GLICEMY : " + glicemy);

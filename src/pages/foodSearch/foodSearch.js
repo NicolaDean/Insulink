@@ -24,6 +24,7 @@ export const FoodSearch = ({ navigation }) =>{
   }
 
   Food_API.setErrorFunc(errorFunc);
+  
   //Define a function to retrive date from API
   const getData = async () => 
   {

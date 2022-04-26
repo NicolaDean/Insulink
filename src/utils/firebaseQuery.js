@@ -135,7 +135,7 @@ class firebaseQuery{
     saveFoodDiary = async (userId,date,diary) =>{
         console.log("TRY FIREBASE")
         console.log("USER : " + userId + "->" + date);
-        const userDiary = await users.doc(userId).collection(diaryTable).doc("25-04-2022").get();
+        const userDiary = await users.doc(userId).collection(diaryTable).doc(date).get();
         firestore().settings({ ignoreUndefinedProperties: true }); //INGORE UNDEFINED FIELD
         const data = {
             totMacro:diary.totMacro,

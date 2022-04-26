@@ -74,7 +74,6 @@ export const Registration = ({navigation}) =>{
             dispatch(register(userData));
             setRegConfirmWait(false);
 
-        
             navigation.navigate('BottomTab',{});
         }catch{
             

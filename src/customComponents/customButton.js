@@ -43,8 +43,8 @@ const styles =  StyleSheet.create({
         margin:20
       },
       disabledButton:{
-        backgroundColor: "white",
-        color:'black'
+        backgroundColor: colors.white,
+        color: colors.black
       }
 });
 
