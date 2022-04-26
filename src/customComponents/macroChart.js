@@ -12,8 +12,8 @@ const screenWidth = Dimensions.get("window").width-marginOffset*3;
     const chartConfig = {
         //General
         backgroundColor: "#e26a00",
-        backgroundGradientFrom: "#fb8c00",
-        backgroundGradientTo: colors.orange,
+    backgroundGradientFrom: "#fb8c00",
+    backgroundGradientTo: "#ffa726",
         color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
         labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
     

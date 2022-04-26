@@ -5,6 +5,8 @@ import CustomButton from '../../customComponents/customButton';
 import {ProgressChart} from "react-native-chart-kit";
 import { MacroChart } from '../../customComponents/macroChart';
 import { GlycemiaChart } from '../../customComponents/glycemiaChart';
+import {SportChart} from '../../customComponents/sportChart';
+import {ActivityChart} from '../../customComponents/activityChart';
 import { SportActivity } from "./sportActivity";
 //CUSTOM COMPONENTS
 import Meal from './meal';
@@ -112,7 +114,10 @@ return (
         <MacroChart diary={diary} user={user}/>
         </View>
         <View style={styles.slide}>
-        <MacroChart diary={diary} user={user}/>
+        <SportChart diary={diary} user={user}/>
+        </View>
+        <View style={styles.slide}>
+        <ActivityChart diary={diary} user={user}/>
         </View>
         <View style={styles.slide}>
         <GlycemiaChart diary={diary} user={user}/>
