@@ -12,13 +12,15 @@ export const addFood = (food,currentMeal) => async( dispatch, getState) =>{
         payload: {food:food}
     })
 
-    //TODO ADD TO FIREBASE
-
-    //Update LOCAL STORAGE
+    //Get updated state
     const state = getState();
-    localStorage.storeFoodDiary(FirebaseQuery.glicemyDateFormatter(),state.macroTracker);
+    //Update LOCAL STORAGE
+    localStorage.storeFoodDiary(today,state.macroTracker);
+    //Update  FIREBASE
 
-    //THINK HOW MANTAIN CONSINSTENCY
+    console.log(JSON.stringify(state.userReducer));
+    FirebaseQuery.saveFoodDiary(state.userReducer.userId,today,state.macroTracker);
+    //TODO THINK HOW MANTAIN CONSINSTENCY
 } 
 
 export const removeFood = (food) =>{
@@ -48,9 +50,18 @@ export const loadRemoteDiary = (email,date) =>{
 
 export const loadHistory = (date) => async( dispatch) =>{
 
-    const history = await localStorage.loadFoodDiary(date);
+    //Try LOADING FROM LOCAL STORAGE
+    let history = await localStorage.loadFoodDiary(date);
 
     //console.log("HISTORY: " + JSON.stringify(history));
+
+    //IF NULL Try LOADING FROM FIREBASE
+    if(history == null){
+        //Load from firebase
+        console.log("load from firebase")
+        history = FirebaseQuery.getFoodDiary(date);
+        console.log("HISTORY: -> " + JSON.stringify(history));
+    }
 
     dispatch({
         type: foodMethods.loadHistory,

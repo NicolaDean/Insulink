@@ -5,6 +5,7 @@ import { firebase } from "@react-native-firebase/firestore";
 
 const userTable = "Users";
 const glicemyTable = "Glicemy";
+const diaryTable = "FoodDiary";
 
 const users = firestore().collection(userTable);
 
@@ -51,7 +52,7 @@ class firebaseQuery{
         if(res == undefined) return [];
 
         res.data.forEach(g => {
-            glicemy_records[date].push(changeGlicemyTimeFormat(g));
+            glicemy_records[date].push(this.changeGlicemyTimeFormat(g));
         });
 
         console.log("->>>>" + JSON.stringify(glicemy_records));
@@ -129,6 +130,42 @@ class firebaseQuery{
 
         glicemy.time = {date:date,hours:hours};
         return glicemy;
+    }
+
+    saveFoodDiary = async (userId,date,diary) =>{
+        console.log("TRY FIREBASE")
+        console.log("USER : " + userId + "->" + date);
+        const userDiary = await users.doc(userId).collection(diaryTable).doc("25-04-2022").get();
+        firestore().settings({ ignoreUndefinedProperties: true }); //INGORE UNDEFINED FIELD
+        const data = {
+            totMacro:diary.totMacro,
+            meals:diary.meals,
+            activities:diary.activities
+        }
+
+        //await users.doc(userId).collection(diaryTable).doc(date).set({data:diary},{merge: true});
+       if(userDiary && userDiary.exists)
+        {
+            console.log("exist");
+            try{
+                await userDiary.ref.update(data);
+            }catch(e){
+                console.log("ERRORE : " + e);
+            }
+            
+        }else{
+            
+            await userDiary.ref.set(data)//TODO VEDERE CHE SUCCEDE QUI 
+            console.log("Saved on " + userId + "-> " + date);
+        }
+    }
+
+    getFoodDiary = async (userId,date) =>{
+        const res = (await (users.doc(userId).collection(diaryTable).doc(date).get())).data();
+        
+        if(res == undefined) return [];
+
+        return res;
     }
 }
 

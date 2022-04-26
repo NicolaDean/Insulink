@@ -40,15 +40,17 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
 
     //console.log("CURR DATE:  " + diary.currentDate + " -> " + FirebaseQuery.glicemyDateFormatter());
     if(diary.currentDate == FirebaseQuery.glicemyDateFormatter()){
+        
         //IF TODAY IS SELECTED
         macro = diary.meals[id].macro;
         food = diary.meals[id].foods;
         sport = diary.activities[id].sports;
     }else{
+        console.log("NOT TODAY -> "  +diary.currentDate + " ->" + FirebaseQuery.glicemyDateFormatter())
         //OTHER DAY IS SELECTED
-        macro = diary.history.meals[id].macro;
+        /*macro = diary.history.meals[id].macro;
         food =  diary.history.meals[id].foods;
-        sport =  diary.history.activities[id].sports;
+        sport =  diary.history.activities[id].sports;*/
     }
     
 

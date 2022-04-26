@@ -82,7 +82,7 @@ export const MealDiary = ({ navigation,diary,user }) =>{
   const storeMeals = () => {
 
     localStorage.storeFoodDiary("15-04-2022",{
-      empty:true,
+        empty:true,
         totMacro:{cal:54,carb:55,fat:22,prot:0},
         meals:{
             breakfast:{foods:[{"id":{"food_name":"apple","serving_unit":"medium (3\" dia)","tag_name":"apple","serving_qty":1,"common_type":null,"tag_id":"384","photo":{"thumb":"https://nix-tag-images.s3.amazonaws.com/384_thumb.jpg"},"locale":"en_US"},"name":"apple","image":"https://nix-tag-images.s3.amazonaws.com/384_highres.jpg","cal":94.64,"carb":25.13,"fat":0.31,"prot":0.47,"quantity":1,"unit":"medium (3\" dia)"}],macro:{cal:33,carb:44,fat:55,prot:0}},

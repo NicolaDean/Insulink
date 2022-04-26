@@ -81,17 +81,17 @@ export const del = (user) =>{
  */
 export const login = (email,psw) => async dispatch =>{
 
+    console.log("CIAO");
     //ASYNC ACTION (eg check values on DB)
 
     //CHECK LOGIN DATA
     const user = await authSys.login(email,psw);
-
     if(user == null) {return null}; //BAD LOGIN (make return an error)
-
     //Get user data
     const usrData = (await FirebaseQuery.getUserData(user.uid));
     const glicemy = (await FirebaseQuery.getUserGlicemy(user.uid));
     usrData.glicemy = glicemy;
+    usrData.uid = user.uid;
 
     //CHECK FOR EMPTY DATA:
     usrData.age = 20; //TODO CALCULATE AGE FROM BIRTHDAY
@@ -128,7 +128,7 @@ export const googleLogin = (uid,errorFunc) => async dispatch =>{
     }
 
     usrData.glicemy = glicemy;
-
+    
     //CHECK FOR EMPTY DATA:
     usrData.age = 20; //TODO CALCULATE AGE FROM BIRTHDAY
     console.log("Login ok" + JSON.stringify(usrData));
@@ -167,7 +167,8 @@ export const loadUserLocalData = ([logged,setLogged]) =>async( dispatch, getStat
         dispatch({
             type: userMethods.login,
             payload: {
-                usrData: userData
+                usrData: userData,
+                userId: userData.uid
             }
         });
         setLogged(true);
@@ -176,22 +177,8 @@ export const loadUserLocalData = ([logged,setLogged]) =>async( dispatch, getStat
 
         let mealDiary = null;
 
-        //CHECK IF "CurrentDate is Today, else reset the diary"
-        if(currState.macroTracker.currentDate == FirebaseQuery.glicemyDateFormatter()){
-            //LOAD MEAL DIARY IF EXIST AND STORE IT INTO REDUX
-            mealDiary = await localStorage.loadFoodDiary(FirebaseQuery.glicemyDateFormatter());
-        }
-        else{
-            //SAVE DATA LOCALY AND ON FIREBASE, THEN RESET DIARY
-            dispatch({
-                type: foodMethods.resetDiary,
-                payload: {
-                    date: FirebaseQuery.glicemyDateFormatter()
-                }
-            })
-        }
-
-
+        //LOAD MEAL DIARY IF EXIST AND STORE IT INTO REDUX
+        mealDiary = await localStorage.loadFoodDiary(FirebaseQuery.glicemyDateFormatter());
 
         console.log("LOADED DIARY FROM STORAGE")
         console.log("DIARY: " + JSON.stringify(mealDiary))

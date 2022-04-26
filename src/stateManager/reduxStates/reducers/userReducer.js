@@ -1,5 +1,5 @@
 import { userMethods } from "../../../constants/reducers"
-import { changeGlicemyTimeFormat, glicemyDateFormatter, registerUser } from "../../../utils/firebaseQuery";
+import {  FirebaseQuery } from "../../../utils/firebaseQuery";
 import { loginStatus } from "../../../constants/states";
 
 const initialState = {
@@ -27,6 +27,7 @@ const login = (state,payload) =>{
 
     const newState = {...state};
 
+    console.log("THIS USER HAS : " +payload.userId )
     newState.userId = payload.userId;
     newState.status = loginStatus.logged;
     newState.userData = usrData;
@@ -51,13 +52,13 @@ const register = (state,payload) =>{
 const addGlicemy = (state,payload) =>{
     const newstate ={...state};
 
-    const id = glicemyDateFormatter();
+    const id = FirebaseQuery.glicemyDateFormatter();
 
     const g = {...payload.glicemy};//;
 
     console.log("MAH:" + JSON.stringify(newstate.userData));
     if(newstate.userData.glicemy[id] == undefined) newstate.userData.glicemy[id] = [];
-    newstate.userData.glicemy[id].push(changeGlicemyTimeFormat(g));
+    newstate.userData.glicemy[id].push(FirebaseQuery.changeGlicemyTimeFormat(g));
     return newstate;
 }
 

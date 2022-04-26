@@ -38,9 +38,8 @@ export const Calendar = ({onChange = (date)=>{}}) => {
         //TODO ADD A REDUX ACTION TO RETRIVE DATA FROM LOCALSTORAGE/FIREBASE AND SHOW THEM
         const parseDate = new Date(date);
         const currDate = FirebaseQuery.glicemyDateFormatter(parseDate);
-
-        setDate(currDate);
         onChange(currDate);
+        setDate(currDate);
     }
 
     return (

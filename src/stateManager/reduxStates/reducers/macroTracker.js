@@ -8,7 +8,7 @@ const macro = macroConstants;
 //TODO Each diary will have a Date, if Date < Today it will be saved localy/firabase and resetted for new day
 export const initialDiaryState = {
     currentMeal:"breakfast",
-    currentDate:"22-04-2022",
+    currentDate:"26-04-2022",
     totMacro:{cal:0,carb:0,fat:0,prot:0},
     id:1,
     meals:{
