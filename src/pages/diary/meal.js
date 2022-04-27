@@ -28,7 +28,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     //This variable keep track of the expansios status of meal (can be shrinked or growed by click)
     const [expanded,setExpanded] = useState( false )
     const [apiSelected, setApi] = useState(false);
-    const [available,setAvailable] = useState(true);
+    const available = diary.currentDate == FirebaseQuery.glicemyDateFormatter();
 
     const dispatch = useDispatch();
 
@@ -47,7 +47,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
         if(diary.currentDate == FirebaseQuery.glicemyDateFormatter()){
             //IF TODAY IS SELECTED
             macro = diary.meals[id].macro;
-            food = diary.meals[id].foods;
+            food  = diary.meals[id].foods;
             sport = diary.activities[id].sports;
  
         }else{
@@ -64,9 +64,6 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                 macro = initialDiaryState.history.meals[id].macro;
                 food =  initialDiaryState.history.meals[id].foods;
                 sport =  initialDiaryState.history.activities[id].sports;
-                if(available == true){
-                    setAvailable(false);
-                }
             }
         }
     }

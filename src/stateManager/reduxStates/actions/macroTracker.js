@@ -2,6 +2,7 @@ import { foodMethods } from "../../../constants/reducers"
 import { FirebaseQuery } from "../../../utils/firebaseQuery";
 
 import { localStorage } from "../../../utils/localStoreManager";
+import { initialDiaryState } from "../reducers/macroTracker";
 
 export const addFood = (food,currentMeal) => async( dispatch, getState) =>{
 
@@ -52,21 +53,31 @@ export const loadHistory = (date) => async( dispatch,getState) =>{
 
      //Get updated state
      const state = getState();
-
-     console.log("LOAD HISTORY FROM : " + date + " -> " + state.userReducer.userId);
-    //Try LOADING FROM LOCAL STORAGE
-    let history = await localStorage.loadFoodDiary(date);
-
-    //console.log("HISTORY: " + JSON.stringify(history));
-
-    //IF NULL Try LOADING FROM FIREBASE
-    if(history == null){
-        //Load from firebase
-        console.log("load from firebase")
-        history = await  FirebaseQuery.getFoodDiary(state.userReducer.userId,date);
-        console.log("HISTORY: -> " + JSON.stringify(history));
-    }
-
+     let history = null;
+     if(date == FirebaseQuery.glicemyDateFormatter()) 
+     {
+         console.log("RETURNED TO TODAY: ");
+     }else{
+        console.log("LOAD HISTORY FROM : " + date + " -> " + state.userReducer.userId);
+        //Try LOADING FROM LOCAL STORAGE
+        history = await localStorage.loadFoodDiary(date);
+    
+        //console.log("HISTORY: " + JSON.stringify(history));
+    
+        //IF NULL Try LOADING FROM FIREBASE
+        if(history == null){
+            //Load from firebase
+            console.log("load from firebase")
+            history = await  FirebaseQuery.getFoodDiary(state.userReducer.userId,date);
+            console.log("HISTORY: -> " + JSON.stringify(history));
+        }
+    
+        if(history == null){
+            history = initialDiaryState.history;
+        }
+     }
+   
+    
     dispatch({
         type: foodMethods.loadHistory,
         payload: {date:date,history:history}

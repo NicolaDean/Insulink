@@ -274,8 +274,10 @@ const loadHistory = (state,payload) => {
     const newState = {...state};
 
     newState.currentDate = payload.date;
-    if(payload.history!=null){
-        newState.history = payload.history;
+    if(payload.date != FirebaseQuery.glicemyDateFormatter()){
+        if(payload.history!=null){
+            newState.history = payload.history;
+        }
     }
     
     return newState;
