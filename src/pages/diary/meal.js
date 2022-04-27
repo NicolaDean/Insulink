@@ -19,6 +19,7 @@ import { color } from 'react-native-reanimated';
 import { colors } from '../../constants/appAspect';
 import { FirebaseQuery } from '../../utils/firebaseQuery';
 import { WaitLoading } from '../../customComponents/containers/waitLoading';
+import { initialDiaryState } from '../../stateManager/reduxStates/reducers/macroTracker';
 
 
 
@@ -48,10 +49,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
             macro = diary.meals[id].macro;
             food = diary.meals[id].foods;
             sport = diary.activities[id].sports;
-            if(available==true){
-                setAvailable(false);
-            }
-            
+ 
         }else{
             console.log("NOT TODAY -> "  +diary.currentDate + " ->" + FirebaseQuery.glicemyDateFormatter())
             //OTHER DAY IS SELECTED
@@ -60,16 +58,15 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                 macro = diary.history.meals[id].macro;
                 food =  diary.history.meals[id].foods;
                 sport =  diary.history.activities[id].sports;
-                if(available==true){
+            }catch(e){
+                
+                console.log("DATA NOT READY");
+                macro = initialDiaryState.history.meals[id].macro;
+                food =  initialDiaryState.history.meals[id].foods;
+                sport =  initialDiaryState.history.activities[id].sports;
+                if(available == true){
                     setAvailable(false);
                 }
-            }catch(e){
-                setAvailable(true);
-                console.log("DATA NOT READY");
-                if(available==false){
-                    setAvailable(true);
-                }
-                //PRINT DATA NOT AVAILABE
             }
         }
     }
@@ -136,9 +133,9 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                 />
             </ScrollView>
             <View style={{flexDirection:'row',justifyContent:'center',alignContent:'center',backgroundColor:colors.primary,borderBottomEndRadius: 10,borderBottomLeftRadius:10}}>
-             <CustomButton onPress={()=>{addSport()}} title='Add Sport' style={styles.appButtonContainer} useDefaultStyle={false}/>
+             <CustomButton onPress={()=>{addSport()}} title='Add Sport' disabled={!available} style={styles.appButtonContainer} useDefaultStyle={false}/>
             <PopUp name_to_open='Dose' name_to_close='close' id={id}/>
-            <CustomButton onPress={()=>{addFoods()}} title='Add Food' style={styles.appButtonContainer} useDefaultStyle={false}/>
+            <CustomButton onPress={()=>{addFoods()}} title='Add Food' disabled={!available} style={styles.appButtonContainer} useDefaultStyle={false}/>
                 </View>
                 
                 </View>
@@ -147,9 +144,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
 
 
     return (
-
-        <WaitLoading loadingState={[available,setAvailable]} customLoad={(<View><Text> NO DATA</Text></View>)}>              
-        
+     
 <SafeAreaView  style={styles.mealView}>
     <View style={{width:'100%',flexDirection:'row'}}>
         <View activeOpacity={0.2} style={{flex:1,flexDirection:'column'}} > 
@@ -192,8 +187,6 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
         }
         
 </SafeAreaView>
-</WaitLoading>   
-
        
     );//
    

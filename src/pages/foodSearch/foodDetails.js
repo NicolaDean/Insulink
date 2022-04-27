@@ -20,13 +20,15 @@ import MacroTable from './macroTable';
 import { CustomImageButton } from '../../customComponents/customImageButton';
 import { buttonIconsNames,buttonIcons } from '../../assets/buttonIcons';
 import { colors } from '../../constants/appAspect';
+import { FirebaseQuery } from '../../utils/firebaseQuery';
 
 
 const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset;
 
-export const FoodDetails = ({route,navigation}) =>{
+export const FoodDetails = ({route,navigation,currentDate}) =>{
 
+    console.log("DDDD: " + currentDate);
     //TODO ADD A "LOADING BAR" UNTIL DATA ARENT LOADED
     let data = route.params.data; //TODO IN FOOD IS WRONGLY PASSED ID INSTEAD OF DATA (try correct)
     let foodInfo = route.params.foodInfo;
@@ -40,6 +42,8 @@ export const FoodDetails = ({route,navigation}) =>{
     const [open, setOpen] = useState(false);
     
     const editable = route.params.editable;
+
+    const notEditable = currentDate != FirebaseQuery.glicemyDateFormatter();
 
     const iconSelector = editable ? buttonIconsNames.edit : buttonIconsNames.plus;
     const addButtonText = editable ? "Edit Food" : "Add Food To Meal";
@@ -128,7 +132,7 @@ export const FoodDetails = ({route,navigation}) =>{
 
     const deleteButton = () =>{
         return(
-            <CustomImageButton image={buttonIconsNames.bin} style={styles.addPlus} iconStyle={styles.addPlus} onPress={() =>{
+            <CustomImageButton disabled={notEditable} image={buttonIconsNames.bin} style={styles.addPlus} iconStyle={styles.addPlus} onPress={() =>{
                 dispatch(removeFood({
                     id:     data,
                     name:   details.name,
@@ -160,7 +164,8 @@ export const FoodDetails = ({route,navigation}) =>{
                 <Image style={styles.foodImage} source={details.image!=null?{uri:details.image}:buttonIcons['defaultDiet'].uri}/>
                 <View style={{marginTop:200,flexDirection:'row',alignContent:'center'}}>
                     <Text style ={styles.sectionTitle}> {details.name}</Text>
-                    <CustomImageButton image={iconSelector} style={styles.addPlus} iconStyle={styles.addPlus} onPress={addItem}/>
+                   
+                    <CustomImageButton disabled={notEditable} image={iconSelector} style={styles.addPlus} iconStyle={styles.addPlus} onPress={addItem}/>
                     {editable?deleteButton():null}
                 </View>
              </View>
@@ -168,8 +173,9 @@ export const FoodDetails = ({route,navigation}) =>{
                 
                 <View style={{flex:1.3,width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white',borderRadius:10}}>
                     <View style={{marginLeft:10,marginRight:10,marginTop:10,flexDirection:'row'}}>
-                        <TextInput defaultValue={foodInitialAmount.toString()} style={{backgroundColor:'white',borderColor:'black',borderWidth:1,width:'20%'}} onChangeText={a=>{updateAmount(a)}} placeholder='amount' keyboardType="numeric"/>
+                        <TextInput editable={!notEditable} defaultValue={foodInitialAmount.toString()} style={{backgroundColor:'white',borderColor:'black',borderWidth:1,width:'20%'}} onChangeText={a=>{updateAmount(a)}} placeholder='amount' keyboardType="numeric"/>
                         <DropDownPicker
+                            disabled={notEditable}
                             zIndex={1000}
                             onSelectItem={(item) => {
                                 makeProportions(item.value);
@@ -221,7 +227,7 @@ export const FoodDetails = ({route,navigation}) =>{
                 <MacroTable title={"Details"}data={details}/>
 
                 <View style={{flex:1,width:'90%',marginLeft:'5%',marginTop:10}}>
-                    <CustomButton style={styles.addButton} title={addButtonText} onPress={()=>{addItem()} }/>
+                    <CustomButton disabled={notEditable} style={styles.addButton} title={addButtonText} onPress={()=>{addItem()} }/>
                 </View>
                 
             </View>
@@ -241,7 +247,7 @@ export const FoodDetails = ({route,navigation}) =>{
 
 const mapStateToProps = (state, ownProps = {}) => {
     
-    return{identifier: state.macroTracker.id,currentMeal: state.macroTracker.currentMeal};
+    return{identifier: state.macroTracker.id,currentMeal: state.macroTracker.currentMeal,currentDate:state.macroTracker.currentDate};
   }
   
 export default connect(mapStateToProps)(FoodDetails);

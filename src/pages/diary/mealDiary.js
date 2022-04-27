@@ -81,26 +81,7 @@ export const MealDiary = ({ navigation,diary,user }) =>{
     dispatch(loadHistory(date));
   }
 
-  const storeMeals = () => {
 
-    localStorage.storeFoodDiary("15-04-2022",{
-        empty:true,
-        totMacro:{cal:54,carb:55,fat:22,prot:0},
-        meals:{
-            breakfast:{foods:[{"id":{"food_name":"apple","serving_unit":"medium (3\" dia)","tag_name":"apple","serving_qty":1,"common_type":null,"tag_id":"384","photo":{"thumb":"https://nix-tag-images.s3.amazonaws.com/384_thumb.jpg"},"locale":"en_US"},"name":"apple","image":"https://nix-tag-images.s3.amazonaws.com/384_highres.jpg","cal":94.64,"carb":25.13,"fat":0.31,"prot":0.47,"quantity":1,"unit":"medium (3\" dia)"}],macro:{cal:33,carb:44,fat:55,prot:0}},
-            lunch:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
-            dinner:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
-            snack:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}}
-        },
-        activities:{
-            breakfast:{sports:[],totCal:0},
-            lunch:{sports:[],totCal:0},
-            dinner:{sports:[],totCal:0},
-            snack:{sports:[],totCal:0}
-        }
-    });
-    
-  }
 
 return (
  //TODO ADD THE TOTAL MEALS MACRO GRAPH
@@ -130,8 +111,8 @@ return (
         <Meal navigation = {navigation} name ="Pranzo"      icon ="lunch"       id="lunch"/>
         <Meal navigation = {navigation} name ="Cena"        icon ="dinner"      id="dinner"/>
         <Meal navigation = {navigation} name ="Snack"       icon ="snack"       id="snack"/>
-                <CustomButton title='Add Custom Meal' onPress={()=>{}}/>
-                <CustomButton title='History Test (15 april)' onPress={()=>{storeMeals()}}/>
+        
+        <CustomButton title='Add Custom Meal' onPress={()=>{}}/>
 </ScrollView>
 </View>
     );
