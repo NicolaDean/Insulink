@@ -68,9 +68,9 @@ export default StyleSheet.create({
       fontWeight: '700',
     },
     searchBox: { 
-      fontSize: 18,
-      width: "50%",
-      marginLeft:10
+      fontSize: 20,
+      width: Dimensions.get('window').width*0.50,
+      marginLeft:Dimensions.get('window').width*0.02
     },
     foodImage: {
       position:'absolute',
@@ -103,10 +103,9 @@ export default StyleSheet.create({
       },
       LogoSize: {
 
-  width: Dimensions.get('window').width*0.1,
-  height: Dimensions.get('window').height*0.1,
+  width: Dimensions.get('window').width*0.12,
+  height: Dimensions.get('window').height*0.12,
   resizeMode: 'contain',
-  top:0,
 
   marginLeft:20
       },
