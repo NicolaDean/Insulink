@@ -48,11 +48,9 @@ export const FoodSearch = ({ navigation }) =>{
   const printFoods = () => {
     return (
       <FlatList 
-
+      contentContainerStyle={{paddingVertical:0}}
       data={foodData}
       numColumns={3}
-      
-      contentContainerStyle={{}}
       renderItem={({ item }) => (
           <Food style={styles.food} data ={item} nav = {navigation} api={apiSelected} deletable={false}></Food>
         )}

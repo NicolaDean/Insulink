@@ -68,9 +68,8 @@ export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
     const deletableStyle = [styles.contentBox,{width: dim.width*0.4, height: dim.width*0.4}];
     const normalStyle    = [styles.contentBox,{width: dim.width*0.3, height: dim.width*0.3,paddingTop:20}];
     return (
-        <SafeAreaView >
         <Shake value={state} type="timing" useNativeDriver={true}>
-            <TouchableHighlight  style={ {justifyContent: 'center',alignItems:'center',margin:3}}
+            <TouchableHighlight  style={ {justifyContent: 'center',alignItems:'center',margin:3,paddingVertical:10}}
                                 underlayColor={"COLOR"}  
                                 onPress={()=>{sport?null:getDetails()}} 
                                 onLongPress={expandMeal}
@@ -90,7 +89,6 @@ export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
                 </View>
             </TouchableHighlight>
         </Shake>
-        </SafeAreaView>
        
     );
 
