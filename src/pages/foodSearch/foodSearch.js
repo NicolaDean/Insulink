@@ -78,8 +78,7 @@ export const FoodSearch = ({ navigation }) =>{
             />
 
            </View>
-           <Text>{JSON.stringify(error)}</Text>
-           <View style={{flex:1}}>
+           <View style={{flex:1,alignContent:'center'}}>
               {loading ? <ActivityIndicator size="large"/> : printFoods()}
             </View>
 

@@ -8,6 +8,13 @@
 --. Controlla che ti calcoli bene quanta insulina fare
 --. Aggiusta meglio la logica per fare il grafico della glicemia (gli orari)
 
+//ipad
+--. 4 quadrati blu al centro sono piccoli
+--. Heatmap-Grafico glicemia piccola
+--. "" sotto FoodSearch
+--. Barra ricerca cibo : Font size da ingrandire/togliere toogle/spostare a destra icone cerca e foto
+--. centrare grid risultati ricerca cibo
+
 //NICO
 
 --. tasto modify in realta fa un add in food details quando entri da mealdiary
@@ -22,3 +29,6 @@
 
 --. Nella schermata di log in il log in con google va troppo sotto (Android) forse va rimossa la top bar di default 
 --. da tlefono non fa accedere in fast login (android)
+--. nella registrazione se metti email e password poi passi allo tep 2 e torni indietro si cancella tutto ma non ti fa più il controllo
+--. Birthday da mettere come date picker non string
+--. Complete registration da mettere un bottone 
