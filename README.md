@@ -9,7 +9,6 @@
 --. Aggiusta meglio la logica per fare il grafico della glicemia (gli orari)
 
 //ipad
---. 4 quadrati blu al centro sono piccoli
 --. Heatmap-Grafico glicemia piccola
 --. Barra ricerca cibo : Font size da ingrandire/togliere toogle/spostare a destra icone cerca e foto
 

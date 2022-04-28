@@ -26,6 +26,8 @@ const chartConfig = {
       strokeWidth: "2",
       stroke: "#ffa726"
     },
+    marginRight:marginOffset,
+    marginLeft:marginOffset,
       barPercentage: 0.5,
       useShadowColorFromDataset: false, // optional
 };
@@ -72,7 +74,6 @@ const styles=StyleSheet.create({
         marginLeft:15,
         top: '5%',
         borderRadius: 15,
-        
     }
 });
 
