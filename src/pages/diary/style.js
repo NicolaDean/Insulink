@@ -56,7 +56,6 @@ export default StyleSheet.create({
         height: 20,
       },
       addBox:{
-        flex:1,
         flexShrink:1,
         flexDirection:'row',
         justifyContent:'flex-end',

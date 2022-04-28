@@ -114,8 +114,8 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
 
     const showExpansion = () =>{
         return (
-            <View style>
-            <ScrollView  style={{ width:"100%",fontSize:20}}> 
+        <View>
+            <ScrollView> 
                 <FlatList 
                     data={food}//id,name,image,cal,carbs,fat,prot,food_name,serving_unit,tag_name,tag_id
                     style={{}}
@@ -133,9 +133,9 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
              <CustomButton onPress={()=>{addSport()}} title='Add Sport' disabled={!available} style={styles.appButtonContainer} useDefaultStyle={false}/>
             <PopUp name_to_open='Dose' name_to_close='close' id={id}/>
             <CustomButton onPress={()=>{addFoods()}} title='Add Food' disabled={!available} style={styles.appButtonContainer} useDefaultStyle={false}/>
-                </View>
+            </View>
                 
-                </View>
+        </View>
         );
     }
 

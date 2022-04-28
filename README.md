@@ -23,7 +23,7 @@
 --. click su rotellinsa sopra --> PersonalDetail
 --. aggiornare in modo corretto l'rario quando aggiungi una nuova glicemia
 --. Google login va su telefono ma non da emulatore
-
+--. calendar fix su disable buttons  
 
 //GLOBAL
 
@@ -32,3 +32,4 @@
 --. nella registrazione se metti email e password poi passi allo tep 2 e torni indietro si cancella tutto ma non ti fa più il controllo
 --. Birthday da mettere come date picker non string
 --. Complete registration da mettere un bottone 
+--. Redux elimination sport from mealdiary
