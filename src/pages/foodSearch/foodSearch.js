@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,FlatList,TextInput,Text,Switch,ActivityIndicator } from 'react-native';
+import {View,FlatList,TextInput,Text,Switch,ActivityIndicator,Dimensions } from 'react-native';
 import { useState } from 'react';
 import styles from './style'
 import {Food} from './food'
@@ -7,6 +7,7 @@ import {Food_API} from '../../utils/apiQuery';
 import { CustomImageButton } from '../../customComponents/customImageButton';
 
 
+const screenWidth = Dimensions.get("window").width;
 
 export const FoodSearch = ({ navigation }) =>{
 
@@ -48,7 +49,7 @@ export const FoodSearch = ({ navigation }) =>{
   const printFoods = () => {
     return (
       <FlatList 
-      contentContainerStyle={{paddingVertical:0}}
+      contentContainerStyle={{paddingVertical:0,alignItems:'center'}}
       data={foodData}
       numColumns={3}
       renderItem={({ item }) => (

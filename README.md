@@ -30,3 +30,10 @@
 --. Birthday da mettere come date picker non string
 --. Complete registration da mettere un bottone 
 --. Redux elimination sport from mealdiary
+
+----------------------
+Emulators commands:
+
+npx react-native start
+npx react-native run-android
+npx react-native run-ios --device "Marco’s iPad"
