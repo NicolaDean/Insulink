@@ -4,6 +4,7 @@ import {Dimensions  } from 'react-native';
 import { colors, dim } from '../../constants/appAspect';
 
 const screenWidth = Dimensions.get("window").width
+const screenHeight = Dimensions.get("window").height
 
 export default StyleSheet.create({
     sectionContainer: {
@@ -48,13 +49,13 @@ export default StyleSheet.create({
     sectionTitle: {
       alignSelf:'center',
       color:"black",
-      fontSize: 30,
+      fontSize: screenWidth/15,
       fontWeight: '600',
     },
     addPlus:{
       alignSelf:'flex-end',
-      width: Dimensions.get('window').width*0.1,
-      height: Dimensions.get('window').height*0.1,
+      width:screenWidth*0.1,
+      height: screenWidth*0.1,
       resizeMode: 'contain',
       top:0,
       marginLeft:20,
@@ -69,15 +70,16 @@ export default StyleSheet.create({
       fontWeight: '700',
     },
     searchBox: { 
-      fontSize: Dimensions.get('window').width/24,
-      width: Dimensions.get('window').width*0.50,
-      marginLeft:Dimensions.get('window').width*0.02
+      fontSize: screenWidth/24,
+      width: screenWidth*0.50,
+      marginLeft:screenWidth*0.02
     },
     foodImage: {
+      margin:10,
       position:'absolute',
       zIndex:-1,
       width: 200,
-      height: 200,
+      height:200,
       alignSelf:'center'
     
      },
@@ -104,8 +106,8 @@ export default StyleSheet.create({
       },
       LogoSize: {
 
-  width: Dimensions.get('window').width*0.12,
-  height: Dimensions.get('window').height*0.12,
+  width: screenWidth*0.12,
+  height: screenHeight*0.12,
   resizeMode: 'contain',
 
   marginLeft:20
@@ -114,8 +116,8 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignItems:'center',
           },deleteButton:{
-        width: Dimensions.get('window').width*0.1,
-        height: Dimensions.get('window').height*0.1,
+        width: screenWidth*0.1,
+        height: screenHeight*0.1,
         resizeMode: 'contain',
         top:0,
       }
