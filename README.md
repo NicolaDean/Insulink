@@ -10,7 +10,6 @@
 
 //ipad
 --. Heatmap-Grafico glicemia piccola
---. Barra ricerca cibo : Font size da ingrandire/togliere toogle/spostare a destra icone cerca e foto
 
 //NICO
 
