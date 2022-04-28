@@ -62,7 +62,8 @@ export const FoodSearch = ({ navigation }) =>{
        <View style={{flex:1}}>
            
            <View style={styles.header}>
-              <TextInput style={styles.searchBox} placeholder="insert food!" onChangeText={setFood}/>
+              <TextInput    adjustsFontSizeToFit
+ style={styles.searchBox} placeholder="insert food!" onChangeText={setFood}/>
               <Switch style={{marginVertical:'7%'}} trackColor={{ false: "#767577", true: "#81b0ff" }}
                   thumbColor={apiSelected ? "#f5dd4b" : "#f4f3f4"}
                   ios_backgroundColor="#3e3e3e"

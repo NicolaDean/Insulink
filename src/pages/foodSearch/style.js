@@ -3,7 +3,7 @@ import { RollInRight } from 'react-native-reanimated';
 import {Dimensions  } from 'react-native';
 import { colors, dim } from '../../constants/appAspect';
 
-const screenWidth = Dimensions.get("window")
+const screenWidth = Dimensions.get("window").width
 
 export default StyleSheet.create({
     sectionContainer: {
@@ -43,7 +43,8 @@ export default StyleSheet.create({
       },
       shadowOpacity: 0.23,
       shadowRadius: 2.62,
-    },
+      justifyContent:'space-around'
+     },
     sectionTitle: {
       alignSelf:'center',
       color:"black",
@@ -68,7 +69,7 @@ export default StyleSheet.create({
       fontWeight: '700',
     },
     searchBox: { 
-      fontSize: 20,
+      fontSize: Dimensions.get('window').width/24,
       width: Dimensions.get('window').width*0.50,
       marginLeft:Dimensions.get('window').width*0.02
     },
