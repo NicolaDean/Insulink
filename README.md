@@ -11,9 +11,7 @@
 //ipad
 --. 4 quadrati blu al centro sono piccoli
 --. Heatmap-Grafico glicemia piccola
---. "" sotto FoodSearch
 --. Barra ricerca cibo : Font size da ingrandire/togliere toogle/spostare a destra icone cerca e foto
---. centrare grid risultati ricerca cibo
 
 //NICO
 
