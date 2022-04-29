@@ -39,7 +39,7 @@ export const GlycemiaChart = ({
 
     
     const data = glicemyChartFormatter(FirebaseQuery.getTodayGlicemy(user.userData.glicemy));
-    //console.log(JSON.stringify(data));
+    console.log(JSON.stringify(data));
 
     return (
       

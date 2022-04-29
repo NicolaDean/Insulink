@@ -4,14 +4,10 @@ import { FirebaseQuery } from "../../../utils/firebaseQuery";
 import { localStorage } from "../../../utils/localStoreManager";
 import { initialDiaryState } from "../reducers/macroTracker";
 
-export const addFood = (food,currentMeal) => async( dispatch, getState) =>{
+
+const saveState = () => async( dispatch, getState) =>{
 
     let today = FirebaseQuery.glicemyDateFormatter();
-    
-    dispatch({
-        type: foodMethods.addFood,
-        payload: {food:food}
-    })
 
     //Get updated state
     const state = getState();
@@ -22,20 +18,32 @@ export const addFood = (food,currentMeal) => async( dispatch, getState) =>{
     console.log(JSON.stringify(state.userReducer));
     FirebaseQuery.saveFoodDiary(state.userReducer.userId,today,state.macroTracker);
     //TODO THINK HOW MANTAIN CONSINSTENCY
+}
+
+export const addFood = (food,currentMeal) => async( dispatch, getState) =>{
+
+    dispatch({
+        type: foodMethods.addFood,
+        payload: {food:food}
+    })
+
+    dispatch(saveState());
 } 
 
-export const removeFood = (food) =>{
-    return{
+export const removeFood = (food) => async( dispatch, getState) =>{
+    dispatch({
         type: foodMethods.removeFood,
         payload: {food:food}
-    }
+    })
+    dispatch(saveState());
 } 
 
-export const editFood = (food) =>{
-    return{
+export const editFood = (food) => async( dispatch, getState) =>{
+    dispatch({
         type: foodMethods.editFood,
         payload: {food:food}
-    }
+    })
+    dispatch(saveState());
 } 
 
 export const selectMealType = (mealType) =>{
@@ -45,9 +53,6 @@ export const selectMealType = (mealType) =>{
     }
 }
 
-export const loadRemoteDiary = (email,date) =>{ 
-    
-}
 
 export const loadHistory = (date) => async( dispatch,getState) =>{
 
@@ -61,8 +66,6 @@ export const loadHistory = (date) => async( dispatch,getState) =>{
         console.log("LOAD HISTORY FROM : " + date + " -> " + state.userReducer.userId);
         //Try LOADING FROM LOCAL STORAGE
         history = await localStorage.loadFoodDiary(date);
-    
-        //console.log("HISTORY: " + JSON.stringify(history));
     
         //IF NULL Try LOADING FROM FIREBASE
         if(history == null){
@@ -92,7 +95,5 @@ export const addActivityToDiary = (activity) => async( dispatch, getState) =>{
         payload: {activity:activity}
     });
 
-    //Update LOCAL STORAGE
-    const state = getState();
-    localStorage.storeFoodDiary(FirebaseQuery.glicemyDateFormatter(),state.macroTracker);
+    dispatch(saveState());
 }

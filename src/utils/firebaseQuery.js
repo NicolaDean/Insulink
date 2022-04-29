@@ -128,6 +128,7 @@ class firebaseQuery{
         let date = this.zeroPad(time.getDate(),2) +"/"+ this.zeroPad(time.getMonth(),2);
         let hours = this.zeroPad(time.getHours(),2) +":"+ this.zeroPad(time.getMinutes(),2);
 
+        //TODO ERROR OF DATE FORMAT CHECK!
         glicemy.time = {date:date,hours:hours};
         return glicemy;
     }

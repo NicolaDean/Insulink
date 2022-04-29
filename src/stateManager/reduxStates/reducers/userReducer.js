@@ -58,7 +58,10 @@ const addGlicemy = (state,payload) =>{
 
     console.log("MAH:" + JSON.stringify(newstate.userData));
     if(newstate.userData.glicemy[id] == undefined) newstate.userData.glicemy[id] = [];
+
     newstate.userData.glicemy[id].push(FirebaseQuery.changeGlicemyTimeFormat(g));
+
+    console.log("ARRRACCA: ->  " + JSON.stringify(FirebaseQuery.changeGlicemyTimeFormat(g)));
     return newstate;
 }
 

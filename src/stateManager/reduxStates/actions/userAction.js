@@ -72,6 +72,32 @@ export const del = (user) =>{
     });
 } 
 
+
+const actualLogin = (usrData,uid,glicemy) => async dispatch =>{
+
+    //CHECK FOR EMPTY DATA:
+    usrData.age = 20; //TODO CALCULATE AGE FROM BIRTHDAY
+    console.log("Login ok" + JSON.stringify(usrData));
+
+    usrData.glicemy = glicemy;
+    
+    usrData.uid = uid;
+    //CHECK FOR EMPTY DATA:
+    usrData.age = 20; //TODO CALCULATE AGE FROM BIRTHDAY
+    console.log("Login ok" + JSON.stringify(usrData));
+
+    //SAVE DATA TO LOCAL STORAGE
+    await localStorage.saveUserData(usrData);
+
+    //REDUX DISPATCH
+    dispatch({
+        type: userMethods.login,
+        payload: {
+            usrData: usrData,
+            userId:uid,
+        }
+    });
+}
 /**
  * retrive user data from firebase, check correctness of login
  * if login is ok save data to local storage and into redux state
@@ -90,24 +116,11 @@ export const login = (email,psw) => async dispatch =>{
     //Get user data
     const usrData = (await FirebaseQuery.getUserData(user.uid));
     const glicemy = (await FirebaseQuery.getUserGlicemy(user.uid));
-    usrData.glicemy = glicemy;
-    usrData.uid = user.uid;
 
-    //CHECK FOR EMPTY DATA:
-    usrData.age = 20; //TODO CALCULATE AGE FROM BIRTHDAY
-    console.log("Login ok" + JSON.stringify(usrData));
 
-    //SAVE DATA TO LOCAL STORAGE
-    await localStorage.saveUserData(usrData);
+    dispatch(actualLogin(usrData,user.uid,glicemy));
 
-    //REDUX DISPATCH
-    dispatch({
-        type: userMethods.login,
-        payload: {
-            usrData: usrData,
-            userId:user.uid,
-        }
-    });
+
 
     //LOAD OTHER USER DATA FROM FIREBASE (EG: MEAL DIARY)
     return true;
@@ -127,23 +140,7 @@ export const googleLogin = (uid,errorFunc) => async dispatch =>{
         return false;
     }
 
-    usrData.glicemy = glicemy;
-    
-    //CHECK FOR EMPTY DATA:
-    usrData.age = 20; //TODO CALCULATE AGE FROM BIRTHDAY
-    console.log("Login ok" + JSON.stringify(usrData));
-
-    //SAVE DATA TO LOCAL STORAGE
-    await localStorage.saveUserData(usrData);
-
-    //REDUX DISPATCH
-    dispatch({
-        type: userMethods.login,
-        payload: {
-            usrData: usrData,
-            userId:user.uid,
-        }
-    });
+    dispatch(actualLogin(usrData,uid,glicemy));
 
     //LOAD OTHER USER DATA FROM FIREBASE (EG: MEAL DIARY)
     return true;
@@ -230,6 +227,6 @@ export const addGlicemy = (userId,glicemyValue) => async dispatch =>{
     //REDUX DISPATCH
     dispatch({
         type:userMethods.addGlicemy,
-        payload:{glicemy:glicemy}
+        payload:{glicemy:{...glicemy}}
     })
 }
