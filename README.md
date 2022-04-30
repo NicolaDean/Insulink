@@ -1,10 +1,8 @@
 # DIMA-insuline-calculator
 
 //MARCO
---. maxCarb,Prot,.. deve essere un valore scelto dall'utente
 --. CHO ratio e insuline sensitivity come parametri dei costruttori di tutti gli insuline calculator
 --. Logo
---. Fix IPAD dimensions (eg 4 columns in foodSearch)
 --. Controlla che ti calcoli bene quanta insulina fare
 --. Aggiusta meglio la logica per fare il grafico della glicemia (gli orari)
 
@@ -14,6 +12,7 @@
 //NICO
 
 --. tasto modify in realta fa un add in food details quando entri da mealdiary
+--. Modify del cibo non carica le corrette cal e macro
 --. qualcosa che non va nel cibo. non sono corretti i valori e se provi a modificarli vanno in negativo i macro e l'insulina
 --. centrare nomi pagine sulla top bar
 --. click su rotellinsa sopra --> PersonalDetail
@@ -29,10 +28,18 @@
 --. Birthday da mettere come date picker non string
 --. Complete registration da mettere un bottone 
 --. Redux elimination sport from mealdiary
+--. Default service unit check --> se non esiste scegli e inserisci la prima
+
+
+----
+FIREBASE
+
+
 
 ----------------------
 Emulators commands:
 
 npx react-native start
 npx react-native run-android
+cd ios && pod install
 npx react-native run-ios --device "Marco’s iPad"

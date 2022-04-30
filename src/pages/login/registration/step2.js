@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {View,StyleSheet,Text,TextInput} from 'react-native';
+import {ScrollView,View,StyleSheet,Text,TextInput} from 'react-native';
 import { buttonIcons, buttonIconsNames } from '../../../assets/buttonIcons';
 import { colors } from '../../../constants/appAspect';
 import { userDataTypes } from '../../../constants/states';
@@ -11,7 +11,7 @@ import CustomButton from '../../../customComponents/customButton';
 import CustomImageButton from '../../../customComponents/customImageButton';
 import { CustomNumberPicker } from '../../../customComponents/customNumberPicker';
 import { PageStepBar } from './pageStepBar';
-
+import DatePicker from 'react-native-modern-datepicker';
 
 const Gender = ({gender,selected,setGender}) =>{
 
@@ -33,16 +33,21 @@ const Gender = ({gender,selected,setGender}) =>{
 
 
 export const RegStep2 = ({step,setStep,userData,setUserData}) =>{
-
+    const [maxDate, setMinDate] = useState(new Date('2021'));
+    const [minDate, setMaxDate] = useState(new Date('2018'));
     const [loading,setLoading] = useState(true);
-
+    const [date, setDate] = useState(new Date())
+    const [open, setOpen] = useState(false)
     const setUserGender = (gender) =>{
         setUserData("gender",gender);
     }
+      const [selectedDate, setSelectedDate] = useState('');
+
+    
 
     return (
         
-                <View>
+                <ScrollView>
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Personal Data:"}>
                         <InputContainer name={"Name "}>
@@ -56,11 +61,20 @@ export const RegStep2 = ({step,setStep,userData,setUserData}) =>{
                             <Gender gender={buttonIconsNames.female} selected={userData.gender} setGender={setUserGender}/>
                             <Gender gender={buttonIconsNames.nonbinary} selected={userData.gender} setGender={setUserGender}/>
                         </InputContainer>
-                        <InputContainer name={"Birthday  "}>
-                            <TextInput style={styles.textInput}/>
-                        </InputContainer>
+                        <InputContainer name={"BirthDay"} childrenStyle={styles.birth}>
+
+                        <DatePicker
+      onSelectedChange={date => setSelectedDate(date)}
+      mode="calendar"
+      maximumDate="2022-01-01"
+      current="1995-07-13"
+      style={{ borderRadius: 10 }}
+
+    />
+                            </InputContainer>
+
                     </InputBlock>
-                </View>
+                </ScrollView>
         
         
     );
@@ -91,5 +105,8 @@ const styles = StyleSheet.create({
     },
     genders:{
         flexDirection:'row'
+    },
+    birth:{
+        marginVertical:20,
     }
 })

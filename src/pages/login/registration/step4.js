@@ -50,7 +50,7 @@ export const RegStep4 = ({step,setStep,userData,setUserData}) =>{
 
     return (
     
-                <View>
+                <View style={{alignContent:'center'}}>
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Fitness Objective:"}>
                         <InputContainer name={"Carbohydrates: "}>
@@ -62,8 +62,8 @@ export const RegStep4 = ({step,setStep,userData,setUserData}) =>{
                         <InputContainer name={"Proteins: "}>
                             <Slider value={userData.maxProt} onValueChange={(value)=>{changeMacro("Prot",value)}} minimumValue={0} maximumValue={600} step={1}/>
                         </InputContainer>
-                        <InputContainer>
-                             <View>
+                        <InputContainer style={{alignSelf:'center'}}>
+                             <View >
                             <VictoryPie 
                                     colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
                                     data={chartData}
