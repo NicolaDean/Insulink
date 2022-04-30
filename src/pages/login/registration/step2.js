@@ -33,14 +33,12 @@ const Gender = ({gender,selected,setGender}) =>{
 
 
 export const RegStep2 = ({step,setStep,userData,setUserData}) =>{
-    const [maxDate, setMinDate] = useState(new Date('2021'));
-    const [minDate, setMaxDate] = useState(new Date('2018'));
     const [loading,setLoading] = useState(true);
-    const [date, setDate] = useState(new Date())
-    const [open, setOpen] = useState(false)
+    const [date, setDate] = useState(''); //FORMAT yy/mm/dd
     const setUserGender = (gender) =>{
         setUserData("gender",gender);
     }
+    //console.log(date);
       const [selectedDate, setSelectedDate] = useState('');
 
     
@@ -64,12 +62,12 @@ export const RegStep2 = ({step,setStep,userData,setUserData}) =>{
                         <InputContainer name={"BirthDay"} childrenStyle={styles.birth}>
 
                         <DatePicker
-      onSelectedChange={date => setSelectedDate(date)}
+      onDateChange={date => setDate(date)}
       mode="calendar"
       maximumDate="2022-01-01"
       current="1995-07-13"
       style={{ borderRadius: 10 }}
-
+  
     />
                             </InputContainer>
 
