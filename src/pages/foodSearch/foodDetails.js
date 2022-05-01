@@ -1,5 +1,5 @@
 import React from 'react';
-import {ActivityIndicator,Image, Text, View, ScrollView, TextInput, Dimensions  } from 'react-native';
+import {ActivityIndicator,Image, Text, View, ScrollView, TextInput, Dimensions,Alert  } from 'react-native';
 import { useState,useEffect} from 'react';
 import { VictoryPie } from 'victory-native';
 
@@ -66,6 +66,7 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
         
         setAmount(foodInitialAmount);
         setUnit(editable?foodInfo.unit : res.serving_unit);
+        console.log('default serving unit '+JSON.stringify(res.serving_unit))
         setItems(res.units);
         //SET DETAILS VARIABLE
     
@@ -82,7 +83,7 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
     },[]);
 
     const addItem = () =>{
-
+       if(unit!="container"){
         var food ={
             id:     data,
             name:   details.name,
@@ -103,7 +104,14 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
         }
         
 
-        navigation.navigate('MealDiary',{});
+        navigation.navigate('MealDiary',{});}
+        else Alert.alert(
+            "Missing Serving Unit!",
+            "Please select an available unit",
+            [
+              { text: "OK", onPress: () => console.log("OK Pressed") }
+            ]
+          );
     }
 
     const updateAmount = (a) =>{

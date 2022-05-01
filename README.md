@@ -25,10 +25,8 @@
 --. Nella schermata di log in il log in con google va troppo sotto (Android) forse va rimossa la top bar di default 
 --. da tlefono non fa accedere in fast login (android)
 --. nella registrazione se metti email e password poi passi allo tep 2 e torni indietro si cancella tutto ma non ti fa più il controllo
---. Birthday da mettere come date picker non string
 --. Complete registration da mettere un bottone 
 --. Redux elimination sport from mealdiary
---. Default service unit check --> se non esiste scegli e inserisci la prima
 
 
 ----
