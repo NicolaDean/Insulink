@@ -1,7 +1,6 @@
 # DIMA-insuline-calculator
 
 //MARCO
---. CHO ratio e insuline sensitivity come parametri dei costruttori di tutti gli insuline calculator
 --. Logo
 --. Controlla che ti calcoli bene quanta insulina fare
 --. Aggiusta meglio la logica per fare il grafico della glicemia (gli orari)
