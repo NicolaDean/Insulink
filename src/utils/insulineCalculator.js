@@ -16,9 +16,6 @@ var basal  //backgound insuline daily
 export class InsulineCalculator {
     actualGlycemia;
     targetGlycemia=120;
-    carbo;
-    proteins;
-    fats;
     CHORatio;
     insulineSensitivity;
     limit = 180;
@@ -26,7 +23,7 @@ export class InsulineCalculator {
     weight;
     basal; //backgound insuline daily TODO
 
-    constructor(CHORatio,insulineSensitivity) {
+    constructor(CHORatio,insulineSensitivity,weight) {
         if(insulineSensitivity==null || insulineSensitivity==0){
             totalInsulineDaily();
             correctionFactorCalculate();
@@ -41,7 +38,7 @@ export class InsulineCalculator {
         }else{
             this.CHORatio=CHORatio;
         }
-
+       this.weight=weight;
     }
 
     

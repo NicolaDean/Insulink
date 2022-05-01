@@ -20,12 +20,12 @@ export const PopUp = (
         id
             }
     ) => {
-
+  const userData = status.userData;
   const dispatch = useDispatch();
   const [modalVisible, setModalVisible] = useState(false);
   const [glicemy, setGlicemy] = useState(0);
   const [actionTriggered, setActionTriggered] = useState('DOSE_CHECK'); 
-  const ic = new InsulineCalculator(10,120);//Insted of arguments -->UserData.CHORatio
+  const ic = new InsulineCalculator(userData.choratio,userData.isf,userData.weight);
   const [modalWidth,setModalWidth] =useState(0);
 
   const find_dimesions=(layout) =>{

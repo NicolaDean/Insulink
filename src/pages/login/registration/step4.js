@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {View,StyleSheet,Text,TextInput} from 'react-native';
+import {ScrollView,View,StyleSheet,Text,TextInput} from 'react-native';
 import { VictoryPie } from 'victory-native';
 import { colors } from '../../../constants/appAspect';
 import { InputBlock } from '../../../customComponents/containers/inputsBlock';
@@ -25,7 +25,7 @@ export const RegStep4 = ({step,setStep,userData,setUserData}) =>{
     console.log(JSON.stringify(userData));
     const changeMacro = (macro,value) =>{
         const newChartData = [...chartData];
-
+    const choRatio=0;
         switch(macro){
             case 'Carb':
                 newChartData[0] = {x:"Carb"  ,y:value};
@@ -39,6 +39,7 @@ export const RegStep4 = ({step,setStep,userData,setUserData}) =>{
                 newChartData[2] = {x:"Prot"  ,y:value};
                 setUserData(userDataTypes.maxProt,value);
                 break;
+                
             default:
                 newChartData[0] = {x:"Carb"  ,y:value};
                 setUserData(userDataTypes.maxCarb,value);
@@ -50,7 +51,7 @@ export const RegStep4 = ({step,setStep,userData,setUserData}) =>{
 
     return (
     
-                <View style={{alignContent:'center'}}>
+                <ScrollView style={{alignContent:'center'}}>
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Fitness Objective:"}>
                         <InputContainer name={"Carbohydrates: "}>
@@ -77,8 +78,19 @@ export const RegStep4 = ({step,setStep,userData,setUserData}) =>{
                                 /> 
                             </View>
                         </InputContainer>
+
+                        <InputContainer name={"CHO Ratio (optional): "}>
+                            <Slider value={userData.choratio} onValueChange={(value)=>{setUserData(userDataTypes.choratio,value)}} minimumValue={0} maximumValue={100} step={1}/>
+                            <Text style={{alignSelf:'center',color:'white',fontSize:20,marginBottom:20}}>{userData.choratio}</Text>
+                        </InputContainer>
+
+                        <InputContainer name={"ISF (optional): "}>
+                            <Slider value={userData.isf} onValueChange={(value)=>{setUserData(userDataTypes.isf,value)}} minimumValue={0} maximumValue={600} step={1}/>
+                            <Text style={{alignSelf:'center',color:'white',fontSize:20,marginBottom:20}}>{userData.isf}</Text>
+                        </InputContainer>
+
                     </InputBlock>
-                </View>
+                </ScrollView>
         
         
     );
