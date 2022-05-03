@@ -23,18 +23,19 @@ export class InsulineCalculator {
     weight;
     basal; //backgound insuline daily TODO
 
+
     constructor(CHORatio,insulineSensitivity,weight) {
         if(insulineSensitivity==null || insulineSensitivity==0){
-            totalInsulineDaily();
-            correctionFactorCalculate();
+            this.totalInsulineDaily = 0, 55 * this.weight; //base formula to predict
+            this.insulineSensitivity = 1800 / this.totalInsulineDaily; //the total insuline sensitivity from weight
         }else {
                     this.insulineSensitivity=insulineSensitivity;
 
         }
 
         if(CHORatio==null || CHORatio==0){
-            totalInsulineDaily()
-            CHORatioCalculate()
+            this.totalInsulineDaily = 0, 55 * this.weight; //base formula to predict
+            this.CHORatio = 500 / this.totalInsulineDaily; //CHO Ratio from weight
         }else{
             this.CHORatio=CHORatio;
         }
@@ -66,21 +67,12 @@ export class InsulineCalculator {
     };
 
     //Standard prediction funcions (Preferred if inserted from user)
-    totalInsulineDaily() {
-        this.totalInsulineDaily = 0, 55 * this.weight;
-    };
 
     basal(){
         this.basal = this.totalInsulineDaily / 2;
     };
 
-    CHORatioCalculate() {
-        this.CHORatio = 500 / this.totalInsulineDaily;
-    };
-
-    correctionFactorCalculate() {
-        this.insulineSensitivity = 1800 / this.totalInsulineDaily;
-    };
+   
     
    
 } 
