@@ -130,6 +130,7 @@ export const Home = ({ navigation,state,user,diary }) =>{
                 customStyle={styles.icon}
                 name_to_open='Dose' name_to_close='close'
                 useDefaultStyle={false}
+                defaultLogic={false}
             />
         </View>
         </View>
