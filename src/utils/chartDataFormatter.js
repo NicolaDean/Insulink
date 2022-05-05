@@ -15,7 +15,7 @@ export const glicemyChartFormatter = (glicemyData) =>{
 
 
     if(glicemyData === undefined || glicemyData===null){
-        console.log("UNDEFINED GLICEMY DATA");
+        console.log("NO GLICEMY DATA");
         return chart_data;
     } 
 
@@ -27,10 +27,11 @@ export const glicemyChartFormatter = (glicemyData) =>{
 
     const numberOfLabels=7;
     const lenght=Object.keys(glicemyData).length-1;
-    var len=Math.floor(Object.keys(glicemyData).length/numberOfLabels);
-    console.log('todays number of glycemias '+Object.keys(glicemyData).length)
+    var len=Math.floor(lenght/numberOfLabels);
+    console.log('len '+len)
 
     var i=0;
+    if (len>=1){
     glicemyData.forEach( elem =>{
         if(i== 0 || i==lenght ){
             chart_data.labels.push(elem.time.hours);
@@ -42,24 +43,21 @@ export const glicemyChartFormatter = (glicemyData) =>{
             i++;
         } else i++;
         
+        //chart_data.labels.push(elem.time.hours);
+        d.push(elem.value);
+    })
+}
+else
+{
+    glicemyData.forEach( elem =>{
+        
         chart_data.labels.push(elem.time.hours);
         d.push(elem.value);
     })
-    console.log()
-
+}
     
 
     chart_data.datasets = [{data: d}];
-
-
-    const res = {   
-        labels: l,
-        datasets: [
-            {
-            data: d
-            }
-        ]
-    }
 
     return chart_data;
 }
