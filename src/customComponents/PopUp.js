@@ -18,10 +18,10 @@ export const PopUp = (
         status,
         diary,
         id,
-        customStyle,
-        customImage='std',
+        customStyle={height:40,width:40},
+        customImage='dose', 
         useDefaultStyle=true,
-        defaultLogic=true
+        defaultLogic=true //if true you can compute insuline dose after glycemia checkup
             }
     ) => {
   const userData = status.userData;
@@ -158,8 +158,8 @@ export const PopUp = (
     </Modal><CustomImageButton
         title={name_to_open}
         onPress={() => {setModalVisible(true),setActionTriggered('DOSE_CHECK')}}
-        image={customImage=='std'?'dose':customImage}
-        iconStyle={customImage=='std'?{height:40,width:40}:customStyle}
+        image={customImage}
+        iconStyle={customStyle}
         useDefaultStyle={useDefaultStyle}
         />
        
@@ -237,7 +237,5 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state, ownProps = {}) => {
     return{status: state.userReducer,diary: state.macroTracker};
   }
-
-//export default PopUp;
 
 export default connect(mapStateToProps)(PopUp);

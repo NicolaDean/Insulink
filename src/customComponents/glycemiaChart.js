@@ -38,11 +38,10 @@ export const GlycemiaChart = ({
      user }) =>{
 
     let userData=user.userData;
-    console.log(JSON.stringify(userData.glicemy));
-    console.log(JSON.stringify(FirebaseQuery.getTodayGlicemy(userData.glicemy)));
+    //console.log(JSON.stringify(userData.glicemy));
+    //console.log(JSON.stringify(FirebaseQuery.getTodayGlicemy(userData.glicemy)));
 
     const data = glicemyChartFormatter(FirebaseQuery.getTodayGlicemy(userData.glicemy));
-    console.log(JSON.stringify(userData.glicemy));
 
     return (
       
