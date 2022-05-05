@@ -245,5 +245,5 @@ const saveState = () => async( dispatch, getState) =>{
     const userState = (getState()).userReducer;
     console.log("DEBUG: " + JSON.stringify(userState.userData));
 
-    localStorage.saveUserData(userState.userData)
+    //localStorage.saveUserData(userState.userData)
 }

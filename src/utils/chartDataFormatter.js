@@ -32,17 +32,13 @@ export const glicemyChartFormatter = (glicemyData) =>{
 
     var i=0;
     glicemyData.forEach( elem =>{
-        if(i== 0 || i==lenght ){
-            chart_data.labels.push(elem.time.hours);
-            i++;
-        }
-        else if(len==i){
-            chart_data.labels.push(elem.time.hours);
-            len=len*2;
-            i++;
-        } else i++;
         
-        chart_data.labels.push(elem.time.hours);
+        if(i== 0 || i==lenght || i%len == 0){
+            chart_data.labels.push(elem.time.hours);
+        }
+        
+        i++;
+        //chart_data.labels.push(elem.time.hours);
         d.push(elem.value);
     })
     console.log()
