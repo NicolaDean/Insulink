@@ -6,6 +6,7 @@ import styles from './style'
 //CUSTOM COMPONENTS
 import CustomButton from '../../customComponents/customButton'
 import CustomImageButton from '../../customComponents/customImageButton'
+import PopUp from '../../customComponents/PopUp';
 
 //REDUX
 import { connect, useDispatch } from 'react-redux';
@@ -110,7 +111,7 @@ export const Home = ({ navigation,state,user,diary }) =>{
                 
             />
              <CustomImageButton
-          image='glucose'
+          image='defaultDiet'
                 onPress={() => navigation.navigate('MealDiary',{}) }
                 useDefaultStyle={false}
                 iconStyle={styles.icon}
@@ -123,13 +124,12 @@ export const Home = ({ navigation,state,user,diary }) =>{
                 onPress={() => navigation.navigate('Registration',{}) }
                 useDefaultStyle={false}
                 iconStyle={styles.icon}
-                style={{}}
             />
-             <CustomImageButton
-          image='glucose'
-                onPress={() => navigation.navigate('MealDiary',{}) }
+             <PopUp
+          customImage='glucose'
+                customStyle={styles.icon}
+                name_to_open='Dose' name_to_close='close'
                 useDefaultStyle={false}
-                iconStyle={styles.icon}
             />
         </View>
         </View>

@@ -17,7 +17,10 @@ export const PopUp = (
         name_to_close="close",
         status,
         diary,
-        id
+        id,
+        customStyle,
+        customImage='std',
+        useDefaultStyle=true
             }
     ) => {
   const userData = status.userData;
@@ -132,9 +135,9 @@ export const PopUp = (
     </Modal><CustomImageButton
         title={name_to_open}
         onPress={() => {setModalVisible(true),setActionTriggered('DOSE_CHECK')}}
-        image='dose'
-        iconStyle={{height:40,width:40}}
-        style={{}}
+        image={customImage=='std'?'dose':customImage}
+        iconStyle={customImage=='std'?{height:40,width:40}:customStyle}
+        useDefaultStyle={useDefaultStyle}
         />
        
         </View>
