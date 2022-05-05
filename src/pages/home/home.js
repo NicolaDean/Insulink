@@ -138,7 +138,7 @@ export const Home = ({ navigation,state,user,diary }) =>{
     </WaitLoading>
     );
   }
-  console.log("BBB: " +  (user.status == loginStatus.logged));
+  //console.log("BBB: " +  (user.status == loginStatus.logged));
  
     return(
       

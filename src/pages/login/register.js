@@ -107,13 +107,13 @@ export const Registration = ({navigation}) =>{
     const renderStep = () =>{
         switch(step){
             case steps.actual_reg: 
-                return (<RegStep1 step={step} setStep={setStep} userData={userData} setUserData={setInputField}/>);
+                return (<RegStep1 userData={userData} setUserData={setInputField}/>);
             case steps.personal_info: 
-                return (<RegStep2 step={step} setStep={setStep} userData={userData} setUserData={setInputField}/>);
+                return (<RegStep2 userData={userData} setUserData={setInputField}/>);
             case steps.phisical_info: 
-                return (<RegStep3 step={step} setStep={setStep} userData={userData} setUserData={setInputField}/>);
+                return (<RegStep3 userData={userData} setUserData={setInputField}/>);
             case steps.diet_info: 
-                return (<RegStep4 step={step} setStep={setStep} userData={userData} setUserData={setInputField}/>);
+                return (<RegStep4 userData={userData} setUserData={setInputField}/>);
             case steps.complete: 
                 return(lastStep())
             default: return null;

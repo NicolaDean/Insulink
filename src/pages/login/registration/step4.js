@@ -18,7 +18,7 @@ const dummy_data = [
     {x:"Fat"   ,y:30},
     {x:"Prot"  ,y:222}];
 
-export const RegStep4 = ({step,setStep,userData,setUserData}) =>{
+export const RegStep4 = ({userData,setUserData}) =>{
 
     const [chartData,setChartData] = useState(dummy_data);
 

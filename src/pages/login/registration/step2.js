@@ -61,16 +61,16 @@ export const RegStep2 = ({step,setStep,userData,setUserData}) =>{
                         </InputContainer>
                         <InputContainer name={"BirthDay"} childrenStyle={styles.birth}>
 
-                        <DatePicker
-      onDateChange={date => setDate(date)}
-      mode="calendar"
-      maximumDate="2022-01-01"
-      current="1995-07-13"
-      style={{ borderRadius: 10 }}
-  
-    />
-                            </InputContainer>
-
+                            <DatePicker
+                                onDateChange={val => setUserData(userDataTypes.age,val)}
+                                
+                                mode="calendar"
+                                maximumDate="2022-01-01"
+                                current="1995-07-13"
+                                style={{ borderRadius: 10 }}
+                            
+                                />
+                        </InputContainer>
                     </InputBlock>
                 </ScrollView>
         

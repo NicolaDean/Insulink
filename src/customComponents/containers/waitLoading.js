@@ -5,7 +5,7 @@ export const WaitLoading = ({children,loadingState=[loading,setLoading],customLo
 
     const [loading,setLoading] = loadingState;
 
-    console.log("IS L:  " + loading);
+    //console.log("IS L:  " + loading);
     if(customLoad == null) customLoad = (
                                             <ActivityIndicator/>
                                         );

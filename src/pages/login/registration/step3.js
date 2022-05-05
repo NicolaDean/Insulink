@@ -10,7 +10,7 @@ import CustomButton from '../../../customComponents/customButton';
 import { CustomNumberPicker } from '../../../customComponents/customNumberPicker';
 import { PageStepBar } from './pageStepBar';
 
-export const RegStep3 = ({step,setStep,userData,setUserData}) =>{
+export const RegStep3 = ({userData,setUserData}) =>{
 // TODO non funziona bene il num picker
 
     console.log(JSON.stringify(userData));

@@ -10,7 +10,7 @@ import CustomButton from '../../../customComponents/customButton';
 import { CustomNumberPicker } from '../../../customComponents/customNumberPicker';
 import { PageStepBar } from './pageStepBar';
 
-export const RegStep1 = ({step,setStep,userData,setUserData}) =>{
+export const RegStep1 = ({userData,setUserData}) =>{
 
     //const [step,setStep] = state;
     const [loading,setLoading] = useState(true);
@@ -21,10 +21,10 @@ export const RegStep1 = ({step,setStep,userData,setUserData}) =>{
             <Text style={styles.title}></Text>
             <InputBlock name={"Login Info:"}>
                 <InputContainer name={"Email  "}>
-                    <TextInput style={styles.textInput} keyboardType="email-address" onChangeText={val => setUserData(userDataTypes.email,val)}/>
+                    <TextInput value={userData.email} style={styles.textInput} keyboardType="email-address" onChangeText={val => setUserData(userDataTypes.email,val)}/>
                 </InputContainer>
                 <InputContainer name={"Password  "}>
-                    <TextInput style={styles.textInput} secureTextEntry={true} onChangeText={val => setUserData(userDataTypes.password,val)}/>
+                    <TextInput  style={styles.textInput} secureTextEntry={true} onChangeText={val => setUserData(userDataTypes.password,val)}/>
                 </InputContainer>
             </InputBlock>
            

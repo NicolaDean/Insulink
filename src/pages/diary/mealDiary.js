@@ -68,7 +68,7 @@ export const MealDiary = ({ navigation,diary,user }) =>{
   const maxProt = 100;
   const maxFat  = 100;
  
-  console.log("DIARIO BABBANO: " + JSON.stringify(diary));
+  //console.log("DIARIO BABBANO: " + JSON.stringify(diary));
   
   const graph = {
     labels: ["Carbo", "Fat", "Pro"], // optional

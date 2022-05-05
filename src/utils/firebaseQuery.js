@@ -95,6 +95,7 @@ class firebaseQuery{
         const today = this.glicemyDateFormatter();
 
         if(glicemy==null) return null;
+        
         return glicemy[today];
     }
 

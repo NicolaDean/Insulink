@@ -214,9 +214,10 @@ export const logout = (email) => async dispatch =>{
  * @param {*} glicemyValue an integer representing the value of glicemy in this specific moment
  * @returns nothing
  */
-export const addGlicemy = (userId,glicemyValue) => async dispatch =>{
+export const addGlicemy = (userId,glicemyValue) => async (dispatch,getState) =>{
 
     const date = new Date();
+
     //GET TIMESTAMP
     const glicemy = {value: glicemyValue,time:date};
 
@@ -224,9 +225,25 @@ export const addGlicemy = (userId,glicemyValue) => async dispatch =>{
     FirebaseQuery.addGlicemyValue(userId,glicemy);
     localStorage.storeGlicemyData(glicemy,date);
 
+
+    const formattedGlicemy = FirebaseQuery.changeGlicemyTimeFormat({...glicemy});
+
     //REDUX DISPATCH
     dispatch({
         type:userMethods.addGlicemy,
-        payload:{glicemy:{...glicemy}}
+        payload:{glicemy:formattedGlicemy}
     })
+
+    
+    dispatch(saveState());
+
+    
+}
+
+const saveState = () => async( dispatch, getState) =>{
+
+    const userState = (getState()).userReducer;
+    console.log("DEBUG: " + JSON.stringify(userState.userData));
+
+    localStorage.saveUserData(userState.userData)
 }
