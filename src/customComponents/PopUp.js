@@ -17,7 +17,11 @@ export const PopUp = (
         name_to_close="close",
         status,
         diary,
-        id
+        id,
+        customStyle={height:40,width:40},
+        customImage='dose', 
+        useDefaultStyle=true,
+        defaultLogic=true //if true you can compute insuline dose after glycemia checkup
             }
     ) => {
   const userData = status.userData;
@@ -47,7 +51,7 @@ export const PopUp = (
        const id = status.userId;
 
       dispatch(addGlicemy(id,parseInt(glicemy)));
-      setActionTriggered('DOSE_RESULT')
+      defaultLogic==true?setActionTriggered('DOSE_RESULT'):setActionTriggered(''),setModalVisible(false)
     }
     else Alert.alert(
       "Glycemia not correct",
@@ -59,7 +63,7 @@ export const PopUp = (
   }
 
   const DoseCheck = () =>{
-    return(
+    return( defaultLogic==true?
     <View style={styles.centeredView}  >
       <View style={styles.modalView} onLayout={(event) => { find_dimesions(event.nativeEvent.layout) }}>
               <CustomImageButton
@@ -87,7 +91,29 @@ export const PopUp = (
           </View>
         </View>
       </View>
-    </View>);
+    </View>
+    :
+    <View style={styles.centeredView}  >
+      <View style={styles.modalView} onLayout={(event) => { find_dimesions(event.nativeEvent.layout) }}>
+              <CustomImageButton
+              title={name_to_close}
+              image="close"
+              iconStyle={[styles.buttonClose,{left:modalWidth/2-15}]}
+              onPress={() => {setActionTriggered(''),setModalVisible(false)}}
+            />
+    <View style={{margin:10,marginTop:'15%'}}>
+              <Text style={styles.modalText}>Place your</Text>
+              <Text style={styles.modalText}>Glycemia here:</Text>
+
+              <TextInput style={styles.field}  keyboardType="numeric"   placeholder="mg/dL" onChangeText={setGlicemy}/>
+              <CustomButton
+                  title="Insert"
+                  onPress={() => {addNewGlicemy()}}/>
+          </View>
+          </View>
+          </View>
+
+          );
   }
 
   const DoseResult = () => {
@@ -132,9 +158,9 @@ export const PopUp = (
     </Modal><CustomImageButton
         title={name_to_open}
         onPress={() => {setModalVisible(true),setActionTriggered('DOSE_CHECK')}}
-        image='dose'
-        iconStyle={{height:40,width:40}}
-        style={{}}
+        image={customImage}
+        iconStyle={customStyle}
+        useDefaultStyle={useDefaultStyle}
         />
        
         </View>
@@ -211,7 +237,5 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state, ownProps = {}) => {
     return{status: state.userReducer,diary: state.macroTracker};
   }
-
-//export default PopUp;
 
 export default connect(mapStateToProps)(PopUp);

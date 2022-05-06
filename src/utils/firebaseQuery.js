@@ -114,7 +114,7 @@ class firebaseQuery{
     }
 
 
-    changeGlicemyTimeFormat = (glicemy,realdate=false) => 
+    changeGlicemyTimeFormat = (glicemy,realdate=true) => 
     {
         let time = {};
         if(realdate)
@@ -131,6 +131,7 @@ class firebaseQuery{
 
         //TODO ERROR OF DATE FORMAT CHECK!
         glicemy.time = {date:date,hours:hours};
+        console.log('GLICEMY TIME:' +JSON.stringify(glicemy.time))
         return glicemy;
     }
 

@@ -1,7 +1,6 @@
 # DIMA-insuline-calculator
 
 //MARCO
---. Logo
 --. Controlla che ti calcoli bene quanta insulina fare
 --. Aggiusta meglio la logica per fare il grafico della glicemia (gli orari)
 
@@ -17,7 +16,6 @@
 --. click su rotellinsa sopra --> PersonalDetail
 --. aggiornare in modo corretto l'rario quando aggiungi una nuova glicemia
 --. Google login va su telefono ma non da emulatore
---. calendar fix su disable buttons  
 
 //GLOBAL
 
