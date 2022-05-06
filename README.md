@@ -29,8 +29,42 @@
 ----
 FIREBASE
 
+//TESTING:
 
+-REDUX:
+    -insert food
+    -edit food
+    -remove food
+    -insert sport
+    -remove sport
+    (ANCHE IN RENDER)
 
+-UTILS:
+    -Insuline calculator -> test formulas
+    -Input Checker -> test error messages
+    -
+-RENDER:
+    -Registration -> check "next" button behaviour
+
+//DOCUMENTATION:
+
+    Latex o Word?
+    -Screens description (foto + descrizione )
+    -Navigation
+    -Functionalities
+    -API used
+    -Architecture explanation
+    -Redux States
+    -Insuline calculator formulas explanation
+    -Testing explanation
+
+//SLIDE:
+    -Screen & Functionalities
+    -Slide summary on navigation
+    -Architecture (redux etc..)
+    -Slide on Insuline Calculator
+    -Testing strategy
+    -Future of app (ML,Datamining...)
 ----------------------
 Emulators commands:
 
@@ -38,3 +72,5 @@ npx react-native start
 npx react-native run-android
 cd ios && pod install
 npx react-native run-ios --device "Marco’s iPad"
+
+
