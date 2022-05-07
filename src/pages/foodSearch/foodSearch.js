@@ -74,7 +74,7 @@ export const FoodSearch = ({ navigation }) =>{
               onPress={() => getData()} />
            
             <CustomImageButton image='camera'   iconStyle={styles.LogoSize}
-              onPress={() => getData()}
+              onPress={() => navigation.navigate('ScannerPage',{}) }
             />
 
            </View>

@@ -21,7 +21,7 @@ import { loginStatus } from '../../constants/states';
 import { WaitLoading } from '../../customComponents/containers/waitLoading';
   const marginOffset=10;
   const screenWidth = Dimensions.get("window").width-marginOffset;
-
+import { Scanner } from '../../customComponents/barcodeScanner';
 
 //CHART CONFIG AND STYLE
 const chartConfig = {
@@ -89,6 +89,7 @@ export const Home = ({ navigation,state,user,diary }) =>{
       <WaitLoading loadingState={[loading,setLoading]}>
 
       <ScrollView>
+
       <Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
 
           <View style={styles.slide}>
@@ -105,14 +106,14 @@ export const Home = ({ navigation,state,user,diary }) =>{
               alignItems: 'flex-start',flexDirection:'row',marginBottom:10,marginHorizontal:40}}>
           <CustomImageButton
           image='statistics'
-                onPress={() => navigation.navigate('MealDiary',{}) }
+                onPress={() => navigation.navigate('ScannerPage',{}) }
                 useDefaultStyle={false}
                 iconStyle={styles.icon}
                 
             />
              <CustomImageButton
           image='defaultDiet'
-                onPress={() => navigation.navigate('MealDiary',{}) }
+                onPress={() => navigation.navigate('MealDiary',expandedCalendar=true) }
                 useDefaultStyle={false}
                 iconStyle={styles.icon}
             />
@@ -134,7 +135,6 @@ export const Home = ({ navigation,state,user,diary }) =>{
             />
         </View>
         </View>
-            
     </ScrollView>   
     </WaitLoading>
     );
