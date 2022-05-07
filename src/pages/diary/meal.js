@@ -131,7 +131,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
             </ScrollView>
             <View style={{flexDirection:'row',justifyContent:'center',alignContent:'center',backgroundColor:colors.primary,borderBottomEndRadius: 10,borderBottomLeftRadius:10}}>
              <CustomButton onPress={()=>{addSport()}} title='Add Sport' disabled={!available} style={styles.appButtonContainer} useDefaultStyle={false}/>
-            <PopUp name_to_open='Dose' name_to_close='close' id={id}/>
+            <PopUp name_to_open='Dose' name_to_close='close' defaultLogic={true} id={id}/>
             <CustomButton onPress={()=>{addFoods()}} title='Add Food' disabled={!available} style={styles.appButtonContainer} useDefaultStyle={false}/>
             </View>
                 

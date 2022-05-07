@@ -99,13 +99,14 @@ export const Home = ({ navigation,state,user,diary }) =>{
           <View style={styles.slide}>
             <MacroChart diary={diary} user={user}/>
           </View>
+        
         </Slick>
         <View style={{justifyContent: 'space-between',
               alignItems: 'stretch',flexDirection:'column'}}>
         <View style={{justifyContent: 'space-evenly',
               alignItems: 'flex-start',flexDirection:'row',marginBottom:10,marginHorizontal:40}}>
           <CustomImageButton
-          image='statistics'
+          image='barcode'
                 onPress={() => navigation.navigate('ScannerPage',{}) }
                 useDefaultStyle={false}
                 iconStyle={styles.icon}
@@ -113,7 +114,7 @@ export const Home = ({ navigation,state,user,diary }) =>{
             />
              <CustomImageButton
           image='defaultDiet'
-                onPress={() => navigation.navigate('MealDiary',expandedCalendar=true) }
+                onPress={() => navigation.navigate('MealDiary') }
                 useDefaultStyle={false}
                 iconStyle={styles.icon}
             />

@@ -31,7 +31,9 @@ export const PopUp = (
   const [actionTriggered, setActionTriggered] = useState('DOSE_CHECK'); 
   const ic = new InsulineCalculator(userData.choratio,userData.isf,userData.weight);
   const [modalWidth,setModalWidth] =useState(0);
+  console.log(diary.meals[id].macro)
 
+   console.log(id)
   const find_dimesions=(layout) =>{
     const {x, y, width, height} = layout;
     /*
@@ -51,7 +53,8 @@ export const PopUp = (
        const id = status.userId;
 
       dispatch(addGlicemy(id,parseInt(glicemy)));
-      defaultLogic==true?setActionTriggered('DOSE_RESULT'):setActionTriggered(''),setModalVisible(false)
+      defaultLogic==true?setActionTriggered('DOSE_RESULT'):[setActionTriggered(''),setModalVisible(false)]
+      defaultLogic=true
     }
     else Alert.alert(
       "Glycemia not correct",
@@ -70,7 +73,7 @@ export const PopUp = (
               title={name_to_close}
               image="close"
               iconStyle={[styles.buttonClose,{left:modalWidth/2-15}]}
-              onPress={() => {setActionTriggered(''),setModalVisible(false)}}
+              onPress={() => {setActionTriggered(''),setModalVisible(false),defaultLogic=true}}
             />
         <View style={{justifyContent:'space-around',flexDirection:'row'}}>
           <View style={{borderRightColor:colors.black,borderRightWidth:StyleSheet.hairlineWidth,marginLeft:10}}>
@@ -99,7 +102,7 @@ export const PopUp = (
               title={name_to_close}
               image="close"
               iconStyle={[styles.buttonClose,{left:modalWidth/2-15}]}
-              onPress={() => {setActionTriggered(''),setModalVisible(false)}}
+              onPress={() => {setActionTriggered(''),setModalVisible(false),defaultLogic=true}}
             />
     <View style={{margin:10,marginTop:'15%'}}>
               <Text style={styles.modalText}>Place your</Text>
