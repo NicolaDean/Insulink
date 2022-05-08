@@ -39,7 +39,6 @@ export class InsulineCalculator {
         }else{
             this.CHORatio=CHORatio;
         }
-        console.log(this.CHORatio)
     }
 
     
@@ -53,20 +52,13 @@ export class InsulineCalculator {
     };
 
     totalDose(actualGlycemia, carbo) {
-        console.log('carbo'+carbo)
-        if (this.CHORatio==Infinity){
-            this.totalInsulineDaily = 0, 55 * this.weight; //base formula to predict
-            this.CHORatio = 500 / this.totalInsulineDaily; //CHO Ratio from weight
-        }
-        console.log('choratio '+this.weight)
+       
         var mealInsulineDose = Math.floor(carbo / Math.floor(this.CHORatio));
-        console.log('meal'+mealInsulineDose)
         var correctionInsulineDose = 0;
         if (actualGlycemia >= this.limit) {
             correctionInsulineDose = (actualGlycemia - this.targetGlycemia) / this.insulineSensitivity;
         }
         var totalInsulineDose= mealInsulineDose + correctionInsulineDose;
-   console.log('meal'+mealInsulineDose+'total'+totalInsulineDose)
         //If the dose is enough close to its floor value, it returns just that value while if it's in the middle both floor and roof
         if(Math.floor(totalInsulineDose)==Math.floor(totalInsulineDose+0.5)){
             return new String(Math.floor(totalInsulineDose))

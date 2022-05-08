@@ -52,7 +52,7 @@ export const Scanner=()=> {
  const showError=(e)=>
 {
     return(
-      <View style={{    top:screenHeight*0.55,      }}>
+      <View style={{    top:screenHeight*0.51,      }}>
               <View style={styles.errorContainer}>
        <Text style={styles.errorMessage}>
          The code <Text style={[styles.errorMessage,{fontWeight: '500',}]}>{errorMSG}</Text> is not supported!</Text>        

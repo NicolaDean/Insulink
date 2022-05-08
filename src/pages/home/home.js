@@ -90,7 +90,7 @@ export const Home = ({ navigation,state,user,diary }) =>{
 
       <ScrollView>
 
-      <Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
+        <Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
 
           <View style={styles.slide}>
             {!logged ?  null: <GlycemiaChart user={user}/> }
@@ -104,7 +104,7 @@ export const Home = ({ navigation,state,user,diary }) =>{
         <View style={{justifyContent: 'space-between',
               alignItems: 'stretch',flexDirection:'column'}}>
         <View style={{justifyContent: 'space-evenly',
-              alignItems: 'flex-start',flexDirection:'row',marginBottom:10,marginHorizontal:40}}>
+              alignItems: 'flex-start',flexDirection:'row',marginBottom:5,marginHorizontal:40}}>
           <CustomImageButton
           image='barcode'
                 onPress={() => navigation.navigate('ScannerPage',{}) }

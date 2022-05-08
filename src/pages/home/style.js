@@ -46,8 +46,8 @@ export default StyleSheet.create({
               justifyContent: 'space-evenly',
               alignItems: 'stretch',
             },icon:{
-               width: Dimensions.get("window").width*0.20,
-                height:Dimensions.get("window").width*0.20,
+               width: Dimensions.get("window").width*0.18,
+                height:Dimensions.get("window").width*0.18,
                 position: 'relative',
                 top:0,
                 bottom:10}
