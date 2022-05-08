@@ -2,6 +2,7 @@
 
 //MARCO
 --. Controlla che ti calcoli bene quanta insulina fare
+--. X not closing popup
 //ipad
 --. Heatmap-Grafico glicemia piccola
 

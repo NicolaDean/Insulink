@@ -1,15 +1,16 @@
 import React from 'react';
-import { StyleSheet,Text,View,Image } from 'react-native';
+import { StyleSheet,Text,View,Image,Dimensions } from 'react-native';
 import { colors } from '../../constants/appAspect';
 import CustomImageButton from '../../customComponents/customImageButton';
 import { localStorage } from '../../utils/localStoreManager';
 
 export const CustomHeader = (props) =>{
+    const screenWidth = Dimensions.get("window").width;
+
     return(
-    <View style={{marginLeft:'45%',flexDirection:'column',alignItems:'center'}}>
-        <Text style={{color:'black',fontSize:20,fontWeight:'bold'}}>{props.children}</Text>
+    <View style={{flexDirection:'column',alignItems:'center'}}>
+        <Text style={{color:'black',fontSize:screenWidth/15,fontWeight:'bold',alignSelf:'center'}}>{props.children}</Text>
     </View>
-      
     );
   }
 

@@ -31,12 +31,13 @@ export const PopUp = (
   const [actionTriggered, setActionTriggered] = useState('DOSE_CHECK'); 
   const ic = new InsulineCalculator(userData.choratio,userData.isf,userData.weight);
   const [modalWidth,setModalWidth] =useState(0);
-  console.log('.')
   if (defaultLogic){
     const ic = new InsulineCalculator(userData.choratio,userData.isf,userData.weight);
-    console.log('id ' +ic.CHORatio)
-    console.log(diary.meals[id].macro)
+    if(diary.activities[id].sports!=undefined){
+      console.log('No sport done')
+    }
   }
+
   const find_dimesions=(layout) =>{
     const {x, y, width, height} = layout;
     /*

@@ -171,6 +171,15 @@ class Api{
         return await this.doRequest(methods.get,'/search/instant',param);
     }
 
+    getFoodListBarCode = async (userInput) =>{
+     //console.log('upc  '+ typeof userInput+userInput)
+        const param = {
+            upc: Number(userInput)
+        }
+
+        return await this.doRequest(methods.get,'/search/item',param);
+    }    
+
     /**
      * Allow to retrive details of specific foods
      * @param {*} userInput id/name of food

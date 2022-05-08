@@ -8,7 +8,7 @@ import {View,
   TouchableOpacity,
   Linking,Dimensions
 } from 'react-native';
-
+import { Food_API } from '../utils/apiQuery';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { RNCamera } from 'react-native-camera';
 import { color } from 'react-native-reanimated';
@@ -25,7 +25,7 @@ export const Scanner=()=> {
    //setFlash(RNCamera.Constants.FlashMode.on)
    //setFlash(RNCamera.Constants.FlashMode.off)
 
-  const onSuccess = (e) =>{
+  const onSuccess = async(e) =>{
       /*
     Linking.openURL(e.data).catch(err =>
       console.error('An error occured', err)
@@ -43,6 +43,9 @@ export const Scanner=()=> {
     setError(true)
    }
  */
+   let varia=e.data
+   const json = (await Food_API.getFoodListBarCode('49000036756'));  
+   console.log(JSON.stringify(json))
   setErrorMSG(e.data)
   setError(true)
 };
@@ -52,7 +55,7 @@ export const Scanner=()=> {
  const showError=(e)=>
 {
     return(
-      <View style={{    top:screenHeight*0.55,      }}>
+      <View style={{    top:screenHeight*0.51,      }}>
               <View style={styles.errorContainer}>
        <Text style={styles.errorMessage}>
          The code <Text style={[styles.errorMessage,{fontWeight: '500',}]}>{errorMSG}</Text> is not supported!</Text>        

@@ -35,7 +35,7 @@ const styles =  StyleSheet.create({
         textTransform: "uppercase"
       },
       appButtonContainer: {
-        elevation: 8,
+        elevation: 0,
         backgroundColor: colors.primary ,
         borderRadius: 10,
         paddingVertical: 10,
