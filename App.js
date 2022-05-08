@@ -27,6 +27,7 @@ import BottomTab from './src/pages/navigationTab/bottomTab';
 import home from './src/pages/home/home';
 import { header } from './src/pages/navigationTab/header';
 import Registration from './src/pages/login/register';
+import { ScannerPage } from './src/pages/foodSearch/scannerPage';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -42,6 +43,7 @@ const App = () => {
               <Stack.Screen name="BottomTab" component={BottomTab} options={{headerShown: false}}/>
               <Stack.Screen name="FoodDetails" component={FoodDetails} options={header}/>
               <Stack.Screen name="SportActivity" component={SportActivity}options={header} />
+              <Stack.Screen name="ScannerPage" component={ScannerPage}options={header} />
 
               <Stack.Screen name="PersonalData" component={PersonalData}options={header}/>
               <Stack.Screen name="EditPersonalData" component={EditPersonalData}options={header}/>

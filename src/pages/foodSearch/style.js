@@ -120,6 +120,12 @@ export default StyleSheet.create({
         height: screenHeight*0.1,
         resizeMode: 'contain',
         top:0,
+      },scannerText:{
+        fontWeight: '500',
+        fontSize:screenWidth/18,
+        width:screenWidth*0.9,
+        alignSelf:'center',
+        marginVertical:screenHeight*0.05
       }
 
   });

@@ -2,8 +2,6 @@
 
 //MARCO
 --. Controlla che ti calcoli bene quanta insulina fare
---. Aggiusta meglio la logica per fare il grafico della glicemia (gli orari)
-
 //ipad
 --. Heatmap-Grafico glicemia piccola
 

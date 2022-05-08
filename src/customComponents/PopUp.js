@@ -31,7 +31,12 @@ export const PopUp = (
   const [actionTriggered, setActionTriggered] = useState('DOSE_CHECK'); 
   const ic = new InsulineCalculator(userData.choratio,userData.isf,userData.weight);
   const [modalWidth,setModalWidth] =useState(0);
-
+  console.log('.')
+  if (defaultLogic){
+    const ic = new InsulineCalculator(userData.choratio,userData.isf,userData.weight);
+    console.log('id ' +ic.CHORatio)
+    console.log(diary.meals[id].macro)
+  }
   const find_dimesions=(layout) =>{
     const {x, y, width, height} = layout;
     /*
@@ -51,7 +56,8 @@ export const PopUp = (
        const id = status.userId;
 
       dispatch(addGlicemy(id,parseInt(glicemy)));
-      defaultLogic==true?setActionTriggered('DOSE_RESULT'):setActionTriggered(''),setModalVisible(false)
+      defaultLogic==true?setActionTriggered('DOSE_RESULT'):[setActionTriggered(''),setModalVisible(false)]
+      defaultLogic=true
     }
     else Alert.alert(
       "Glycemia not correct",
@@ -70,7 +76,7 @@ export const PopUp = (
               title={name_to_close}
               image="close"
               iconStyle={[styles.buttonClose,{left:modalWidth/2-15}]}
-              onPress={() => {setActionTriggered(''),setModalVisible(false)}}
+              onPress={() => {setActionTriggered(''),setModalVisible(false),defaultLogic=true}}
             />
         <View style={{justifyContent:'space-around',flexDirection:'row'}}>
           <View style={{borderRightColor:colors.black,borderRightWidth:StyleSheet.hairlineWidth,marginLeft:10}}>
@@ -99,7 +105,7 @@ export const PopUp = (
               title={name_to_close}
               image="close"
               iconStyle={[styles.buttonClose,{left:modalWidth/2-15}]}
-              onPress={() => {setActionTriggered(''),setModalVisible(false)}}
+              onPress={() => {setActionTriggered(''),setModalVisible(false),defaultLogic=true}}
             />
     <View style={{margin:10,marginTop:'15%'}}>
               <Text style={styles.modalText}>Place your</Text>
@@ -128,7 +134,7 @@ export const PopUp = (
                 onPress={() => {setActionTriggered(''),setModalVisible(false)}}
               />
         <Text style={styles.modalText}>We suggest you to make</Text>
-        <Text style={styles.doseText}>{ic.totalDose(FirebaseQuery.getTodayLastGlicemy(status.userData.glicemy),diary.meals[id].macro['carb'].toFixed(2))}</Text>
+        <Text style={styles.doseText}>{defaultLogic==true?ic.totalDose(FirebaseQuery.getTodayLastGlicemy(status.userData.glicemy),diary.meals[id].macro['carb'].toFixed(2)):null}</Text>
         <Text style={styles.modalText}>doses of insuline</Text>
         <CustomImageButton
                 title={name_to_close}

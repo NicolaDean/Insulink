@@ -30,6 +30,7 @@ export const buttonIcons = {
     walking:{uri: require('./fitness.png')},
     defaultSport:{uri: require('./defaultSport.png')},
     defaultDiet:{uri: require('./defaultDiet.png')},
+    barcode:{uri: require('./barcode.png')},
 
 }
 
@@ -61,5 +62,6 @@ export const buttonIconsNames = {
     nonbinary:'nonbinary',
     bin:'bin',
     edit:'edit',
+    barcode:'barcode',
 }
 

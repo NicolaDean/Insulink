@@ -21,7 +21,7 @@ import { loginStatus } from '../../constants/states';
 import { WaitLoading } from '../../customComponents/containers/waitLoading';
   const marginOffset=10;
   const screenWidth = Dimensions.get("window").width-marginOffset;
-
+import { Scanner } from '../../customComponents/barcodeScanner';
 
 //CHART CONFIG AND STYLE
 const chartConfig = {
@@ -89,6 +89,7 @@ export const Home = ({ navigation,state,user,diary }) =>{
       <WaitLoading loadingState={[loading,setLoading]}>
 
       <ScrollView>
+
       <Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
 
           <View style={styles.slide}>
@@ -98,21 +99,27 @@ export const Home = ({ navigation,state,user,diary }) =>{
           <View style={styles.slide}>
             <MacroChart diary={diary} user={user}/>
           </View>
+        
         </Slick>
         <View style={{justifyContent: 'space-between',
               alignItems: 'stretch',flexDirection:'column'}}>
         <View style={{justifyContent: 'space-evenly',
               alignItems: 'flex-start',flexDirection:'row',marginBottom:10,marginHorizontal:40}}>
           <CustomImageButton
+<<<<<<< HEAD
           image='statistics'
                 onPress={() => navigation.navigate('PersonalData',{}) }
+=======
+          image='barcode'
+                onPress={() => navigation.navigate('ScannerPage',{}) }
+>>>>>>> 8005ebff81f11ae863792f6b4847646601b1d8f6
                 useDefaultStyle={false}
                 iconStyle={styles.icon}
                 
             />
              <CustomImageButton
           image='defaultDiet'
-                onPress={() => navigation.navigate('MealDiary',{}) }
+                onPress={() => navigation.navigate('MealDiary') }
                 useDefaultStyle={false}
                 iconStyle={styles.icon}
             />
@@ -134,7 +141,6 @@ export const Home = ({ navigation,state,user,diary }) =>{
             />
         </View>
         </View>
-            
     </ScrollView>   
     </WaitLoading>
     );

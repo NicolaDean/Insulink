@@ -53,6 +53,13 @@ export const PersonalData = ({ navigation, route, userData}) =>{
             </MarginContainer>
         );
     }
+
+    const MacroIcon = ({color}) =>{
+        return(
+            <View style={[styles.macrolegend,{backgroundColor:color}]}/>
+        );
+    }
+    
     return (
         <MarginContainer>
             <Title>Personal Data</Title>
@@ -72,31 +79,46 @@ export const PersonalData = ({ navigation, route, userData}) =>{
                             }, }}
                                 /> 
                 </MarginContainer>
-                
+                <MarginContainer style={{justifyContent:'center'}}>
+                        <Row>
+                            <MacroIcon color={'tomato'}/>
+                            <Text>Carb: {userData.maxCarb}g</Text>
+                        </Row>
+                        <Row>
+                            <MacroIcon color={'orange'}/>
+                            <Text>Fat: {userData.maxFat}g</Text>
+                        </Row>
+                        <Row>
+                            <MacroIcon color={'gold'}/>
+                            <Text>Prot: {userData.maxProt}g</Text>
+                        </Row>
+                </MarginContainer>
             </Row>  
-            
-
-
+        
             <Row>
                 <Row width={'50%'}>
-                    <Title>Name: </Title>
-                    <Text>{userData.name} {userData.surname}</Text>
+                    <Title>{userData.name} {userData.surname} </Title>
+                    <Text></Text>
                 </Row>
                 <Row width={'50%'}></Row>
             </Row>
-            <Row>
-                <Row width={'50%'}>
-                    <Icon icon={'weigth'}/>
-                    <Text>{userData.weight}</Text>
-                </Row>
-                <Row width={'50%'}>
-                    <Icon icon={'height'}/>
-                    <Text>{userData.height}</Text>
-                </Row>
-            </Row>
-
             
-
+                <Title>Physical Info:</Title>
+                <MarginContainer style={{backgroundColor:colors.primary}}>
+                <Row>
+                    
+                    <Row width={'40%'}>
+                        <Icon icon={'weigth'}/>
+                        <Text style={styles.phisicInfo}>{userData.weight} Kg</Text>
+                    </Row>
+                    <Row width={'50%'}>
+                        <Icon icon={'height'}/>
+                        <Text style={styles.phisicInfo}>{userData.height} cm</Text>
+                    </Row>
+                </Row>
+                </MarginContainer>
+            
+            
         </MarginContainer>   
     );
 
@@ -113,6 +135,17 @@ const styles = StyleSheet.create({
     },
     field:{
         flexDirection:'row'
+    },
+    macrolegend:{
+        width:30,
+        height:30,
+        borderRadius:20,
+    },
+    phisicInfo:{
+        alignSelf:'center',
+        color:colors.white,
+        fontSize:20,
+        marginLeft:10,
     }
 });
 
