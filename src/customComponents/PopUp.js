@@ -31,9 +31,12 @@ export const PopUp = (
   const [actionTriggered, setActionTriggered] = useState('DOSE_CHECK'); 
   const ic = new InsulineCalculator(userData.choratio,userData.isf,userData.weight);
   const [modalWidth,setModalWidth] =useState(0);
-  console.log(diary.meals[id].macro)
-
-   console.log(id)
+  console.log('.')
+  if (defaultLogic){
+    const ic = new InsulineCalculator(userData.choratio,userData.isf,userData.weight);
+    console.log('id ' +ic.CHORatio)
+    console.log(diary.meals[id].macro)
+  }
   const find_dimesions=(layout) =>{
     const {x, y, width, height} = layout;
     /*
@@ -131,7 +134,7 @@ export const PopUp = (
                 onPress={() => {setActionTriggered(''),setModalVisible(false)}}
               />
         <Text style={styles.modalText}>We suggest you to make</Text>
-        <Text style={styles.doseText}>{ic.totalDose(FirebaseQuery.getTodayLastGlicemy(status.userData.glicemy),diary.meals[id].macro['carb'].toFixed(2))}</Text>
+        <Text style={styles.doseText}>{defaultLogic==true?ic.totalDose(FirebaseQuery.getTodayLastGlicemy(status.userData.glicemy),diary.meals[id].macro['carb'].toFixed(2)):null}</Text>
         <Text style={styles.modalText}>doses of insuline</Text>
         <CustomImageButton
                 title={name_to_close}
