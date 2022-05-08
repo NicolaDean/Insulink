@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { Text, StyleSheet,TouchableOpacity, TextInput,View} from 'react-native';
 
-export const MarginContainer = ({children,style={}}) =>{
+export const MarginContainer = ({children,style={},width}) =>{
 
     return(
-        <View style={[styles.container,style]}>
+        <View style={[styles.container,style,{width:width}]}>
             {children}
         </View>
     );

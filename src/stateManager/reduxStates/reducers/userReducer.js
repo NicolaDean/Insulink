@@ -5,6 +5,7 @@ import { loginStatus } from "../../../constants/states";
 const initialState = {
     status:loginStatus.unlogged,
     userId:"nullId",
+    mustCompleteReg:false,
     userData:{
         email:"",
         password:"",
@@ -45,7 +46,8 @@ const register = (state,payload) =>{
 
     newstate.userData = payload.user;
     newstate.status = loginStatus.logged;
-
+    newstate.mustCompleteReg = false;
+    
     return newstate;
 }
 
@@ -56,12 +58,9 @@ const addGlicemy = (state,payload) =>{
 
     const g = {...payload.glicemy};//;
 
-    console.log("MAH:" + JSON.stringify(newstate.userData));
     if(newstate.userData.glicemy[id] == undefined) newstate.userData.glicemy[id] = [];
 
-    //newstate.userData.glicemy[id].push(FirebaseQuery.changeGlicemyTimeFormat(g));
     newstate.userData.glicemy[id].push(g);
-    //console.log("ARRRACCA: ->  " + JSON.stringify(FirebaseQuery.changeGlicemyTimeFormat(g)));
     return newstate;
 }
 
@@ -73,10 +72,21 @@ const update = (state,payload) =>{
     return newstate;
 }
 
+const setId = (state,payload) =>{
+    const newstate = {...state};
+
+    newstate.userId = payload.uid;
+    newstate.mustCompleteReg = true;
+
+    return newstate;
+}
+
 const userReducer = (state = initialState, action) => {
     switch(action.type){
         case userMethods.login:
             return login(state,action.payload);
+        case userMethods.setId:
+            return setId(state,action.payload);
         case userMethods.deleteUser:
             return del(state,action.payload);
         case userMethods.registerUser:

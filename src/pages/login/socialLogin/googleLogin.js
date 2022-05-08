@@ -13,20 +13,35 @@ GoogleSignin.configure({
 });
 
 async function onGoogleButtonPress() {
-    // Get the users ID token
-    const { idToken } = await GoogleSignin.signIn();
-  
+
+    try{
+        if (GoogleSignin.isSignedIn()) {
+            GoogleSignin.signOut()
+        }
+
+        // Get the users ID token
+        const { idToken } = await GoogleSignin.signIn();
+        
+        // Create a Google credential with the token
+        const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+        // Sign-in the user with the credential
+        const x = await auth().signInWithCredential(googleCredential);
+        //console.log(JSON.stringify(x));
+        return x.user;
+    } catch(e){
+        console.log(console.log(e));
+        if(e.code == 'ASYNC_OP_IN_PROGRESS'){
+            console.log("ALREADY SINGED IN")
+        }
+        //TODO PUT THE OTHERS CODES
+    };
+
+    return null;
     
-    // Create a Google credential with the token
-    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-    
-    // Sign-in the user with the credential
-    const x = await auth().signInWithCredential(googleCredential);
-    //console.log(JSON.stringify(x));
-    return x.user;
   }
 
-export const GoogleButton = () =>{
+export const GoogleButton = ({registration = false}) =>{
 
     const dispatch = useDispatch();
 
@@ -46,9 +61,12 @@ export const GoogleButton = () =>{
         //TODO check if exist the user in firebase side (otherwise redirect to Registration skipping page 1)
     
         const userData = await onGoogleButtonPress();
-        console.log("Google Login UID: " + userData.uid);
         
-        dispatch(googleLogin(userData.uid,errorFunc));
+        if(userData!=null){
+            console.log("Google Login UID: " + userData.uid);
+            dispatch(googleLogin(userData.uid,errorFunc,registration));
+        }
+        
     }
 
     return (
@@ -56,7 +74,7 @@ export const GoogleButton = () =>{
             <RegistrationErrorPopup visibilityFlag={ [errorModalVisible, setErrorModalVisible]} errors={errors}/>
            
            <GoogleSigninButton
-               style={{ width: 192, height: 48 }}
+               style={{ width: 192, height: 48,alignSelf:'center' }}
                size={GoogleSigninButton.Size.Wide}
                color={GoogleSigninButton.Color.Dark}
                onPress={checkUserExistance}

@@ -16,4 +16,5 @@ export const userMethods = {
     login: 'LOGIN_USER',
     updateUser: 'UPDATE_USER',
     addGlicemy: 'ADD_GLICEMY',
+    setId:'SET_USER_ID'
 }
