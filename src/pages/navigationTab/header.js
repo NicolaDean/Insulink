@@ -24,7 +24,7 @@ export const header = {
 
     headerRight: () => (
         <CustomImageButton  image='settings' style={{marginRight:20}} iconStyle={{ width: 30, height: 30 }}
-        onPress={() => {localStorage.resetUser()}}/>
+        onPress={() => navigation.navigate('PersonalData',{})}/>
     ),
     headerStyle: {
         backgroundColor: colors.primary,
