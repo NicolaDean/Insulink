@@ -19,18 +19,22 @@ export const CustomHeader = (props) =>{
         <CustomImageButton  image='return' iconStyle={{ width: 30, height: 30 }}/>
 ),
   */
-
-export const header = { 
-    headerTitle: (props) => <CustomHeader {...props} />,
-
-    headerRight: () => (
-        <CustomImageButton  image='settings' style={{marginRight:20}} iconStyle={{ width: 30, height: 30 }}
-        onPress={() => navigation.navigate('PersonalData',{})}/>
-    ),
-    headerStyle: {
-        backgroundColor: colors.primary,
-
-    },
+const getHeader = (nav) => {
+    return {
+        headerTitle: (props) => <CustomHeader {...props} />,
+    
+        headerRight: () => (
+            <CustomImageButton  image='settings' style={{marginRight:20}} iconStyle={{ width: 30, height: 30 }}
+            onPress={() => nav.navigate('PersonalData',{})}/>
+        ),
+        headerStyle: {
+            backgroundColor: colors.primary,
+    
+        },
+    }
+}
+export const header  = {
+    
 }
 
 const tabBarIcon = (icon) => ({
@@ -39,8 +43,9 @@ const tabBarIcon = (icon) => ({
     size,
   }) => <Image source={icon.uri} style={{width:40,height:40}}></Image>;
 
-export const bottomNavHeader = (icon) =>{
-    let res = {...header}
+export const bottomNavHeader = (icon,navigation) =>{
+    let res = {...getHeader(navigation)}
+
     res.tabBarIcon = tabBarIcon(icon);
 
     return res;

@@ -41,17 +41,17 @@ export const BottomTab = ({navigation}) => {
 
 		<Tab.Screen
 			name={screenNames.foodSearch}
-			options={bottomNavHeader(navigationIcons.foodSearch)}
+			options={bottomNavHeader(navigationIcons.foodSearch,navigation)}
 			component={FoodSearch}
 		/>
 		<Tab.Screen
 			name={screenNames.home}
-			options={bottomNavHeader(navigationIcons.home)}
+			options={bottomNavHeader(navigationIcons.home,navigation)}
 			component={home}
 		/>
 	 <Tab.Screen
 			name={screenNames.mealDiary}
-			options={bottomNavHeader(navigationIcons.mealDiary)}
+			options={bottomNavHeader(navigationIcons.mealDiary,navigation)}
 			component={mealDiary}
 		/>
 	</Tab.Navigator>

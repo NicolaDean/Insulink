@@ -73,3 +73,5 @@ cd ios && pod install
 npx react-native run-ios --device "Marco’s iPad"
 
 
+    //LINK TO GENERATE UPC 
+    //https://docs.google.com/document/d/1hZ69q8BhEgEVHbFzQnPlGNPjyJycKWBDhY1jsT13np8/mobilebasic

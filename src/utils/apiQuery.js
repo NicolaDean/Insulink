@@ -171,10 +171,12 @@ class Api{
         return await this.doRequest(methods.get,'/search/instant',param);
     }
 
+    //LINK TO GENERATE UPC 
+    //https://docs.google.com/document/d/1hZ69q8BhEgEVHbFzQnPlGNPjyJycKWBDhY1jsT13np8/mobilebasic
     getFoodListBarCode = async (userInput) =>{
      //console.log('upc  '+ typeof userInput+userInput)
         const param = {
-            upc: Number(userInput)
+            upc: 851045005013
         }
 
         return await this.doRequest(methods.get,'/search/item',param);
@@ -217,10 +219,10 @@ class Api{
           .catch( (error)=> {
     
             //this.errorFunc(networkErrors.APIerror);
-
+            console.log(error);
             inputChecker.apiErrorHelper(error,this.errorFunc);
 
-            //console.log("BANANA" + JSON.stringify(error));
+            console.log("BANANA" + JSON.stringify(error));
             //console.log(JSON.stringify(error));
             /*if(error.status == 401) {
                 console.log("ENDED STUDENT LIMITS!!!!!!!!!!!!!!!!!!!!");

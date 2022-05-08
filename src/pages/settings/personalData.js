@@ -38,9 +38,9 @@ export const PersonalData = ({ navigation, route, userData}) =>{
         );
     }
 
-    const Row = ({children,width}) =>{
+    const Row = ({children,width,style}) =>{
         return(
-            <MarginContainer style={{flexDirection:'row'}}  width={width}>
+            <MarginContainer style={[style,{flexDirection:'row'}]}  width={width}>
                 {children}
             </MarginContainer>
         );
@@ -61,12 +61,11 @@ export const PersonalData = ({ navigation, route, userData}) =>{
     }
     
     return (
-        <MarginContainer>
-            <Title>Personal Data</Title>
-
-            <Row>
-                <MarginContainer width={'50%'}>
-                    <Title>Diet Info: </Title>
+        <MarginContainer >
+            <Title>Diet Info: </Title>
+            <Row style={{backgroundColor:colors.white}}>
+                <MarginContainer  width={'50%'}>
+                    
                     <VictoryPie
                         colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
                         data={chartData}
@@ -95,29 +94,24 @@ export const PersonalData = ({ navigation, route, userData}) =>{
                 </MarginContainer>
             </Row>  
         
+            <Text style={styles.userName}>{userData.name} {userData.surname} </Text>
+            
+            <Title>Physical Info:</Title>
+            <MarginContainer style={{backgroundColor:colors.primary}}>
             <Row>
-                <Row width={'50%'}>
-                    <Title>{userData.name} {userData.surname} </Title>
-                    <Text></Text>
-                </Row>
-                <Row width={'50%'}></Row>
-            </Row>
-            
-                <Title>Physical Info:</Title>
-                <MarginContainer style={{backgroundColor:colors.primary}}>
-                <Row>
                     
-                    <Row width={'40%'}>
-                        <Icon icon={'weigth'}/>
-                        <Text style={styles.phisicInfo}>{userData.weight} Kg</Text>
-                    </Row>
-                    <Row width={'50%'}>
-                        <Icon icon={'height'}/>
-                        <Text style={styles.phisicInfo}>{userData.height} cm</Text>
-                    </Row>
+                <Row width={'40%'}>
+                    <Icon icon={'weigth'}/>
+                    <Text style={styles.phisicInfo}>{userData.weight} Kg</Text>
                 </Row>
-                </MarginContainer>
+                <Row width={'50%'}>
+                    <Icon icon={'height'}/>
+                    <Text style={styles.phisicInfo}>{userData.height} cm</Text>
+                </Row>
+            </Row>
+            </MarginContainer>
             
+            <Title>Medical Info:</Title>
             
         </MarginContainer>   
     );
@@ -140,12 +134,18 @@ const styles = StyleSheet.create({
         width:30,
         height:30,
         borderRadius:20,
+        
     },
     phisicInfo:{
         alignSelf:'center',
         color:colors.white,
         fontSize:20,
         marginLeft:10,
+        fontWeight:'bold'
+    },
+    userName:{
+        fontSize:20,
+        color:colors.black
     }
 });
 
