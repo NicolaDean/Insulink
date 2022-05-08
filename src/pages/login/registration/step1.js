@@ -8,6 +8,7 @@ import { MarginContainer } from '../../../customComponents/containers/marginCont
 import { WaitLoading } from '../../../customComponents/containers/waitLoading';
 import CustomButton from '../../../customComponents/customButton';
 import { CustomNumberPicker } from '../../../customComponents/customNumberPicker';
+import { GoogleButton } from '../socialLogin/googleLogin';
 import { PageStepBar } from './pageStepBar';
 
 export const RegStep1 = ({userData,setUserData}) =>{
@@ -26,6 +27,8 @@ export const RegStep1 = ({userData,setUserData}) =>{
                 <InputContainer name={"Password  "}>
                     <TextInput  style={styles.textInput} secureTextEntry={true} onChangeText={val => setUserData(userDataTypes.password,val)}/>
                 </InputContainer>
+
+                <GoogleButton registration = {true}/>
             </InputBlock>
            
         </View>

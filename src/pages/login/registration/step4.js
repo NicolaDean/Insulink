@@ -24,7 +24,7 @@ export const RegStep4 = ({userData,setUserData}) =>{
 
     console.log(JSON.stringify(userData));
     const changeMacro = (macro,value) =>{
-        const newChartData = [...chartData];
+    const newChartData = [...chartData];
     const choRatio=0;
         switch(macro){
             case 'Carb':

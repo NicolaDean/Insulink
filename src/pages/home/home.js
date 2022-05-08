@@ -106,8 +106,13 @@ export const Home = ({ navigation,state,user,diary }) =>{
         <View style={{justifyContent: 'space-evenly',
               alignItems: 'flex-start',flexDirection:'row',marginBottom:5,marginHorizontal:40}}>
           <CustomImageButton
+<<<<<<< HEAD
+          image='statistics'
+                onPress={() => navigation.navigate('PersonalData',{}) }
+=======
           image='barcode'
                 onPress={() => navigation.navigate('ScannerPage',{}) }
+>>>>>>> 8005ebff81f11ae863792f6b4847646601b1d8f6
                 useDefaultStyle={false}
                 iconStyle={styles.icon}
                 

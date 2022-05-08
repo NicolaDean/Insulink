@@ -127,13 +127,13 @@ export const login = (email,psw) => async dispatch =>{
 } 
 
 
-export const googleLogin = (uid,errorFunc) => async dispatch =>{
+export const googleLogin = (uid,errorFunc,registration=false) => async dispatch =>{
 
     //Get user data
     const usrData = (await FirebaseQuery.getUserData(uid));
     const glicemy = (await FirebaseQuery.getUserGlicemy(uid));
 
-    if(usrData == null){
+    if(usrData == null && !registration){
         console.log("This google account isnt registered yet");
         const error = [{title:"Not Registered",body:"Please register with this google account"}];
         errorFunc(error);

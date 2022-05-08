@@ -52,7 +52,7 @@ class firebaseQuery{
         if(res == undefined) return [];
 
         res.data.forEach(g => {
-            glicemy_records[date].push(this.changeGlicemyTimeFormat(g));
+            glicemy_records[date].push(this.changeGlicemyTimeFormat(g,false));
         });
 
         console.log("->>>>" + JSON.stringify(glicemy_records));

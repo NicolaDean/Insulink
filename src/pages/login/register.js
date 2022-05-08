@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { View ,Text,StyleSheet } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { steps } from '../../constants/registrationSteps';
 import { MarginContainer } from '../../customComponents/containers/marginContainer';
 import { WaitLoading } from '../../customComponents/containers/waitLoading';
@@ -43,7 +43,7 @@ const errors = {
 }
 
 
-export const Registration = ({navigation}) =>{
+export const Registration = ({navigation,mustCompleteReg}) =>{
 
     const [userData,setUserData] = useState(initialUserData);
     const [errors,setErrors] = useState([]);
@@ -54,6 +54,14 @@ export const Registration = ({navigation}) =>{
 
 
     const dispatch = useDispatch();
+
+    useEffect(()=>{
+        if(mustCompleteReg){
+            console.log("COMPLETE REGISTRATION");
+            setStep(2);
+        }
+        
+    },[mustCompleteReg]);
 
     const setInputField = (type,data) =>{
         setUserData(state =>({...state,[type]: data}));
@@ -102,6 +110,8 @@ export const Registration = ({navigation}) =>{
     const checkError = () =>{
         return inputChecker.checkRegistrationInputs(userData,step,errorFunction);
     }
+
+    //TODO CHECK FOR "mustCompleteReg" and change step accordingly
 
     //TODO CREATE A GLOBAL STATE FOR ALL STEPS THAT CONTAIN USER DATA
     const renderStep = () =>{
@@ -155,4 +165,8 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Registration;
+const mapStateToProps = (state, ownProps = {}) => {
+    return{mustCompleteReg:state.userReducer.mustCompleteReg};
+}
+  
+export default connect(mapStateToProps)(Registration);

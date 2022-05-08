@@ -1,9 +1,8 @@
-import {Text, View } from 'react-native';
+import {Text, View, StyleSheet,Image } from 'react-native';
 import React,{ useState,useEffect, useContext } from 'react';
 
 //CUSTOM COMPONENTS
 import CustomButton from '../../customComponents/customButton';
-import styles from './style'
 
 //API
 import * as database from '../../utils/firebaseQuery'
@@ -11,98 +10,147 @@ import * as database from '../../utils/firebaseQuery'
 //REDUX
 import { connect } from 'react-redux';
 import { loginStatus } from '../../constants/states';
+import { InputBlock } from '../../customComponents/containers/inputsBlock';
+import { MarginContainer } from '../../customComponents/containers/marginContainer';
+import { VictoryPie } from 'victory-native';
+import { colors } from '../../constants/appAspect';
+import { buttonIcons } from '../../assets/buttonIcons';
 
 
 
-export const PersonalData = ({ navigation, route, status}) =>{
+export const PersonalData = ({ navigation, route, userData}) =>{
     
     const [counter,setCounter] = useState(0);
+    const chartData = [
+        {x:"Carb"  ,y:userData.maxCarb},
+        {x:"Fat"   ,y:userData.maxFat},
+        {x:"Prot"  ,y:userData.maxProt}];
 
-    const userData = status.userData;
-    //const dispatch = useDispatch();
-
-    //CHECK IF USER IS LOGGED OR NOT
-    if(status.status == loginStatus.unlogged){
-        console.log(status.status);
-
-         //TODO REDIRECT TO LOGIN
-        //navigation.navigate('Home',{});  
-    } 
-    else console.log(status.status);
-
-    //TEST, TO BE REMOVED
-    const getData = async () =>{
-        const email = 'nicola@gmail.com';
-        const user = (await database.getUserData(email));
-        const glicemy = (await database.getUserGlicemy(email));
-
-        console.log("-------------USER DATA:-----------------")
-        console.log("User: " + JSON.stringify(user));
-        console.log("Glicemy: " + JSON.stringify(glicemy));
-        console.log("----------------------------------------")
-
-
-        //dispatch(register({email:"paolo@gmail.com",name:"Paolo",surname:"Dean"}));
-
-        //await database.addGlicemyValue("paolo@gmail.com",{value:10,time:{seconds:1000,nanoseconds:0}})
-        
+    const Title = ({children}) =>{
+        return(
+            <Text style={styles.title}>{children}</Text>
+        );
     }
 
-    useEffect(()=>{
-       // getData();
-    },[])
-    //TODO understand how to load info after rendering (useEffect (?))
+    const Icon = ({icon="plus"}) =>{
+        return(
+            <Image source={buttonIcons[icon].uri} style={styles.icons} ></Image>
+        );
+    }
 
+    const Row = ({children,width}) =>{
+        return(
+            <MarginContainer style={{flexDirection:'row'}}  width={width}>
+                {children}
+            </MarginContainer>
+        );
+    }
 
-    return (
+    const Col = ({children,width}) =>{
+        return(
+            <MarginContainer style={{flexDirection:'col'}} width={width}>
+                {children}
+            </MarginContainer>
+        );
+    }
 
-        <View>
-            <View style={styles.header}>
-            <Text style={styles.headerTitle}>Personal User Data:</Text>
-        </View>
-            <View style={styles.fieldContainer}>
-                <Text adjustsFontSizeToFit style={styles.fieldTitle}>Name:</Text>
-                <Text adjustsFontSizeToFit style={styles.value}>{userData.name}</Text>
-            </View>
-
-            <View style={styles.fieldContainer}>
-                <Text adjustsFontSizeToFit style={styles.fieldTitle}>Age:</Text>
-                <Text adjustsFontSizeToFit style={styles.value}>{userData.age}</Text>
-            </View>
-
-            <View style={styles.fieldContainer}>
-                <Text adjustsFontSizeToFit style={styles.fieldTitle}>Weight:</Text>
-                <Text  adjustsFontSizeToFit style={styles.value}>{userData.weight}</Text>
-            </View>
-            <View style={styles.fieldContainer}>
-                <Text adjustsFontSizeToFit style={styles.fieldTitle}>Height:</Text>
-                <Text adjustsFontSizeToFit style={styles.value}>{userData.height}</Text>
-            </View>
-
-            <View style={styles.fieldContainer}>
-                <Text adjustsFontSizeToFit style={styles.fieldTitle}>ISF:</Text>
-                <Text adjustsFontSizeToFit style={styles.value} >{userData.isf}</Text>
-            </View>
-            <View style={styles.fieldContainer}>
-                <Text adjustsFontSizeToFit style={styles.fieldTitle}>CHORatio:</Text>
-                <Text adjustsFontSizeToFit style={styles.value}>{userData.choratio}</Text>
-            </View>
-            
-            <CustomButton
-                title='Edit'
-                onPress={() => navigation.navigate('EditPersonalData',{}) }
-            />
-        </View>
-           
-    );
+    const MacroIcon = ({color}) =>{
+        return(
+            <View style={[styles.macrolegend,{backgroundColor:color}]}/>
+        );
+    }
     
+    return (
+        <MarginContainer>
+            <Title>Personal Data</Title>
 
-    //TODO create a method to load usefull data from firebase or local storage and call methods of insulineCalculator       
-    //TODO show all user data and put an "add button"
+            <Row>
+                <MarginContainer width={'50%'}>
+                    <Title>Diet Info: </Title>
+                    <VictoryPie
+                        colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
+                        data={chartData}
+                        width={200}
+                        height={200}
+                        innerRadius={30}
+                        style={{
+                            labels: {
+                                fill: colors.primary, fontSize: 20, padding: 7,
+                            }, }}
+                                /> 
+                </MarginContainer>
+                <MarginContainer style={{justifyContent:'center'}}>
+                        <Row>
+                            <MacroIcon color={'tomato'}/>
+                            <Text>Carb: {userData.maxCarb}g</Text>
+                        </Row>
+                        <Row>
+                            <MacroIcon color={'orange'}/>
+                            <Text>Fat: {userData.maxFat}g</Text>
+                        </Row>
+                        <Row>
+                            <MacroIcon color={'gold'}/>
+                            <Text>Prot: {userData.maxProt}g</Text>
+                        </Row>
+                </MarginContainer>
+            </Row>  
+        
+            <Row>
+                <Row width={'50%'}>
+                    <Title>{userData.name} {userData.surname} </Title>
+                    <Text></Text>
+                </Row>
+                <Row width={'50%'}></Row>
+            </Row>
+            
+                <Title>Physical Info:</Title>
+                <MarginContainer style={{backgroundColor:colors.primary}}>
+                <Row>
+                    
+                    <Row width={'40%'}>
+                        <Icon icon={'weigth'}/>
+                        <Text style={styles.phisicInfo}>{userData.weight} Kg</Text>
+                    </Row>
+                    <Row width={'50%'}>
+                        <Icon icon={'height'}/>
+                        <Text style={styles.phisicInfo}>{userData.height} cm</Text>
+                    </Row>
+                </Row>
+                </MarginContainer>
+            
+            
+        </MarginContainer>   
+    );
+
 }
 
+const styles = StyleSheet.create({
+    title:{
+        fontSize:20,
+        fontWeight:'bold',
+    },
+    icons:{
+        width:60,
+        height:60
+    },
+    field:{
+        flexDirection:'row'
+    },
+    macrolegend:{
+        width:30,
+        height:30,
+        borderRadius:20,
+    },
+    phisicInfo:{
+        alignSelf:'center',
+        color:colors.white,
+        fontSize:20,
+        marginLeft:10,
+    }
+});
+
 const mapStateToProps = (state, ownProps = {}) => {
-    return{status: state.userReducer};
+    return{userData: state.userReducer.userData};
   }
 
 export default connect(mapStateToProps)(PersonalData);
