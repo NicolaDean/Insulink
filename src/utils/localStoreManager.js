@@ -103,6 +103,9 @@ const keys = {
 
     constructor(){}
 
+    reset = async () =>{
+      AsyncStorage.clear();
+    }
     /**
      * Save into local Storage new glicemy value
      * @param {*} new_glicemy 

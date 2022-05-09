@@ -8,19 +8,22 @@ import CustomButton from '../../customComponents/customButton';
 import * as database from '../../utils/firebaseQuery'
 
 //REDUX
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { loginStatus } from '../../constants/states';
 import { InputBlock } from '../../customComponents/containers/inputsBlock';
 import { MarginContainer } from '../../customComponents/containers/marginContainer';
 import { VictoryPie } from 'victory-native';
 import { colors } from '../../constants/appAspect';
 import { buttonIcons } from '../../assets/buttonIcons';
+import { localStorage } from '../../utils/localStoreManager';
+import { logout } from '../../stateManager/reduxStates/actions/userAction';
 
 
 
 export const PersonalData = ({ navigation, route, userData}) =>{
     
     const [counter,setCounter] = useState(0);
+    const dispatch = useDispatch();
     const chartData = [
         {x:"Carb"  ,y:userData.maxCarb},
         {x:"Fat"   ,y:userData.maxFat},
@@ -59,11 +62,19 @@ export const PersonalData = ({ navigation, route, userData}) =>{
             <View style={[styles.macrolegend,{backgroundColor:color}]}/>
         );
     }
+    const logout_call = () =>{
+        dispatch(logout());
+        navigation.navigate('Login',{})
+    }
     
     return (
-        <MarginContainer >
-            <Title>Diet Info: </Title>
-            <Row style={{backgroundColor:colors.white}}>
+        <View style={{backgroundColor:colors.white,width:'100%',height:'100%'}}>
+        <MarginContainer  >
+            <Row>
+                <Title>Diet Info: </Title>
+                <CustomButton onPress={() => logout_call()} title='Logout'/>
+            </Row>
+            <Row style={styles.macroChart}>
                 <MarginContainer  width={'50%'}>
                     
                     <VictoryPie
@@ -74,28 +85,31 @@ export const PersonalData = ({ navigation, route, userData}) =>{
                         innerRadius={30}
                         style={{
                             labels: {
-                                fill: colors.primary, fontSize: 20, padding: 7,
+                                fill: colors.black, fontSize: 20, padding: 7,
                             }, }}
                                 /> 
                 </MarginContainer>
-                <MarginContainer style={{justifyContent:'center'}}>
+                <MarginContainer style={{justifyContent:'center',color:colors.white}}>
                         <Row>
                             <MacroIcon color={'tomato'}/>
-                            <Text>Carb: {userData.maxCarb}g</Text>
+                            <Text style={styles.macroWrites}>Carb: {userData.maxCarb}g</Text>
                         </Row>
                         <Row>
                             <MacroIcon color={'orange'}/>
-                            <Text>Fat: {userData.maxFat}g</Text>
+                            <Text style={styles.macroWrites}>Fat: {userData.maxFat}g</Text>
                         </Row>
                         <Row>
                             <MacroIcon color={'gold'}/>
-                            <Text>Prot: {userData.maxProt}g</Text>
+                            <Text style={styles.macroWrites}>Prot: {userData.maxProt}g</Text>
                         </Row>
                 </MarginContainer>
             </Row>  
         
-            <Text style={styles.userName}>{userData.name} {userData.surname} </Text>
-            
+            <Title>Anagrafic Info:</Title>
+            <MarginContainer style={{backgroundColor:colors.primary}}>
+                <Text style={styles.userName}>{userData.name} {userData.surname} </Text>
+                <Text style={styles.userName}>Born on  {}</Text>
+            </MarginContainer>
             <Title>Physical Info:</Title>
             <MarginContainer style={{backgroundColor:colors.primary}}>
             <Row>
@@ -112,8 +126,23 @@ export const PersonalData = ({ navigation, route, userData}) =>{
             </MarginContainer>
             
             <Title>Medical Info:</Title>
-            
-        </MarginContainer>   
+            <MarginContainer style={{backgroundColor:colors.primary}}>
+            <Row>
+                    
+                <Row width={'40%'}>
+                    <Icon icon={'choratio'}/>
+                    <Text style={styles.phisicInfo}>{userData.choratio} g</Text>
+                </Row>
+                <Row width={'50%'}>
+                    <Icon icon={'isf'}/>
+                    <Text style={styles.phisicInfo}>{userData.isf} ml/g</Text>
+                </Row>
+            </Row>
+            </MarginContainer>
+
+            <CustomButton onPress={()=>navigation.navigate('EditPersonalData',{})} title='Edit Personal Data'/>
+        </MarginContainer>  
+        </View> 
     );
 
 }
@@ -136,6 +165,10 @@ const styles = StyleSheet.create({
         borderRadius:20,
         
     },
+    macroWrites:{
+        color:colors.black,
+        fontWeight:'bold'
+    },
     phisicInfo:{
         alignSelf:'center',
         color:colors.white,
@@ -145,6 +178,10 @@ const styles = StyleSheet.create({
     },
     userName:{
         fontSize:20,
+        color:colors.white
+    },
+    macroChart:{
+        backgroundColor:colors.white,
         color:colors.black
     }
 });

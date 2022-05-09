@@ -40,6 +40,12 @@ const del = (state,payload) =>{
     
 }
 
+const logout = (state,payload) =>{
+    const newState = {...initialState};
+
+    return initialState;
+}
+
 
 const register = (state,payload) =>{
     const newstate ={...state};
@@ -85,6 +91,8 @@ const userReducer = (state = initialState, action) => {
     switch(action.type){
         case userMethods.login:
             return login(state,action.payload);
+        case userMethods.logout:
+            return logout(state,action.payload);
         case userMethods.setId:
             return setId(state,action.payload);
         case userMethods.deleteUser:

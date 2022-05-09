@@ -17,7 +17,7 @@ export const CustomButton = (
             <View style={style}>
                     <TouchableOpacity disabled={disabled}onPress={onPress} 
                         style={[useDefaultStyle?styles.appButtonContainer: null,
-                                disabled?styles.disabledButton:null]}>
+                                disabled?styles.disabledButton:null,style]}>
                         <Text style={[styles.appButtonText,
                                       disabled?styles.disabledButton:null]}>{title}</Text>
                     </TouchableOpacity>

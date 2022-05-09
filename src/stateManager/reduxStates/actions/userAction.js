@@ -83,7 +83,8 @@ const actualLogin = (usrData,uid,glicemy) => async dispatch =>{
     
     usrData.uid = uid;
     //CHECK FOR EMPTY DATA:
-    usrData.age = 20; //TODO CALCULATE AGE FROM BIRTHDAY
+    //console.log(usrData.birthday);
+    //usrData.birthday = new Date(); //TODO CALCULATE AGE FROM BIRTHDAY
     console.log("Login ok" + JSON.stringify(usrData));
 
     //SAVE DATA TO LOCAL STORAGE
@@ -200,7 +201,7 @@ export const loadUserLocalData = ([logged,setLogged]) =>async( dispatch, getStat
 export const logout = (email) => async dispatch =>{
     //ASYNC ACTION (eg check values on DB)
 
-    await localStorage.resetUser();
+    await localStorage.reset();
 
     //REDUX DISPATCH
     dispatch({

@@ -44,7 +44,7 @@ export const Scanner=()=> {
    }
  */
    let varia=e.data
-   const json = (await Food_API.getFoodListBarCode('49000036756'));  
+   const json = (await Food_API.getFoodListBarCode('851045005013'));  
    console.log(JSON.stringify(json))
   setErrorMSG(e.data)
   setError(true)

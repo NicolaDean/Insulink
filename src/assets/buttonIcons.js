@@ -31,6 +31,8 @@ export const buttonIcons = {
     defaultSport:{uri: require('./defaultSport.png')},
     defaultDiet:{uri: require('./defaultDiet.png')},
     barcode:{uri: require('./barcode.png')},
+    isf:{uri: require('./isf.png')},
+    choratio:{uri: require('./choratio.png')},
 
 }
 
