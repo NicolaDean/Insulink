@@ -27,8 +27,6 @@ export const RegStep1 = ({userData,setUserData}) =>{
                 <InputContainer name={"Password  "}>
                     <TextInput  style={styles.textInput} secureTextEntry={true} onChangeText={val => setUserData(userDataTypes.password,val)}/>
                 </InputContainer>
-
-                <GoogleButton registration = {true}/>
             </InputBlock>
            
         </View>

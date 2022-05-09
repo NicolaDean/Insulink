@@ -43,7 +43,12 @@ const errors = {
 }
 
 
-export const Registration = ({navigation,mustCompleteReg}) =>{
+export const Registration = ({navigation,route,mustCompleteReg}) =>{
+
+    let x = false;
+    let googleId = null;
+    if(route.params.uid != undefined) googleId = route.params.uid;
+    if(route.params.mustCompleteReg != undefined) x = true;
 
     const [userData,setUserData] = useState(initialUserData);
     const [errors,setErrors] = useState([]);
@@ -56,8 +61,9 @@ export const Registration = ({navigation,mustCompleteReg}) =>{
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        if(mustCompleteReg){
+        if(mustCompleteReg || x){
             console.log("COMPLETE REGISTRATION");
+            errorFunction([{title:'Google Login',body:'Please Complete Registration of this google account'},]);
             setStep(2);
         }
         
@@ -83,7 +89,9 @@ export const Registration = ({navigation,mustCompleteReg}) =>{
         try{
             console.log("Try Creating account with " + userData.email + "->" +userData.password );
             setRegConfirmWait(true);
-            dispatch(register(userData));
+            
+            dispatch(register(userData,googleId));
+            
             setRegConfirmWait(false);
 
             //navigation.navigate('BottomTab',{});

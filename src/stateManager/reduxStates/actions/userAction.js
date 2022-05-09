@@ -14,13 +14,18 @@ import { FirebaseQuery } from "../../../utils/firebaseQuery";
  * @param {*} user user data to register
  * @returns error code
  */
-export const register = (user) => async dispatch =>{
+export const register = (user,googleId=null) => async dispatch =>{
     //ASYNC ACTION:
     //TODO CHECK USER INPUTS ARE OK (psw length, email not exist etc...)
 
     console.log("Reg Start:");
-    const id = (await authSys.register(user.email,user.password)).uid;
-
+    let id;
+    if(googleId==null){
+        id = (await authSys.register(user.email,user.password)).uid;
+    }else{
+        id = googleId
+    }
+    
     console.log("Reg END:" + id);
     await FirebaseQuery.registerUser(id,user);
     console.log("REGISTER OK");
@@ -76,7 +81,7 @@ export const del = (user) =>{
 const actualLogin = (usrData,uid,glicemy) => async dispatch =>{
 
     //CHECK FOR EMPTY DATA:
-    usrData.age = 20; //TODO CALCULATE AGE FROM BIRTHDAY
+    //usrData.age = 20; //TODO CALCULATE AGE FROM BIRTHDAY
     console.log("Login ok" + JSON.stringify(usrData));
 
     usrData.glicemy = glicemy;
@@ -128,16 +133,17 @@ export const login = (email,psw) => async dispatch =>{
 } 
 
 
-export const googleLogin = (uid,errorFunc,registration=false) => async dispatch =>{
+export const googleLogin = (uid,errorFunc,navigation) => async dispatch =>{
 
     //Get user data
     const usrData = (await FirebaseQuery.getUserData(uid));
     const glicemy = (await FirebaseQuery.getUserGlicemy(uid));
 
-    if(usrData == null && !registration){
+    if(usrData == null){
         console.log("This google account isnt registered yet");
-        const error = [{title:"Not Registered",body:"Please register with this google account"}];
-        errorFunc(error);
+        //const error = [{title:"Not Registered",body:"Please register with this google account"}];
+        //errorFunc(error);
+        navigation.navigate('Registration',{mustCompleteReg:true,uid:uid});
         return false;
     }
 

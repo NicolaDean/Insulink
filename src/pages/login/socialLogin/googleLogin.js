@@ -41,7 +41,7 @@ async function onGoogleButtonPress() {
     
   }
 
-export const GoogleButton = ({registration = false}) =>{
+export const GoogleButton = ({navigation}) =>{
 
     const dispatch = useDispatch();
 
@@ -64,7 +64,7 @@ export const GoogleButton = ({registration = false}) =>{
         
         if(userData!=null){
             console.log("Google Login UID: " + userData.uid);
-            dispatch(googleLogin(userData.uid,errorFunc,registration));
+            dispatch(googleLogin(userData.uid,errorFunc,navigation));
         }
         
     }

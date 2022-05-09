@@ -62,7 +62,7 @@ export const Login = ({navigation,status}) =>{
         setLoading(true);
         console.log("TRY LOGIN");
     
-        dispatch(login("marcofasa99@gmail.com","123456"));
+        dispatch(login("marcofasa99@gmail.com","12345678"));
     }
 
     const tryLogin = async() =>{
@@ -95,7 +95,7 @@ export const Login = ({navigation,status}) =>{
                 <CustomButton title='Login' onPress={tryLogin}/>
           
                 <CustomButton title='Register' onPress={()=>{navigation.navigate('Registration',{})}}/>
-                <GoogleButton/>
+                <GoogleButton navigation={navigation}/>
 
             </MarginContainer>
         </View>
