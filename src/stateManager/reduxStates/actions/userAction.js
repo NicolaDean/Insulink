@@ -82,8 +82,6 @@ const actualLogin = (usrData,uid,glicemy) => async dispatch =>{
 
     //CHECK FOR EMPTY DATA:
     //usrData.age = 20; //TODO CALCULATE AGE FROM BIRTHDAY
-    console.log("Login ok" + JSON.stringify(usrData));
-
     usrData.glicemy = glicemy;
     
     usrData.uid = uid;
@@ -149,6 +147,7 @@ export const googleLogin = (uid,errorFunc,navigation) => async dispatch =>{
 
     dispatch(actualLogin(usrData,uid,glicemy));
 
+    navigation.navigate('Login',{});
     //LOAD OTHER USER DATA FROM FIREBASE (EG: MEAL DIARY)
     return true;
 } 

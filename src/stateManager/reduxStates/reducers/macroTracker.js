@@ -103,9 +103,11 @@ const addFood = (state,data)=>{
     const food = data.food;
     //COPY STATE
     const newstate ={...state};
+    food.identifier = newstate.id;
     //INCREMENT ID
     newstate.id = newstate.id + 1;
     //PUSH FOOD
+
     newstate.meals[state.currentMeal].foods.push(data.food);
     //CALCULATE TOT MACRO
     let m = state.meals[state.currentMeal].macro;
@@ -146,12 +148,11 @@ const removeFood = (state,data)=>{
     const food = data.food;
     //COPY STATE
     const newstate ={...state};
-    let m = state.meals[state.currentMeal].macro;
-
+   
+    console.log("FOOOD: " + JSON.stringify(food));
     //REMOVE FOOD FROM MACRO
     //(BISOGNA PASSARE IL CIBO VERO E PROPRIO MO VIENE PASSATO L'ID)
-    newstate.meals[state.currentMeal].macro = subMacro(m,food);
-    newstate.totMacro  = subMacro(newstate.totMacro,food);
+    
 
     //REMOVING FOOD FROM LIST:
     let found = false;
@@ -183,7 +184,16 @@ const removeFood = (state,data)=>{
 
     //REMOVE FROM MEAL THE FOOD AT THE SPECIFIC INDEX MARKED
     if((found-1 === -1) || found != false){
+        //const f =  newstate.meals[m_found].foods[found];
+
+        console.log("REMOVING: " + JSON.stringify(food));
+
+        let m = state.meals[m_found].macro;
+        newstate.meals[m_found].macro = subMacro(m,food);
+        newstate.totMacro  = subMacro(newstate.totMacro,food);
+
         newstate.meals[m_found].foods.splice(found,1);
+        
     }
     
 
@@ -195,11 +205,7 @@ const editFood = (state,data) =>{
     const food = data.food;
     //COPY STATE
     const newstate ={...state};
-    let m = state.meals[state.currentMeal].macro;
-    //REMOVE FOOD FROM MACRO
-    //(BISOGNA PASSARE IL CIBO VERO E PROPRIO MO VIENE PASSATO L'ID)
-    newstate.meals[state.currentMeal].macro = sumMacro(m,food);
-    newstate.totMacro  = sumMacro(newstate.totMacro,food);
+   
     
 
     //REMOVING FOOD FROM LIST:
@@ -238,6 +244,20 @@ const editFood = (state,data) =>{
     if((found-1 === -1) || found != false){
         console.log("FOUND IN (" +m_found + ","+found+")" );
         
+        let m = newstate.meals[m_found].macro;
+        console.log(JSON.stringify(newstate));
+        let oldFood = newstate.meals[m_found].foods[found];
+
+        //REMOVE FOOD FROM MACRO
+        //(BISOGNA PASSARE IL CIBO VERO E PROPRIO MO VIENE PASSATO L'ID)
+        //Remove old version Macro
+        newstate.meals[m_found].macro = subMacro(m,oldFood);
+        newstate.totMacro  = subMacro(newstate.totMacro,oldFood);
+
+        //Add new Version Macro
+        newstate.meals[m_found].macro = sumMacro(m,food);
+        newstate.totMacro  = sumMacro(newstate.totMacro,food);
+
         newstate.meals[m_found].foods[found] = food;
     }
     

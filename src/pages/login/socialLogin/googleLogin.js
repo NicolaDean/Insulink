@@ -15,8 +15,9 @@ GoogleSignin.configure({
 async function onGoogleButtonPress() {
 
     try{
+        GoogleSignin.signOut()
         if (GoogleSignin.isSignedIn()) {
-            GoogleSignin.signOut()
+            
         }
 
         // Get the users ID token
@@ -41,7 +42,7 @@ async function onGoogleButtonPress() {
     
   }
 
-export const GoogleButton = ({navigation}) =>{
+export const GoogleButton = ({navigation,onSuccess}) =>{
 
     const dispatch = useDispatch();
 

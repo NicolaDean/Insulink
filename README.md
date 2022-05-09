@@ -12,9 +12,7 @@
 --. Modify del cibo non carica le corrette cal e macro
 --. qualcosa che non va nel cibo. non sono corretti i valori e se provi a modificarli vanno in negativo i macro e l'insulina
 --. centrare nomi pagine sulla top bar
---. click su rotellinsa sopra --> PersonalDetail
---. aggiornare in modo corretto l'rario quando aggiungi una nuova glicemia
---. Google login va su telefono ma non da emulatore
+--. Google login va su telefono ma non da emulatore (Solved?)
 
 //GLOBAL
 
