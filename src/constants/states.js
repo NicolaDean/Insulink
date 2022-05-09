@@ -18,6 +18,7 @@ export const userDataTypes = {
     password:"password",
     height: "height",
     weight: "weight",
+    birthday: "birthday",
     age: "age",
     isf: "isf",
     choratio: "choratio",

@@ -63,6 +63,10 @@ export const Registration = ({navigation,mustCompleteReg}) =>{
         
     },[mustCompleteReg]);
 
+    useEffect(()=>{
+
+    },[waitRegConfirm]);
+
     const setInputField = (type,data) =>{
         setUserData(state =>({...state,[type]: data}));
     }
@@ -82,7 +86,7 @@ export const Registration = ({navigation,mustCompleteReg}) =>{
             dispatch(register(userData));
             setRegConfirmWait(false);
 
-            navigation.navigate('BottomTab',{});
+            //navigation.navigate('BottomTab',{});
         }catch{
             
         }

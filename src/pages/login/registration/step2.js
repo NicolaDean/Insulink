@@ -62,8 +62,7 @@ export const RegStep2 = ({step,setStep,userData,setUserData}) =>{
                         <InputContainer name={"BirthDay"} childrenStyle={styles.birth}>
 
                             <DatePicker
-                                onDateChange={val => setUserData(userDataTypes.age,val)}
-                                
+                                onDateChange={val => setUserData(userDataTypes.birthday,new Date(val))}
                                 mode="calendar"
                                 maximumDate="2022-01-01"
                                 current="1995-07-13"
