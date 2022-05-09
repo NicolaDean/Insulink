@@ -12,6 +12,7 @@ import { PageStepBar } from './pageStepBar';
 
 import {Slider} from '@miblanchard/react-native-slider';
 import { userDataTypes } from '../../../constants/states';
+import { MacroIcon, Row } from './utilityComponents';
 
 const dummy_data = [
     {x:"Carb"  ,y:50},
@@ -47,6 +48,8 @@ export const RegStep4 = ({userData,setUserData}) =>{
         }
         setChartData(newChartData);
     }
+
+
     const [loading,setLoading] = useState(true);
 
     return (
@@ -64,19 +67,40 @@ export const RegStep4 = ({userData,setUserData}) =>{
                             <Slider value={userData.maxProt} onValueChange={(value)=>{changeMacro("Prot",value)}} minimumValue={0} maximumValue={600} step={1}/>
                         </InputContainer>
                         <InputContainer style={{alignSelf:'center'}}>
-                             <View >
-                            <VictoryPie 
-                                    colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
-                                    data={chartData}
-                                    width={200}
-                                    height={200}
-                                    innerRadius={30}
-                                    style={{
-                                        labels: {
-                                        fill: colors.primary, fontSize: 20, padding: 7,
-                                    }, }}
+                    
+
+                    
+                             <Row style={styles.macroChart}>
+                                 
+                <MarginContainer  width={'50%'}>
+                    
+                    <VictoryPie
+                        colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
+                        data={chartData}
+                        width={200}
+                        height={200}
+                        innerRadius={30}
+                        style={{
+                            labels: {
+                                fill: colors.black, fontSize: 20, padding: 7,
+                            }, }}
                                 /> 
-                            </View>
+                </MarginContainer>
+                <MarginContainer style={{justifyContent:'center',color:colors.white}}>
+                        <Row>
+                            <MacroIcon color={'tomato'}/>
+                            <Text style={styles.macroWrites}>Carb: {userData.maxCarb}g</Text>
+                        </Row>
+                        <Row>
+                            <MacroIcon color={'orange'}/>
+                            <Text style={styles.macroWrites}>Fat: {userData.maxFat}g</Text>
+                        </Row>
+                        <Row>
+                            <MacroIcon color={'gold'}/>
+                            <Text style={styles.macroWrites}>Prot: {userData.maxProt}g</Text>
+                        </Row>
+                </MarginContainer>
+            </Row>  
                         </InputContainer>
 
                         <InputContainer name={"CHO Ratio (optional): "}>

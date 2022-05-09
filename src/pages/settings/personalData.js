@@ -1,11 +1,10 @@
-import {Text, View, StyleSheet,Image } from 'react-native';
+import {Text, View, StyleSheet,Image ,ScrollView} from 'react-native';
 import React,{ useState,useEffect, useContext } from 'react';
 
 //CUSTOM COMPONENTS
 import CustomButton from '../../customComponents/customButton';
 
 //API
-import * as database from '../../utils/firebaseQuery'
 
 //REDUX
 import { connect, useDispatch } from 'react-redux';
@@ -17,6 +16,8 @@ import { colors } from '../../constants/appAspect';
 import { buttonIcons } from '../../assets/buttonIcons';
 import { localStorage } from '../../utils/localStoreManager';
 import { logout } from '../../stateManager/reduxStates/actions/userAction';
+import { FirebaseQuery } from '../../utils/firebaseQuery';
+import { Icon, MacroIcon, Row, Title } from '../login/registration/utilityComponents';
 
 
 
@@ -29,46 +30,14 @@ export const PersonalData = ({ navigation, route, userData}) =>{
         {x:"Fat"   ,y:userData.maxFat},
         {x:"Prot"  ,y:userData.maxProt}];
 
-    const Title = ({children}) =>{
-        return(
-            <Text style={styles.title}>{children}</Text>
-        );
-    }
 
-    const Icon = ({icon="plus"}) =>{
-        return(
-            <Image source={buttonIcons[icon].uri} style={styles.icons} ></Image>
-        );
-    }
-
-    const Row = ({children,width,style}) =>{
-        return(
-            <MarginContainer style={[style,{flexDirection:'row'}]}  width={width}>
-                {children}
-            </MarginContainer>
-        );
-    }
-
-    const Col = ({children,width}) =>{
-        return(
-            <MarginContainer style={{flexDirection:'col'}} width={width}>
-                {children}
-            </MarginContainer>
-        );
-    }
-
-    const MacroIcon = ({color}) =>{
-        return(
-            <View style={[styles.macrolegend,{backgroundColor:color}]}/>
-        );
-    }
     const logout_call = () =>{
         dispatch(logout());
         navigation.navigate('Login',{})
     }
     
     return (
-        <View style={{backgroundColor:colors.white,width:'100%',height:'100%'}}>
+        <ScrollView style={{backgroundColor:colors.white,width:'100%',height:'100%'}}>
         <MarginContainer  >
             <Row>
                 <Title>Diet Info: </Title>
@@ -108,7 +77,7 @@ export const PersonalData = ({ navigation, route, userData}) =>{
             <Title>Anagrafic Info:</Title>
             <MarginContainer style={{backgroundColor:colors.primary}}>
                 <Text style={styles.userName}>{userData.name} {userData.surname} </Text>
-                <Text style={styles.userName}>Born on  {}</Text>
+                <Text style={styles.userName}>Born on  {FirebaseQuery.printFormattedDate(userData.birthday,true)}</Text>
             </MarginContainer>
             <Title>Physical Info:</Title>
             <MarginContainer style={{backgroundColor:colors.primary}}>
@@ -142,7 +111,7 @@ export const PersonalData = ({ navigation, route, userData}) =>{
 
             <CustomButton onPress={()=>navigation.navigate('EditPersonalData',{})} title='Edit Personal Data'/>
         </MarginContainer>  
-        </View> 
+        </ScrollView> 
     );
 
 }

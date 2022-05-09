@@ -114,6 +114,26 @@ class firebaseQuery{
     }
 
 
+    printFormattedDate = (date,realdate=false) =>{
+        let time;
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+        ];
+
+        console.log(date);
+        if(realdate){
+            time = new Date(date.seconds*1000);
+            
+        }else{
+            time = date;
+            
+        }
+        
+        
+
+        return time.getDate() + " " + monthNames[time.getMonth()] + " " +  time.getFullYear();
+    }
+
     changeGlicemyTimeFormat = (glicemy,realdate=true) => 
     {
         let time = {};

@@ -9,7 +9,7 @@ import { FirebaseQuery } from '../utils/firebaseQuery';
 
 export const Calendar = ({onChange = (date)=>{}}) => {
 
-    const [currentDate,setDate] = useState(new Date());
+    const [currentDate,setDate] = useState(FirebaseQuery.printFormattedDate(new Date()));
     const [isexpanded,setExpanded] = useState(false);
 
     const expandCalendar = () =>{
@@ -37,7 +37,8 @@ export const Calendar = ({onChange = (date)=>{}}) => {
     const onDateChange = (date) =>{
         //TODO ADD A REDUX ACTION TO RETRIVE DATA FROM LOCALSTORAGE/FIREBASE AND SHOW THEM
         const parseDate = new Date(date);
-        const currDate = FirebaseQuery.glicemyDateFormatter(parseDate);
+        //let currDate = FirebaseQuery.glicemyDateFormatter(parseDate);
+        let currDate = FirebaseQuery.printFormattedDate(parseDate);
         onChange(currDate);
         setDate(currDate);
     }
@@ -46,7 +47,7 @@ export const Calendar = ({onChange = (date)=>{}}) => {
         <View style={{justifyContent:'center',alignContent:'center',alignSelf:'center',flexDirection:'column'}}>
             <TouchableOpacity onPress={expandCalendar}>
                 <View style={{justifyContent:'space-evenly',alignContent:'stretch',alignSelf:'center',flexDirection:'row',marginVertical:10}}>
-                <Text style={{alignSelf:'center',marginHorizontal:10}} >{currentDate.toString().slice(0,10)}</Text>
+                <Text style={{alignSelf:'center',marginHorizontal:10}} >{currentDate.toString()}</Text>
                 <Image source={buttonIcons['calendar'].uri} style={styles.icon} /> 
                 </View>
                 {isexpanded ? expanded():notExpanded()}
@@ -57,7 +58,7 @@ export const Calendar = ({onChange = (date)=>{}}) => {
 
 const styles =  StyleSheet.create({
     icon:{
-        width: 32,
+         width: 32,
          height: 32,
          position: 'relative',
          top:0,

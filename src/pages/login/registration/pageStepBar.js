@@ -5,12 +5,15 @@ import { MarginContainer } from "../../../customComponents/containers/marginCont
 
 const d = [1,2,3,4,5]
 
-export const PageStepBar = ({step = 1, totStep =5,style ={}}) =>{
+export const PageStepBar = ({step = 1, min=0,max=10,style ={}}) =>{
     let i=0;
     return (
         <MarginContainer>
             <View style={[styles.container,style]}>
                 {d.map( num =>{
+                    if(num<min) return;
+                    if(num>max) return;
+
                     let s = {}
                     if(num <= step)
                     {
