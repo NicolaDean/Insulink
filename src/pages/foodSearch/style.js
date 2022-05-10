@@ -126,6 +126,19 @@ export default StyleSheet.create({
         width:screenWidth*0.9,
         alignSelf:'center',
         marginVertical:screenHeight*0.05
+      },errorContainer:{
+        backgroundColor:'#FACB0F',
+        width:screenWidth*0.90,
+        alignSelf:'center',
+        borderRadius:8
+      },
+      errorMessage:{ 
+        margin:10,
+        alignSelf:'center',
+        fontSize:screenWidth/18,
+        width:screenWidth*0.85,
+        borderRadius:8
+         
       }
 
   });
