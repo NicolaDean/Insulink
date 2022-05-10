@@ -18,12 +18,12 @@ export const ScannerPage = ({ navigation }) =>{
 
   const [error,setError]=useState(false)
   const [errorMSG,setErrorMSG]=useState('')
-  const[flash,setFlash]=useState(RNCamera.Constants.FlashMode.on)
+  const[flash,setFlash]=useState(RNCamera.Constants.FlashMode.off)
    //setFlash(RNCamera.Constants.FlashMode.on)
    //setFlash(RNCamera.Constants.FlashMode.off)
    const changeFlash=() =>{
        if (flash==RNCamera.Constants.FlashMode.off){
-        setFlash(RNCamera.Constants.FlashMode.on)
+        setFlash(RNCamera.Constants.FlashMode.torch)
          console.log('Flash ON')
        }else{
         setFlash(RNCamera.Constants.FlashMode.off)
@@ -82,12 +82,7 @@ export const ScannerPage = ({ navigation }) =>{
         reactivate={true}
         reactivateTimeout={3000}
         containerStyle={{justifyContent:'space-evenly'}}
-        topContent={
-          null
-        }
-        bottomContent={
-          null
-        }
+       
       />
                                   <CustomImageButton image='flash' iconStyle={{width: 52, height: 52,position: 'relative',left:screenWidth/1.22}} onPress={()=>{changeFlash()}}/>
 
