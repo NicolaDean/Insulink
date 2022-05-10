@@ -50,6 +50,7 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
 
     const foodId = editable ? route.params.identifier : foodInfo.identifier;
 
+    console.log("MY IDENTIFIER IS: " + JSON.stringify(data));
     const foodInitialAmount = editable ? foodInfo.quantity : 1;
 
     //Retrive API food details data

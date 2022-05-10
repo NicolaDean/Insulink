@@ -243,7 +243,7 @@ const editFood = (state,data) =>{
     //REMOVE FROM MEAL THE FOOD AT THE SPECIFIC INDEX MARKED
     if((found-1 === -1) || found != false){
         console.log("FOUND IN (" +m_found + ","+found+")" );
-        
+        //PROBLEM IS IN IDENTIFIER!!
         let m = newstate.meals[m_found].macro;
         console.log(JSON.stringify(newstate));
         let oldFood = newstate.meals[m_found].foods[found];
