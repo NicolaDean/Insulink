@@ -72,6 +72,8 @@ const sumMacro = (base,toSum) =>{
     result[macro.carb] = base[macro.carb] + toSum[macro.carb];
     result[macro.prot] = base[macro.prot] + toSum[macro.prot];
 
+    console.log("ADDING THIS MACRO: " + base[macro.cal] +  " + " + toSum[macro.cal] +"=" +  result[macro.cal]);
+   
     return result;
 }
 /**
@@ -84,11 +86,13 @@ const subMacro = (base,toRemove) =>{
 
     let result = {};
 
+    
     result[macro.cal] = base[macro.cal] - toRemove[macro.cal];
     result[macro.fat] = base[macro.fat] - toRemove[macro.fat];
     result[macro.carb] = base[macro.carb] - toRemove[macro.carb];
     result[macro.prot] = base[macro.prot] - toRemove[macro.prot];
 
+    console.log("REMOVING THIS MACRO: " + base[macro.cal] +  " - " + toRemove[macro.cal] +"=" +  result[macro.cal]);
     return result;
 }
 
@@ -233,8 +237,6 @@ const editFood = (state,data) =>{
                 found = i;
                 m_found = key;
                 //REMOVE OLD MACRO
-                newstate.meals[state.currentMeal].macro = subMacro(m,x);
-                newstate.totMacro  = subMacro(newstate.totMacro,x);
             }
             i++;
         });        
@@ -255,7 +257,7 @@ const editFood = (state,data) =>{
         newstate.totMacro  = subMacro(newstate.totMacro,oldFood);
 
         //Add new Version Macro
-        newstate.meals[m_found].macro = sumMacro(m,food);
+        newstate.meals[m_found].macro = sumMacro(newstate.meals[m_found].macro,food);
         newstate.totMacro  = sumMacro(newstate.totMacro,food);
 
         newstate.meals[m_found].foods[found] = food;
