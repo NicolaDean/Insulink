@@ -11,6 +11,7 @@ export const initialDiaryState = {
     currentDate:FirebaseQuery.glicemyDateFormatter(new Date()),
     totMacro:{cal:0,carb:0,fat:0,prot:0},
     id:1,
+    activity_id:1,
     meals:{
         breakfast:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
         lunch:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
@@ -126,6 +127,8 @@ const addActivity = (state,data) =>{
 
     //COPY STATE
     const newstate ={...state};
+    activity.identifier = newstate.activity_id;
+    newstate.activity_id = newstate.activity_id+1;
     //
     newstate.activities[newstate.currentMeal].sports.push(activity);
     newstate.activities[newstate.currentMeal].totCal += activity.calories;
@@ -134,12 +137,44 @@ const addActivity = (state,data) =>{
     return newstate;
 }
 
-const removeActivity = (state,date) =>{
-    //COPY STATE
-    const newstate ={...state};
 
-    //TODO REMOVE ACTIVITY
-    return newstate;
+
+const findMatchingIdMeal = (array,identifier,isSport = false) =>{
+
+    //REMOVING FOOD FROM LIST:
+    let found = false;
+    let m_found = false;
+
+    let meal_types = Object.keys(array);
+
+    //FOR EACH MEAL
+    meal_types.forEach((key,index) =>{
+        if(found != false){ return;}
+            let i = 0;
+            let tmp = [];
+            if(isSport) {
+                tmp =array[key].sports;
+            }else{
+                tmp =array[key].foods;
+            }
+            
+    
+            //FOR EACH FOOD
+            tmp.forEach(x =>{
+                //CHECK IDENTIFIER TO REMOVE
+                console.log("(" + x.identifier + " , " + identifier+ ")");
+            
+                if(x.identifier === identifier)
+                {
+                    //IF FOUNDED MARK INDEX AND MEAL FROM WICH REMOVE
+                    found = i;
+                    m_found = key;
+                }
+                i++;
+            });        
+        });
+
+        return {index:found,meal:m_found};
 }
 /**
  * remove a food to the global state representing meals of today
@@ -154,49 +189,21 @@ const removeFood = (state,data)=>{
     const newstate ={...state};
    
     console.log("FOOOD: " + JSON.stringify(food));
-    //REMOVE FOOD FROM MACRO
-    //(BISOGNA PASSARE IL CIBO VERO E PROPRIO MO VIENE PASSATO L'ID)
-    
 
-    //REMOVING FOOD FROM LIST:
-    let found = false;
-    let m_found = false;
-
-    let meal_types = Object.keys(newstate.meals);
-
-    //FOR EACH MEAL
-    meal_types.forEach((key,index) =>{
-        if(found != false){ return;}
-        let i = 0;
-        let tmp = [];
-        tmp =newstate.meals[key].foods;
-
-        //FOR EACH FOOD
-        tmp.forEach(x =>{
-            //CHECK IDENTIFIER TO REMOVE
-            console.log("(" + x.identifier + " , " + food.identifier+ ")");
-        
-            if(x.identifier === food.identifier)
-            {
-                //IF FOUNDED MARK INDEX AND MEAL FROM WICH REMOVE
-                found = i;
-                m_found = key;
-            }
-            i++;
-        });        
-    });
+    //FIND MATCHING FOOD IN STATE
+    let matching = findMatchingIdMeal(newstate.meals,food.identifier,false);
 
     //REMOVE FROM MEAL THE FOOD AT THE SPECIFIC INDEX MARKED
-    if((found-1 === -1) || found != false){
-        //const f =  newstate.meals[m_found].foods[found];
-
+    if((matching.index-1 === -1) || matching.index != false){
         console.log("REMOVING: " + JSON.stringify(food));
 
-        let m = state.meals[m_found].macro;
-        newstate.meals[m_found].macro = subMacro(m,food);
+        //REMOVING MACRO
+        let m = state.meals[matching.meal].macro;
+        newstate.meals[matching.meal].macro = subMacro(m,food);
         newstate.totMacro  = subMacro(newstate.totMacro,food);
 
-        newstate.meals[m_found].foods.splice(found,1);
+        //REMOVING FOOD FROM LIST
+        newstate.meals[matching.meal].foods.splice(matching.index,1);
         
     }
     
@@ -204,69 +211,60 @@ const removeFood = (state,data)=>{
     return newstate;
 }
 
-//TODO CHECK HOW ADD NEW MACRO AND REMOVE OLD MACRO
 const editFood = (state,data) =>{
     const food = data.food;
     //COPY STATE
     const newstate ={...state};
    
-    
+    //FIND MATCHING FOOD IN STATE
+    let matching = findMatchingIdMeal(newstate.meals,food.identifier,false);
 
-    //REMOVING FOOD FROM LIST:
-    let found = false;
-    let m_found = false;
-
-    let meal_types = Object.keys(newstate.meals);
-
-    //FOR EACH MEAL
-    meal_types.forEach((key,index) =>{
-        if(found != false){ return;}
-        let i = 0;
-        let tmp = [];
-        tmp =newstate.meals[key].foods;
-
-        //FOR EACH FOOD
-        tmp.forEach(x =>{
-            //CHECK IDENTIFIER TO REMOVE
-            console.log("(" + x.identifier + " , " + food.identifier+ ")");
-            console.log("IN STATE:\n" + JSON.stringify(x));
-            console.log("TO EDIT :\n" +JSON.stringify(food));
-            if(x.identifier === food.identifier)
-            {
-                //IF FOUNDED MARK INDEX AND MEAL FROM WICH REMOVE
-                found = i;
-                m_found = key;
-                //REMOVE OLD MACRO
-            }
-            i++;
-        });        
-    });
 
     //REMOVE FROM MEAL THE FOOD AT THE SPECIFIC INDEX MARKED
-    if((found-1 === -1) || found != false){
-        console.log("FOUND IN (" +m_found + ","+found+")" );
+    if((matching.index-1 === -1) || matching.index != false){
+        console.log("FOUND IN (" +matching.meal + ","+matching.index+")" );
         //PROBLEM IS IN IDENTIFIER!!
-        let m = newstate.meals[m_found].macro;
+        let m = newstate.meals[matching.meal].macro;
         console.log(JSON.stringify(newstate));
-        let oldFood = newstate.meals[m_found].foods[found];
+        let oldFood = newstate.meals[matching.meal].foods[matching.index];
 
         //REMOVE FOOD FROM MACRO
         //(BISOGNA PASSARE IL CIBO VERO E PROPRIO MO VIENE PASSATO L'ID)
         //Remove old version Macro
-        newstate.meals[m_found].macro = subMacro(m,oldFood);
+        newstate.meals[matching.meal].macro = subMacro(m,oldFood);
         newstate.totMacro  = subMacro(newstate.totMacro,oldFood);
 
         //Add new Version Macro
-        newstate.meals[m_found].macro = sumMacro(newstate.meals[m_found].macro,food);
+        newstate.meals[matching.meal].macro = sumMacro(newstate.meals[matching.meal].macro,food);
         newstate.totMacro  = sumMacro(newstate.totMacro,food);
 
-        newstate.meals[m_found].foods[found] = food;
+        newstate.meals[matching.meal].foods[matching.index] = food;
     }
     
 
     return newstate;
 }
 
+const removeActivity = (state,data) =>{
+    //COPY STATE
+    const newstate ={...state};
+    const activity = data.actvity;
+
+
+    //FIND MATCHING ACTIVITY IN STATE
+    let matching = findMatchingIdMeal(newstate.activities,food.identifier,true);
+
+
+    if((matching.index-1 === -1) || matching.index != false){
+        //TODO REMOVE CALORIES
+        newstate.activities[matching.meal].totCal -= activity.calories;
+        newstate.totCalBurned -= activity.calories;
+        //REMOVING FOOD FROM LIST
+        newstate.activities[matching.meal].sports.splice(matching.index,1);
+    }
+    //TODO REMOVE ACTIVITY
+    return newstate;
+}
 /**
  * Load Meals data from memory
  * @param {*} state 
@@ -322,6 +320,8 @@ const macroReducer = (state = initialDiaryState, action) => {
             return addActivity(state,action.payload);
         case foodMethods.resetDiary:
             return resetDiary(state,action.payload);
+        case foodMethods.removeActivity:
+            return removeActivity(state,action.payload);
         case foodMethods.loadHistory:
             return loadHistory(state,action.payload);
         default:

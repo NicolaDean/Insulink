@@ -38,6 +38,13 @@ export const removeFood = (food) => async( dispatch, getState) =>{
     dispatch(saveState());
 } 
 
+export const removeActivity = (activity) => async( dispatch, getState) =>{
+    dispatch({
+        type: foodMethods.removeActivity,
+        payload: {activity:activity}
+    })
+    dispatch(saveState());
+} 
 export const editFood = (food) => async( dispatch, getState) =>{
     dispatch({
         type: foodMethods.editFood,
@@ -90,6 +97,7 @@ export const loadHistory = (date) => async( dispatch,getState) =>{
 export const addActivityToDiary = (activity) => async( dispatch, getState) =>{
 
     console.log("ADD ACTIVITY");
+    console.log(JSON.stringify(activity));
     dispatch({
         type: foodMethods.addActivity,
         payload: {activity:activity}
