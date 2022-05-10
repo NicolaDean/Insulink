@@ -175,9 +175,9 @@ export default StyleSheet.create({
         },appButtonContainer: {
           backgroundColor: colors.primary,
           borderRadius: 10,
-          paddingVertical: 20,
-          paddingHorizontal:15
-          }
+         alignSelf:'center',
+         marginHorizontal:5
+        }
 
                   
   });

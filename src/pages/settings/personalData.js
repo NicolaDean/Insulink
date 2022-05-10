@@ -1,4 +1,4 @@
-import {Text, View, StyleSheet,Image ,ScrollView} from 'react-native';
+import {Text, View, StyleSheet,Image ,ScrollView,Dimensions} from 'react-native';
 import React,{ useState,useEffect, useContext } from 'react';
 
 //CUSTOM COMPONENTS
@@ -18,11 +18,11 @@ import { localStorage } from '../../utils/localStoreManager';
 import { logout } from '../../stateManager/reduxStates/actions/userAction';
 import { FirebaseQuery } from '../../utils/firebaseQuery';
 import { Icon, MacroIcon, Row, Title } from '../login/registration/utilityComponents';
+const screenWidth = Dimensions.get("window").width;
 
 
 
 export const PersonalData = ({ navigation, route, userData}) =>{
-    
     const [counter,setCounter] = useState(0);
     const dispatch = useDispatch();
     const chartData = [
@@ -37,20 +37,19 @@ export const PersonalData = ({ navigation, route, userData}) =>{
     }
     
     return (
-        <ScrollView style={{backgroundColor:colors.white,width:'100%',height:'100%'}}>
+        <ScrollView style={{backgroundColor:colors.white,}}>
         <MarginContainer  >
             <Row>
-                <Title>Diet Info: </Title>
-                <CustomButton onPress={() => logout_call()} title='Logout'/>
-            </Row>
-            <Row style={styles.macroChart}>
-                <MarginContainer  width={'50%'}>
+               <Title>Diet Info: </Title>
+                </Row>
+                <Row style={styles.macroChart}>
+                <MarginContainer  width={'55%'}>
                     
                     <VictoryPie
                         colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
                         data={chartData}
-                        width={200}
-                        height={200}
+                        width={screenWidth/2}
+                        height={screenWidth/2}
                         innerRadius={30}
                         style={{
                             labels: {
@@ -72,15 +71,15 @@ export const PersonalData = ({ navigation, route, userData}) =>{
                             <Text style={styles.macroWrites}>Prot: {userData.maxProt}g</Text>
                         </Row>
                 </MarginContainer>
-            </Row>  
+            </Row >  
         
             <Title>Anagrafic Info:</Title>
-            <MarginContainer style={{backgroundColor:colors.primary}}>
+            <MarginContainer style={{backgroundColor:colors.primary,borderRadius:8,padding:10,marginVertical:10}}>
                 <Text style={styles.userName}>{userData.name} {userData.surname} </Text>
                 <Text style={styles.userName}>Born on  {FirebaseQuery.printFormattedDate(userData.birthday,true)}</Text>
             </MarginContainer>
             <Title>Physical Info:</Title>
-            <MarginContainer style={{backgroundColor:colors.primary}}>
+            <MarginContainer style={{backgroundColor:colors.primary,borderRadius:8,paddingBottom:10,marginVertical:10}}>
             <Row>
                     
                 <Row width={'40%'}>
@@ -95,10 +94,10 @@ export const PersonalData = ({ navigation, route, userData}) =>{
             </MarginContainer>
             
             <Title>Medical Info:</Title>
-            <MarginContainer style={{backgroundColor:colors.primary}}>
+            <MarginContainer style={{backgroundColor:colors.primary,borderRadius:8,paddingBottom:10,marginVertical:10}}>
             <Row>
                     
-                <Row width={'40%'}>
+                <Row width={'40%'} >
                     <Icon icon={'choratio'}/>
                     <Text style={styles.phisicInfo}>{userData.choratio} g</Text>
                 </Row>
@@ -108,8 +107,10 @@ export const PersonalData = ({ navigation, route, userData}) =>{
                 </Row>
             </Row>
             </MarginContainer>
-
             <CustomButton onPress={()=>navigation.navigate('EditPersonalData',{})} title='Edit Personal Data'/>
+
+            <CustomButton onPress={() => logout_call()} title='Logout'/>
+
         </MarginContainer>  
         </ScrollView> 
     );
@@ -136,7 +137,9 @@ const styles = StyleSheet.create({
     },
     macroWrites:{
         color:colors.black,
-        fontWeight:'bold'
+        fontWeight:'bold',
+        alignSelf:'center'
+        ,marginHorizontal:5
     },
     phisicInfo:{
         alignSelf:'center',
@@ -151,7 +154,8 @@ const styles = StyleSheet.create({
     },
     macroChart:{
         backgroundColor:colors.white,
-        color:colors.black
+        color:colors.black,
+        justifyContent:'space-between'
     }
 });
 
