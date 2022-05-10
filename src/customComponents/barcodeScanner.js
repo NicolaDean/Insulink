@@ -44,12 +44,18 @@ export const Scanner=()=> {
    }
  */
    let varia=e.data
-   const json = (await Food_API.getFoodListBarCode('851045005013'));  
+   const json = (await Food_API.getFoodListBarCode(e.data));  
    console.log(JSON.stringify(json))
+   navigation.navigate('FoodDetails',{data : json,foodInfo:json,editable : false}) 
   setErrorMSG(e.data)
   setError(true)
 };
 
+const getDetails = () =>{
+  console.log("DET: " + JSON.stringify(data));
+  navigation.navigate('FoodDetails',{data : id,foodInfo:data,editable : false}) 
+  setExpanded(false);
+}
 
 
  const showError=(e)=>

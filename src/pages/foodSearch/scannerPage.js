@@ -15,7 +15,7 @@ export const ScannerPage = ({ navigation }) =>{
     return(
         <View >
             <Text style={styles.scannerText}>Scan the food container barcode to get the nutrient details!</Text>
-            <Scanner/>
+            <Scanner />
             
 
     </View>
