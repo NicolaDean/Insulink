@@ -5,7 +5,7 @@ import { dim } from '../../constants/appAspect';
 import CustomImageButton from '../../customComponents/customImageButton'
 import { Shake } from "react-native-motion";
 import { useDispatch } from 'react-redux';
-import { removeFood } from '../../stateManager/reduxStates/actions/macroTracker';
+import { removeActivity, removeFood } from '../../stateManager/reduxStates/actions/macroTracker';
 import { connect } from 'react-redux';
 import { buttonIcons } from '../../assets/buttonIcons';
 
@@ -49,7 +49,7 @@ export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
     }
     const deleteSport=() =>{
         console.log('deleted sport '+data.name)
-        dispatch(removeAc(data))
+        dispatch(removeActivity(data))
         //TODO DISPATCH 
     }
     

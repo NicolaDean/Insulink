@@ -141,6 +141,7 @@ const addActivity = (state,data) =>{
 
 const findMatchingIdMeal = (array,identifier,isSport = false) =>{
 
+    console.log("Identifier: " + identifier)
     //REMOVING FOOD FROM LIST:
     let found = false;
     let m_found = false;
@@ -248,11 +249,11 @@ const editFood = (state,data) =>{
 const removeActivity = (state,data) =>{
     //COPY STATE
     const newstate ={...state};
-    const activity = data.actvity;
+    const activity = data.activity;
 
 
     //FIND MATCHING ACTIVITY IN STATE
-    let matching = findMatchingIdMeal(newstate.activities,food.identifier,true);
+    let matching = findMatchingIdMeal(newstate.activities,activity.identifier,true);
 
 
     if((matching.index-1 === -1) || matching.index != false){
