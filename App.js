@@ -46,7 +46,7 @@ const App = () => {
               <Stack.Screen name="ScannerPage" component={ScannerPage}options={header} />
 
               <Stack.Screen name="PersonalData" component={PersonalData}options={header}/>
-              <Stack.Screen name="EditPersonalData" component={EditPersonalData}options={header}/>
+              <Stack.Screen name="EditPersonalData" component={EditPersonalData} options={header}/>
               <Stack.Screen name="Login" component={Login} />
               <Stack.Screen name="Registration" component={Registration} />
 

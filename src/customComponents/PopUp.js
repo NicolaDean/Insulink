@@ -106,7 +106,8 @@ export const PopUp = (
               title={name_to_close}
               image="close"
               iconStyle={[styles.buttonClose,{left:modalWidth/2-15}]}
-              onPress={() => {setActionTriggered(''),setModalVisible(false),defaultLogic=true}}
+              onPress={() => {   setModalVisible(!modalVisible)      }
+            }
             />
     <View style={{margin:10,marginTop:'15%'}}>
               <Text style={styles.modalText}>Place your</Text>
@@ -132,7 +133,8 @@ export const PopUp = (
                 title={name_to_close}
                 image="close"
                 iconStyle={[styles.buttonClose,{left:modalWidth/2-15}]}
-                onPress={() => {setActionTriggered(''),setModalVisible(false)}}
+                onPress={() => {     setModalVisible(!modalVisible);
+                }}
               />
         <Text style={styles.modalText}>We suggest you to make</Text>
         <Text style={styles.doseText}>{defaultLogic==true?ic.totalDose(FirebaseQuery.getTodayLastGlicemy(status.userData.glicemy),diary.meals[id].macro['carb'].toFixed(2)):null}</Text>
@@ -153,8 +155,8 @@ export const PopUp = (
         animationType="fade"
         transparent={true}
         visible={modalVisible}
+        ///THIS METHOD CLOSES THE MODAL
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);
         }}
       >

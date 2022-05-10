@@ -176,7 +176,7 @@ class Api{
     getFoodListBarCode = async (userInput) =>{
      //console.log('upc  '+ typeof userInput+userInput)
         const param = {
-            upc: 851045005013
+            upc: userInput
         }
 
         return await this.doRequest(methods.get,'/search/item',param);

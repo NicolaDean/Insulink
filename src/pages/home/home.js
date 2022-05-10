@@ -107,7 +107,7 @@ export const Home = ({ navigation,state,user,diary }) =>{
               alignItems: 'flex-start',flexDirection:'row',marginBottom:5,marginHorizontal:40}}>
           <CustomImageButton
           image='barcode'
-                onPress={() => navigation.navigate('ScannerPage',{}) }
+                onPress={() => navigation.navigate('ScannerPage') }
                 useDefaultStyle={false}
                 iconStyle={styles.icon}
                 

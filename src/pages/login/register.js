@@ -168,7 +168,6 @@ const styles = StyleSheet.create({
     },
     container:{
         height:'100%',
-        backgroundColor:'orange'
     },
     step:{
         fontSize:25,
