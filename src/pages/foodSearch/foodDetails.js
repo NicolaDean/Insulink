@@ -48,9 +48,9 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
     const iconSelector = editable ? buttonIconsNames.edit : buttonIconsNames.plus;
     const addButtonText = editable ? "Edit Food" : "Add Food To Meal";
 
-    const foodId = editable ? route.params.identifier : foodInfo.identifier;
+    const foodId = editable ? foodInfo.identifier : foodInfo.identifier;
 
-    console.log("MY IDENTIFIER IS: " + JSON.stringify(data));
+    console.log("MY IDENTIFIER IS: " + JSON.stringify(foodId));
     const foodInitialAmount = editable ? foodInfo.quantity : 1;
 
     //Retrive API food details data
@@ -98,6 +98,8 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
             identifier: foodId,
         }
 
+        console.log("IL IDENTIFIER" + foodId);
+        
         if(editable){
             dispatch(editFood(food));
         }else{

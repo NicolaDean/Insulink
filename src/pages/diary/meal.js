@@ -92,19 +92,19 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
         alert('Button Long Pressed');
       };
     
-
-    const renderListItem = (item) =>{
+    const x = 0;
+    const renderListItem = (item,index) =>{
         return(
-            <View  style={{alignContent:'center',justifyContent:'center'}}>
-            <TouchableOpacity style={{alignContent:'center'}} >
-                <Food style={styles.food} data = {item} nav = {navigation} api={apiSelected} deletable={true} ></Food>
+            <View key={index} style={{alignContent:'center',justifyContent:'center'}}>
+                <TouchableOpacity  style={{alignContent:'center'}} >
+                    <Food  style={styles.food} data = {item} nav = {navigation} api={apiSelected} deletable={true} ></Food>
                 </TouchableOpacity>
             </View>
         );
     }
-    const renderListItemSport = (item) =>{
+    const renderListItemSport = (item,index) =>{
         return(
-            <View  style={{alignContent:'center',justifyContent:'center'}}>
+            <View key={index} style={{alignContent:'center',justifyContent:'center'}}>
             <TouchableOpacity style={{alignContent:'center'}} >
                 <Food style={styles.food} data = {item} nav = {navigation} api={apiSelected} deletable={true} sport={true} ></Food>
                 </TouchableOpacity>
@@ -116,17 +116,19 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
         return (
         <View>
             <ScrollView> 
-                <FlatList 
+                <FlatList
+                    keyExtractor={(item, index)=> index}
                     data={food}//id,name,image,cal,carbs,fat,prot,food_name,serving_unit,tag_name,tag_id
                     style={{}}
                     horizontal={true}
-                    renderItem={({ item }) => (renderListItem(item))}
+                    renderItem={({ item ,index}) => (renderListItem(item,index))}
                 />
                 <FlatList 
+                    keyExtractor={(item, index)=> index}
                     data={sport}//id,name,image,cal,carbs,fat,prot,food_name,serving_unit,tag_name,tag_id
                     style={{}}
                     horizontal={true}
-                    renderItem={({ item }) => (renderListItemSport(item))}
+                    renderItem={({ item,index }) => {renderListItemSport(item,index+10)}}
                 />
             </ScrollView>
             <View style={{flexDirection:'row',justifyContent:'center',alignContent:'center',backgroundColor:colors.primary,borderBottomEndRadius: 10,borderBottomLeftRadius:10}}>
