@@ -8,6 +8,7 @@ import { CustomButton } from '../../customComponents/customButton';
 import { RNCamera } from 'react-native-camera';
 import { colors } from '../../constants/appAspect';
 import QRCodeScanner from 'react-native-qrcode-scanner';
+import CustomImageButton from '../../customComponents/customImageButton';
 
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
@@ -17,9 +18,19 @@ export const ScannerPage = ({ navigation }) =>{
 
   const [error,setError]=useState(false)
   const [errorMSG,setErrorMSG]=useState('')
-  const[flash,setFlash]=useState(RNCamera.Constants.FlashMode.auto)
+  const[flash,setFlash]=useState(RNCamera.Constants.FlashMode.on)
    //setFlash(RNCamera.Constants.FlashMode.on)
    //setFlash(RNCamera.Constants.FlashMode.off)
+   const changeFlash=() =>{
+       if (flash==RNCamera.Constants.FlashMode.off){
+        setFlash(RNCamera.Constants.FlashMode.on)
+         console.log('Flash ON')
+       }else{
+        setFlash(RNCamera.Constants.FlashMode.off)
+        console.log('Flash OFF')
+
+       }
+   }
 
   const onSuccess = async(e) =>{
       /*
@@ -33,6 +44,8 @@ export const ScannerPage = ({ navigation }) =>{
    //console.log(JSON.stringify(data))
 
    if(data["brand_name"]!=null){
+       //setFlash(RNCamera.Constants.FlashMode.auto)
+       setError(false)
     navigation.navigate('FoodDetails',{data : data,foodInfo:data,editable : false})
    }
    else{
@@ -45,10 +58,10 @@ export const ScannerPage = ({ navigation }) =>{
  const showError=(e)=>
 {
     return(
-      <View style={{    top:screenHeight*0.51,      }}>
+      <View style={{    top:screenHeight*0.40,      }}>
               <View style={styles.errorContainer}>
        <Text style={styles.errorMessage}>
-         The code <Text style={[styles.errorMessage,{fontWeight: '500',}]}>{errorMSG}</Text> is not supported!</Text>        
+         Sorry! The food barcode <Text style={[styles.errorMessage,{fontWeight: '500',}]}>{errorMSG}</Text> is not available</Text>        
           </View>
 
         <CustomButton title='OK' onPress={()=> {setError(false)} } style={{alignSelf:'center',width:screenWidth*0.35}}/>
@@ -61,9 +74,9 @@ export const ScannerPage = ({ navigation }) =>{
         <View >
             <Text style={styles.scannerText}>Scan the food container barcode to get the nutrient details!</Text>
             <View style={{flexDirection:'column'}}>
+                
       <QRCodeScanner
-      cameraStyle={{borderStyle: 'solid',
-      borderWidth: 8,borderColor:colors.primary,overflow: 'hidden',alignSelf:'center',height:screenWidth*0.7,width:screenWidth*0.7,borderRadius:10}}
+      cameraStyle={{borderStyle: 'solid',borderWidth: 8,borderColor:colors.primary,overflow: 'hidden',alignSelf:'center',height:screenWidth*0.7,width:screenWidth*0.7,borderRadius:10,right:screenWidth/15}}
         onRead={onSuccess}
         flashMode={flash}
         reactivate={true}
@@ -76,6 +89,8 @@ export const ScannerPage = ({ navigation }) =>{
           null
         }
       />
+                                  <CustomImageButton image='flash' iconStyle={{width: 52, height: 52,position: 'relative',left:screenWidth/1.22}} onPress={()=>{changeFlash()}}/>
+
       <View >
       {error==true? showError():null}
       </View>

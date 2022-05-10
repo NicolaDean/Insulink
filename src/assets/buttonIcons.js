@@ -33,6 +33,7 @@ export const buttonIcons = {
     barcode:{uri: require('./barcode.png')},
     isf:{uri: require('./isf.png')},
     choratio:{uri: require('./choratio.png')},
+    flash:{uri: require('./flash.png')},
 
 }
 
@@ -65,5 +66,6 @@ export const buttonIconsNames = {
     bin:'bin',
     edit:'edit',
     barcode:'barcode',
+    flas:'flash'
 }
 
