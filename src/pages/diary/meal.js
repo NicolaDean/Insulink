@@ -102,11 +102,11 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
             </View>
         );
     }
-    const renderListItemSport = (item,index) =>{
+    const renderListItemSport = (item) =>{
         return(
-            <View key={index} style={{alignContent:'center',justifyContent:'center'}}>
-            <TouchableOpacity style={{alignContent:'center'}} >
-                <Food style={styles.food} data = {item} nav = {navigation} api={apiSelected} deletable={true} sport={true} ></Food>
+            <View  style={{alignContent:'center',justifyContent:'center'}}>
+                <TouchableOpacity style={{alignContent:'center'}} >
+                    <Food style={styles.food} data = {item} nav = {navigation} api={apiSelected} deletable={true} sport={true} ></Food>
                 </TouchableOpacity>
             </View>
         );
@@ -128,7 +128,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                     data={sport}//id,name,image,cal,carbs,fat,prot,food_name,serving_unit,tag_name,tag_id
                     style={{}}
                     horizontal={true}
-                    renderItem={({ item,index }) => {renderListItemSport(item,index+10)}}
+                    renderItem={({ item }) => (renderListItemSport(item))}
                 />
             </ScrollView>
             <View style={{flexDirection:'row',justifyContent:'center',alignContent:'center',backgroundColor:colors.primary,borderBottomEndRadius: 10,borderBottomLeftRadius:10}}>

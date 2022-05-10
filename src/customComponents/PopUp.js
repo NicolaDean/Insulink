@@ -33,7 +33,7 @@ export const PopUp = (
   const [modalWidth,setModalWidth] =useState(0);
   if (defaultLogic){
     const ic = new InsulineCalculator(userData.choratio,userData.isf,userData.weight);
-    if(diary.activities[id].sports!=undefined){
+    if(diary.activities[id].sports==[]){
       console.log('No sport done')
     }
   }

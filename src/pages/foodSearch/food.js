@@ -12,6 +12,7 @@ import { buttonIcons } from '../../assets/buttonIcons';
 
 export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
 
+
     const [expanded,setExpanded] = useState( false )
     const [state,setState] = useState( 0)
     const dispatch = useDispatch();
