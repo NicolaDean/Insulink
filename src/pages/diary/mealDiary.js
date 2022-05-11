@@ -59,8 +59,8 @@ const chartConfig = {
 
  
 
-export const MealDiary = ({ navigation,diary,user }) =>{
-
+export const MealDiary = ({ route,navigation,diary,user }) =>{
+  const openCalendar=route.params.openCalendar
 
   const dispatch = useDispatch();
 
@@ -88,7 +88,7 @@ return (
  <View>
 <ScrollView >
 <View style={{justifyContent:'space-around',alignContent:'center',flexDirection:'column'}}>
-      <Calendar  onChange={changeDay}></Calendar>
+      <Calendar  onChange={changeDay} openC={openCalendar}></Calendar>
 </View>
 <Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
         <View style={styles.slide}>

@@ -52,6 +52,8 @@ export const BottomTab = ({navigation}) => {
 	 <Tab.Screen
 			name={screenNames.mealDiary}
 			options={bottomNavHeader(navigationIcons.mealDiary,navigation)}
+			initialParams={{openCalendar: false}}
+
 			component={mealDiary}
 		/>
 	</Tab.Navigator>

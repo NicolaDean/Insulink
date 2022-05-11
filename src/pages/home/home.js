@@ -114,7 +114,9 @@ export const Home = ({ navigation,state,user,diary }) =>{
             />
              <CustomImageButton
           image='defaultDiet'
-                onPress={() => navigation.navigate('MealDiary') }
+                onPress={() => navigation.navigate('MealDiary',{
+                   openCalendar:true  
+                }) }
                 useDefaultStyle={false}
                 iconStyle={styles.icon}
             />
