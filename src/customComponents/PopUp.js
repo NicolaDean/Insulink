@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Alert,TextInput, Modal, StyleSheet, Text, Pressable, View } from "react-native";
+import { Alert,TextInput, Modal, StyleSheet, Text, Pressable, View ,Dimensions} from "react-native";
 import CustomButton from "./customButton";
 import CustomImageButton from "./customImageButton";
 import { connect, useDispatch } from 'react-redux';
@@ -9,6 +9,7 @@ import InsulineCalculator from "../utils/insulineCalculator";
 import { colors } from "../constants/appAspect";
 import { addGlicemy } from "../stateManager/reduxStates/actions/userAction";
 import { FirebaseQuery } from "../utils/firebaseQuery";
+const screenWidth = Dimensions.get("window").width;
 
 
 export const PopUp = (
@@ -102,13 +103,15 @@ export const PopUp = (
     :
     <View style={styles.centeredView}  >
       <View style={styles.modalView} onLayout={(event) => { find_dimesions(event.nativeEvent.layout) }}>
-              <CustomImageButton
-              title={name_to_close}
-              image="close"
-              iconStyle={[styles.buttonClose,{left:modalWidth/2-15}]}
-              onPress={() => {   setModalVisible(!modalVisible)      }
-            }
-            />
+      <View style={{alignSelf:'flex-end',left:modalWidth/8}}>
+                 <CustomImageButton
+                title={name_to_close}
+                image="close"
+                iconStyle={[styles.buttonClose]}
+                onPress={() => {     setModalVisible(!modalVisible);
+                }}
+              />
+              </View> 
     <View style={{margin:10,marginTop:'15%'}}>
               <Text style={styles.modalText}>Place your</Text>
               <Text style={styles.modalText}>Glycemia here:</Text>
@@ -129,13 +132,15 @@ export const PopUp = (
     <View style={styles.centeredView}>
 
       <View style={styles.modalView} onLayout={(event) => { find_dimesions(event.nativeEvent.layout) }}>
-        <CustomImageButton
+      <View style={{alignSelf:'flex-end',left:modalWidth/9}}>
+                 <CustomImageButton
                 title={name_to_close}
                 image="close"
-                iconStyle={[styles.buttonClose,{left:modalWidth/2-15}]}
+                iconStyle={[styles.buttonClose]}
                 onPress={() => {     setModalVisible(!modalVisible);
                 }}
               />
+              </View> 
         <Text style={styles.modalText}>We suggest you to make</Text>
         <Text style={styles.doseText}>{defaultLogic==true?ic.totalDose(FirebaseQuery.getTodayLastGlicemy(status.userData.glicemy),diary.meals[id].macro['carb'].toFixed(2)):null}</Text>
         <Text style={styles.modalText}>doses of insuline</Text>
