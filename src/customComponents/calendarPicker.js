@@ -10,8 +10,9 @@ import { FirebaseQuery } from '../utils/firebaseQuery';
 export const Calendar = ({onChange = (date)=>{},openC}) => {
 
     const [currentDate,setDate] = useState(FirebaseQuery.printFormattedDate(new Date()));
-    const [isexpanded,setExpanded] = useState(false);
-    console.log('calendar is open? '+openC)
+    const [isexpanded,setExpanded] = useState(openC);
+
+    console.log('calendar is open? '+isexpanded)
     const expandCalendar = () =>{
         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut); 
         setExpanded(expanded => !expanded); 
