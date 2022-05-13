@@ -78,9 +78,7 @@ export const Login = ({navigation,status}) =>{
         
         <View style={styles.container}>
             <MarginContainer style={styles.container}>
-                
-                <Text style={styles.step}>Welcome to Insulink!!!</Text>
-                <View>
+                                <View>
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Insert Your Credential:"}>
                         <InputContainer name={"Email: "}>

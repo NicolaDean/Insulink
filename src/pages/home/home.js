@@ -115,7 +115,7 @@ export const Home = ({ navigation,state,user,diary }) =>{
              <CustomImageButton
           image='defaultDiet'
                 onPress={() => navigation.navigate('MealDiary',{
-                   openCalendar:true  
+                   openCalendar: false 
                 }) }
                 useDefaultStyle={false}
                 iconStyle={styles.icon}
@@ -125,8 +125,9 @@ export const Home = ({ navigation,state,user,diary }) =>{
               alignItems: 'flex-start',flexDirection:'row',marginHorizontal:40}}>
           <CustomImageButton
           image='calendar'
-                onPress={() => navigation.navigate('Registration',{}) }
-                useDefaultStyle={false}
+          onPress={() => navigation.navigate('MealDiary',{
+            openCalendar:true
+         }) }                useDefaultStyle={false}
                 iconStyle={styles.icon}
             />
              <PopUp
