@@ -10,9 +10,9 @@ import { FirebaseQuery } from '../utils/firebaseQuery';
 export const Calendar = ({onChange = (date)=>{},openC}) => {
 
     const [currentDate,setDate] = useState(FirebaseQuery.printFormattedDate(new Date()));
-    const [isexpanded,setExpanded] = useState(openC);
+    const [isexpanded,setExpanded] = useState(false);
 
-    console.log('calendar is open? '+isexpanded)
+    console.log('calendar is open? '+openC)
     const expandCalendar = () =>{
         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut); 
         setExpanded(expanded => !expanded); 
@@ -53,7 +53,7 @@ export const Calendar = ({onChange = (date)=>{},openC}) => {
                 <Text style={{alignSelf:'center',marginHorizontal:10}} >{currentDate.toString()}</Text>
                 <Image source={buttonIcons['calendar'].uri} style={styles.icon} /> 
                 </View>
-                {isexpanded ? expanded():notExpanded()}
+                {isexpanded!=openC ? expanded():notExpanded()}
             </TouchableOpacity>
         </View>
     );

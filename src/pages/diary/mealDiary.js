@@ -60,8 +60,8 @@ const chartConfig = {
  
 
 export const MealDiary = ({ route,navigation,diary,user }) =>{
-  const openCalendar=route.params.openCalendar
-
+  var openCalendar=route.params.openCalendar
+  
   const dispatch = useDispatch();
 
   const maxCarb = 200;
