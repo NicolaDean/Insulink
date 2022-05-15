@@ -25,7 +25,9 @@ FIREBASE
     SUMMARY OF TESTING:
     -Render of Custom Components -> (mancano i grafici custom, il resto c'è)
     -Render of Custom Container -> (OK!!)
-    -Render of Pages -> (manca: home, mealdiary,meal,food,fooddetails,......) 
+    -Render of Pages ->
+        Done:Food
+        Todo:FoodDetails,FoodSearch,Meal,MealDiary,Home,PersonalData,EditPersonalData,Popup,AddGlicemy,AddSport
     (Per food details si può usare "mock" di jest per evitare redux/firebase e poi testare redux e firebase a parte)
 
     -FirebaseQuery ->TODO

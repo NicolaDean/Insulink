@@ -99,7 +99,7 @@ const keys = {
   foodDiary: "food_diary_"
 }
 
-  class LocalStorage {
+class LocalStorage {
 
     constructor(){}
 

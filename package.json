@@ -23,6 +23,7 @@
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/native-stack": "^6.5.0",
     "@reduxjs/toolkit": "^1.8.0",
+    "@testing-library/react": "^13.2.0",
     "axios": "^0.26.1",
     "moment": "^2.29.1",
     "react": "17.0.2",
@@ -58,13 +59,14 @@
     "@babel/preset-env": "^7.17.10",
     "@babel/runtime": "7.17.2",
     "@react-native-community/eslint-config": "2.0.0",
+    "@testing-library/jest-dom": "^5.16.4",
     "babel-jest": "^26.6.3",
     "eslint": "7.14.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "0.66.2",
     "react-test-renderer": "17.0.2"
   },
-    "jest": {
+  "jest": {
     "preset": "react-native",
     "transformIgnorePatterns": [
       "node_modules/(?!@react-native|react-native)"
@@ -78,5 +80,4 @@
       "node"
     ]
   }
-  
 }

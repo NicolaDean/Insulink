@@ -89,7 +89,7 @@ return (
  <View>
 <ScrollView >
 <View style={{justifyContent:'space-around',alignContent:'center',flexDirection:'column'}}>
-      {openCalendar==true?<Calendar  onChange={changeDay} openC={openCalendar}></Calendar>:null}
+      <Calendar  onChange={changeDay} openC={openCalendar}></Calendar>
 </View>
 <Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
         <View style={styles.slide}>

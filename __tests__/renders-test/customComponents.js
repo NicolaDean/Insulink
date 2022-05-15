@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import renderer from 'react-test-renderer';
 import { buttonIcons, buttonIconsNames } from '../../src/assets/buttonIcons';
-import Calendar from '../../src/customComponents/calendarPicker'
+import { Calendar } from '../../src/customComponents/calendarPicker';
 import { InputBlock } from '../../src/customComponents/containers/inputsBlock';
 import { InputContainer } from '../../src/customComponents/containers/inputsContainer';
 import { MarginContainer } from '../../src/customComponents/containers/marginContainer';
@@ -31,7 +31,7 @@ describe("Render All Custom Components: ", () => {
   
   test('Render Calendar', () => {
 
-    const tree = renderer.create(<Calendar/>).toJSON();
+    const tree = renderer.create(<Calendar openC={true}/>).toJSON();
     expect(tree).toMatchSnapshot();
   });
 

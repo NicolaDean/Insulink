@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text, Image,StyleSheet,TouchableOpacity, View,LayoutAnimation} from 'react-native';
 import { colors } from '../constants/appAspect';
 import CalendarPicker from 'react-native-calendar-picker';
@@ -6,12 +6,15 @@ import { buttonIcons } from '../assets/buttonIcons';
 import { FirebaseQuery } from '../utils/firebaseQuery';
 
 
-export const Calendar = ({onChange = (date)=>{},openC}) => {
+export const Calendar = ({onChange = (date)=>{},openC =false}) => {
 
     const [currentDate,setDate] = useState(FirebaseQuery.printFormattedDate(new Date()));
     const [isexpanded,setExpanded] = useState(false);
 
-    console.log('calendar is open? '+openC)
+    useEffect(()=>{
+        setExpanded(openC);
+    },[openC]);
+
     const expandCalendar = () =>{
         LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut); 
         setExpanded(expanded => !expanded); 
@@ -52,7 +55,7 @@ export const Calendar = ({onChange = (date)=>{},openC}) => {
                 <Text style={{alignSelf:'center',marginHorizontal:10}} >{currentDate.toString()}</Text>
                 <Image source={buttonIcons['calendar'].uri} style={styles.icon} /> 
                 </View>
-                {isexpanded!=openC ? expanded():notExpanded()}
+                {isexpanded ? expanded():notExpanded()}
             </TouchableOpacity>
         </View>
     );
