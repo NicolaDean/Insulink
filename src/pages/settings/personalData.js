@@ -82,11 +82,11 @@ export const PersonalData = ({ navigation, route, userData}) =>{
             <MarginContainer style={{backgroundColor:colors.primary,borderRadius:8,paddingBottom:10,marginVertical:10}}>
             <Row>
                     
-                <Row width={'40%'}>
+                <Row width={'44%'}>
                     <Icon icon={'weigth'}/>
                     <Text style={styles.phisicInfo}>{userData.weight} Kg</Text>
                 </Row>
-                <Row width={'50%'}>
+                <Row >
                     <Icon icon={'height'}/>
                     <Text style={styles.phisicInfo}>{userData.height} cm</Text>
                 </Row>
@@ -97,20 +97,22 @@ export const PersonalData = ({ navigation, route, userData}) =>{
             <MarginContainer style={{backgroundColor:colors.primary,borderRadius:8,paddingBottom:10,marginVertical:10}}>
             <Row>
                     
-                <Row width={'40%'} >
+                <Row width={'45%'} >
                     <Icon icon={'choratio'}/>
-                    <Text style={styles.phisicInfo}>{userData.choratio} g</Text>
+                    <Text style={styles.phisicInfo}>{userData.choratio} CHO</Text>
                 </Row>
-                <Row width={'50%'}>
+                <Row >
                     <Icon icon={'isf'}/>
-                    <Text style={styles.phisicInfo}>{userData.isf} ml/g</Text>
+                    <Text style={styles.phisicInfo}>{userData.isf} ISF</Text>
                 </Row>
             </Row>
             </MarginContainer>
             <CustomButton onPress={()=>navigation.navigate('EditPersonalData',{})} title='Edit Personal Data'/>
-
+            <Row style={{alignSelf:'center'}}>
+                    
+            <CustomButton onPress={()=>navigation.navigate('Registration',{})} title='Register'/>
             <CustomButton onPress={() => logout_call()} title='Logout'/>
-
+            </Row>
         </MarginContainer>  
         </ScrollView> 
     );

@@ -122,6 +122,7 @@ const addActivity = async() =>{
 
   return (
    //TODO ADD THE TOTAL MEALS MACRO GRAPHù
+   <View>
    <View style={styles.grid} >
    <FlatList
    data={[
@@ -139,7 +140,7 @@ const addActivity = async() =>{
       <View
       style={{  
         backgroundColor: sportString  === item ? colors.primary : null,
-        borderRadius:10
+        borderRadius:10,
     }}>
   
     <CustomImageButton image={item} style={[{margin:30}]}  iconStyle={styles.sportImage} onPress ={()=>{setSportString(item)}} />
@@ -147,24 +148,28 @@ const addActivity = async() =>{
     </View>
     )}}
   />
-      
-  <View style={{flexDirection:'row'}}>
+
+</View>
+
+  <View style={{flexDirection:'row',alignSelf:'center',marginVertical:'2%'}}>
       <CustomImageButton image="more" style={{left:'0%',marginTop:'3%'}} iconStyle={{width: 32,height: 32}} onPress={moreTime} />
       <View style={{width:'70%',}}>
       <TimePicker value={value} onChange={handleChange}  hoursUnit='h' minutesUnit="m" minutesInterval={5}/>
       </View>
       <CustomImageButton image="less"  style={{right:'0%',marginTop:'3%'}} iconStyle={{width: 32,height: 32}} onPress={lessTime} />
 </View>
-<Text style={{fontSize:20}}>or</Text>
+<View style={{borderStartColor:colors.black,borderTopWidth:StyleSheet.hairlineWidth,marginTop:'10%',alignSelf:'center'}}>
+
+<Text style={{fontSize:20,alignSelf:'center'}}>or</Text>
 <Text style={{fontSize:14}}>Describe youe training and we will do the rest!</Text>
-<View style={{borderStartColor:colors.black,borderTopWidth:StyleSheet.hairlineWidth,marginTop:'10%'}}>
       <TextInput style={{fontSize:16}}   placeholder="What have you been up?" onChangeText={
             (value) => timeString=value
           }/>
+
+</View>
           <CustomButton title="Add Activity" style={styles.sportImageContainer}  iconStyle={{width: 32,height: 32}} onPress={() =>addActivity()} />
 
      </View>
-  </View>
       );
   }
 

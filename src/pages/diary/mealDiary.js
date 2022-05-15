@@ -59,9 +59,9 @@ const chartConfig = {
 
  
 
-export const MealDiary = ({ navigation,diary,user }) =>{
-
-
+export const MealDiary = ({ route,navigation,diary,user }) =>{
+  var openCalendar=route.params.openCalendar
+  
   const dispatch = useDispatch();
 
   const maxCarb = 200;
@@ -85,10 +85,11 @@ export const MealDiary = ({ navigation,diary,user }) =>{
 
 return (
  //TODO ADD THE TOTAL MEALS MACRO GRAPH
+ ///Now calendar can be picked only of passing openCalendar true in navigator
  <View>
 <ScrollView >
 <View style={{justifyContent:'space-around',alignContent:'center',flexDirection:'column'}}>
-      <Calendar  onChange={changeDay}></Calendar>
+      {openCalendar==true?<Calendar  onChange={changeDay} openC={openCalendar}></Calendar>:null}
 </View>
 <Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
         <View style={styles.slide}>
