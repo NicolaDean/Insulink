@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { Text, Image,StyleSheet,TouchableOpacity, View,LayoutAnimation} from 'react-native';
 import { colors } from '../constants/appAspect';
 import CalendarPicker from 'react-native-calendar-picker';
-import CustomImageButton from './customImageButton';
 import { buttonIcons } from '../assets/buttonIcons';
 import { FirebaseQuery } from '../utils/firebaseQuery';
 
 
-export const Calendar = ({onChange = (date)=>{}}) => {
+export default Calendar = ({onChange = (date)=>{}}) => {
 
     const [currentDate,setDate] = useState(FirebaseQuery.printFormattedDate(new Date()));
     const [isexpanded,setExpanded] = useState(false);

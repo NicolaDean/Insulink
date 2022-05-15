@@ -6,7 +6,6 @@ import CustomImageButton from '../../customComponents/customImageButton'
 import { Shake } from "react-native-motion";
 import { useDispatch } from 'react-redux';
 import { removeActivity, removeFood } from '../../stateManager/reduxStates/actions/macroTracker';
-import { connect } from 'react-redux';
 import { buttonIcons } from '../../assets/buttonIcons';
 
 
@@ -23,6 +22,8 @@ export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
     }else{
         id=data;
     }
+    console.log(JSON.stringify(id))
+    
     let image =sport?null: id.photo.thumb;
     var name = sport? data.name.toString(): id.food_name;
    

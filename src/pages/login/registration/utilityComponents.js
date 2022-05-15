@@ -4,6 +4,7 @@ import { buttonIcons } from '../../../assets/buttonIcons';
 import { colors } from '../../../constants/appAspect';
 import { MarginContainer } from '../../../customComponents/containers/marginContainer';
 
+
 export const Title = ({children}) =>{
         return(
             <Text style={styles.title}>{children}</Text>
