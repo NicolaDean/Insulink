@@ -1,4 +1,4 @@
-\BOOKMARK [1][-]{section.1}{Brief Introduction to Latex}{}% 1
+\BOOKMARK [1][-]{section.1}{Idea}{}% 1
 \BOOKMARK [2][-]{subsection.1.1}{Downloading Tex Studio}{section.1}% 2
 \BOOKMARK [2][-]{subsection.1.2}{Source Code and Resume Templates}{section.1}% 3
 \BOOKMARK [2][-]{subsection.1.3}{LaTeX Files}{section.1}% 4
@@ -7,8 +7,8 @@
 \BOOKMARK [2][-]{subsection.1.5}{Terminology to Know}{section.1}% 7
 \BOOKMARK [2][-]{subsection.1.6}{Tex Studio Commands}{section.1}% 8
 \BOOKMARK [2][-]{subsection.1.7}{Creating Templates}{section.1}% 9
-\BOOKMARK [1][-]{section.2}{Including and Inputing other Files}{}% 10
-\BOOKMARK [1][-]{section.3}{Creating Your Document \(Classes\)}{}% 11
+\BOOKMARK [1][-]{section.2}{Functionalities}{}% 10
+\BOOKMARK [1][-]{section.3}{Screens and Navigation}{}% 11
 \BOOKMARK [2][-]{subsection.3.1}{Lessons}{section.3}% 12
 \BOOKMARK [2][-]{subsection.3.2}{Exams}{section.3}% 13
 \BOOKMARK [2][-]{subsection.3.3}{Lesson and Exam File Structure}{section.3}% 14
@@ -17,7 +17,7 @@
 \BOOKMARK [2][-]{subsection.3.5}{Beginning Document}{section.3}% 17
 \BOOKMARK [2][-]{subsection.3.6}{Sections and Chapters}{section.3}% 18
 \BOOKMARK [3][-]{subsubsection.3.6.1}{Alternate Sectioning}{subsection.3.6}% 19
-\BOOKMARK [1][-]{section.4}{Spacing and Layout}{}% 20
+\BOOKMARK [1][-]{section.4}{Architecture}{}% 20
 \BOOKMARK [2][-]{subsection.4.1}{Geometry Package/Layout of the Document}{section.4}% 21
 \BOOKMARK [2][-]{subsection.4.2}{Centering}{section.4}% 22
 \BOOKMARK [3][-]{subsubsection.4.2.1}{Single-Line}{subsection.4.2}% 23
@@ -30,7 +30,7 @@
 \BOOKMARK [3][-]{subsubsection.4.3.5}{Math Spacing}{subsection.4.3}% 30
 \BOOKMARK [2][-]{subsection.4.4}{Margin Notes}{section.4}% 31
 \BOOKMARK [3][-]{subsubsection.4.4.1}{Adjusting the Width of a Margin Note}{subsection.4.4}% 32
-\BOOKMARK [1][-]{section.5}{Tests/Exams}{}% 33
+\BOOKMARK [1][-]{section.5}{API doc}{}% 33
 \BOOKMARK [2][-]{subsection.5.1}{Math Environments}{section.5}% 34
 \BOOKMARK [2][-]{subsection.5.2}{Structuring}{section.5}% 35
 \BOOKMARK [2][-]{subsection.5.3}{Writing Exams}{section.5}% 36
@@ -40,7 +40,7 @@
 \BOOKMARK [3][-]{subsubsection.5.3.4}{Source Code - Questions}{subsection.5.3}% 40
 \BOOKMARK [3][-]{subsubsection.5.3.5}{Source Code - Questions with Image on the side}{subsection.5.3}% 41
 \BOOKMARK [2][-]{subsection.5.4}{Math Commands}{section.5}% 42
-\BOOKMARK [1][-]{section.6}{List of Already Defined Environments and Macros}{}% 43
+\BOOKMARK [1][-]{section.6}{Redux States}{}% 43
 \BOOKMARK [2][-]{subsection.6.1}{Main Box Environments}{section.6}% 44
 \BOOKMARK [3][-]{subsubsection.6.1.1}{Theorems}{subsection.6.1}% 45
 \BOOKMARK [3][-]{subsubsection.6.1.2}{Boxes for Definitions}{subsection.6.1}% 46
@@ -51,20 +51,20 @@
 \BOOKMARK [2][-]{subsection.6.3}{Extra Box Commands}{section.6}% 51
 \BOOKMARK [2][-]{subsection.6.4}{Commands \(Macros\)}{section.6}% 52
 \BOOKMARK [2][-]{subsection.6.5}{How to Define New Commands \(Macros\) and Colors}{section.6}% 53
-\BOOKMARK [1][-]{section.7}{Inserting Graphics}{}% 54
+\BOOKMARK [1][-]{section.7}{Insuline Calculator}{}% 54
 \BOOKMARK [2][-]{subsection.7.1}{Easiest Way to Insert Images}{section.7}% 55
 \BOOKMARK [2][-]{subsection.7.2}{Graphics Path}{section.7}% 56
 \BOOKMARK [2][-]{subsection.7.3}{Inserting Images}{section.7}% 57
 \BOOKMARK [2][-]{subsection.7.4}{Image Additions}{section.7}% 58
 \BOOKMARK [2][-]{subsection.7.5}{Positioning an Image}{section.7}% 59
-\BOOKMARK [1][-]{section.8}{Font Styles}{}% 60
+\BOOKMARK [1][-]{section.8}{Testing}{}% 60
 \BOOKMARK [2][-]{subsection.8.1}{Font Types}{section.8}% 61
 \BOOKMARK [1][-]{section.9}{Referencing and Documentation}{}% 62
 \BOOKMARK [2][-]{subsection.9.1}{References/Hyperlinks and Formatting}{section.9}% 63
 \BOOKMARK [2][-]{subsection.9.2}{Documentation}{section.9}% 64
 \BOOKMARK [2][-]{subsection.9.3}{Verbatim}{section.9}% 65
 \BOOKMARK [2][-]{subsection.9.4}{Source Code for the Documentation Style used in this PDF}{section.9}% 66
-\BOOKMARK [1][-]{section.10}{Common Symbols and Functions}{}% 67
+\BOOKMARK [1][-]{section.10}{Future Implementations}{}% 67
 \BOOKMARK [2][-]{subsection.10.1}{Functions}{section.10}% 68
 \BOOKMARK [2][-]{subsection.10.2}{Limits, Integrals, Sums, and Fractions}{section.10}% 69
 \BOOKMARK [3][-]{subsubsection.10.2.1}{Symbols}{subsection.10.2}% 70
