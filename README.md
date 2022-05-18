@@ -51,15 +51,7 @@ FIREBASE
 
 //DOCUMENTATION:
 
-    Latex o Word?
-    -Screens description (foto + descrizione )
-    -Navigation
-    -Functionalities
-    -API used
-    -Architecture explanation
-    -Redux States
-    -Insuline calculator formulas explanation
-    -Testing explanation
+   
 
 //SLIDE:
     -Screen & Functionalities
