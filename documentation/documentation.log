@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.3.6)  21 MAY 2022 12:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.3.6)  21 MAY 2022 12:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1584,7 +1584,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  59i,11n,95p,897b,2712s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/fourier/fourier-ml.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/fourier/fourier-mlit.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/fourier/fourier-ms.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmss10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmss12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtti10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtto10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on /Users/fasa/Projects/DIMA-insuline-calculator/documentation/documentation.pdf (43 pages, 297341 bytes).
+Output written on /Users/fasa/Projects/DIMA-insuline-calculator/documentation/documentation.pdf (43 pages, 297387 bytes).
 PDF statistics:
  1008 PDF objects out of 1200 (max. 8388607)
  938 compressed objects within 10 object streams
