@@ -51,12 +51,12 @@ describe('Render our Food Related Components',()=>{
         //TODO
       });
 
-      test('Render Food Details',()=>{
+      /*test('Render Food Details',()=>{
 
         const params = {data : dummyApple,foodInfo:dummyAppleDeletable,editable : false}
 
         const foodDetails = renderer.create(<FoodDetails />).toJSON();
         expect(foodDetails).toMatchSnapshot();
-      })
+      })*/
 
 });//<Food data={dummyApple}/>

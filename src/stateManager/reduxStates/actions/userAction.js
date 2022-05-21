@@ -228,7 +228,7 @@ export const addGlicemy = (userId,glicemyValue) => async (dispatch,getState) =>{
     const glicemy = {value: glicemyValue,time:date};
 
     //UPDATE FIREBASE IF POSSIBLE; IF NOT ADD A PENDING UPDATE (TODO)
-    FirebaseQuery.addGlicemyValue(userId,glicemy);
+    FirebaseQuery.addGlicemyValue(userId,glicemy);//TODO PUT AWAIT?
     localStorage.storeGlicemyData(glicemy,date);
 
 
