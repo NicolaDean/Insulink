@@ -1,75 +1,69 @@
 \babel@toc {english}{}
 \babel@toc {english}{}
-\contentsline {section}{\numberline {1}Idea}{4}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Main Goal}{4}{subsection.1.1}%
-\contentsline {section}{\numberline {2}Functionalities}{5}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Food Scan}{5}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Glycemia}{5}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Insulin Calculator}{5}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Calendar}{5}{subsection.2.4}%
-\contentsline {section}{\numberline {3}Screens and Navigation}{6}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Home}{6}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Search}{7}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Glycemia PopUp}{7}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Meal Diary}{8}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Calendar}{8}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Architecture}{9}{section.4}%
+\contentsline {section}{\numberline {1}Idea}{3}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Main Goal}{3}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Functionalities}{4}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Food Scan}{4}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Glycemia}{4}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Insulin Calculator}{4}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Calendar}{4}{subsection.2.4}%
+\contentsline {section}{\numberline {3}Screens and Navigation}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Home}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Search}{6}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Glycemia PopUp}{6}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Meal Diary}{7}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Calendar}{7}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Architecture}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Folder Structure}{8}{subsection.4.1}%
 \contentsline {section}{\numberline {5}API doc}{10}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Math Environments}{10}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Structuring}{10}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Writing Exams}{11}{subsection.5.3}%
-\contentsline {subsubsection}{\numberline {5.3.1}Questions}{11}{subsubsection.5.3.1}%
-\contentsline {subsubsection}{\numberline {5.3.2}Choices}{11}{subsubsection.5.3.2}%
-\contentsline {subsubsection}{\numberline {5.3.3}Displaying Solutions}{11}{subsubsection.5.3.3}%
-\contentsline {subsubsection}{\numberline {5.3.4}Source Code - Questions}{12}{subsubsection.5.3.4}%
-\contentsline {subsubsection}{\numberline {5.3.5}Source Code - Questions with Image on the side}{12}{subsubsection.5.3.5}%
-\contentsline {subsection}{\numberline {5.4}Math Commands}{13}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Redux States}{14}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Main Box Environments}{14}{subsection.6.1}%
-\contentsline {subsubsection}{\numberline {6.1.1}Theorems}{14}{subsubsection.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.2}Boxes for Definitions}{14}{subsubsection.6.1.2}%
-\contentsline {subsubsection}{\numberline {6.1.3}Boxes for Examples}{15}{subsubsection.6.1.3}%
-\contentsline {subsubsection}{\numberline {6.1.4}Boxes for Discussions}{15}{subsubsection.6.1.4}%
-\contentsline {subsubsection}{\numberline {6.1.5}Boxes for Visualizations}{15}{subsubsection.6.1.5}%
-\contentsline {subsection}{\numberline {6.2}Extra Box Environment}{16}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Extra Box Commands}{20}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}Commands (Macros)}{20}{subsection.6.4}%
-\contentsline {subsection}{\numberline {6.5}How to Define New Commands (Macros) and Colors}{20}{subsection.6.5}%
-\contentsline {section}{\numberline {7}Insulin Calculator}{21}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Easiest Way to Insert Images}{21}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Graphics Path}{21}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Inserting Images}{22}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Image Additions}{22}{subsection.7.4}%
-\contentsline {subsection}{\numberline {7.5}Positioning an Image}{22}{subsection.7.5}%
-\contentsline {section}{\numberline {8}Testing}{23}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Font Types}{23}{subsection.8.1}%
-\contentsline {section}{\numberline {9}Referencing and Documentation}{24}{section.9}%
-\contentsline {subsection}{\numberline {9.1}References/Hyperlinks and Formatting}{24}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Documentation}{25}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Verbatim}{25}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Source Code for the Documentation Style used in this PDF}{27}{subsection.9.4}%
-\contentsline {section}{\numberline {10}Future Implementations}{28}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Functions}{28}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Limits, Integrals, Sums, and Fractions}{29}{subsection.10.2}%
-\contentsline {subsubsection}{\numberline {10.2.1}Symbols}{29}{subsubsection.10.2.1}%
-\contentsline {section}{\numberline {11}Bibliography}{31}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Bibliography Source Code}{32}{subsection.11.1}%
-\contentsline {section}{\numberline {12}Miscellaneous}{33}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Rule}{33}{subsection.12.1}%
-\contentsline {section}{\numberline {13}Some Common Errors}{34}{section.13}%
-\contentsline {section}{\numberline {14}Further Reading}{35}{section.14}%
-\contentsline {subsection}{\numberline {14.1}Websites and Tutorials}{35}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}Introduction/Commands/and Overall Good References}{35}{subsection.14.2}%
-\contentsline {subsubsection}{\numberline {14.2.1}Writing First Document}{35}{subsubsection.14.2.1}%
-\contentsline {subsubsection}{\numberline {14.2.2}Brief Introduction/List of Commands}{35}{subsubsection.14.2.2}%
-\contentsline {subsubsection}{\numberline {14.2.3}In-Depth LaTeX Guide}{36}{subsubsection.14.2.3}%
-\contentsline {subsection}{\numberline {14.3}Boxes}{36}{subsection.14.3}%
-\contentsline {subsection}{\numberline {14.4}Typesetting Math Documents}{36}{subsection.14.4}%
-\contentsline {subsubsection}{\numberline {14.4.1}Creating Math Documents}{36}{subsubsection.14.4.1}%
-\contentsline {subsubsection}{\numberline {14.4.2}Symbols}{36}{subsubsection.14.4.2}%
-\contentsline {subsubsection}{\numberline {14.4.3}Typing Math Functions/Equations}{37}{subsubsection.14.4.3}%
-\contentsline {subsection}{\numberline {14.5}Graphics}{37}{subsection.14.5}%
-\contentsline {subsubsection}{\numberline {14.5.1}Images}{37}{subsubsection.14.5.1}%
-\contentsline {subsubsection}{\numberline {14.5.2}Colors}{37}{subsubsection.14.5.2}%
-\contentsline {section}{\numberline {28}~~~ References}{39}{subsubsection.14.5.2}%
+\contentsline {subsection}{\numberline {5.1}Nutritionix}{10}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Firebase}{10}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Redux States}{11}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Main Box Environments}{11}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Theorems}{11}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Boxes for Definitions}{11}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}Boxes for Examples}{12}{subsubsection.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.4}Boxes for Discussions}{12}{subsubsection.6.1.4}%
+\contentsline {subsubsection}{\numberline {6.1.5}Boxes for Visualizations}{12}{subsubsection.6.1.5}%
+\contentsline {subsection}{\numberline {6.2}Extra Box Environment}{13}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Extra Box Commands}{17}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Commands (Macros)}{17}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}How to Define New Commands (Macros) and Colors}{17}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Insulin Calculator}{18}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Easiest Way to Insert Images}{18}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Graphics Path}{18}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Inserting Images}{19}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Image Additions}{19}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Positioning an Image}{19}{subsection.7.5}%
+\contentsline {section}{\numberline {8}Testing}{20}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Font Types}{20}{subsection.8.1}%
+\contentsline {section}{\numberline {9}Referencing and Documentation}{21}{section.9}%
+\contentsline {subsection}{\numberline {9.1}References/Hyperlinks and Formatting}{21}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Documentation}{22}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Verbatim}{22}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Source Code for the Documentation Style used in this PDF}{24}{subsection.9.4}%
+\contentsline {section}{\numberline {10}Future Implementations}{25}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Functions}{25}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Limits, Integrals, Sums, and Fractions}{26}{subsection.10.2}%
+\contentsline {subsubsection}{\numberline {10.2.1}Symbols}{26}{subsubsection.10.2.1}%
+\contentsline {section}{\numberline {11}Bibliography}{28}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Bibliography Source Code}{29}{subsection.11.1}%
+\contentsline {section}{\numberline {12}Miscellaneous}{30}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Rule}{30}{subsection.12.1}%
+\contentsline {section}{\numberline {13}Some Common Errors}{31}{section.13}%
+\contentsline {section}{\numberline {14}Further Reading}{32}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Websites and Tutorials}{32}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Introduction/Commands/and Overall Good References}{32}{subsection.14.2}%
+\contentsline {subsubsection}{\numberline {14.2.1}Writing First Document}{32}{subsubsection.14.2.1}%
+\contentsline {subsubsection}{\numberline {14.2.2}Brief Introduction/List of Commands}{32}{subsubsection.14.2.2}%
+\contentsline {subsubsection}{\numberline {14.2.3}In-Depth LaTeX Guide}{33}{subsubsection.14.2.3}%
+\contentsline {subsection}{\numberline {14.3}Boxes}{33}{subsection.14.3}%
+\contentsline {subsection}{\numberline {14.4}Typesetting Math Documents}{33}{subsection.14.4}%
+\contentsline {subsubsection}{\numberline {14.4.1}Creating Math Documents}{33}{subsubsection.14.4.1}%
+\contentsline {subsubsection}{\numberline {14.4.2}Symbols}{33}{subsubsection.14.4.2}%
+\contentsline {subsubsection}{\numberline {14.4.3}Typing Math Functions/Equations}{34}{subsubsection.14.4.3}%
+\contentsline {subsection}{\numberline {14.5}Graphics}{34}{subsection.14.5}%
+\contentsline {subsubsection}{\numberline {14.5.1}Images}{34}{subsubsection.14.5.1}%
+\contentsline {subsubsection}{\numberline {14.5.2}Colors}{34}{subsubsection.14.5.2}%
+\contentsline {section}{\numberline {28}~~~ References}{36}{subsubsection.14.5.2}%
 \contentsfinish 

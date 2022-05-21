@@ -468,97 +468,43 @@ The following provides a screenshot of the pages with a brief description of the
 \section{Architecture}
 \vspace{10.5cm}
 	The technology used to make this app is react native \cite{React Native}.
+	\includegraphics[scale=0.1]{RN}
+	\subsection{Folder Structure}
+	\begin{docCommand}{assets}{}
+		Contains all images and component with a proper mapping.
+	\end{docCommand}
+
+	\begin{docCommand}{constants}{}
+		All constants concerning the design and states of the app.
+	\end{docCommand}
+
+	\begin{docCommand}{customComponents}{}
+		All buttons, charts and pickers specifically designed for the pages.
+	\end{docCommand}
+
+	\begin{docCommand}{pages}{}
+		Folder with all pages of the app, using the custom components
+	\end{docCommand}
+
+	\begin{docCommand}{stateManager}{}
+		Redux States for data managing with actions and reducers: macroTracker for meals and userReducer for the patient.
+	\end{docCommand}
+
+	\begin{docCommand}{utils}{}
+		Logic of API, authentication, Firebase and Insuline Calculator
+	\end{docCommand}
+
+
+
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{API doc}	
 \vspace{10.5cm}	
-	\subsection{Math Environments}\label{subsec:mathenvironments}
-		\begin{docEnvironment}{displaymath}{}
-			Environment for equations that are on their own line and centered. In the displaymath environment no equation number is added to the math text. One way to get an equation number is to use the equation environment
-		\end{docEnvironment}
-		\begin{docEnvironment}{equation}{}
-			Similar to the displaymath environment, such adds a equation number on the right side of the document.
-		\end{docEnvironment}	
-		\begin{docEnvironment}{math}{}
-			For formulas that appear right in the text. 
-		\end{docEnvironment}
-	\subsection{Structuring}
-		\begin{docCommand}{leqno}{}
-			Equation numbers in displayed formulas will appear on the left instead of the normal right side.
-		\end{docCommand}
-		\begin{docCommand}{fleqn}{}
-			Displayed formulas will be set flush left instead of centered.
-		\end{docCommand}
-	\subsection{Writing Exams}\label{subsec:writingexams}
-		\subsubsection{Questions}
-			\begin{docEnvironment}{questions}{}\label{questionenv}
-				To create questions, use this questions environment. 
-			\end{docEnvironment}
-			\begin{docCommand}{question}{}
-				Once you have created the question environment, you can begin questions using the \cs{question} command.
-			\end{docCommand}
-			\begin{docCommand}{vspace1}{\brackets{\cs{stretch}\brackets{1}}}
-			    \textbf{Replace \cs{vspace1} with \cs{vspace}}\\
-				This command allows you to evenly space questions along the page.
-			\end{docCommand}
-		\subsubsection{Choices}
-			\begin{docEnvironment}{choices}{}
-				To create choices for a questions, use this environment. 
-			\end{docEnvironment}
-			\begin{docCommand}{choice}{}
-				This command allows you to create choices inside of the choices environment.
-			\end{docCommand}
-	\subsubsection{Displaying Solutions}
-		The exam document class defines several environments for solutions, the contents of which will be printed only if you use the document class option answers as in the:\\ \begin{verbatim} 
-		\documentclass[answers]{exam}
-		\end{verbatim}
-		which you can find by going to the examMC .tex file within the folder originally containing this document and adding [answers] at the top of the preamble at the document class or give the command \cs{printanswers}.\\ \vspace{1.5mm}
-		Each of the environments for multiple choice questions
-		designate one or more of the choices as correct choices, and to have the correct choices printed with emphasis \emph{only}when solutions are being printed.\vspace{1.5mm}\\ 
-		The command to define a correct choice is \cs{CorrectChoice}, which is used in place of the command \cs{choice}. (To avoid confusion, \cs{correctchoice} is defined to be a synonym
-		for \cs{CorrectChoice}) When solutions are not being printed, \cs{CorrectChoice} is equivalent to \cs{choice}. When solutions are being printed, though, any choices that were created with
-		\cs{CorrectChoice} (rather than with \cs{choice}) will be printed in bold.
-			\begin{docCommand}{correctchoice}{}
-			\end{docCommand}
-		\subsubsection{Source Code - Questions}
-			\begin{verbatim}
-			\begin{questions}
-				\question \quad
-				{If $\textit{f}(x) = \frac{1}{4}x^4+x^3$ What is $\frac{d}{dx}$?}
-					\vspace{2mm}
-					\begin{choices}
-						\choice 5x
-						\correctchoice $20x^3$+$3x^2$
-						\choice $x^3$+$3x^2$
-						\choice 2x
-						\choice $20x^2$
-					\end{choices}
-					\vspace{\stretch{1}}
-			\end{verbatim}
-		\subsubsection{Source Code - Questions with Image on the side}
-			\begin{verbatim}		
-			\question \quad 
-			\begin{minipage}[t]{0.65\linewidth}
-			{$\int{(3x + 1)^5}$\textit{dx}} =
-			\vspace{2mm}
-			\begin{choices}
-			\correctchoice \large{$\frac{(3x + 1)^6}{18} + C $}
-			\choice \large{$\frac{(3x + 1)^6}{6}$ + C}
-			\choice \large{$\frac{(\frac{3x}{2} + 1)^6}{2}$ + C}
-			\choice \large{$\frac{(3x + 1)^6}{2}$ + C}
-			\choice \large{$(\frac{3x}{2} + x)^5$ + C} 
-			\end{choices}
-			\end{minipage}\hfill%
-			\begin{adjustbox}{minipage={0.30\linewidth},valign=t}
-			\includegraphics[width=\linewidth]{example-image-a}
-			\end{adjustbox}
-			\vspace{\stretch{1}}
-			\end{verbatim}
-	\subsection{Math Commands}
-		\begin{docCommand}{boxed}{}
-			Inserts a box around an equation.
-		\end{docCommand}
+	\subsection{Nutritionix}\label{subsec:mathenvironments}
+		Nutritionix \cite{Nutritionix} is the API used to have a food database-
+	\subsection{Firebase}
+		
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Redux States}	
@@ -1085,8 +1031,8 @@ The Economist, 431(9141), 9.
 				\url{https://en.wikipedia.org/wiki/Bolus_(medicine)}
 		\bibitem{React Native} React Native\\
 				\url{https://reactnative.dev}
-		\bibitem{Tobias Oetiker} Tobias Oetiker, Hubert Partl, Irene Hyna, and Elisabeth Schlegl. \textit{The Not So Short Introduction to \LaTeX\ }. Version 6.3, March 1994.\\
-				\url{https://tobi.oetiker.ch/lshort/lshort.pdf}
+		\bibitem{Nutritionix} Nutritionix\\
+				\url{https://www.nutritionix.com}
 		\bibitem{Helmut Kopka} Helmut Kopka and Patrick W. Daly. \textit{A Guide to \LaTeX\ and Electronic Publishing}. Addison-Wesley, fourth edition, May 2003.\\
 				\url{https://www2.mps.mpg.de/homes/daly/GTL/gtl_20030512.pdf}
 		\bibitem{Philip Hirschhorn} Philip Hirschhorn. \textit{Using the exam document class}. Wellesley College, second edition, MA, November 2017.\\
