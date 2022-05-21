@@ -47,7 +47,7 @@ exports[`Render All Custom Components:  Render Calendar 1`] = `
           }
         }
       >
-        15 May 2022
+        21 May 2022
       </Text>
       <Image
         source={

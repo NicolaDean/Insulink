@@ -112,13 +112,13 @@ class LocalStorage {
      */
     storeGlicemyData = async (new_glicemy,date=new Date()) =>{
 
-      const today = keys.glicemy + FirebaseQuery.glicemyDateFormatter(date);
+      const today = storageKeys.glicemy + FirebaseQuery.glicemyDateFormatter(date);
       let updatedValue = {...new_glicemy};
       updatedValue = FirebaseQuery.changeGlicemyTimeFormat(updatedValue,true);
       //CHANGE DATE FORMAT FOR LOCAL GLICEMY
       let currentValues = await getData(today);
 
-      if(currentValues == null) currentValues = [];
+      if(currentValues == null ||currentValues == undefined ) currentValues = [];
 
       currentValues.push(updatedValue);
 
@@ -131,7 +131,7 @@ class LocalStorage {
      * get Glicemy Data of a specific date
      */
     getGlicemyData = async (date) =>{
-      const today = keys.glicemy + FirebaseQuery.glicemyDateFormatter(date);
+      const today = storageKeys.glicemy + FirebaseQuery.glicemyDateFormatter(date);
 
       const glicemy = await getData(today);
 
@@ -148,7 +148,8 @@ class LocalStorage {
       let userData = await getData(storageKeys.userData);
       
       const today = FirebaseQuery.glicemyDateFormatter(new Date());
-      if(userData != null){
+      if(userData != null && userData != undefined && userData.glicemy != undefined){
+        
         userData.glicemy[today] = glicemy;
       }else{
         userData = null;//dummy_user?
@@ -176,7 +177,7 @@ class LocalStorage {
     }
 
     loadFoodDiary = async (date) =>{
-        let key = keys.foodDiary + date;
+        let key = storageKeys.foodDiary + date;
 
         const data = await getData(key);
 
@@ -184,7 +185,7 @@ class LocalStorage {
     }
 
     storeFoodDiary = async (date,data) => {
-      let key = keys.foodDiary + date;
+      let key = storageKeys.foodDiary + date;
       await storeData(key,data);
       console.log("Diary Stored on Local Storage");
     }
