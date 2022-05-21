@@ -403,46 +403,43 @@ This file was created for the benefit of }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Idea}
 \vspace{10.5cm}
-	LaTeX, which is pronounced «Lah-tech» or «Lay-tech», is a document preparation system for high-quality typesetting. It is most often used for medium-to-large technical or scientific documents but it can be used for almost any form of publishing.\\
-	When using Latex, \textbf{\emph{make sure to keep your source code organized by indenting and using sections/chapters/subsections}}. Not keeping your source code organized makes it harder to fix possible errors in your code.
-	\subsection{Downloading Tex Studio}
-			Latex is free to download and is available on all types of operating systems. To download \LaTeX, click the url to the right:\, \url{https://www.texstudio.org/}
-	\subsection{Source Code and Resume Templates}
-			If interested in obtaining the source code for this guide, see:\\
-			\url{https://sourceforge.net/p/latex-source-code/wiki/Download/}\\
-			If interested in obtaining some of the resume templates I have created, see:\\ \url{https://sourceforge.net/p/latex-resume-template/wiki/download/}
-	\subsection{LaTeX Files}
-			LaTeX files have names that end with the extension .tex: for example, an acceptable file name might be myfile.tex. (Never use spaces in file names.) The input file contains both the text of your document and the LATEX commands needed to format it. The first command in the file, \cs{documentclass}, defines the style of the document.
-	\subsubsection{LaTeX Commands}
-			To distinguish them from text, all LATEX commands (also called control sequences) start with a backslash \cs. A command name consists of letters only and is ended by a space or a non letter.
-	\subsection{General Items}
+When Type 1 Diabetes\cite{Type 1 Diabetes} is diagnosed, a patient starts a new life with different eyes. From now on, the conception of food is completely different
+from the normal one, and the patient has to assimilate the big change and learn how to handle the disease. 
+One of the most difficult but at the same time important things that the patient must learn, is the \textbf{\emph{carbohydrates count}} and subsequently the correct insulin dose for a bolus \cite{Bolus}.
+InsuLink has been designed with the main purpose of giving an hand to Type 1 Diabetes patient with the calculation of the correct \textbf{\emph{insulin doses}} and  storing Glycemia values.
+	\subsection{Main Goal}
+    InsuLink main goal is to give a first support to the patient but only if combined with the doctor supervision. It is important to underline
+	that this application is only defined by an algorithm, and in this kind of diseases \textbf{\emph{each patient 
+	needs ad hoc treatments}}.
+
 		\begin{docCommand}{usepackage}{}
-			Packages in latex allow for the user to include cool and unique features into ones document. Most packages for latex will be found on \url{www.ctan.org}
+			or
 			\begin{verbatim}
 				\usepackage{package}
 			\end{verbatim}
 		\end{docCommand}
-	\subsection{Terminology to Know}
-			\begin{itemize}
-				\item Preamble:\, All the code that precedes your \cs{begin}\brackets{document}. The preamble section of your document is where all the formatting takes place. 
-				\item Commands:\, Commands are special words that determine \LaTeX behavior.
-				\item Environments:\, Environments are used to format blocks of text in a \LaTeX documents
-			\end{itemize}
-	\subsection{Tex Studio Commands}
-		\begin{itemize}
-			\item The button with the magnifying glass, labeled view, in the top part of Tex Studio allows you to view your document sidebyside with your code.
-			\item The green arrows next to the magnifying class, labeled compile, allows you to update your document with any new code you include. Compiling also allows you to check if there are any errors in your code.  
-		\end{itemize}
-	\subsection{Creating Templates}
-		One of the many great things about \LaTeX\ is that offers many ways to avoid some of the repetitive things that come with creating several documents. One of the features \LaTeX\ offers is to create personal user templates for files that a user often uses but does not want to continuously type out every time.\\
-		For example, lets say you wanted to save a general layout of a lesson document that included \textbf{both} the preamble and some of the actual text and commands in the document. 
-		To create the template, one would first proceed to the folder originally containing this pdf (The Contents You Downloaded from the Zip File)) and then go to the folder labeled \textbf{Files to make Templates out of}. Once there, click the file named: \textbf{Lesson Template}. Once you have opened that file in texstudio, go to \textbf{File}, then \textbf{Make Template}. Once that is done, give the template a name and then press ok.\\
-		After creating a template, all a user needs to do to use that template is to go back to \textbf{File}, and then \textbf{New From Template} and then click the template you created.
 	\vspace{-1.5mm}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Functionalities}
 \vspace{10.5cm}
+Insulink offers some useful tools to keep track of the daily routine of a patient. 
+	\subsection{Food Scan}	
+	It is possible to to scan a given Food BarCode and be redirectd to the FoodDetails page with all necessary data.
+	\subsection{Glycemia}
+    Keep track of your daily Glycemia with intuitive charts and easly with the glycemia insertion tool.
+
+	\subsection{Insulin Calculator}
+    An algorithm (inside Insulin Calculator class) will retrieve last Glycemia, total amount of carbohydrates, sport activity and all essential data
+	to calculate the optimal insulin dose for the given meal. A more detailed explaintation can be fount in the Insulin Calculator Section ---/cite section---.
+
+	\subsection{Calendar}
+	The user can see a well detailed sight of all previous data, just choosing a date from the InsuLink calendar, that will retrieve all the informations
+	about that day from the database.
+
+	\subsection{Main Goal}
+
+
 	\begin{docCommand}{input}{\brackets{\sl{file-name}}}
 		Imports the commands from filename.tex into the target file; it's equivalent to typing all the commands from filename.tex right into the current file where the \cs{input} line is. 
 	\end{docCommand}
@@ -815,7 +812,7 @@ A block of mass $4m$ is attached to a light string and passes over a pulley with
 		\end{docCommand}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Insuline Calculator}
+\section{Insulin Calculator}
 \vspace{10.5cm}
 	Inserting graphics in your document requires the  \textbf{graphicx package}, which you can find in the folder that accompanied this guide.
 	\subsection{Easiest Way to Insert Images}
@@ -1204,10 +1201,12 @@ The Economist, 431(9141), 9.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\begin{thebibliography}{17}
 	\vspace{10.5cm}
-		\bibitem{RPI} Academic and Research Computing. \textit{Text Formatting with \LaTeX\ A Tutorial}. NY, April 2007.\\
-				\url{http://www.rpi.edu/dept/arc/docs/latex/latex-intro.pdf}
-		\bibitem{is.skills} Leslie Lamport. \textit{\LaTeX\ for Beginners}.  fifth edition, Document Reference: 3722-2014, March 2014.\\
-				\url{http://www.docs.is.ed.ac.uk/skills/documents/3722/3722-2014.pdf}
+		\bibitem{Type 1 Diabetes} Diabetes Definition\\
+				\url{https://en.wikipedia.org/wiki/Type_1_diabetes}
+		\bibitem{Bolus} Bolus Definition\\
+				\url{https://en.wikipedia.org/wiki/Bolus_(medicine)}
+		\bibitem{React Native} React Native\\
+				\url{https://reactnative.dev}
 		\bibitem{Tobias Oetiker} Tobias Oetiker, Hubert Partl, Irene Hyna, and Elisabeth Schlegl. \textit{The Not So Short Introduction to \LaTeX\ }. Version 6.3, March 1994.\\
 				\url{https://tobi.oetiker.ch/lshort/lshort.pdf}
 		\bibitem{Helmut Kopka} Helmut Kopka and Patrick W. Daly. \textit{A Guide to \LaTeX\ and Electronic Publishing}. Addison-Wesley, fourth edition, May 2003.\\
