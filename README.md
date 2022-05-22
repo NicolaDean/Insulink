@@ -10,6 +10,7 @@
 --. centrare nomi pagine sulla top bar
 --. Google login va su telefono ma non da emulatore (Solved?)
 --. Popup Errori Login
+--. Errore registrazione
 
 //GLOBAL
 --. Quando ci si logga non sempre carica i dati vecchi da firebase/localstorage
