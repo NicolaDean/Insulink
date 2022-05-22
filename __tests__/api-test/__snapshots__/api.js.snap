@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Food_API component TEST: Do Food Search 1`] = `
+Array [
+  Object {
+    "data": undefined,
+    "headers": Object {
+      "x-app-id": "e29d5b1a",
+      "x-app-key": "4bfbc69b7095239b9768d1f7b3f47e56",
+      "x-remote-user-id": 0,
+    },
+    "method": "GET",
+    "params": Object {
+      "query": "apple",
+    },
+    "responseType": "json",
+    "url": "https://trackapi.nutritionix.com/v2/search/instant",
+  },
+]
+`;
+
+exports[`Food_API component TEST: Get Barcode Food 1`] = `
+Array [
+  Object {
+    "data": undefined,
+    "headers": Object {
+      "x-app-id": "e29d5b1a",
+      "x-app-key": "4bfbc69b7095239b9768d1f7b3f47e56",
+      "x-remote-user-id": 0,
+    },
+    "method": "GET",
+    "params": Object {
+      "upc": "BARRCODE",
+    },
+    "responseType": "json",
+    "url": "https://trackapi.nutritionix.com/v2/search/item",
+  },
+]
+`;
+
+exports[`Food_API component TEST: Retrive Food Details 1`] = `
+Array [
+  Object {
+    "data": Object {
+      "num_servings": 1,
+      "query": "apple",
+    },
+    "headers": Object {
+      "x-app-id": "e29d5b1a",
+      "x-app-key": "4bfbc69b7095239b9768d1f7b3f47e56",
+      "x-remote-user-id": 0,
+    },
+    "method": "POST",
+    "params": undefined,
+    "responseType": "json",
+    "url": "https://trackapi.nutritionix.com/v2/natural/nutrients",
+  },
+]
+`;
+
+exports[`Food_API component TEST: Retrive Sport Calories 1`] = `
+Array [
+  Object {
+    "data": Object {
+      "age": 30,
+      "gender": "male",
+      "height_cm": 180,
+      "query": "run for 2 hours",
+      "weight_kg": 80,
+    },
+    "headers": Object {
+      "x-app-id": "e29d5b1a",
+      "x-app-key": "4bfbc69b7095239b9768d1f7b3f47e56",
+      "x-remote-user-id": 0,
+    },
+    "method": "POST",
+    "params": undefined,
+    "responseType": "json",
+    "url": "https://trackapi.nutritionix.com/v2/natural/exercise",
+  },
+]
+`;

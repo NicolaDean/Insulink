@@ -18,6 +18,7 @@ export const register = (user,googleId=null) => async dispatch =>{
     //ASYNC ACTION:
     //TODO CHECK USER INPUTS ARE OK (psw length, email not exist etc...)
 
+    
     console.log("Reg Start:");
     let id;
     if(googleId==null){
@@ -53,7 +54,7 @@ export const register = (user,googleId=null) => async dispatch =>{
  */
 export const editUserData = (userData) => async dispatch =>{
 
-
+    //TODO:
     //Save updated user data to local storage
     //localStorage.saveUserData(userData);
     //Firebase Update

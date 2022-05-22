@@ -3,29 +3,34 @@ import firestore from '@react-native-firebase/firestore'
 import { firebase } from "@react-native-firebase/firestore";
 //TABLES
 
-const userTable = "Users";
-const glicemyTable = "Glicemy";
-const diaryTable = "FoodDiary";
-
-const users = firestore().collection(userTable);
+export const tables ={
+    userTable       :"Users",
+    glicemyTable    :"Glicemy",
+    diaryTable      :"FoodDiary",
+}
 
 //USER QUERY:-------------------------------------------------------------------
 
 class firebaseQuery{
+
+
+    constructor(){
+        this.users = firestore().collection(tables.userTable);
+    }
         /**
      * get the user actual data using email as id
-     * @param {*} email email to query
+     * @param {*} id email to query
      * @returns user data
      */
-    getUserData = async (email) =>{
-        const user = (await users.doc(email).get()).data();
+    getUserData = async (id) =>{
+        const user = (await this.users.doc(id).get()).data();
 
     // console.log("GLIC: " + JSON.stringify(glicemy))
         return user;
     }
 
     registerUser = async (id,userData) =>{
-        await (users.doc(id).set(userData));
+        await (this.users.doc(id).set(userData));
     }
 
     udpateUser = async (userData) =>{
@@ -47,7 +52,7 @@ class firebaseQuery{
         date = this.glicemyDateFormatter(date);
         glicemy_records[date] = [];
         //const today = "27-02-2022";
-        const res = (await (users.doc(userId).collection(glicemyTable).doc(date).get())).data();
+        const res = (await (this.users.doc(userId).collection(tables.glicemyTable).doc(date).get())).data();
         
         if(res == undefined) return [];
 
@@ -68,18 +73,17 @@ class firebaseQuery{
     addGlicemyValue = async (userId,glicemyData) =>{
 
         const id = this.glicemyDateFormatter();
-        const new_glicemy = await users.doc(userId).collection(glicemyTable).doc(id).get();
+        const new_glicemy = await this.users.doc(userId).collection(tables.glicemyTable).doc(id).get();
         
         if(new_glicemy && new_glicemy.exists)
         {
             await new_glicemy.ref.update({
-                data:firebase.firestore.FieldValue.arrayUnion(glicemyData)
+                data:firebase.firestore.FieldValue.arrayUnion(tables.glicemyData)
             })
         }else{
             await new_glicemy.ref.set({data:[glicemyData]});
         }
         
-
     }
 
     glicemyDateFormatter = (date = new Date()) =>
@@ -158,7 +162,9 @@ class firebaseQuery{
     saveFoodDiary = async (userId,date,diary) =>{
         console.log("TRY FIREBASE")
         console.log("USER : " + userId + "->" + date);
-        const userDiary = await users.doc(userId).collection(diaryTable).doc(date).get();
+        //TAKE THE REFERENCE TO USER DIARY (without getting data())
+        const userDiary = await this.users.doc(userId).collection(tables.diaryTable).doc(date).get();
+        //INGORE UNDEFINED VALUES
         firestore().settings({ ignoreUndefinedProperties: true }); //INGORE UNDEFINED FIELD
         const data = {
             totMacro:diary.totMacro,
@@ -166,12 +172,13 @@ class firebaseQuery{
             activities:diary.activities
         }
 
+        
         //await users.doc(userId).collection(diaryTable).doc(date).set({data:diary},{merge: true});
        if(userDiary && userDiary.exists)
         {
             console.log("exist");
             try{
-                await userDiary.ref.update(data);
+                await userDiary.ref.update(data); //UPDATE THE DIARY ONLY IN CHANGED FIELD
             }catch(e){
                 console.log("ERRORE : " + e);
             }
@@ -184,7 +191,7 @@ class firebaseQuery{
     }
 
     getFoodDiary = async (userId,date) =>{
-        const res = (await (users.doc(userId).collection(diaryTable).doc(date).get())).data();
+        const res = (await (this.users.doc(userId).collection(tables.diaryTable).doc(date).get())).data();
         
         if(res == undefined) return [];
 

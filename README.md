@@ -10,6 +10,8 @@
 --. centrare nomi pagine sulla top bar
 --. Google login va su telefono ma non da emulatore (Solved?)
 --. Popup Errori Login
+--. Errore registrazione
+--. editUserData -> to be completed (manca localstorage e firebase!!!)
 
 //GLOBAL
 --. Quando ci si logga non sempre carica i dati vecchi da firebase/localstorage
