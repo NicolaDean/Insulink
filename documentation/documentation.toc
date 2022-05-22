@@ -36,34 +36,8 @@
 \contentsline {subsection}{\numberline {7.4}Image Additions}{19}{subsection.7.4}%
 \contentsline {subsection}{\numberline {7.5}Positioning an Image}{19}{subsection.7.5}%
 \contentsline {section}{\numberline {8}Testing}{20}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Font Types}{20}{subsection.8.1}%
-\contentsline {section}{\numberline {9}Referencing and Documentation}{21}{section.9}%
-\contentsline {subsection}{\numberline {9.1}References/Hyperlinks and Formatting}{21}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Documentation}{22}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Verbatim}{22}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Source Code for the Documentation Style used in this PDF}{24}{subsection.9.4}%
-\contentsline {section}{\numberline {10}Future Implementations}{25}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Functions}{25}{subsection.10.1}%
-\contentsline {subsection}{\numberline {10.2}Limits, Integrals, Sums, and Fractions}{26}{subsection.10.2}%
-\contentsline {subsubsection}{\numberline {10.2.1}Symbols}{26}{subsubsection.10.2.1}%
-\contentsline {section}{\numberline {11}Bibliography}{28}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Bibliography Source Code}{29}{subsection.11.1}%
-\contentsline {section}{\numberline {12}Miscellaneous}{30}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Rule}{30}{subsection.12.1}%
-\contentsline {section}{\numberline {13}Some Common Errors}{31}{section.13}%
-\contentsline {section}{\numberline {14}Further Reading}{32}{section.14}%
-\contentsline {subsection}{\numberline {14.1}Websites and Tutorials}{32}{subsection.14.1}%
-\contentsline {subsection}{\numberline {14.2}Introduction/Commands/and Overall Good References}{32}{subsection.14.2}%
-\contentsline {subsubsection}{\numberline {14.2.1}Writing First Document}{32}{subsubsection.14.2.1}%
-\contentsline {subsubsection}{\numberline {14.2.2}Brief Introduction/List of Commands}{32}{subsubsection.14.2.2}%
-\contentsline {subsubsection}{\numberline {14.2.3}In-Depth LaTeX Guide}{33}{subsubsection.14.2.3}%
-\contentsline {subsection}{\numberline {14.3}Boxes}{33}{subsection.14.3}%
-\contentsline {subsection}{\numberline {14.4}Typesetting Math Documents}{33}{subsection.14.4}%
-\contentsline {subsubsection}{\numberline {14.4.1}Creating Math Documents}{33}{subsubsection.14.4.1}%
-\contentsline {subsubsection}{\numberline {14.4.2}Symbols}{33}{subsubsection.14.4.2}%
-\contentsline {subsubsection}{\numberline {14.4.3}Typing Math Functions/Equations}{34}{subsubsection.14.4.3}%
-\contentsline {subsection}{\numberline {14.5}Graphics}{34}{subsection.14.5}%
-\contentsline {subsubsection}{\numberline {14.5.1}Images}{34}{subsubsection.14.5.1}%
-\contentsline {subsubsection}{\numberline {14.5.2}Colors}{34}{subsubsection.14.5.2}%
-\contentsline {section}{\numberline {28}~~~ References}{36}{subsubsection.14.5.2}%
+\contentsline {subsection}{\numberline {8.1}Folders}{20}{subsection.8.1}%
+\contentsline {section}{\numberline {9}Future Implementations}{21}{section.9}%
+\contentsline {section}{\numberline {10}Future Implementations}{22}{section.10}%
+\contentsline {section}{\numberline {24}~~~ References}{22}{section.10}%
 \contentsfinish 

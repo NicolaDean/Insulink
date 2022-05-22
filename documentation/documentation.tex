@@ -1,4 +1,3 @@
-% ==== Document Class & Packages =====
 \documentclass[12pt,hidelinks]{article}
 	\usepackage[explicit]{titlesec}
 	\usepackage{titletoc}
@@ -432,7 +431,7 @@ Insulink offers some useful tools to keep track of the daily routine of a patien
 
 	\subsection{Insulin Calculator}
     An algorithm (inside Insulin Calculator class) will retrieve last Glycemia, total amount of carbohydrates, sport activity and all essential data
-	to calculate the optimal insulin dose for the given meal. A more detailed explaintation can be fount in the Insulin Calculator Section ---/cite section---.
+	to calculate the optimal insulin dose for the given meal. A more detailed explaintation can be fount in the Insulin Calculator Section.
 
 	\subsection{Calendar}
 	The user can see a well detailed sight of all previous data, just choosing a date from the InsuLink calendar, that will retrieve all the informations
@@ -444,25 +443,27 @@ Insulink offers some useful tools to keep track of the daily routine of a patien
 \vspace{10.5cm}
 The following provides a screenshot of the pages with a brief description of their use.
 	\subsection{Home}
- 
+    Home menu offers shortcuts to the main functionalities and a quick sight of the today glycemia with its intuitive charts.
 	\includegraphics[scale=0.2]{screenshot3}
 
 	\subsection{Search}
- 
+    Search food or recipe for nutritional details or to add it in meal diary. User can easly modify the unit measure and quantity of food.
 		\includegraphics[scale=0.2]{screenshot3}
 	\subsection{Glycemia PopUp}
-
+    Add glycemia quickly just using the menu shortcut or during the insulin caluclation procedure. The value 
+	will automatically stored in Firebase.
 
 		\includegraphics[scale=0.2]{screenshot1}
 
 
 	\subsection{Meal Diary}
-
+    Meal Diary can be used for both calulating daily total macro nutrients and insuline dose of each meal. 
 		\includegraphics[scale=0.2]{screenshot5}
 
 	\subsection{Calendar}
-	\includegraphics[scale=0.2]{screenshot4}
 	In calendar it will be possible to retrieve historical data by clicking on a date. 
+
+	\includegraphics[scale=0.2]{screenshot4}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Architecture}
@@ -491,7 +492,7 @@ The following provides a screenshot of the pages with a brief description of the
 	\end{docCommand}
 
 	\begin{docCommand}{utils}{}
-		Logic of API, authentication, Firebase and Insuline Calculator
+		Logic of API, authentication, Firebase and Insulin Calculator
 	\end{docCommand}
 
 
@@ -504,6 +505,7 @@ The following provides a screenshot of the pages with a brief description of the
 	\subsection{Nutritionix}\label{subsec:mathenvironments}
 		Nutritionix \cite{Nutritionix} is the API used to have a food database-
 	\subsection{Firebase}
+	    Firebase \cite{Firebase} is a Google serverless platorm for application development. 
 		
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -679,351 +681,45 @@ A block of mass $4m$ is attached to a light string and passes over a pulley with
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Testing}
 \vspace{10.5cm}
-	\subsection{Font Types}
-\[\begin{array}{ccc}
-\cs{textit\brackets{...}} & \textit{italic} & \textup{Italic shape, used mostly for emphasis.}\\
-\cs{textsl\brackets{...}} & \textsl{slanted} & \textup{Slanted shape, a bit different from italic.}\\
-\cs{textsc\brackets{...}} & \textsc{Small Caps} & \textup{Small caps shape, use sparingly.}\\
-\cs{textup\brackets{...}} & \textup{upright} & \textup{Upright shape, usually the default.}\\
-\cs{textbf\brackets{...}} & \textbf{boldface} & \textup{Boldface series, often used for headings.}\\
-\cs{textmd\brackets{...}} & \textmd{medium} & \textup{Medium series, usually the default.}\\
-\cs{textrm\brackets{...}} & \textrm{roman} & \textup{Roman family, usually the default.}\\
-\cs{textsf\brackets{...}} & \textsf{sans serif} & \textup{Sans Serif family, used for posters, etc.}\\
-\cs{texttt\brackets{...}} & \texttt{typewriter} & \textup{Typewriter family, fixed-pitch characters.}\\
-\cs{emph\brackets{...}} & \emph{emphasized} & \textup{Use for emphasis, usually changes to italic.}\\		
-\end{array}\]
+
+To perform automated and personalized testing it was used Jest \cite{Jest}. It is a JavaScript Testing Framework that supports React Native.
+Tests were performed on:
+\begin{docCommand}{__tests__}{}
+Where to overcome some technological barriers, mock objects were used instead of not supported libraries.
+\end{docCommand}
+
+\subsection{Folders}
+
+
+\begin{docCommand}{api-test}{}
+	Local storage and API calls from Firebase and Nutritionix.
+\end{docCommand}
+
+\begin{docCommand}{redux-test}{}
+	Redux and user actions such as: adding food to meal or removing it. 
+\end{docCommand}
+
+\begin{docCommand}{renders-test}{}
+	Checks correct Pages rendering. Makes snapshots of all pages and compares them with expected result.
+\end{docCommand}
+
+\begin{docCommand}{utils}{}
+   Checks User input and Insulin Calculator 
+\end{docCommand}
+
+
 \newpage
 \newgeometry{
 	left=32mm, right=18mm, top=20mm, bottom=18mm,
 	marginparwidth=28mm, marginparsep=4mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Referencing and Documentation}
+\section{Future Implementations}
 \vspace{10.5cm}
-	\subsection{References/Hyperlinks and Formatting}
-		\begin{docCommand}{label}{\brackets{\sl{link}}}
-			In order to refer to make a cross-reference within a document, you first must label the text/section that you want to refer to.
-		\end{docCommand}
-		\begin{verbatim}
-	            \subsection{Math Tests/Exams and Math Symbols/Functions}\label{mathexams}
-		\end{verbatim}
-		\begin{docCommand}{ref}{\brackets{\sl{label-name}}}
-			This command allows you to make a cross-reference to another part of your document. 
-		\end{docCommand}
-		\begin{docCommand}{href}{\brackets{\sl{label-name}}}
-			This command is used when the user wants to insert a link that is able to clicked on into a document but want's there to be a placeholder to cover the hyperlink. An example is below. 
-		\end{docCommand}
-\begin{disexam}
-\href{mailto:armindubert19@gmail.com}{basis independent mclean}
-\end{disexam}
-		\begin{docCommand}{fullref}{\brackets{\sl{label-name}}}
-			This command allows you to make a cross-reference to another part of your document. The \cs{fullref} includes both the section and page number that you are referring to as opposed to the command \cs{ref} that only refers to the section.
-		\end{docCommand}
-		\begin{docCommand}{url}{\brackets{\sl{link}}}
-			This command allows you to insert a link into your document that's able to be clicked on in the pdf you create.
-		\end{docCommand}
-		\begin{docCommand}{hypersetup}{\brackets{colorlinks,linkcolor={red!50!black},citecolor={blue!50!black}, urlcolor={blue!80!black}}}
-			This following command makes the links you include in your code/file more appealing by removing the box around the links as well as color coding the different links. This command should be inserted in the preamble of your document.
-		\end{docCommand}
-	\subsection{Documentation}
-	Documentation and Listings are commands and ways of showing source code side by side with the behavior of the command.\\
-	To use documentation in latex, make sure to input \cs{tcbuselibrary}\brackets{listings}.
-		\begin{docCommand}{cs}{}
-			Allows you to typeset a command without having the command actually played out.
-		\end{docCommand}
-		\begin{disexam}
-\cs{marg}
-		\end{disexam}
-		\begin{docCommand}{brackets}{}
-			Allows you to put brackets around text that will appear in the document.
-		\end{docCommand}
-		\begin{disexam}
-\cs{brackets}
-		\end{disexam}
-		\begin{docEnvironment}{docCommand}{}
-			Allows you to identify a command and define what it does, similar to all of the lines with a yellow background in this pdf.
-		\end{docEnvironment}
-		For more on documentation, see tcolorbox.pdf
-	\subsection{Verbatim}
-		To reproduce new lines and spaces exactly as they are in your input file, use the verbatim environment. The verbatim environment prints its text in typewriter-style type and sets it off from the rest of the document with blank lines before and after.
-		\begin{docEnvironment}{verbatim}{}
-			Allows you to identify a command and define what it does, similar to all of the lines with a yellow background in this pdf.
-		\end{docEnvironment}
-\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\subsection{Source Code for the Documentation Style used in this PDF}
-	The following source code is for the customized environment for the documentation boxes in this pdf. 
-		\begin{verbatim}
-		\newtcblisting[auto counter,number within=section]{disexam}{
-		skin=bicolor,
-		colback=white!30!beaublue,
-		colbacklower=white,
-		colframe=black,
-		before skip=\medskipamount,
-		after skip=\medskipamount,
-		fontlower=\footnotesize,
-		listing options={style=tcblatex,texcsstyle=*\color{red!70!black}}}
-		\end{verbatim}
+----
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Future Implementations}
-\vspace{10.5cm}
-When it comes to typing symbols, \LaTeX\ has a library that makes it easier to insert symbols into a\\ document. While it does not have all of them, it does provide a good handful them.\\
-To access the library, go to the bottom left corner of \LaTeX\ where one will see the following boxes:\\	
-Once you have found this, click the button on the left until you have the white side bar on the left that contains the structure along with some other features. (Note, when you first open \LaTeX\ this sidebar is usually already open. However, I want to make sure users are aware what to do in the case they accidentally close the sidebar).\\
-Once the sidebar is opened, go to the third one down, on the furthest left hand side, which should look something like this:\\
-Once you have clicked on this, feel free to explore some of the symbols inside the library along with the other button features on the sidebar.\\ 
-If there are some symbols that you regularly and are not contained in that library, check the following symbols in this section or see: \url{https://www.caam.rice.edu/~heinken/latex/symbols.pdf}
-	\subsection{Functions}
-	For a comprehensive and detailed guide for Math Functions, see:\\ \url{https://artofproblemsolving.com/wiki/index.php/LaTeX:Commands}
-		\begin{docCommand}{sqrt}{\brackets{abd}}
-			$\sqrt{abd}$
-		\end{docCommand}
-		\begin{docCommand}{sqrt1}{[n]\brackets{abd}}
-		    \textbf{Replace \cs{sqrt1} with \cs{sqrt}}\\
-			$\sqrt[n]{abd}$
-		\end{docCommand}
-	\subsection{Limits, Integrals, Sums, and Fractions}
-		For a more complete instruction on how to write limits, integrals, and sums in latex, see:\\
-		\url{https://artofproblemsolving.com/wiki/index.php/LaTeX:Commands}
-		\begin{docCommand}{int}{}
-			\begin{verbatim}
-				$\int_{lower}^{upper}$
-			\end{verbatim}
-			This is the command for creating integrals. Make sure when using to put it in a Math Environment, see \fullref{subsec:mathenvironments} or put dollar signs on both sides of the integral.
-		\end{docCommand}
-		\begin{docCommand}{dfrac}{\brackets{\sl{abc}}\brackets{\sl{xyz}}}{}
-			\begin{verbatim}
-				$\dfrac{abc}{xyz}$
-			\end{verbatim}
-			$\dfrac{abc}{xyz}$
-			This is the command for creating Fractions. Make sure when using to put it in a Math Environment, see \fullref{subsec:mathenvironments} or put dollar signs on both sides of the fraction.
-		\end{docCommand}
-		\begin{docCommand}{sum}{}
-			\begin{verbatim}
-				$\sum_{lower}^{upper}$
-			\end{verbatim}
-			This is the command for creating Summations. Make sure when using to put it in a Math Environment, see \fullref{subsec:mathenvironments} or put dollar signs on both sides of the Summation.
-		\end{docCommand}	
-		\begin{docCommand}{lim}{}
-			\begin{verbatim}
-			$$\lim_{x\to\infty} f(x)$$
-			\end{verbatim}
-			$$\lim_{x\to\infty} f(x)$$
-			This is the command for creating Limits. Make sure when using to put it in a Math Environment, see \fullref{subsec:mathenvironments} or put two dollar signs on both sides of the limit.
-		\end{docCommand}	
-	\subsubsection{Symbols}
-		\begin{docCommand}{Delta}{}
-			$\Delta$
-		\end{docCommand}
-		\begin{docCommand}{pi}{}
-			$\pi$
-		\end{docCommand}	
-		\begin{docCommand}{theta}{}
-			$\theta$
-		\end{docCommand}
-		\begin{docCommand}{leq}{}
-			$\leq$
-		\end{docCommand}
-		\begin{docCommand}{geq}{}
-			$\geq$
-		\end{docCommand}
-		\begin{docCommand}{leqq}{}
-			
-		\end{docCommand}	
-		\begin{docCommand}{neq}{}
-			$\neq$
-		\end{docCommand}
-		\begin{docCommand}{approx}{}
-			$\approx$
-		\end{docCommand}
-\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Bibliography}
-\vspace{10.5cm}
-The following environment and command creates a clean and organized bibliography.
-	\begin{docEnvironment}{thebibliography}{\brackets{\emph{numberofsources}}}
-			The following environment is needed to create the bibliography.
-	\end{docEnvironment}
-	\begin{docCommand}{bibitem}{}
-			The following command creates each source.
-	\end{docCommand}
-\newgeometry{
-	left=20mm, right=20mm, top=25mm, bottom=25mm}
-\subsection{Bibliography Source Code}
-Spacing is just used to help show the different commands and environments. Do not feel obligated to\\
-include the spacing exactly how it is.\\
-\hrule
-	\vspace{4mm}
-\begin{verbatim}
-\begin{thebibliography}{5 % - Number of Sources You are Citing}
-
-\bibitem{financialbrand}Jim, M. (2018). \emph{10 Technologies That 
-Will Disrupt Financial Services In The Next 5 Years.}\\
-Retrieved from:\\
-\url{https://thefinancialbrand.com/77228/technology-trends-disrupting
-\\-financial-services-banking-future/}
-
-\bibitem{Forbes} Alan, M. (2018). \emph{How Banks Should Navigate
-as Their North Star Shifts.}\\
-Retrieved from:\\ 
-\url{https://www.forbes.com/sites/alanmcintyre/2018/10/18/how-banks-should-
-navigate-through-digital-disruption-as-their-north-star\\-shifts/#39c502223ee7}
-
-\bibitem{americanbanker} Penny, C., Will, H., Suleman, D. (2019). \emph{10 way 
-technology will change banking in 2019.}\\
-Retrieved from:\\ 
-\url{https://www.americanbanker.com/list/10-ways-technology-will-change
--banking\\-in-2019}
-
-\bibitem{Robert Wright} Wright, Robert. (2008). \emph{Origins of Commercial Banking
-in the United States, 1781-1830. EH.Net Encyclopedia.}\\
-Retrieved from:\\							
-\url{http://eh.net/encyclopedia/origins-of-commercial-banking-in-the
-\\-united-states-1781-1830/}
-
-\bibitem{The Economist} \emph{Tech’s raid on the banks.} (2019). 
-The Economist, 431(9141), 9.
-
-\end{thebibliography}
-\end{verbatim}
-\newpage
-\newgeometry{
-	left=29mm, 
-	right=29mm, 
-	top=20mm, 
-	bottom=20mm}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Miscellaneous}
-\vspace{10.5cm}
-	\subsection{Rule}
-		\begin{docCommand}{rule}{\brackets{\sl{length}}\brackets{thickness}}
-				This command inserts a horizontal line with the designated width and thickness.
-		\end{docCommand}
-		\begin{docCommand}{hrulefill}{}
-				Inserts a horizontal line that spans the entire width of the page.
-		\end{docCommand}
-		\begin{docCommand}{vrule}{\brackets{\sl{height}}\brackets{\sl{thickness}}}
-				This command inserts a vertical line with the designated width and thickness.
-		\end{docCommand}
-\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Some Common Errors}
-\vspace{10.5cm}
-	\begin{itemize}
-		\item A command was misspelled and LATEX doesn’t recognize it.
-		\item You have a special character \begin{verbatim}(e.g., &, $, #, %) in the text. Enter these as \&, \$, \# or \%.\end{verbatim}
-		\item \begin{verbatim} Whatever you \begin{...}, you must \end{...}. This includes braces: { ... }.\end{verbatim}
-		\item A command was not given all its arguments and is trying to use the rest of the file for an argument.
-	\end{itemize}
-\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Further Reading}\label{sec:resources}
-\vspace{10.5cm}
-	\subsection{Websites and Tutorials}
-		If you are interested in understanding how Latex really works, I highly encourage reading the following package pdfs/websites/tutorials:\\
-		If you are looking for a solution for a problem you have encountered and can not find it within these files, see the templates created in the folder that orignially contained this pdf file or contact me at: \url{armindubert19@gmail.com}
-	\subsection{Introduction/Commands/and Overall Good References}
-		\subsubsection{Writing First Document}
-			\begin{itemize}
-				\item \url{http://ctan.org/pkg/first-latex-doc}
-					\begin{absquote}
-						Writing your first document, with a bit of both text and math.
-					\end{absquote}
-			\end{itemize}
-		\subsubsection{Brief Introduction/List of Commands}
-			\begin{itemize}
-				\item \url{https://www.scss.tcd.ie/~dwoods/1617/CS1LL2/HT/wk1/commands.pdf}
-						\begin{absquote}
-							This online article is an extremely brief reference guide for some Latex Commands.
-						\end{absquote}
-				\item \url{https://www.bu.edu/math/files/2013/08/LongTeX1.pdf}
-						\begin{absquote}
-							List of several useful commands.
-						\end{absquote}
-			\end{itemize}
-		\subsubsection{In-Depth LaTeX Guide}
-			\begin{itemize}
-				\item \url{https://tobi.oetiker.ch/lshort/lshort.pdf}
-						\begin{absquote}
-							This online article is a semi-lengthy but thorough introduction to \LaTeX\. Great for people who are just starting.
-						\end{absquote}
-				\item \url{https://www2.mps.mpg.de/homes/daly/GTL/gtl_20030512.pdf}
-						\begin{absquote}
-							Another extensive guide that does a good job teaching the basics as well as go a little more in depth.
-						\end{absquote}
-				\item \url{http://www.rpi.edu/dept/arc/docs/latex/latex-intro.pdf}
-						\begin{absquote}
-							Another extensive guide that does a good job teaching the basics as well as going a little more in depth in some areas. 
-						\end{absquote}
-			\end{itemize}
-	\subsection{Boxes}
-		While this source is long, it provides great insight that leads to a greater understanding of the entire \LaTeX \, system. So if you are eager to dig deep into the latex language, the following source is a great place to start.
-		\begin{itemize}
-			\item tcolorbox.pdf
-				\begin{absquote}
-					This source is contained in the folder along with this file. This source is the longest source out of all the sources but is packed with information about all the great things you can do with boxes, such as the ones seen in this guide.	
-				\end{absquote}
-		\end{itemize}
-	\subsection{Typesetting Math Documents}\label{sec:exams}
-		\subsubsection{Creating Math Documents}
-			\begin{itemize}
-				\item \url{http://www-math.mit.edu/~psh/exam/examdoc.pdf}
-					\begin{absquote}
-						Extensive guide on how to write exams.  
-					\end{absquote}
-				\item mathexam.pdf
-					\begin{absquote}
-						You will find this source in the mathexam folder after having downloaded the mathexam.zip file onto your computer. This is a great source if you want to learn an alternate way to creating math test/exam using latex.
-					\end{absquote}
-			\end{itemize}
-		\subsubsection{Symbols}
-			\begin{itemize}
-				\item \url{https://www.caam.rice.edu/~heinken/latex/symbols.pdf}
-					\begin{absquote}
-						List of Mathematical Symbols.
-					\end{absquote}
-				\item \url{https://www.bu.edu/math/files/2013/08/LongTeX1.pdf}
-					\begin{absquote}
-						An additional list of  Symbols.
-					\end{absquote}
-			\end{itemize}
-		\subsubsection{Typing Math Functions/Equations}
-			\begin{itemize}
-				\item \url{https://www.overleaf.com/learn/latex/Integrals,_sums_and_limits}
-					\begin{absquote}
-						Goes over typesetting Integrals, Summations, and Limits.
-					\end{absquote}
-				\item \url{https://www.overleaf.com/learn/latex/Subscripts_and_superscripts}
-					\begin{absquote}
-						Goes over typesetting subscripts and superscripts
-					\end{absquote}
-				\item \url{https://www.overleaf.com/learn/latex/Fractions_and_Binomials}
-					\begin{absquote}
-						Goes over typesetting fractions and binomials.
-					\end{absquote}
-			\end{itemize}
-	\subsection{Graphics}
-		\subsubsection{Images}
-			\begin{itemize}
-				\item graphicx.pdf
-					\begin{absquote}
-						This source provides a great introduction for people interested in exploring the intricacies behind inserting images into a document.
-					\end{absquote}
-				\item \url{https://www.overleaf.com/learn/latex/Inserting_Images}
-					\begin{absquote}
-						Goes over some of the specifics behind setting up the \cs{graphicspath} and inserts Images.
-					\end{absquote}
-			\end{itemize}
-		\subsubsection{Colors}
-			\begin{itemize}
-			\item \url{http://latexcolor.com/}
-				\begin{absquote}
-					Provides you with a multiple of RGB color definitions for the user to use in their documents
-				\end{absquote}
-			\end{itemize}
-\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	\begin{thebibliography}{17}
+\begin{thebibliography}{17}
 	\vspace{10.5cm}
 		\bibitem{Type 1 Diabetes} Diabetes Definition\\
 				\url{https://en.wikipedia.org/wiki/Type_1_diabetes}
@@ -1033,42 +729,10 @@ The Economist, 431(9141), 9.
 				\url{https://reactnative.dev}
 		\bibitem{Nutritionix} Nutritionix\\
 				\url{https://www.nutritionix.com}
-		\bibitem{Helmut Kopka} Helmut Kopka and Patrick W. Daly. \textit{A Guide to \LaTeX\ and Electronic Publishing}. Addison-Wesley, fourth edition, May 2003.\\
-				\url{https://www2.mps.mpg.de/homes/daly/GTL/gtl_20030512.pdf}
-		\bibitem{Philip Hirschhorn} Philip Hirschhorn. \textit{Using the exam document class}. Wellesley College, second edition, MA, November 2017.\\
-				\url{http://www-math.mit.edu/~psh/exam/examdoc.pdf}
-		\bibitem{web1} \textit{When should I use \cs{input} vs \cs{include}}.\\
-				\url{https://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include}		
-		\bibitem{Overleaf} Overleaf. \textit{Inserting Images}.\\
-				\url{https://www.overleaf.com/learn/latex/Inserting_Images}
-		\bibitem{Rice} Rice University. \textit{\LaTeX\ Mathematical Symbols}.\\
-			\url{https://www.caam.rice.edu/~heinken/latex/symbols.pdf}
-		\bibitem{Overleaf1} Overleaf. \textit{Integrals, sum and limits}.\\
-			\url{https://www.overleaf.com/learn/latex/Integrals,_sums_and_limits}
-		\bibitem{BU} Boston University. \textit{\LaTeX\ Command Summary}. December 1994.\\
-			\url{https://www.bu.edu/math/files/2013/08/LongTeX1.pdf}
-		\bibitem{Overleaf2} Overleaf. \textit{Subscripts and superscripts}.\\
-			\url{https://www.overleaf.com/learn/latex/Subscripts_and_superscripts}
-		\bibitem{Disquis} Disquis. \textit{\LaTeX\ Color}. Addison-Wesley, second edition, Reading, MA, 1994.\\
-				\url{http://latexcolor.com/}
-		\bibitem{David Woods} David Woods.\textit{Useful \LaTeX\ Commands}.\\
-				\url{https://www.scss.tcd.ie/~dwoods/1617/CS1LL2/HT/wk1/commands.pdf}
-		\bibitem{Overleaf3} Overleaf. \textit{Spacing in Math Mode}.\\
-				\url{https://www.overleaf.com/learn/latex/Spacing_in_math_mode}
-		\bibitem{Overleaf4} Overleaf. \textit{Fractions and Binomials}.\\
-				\url{https://www.overleaf.com/learn/latex/Fractions_and_Binomials}
-		\bibitem{Overleaf5} Overleaf. \textit{Environments}.\\
-				\url{https://www.overleaf.com/learn/latex/Environments}
-		\bibitem{Overleaf6} Overleaf. \textit{Margin Notes}.\\
-				\url{https://www.overleaf.com/learn/latex/Margin_notes}
-		\bibitem{Math} Art of Problem Solving. \textit{LaTeX:Commands}\\
-				\url{https://artofproblemsolving.com/wiki/index.php/LaTeX:Commands}
-		\bibitem{LaTeX} Latex-Project.\\
-				\url{https://www.latex-project.org/about/}
-		\bibitem{texstackexchange} Tex Stack Exchange. customizing part style with Tikz.\\
-				\url{https://tex.stackexchange.com/questions/159551/customizing-part-style-with-tikz}
-		\bibitem{texstackexchange2}	Tex Stack Exchange. How to change chapter/section style in tufte-book?.\\
-				\url{https://tex.stackexchange.com/questions/83057/how-to-change-chapter-section-style-in-tufte-book?noredirect=1&lq=1}
+		\bibitem{Jest} Jest\\
+				\url{https://jestjs.io}
+		\bibitem{Firebase} Firebase\\
+				\url{https://firebase.google.com}
 	\end{thebibliography}
 \addtocounter{section}{14}
 \addcontentsline{toc}{section}{\protect\numberline{\thesection}~~~ References}
