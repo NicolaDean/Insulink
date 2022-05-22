@@ -484,7 +484,9 @@ The following provides a screenshot of the pages with a brief description of the
 \section{Architecture}
 \vspace{10.5cm}
 	The technology used to make this app is react native \cite{React Native}.
+
 	\includegraphics[scale=0.1]{RN}
+
 	\subsection{Folder Structure}
 	\begin{docCommand}{assets}{}
 		Contains all images and component with a proper mapping.
@@ -530,38 +532,7 @@ The following provides a screenshot of the pages with a brief description of the
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Insulin Calculator}
 \vspace{10.5cm}
-	Inserting graphics in your document requires the  \textbf{graphicx package}, which you can find in the folder that accompanied this guide.
-	\subsection{Easiest Way to Insert Images}
-	The easiest, most straightforward way I have found so far to insert images into your LaTeX document is through TeX Studios include graphics feature. This features allows you to bypass having to constantly type and communicate with your computer where the folder containing your images is located. This really comes in handy once one has created several latex documents across several folders. If you decide to insert images through this method, as I presume most of those reading this will, \textbf{make sure to remove the graphics path command from the preamble of the templates in the folder containing this pdf.}
-\vspace{4mm}\\
-	So to insert an image into your \LaTeX\ file, go to the taskbar located at the top of your screen and click the menu labeled \textbf{LaTeX}. Inside the LaTeX dropdown, go down to \textbf{Input/Include Files} and then \textbf{includegraphics}. Once there, find where you put the image you wanted to insert into your document and then press ok.
-	\subsection{Graphics Path}
-	Most of the time, it will easier to insert images into a file using the method we mentioned in the previous subsection. However, the following allows for a cleaner, more organized, but a little more complicated at times possibly more advanced way to insert images into your \LaTeX\ file.
-		\begin{docCommand}{graphicspath}{\brackets{path}}
-			This command prevents you from having to tell the computer where the image is stored each time you wanted to insert an image.\\
-			The easiest way to set up the graphicspath is to create a folder where you store all the images you want to use and label it \textbf{images}. You put this folder in the same area where you write your files. Then you input the following at the beginning of your document: 
-			\begin{verbatim}
-				\graphicspath{{./images/}}
-			\end{verbatim}
-		\end{docCommand}
-	\subsection{Inserting Images}
-		Once you have set up the graphics path from above, you insert pictures by using the following command:
-		\begin{docCommand}{includegraphics}{\brackets{\sl{file-name}}}
-			This command allows you to actually insert the image in the document. To alter the position and size of the image, see~\url{https://www.overleaf.com/learn/latex/Inserting_Images}.\\
-		\end{docCommand} \vspace{1mm}
-		To change the scale of file, use the following
-		\begin{verbatim}
-			\includegraphics[scale= ]{image file name}
-		\end{verbatim}
-	\subsection{Image Additions}
-		\begin{docCommand}{caption}{\brackets{\sl{text}}}
-			Allows you to add a caption to an image.
-		\end{docCommand}
-		\begin{docEnvironment}{wrapfigure}{}
-			Allows you to wrap an image inside text. For more on this, see the wrapfigure.pdf inside the wrapfigure folder.
-		\end{docEnvironment}
-	\subsection{Positioning an Image}
-		To alter an images position: see \url{https://www.overleaf.com/learn/latex/Inserting_Images}
+	Insert
 \newpage
 \newgeometry{
 	left=20mm, 
@@ -605,7 +576,29 @@ Where to overcome some technological barriers, mock objects were used instead of
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Future Implementations}
 \vspace{10.5cm}
-----
+Insulink has been structured with the possibility of implementing new technologies inside it.
+\subsection{API}
+The API utils section of the code is easly changeble from one provider to another. Using a premium API
+would affect the performance but also the usability of the app.
+\subsection{Machine Learning and AI}
+Calculating the correct insulin dose is a really difficult problem. The factor that influences the output is not only the amount of carbohydrates eaten,
+but many other features: fats, sport activity, emotional condition and sometimes even the weather.\\
+Moreover each patient needs specific treatments, and has a different resistance to insulin.\\
+Using Machine Learning in this field could be a smart way to correctly predict the optimal insulin dose. 
+
+\newpage
+\subsection{NFC Glucose Meter}
+Some Glucose Meters use new technologies to simplify diabetic patients life. One famous example is
+FreeStyle Libre \cite{FreeStyle}. Using the NFC technology to retrieve glycemia helps not only in terms 
+of time but also in visualization and store of data. \\
+Once implemented, the user has just to bring the phone closer to the sensor and the app will check the 
+glucose (and store it).
+\begin{center}
+
+	\includegraphics[scale=0.45]{FreeStyle Libre}
+\end{center}
+
+
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Future Implementations}
@@ -623,6 +616,8 @@ Where to overcome some technological barriers, mock objects were used instead of
 				\url{https://jestjs.io}
 		\bibitem{Firebase} Firebase\\
 				\url{https://firebase.google.com}
+		\bibitem{FreeStyle} FreeStyle Libre\\
+				\url{https://www.freestyle.abbott/us-en/home.html}
 	\end{thebibliography}
 \addtocounter{section}{14}
 \addcontentsline{toc}{section}{\protect\numberline{\thesection}~~~ References}
