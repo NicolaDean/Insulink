@@ -26,6 +26,6 @@
 \contentsline {subsection}{\numberline {9.1}API}{12}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}Machine Learning and AI}{12}{subsection.9.2}%
 \contentsline {subsection}{\numberline {9.3}NFC Glucose Meter}{13}{subsection.9.3}%
-\contentsline {section}{\numberline {10}Future Implementations}{14}{section.10}%
+\contentsline {section}{\numberline {10}References}{14}{section.10}%
 \contentsline {section}{\numberline {24}~~~ References}{14}{section.10}%
 \contentsfinish 

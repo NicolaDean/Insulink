@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.3.6)  22 MAY 2022 13:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.3.6)  22 MAY 2022 16:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1150,9 +1150,9 @@ LaTeX Font Info:    Font shape `U/futm/m/n' will be
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.397 \newpage
+l.394 \newpage
                [1]
-Package marginnote Info: Using workaround for absolute page number on input line 397.
+Package marginnote Info: Using workaround for absolute page number on input line 394.
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1186,53 +1186,53 @@ Package marginnote Info: Using workaround for absolute page number on input line
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 22.88956pt on input line 404.
+(Font)              scaled to size 22.88956pt on input line 401.
 LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 15.89755pt on input line 404.
+(Font)              scaled to size 15.89755pt on input line 401.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 22.88956pt on input line 404.
+(Font)              scaled to size 22.88956pt on input line 401.
 LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 15.89755pt on input line 404.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 415.
+(Font)              scaled to size 15.89755pt on input line 401.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 412.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 415.
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 412.
  [2
 
 ] [3]
 <./img/screenshot3.jpeg, id=178, 696.6025pt x 1284.8pt>
 File: ./img/screenshot3.jpeg Graphic file (type jpg)
 <use ./img/screenshot3.jpeg>
-Package pdftex.def Info: ./img/screenshot3.jpeg  used on input line 449.
+Package pdftex.def Info: ./img/screenshot3.jpeg  used on input line 446.
 (pdftex.def)             Requested size: 139.31802pt x 256.95544pt.
  [4 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/screenshot3.jpeg>]
 File: ./img/screenshot3.jpeg Graphic file (type jpg)
 <use ./img/screenshot3.jpeg>
-Package pdftex.def Info: ./img/screenshot3.jpeg  used on input line 456.
+Package pdftex.def Info: ./img/screenshot3.jpeg  used on input line 453.
 (pdftex.def)             Requested size: 139.31802pt x 256.95544pt.
 <./img/screenshot1.jpeg, id=183, 692.5875pt x 1284.8pt>
 File: ./img/screenshot1.jpeg Graphic file (type jpg)
 <use ./img/screenshot1.jpeg>
-Package pdftex.def Info: ./img/screenshot1.jpeg  used on input line 464.
+Package pdftex.def Info: ./img/screenshot1.jpeg  used on input line 461.
 (pdftex.def)             Requested size: 138.51505pt x 256.95544pt.
  [5 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/screenshot1.jpeg>]
 <./img/screenshot5.jpeg, id=188, 696.6025pt x 1284.8pt>
 File: ./img/screenshot5.jpeg Graphic file (type jpg)
 <use ./img/screenshot5.jpeg>
-Package pdftex.def Info: ./img/screenshot5.jpeg  used on input line 472.
+Package pdftex.def Info: ./img/screenshot5.jpeg  used on input line 469.
 (pdftex.def)             Requested size: 139.31802pt x 256.95544pt.
 <./img/screenshot4.jpeg, id=189, 699.61375pt x 1284.8pt>
 File: ./img/screenshot4.jpeg Graphic file (type jpg)
 <use ./img/screenshot4.jpeg>
-Package pdftex.def Info: ./img/screenshot4.jpeg  used on input line 479.
+Package pdftex.def Info: ./img/screenshot4.jpeg  used on input line 476.
 (pdftex.def)             Requested size: 139.92027pt x 256.95544pt.
  [6 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/screenshot5.jpeg> </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/screenshot4.jpeg>]
 <./img/RN.png, id=196, 1204.5pt x 1046.91125pt>
 File: ./img/RN.png Graphic file (type png)
 <use ./img/RN.png>
-Package pdftex.def Info: ./img/RN.png  used on input line 488.
+Package pdftex.def Info: ./img/RN.png  used on input line 486.
 (pdftex.def)             Requested size: 120.45705pt x 104.69725pt.
  [7 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/RN.png>] [8] [9] [10]
 *geometry* verbose mode - [ newgeometry ] result:
@@ -1308,44 +1308,31 @@ Package pdftex.def Info: ./img/RN.png  used on input line 488.
 <./img/FreeStyle Libre.jpg, id=242, 903.375pt x 501.875pt>
 File: ./img/FreeStyle Libre.jpg Graphic file (type jpg)
 <use ./img/FreeStyle Libre.jpg>
-Package pdftex.def Info: ./img/FreeStyle Libre.jpg  used on input line 598.
+Package pdftex.def Info: ./img/FreeStyle Libre.jpg  used on input line 597.
 (pdftex.def)             Requested size: 406.515pt x 225.84166pt.
- [13 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/FreeStyle Libre.jpg>]
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 10.07397pt on input line 608.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 7.63599pt on input line 608.
-LaTeX Font Info:    Font shape `FMX/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 608.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 10.07397pt on input line 608.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 7.63599pt on input line 608.
-LaTeX Font Info:    Font shape `U/futm/m/n' will be
-(Font)              scaled to size 5.51999pt on input line 608.
- [14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 625.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 625.
+ [13 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/FreeStyle Libre.jpg>] [14]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 624.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 624.
  (/Users/fasa/Projects/DIMA-insuline-calculator/documentation/documentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 625.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 625.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 624.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 624.
 Package rerunfilecheck Info: File `documentation.out' has not changed.
-(rerunfilecheck)             Checksum: CDD89699CE70BC17FAAEA72CB5647479;1579.
+(rerunfilecheck)             Checksum: ACCAF26A254CAB848FFC83A42B141F50;1567.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 31850 strings out of 480608
- 667943 string characters out of 5903631
+ 31822 strings out of 480608
+ 667498 string characters out of 5903631
  1063472 words of memory out of 5000000
- 47082 multiletter control sequences out of 15000+600000
- 659809 words of font info for 123 fonts, out of 8000000 for 9000
+ 47057 multiletter control sequences out of 15000+600000
+ 633175 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  59i,7n,95p,897b,1021s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb>
-Output written on /Users/fasa/Projects/DIMA-insuline-calculator/documentation/documentation.pdf (15 pages, 1523727 bytes).
+{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb>
+Output written on /Users/fasa/Projects/DIMA-insuline-calculator/documentation/documentation.pdf (15 pages, 1521803 bytes).
 PDF statistics:
  296 PDF objects out of 1000 (max. 8388607)
  261 compressed objects within 3 object streams
