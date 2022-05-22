@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.3.6)  22 MAY 2022 16:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.3.6)  22 MAY 2022 17:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1234,7 +1234,24 @@ File: ./img/RN.png Graphic file (type png)
 <use ./img/RN.png>
 Package pdftex.def Info: ./img/RN.png  used on input line 486.
 (pdftex.def)             Requested size: 120.45705pt x 104.69725pt.
- [7 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/RN.png>] [8] [9] [10]
+ [7 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/RN.png>] [8]
+<./img/Nutritionix.jpg, id=214, 501.875pt x 250.9375pt>
+File: ./img/Nutritionix.jpg Graphic file (type jpg)
+<use ./img/Nutritionix.jpg>
+Package pdftex.def Info: ./img/Nutritionix.jpg  used on input line 527.
+(pdftex.def)             Requested size: 175.65887pt x 87.82944pt.
+<./img/Nutritionix detail.png, id=215, 1315.91624pt x 370.38374pt>
+File: ./img/Nutritionix detail.png Graphic file (type png)
+<use ./img/Nutritionix detail.png>
+Package pdftex.def Info: ./img/Nutritionix detail.png  used on input line 533.
+(pdftex.def)             Requested size: 394.77792pt x 111.11597pt.
+ [9 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Nutritionix.jpg> </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Nutritionix detail.png>]
+<./img/Firebase.png, id=223, 1606.0pt x 823.075pt>
+File: ./img/Firebase.png Graphic file (type png)
+<use ./img/Firebase.png>
+Package pdftex.def Info: ./img/Firebase.png  used on input line 541.
+(pdftex.def)             Requested size: 321.19432pt x 164.61208pt.
+ [10 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Firebase.png>] [11]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1267,7 +1284,7 @@ Package pdftex.def Info: ./img/RN.png  used on input line 486.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
- [11
+ [12
 
 ]
 *geometry* verbose mode - [ newgeometry ] result:
@@ -1302,40 +1319,40 @@ Package pdftex.def Info: ./img/RN.png  used on input line 486.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
- [12
+ [13
 
 ]
-<./img/FreeStyle Libre.jpg, id=242, 903.375pt x 501.875pt>
+<./img/FreeStyle Libre.jpg, id=251, 903.375pt x 501.875pt>
 File: ./img/FreeStyle Libre.jpg Graphic file (type jpg)
 <use ./img/FreeStyle Libre.jpg>
-Package pdftex.def Info: ./img/FreeStyle Libre.jpg  used on input line 597.
+Package pdftex.def Info: ./img/FreeStyle Libre.jpg  used on input line 616.
 (pdftex.def)             Requested size: 406.515pt x 225.84166pt.
- [13 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/FreeStyle Libre.jpg>] [14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 624.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 624.
+ [14 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/FreeStyle Libre.jpg>] [15]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 643.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 643.
  (/Users/fasa/Projects/DIMA-insuline-calculator/documentation/documentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 624.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 624.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 643.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 643.
 Package rerunfilecheck Info: File `documentation.out' has not changed.
-(rerunfilecheck)             Checksum: ACCAF26A254CAB848FFC83A42B141F50;1567.
+(rerunfilecheck)             Checksum: DCD7F5B78CE2EB6D8075E53C54496EC1;1576.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 31822 strings out of 480608
- 667498 string characters out of 5903631
+ 31846 strings out of 480608
+ 668012 string characters out of 5903631
  1063472 words of memory out of 5000000
- 47057 multiletter control sequences out of 15000+600000
+ 47079 multiletter control sequences out of 15000+600000
  633175 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  59i,7n,95p,897b,1021s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb>
-Output written on /Users/fasa/Projects/DIMA-insuline-calculator/documentation/documentation.pdf (15 pages, 1521803 bytes).
+Output written on /Users/fasa/Projects/DIMA-insuline-calculator/documentation/documentation.pdf (16 pages, 1716580 bytes).
 PDF statistics:
- 296 PDF objects out of 1000 (max. 8388607)
- 261 compressed objects within 3 object streams
- 61 named destinations out of 1000 (max. 500000)
- 278 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 305 PDF objects out of 1000 (max. 8388607)
+ 264 compressed objects within 3 object streams
+ 62 named destinations out of 1000 (max. 500000)
+ 293 words of extra memory for PDF output out of 10000 (max. 10000000)
 

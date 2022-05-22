@@ -516,12 +516,31 @@ The following provides a screenshot of the pages with a brief description of the
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{API doc}	
+\section{API and Services}	
 \vspace{10.5cm}	
+InsuLink uses different APIs to get all informations about food and storing user data.
 	\subsection{Nutritionix}\label{subsec:mathenvironments}
-		Nutritionix \cite{Nutritionix} is the API used to have a food database-
+		Nutritionix \cite{Nutritionix} is the API used to have a well detailed food database, with all important informations 
+		to have a completely working application.
+		\begin{center}
+
+			\includegraphics[scale=0.35]{Nutritionix}
+		\end{center}
+		Nutritionix support Natural Language, BarCodes and has a huge dataset with food and recipes. Here there're some 
+		functionalities offered by the standard plan:
+		\begin{center}
+
+			\includegraphics[scale=0.3]{Nutritionix detail}
+		\end{center}
+		The API requests and responses are documentend in the \textbf{\emph{/utils/apiQuery.js}} class
+
 	\subsection{Firebase}
 	    Firebase \cite{Firebase} is a Google serverless platorm for application development. 
+        It is a powerful tool to implement an app database and Google authentication, having many powerful tools to manage it.
+		\begin{center}
+			\includegraphics[scale=0.2]{Firebase}
+		\end{center}
+		All its requests and responses are well documented in the \textbf{\emph{src/utils/firebaseQuery.js}} and \textbf{\emph{src/utils/auth.js}} classes.
 		
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
