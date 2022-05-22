@@ -444,26 +444,41 @@ Insulink offers some useful tools to keep track of the daily routine of a patien
 The following provides a screenshot of the pages with a brief description of their use.
 	\subsection{Home}
     Home menu offers shortcuts to the main functionalities and a quick sight of the today glycemia with its intuitive charts.
+	\begin{center}
+
 	\includegraphics[scale=0.2]{screenshot3}
+\end{center}
 
 	\subsection{Search}
     Search food or recipe for nutritional details or to add it in meal diary. User can easly modify the unit measure and quantity of food.
+	\begin{center}
+
 		\includegraphics[scale=0.2]{screenshot3}
+	\end{center}
+
 	\subsection{Glycemia PopUp}
     Add glycemia quickly just using the menu shortcut or during the insulin caluclation procedure. The value 
 	will automatically stored in Firebase.
+	\begin{center}
 
 		\includegraphics[scale=0.2]{screenshot1}
+	\end{center}
 
 
 	\subsection{Meal Diary}
     Meal Diary can be used for both calulating daily total macro nutrients and insuline dose of each meal. 
+	\begin{center}
+
 		\includegraphics[scale=0.2]{screenshot5}
+	\end{center}
 
 	\subsection{Calendar}
 	In calendar it will be possible to retrieve historical data by clicking on a date. 
+	\begin{center}
 
 	\includegraphics[scale=0.2]{screenshot4}
+\end{center}
+
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Architecture}
@@ -509,134 +524,9 @@ The following provides a screenshot of the pages with a brief description of the
 		
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Redux States}	
+\section{Redux States}
 \vspace{10.5cm}
-The following subsections are lists and examples of pre-defined macros or commands. Creating a macro in latex is effectively similar to creating a shortcut. Macros allow for a cleaner, more efficient process of writing the code for your document. \\
-Macros are great for repetitive elements and texts that you carry across several documents.
-	\subsection{Main Box Environments}
-		\subsubsection{Theorems}
-			\begin{docEnvironment}{theo}{}
-				This environment \cs{begin\brackets{Theo}} inserts a new yellow theorem box with a black frame into the document. 
-			\end{docEnvironment}
-		\subsubsection{Boxes for Definitions}
-			\begin{docEnvironment}{definition}{}
-				This environment \cs{begin\brackets{definition}} inserts a regular definition into the document. 
-			\end{docEnvironment}
-		\subsubsection{Boxes for Examples}
-			\begin{docEnvironment}{example}{\brackets{\sl{title}}}
-				This environment \cs{begin\brackets{example}} creates a regular example box. \\
-				After inserting the question for the specified example, make sure to use the command \cs{tcbline} or \cs{tcblower}. This command creates a dashed line within the example box or any pre-created box and allows for you to created a specified space for the students to fill in the solution. 
-			\end{docEnvironment}
-			\begin{docEnvironment}{longexample}{\brackets{\sl{title}}}
-				Environment for creating examples inside lessons whose text is quite lengthy or the example requires a good amount of work or drawing. \\
-				If one wants to extend the box of the height further that the default value, go to the lesson.tex file inside of the lessons folder. Once inside of the lesson.tex file, go down to about line 136, inside the examstyle./style, and change the height from 9.5cm to your preferred value. 
-			\end{docEnvironment}
-		\subsubsection{Boxes for Discussions}
-			\begin{docEnvironment}{discussion}{\brackets{\sl{title}}}
-				This environment inserts a box similar to the example box just instead labeled discussion. \\ 
-				Similar to the example box as well, after inserting the question or text, make sure to use the command \cs{tcbline}. This command will create a dashed line within the box and allows for you to created a specified space for the students to fill in the solution or drawing etc. preferred value. 
-			\end{docEnvironment}
-		\subsubsection{Boxes for Visualizations}
-			\begin{docEnvironment}{visualization}{\brackets{\sl{title}}}
-				This environment inserts a box similar to the example and discussion boxes just instead for visualizations. 
-			\end{docEnvironment}
-	\subsection{Extra Box Environment}
-		\begin{docEnvironment}{DashedDefinition}{}
-			This command offers another option for a definition box just with a dashed frame.
-		\end{docEnvironment}
-\vspace{2mm}		
-\newgeometry{
-	left=14mm, 
-	right=14mm, 
-	top=9mm, 
-	bottom=13mm}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% ------- Code & Examples ------- %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{disexam}
-\begin{DashedDefinition}{}
-[A partial derivative of a function of several variables is its derivative with respect to one of those variables, with the others held constant. Partial derivatives are used in vector calculus and differential geometry.
-\end{DashedDefinition}
-\end{disexam}
-\vspace*{0.75\baselineskip}
-%===============================
-\begin{disexam}
-\vspace{1mm}
-\begin{visualization}[\quad \large Angular Momentum \hspace{3mm}]
-Discuss an alternate way of using the conservation of angular momentum for satellite orbits and any other point masses moving in a circle.
-\tcbline
-\end{visualization}
-\vspace{1mm}
-\end{disexam}
-\vspace*{0.75\baselineskip}
-%===============================
-\begin{disexam}
-\begin{example2}
-\vspace{1mm}
-A partial derivative of a function of several variables is its derivative with respect to one of those variables, with the others held constant. Partial derivatives are used in vector calculus and differential geometry.
-\tcbline
-\end{example2}
-\end{disexam}
-%===============================
-	\vspace*{1\baselineskip}
-\begin{disexam}
-\begin{example}[\quad \large Rotational Motion]
-Now assume the small pulley has rotational inertia.
-\begin{enumerate}
-\item Will your answers be different? Why?
-\item How does the angular velocity of the rotating apparatus and the linear velocity of the falling mass compare to the previous case?
-\item How does the torque exerted by the string on the rotating apparatus change the angular momentum of the apparatus?
-\end{enumerate}
-\tcbline
-\vspace{1mm}
-\solution
-\end{example}
-\end{disexam}
-%===============================
-\begin{disexam}
-\begin{longexample}[\quad \large Rotational Motion]
-A block of mass $4m$ is attached to a light string and passes over a pulley with negligible rotational inertia and is wrapped around a vertical pole of radius $r$.  The block is then released from rest, causing the string to unwind and the vertical pole it is wrapped around to rotate.  On top of the vertical pole lies a horizontal rod of length $2L$ with block2s of mass $m$ attached to both ends.  The rotational inertia of this apparatus is $2mL^2$.
-\begin{enumerate}
-\item What is the tension in the string in terms of the acceleration of the falling block?
-\item What is the torque exerted on the rotating pole by the string in terms of the acceleration of the falling block?
-\item When the large block has fallen a distance $D$, what is the instantaneous rotational kinetic energy of the apparatus?
-\end{enumerate}
-\tcblower
-\vspace{1mm}
-\solution
-\end{longexample}
-\end{disexam}
-%===============================
-\newgeometry{
-	left=29mm, 
-	right=29mm, 
-	top=20mm, 
-	bottom=15mm}
-%===============================
-\vspace{1.5mm}
-	\subsection{Extra Box Commands}
-		\begin{docCommand}{tcbline or tcblower}{}
-				Creates a dashed line within the box. Useful for creating a specified portion for students to write their answer down.
-		\end{docCommand}
-		\begin{docCommand}{solution}{}
-				Inserts the word solution in red font.
-		\end{docCommand}
-	\subsection{Commands (Macros)}
-		\begin{docCommand}{contactinfo}{}
-				Allows for a quicker way to input contact information through several documents.\\ 
-				To insert contact information, put the following in your preamble:\\ \cs{newcommand}\brackets{\cs{contactinfo}}\brackets{Insert info here.}
-		\end{docCommand}
-		\begin{docCommand}{fillin}{}
-			Allows for a quicker way to input a line for students to fill in the notes.
-		\end{docCommand}
-	\subsection{How to Define New Commands (Macros) and Colors}
-		\begin{docCommand}{newcommand}{\brackets{\cs{name}}\brackets{\cs{action}}}
-			The command \cs{newcommand} allows the user to effectively use a shortcut for a given action. Allows for a cleaner, more organized code. When creating a new command, make sure to put it in the preamble of you document.  
-		\end{docCommand}
-		\begin{docCommand}{definecolor}{\brackets{name for color}\brackets{rgb}}
-			The \cs{definecolor} command allows for the user to define new colors to be used in the document. For the rgb values of different colors, go to latexcolor.com.
-		\end{docCommand}
-\newpage
+	Inserting grap
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Insulin Calculator}
 \vspace{10.5cm}
