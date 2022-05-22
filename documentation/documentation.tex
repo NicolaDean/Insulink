@@ -557,13 +557,13 @@ InsuLink uses different APIs to get all informations about food and storing user
 \vspace{10.5cm}
 To understand the algorithm behind the Insulin Calculator, here're some basics:
 \begin{itemize}
- \item  Approximately 40-50 percent of the total daily insulin dose is to replace insulin overnight, when you are fasting and between meals.
+ \item  Approximately 40-50 percent of the total daily insulin dose is to replace insulin overnight, when you are fasting and between meals
  \item  The other 50-60 percent of the total daily insulin dose is for carbohydrate coverage (food) and high blood sugar correction
  \item The bolus dose for food coverage is prescribed as an insulin to carbohydrate ratio. The insulin to carbohydrate ratio represents how many grams of carbohydrate are covered or disposed of by 1 unit of insulin.
  \item The bolus dose for high blood sugar correction is defined as how much one unit of rapid-acting insulin will drop the blood sugar.
  \item Sport Activity deeply influences the response to insuline and determine a less request of insulin in the patient.
 \end{itemize}
-Not taking count of sport activity may lead the patient to a low bloodsugar value. 
+Not considering sport activity, may lead the patient to a low bloodsugar value. 
 Insulink checks if the user has done sport and suggests a new dose value with one unit less.
 This is not true for all patients, some may need even less amount of insulin.\\
 
@@ -573,14 +573,22 @@ The main equation for the correct meal dose calculation is:
  CHO Insulin Dose = {$\Sigma$} grams of CHO in the meal / grams of CHO disposed by 1 unit of insulin
 \end{center}
 
-\begin{center} 
+This happens in ideal conditions where glycemia is in the optimal interval.\\
+Normally this is not the case: after a glucose misuration the patient could find an high
+bloog sugar. In this case there's a \textbf{\emph{correction dose}}:
 
+\begin{center} 
+	High Blood Sugar Correction Dose = {$\Delta$} (Actual blood sugar - Target blood sugar) ÷ Correction Factor
+\end{center}
+
+The result formula will be:
+
+\begin{center} 
 CHO Total Dose = CHO Insulin Dose + High Blood Sugar Correction Dose
 \end{center}
 
-\begin{center} 
-High blood sugar correction dose = {$\Delta$} actual blood- target blood sugar ÷ correction factor
-\end{center}
+Moreover, there's the sport activity to take into account and it will affect the value
+by decresing it. 
 
 
 \newpage
