@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import renderer from 'react-test-renderer';
-import CustomButton from '../../src/customComponents/customButton';
 import Food from '../../src/pages/foodSearch/food';
-import FoodDetails from '../../src/pages/foodSearch/foodDetails';
+import { FirebaseQuery } from '../../src/utils/firebaseQuery';
 import { dummyApple,dummyAppleDeletable } from '../../testHelper/dataForTest/foods';
-
+import { foodDetails as testDetails } from '../../src/utils/testingJsons';
+import FoodDetails from '../../src/pages/foodSearch/foodDetails';
 
 const fir = ()=>{
     return {
@@ -51,11 +51,20 @@ describe('Render our Food Related Components',()=>{
         //TODO
       });
 
-      /*test('Render Food Details',()=>{
+     /* test('Render Food Details',()=>{
 
+        FirebaseQuery.getIngredientDetailsAlternative = jest.fn((a)=>{
+          console.log("BANANAA");
+          const res =  Promise.resolve(testDetails);
+
+          return res._W;
+        });
+
+        const res = FirebaseQuery.getIngredientDetailsAlternative("apple");
+        //console.log(JSON.stringify(res));
         const params = {data : dummyApple,foodInfo:dummyAppleDeletable,editable : false}
 
-        const foodDetails = renderer.create(<FoodDetails />).toJSON();
+        const foodDetails = renderer.create(<FoodDetails route = {{params:params}}/>).toJSON();
         expect(foodDetails).toMatchSnapshot();
       })*/
 

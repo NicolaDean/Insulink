@@ -10,15 +10,21 @@ const x = jest.fn(async(config) =>{
 });
 let mock_axios;
 jest.mock('axios', () => mock_axios = jest.fn(async(config) =>{
-    console.log("CONFIG:" + JSON.stringify(config));
+    console.log("CONFIGg:" + JSON.stringify(config));
     return new Promise(resolve=>resolve()); //THIS ALLOW TO FAKE THE REQUEST
 }));
 
 
 const dummyFoodList = {foods:[{food:"apple"}]};
 
+//TODO ADD A TEST FOR CHECK NETWORK ERROE (eg by putting a bool in mock_axios with "throw error")
+//MOCK FOOD_API.onError so we can check if it is called with the error
 
-
+/**
+ * THIS TESTS ALLOW TO CHECK IF AXIOS IS CALLED WITH THE CORRECT CONFIG OBJECT 
+ * THE CHECK IS DONE BY SNAPSHOT OF MOCKED CONFIG 
+ * (containing parameters, HTTP method, header...)
+ */
 describe("Food_API component TEST:",()=>{
 
     beforeAll(()=>{
@@ -26,9 +32,10 @@ describe("Food_API component TEST:",()=>{
     });
 
     afterEach(() => {
-        mock_axios.mockClear();
+        mock_axios.mockClear(); //TO RESET CALL STACK OF MOCK OBJECT
         //jest.restoreAllMocks();
     });
+
     test('Do Food Search', async () => {
 
         const userInput = "apple";

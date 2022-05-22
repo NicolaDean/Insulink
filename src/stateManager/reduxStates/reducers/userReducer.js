@@ -2,7 +2,7 @@ import { userMethods } from "../../../constants/reducers"
 import {  FirebaseQuery } from "../../../utils/firebaseQuery";
 import { loginStatus } from "../../../constants/states";
 
-const initialState = {
+export const initialState = {
     status:loginStatus.unlogged,
     userId:"nullId",
     mustCompleteReg:false,
