@@ -36,7 +36,7 @@
 %   - Direct the computer on the path 
 % 	  to the folder containg the images
 % =====================================
-\graphicspath{{./images/}}
+\graphicspath{{./img/}}
 % ============= Macros ================
 \newcommand{\fillin}{\underline{\hspace{.75in}}{\;}}
 \newcommand{\solution}{\textcolor{mordantred19}{Solution:}}
@@ -386,7 +386,8 @@
 		\vspace*{1.2\baselineskip}
 	CP: 10674826,10617541} \\
 	\vfill
-xxx
+	\includegraphics[width=\textwidth]{logo}
+
 \end{titlepage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \tableofcontents
@@ -436,251 +437,74 @@ Insulink offers some useful tools to keep track of the daily routine of a patien
 	\subsection{Calendar}
 	The user can see a well detailed sight of all previous data, just choosing a date from the InsuLink calendar, that will retrieve all the informations
 	about that day from the database.
-
-	\subsection{Main Goal}
-
-
-	\begin{docCommand}{input}{\brackets{\sl{file-name}}}
-		Imports the commands from filename.tex into the target file; it's equivalent to typing all the commands from filename.tex right into the current file where the \cs{input} line is. 
-	\end{docCommand}
-	\begin{docCommand}{include}{\brackets{\sl{file-name}}}
-		The \cs{include} macro is bigger and is supposed to be used with bigger amounts of content, like chapters, which people might like to compile on their own during the editing process.
-	\end{docCommand}
-If you would like to get a better understanding on the difference between the \cs{include} vs \cs{input} command, then I would suggest checking out the following website:\\ 
-\url{https://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include}\\
+	
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Screens and Navigation}
 \vspace{10.5cm}
-The following provides you with the preamble/formatting for lessons and exams as well as how to organize your code and document.
-	\subsection{Lessons} 
-		\begin{docCommand}{input1}{\brackets{lesson}}
-		        \textbf{Replace \cs{input1} with \cs{input}}\\
-				This command provides all the formatting you need to create a lesson document.   
-		\end{docCommand}
-	\subsection{Exams}
-		\begin{docCommand}{input2}{\brackets{examMC}}
-		        \textbf{Replace \cs{input2} with \cs{input}}\\
-				This command provides all the formatting you need to create a Multiple Choice Exam. On how to add questions and fully write a Multiple Choice Exam, see \fullref{subsec:writingexams} and \fullref{sec:exams}
-		\end{docCommand}
-		\begin{docCommand}{input3}{\brackets{examFR}}
-		        \textbf{Replace \cs{input3} with \cs{input}}\\
-				This command provides all the formatting you need to create a Free Response Exam. On how to add questions and fully write a Free Response Exam, see \fullref{subsec:writingexams} and \fullref{sec:exams}
-		\end{docCommand}
-	\subsection{Lesson and Exam File Structure}
-			When using either the lesson or exam formats, use the following structure when creating your document:
-			\begin{verbatim}
-			\input{lesson}
-			\begin{document}
-			Text
-			\end{document}
-			\end{verbatim} 
-	\subsection{Normal Classes}
-			For situations when you do not want to use one of the pre-created/defined classes, you can begin your document with \cs{documentclass\brackets{"type of document"}}.
-		\subsubsection{General Structure of Normal Documents}
-			Usually most Latex Files will follow the following format:
-			\begin{verbatim}
-				\documentclass{class}
-					\emph{Preamble}
-				\begin{document}
-					\emph{Text}
-				\end{document}
-			\end{verbatim} 
-	\subsection{Beginning Document}
-		\begin{docEnvironment}{document}{}
-			This is environment is need to insert text in the document.
-		\end{docEnvironment}
-	\subsection{Sections and Chapters}
-	Below are the 7 ways to section your document. 
-		\begin{docCommand}{part}{\brackets{name}}
-		\end{docCommand}
-		\begin{docCommand}{chapter}{\brackets{name}}
-		\end{docCommand}
-		\begin{docCommand}{section}{\brackets{name}}
-		\end{docCommand}	
-		\begin{docCommand}{subsection}{\brackets{name}}
-		\end{docCommand}
-		\begin{docCommand}{subsubsection}{\brackets{name}}
-		\end{docCommand}
-		\begin{docCommand}{paragraph}{}
-		\end{docCommand}
-		\begin{docCommand}{subparagraph}{}
-		\end{docCommand}
-	\subsubsection{Alternate Sectioning}
-		\begin{verbatim}
-			\section*{Terminology}
-		\end{verbatim}
-			The following command removes the chapters/section/numbers next to the section. In addition to removing the numbers from the left side of the section, it also removes the section from the table of contents.
+The following provides a screenshot of the pages with a brief description of their use.
+	\subsection{Home}
+ 
+	\includegraphics[scale=0.2]{screenshot3}
+
+	\subsection{Search}
+ 
+		\includegraphics[scale=0.2]{screenshot3}
+	\subsection{Glycemia PopUp}
+
+
+		\includegraphics[scale=0.2]{screenshot1}
+
+
+	\subsection{Meal Diary}
+
+		\includegraphics[scale=0.2]{screenshot5}
+
+	\subsection{Calendar}
+	\includegraphics[scale=0.2]{screenshot4}
+	In calendar it will be possible to retrieve historical data by clicking on a date. 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Architecture}
 \vspace{10.5cm}
-	\subsection{Geometry Package/Layout of the Document}
-		The geometry package inside latex allows you to change the margins and layout of the document.
-			\begin{docCommand}{newgeometry}{\brackets{left= mm, right= mm, top= mm, bottom= mm}} 
-				This command allows you to change the margins and layout for that page and ones that come after it. This allows you to change the margins mid-document.
-			\end{docCommand}
-	\subsection{Centering}
-		\subsubsection{Single-Line}
-			If you have only one line to center, it’s easiest to use the plain TEX command \cs{centerline}; for example:
-    		\begin{verbatim}
-    	    \centerline{This line will be centered}.
-    		\end{verbatim}
-		\subsubsection{Multi-Line}
-			If you have several lines to be centered horizontally, the center environment is convenient. Make sure when using this environment, to use the line break, see-    \ref{subsec:linebreaking}
-			\begin{docEnvironment}{center}{}
-			\end{docEnvironment}
-	\subsection{Spacing and New Pages}
-		\subsubsection{Inserting Horizontal and Vertical Space}
-			\begin{docCommand}{vspace}{\brackets{distance}}
-				This command allows you to insert a vertical space the distance that you specify in the brackets between items.
-			\end{docCommand}
-			\begin{docCommand}{hspace}{\brackets{distance}}
-				This command allows you to insert a horizontal space a certain distance that you identify between items.
-			\end{docCommand}
-			\begin{docCommand}{vfill}{}
-				This command inserts vertical white space spanning the current point on the page all the way down. Great if you want to include something on the bottom of the page but not quite a footer. 
-			\end{docCommand}
-		\subsubsection{Page and Line Breaks}\label{subsec:linebreaking}
-			\begin{docCommand}{newpage}{}
-				This command forces a page break at that point in the text. 
-			\end{docCommand}
-		The following command is how to terminate a line/force a line to break:
-			\begin{verbatim} \\ \end{verbatim}
-		\subsubsection{Indenting}
-			\begin{docCommand}{noindent}{}
-				This commands allows you to prevent text from being indented.
-			\end{docCommand}
-			\begin{docCommand}{indent}{}
-				Similarly, this command allows you to force the text to indent.
-			\end{docCommand}
-		\subsubsection{Line Spacing}
-			If you want to use larger inter-line spacing in a document, change its value by putting the
-			\begin{verbatim}
-				\linespread{factor}
-			\end{verbatim}
-			command into the preamble of your document. Use \cs{linespread\brackets{1.3}} for “one and a half” line spacing, and \cs{linespread\brackets{1.6}} for “double” line-spacing. Normally the lines are not spread, so the default line spread factor is 1.
-			Note that the effect of the \cs{linespread} command is rather drastic.
-		\subsubsection{Math Spacing}
-			\begin{docCommand}{quad}{}
-				Creates a horizontal space equal to the current font size (= 18 mu)
-			\end{docCommand}
-			\begin{docCommand}{;}{}
-				5/18 of \cs{quad} (= 3 mu)
-			\end{docCommand}
-			\begin{docCommand}{:}{}
-				4/18 of \cs{quad} (= 3 mu)
-			\end{docCommand}
-			\begin{docCommand}{,}{}
-				3/18 of \cs{quad} (= 3 mu)
-			\end{docCommand}
-	\subsection{Margin Notes}
-	The package labeled margin notes contained within the folder holding this file allows for the user to write text in the margins.
-		\begin{docCommand}{marginnote}{\brackets{\sl{text}}[distance offset]}
-				This command inserts a note in the margin on the right hand side. When using the margin note, remember to use the line break command: % - \\ 
-				Also remember to specify and adjust the vertical offset of the margin note.
-		\end{docCommand}
-		\begin{docCommand}{reversemarginpar}{\cs{marginnote}\brackets{\sl{text}}}
-				This command with the reverse marginpar creates a note in the margin on the left hand side of the document.\\
-				Insert the text for the marginnote in place of \marg{text}.
-		\end{docCommand}
-		\subsubsection{Adjusting the Width of a Margin Note}
-			\begin{docCommand}{marginparwidth}{}
-					This command allows you to specify the width you would like the margin to be. Input this in the geometry command in your preamble or typing \cs{newgeometry{marginparwidth=distance}}
-			\end{docCommand}
-			\begin{docCommand}{marginparsep}{}
-					This allows you to specify the distance between the margin note and the main text. Input this in the geometry command in your preamble or typing \cs{newgeometry{marginparsep=distance}}
-			\end{docCommand}
+	The technology used to make this app is react native \cite{React Native}.
+	\includegraphics[scale=0.1]{RN}
+	\subsection{Folder Structure}
+	\begin{docCommand}{assets}{}
+		Contains all images and component with a proper mapping.
+	\end{docCommand}
+
+	\begin{docCommand}{constants}{}
+		All constants concerning the design and states of the app.
+	\end{docCommand}
+
+	\begin{docCommand}{customComponents}{}
+		All buttons, charts and pickers specifically designed for the pages.
+	\end{docCommand}
+
+	\begin{docCommand}{pages}{}
+		Folder with all pages of the app, using the custom components
+	\end{docCommand}
+
+	\begin{docCommand}{stateManager}{}
+		Redux States for data managing with actions and reducers: macroTracker for meals and userReducer for the patient.
+	\end{docCommand}
+
+	\begin{docCommand}{utils}{}
+		Logic of API, authentication, Firebase and Insuline Calculator
+	\end{docCommand}
+
+
+
+
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{API doc}	
 \vspace{10.5cm}	
-	\subsection{Math Environments}\label{subsec:mathenvironments}
-		\begin{docEnvironment}{displaymath}{}
-			Environment for equations that are on their own line and centered. In the displaymath environment no equation number is added to the math text. One way to get an equation number is to use the equation environment
-		\end{docEnvironment}
-		\begin{docEnvironment}{equation}{}
-			Similar to the displaymath environment, such adds a equation number on the right side of the document.
-		\end{docEnvironment}	
-		\begin{docEnvironment}{math}{}
-			For formulas that appear right in the text. 
-		\end{docEnvironment}
-	\subsection{Structuring}
-		\begin{docCommand}{leqno}{}
-			Equation numbers in displayed formulas will appear on the left instead of the normal right side.
-		\end{docCommand}
-		\begin{docCommand}{fleqn}{}
-			Displayed formulas will be set flush left instead of centered.
-		\end{docCommand}
-	\subsection{Writing Exams}\label{subsec:writingexams}
-		\subsubsection{Questions}
-			\begin{docEnvironment}{questions}{}\label{questionenv}
-				To create questions, use this questions environment. 
-			\end{docEnvironment}
-			\begin{docCommand}{question}{}
-				Once you have created the question environment, you can begin questions using the \cs{question} command.
-			\end{docCommand}
-			\begin{docCommand}{vspace1}{\brackets{\cs{stretch}\brackets{1}}}
-			    \textbf{Replace \cs{vspace1} with \cs{vspace}}\\
-				This command allows you to evenly space questions along the page.
-			\end{docCommand}
-		\subsubsection{Choices}
-			\begin{docEnvironment}{choices}{}
-				To create choices for a questions, use this environment. 
-			\end{docEnvironment}
-			\begin{docCommand}{choice}{}
-				This command allows you to create choices inside of the choices environment.
-			\end{docCommand}
-	\subsubsection{Displaying Solutions}
-		The exam document class defines several environments for solutions, the contents of which will be printed only if you use the document class option answers as in the:\\ \begin{verbatim} 
-		\documentclass[answers]{exam}
-		\end{verbatim}
-		which you can find by going to the examMC .tex file within the folder originally containing this document and adding [answers] at the top of the preamble at the document class or give the command \cs{printanswers}.\\ \vspace{1.5mm}
-		Each of the environments for multiple choice questions
-		designate one or more of the choices as correct choices, and to have the correct choices printed with emphasis \emph{only}when solutions are being printed.\vspace{1.5mm}\\ 
-		The command to define a correct choice is \cs{CorrectChoice}, which is used in place of the command \cs{choice}. (To avoid confusion, \cs{correctchoice} is defined to be a synonym
-		for \cs{CorrectChoice}) When solutions are not being printed, \cs{CorrectChoice} is equivalent to \cs{choice}. When solutions are being printed, though, any choices that were created with
-		\cs{CorrectChoice} (rather than with \cs{choice}) will be printed in bold.
-			\begin{docCommand}{correctchoice}{}
-			\end{docCommand}
-		\subsubsection{Source Code - Questions}
-			\begin{verbatim}
-			\begin{questions}
-				\question \quad
-				{If $\textit{f}(x) = \frac{1}{4}x^4+x^3$ What is $\frac{d}{dx}$?}
-					\vspace{2mm}
-					\begin{choices}
-						\choice 5x
-						\correctchoice $20x^3$+$3x^2$
-						\choice $x^3$+$3x^2$
-						\choice 2x
-						\choice $20x^2$
-					\end{choices}
-					\vspace{\stretch{1}}
-			\end{verbatim}
-		\subsubsection{Source Code - Questions with Image on the side}
-			\begin{verbatim}		
-			\question \quad 
-			\begin{minipage}[t]{0.65\linewidth}
-			{$\int{(3x + 1)^5}$\textit{dx}} =
-			\vspace{2mm}
-			\begin{choices}
-			\correctchoice \large{$\frac{(3x + 1)^6}{18} + C $}
-			\choice \large{$\frac{(3x + 1)^6}{6}$ + C}
-			\choice \large{$\frac{(\frac{3x}{2} + 1)^6}{2}$ + C}
-			\choice \large{$\frac{(3x + 1)^6}{2}$ + C}
-			\choice \large{$(\frac{3x}{2} + x)^5$ + C} 
-			\end{choices}
-			\end{minipage}\hfill%
-			\begin{adjustbox}{minipage={0.30\linewidth},valign=t}
-			\includegraphics[width=\linewidth]{example-image-a}
-			\end{adjustbox}
-			\vspace{\stretch{1}}
-			\end{verbatim}
-	\subsection{Math Commands}
-		\begin{docCommand}{boxed}{}
-			Inserts a box around an equation.
-		\end{docCommand}
+	\subsection{Nutritionix}\label{subsec:mathenvironments}
+		Nutritionix \cite{Nutritionix} is the API used to have a food database-
+	\subsection{Firebase}
+		
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Redux States}	
@@ -1207,8 +1031,8 @@ The Economist, 431(9141), 9.
 				\url{https://en.wikipedia.org/wiki/Bolus_(medicine)}
 		\bibitem{React Native} React Native\\
 				\url{https://reactnative.dev}
-		\bibitem{Tobias Oetiker} Tobias Oetiker, Hubert Partl, Irene Hyna, and Elisabeth Schlegl. \textit{The Not So Short Introduction to \LaTeX\ }. Version 6.3, March 1994.\\
-				\url{https://tobi.oetiker.ch/lshort/lshort.pdf}
+		\bibitem{Nutritionix} Nutritionix\\
+				\url{https://www.nutritionix.com}
 		\bibitem{Helmut Kopka} Helmut Kopka and Patrick W. Daly. \textit{A Guide to \LaTeX\ and Electronic Publishing}. Addison-Wesley, fourth edition, May 2003.\\
 				\url{https://www2.mps.mpg.de/homes/daly/GTL/gtl_20030512.pdf}
 		\bibitem{Philip Hirschhorn} Philip Hirschhorn. \textit{Using the exam document class}. Wellesley College, second edition, MA, November 2017.\\
