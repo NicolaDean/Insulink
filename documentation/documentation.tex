@@ -23,6 +23,7 @@
 	\usepackage{longfbox}
 	\usepackage{geometry}
 	\usepackage{marginnote}
+	\usepackage{amsmath}
 	\tcbuselibrary{theorems}
 	\tcbuselibrary{breakable, skins}
 	\tcbuselibrary{listings, documentation}
@@ -463,7 +464,7 @@ The following provides a screenshot of the pages with a brief description of the
 
 
 	\subsection{Meal Diary}
-    Meal Diary can be used for both calulating daily total macro nutrients and insuline dose of each meal. 
+    Meal Diary can be used for both calulating daily total macro nutrients and insulin dose of each meal. 
 	\begin{center}
 
 		\includegraphics[scale=0.2]{screenshot5}
@@ -547,10 +548,41 @@ InsuLink uses different APIs to get all informations about food and storing user
 \section{Redux States}
 \vspace{10.5cm}
 	Inserting grap
+\newpage
+\newgeometry{
+		left=32mm, right=18mm, top=20mm, bottom=18mm,
+		marginparwidth=28mm, marginparsep=4mm}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Insulin Calculator}
 \vspace{10.5cm}
-	Insert
+To understand the algorithm behind the Insulin Calculator, here're some basics:
+\begin{itemize}
+ \item  Approximately 40-50 percent of the total daily insulin dose is to replace insulin overnight, when you are fasting and between meals.
+ \item  The other 50-60 percent of the total daily insulin dose is for carbohydrate coverage (food) and high blood sugar correction
+ \item The bolus dose for food coverage is prescribed as an insulin to carbohydrate ratio. The insulin to carbohydrate ratio represents how many grams of carbohydrate are covered or disposed of by 1 unit of insulin.
+ \item The bolus dose for high blood sugar correction is defined as how much one unit of rapid-acting insulin will drop the blood sugar.
+ \item Sport Activity deeply influences the response to insuline and determine a less request of insulin in the patient.
+\end{itemize}
+Not taking count of sport activity may lead the patient to a low bloodsugar value. 
+Insulink checks if the user has done sport and suggests a new dose value with one unit less.
+This is not true for all patients, some may need even less amount of insulin.\\
+
+The main equation for the correct meal dose calculation is:
+
+\begin{center} 
+ CHO Insulin Dose = {$\Sigma$} grams of CHO in the meal / grams of CHO disposed by 1 unit of insulin
+\end{center}
+
+\begin{center} 
+
+CHO Total Dose = CHO Insulin Dose + High Blood Sugar Correction Dose
+\end{center}
+
+\begin{center} 
+High blood sugar correction dose = {$\Delta$} actual blood- target blood sugar ÷ correction factor
+\end{center}
+
+
 \newpage
 \newgeometry{
 	left=20mm, 
@@ -586,7 +618,7 @@ Where to overcome some technological barriers, mock objects were used instead of
    Checks User input and Insulin Calculator 
 \end{docCommand}
 
-
+At the end were performed more than 50 successful tests on the app.
 \newpage
 \newgeometry{
 	left=32mm, right=18mm, top=20mm, bottom=18mm,
@@ -636,6 +668,8 @@ glucose (and store it).
 				\url{https://firebase.google.com}
 		\bibitem{FreeStyle} FreeStyle Libre\\
 				\url{https://www.freestyle.abbott/us-en/home.html}
+		\bibitem{Insulin Dose} Source for Insulin Calculator\\
+				\url{https://dtc.ucsf.edu/types-of-diabetes/type1/treatment-of-type-1-diabetes/medications-and-therapies/type-1-insulin-therapy/calculating-insulin-dose/}
 	\end{thebibliography}
 \addtocounter{section}{14}
 \addcontentsline{toc}{section}{\protect\numberline{\thesection}~~~ References}
