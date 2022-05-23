@@ -106,14 +106,12 @@ return (
         </View>
       </Slick>
       <View style={{justifyContent:'space-around',alignContent:'center',flexDirection:'column'}}>
-      <Text style={styles.title}>Meal Diary</Text>
 </View>
         <Meal navigation = {navigation} name ="Breakfast"   icon ="breakfast"   id="breakfast"/>
         <Meal navigation = {navigation} name ="Lunch"      icon ="lunch"       id="lunch"/>
         <Meal navigation = {navigation} name ="Dinner"        icon ="dinner"      id="dinner"/>
         <Meal navigation = {navigation} name ="Snack"       icon ="snack"       id="snack"/>
         
-        <CustomButton title='Add Custom Meal' onPress={()=>{}}/>
 </ScrollView>
 </View>
     );
