@@ -76,7 +76,7 @@ export const PopUp = (
     return( defaultLogic==true?
     <View style={styles.centeredView}  >
       <View style={styles.modalView} onLayout={(event) => { find_dimesions(event.nativeEvent.layout) }}>
-      <View style={{alignSelf:'flex-end',left:modalWidth/15}}>
+      <View style={{alignSelf:'flex-end',left:modalWidth/14}}>
               <CustomImageButton
               title={name_to_close}
               image="close"
@@ -107,7 +107,7 @@ export const PopUp = (
     :
     <View style={styles.centeredView}  >
       <View style={styles.modalView} onLayout={(event) => { find_dimesions(event.nativeEvent.layout) }}>
-      <View style={{alignSelf:'flex-end',left:modalWidth/8}}>
+      <View style={{alignSelf:'flex-end',left:modalWidth/9}}>
                  <CustomImageButton
                 title={name_to_close}
                 image="close"
@@ -225,8 +225,6 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     position: 'relative',
-    top:0,
-    bottom:10
   },
   textStyle: {
     color: "white",
