@@ -28,6 +28,7 @@
 \contentsline {subsection}{\numberline {5.2}Firebase}{11}{subsection.5.2}%
 \contentsline {section}{\numberline {6}Redux States}{12}{section.6}%
 \contentsline {section}{\numberline {7}Insulin Calculator}{14}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Formulas}{15}{subsection.7.1}%
 \contentsline {section}{\numberline {8}Testing}{16}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Folders}{16}{subsection.8.1}%
 \contentsline {section}{\numberline {9}Future Implementations}{17}{section.9}%
