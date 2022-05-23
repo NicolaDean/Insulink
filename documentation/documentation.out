@@ -6,23 +6,20 @@
 \BOOKMARK [2][-]{subsection.2.3}{Insulin Calculator}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.4}{Calendar}{section.2}% 7
 \BOOKMARK [1][-]{section.3}{Screens and Navigation}{}% 8
-\BOOKMARK [2][-]{subsection.3.1}{Home}{section.3}% 9
-\BOOKMARK [2][-]{subsection.3.2}{Search}{section.3}% 10
-\BOOKMARK [2][-]{subsection.3.3}{Glycemia PopUp}{section.3}% 11
-\BOOKMARK [2][-]{subsection.3.4}{Meal Diary}{section.3}% 12
-\BOOKMARK [2][-]{subsection.3.5}{Calendar}{section.3}% 13
-\BOOKMARK [1][-]{section.4}{Architecture}{}% 14
-\BOOKMARK [2][-]{subsection.4.1}{Folder Structure}{section.4}% 15
-\BOOKMARK [1][-]{section.5}{API and Services}{}% 16
-\BOOKMARK [2][-]{subsection.5.1}{Nutritionix}{section.5}% 17
-\BOOKMARK [2][-]{subsection.5.2}{Firebase}{section.5}% 18
-\BOOKMARK [1][-]{section.6}{Redux States}{}% 19
-\BOOKMARK [1][-]{section.7}{Insulin Calculator}{}% 20
-\BOOKMARK [1][-]{section.8}{Testing}{}% 21
-\BOOKMARK [2][-]{subsection.8.1}{Folders}{section.8}% 22
-\BOOKMARK [1][-]{section.9}{Future Implementations}{}% 23
-\BOOKMARK [2][-]{subsection.9.1}{API}{section.9}% 24
-\BOOKMARK [2][-]{subsection.9.2}{Machine Learning and AI}{section.9}% 25
-\BOOKMARK [2][-]{subsection.9.3}{NFC Glucose Meter}{section.9}% 26
-\BOOKMARK [1][-]{section.10}{References}{}% 27
-\BOOKMARK [1][-]{section.10}{ \040 \040References}{}% 28
+\BOOKMARK [2][-]{subsection.3.1}{Screens}{section.3}% 9
+\BOOKMARK [2][-]{subsection.3.2}{Navigation}{section.3}% 10
+\BOOKMARK [1][-]{section.4}{Architecture}{}% 11
+\BOOKMARK [2][-]{subsection.4.1}{Folder Structure}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{API and Services}{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{Nutritionix}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.2}{Firebase}{section.5}% 15
+\BOOKMARK [1][-]{section.6}{Redux States}{}% 16
+\BOOKMARK [1][-]{section.7}{Insulin Calculator}{}% 17
+\BOOKMARK [1][-]{section.8}{Testing}{}% 18
+\BOOKMARK [2][-]{subsection.8.1}{Folders}{section.8}% 19
+\BOOKMARK [1][-]{section.9}{Future Implementations}{}% 20
+\BOOKMARK [2][-]{subsection.9.1}{API}{section.9}% 21
+\BOOKMARK [2][-]{subsection.9.2}{Machine Learning and AI}{section.9}% 22
+\BOOKMARK [2][-]{subsection.9.3}{NFC Glucose Meter}{section.9}% 23
+\BOOKMARK [1][-]{section.10}{References}{}% 24
+\BOOKMARK [1][-]{section.10}{ \040 \040References}{}% 25

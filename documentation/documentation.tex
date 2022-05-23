@@ -440,21 +440,22 @@ Insulink offers some useful tools to keep track of the daily routine of a patien
 \section{Screens and Navigation}
 \vspace{10.5cm}
 The following provides a screenshot of the pages with a brief description of their use.
-	\subsection{Home}
+	\subsection{Screens}
+	\paragraph{Home}
     Home menu offers shortcuts to the main functionalities and a quick sight of the today glycemia with its intuitive charts.
 	\begin{center}
 
 	\includegraphics[scale=0.2]{screenshot3}
 \end{center}
 
-	\subsection{Search}
+	\paragraph{Search}
     Search food or recipe for nutritional details or to add it in meal diary. User can easly modify the unit measure and quantity of food.
 	\begin{center}
 
 		\includegraphics[scale=0.2]{screenshot3}
 	\end{center}
 
-	\subsection{Glycemia PopUp}
+	\paragraph{Glycemia PopUp}
     Add glycemia quickly just using the menu shortcut or during the insulin caluclation procedure. The value 
 	will automatically stored in Firebase.
 	\begin{center}
@@ -463,19 +464,33 @@ The following provides a screenshot of the pages with a brief description of the
 	\end{center}
 
 
-	\subsection{Meal Diary}
+	\paragraph{Meal Diary}
     Meal Diary can be used for both calulating daily total macro nutrients and insulin dose of each meal. 
 	\begin{center}
 
 		\includegraphics[scale=0.2]{screenshot5}
 	\end{center}
 
-	\subsection{Calendar}
+	\paragraph{Calendar}
 	In calendar it will be possible to retrieve historical data by clicking on a date. 
 	\begin{center}
 
 	\includegraphics[scale=0.2]{screenshot4}
 \end{center}
+
+\subsection{Navigation}
+
+\paragraph{Search Food}
+
+\paragraph{Scan Food}
+
+
+\paragraph{Add Food}
+
+\paragraph{Delete Food}
+
+\paragraph{Calculate Insulin}
+
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -535,6 +550,18 @@ InsuLink uses different APIs to get all informations about food and storing user
 		\end{center}
 		The API requests and responses are documentend in the \textbf{\emph{/utils/apiQuery.js}} class
 
+        \paragraph{Methods}
+     Using GET requests in \textbf{doRequest} method to \emph{trackapi.nutritionix.com/v2}
+		\begin{docCommand}{item}{}
+			Given upc code (standard use for barcodes) returns the food packaging details.
+	\end{docCommand}
+
+	\begin{docCommand}{instant}{}
+		Given a user query (Food Search page) returns a list of possible foods and recipes.
+\end{docCommand}
+       
+       
+
 	\subsection{Firebase}
 	    Firebase \cite{Firebase} is a Google serverless platorm for application development. 
         It is a powerful tool to implement an app database and Google authentication, having many powerful tools to manage it.
@@ -547,7 +574,38 @@ InsuLink uses different APIs to get all informations about food and storing user
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Redux States}
 \vspace{10.5cm}
-	Inserting grap
+To manage app states we opted for Redux library \cite{Redux}.
+\begin{center}
+	\includegraphics[scale=0.2]{redux-logo}
+\end{center}
+Redux is used mostly for application state management. 
+In other words, Redux maintains the state of an entire application in a single immutable state tree (object), which can't be changed directly.\\
+When something changes, a new object is created (using actions and reducers).
+\begin{center}
+	\includegraphics[scale=0.25]{Redux-workflow}
+\end{center}
+The main two reducers of the app are:
+	\begin{docCommand}{userReducer}{}
+    Contains all data about the user, including some additional fields such as
+	Insulin Sensitivity Factor or CHO Ratio.\\
+	If not inserted these values will be calculated considering the patient weight.
+
+	\begin{center}
+		\includegraphics[scale=0.6]{userReduces}
+	\end{center}
+
+\end{docCommand}
+
+
+
+\begin{docCommand}{macroTracker}{}
+	Stores informations about each meal and sport activity of the user. Additionally, cointains 
+	the sum of total macros and calories spent during the day. 
+	\begin{center}
+		\includegraphics[scale=0.5]{macroTracker}
+	\end{center}
+
+\end{docCommand}
 \newpage
 \newgeometry{
 		left=32mm, right=18mm, top=20mm, bottom=18mm,
@@ -676,6 +734,8 @@ glucose (and store it).
 				\url{https://firebase.google.com}
 		\bibitem{FreeStyle} FreeStyle Libre\\
 				\url{https://www.freestyle.abbott/us-en/home.html}
+		\bibitem{Redux} Redux\\
+				\url{https://redux.js.org}	
 		\bibitem{Insulin Dose} Source for Insulin Calculator\\
 				\url{https://dtc.ucsf.edu/types-of-diabetes/type1/treatment-of-type-1-diabetes/medications-and-therapies/type-1-insulin-therapy/calculating-insulin-dose/}
 	\end{thebibliography}

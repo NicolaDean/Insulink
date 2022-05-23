@@ -446,9 +446,25 @@ INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Nutritio
 INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Nutritionix detail.png
 INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Nutritionix detail.png
 INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Nutritionix detail.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futri8t.tfm
 INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Firebase.png
 INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Firebase.png
 INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Firebase.png
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futri8t.vf
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futri8r.tfm
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-alt-ita.tfm
+INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/redux-logo.png
+INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/redux-logo.png
+INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/redux-logo.png
+INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Redux-workflow.png
+INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Redux-workflow.png
+INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Redux-workflow.png
+INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/userReduces.png
+INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/userReduces.png
+INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/userReduces.png
+INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/macroTracker.png
+INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/macroTracker.png
+INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/macroTracker.png
 INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fourier/ts1futs.fd
 INPUT /usr/local/texlive/2020/texmf-dist/tex/latex/fourier/ts1futs.fd
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futr8c.tfm
@@ -456,18 +472,18 @@ INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futr8c.vf
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-orns.tfm
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/vf/public/fourier/futmi.vf
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/fourier-ml.tfm
-INPUT /usr/local/texlive/2020/texmf-dist/fonts/tfm/public/fourier/futri8r.tfm
 INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/FreeStyle Libre.jpg
 INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/FreeStyle Libre.jpg
 INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/FreeStyle Libre.jpg
 INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/documentation.aux
 INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/documentation.out
 INPUT /Users/fasa/Projects/DIMA-insuline-calculator/documentation/documentation.out
-INPUT /usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/fourier/fourier-ml.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtk10.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt12.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putbi8a.pfb
 INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb
+INPUT /usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb
