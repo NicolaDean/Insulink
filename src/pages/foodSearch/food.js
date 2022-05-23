@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { removeActivity, removeFood } from '../../stateManager/reduxStates/actions/macroTracker';
 import { buttonIcons } from '../../assets/buttonIcons';
 
+const screenWidth = Dimensions.get("window").width;
 
 export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
 
@@ -50,18 +51,23 @@ export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
     const deleteSport=() =>{
         console.log('deleted sport '+data.name)
         dispatch(removeActivity(data))
-        //TODO DISPATCH 
     }
     
 
     const showExpansion = () =>{
+        console.log(sport)
+
         return (
             <View >
                 <Shake value={state} type="timing" useNativeDriver={true}>
-                    <CustomImageButton  image='delete' 
+                <View style={{alignSelf:'flex-end',left:screenWidth/6}}>
+                    <CustomImageButton  
+                                         image='delete' 
                                         iconStyle={styles.deleteButton}
-                                        onPress={()=>{sport?deleteSport():deleteFood()}}
+                                        onPress={() => {sport==true?deleteSport():deleteFood()}}
                     />
+                                  </View> 
+
               </Shake>
             </View> );
     }
@@ -123,11 +129,11 @@ const styles = StyleSheet.create(
             fontWeight:"bold",
             alignSelf:'center'
         },deleteButton:{
-            width: Dimensions.get('window').width*0.07,
-            height: Dimensions.get('window').height*0.04 ,
-            resizeMode: 'contain',
-            left:dim.width*0.18,
-            bottom:4
+            width: 30,
+            height: 30 ,
+            position: 'relative',
+            top:0,
+        
           }
     
     }
