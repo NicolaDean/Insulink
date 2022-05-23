@@ -32,11 +32,13 @@ export const PopUp = (
   const [actionTriggered, setActionTriggered] = useState('DOSE_CHECK'); 
   const ic = new InsulineCalculator(userData.choratio,userData.isf,userData.weight);
   const [modalWidth,setModalWidth] =useState(0);
+
+
+
+
   if (defaultLogic){
     const ic = new InsulineCalculator(userData.choratio,userData.isf,userData.weight);
-    if(diary.activities[id].sports==[]){
-      console.log('No sport done')
-    }
+   
   }
 
   const find_dimesions=(layout) =>{
@@ -128,8 +130,19 @@ export const PopUp = (
 
           );
   }
+  const sportAlert = () => {
+    return(
+      <View style={{backgroundColor:'#FFD447',borderRadius:8,marginVertical:5,padding:10}}>
+                    <Text style={[styles.modalText]}>Be careful!</Text>
+                    <Text style={[styles.modalText]}>Sport affects your glycemia</Text>
+      </View>
+            );
+  }
+
 
   const DoseResult = () => {
+
+
     return(
     <View style={styles.centeredView}>
 
@@ -146,6 +159,7 @@ export const PopUp = (
         <Text style={styles.modalText}>We suggest you to make</Text>
         <Text style={styles.doseText}>{defaultLogic==true?ic.totalDose(FirebaseQuery.getTodayLastGlicemy(status.userData.glicemy),diary.meals[id].macro['carb'].toFixed(2)):null}</Text>
         <Text style={styles.modalText}>doses of insuline</Text>
+        {diary.activities[id].sports.length!=0?sportAlert():null}
         <CustomImageButton
                 title={name_to_close}
                 image="ok"
