@@ -74,12 +74,14 @@ export const PopUp = (
     return( defaultLogic==true?
     <View style={styles.centeredView}  >
       <View style={styles.modalView} onLayout={(event) => { find_dimesions(event.nativeEvent.layout) }}>
+      <View style={{alignSelf:'flex-end',left:modalWidth/15}}>
               <CustomImageButton
               title={name_to_close}
               image="close"
-              iconStyle={[styles.buttonClose,{left:modalWidth/2-15}]}
+              iconStyle={[styles.buttonClose]}
               onPress={() => {setActionTriggered(''),setModalVisible(false),defaultLogic=true}}
             />
+            </View>
         <View style={{justifyContent:'space-around',flexDirection:'row'}}>
           <View style={{borderRightColor:colors.black,borderRightWidth:StyleSheet.hairlineWidth,marginLeft:10}}>
             <View style={{margin:10,marginVertical:'50%'}}>
