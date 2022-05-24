@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TEST ON FOOD COMPONENT: Food SnapShot:  1`] = `
+<View
+  collapsable={false}
+  style={
+    Object {
+      "transform": Array [
+        Object {
+          "translateX": 0,
+        },
+      ],
+    }
+  }
+  type="timing"
+  useNativeDriver={true}
+  value={0}
+>
+  <View
+    accessible={true}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+        "margin": 3,
+        "paddingVertical": 10,
+      }
+    }
+    testID="TouchableFood"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "white",
+            "borderRadius": 30,
+            "elevation": 4,
+            "height": 300,
+            "justifyContent": "center",
+            "marginHorizontal": 3,
+            "shadowColor": "#000",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.23,
+            "shadowRadius": 2.62,
+            "width": 300,
+          },
+          Object {
+            "height": 225,
+            "paddingTop": 20,
+            "width": 225,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Object {
+            "alignSelf": "center",
+            "fontSize": 13,
+            "fontWeight": "bold",
+            "marginBottom": 5,
+          }
+        }
+      >
+        apple pie
+      </Text>
+      <Image
+        source={
+          Object {
+            "uri": "https://nix-tag-images.s3.amazonaws.com/1291_thumb.jpg",
+          }
+        }
+        style={
+          Object {
+            "height": 150,
+            "width": 150,
+          }
+        }
+      />
+      <Text />
+    </View>
+  </View>
+</View>
+`;

@@ -67,6 +67,8 @@ const addGlicemy = (state,payload) =>{
     if(newstate.userData.glicemy[id] == undefined) newstate.userData.glicemy[id] = [];
 
     newstate.userData.glicemy[id].push(g);
+
+    //console.log(newstate.userData.glicemy[id]);
     return newstate;
 }
 

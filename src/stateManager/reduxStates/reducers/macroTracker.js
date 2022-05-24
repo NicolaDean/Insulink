@@ -286,6 +286,8 @@ const resetDiary = (state,payload) =>{
 
     const newState = {...initialDiaryState};
 
+    console.log("UFF: " + JSON.stringify(newState))
+
     newState.currentDate = payload.currentDate;
 
     return newState;

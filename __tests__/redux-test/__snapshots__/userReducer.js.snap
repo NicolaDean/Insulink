@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TESTING THE REDUX REDUCER FOR USER: Login,Update,Glicemy,Logout 1`] = `
+Object {
+  "mustCompleteReg": false,
+  "status": "LOGGED",
+  "userData": Object {
+    "glicemy": Array [],
+    "height": 77,
+    "name": "test",
+  },
+  "userId": "ABCDE123456",
+}
+`;
+
+exports[`TESTING THE REDUX REDUCER FOR USER: Login,Update,Glicemy,Logout 2`] = `
+Object {
+  "mustCompleteReg": false,
+  "status": "LOGGED",
+  "userData": Object {
+    "glicemy": Array [],
+    "height": 77,
+    "name": "Pippo",
+  },
+  "userId": "ABCDE123456",
+}
+`;
+
+exports[`TESTING THE REDUX REDUCER FOR USER: Login,Update,Glicemy,Logout 3`] = `
+Object {
+  "mustCompleteReg": false,
+  "status": "LOGGED",
+  "userData": Object {
+    "glicemy": Array [],
+    "height": 77,
+    "name": "Pippo",
+  },
+  "userId": "ABCDE123456",
+}
+`;
+
+exports[`TESTING THE REDUX REDUCER FOR USER: Login,Update,Glicemy,Logout 4`] = `
+Object {
+  "mustCompleteReg": false,
+  "status": "UNLOGGED",
+  "userData": Object {
+    "birthday": Object {
+      "nanoseconds": 0,
+      "seconds": 0,
+    },
+    "choratio": 0,
+    "email": "",
+    "glicemy": Array [],
+    "height": 180,
+    "isf": 0,
+    "maxCarb": 200,
+    "maxFat": 100,
+    "maxProt": 40,
+    "name": "dummy",
+    "password": "",
+    "surname": "",
+    "weight": 80,
+  },
+  "userId": "nullId",
+}
+`;

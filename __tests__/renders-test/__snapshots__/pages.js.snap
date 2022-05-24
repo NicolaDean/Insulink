@@ -34,6 +34,7 @@ exports[`Render our Food Related Components Render Food 1`] = `
         "paddingVertical": 10,
       }
     }
+    testID="TouchableFood"
   >
     <View
       style={
@@ -129,6 +130,7 @@ exports[`Render our Food Related Components Render Food 2`] = `
         "paddingVertical": 10,
       }
     }
+    testID="TouchableFood"
   >
     <View
       style={

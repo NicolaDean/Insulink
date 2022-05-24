@@ -21,12 +21,7 @@ jest.mock('victory-native', () => 'VictoryPie');
 
 
 
-/*const mockDispatch = jest.fn();
-jest.mock('react-redux', () => ({
-  useSelector: jest.fn(),
-  useDispatch: () => mockDispatch,
-  connect: (a) =>{ return (a) =>{}},
-}));*/
+
 
 jest.mock('react-redux');
 

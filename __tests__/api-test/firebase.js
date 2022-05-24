@@ -9,7 +9,6 @@ import { glicemyChartFormatter } from '../../src/utils/chartDataFormatter';
 const mock_firebase = new CustomFirestoreMock();
 
 const firebasee = () =>{
-    console.log("OK");
     return {
         collection:jest.fn((a)=>{console.log("COLLECTION->"+ a);return mock_firebase}),
         doc:jest.fn((a)=>{console.log("DOC->"+ a);return mock_firebase})
