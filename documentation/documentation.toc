@@ -18,7 +18,7 @@
 \contentsline {paragraph}{Registration}{7}{paragraph*.7}%
 \contentsline {paragraph}{Search and Add Food}{7}{paragraph*.8}%
 \contentsline {paragraph}{Add Sport}{7}{paragraph*.9}%
-\contentsline {paragraph}{Delete Food}{7}{paragraph*.10}%
+\contentsline {paragraph}{Delete Food}{8}{paragraph*.10}%
 \contentsline {paragraph}{Calculate Insulin}{8}{paragraph*.11}%
 \contentsline {section}{\numberline {4}Architecture}{9}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Folder Structure}{9}{subsection.4.1}%
