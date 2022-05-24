@@ -9,7 +9,7 @@ import { CustomImageButton } from '../../customComponents/customImageButton';
 
 const screenWidth = Dimensions.get("window").width;
 
-export const FoodSearch = ({ navigation }) =>{
+export const FoodSearch = ({ nav }) =>{
 
   const [foodData, setData] = useState([]);
   const [foodSelected, setFood] = useState("apple");
@@ -55,7 +55,7 @@ export const FoodSearch = ({ navigation }) =>{
       data={foodData}
       numColumns={3}
       renderItem={({ item }) => (
-          <Food style={styles.food} data ={item} nav = {navigation} api={apiSelected} deletable={false}></Food>
+          <Food style={styles.food} data ={item} nav = {nav} api={apiSelected} deletable={false}></Food>
         )}
       />
     );
@@ -66,17 +66,11 @@ export const FoodSearch = ({ navigation }) =>{
            <View style={styles.header}>
               <TextInput    adjustsFontSizeToFit
  style={styles.searchBox} placeholder="insert food!" onChangeText={setFood}/>
-              <Switch style={{marginVertical:'7%'}} trackColor={{ false: "#767577", true: "#81b0ff" }}
-                  thumbColor={apiSelected ? "#f5dd4b" : "#f4f3f4"}
-                  ios_backgroundColor="#3e3e3e"
-                  onValueChange={()=>setApi(previousState => !previousState)}
-                  value={apiSelected}
-              />
               <CustomImageButton image='search'  iconStyle={styles.LogoSize} title="Get Data"
               onPress={() => getData()} />
            
             <CustomImageButton image='camera'   iconStyle={styles.LogoSize}
-              onPress={() => navigation.navigate('ScannerPage',{}) }
+              onPress={() => nav.navigate('ScannerPage',{}) }
             />
 
            </View>

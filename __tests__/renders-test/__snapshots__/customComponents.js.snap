@@ -1,76 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Render All Custom Components:  Render Calendar 1`] = `
-<View
-  style={
-    Object {
-      "alignContent": "center",
-      "alignSelf": "center",
-      "flexDirection": "column",
-      "justifyContent": "center",
-    }
-  }
->
-  <View
-    accessible={true}
-    collapsable={false}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "opacity": 1,
-      }
-    }
-  >
-    <View
-      style={
-        Object {
-          "alignContent": "stretch",
-          "alignSelf": "center",
-          "flexDirection": "row",
-          "justifyContent": "space-evenly",
-          "marginVertical": 10,
-        }
-      }
-    >
-      <Text
-        style={
-          Object {
-            "alignSelf": "center",
-            "marginHorizontal": 10,
-          }
-        }
-      >
-        22 May 2022
-      </Text>
-      <Image
-        source={
-          Object {
-            "testUri": "../../../src/assets/calendar.png",
-          }
-        }
-        style={
-          Object {
-            "bottom": 10,
-            "height": 32,
-            "position": "relative",
-            "top": 0,
-            "width": 32,
-          }
-        }
-      />
-    </View>
-    <View />
-  </View>
-</View>
-`;
-
 exports[`Render All Custom Components:  Render Custom Button 1`] = `
 <View>
   <View
@@ -143,6 +72,7 @@ exports[`Render All Custom Components:  Render Custom Image Button 1`] = `
       "opacity": 1,
     }
   }
+  testID="ImageButton"
 >
   <View
     style={null}

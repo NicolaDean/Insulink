@@ -17,6 +17,7 @@ const firebasee = () =>{
 
 jest.mock('@react-native-firebase/firestore',()=> firebasee);
 
+
 describe("TESTING OUR FIREBASE API FUNCTIONS:", () =>{
 
     //const mock_firebase = new CustomFirestoreMock();

@@ -1,13 +1,10 @@
-import React, { useState } from "react";
-import {ScrollView, Text, View,Dimensions} from 'react-native';
+import React from "react";
+import {ScrollView, View,Dimensions} from 'react-native';
 import Slick from 'react-native-slick';
-import CustomButton from '../../customComponents/customButton';
-import {ProgressChart} from "react-native-chart-kit";
 import { MacroChart } from '../../customComponents/macroChart';
 import { GlycemiaChart } from '../../customComponents/glycemiaChart';
 import {SportChart} from '../../customComponents/sportChart';
 import {ActivityChart} from '../../customComponents/activityChart';
-import { SportActivity } from "./sportActivity";
 //CUSTOM COMPONENTS
 import Meal from './meal';
 import styles from './style'
@@ -15,11 +12,7 @@ import styles from './style'
 //REDUX
 import { connect, useDispatch } from 'react-redux';
 import { Calendar } from "../../customComponents/calendarPicker";
-import { CustomNumberPicker } from "../../customComponents/customNumberPicker";
-import { InputContainer } from "../../customComponents/containers/inputsContainer";
-import { MarginContainer } from "../../customComponents/containers/marginContainer";
 import { loadHistory } from "../../stateManager/reduxStates/actions/macroTracker";
-import { localStorage } from "../../utils/localStoreManager";
 
 
 
@@ -60,6 +53,8 @@ const chartConfig = {
  
 
 export const MealDiary = ({ route,navigation,diary,user }) =>{
+
+  console.log("USER:" + user);
   var openCalendar=route.params.openCalendar
   
   const dispatch = useDispatch();
@@ -107,7 +102,7 @@ return (
       </Slick>
       <View style={{justifyContent:'space-around',alignContent:'center',flexDirection:'column'}}>
 </View>
-        <Meal navigation = {navigation} name ="Breakfast"   icon ="breakfast"   id="breakfast"/>
+        <Meal navigation = {navigation} name ="Breakfast"   icon ="breakfast"   id="breakfast" />
         <Meal navigation = {navigation} name ="Lunch"      icon ="lunch"       id="lunch"/>
         <Meal navigation = {navigation} name ="Dinner"        icon ="dinner"      id="dinner"/>
         <Meal navigation = {navigation} name ="Snack"       icon ="snack"       id="snack"/>

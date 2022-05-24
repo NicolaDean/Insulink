@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TEST ON FOOD COMPONENT: Food SnapShot:  1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#fff",
+        "borderBottomWidth": 0.5,
+        "flexDirection": "row",
+        "justifyContent": "space-around",
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.23,
+        "shadowRadius": 2.62,
+      }
+    }
+  >
+    <TextInput
+      adjustsFontSizeToFit={true}
+      onChangeText={[Function]}
+      placeholder="insert food!"
+      style={
+        Object {
+          "fontSize": 31.25,
+          "marginLeft": 15,
+          "width": 375,
+        }
+      }
+    />
+    <View
+      accessibilityState={
+        Object {
+          "disabled": false,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="ImageButton"
+    >
+      <View
+        style={null}
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../src/assets/search.png",
+            }
+          }
+          style={
+            Object {
+              "height": 160.07999999999998,
+              "marginLeft": 20,
+              "resizeMode": "contain",
+              "width": 90,
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      accessibilityState={
+        Object {
+          "disabled": false,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="ImageButton"
+    >
+      <View
+        style={null}
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../src/assets/camera.png",
+            }
+          }
+          style={
+            Object {
+              "height": 160.07999999999998,
+              "marginLeft": 20,
+              "resizeMode": "contain",
+              "width": 90,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignContent": "center",
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      contentContainerStyle={
+        Object {
+          "alignItems": "center",
+          "paddingVertical": 0,
+        }
+      }
+      data={Array []}
+      getItem={[Function]}
+      getItemCount={[Function]}
+      keyExtractor={[Function]}
+      onContentSizeChange={[Function]}
+      onLayout={[Function]}
+      onMomentumScrollBegin={[Function]}
+      onMomentumScrollEnd={[Function]}
+      onScroll={[Function]}
+      onScrollBeginDrag={[Function]}
+      onScrollEndDrag={[Function]}
+      removeClippedSubviews={false}
+      renderItem={[Function]}
+      scrollEventThrottle={50}
+      stickyHeaderIndices={Array []}
+      viewabilityConfigCallbackPairs={Array []}
+    >
+      <View />
+    </RCTScrollView>
+  </View>
+</View>
+`;

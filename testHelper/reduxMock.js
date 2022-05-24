@@ -1,8 +1,7 @@
+import { createStore,applyMiddleware } from "@reduxjs/toolkit";
+import thunkMiddleware from 'redux-thunk'
+import appReducers from "../src/stateManager/reduxStates/reducers";
 
-// https://stackoverflow.com/questions/59018071/mock-usedispatch-in-jest-and-test-the-params-with-using-that-dispatch-action-in
+const middleware = applyMiddleware(thunkMiddleware);
 
-const mockDispatch = jest.fn();
-jest.mock('react-redux', () => ({
-  useSelector: jest.fn(),
-  useDispatch: () => mockDispatch
-}));
+export const mockedStore = createStore(appReducers,middleware);

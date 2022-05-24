@@ -19,11 +19,20 @@ jest.mock('@react-native-async-storage/async-storage', () => 'AsyncStorage');
 
 jest.mock('victory-native', () => 'VictoryPie');
 
-
-
-
-
-jest.mock('react-redux');
+const reduxx = {
+  useDispatch: () => mockDispatch,
+  connect: (mapStateToProps, mapDispatchToProps) => (reactComponent) => ({
+    mapStateToProps,
+    mapDispatchToProps: (dispatch = mockDispatch, ownProps) => mapDispatchToProps(dispatch, ownProps),
+    reactComponent,
+    mockDispatch
+  }),
+  Provider: ({children}) => children,
+  dispatch : mockDispatch,
+  getMock: () => mockDispatch
+}
+const mockDispatch = jest.fn((action) => console.log(action));
+jest.mock('react-redux',() => reduxx);
 
 describe('Render our Food Related Components',()=>{
     

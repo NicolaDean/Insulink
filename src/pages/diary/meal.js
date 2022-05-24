@@ -132,9 +132,9 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                 />
             </ScrollView>
             <View style={{flexDirection:'row',justifyContent:'center',alignContent:'center',backgroundColor:colors.primary,borderBottomEndRadius: 10,borderBottomLeftRadius:10}}>
-             <CustomButton onPress={()=>{addSport()}} title='Add Sport' disabled={!available} style={styles.appButtonContainer} useDefaultStyle={false}/>
-            <PopUp name_to_open='Dose' name_to_close='close' defaultLogic={true} id={id}/>
-            <CustomButton onPress={()=>{addFoods()}} title='Add Food' disabled={!available} style={styles.appButtonContainer} useDefaultStyle={false}/>
+             <CustomButton onPress={()=>{addSport()}} title='Add Sport' disabled={!available} style={styles.appButtonContainer} useDefaultStyle={false} testID={"AddSportID"}/>
+            <PopUp name_to_open='Dose' name_to_close='close' defaultLogic={true} id={id} testID={"DosePopupID"}/>
+            <CustomButton onPress={()=>{addFoods()}} title='Add Food' disabled={!available} style={styles.appButtonContainer} useDefaultStyle={false} testID={"AddFoodID"}/>
             </View>
                 
         </View>
@@ -147,7 +147,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
 <SafeAreaView  style={styles.mealView}>
     <View style={{width:'100%',flexDirection:'row'}}>
         <View activeOpacity={0.2} style={{flex:1,flexDirection:'column'}} > 
-            <TouchableOpacity  style={{flexDirection:'row'}} onPress = {expandMeal}>
+            <TouchableOpacity testID='MealID' style={{flexDirection:'row'}} onPress = {expandMeal}>
                 <Image source={mealIcons[icon].uri} style={styles.mealImage} />
                 <Text style={styles.mealName}>{name}</Text>
                 <View style={{justifyContent:'flex-end',flexShrink:1,flexDirection:'row'}}>

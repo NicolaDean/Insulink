@@ -4,11 +4,28 @@ import {create,act} from 'react-test-renderer';
 import Food from "../../src/pages/foodSearch/food";
 import * as actions from "../../src/stateManager/reduxStates/actions/macroTracker";
 import { dummyApple, dummyAppleDeletable } from "../../testHelper/dataForTest/foods";
-///import { mock_redux } from "../../__mocks__/react-redux";
+//import {reduxMock} from '../../jest/react-redux'
+
+//const mock_r = new CustomReduxMock();
 
 
 const mockDispatch = jest.fn((action) => console.log(action));
-const mockDelete = jest.fn((action) => console.log(action));
+const removeFood= jest.spyOn(actions,'removeFood');
+const reduxMock = {
+    useDispatch: () => mockDispatch,
+    connect: (mapStateToProps, mapDispatchToProps) => (reactComponent) => ({
+      mapStateToProps,
+      mapDispatchToProps: (dispatch = mockDispatch, ownProps) => mapDispatchToProps(dispatch, ownProps),
+      reactComponent,
+      mockDispatch
+    }),
+    Provider: ({children}) => children,
+    dispatch : mockDispatch,
+    getMock: () => mockDispatch
+  }
+
+
+jest.mock('react-redux', () => reduxMock);
 
 const fir = ()=>{
     return {
@@ -22,19 +39,9 @@ jest.mock('react-native/Libraries/Animated/Easing');
 jest.mock('react-native/Libraries/Animated/animations/TimingAnimation');
 
 
-const removeFood= jest.spyOn(actions,'removeFood');
 
-jest.mock('react-redux', () => {return {
-    useDispatch: () => mockDispatch,
-    connect: (mapStateToProps, mapDispatchToProps) => (reactComponent) => ({
-      mapStateToProps,
-      mapDispatchToProps: (dispatch = mockDispatch, ownProps) => mapDispatchToProps(dispatch, ownProps),
-      reactComponent,
-      mockDispatch
-    }),
-    Provider: ({children}) => children,
-    dispatch : mockDispatch
-  }});
+
+
 
 const mock_navigation = {
     navigate:jest.fn((a,b)=>{console.log("NAV to " + a)})
@@ -51,6 +58,9 @@ describe("TEST ON FOOD COMPONENT:",()=>{
         expect(tree).toMatchSnapshot();
     });
 
+    /**
+     * Test if on Food Click we are navigated to Food Details
+     */
     test("Click Test", () =>{
         const foodClick = tree.root.findByProps({testID:'TouchableFood'}).props;//Added TestId to TouchableOpacity
         //Click The food
@@ -59,6 +69,9 @@ describe("TEST ON FOOD COMPONENT:",()=>{
         expect(mock_navigation.navigate).toBeCalledWith("FoodDetails",{data : dummyApple,foodInfo:dummyApple,editable: false});
     });
 
+    /**
+     * Test if A deletable food works fine
+     */
     test("Delete Test", () => {
         const deletable = create(<Food nav={mock_navigation} deletable={true} data={dummyAppleDeletable}/>);
         const foodClick = deletable.root.findByProps({testID:'TouchableFood'}).props;//Added TestId to TouchableOpacity
@@ -68,7 +81,7 @@ describe("TEST ON FOOD COMPONENT:",()=>{
 
         act(()=>deleteButton.onPress());
         //CHECK IF DISPATCH IS CALLED CORRECTLY
-        expect(mockDispatch).toBeCalledTimes(1); //Only 1 dispatch call 
+        expect(reduxMock.getMock()).toBeCalledTimes(1); //Only 1 dispatch call 
         expect(removeFood).toBeCalled();         //Check if the wanted action is called
         expect(removeFood).toBeCalledWith(dummyAppleDeletable); //Check if action called with right dataw
         
