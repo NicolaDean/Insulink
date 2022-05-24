@@ -14,28 +14,28 @@
 \contentsline {paragraph}{Glycemia PopUp}{5}{paragraph*.4}%
 \contentsline {paragraph}{Meal Diary}{5}{paragraph*.5}%
 \contentsline {paragraph}{Calendar}{6}{paragraph*.6}%
-\contentsline {subsection}{\numberline {3.2}Navigation}{6}{subsection.3.2}%
-\contentsline {paragraph}{Registration}{6}{paragraph*.7}%
-\contentsline {paragraph}{Search Food}{6}{paragraph*.8}%
-\contentsline {paragraph}{Scan Food}{6}{paragraph*.9}%
-\contentsline {paragraph}{Add Food}{6}{paragraph*.10}%
-\contentsline {paragraph}{Delete Food}{7}{paragraph*.11}%
-\contentsline {paragraph}{Calculate Insulin}{7}{paragraph*.12}%
-\contentsline {section}{\numberline {4}Architecture}{8}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Folder Structure}{8}{subsection.4.1}%
-\contentsline {section}{\numberline {5}API and Services}{10}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Nutritionix}{10}{subsection.5.1}%
-\contentsline {paragraph}{Methods}{11}{paragraph*.19}%
-\contentsline {subsection}{\numberline {5.2}Firebase}{11}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Redux States}{12}{section.6}%
-\contentsline {section}{\numberline {7}Insulin Calculator}{14}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Formulas}{15}{subsection.7.1}%
-\contentsline {section}{\numberline {8}Testing}{16}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Folders}{16}{subsection.8.1}%
-\contentsline {section}{\numberline {9}Future Implementations}{18}{section.9}%
-\contentsline {subsection}{\numberline {9.1}API}{18}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Machine Learning and AI}{18}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}NFC Glucose Meter}{19}{subsection.9.3}%
-\contentsline {section}{\numberline {10}References}{20}{section.10}%
-\contentsline {section}{\numberline {24}~~~ References}{21}{section.10}%
+\contentsline {subsection}{\numberline {3.2}Navigation}{7}{subsection.3.2}%
+\contentsline {paragraph}{Registration}{7}{paragraph*.7}%
+\contentsline {paragraph}{Search and Add Food}{7}{paragraph*.8}%
+\contentsline {paragraph}{Add Sport}{7}{paragraph*.9}%
+\contentsline {paragraph}{Delete Food}{7}{paragraph*.10}%
+\contentsline {paragraph}{Calculate Insulin}{8}{paragraph*.11}%
+\contentsline {section}{\numberline {4}Architecture}{9}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Folder Structure}{9}{subsection.4.1}%
+\contentsline {section}{\numberline {5}API and Services}{11}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Nutritionix}{11}{subsection.5.1}%
+\contentsline {paragraph}{Methods}{12}{paragraph*.18}%
+\contentsline {subsection}{\numberline {5.2}Firebase}{12}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Redux States}{13}{section.6}%
+\contentsline {section}{\numberline {7}Insulin Calculator}{15}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Formulas}{16}{subsection.7.1}%
+\contentsline {section}{\numberline {8}Testing}{17}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Folders}{17}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Tests}{18}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Future Implementations}{19}{section.9}%
+\contentsline {subsection}{\numberline {9.1}API}{19}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Machine Learning and AI}{19}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}NFC Glucose Meter}{20}{subsection.9.3}%
+\contentsline {section}{\numberline {10}References}{21}{section.10}%
+\contentsline {section}{\numberline {24}~~~ References}{22}{section.10}%
 \contentsfinish 
