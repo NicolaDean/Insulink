@@ -12,6 +12,7 @@
 --. Popup Errori Login
 --. Errore registrazione
 --. editUserData -> to be completed (manca localstorage e firebase!!!)
+--. check macroReducer -> resetDiary.... dosnt work
 
 //GLOBAL
 --. Quando ci si logga non sempre carica i dati vecchi da firebase/localstorage

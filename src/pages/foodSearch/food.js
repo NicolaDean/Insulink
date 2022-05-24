@@ -10,7 +10,7 @@ import { buttonIcons } from '../../assets/buttonIcons';
 
 const screenWidth = Dimensions.get("window").width;
 
-export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
+export const Food = ({data,nav,deletable=false,identifier=0,sport=false}) =>{
 
 
     const [expanded,setExpanded] = useState( false )
@@ -62,7 +62,8 @@ export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
                 <Shake value={state} type="timing" useNativeDriver={true}>
                 <View style={{alignSelf:'flex-end',left:screenWidth/6}}>
                     <CustomImageButton  
-                                         image='delete' 
+                                        testID='DeleteButton'
+                                        image='delete' 
                                         iconStyle={styles.deleteButton}
                                         onPress={() => {sport==true?deleteSport():deleteFood()}}
                     />
@@ -77,7 +78,7 @@ export const Food = ({data,nav,deletable,identifier=0,sport=false}) =>{
     const normalStyle    = [styles.contentBox,{width: dim.width*0.3, height: dim.width*0.3,paddingTop:20}];
     return (
         <Shake value={state} type="timing" useNativeDriver={true}>
-            <TouchableHighlight  style={ {justifyContent: 'center',alignItems:'center',margin:3,paddingVertical:10}}
+            <TouchableHighlight testID='TouchableFood' style={ {justifyContent: 'center',alignItems:'center',margin:3,paddingVertical:10}}
                                 underlayColor={"COLOR"}  
                                 onPress={()=>{sport?null:getDetails()}} 
                                 onLongPress={expandMeal}

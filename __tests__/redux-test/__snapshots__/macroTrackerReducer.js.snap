@@ -1,0 +1,887 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TESTING THE REDUX REDUCER FOR MACRO: Add,Edit,Remove Food 1`] = `
+Object {
+  "activities": Object {
+    "breakfast": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+    "dinner": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+    "lunch": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+    "snack": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+  },
+  "activity_id": 1,
+  "currentDate": "[TODAY DATE]",
+  "currentMeal": "breakfast",
+  "history": Object {
+    "activities": Object {
+      "breakfast": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "dinner": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "lunch": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "snack": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+    },
+    "empty": true,
+    "meals": Object {
+      "breakfast": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "dinner": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "lunch": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "snack": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+    },
+    "totMacro": Object {
+      "cal": 0,
+      "carb": 0,
+      "fat": 0,
+      "prot": 0,
+    },
+  },
+  "id": 2,
+  "meals": Object {
+    "breakfast": Object {
+      "foods": Array [
+        Object {
+          "cal": 90,
+          "carb": 33,
+          "fat": 55,
+          "id": Object {
+            "common_type": null,
+            "food_name": "apple pie",
+            "locale": "en_US",
+            "photo": Object {
+              "thumb": "https://nix-tag-images.s3.amazonaws.com/1291_thumb.jpg",
+            },
+            "serving_qty": 1,
+            "serving_unit": "piece (1/8 of 9\\" dia)",
+            "tag_id": "15060",
+            "tag_name": "Apple pie",
+          },
+          "identifier": 1,
+          "image": "[IMAGE]",
+          "name": "apple",
+          "prot": 22,
+          "quantity": 1,
+          "unit": "g",
+        },
+      ],
+      "macro": Object {
+        "cal": 90,
+        "carb": 33,
+        "fat": 55,
+        "prot": 22,
+      },
+    },
+    "dinner": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "lunch": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "snack": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+  },
+  "totCalBurned": 0,
+  "totMacro": Object {
+    "cal": 90,
+    "carb": 33,
+    "fat": 55,
+    "prot": 22,
+  },
+}
+`;
+
+exports[`TESTING THE REDUX REDUCER FOR MACRO: Add,Edit,Remove Food 2`] = `
+Object {
+  "activities": Object {
+    "breakfast": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+    "dinner": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+    "lunch": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+    "snack": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+  },
+  "activity_id": 1,
+  "currentDate": "[TODAY DATE]",
+  "currentMeal": "breakfast",
+  "history": Object {
+    "activities": Object {
+      "breakfast": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "dinner": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "lunch": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "snack": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+    },
+    "empty": true,
+    "meals": Object {
+      "breakfast": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "dinner": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "lunch": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "snack": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+    },
+    "totMacro": Object {
+      "cal": 0,
+      "carb": 0,
+      "fat": 0,
+      "prot": 0,
+    },
+  },
+  "id": 2,
+  "meals": Object {
+    "breakfast": Object {
+      "foods": Array [
+        Object {
+          "cal": 180,
+          "carb": 55,
+          "fat": 33,
+          "id": Object {
+            "common_type": null,
+            "food_name": "apple pie",
+            "locale": "en_US",
+            "photo": Object {
+              "thumb": "https://nix-tag-images.s3.amazonaws.com/1291_thumb.jpg",
+            },
+            "serving_qty": 1,
+            "serving_unit": "piece (1/8 of 9\\" dia)",
+            "tag_id": "15060",
+            "tag_name": "Apple pie",
+          },
+          "identifier": 1,
+          "image": "[IMAGE]",
+          "name": "apple",
+          "prot": 77,
+          "quantity": 2,
+          "unit": "g",
+        },
+      ],
+      "macro": Object {
+        "cal": 180,
+        "carb": 55,
+        "fat": 33,
+        "prot": 77,
+      },
+    },
+    "dinner": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "lunch": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "snack": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+  },
+  "totCalBurned": 0,
+  "totMacro": Object {
+    "cal": 180,
+    "carb": 55,
+    "fat": 33,
+    "prot": 77,
+  },
+}
+`;
+
+exports[`TESTING THE REDUX REDUCER FOR MACRO: Add,Edit,Remove Food 3`] = `
+Object {
+  "activities": Object {
+    "breakfast": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+    "dinner": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+    "lunch": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+    "snack": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+  },
+  "activity_id": 1,
+  "currentDate": "[TODAY DATE]",
+  "currentMeal": "breakfast",
+  "history": Object {
+    "activities": Object {
+      "breakfast": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "dinner": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "lunch": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "snack": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+    },
+    "empty": true,
+    "meals": Object {
+      "breakfast": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "dinner": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "lunch": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "snack": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+    },
+    "totMacro": Object {
+      "cal": 0,
+      "carb": 0,
+      "fat": 0,
+      "prot": 0,
+    },
+  },
+  "id": 2,
+  "meals": Object {
+    "breakfast": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "dinner": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "lunch": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "snack": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+  },
+  "totCalBurned": 0,
+  "totMacro": Object {
+    "cal": 0,
+    "carb": 0,
+    "fat": 0,
+    "prot": 0,
+  },
+}
+`;
+
+exports[`TESTING THE REDUX REDUCER FOR MACRO: Add,Remove  Sport 1`] = `
+Object {
+  "activities": Object {
+    "breakfast": Object {
+      "sports": Array [
+        Object {
+          "calories": 400,
+          "duration": 50,
+          "identifier": 1,
+          "name": "Nome",
+          "photo": "[IMAGE]",
+        },
+      ],
+      "totCal": 400,
+    },
+    "dinner": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+    "lunch": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+    "snack": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+  },
+  "activity_id": 2,
+  "currentDate": Any<String>,
+  "currentMeal": "breakfast",
+  "history": Object {
+    "activities": Object {
+      "breakfast": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "dinner": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "lunch": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "snack": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+    },
+    "empty": true,
+    "meals": Object {
+      "breakfast": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "dinner": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "lunch": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "snack": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+    },
+    "totMacro": Object {
+      "cal": 0,
+      "carb": 0,
+      "fat": 0,
+      "prot": 0,
+    },
+  },
+  "id": 1,
+  "meals": Object {
+    "breakfast": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "dinner": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "lunch": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "snack": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+  },
+  "totCalBurned": 400,
+  "totMacro": Object {
+    "cal": 0,
+    "carb": 0,
+    "fat": 0,
+    "prot": 0,
+  },
+}
+`;
+
+exports[`TESTING THE REDUX REDUCER FOR MACRO: Add,Remove  Sport 2`] = `
+Object {
+  "activities": Object {
+    "breakfast": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+    "dinner": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+    "lunch": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+    "snack": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+  },
+  "activity_id": 2,
+  "currentDate": "[TODAY DATE]",
+  "currentMeal": "breakfast",
+  "history": Object {
+    "activities": Object {
+      "breakfast": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "dinner": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "lunch": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "snack": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+    },
+    "empty": true,
+    "meals": Object {
+      "breakfast": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "dinner": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "lunch": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "snack": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+    },
+    "totMacro": Object {
+      "cal": 0,
+      "carb": 0,
+      "fat": 0,
+      "prot": 0,
+    },
+  },
+  "id": 1,
+  "meals": Object {
+    "breakfast": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "dinner": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "lunch": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "snack": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+  },
+  "totCalBurned": 0,
+  "totMacro": Object {
+    "cal": 0,
+    "carb": 0,
+    "fat": 0,
+    "prot": 0,
+  },
+}
+`;
+
+exports[`TESTING THE REDUX REDUCER FOR MACRO: Reset Diary 1`] = `
+Object {
+  "activities": Object {
+    "breakfast": Object {
+      "sports": Array [
+        Object {
+          "calories": 400,
+          "duration": 50,
+          "identifier": 1,
+          "name": "Nome",
+          "photo": "[IMAGE]",
+        },
+      ],
+      "totCal": 400,
+    },
+    "dinner": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+    "lunch": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+    "snack": Object {
+      "sports": Array [],
+      "totCal": 0,
+    },
+  },
+  "activity_id": 1,
+  "currentDate": undefined,
+  "currentMeal": "breakfast",
+  "history": Object {
+    "activities": Object {
+      "breakfast": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "dinner": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "lunch": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "snack": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+    },
+    "empty": true,
+    "meals": Object {
+      "breakfast": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "dinner": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "lunch": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "snack": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+    },
+    "totMacro": Object {
+      "cal": 0,
+      "carb": 0,
+      "fat": 0,
+      "prot": 0,
+    },
+  },
+  "id": 1,
+  "meals": Object {
+    "breakfast": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "dinner": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "lunch": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "snack": Object {
+      "foods": Array [],
+      "macro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+  },
+  "totCalBurned": 0,
+  "totMacro": Object {
+    "cal": 0,
+    "carb": 0,
+    "fat": 0,
+    "prot": 0,
+  },
+}
+`;
