@@ -7,6 +7,7 @@ export const steps = {
 }
 
 export const registrationErrors = {
+    alreadyUserEmail:{title:'Email Error: ',body:'This Email is already in use'},
     noEmailInserted : {title:'Email Error: ',body:'No Email Inserted'},
     notValidEmail   : {title:'Email Error: ',body:'Not Valid Email Inserted'},
     noNameInserted      : {title:'Personal Info Error: ',body:'No Name Inserted'},
@@ -20,6 +21,7 @@ export const registrationErrors = {
     invalidHeight   : {title:'Height',body:'This Height seems Not feasible'},
     invalidISF      : {title:'ISF',body:'This value is not valid'},
     invalidChoratio : {title:'Choratio',body:'This value is not'},
+    wrongPassword   : {title:'Login Error',body:'Password or username not corrects'}
 }
 
 export const networkErrors = {

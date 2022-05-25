@@ -66,7 +66,7 @@ describe("TESTING OUR FIREBASE API FUNCTIONS:", () =>{
         const id = "abcdefghi12345";
 
         FirebaseQuery.getUserGlicemy(id,new Date());
-
+        //Use mock return value
         //mock_firebase._mockAddReturn({})
     });
 
@@ -89,7 +89,7 @@ describe("TESTING OUR FIREBASE API FUNCTIONS:", () =>{
 
         //Add Glicemy To DB
         //CANT MOCK THE SET BECAUSE CANT ADD THE "ref" stuff inside the mock
-        //expect(mock_firebase.mockU).toBeCalledWith({data:[glicemy]});
+        //expect(mock_firebase.mockU).toBeCalledWith({data:[glicemy]}); ->TRY USING mockReturnValue
     })
 
     test("Get Food Diary of a user in a date", ()=>{

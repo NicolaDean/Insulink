@@ -12,7 +12,7 @@ GoogleSignin.configure({
   webClientId: '503937751847-f3p5g4fv6pa6l41v65avpobugi0f2bjd.apps.googleusercontent.com',
 });
 
-async function onGoogleButtonPress() {
+export async function onGoogleButtonPress() {
 
     try{
         GoogleSignin.signOut()

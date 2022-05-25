@@ -27,7 +27,7 @@ const marginOffset=10;
 const screenWidth = Dimensions.get("window").width-marginOffset;
 
 export const FoodDetails = ({route,navigation,currentDate}) =>{
-
+    //console.count('counter');
     console.log("DDDD: " + currentDate);
     //TODO ADD A "LOADING BAR" UNTIL DATA ARENT LOADED
     let data = route.params.data; //TODO IN FOOD IS WRONGLY PASSED ID INSTEAD OF DATA (try correct)
@@ -35,15 +35,17 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
 
     console.log("FOOD:" + JSON.stringify(foodInfo));
     const dispatch = useDispatch();
-    const [details, setDetails] = useState(false);
-    const [unit,setUnit] = useState(null);
-    const [amount,setAmount] = useState(1);
-    const [items,setItems] = useState([{label:'',value:''}]);
-    const [open, setOpen] = useState(false);
+    const [details, setDetails] = React.useState(false);
+    const [unit,setUnit] = React.useState(null);
+    const [amount,setAmount] = React.useState(1);
+    const [items,setItems] = React.useState([{label:'',value:''}]);
+    const [open, setOpen] = React.useState(false);
     
     const editable = route.params.editable;
 
     const notEditable = currentDate != FirebaseQuery.glicemyDateFormatter();
+
+    console.log("IS EDITABLE? : " + !notEditable);
 
     const iconSelector = editable ? buttonIconsNames.edit : buttonIconsNames.plus;
     const addButtonText = editable ? "Edit Food" : "Add Food To Meal";
@@ -56,12 +58,15 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
     //Retrive API food details data
     const getData = async (data)=>
     {
+        console.log("GETTING DATA:");
         //RETRIVE DATA
         let res;
         res = (await Food_API.getIngredientDetailsAlternative(data.food_name));
-        if(typeof(res.foods) === undefined) return;
+        console.log("OK we get res->" + JSON.stringify(res));
+        if(typeof(res.foods) === undefined){console.log("UFFFA");return;} 
         res = res.foods[0];
 
+        console.log("AYOOOO");
         //DO SOME PREPROCESSING TO THE DATA 
         res = ApiHelper.enrichDatails(res);
         
@@ -76,10 +81,12 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
         }else{
             setDetails(res);
         }
+        console.log("ENDED GET DATA:")
     }
 
     //Call on first render
-    useEffect(()=>{
+    React.useEffect(()=>{
+        console.log("Real use effect");
         getData(data);
     },[]);
 
@@ -143,7 +150,8 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
 
     const deleteButton = () =>{
         return(
-            <CustomImageButton disabled={notEditable} image={buttonIconsNames.bin} style={styles.addPlus} iconStyle={styles.addPlus} onPress={() =>{
+            <CustomImageButton disabled={notEditable} image={buttonIconsNames.bin} style={styles.addPlus} iconStyle={styles.addPlus} testID={"DeleteButtonId"} 
+            onPress={() =>{
                 dispatch(removeFood({
                     id:     data,
                     name:   details.name,
@@ -167,7 +175,6 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
     const renderDetails = () =>{
         return (
             
-        
         <View style={{flex: 1,flexDirection: 'column',backgroundColor:colors.secondary}}>
             
             <ScrollView style={{flex:1}}>
@@ -175,8 +182,7 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
                 <Image style={styles.foodImage} source={details.image!=null?{uri:details.image}:buttonIcons['defaultDiet'].uri}/>
                 <View style={{marginTop:200,flexDirection:'row',alignContent:'center'}}>
                     <Text style ={styles.sectionTitle}> {details.name}</Text>
-                   
-                    <CustomImageButton disabled={notEditable} image={iconSelector} style={styles.addPlus} iconStyle={styles.addPlus} onPress={addItem}/>
+                    <CustomImageButton disabled={notEditable} image={iconSelector} style={styles.addPlus} iconStyle={styles.addPlus} onPress={addItem} testID={"AddButtonID"}/>
                     {editable?deleteButton():null}
                 </View>
              </View>

@@ -17,7 +17,6 @@ const fir = ()=>{
 jest.mock("@react-native-firebase/firestore", () => fir);
 jest.mock('@react-native-async-storage/async-storage', () => 'AsyncStorage');
 
-jest.mock('victory-native', () => 'VictoryPie');
 
 const reduxx = {
   useDispatch: () => mockDispatch,

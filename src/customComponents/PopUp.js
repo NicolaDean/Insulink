@@ -185,7 +185,7 @@ export const PopUp = (
         actionTriggered === 'DOSE_CHECK' ? DoseCheck() :
         actionTriggered === 'DOSE_RESULT'? DoseResult():null
        }
-    </Modal><CustomImageButton
+    </Modal><CustomImageButton testID={"GlucoseButton"}
         title={name_to_open}
         onPress={() => {setModalVisible(true),setActionTriggered('DOSE_CHECK')}}
         image={customImage}

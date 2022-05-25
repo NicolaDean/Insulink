@@ -1,0 +1,258 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test the Home component Initial Checks and Snapshot 1`] = `
+<View>
+  <View>
+    <RCTScrollView>
+      <View>
+        <View
+          style={
+            Object {
+              "alignItems": "stretch",
+              "flexDirection": "column",
+              "justifyContent": "space-between",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "justifyContent": "space-evenly",
+                "marginBottom": 5,
+                "marginHorizontal": 40,
+              }
+            }
+          >
+            <View
+              accessibilityState={
+                Object {
+                  "disabled": false,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="ImageButton"
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "rgb(112,202,230)",
+                    "borderRadius": 10,
+                    "paddingHorizontal": 30,
+                    "paddingVertical": 30,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/barcode.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "bottom": 10,
+                      "height": 135,
+                      "position": "relative",
+                      "top": 0,
+                      "width": 135,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              accessibilityState={
+                Object {
+                  "disabled": false,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="ImageButton"
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "rgb(112,202,230)",
+                    "borderRadius": 10,
+                    "paddingHorizontal": 30,
+                    "paddingVertical": 30,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/defaultDiet.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "bottom": 10,
+                      "height": 135,
+                      "position": "relative",
+                      "top": 0,
+                      "width": 135,
+                    }
+                  }
+                />
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "justifyContent": "space-evenly",
+                "marginHorizontal": 40,
+              }
+            }
+          >
+            <View
+              accessibilityState={
+                Object {
+                  "disabled": false,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="ImageButton"
+            >
+              <View
+                style={
+                  Object {
+                    "backgroundColor": "rgb(112,202,230)",
+                    "borderRadius": 10,
+                    "paddingHorizontal": 30,
+                    "paddingVertical": 30,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/calendar.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "bottom": 10,
+                      "height": 135,
+                      "position": "relative",
+                      "top": 0,
+                      "width": 135,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View>
+              <Modal
+                animationType="fade"
+                hardwareAccelerated={false}
+                onRequestClose={[Function]}
+                transparent={true}
+                visible={false}
+              />
+              <View
+                accessibilityState={
+                  Object {
+                    "disabled": false,
+                  }
+                }
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "opacity": 1,
+                  }
+                }
+                testID="ImageButton"
+              >
+                <View
+                  style={
+                    Object {
+                      "backgroundColor": "rgb(112,202,230)",
+                      "borderRadius": 10,
+                      "paddingHorizontal": 30,
+                      "paddingVertical": 30,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../src/assets/glucose.png",
+                      }
+                    }
+                    style={
+                      Object {
+                        "bottom": 10,
+                        "height": 135,
+                        "position": "relative",
+                        "top": 0,
+                        "width": 135,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;

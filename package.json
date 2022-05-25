@@ -73,7 +73,7 @@
       "./jest/setup.js"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!@react-native|react-native)"
+      "node_modules/(?!victory|@react-native|react-native)"
     ],
     "moduleFileExtensions": [
       "ts",
@@ -82,6 +82,9 @@
       "jsx",
       "json",
       "node"
-    ]
+    ],
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
   }
 }

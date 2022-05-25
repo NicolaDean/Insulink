@@ -54,7 +54,7 @@ const chartConfig = {
 
 export const MealDiary = ({ route,navigation,diary,user }) =>{
 
-  console.log("USER:" + user);
+  console.log("USER:" + JSON.stringify(user));
   var openCalendar=route.params.openCalendar
   
   const dispatch = useDispatch();

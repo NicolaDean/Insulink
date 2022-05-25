@@ -1,5 +1,4 @@
 import React from "react";
-//import {cleanup, fireEvent, render} from '@testing-library/react';
 import {create,act} from 'react-test-renderer';
 import Food from "../../src/pages/foodSearch/food";
 import * as actions from "../../src/stateManager/reduxStates/actions/macroTracker";
@@ -56,6 +55,7 @@ describe("TEST ON FOOD COMPONENT:",()=>{
      */
     test("Food SnapShot: ",()=>{
         expect(tree).toMatchSnapshot();
+
     });
 
     /**

@@ -6,18 +6,17 @@ import CustomButton from '../../customComponents/customButton';
 
 //REDUX
 import { connect, useDispatch } from 'react-redux';
-import { addGlicemy, loadUserLocalData, login, register } from '../../stateManager/reduxStates/actions/userAction';
-import * as authSys from '../../utils/auth'
+import {  loadUserLocalData, login } from '../../stateManager/reduxStates/actions/userAction';
 
 //FIREBASE
 import auth from '@react-native-firebase/auth';
 import { loginStatus } from '../../constants/states';
-import { WaitLoading } from '../../customComponents/containers/waitLoading';
 import { colors } from '../../constants/appAspect';
 import { MarginContainer } from '../../customComponents/containers/marginContainer';
 import { InputBlock } from '../../customComponents/containers/inputsBlock';
 import { InputContainer } from '../../customComponents/containers/inputsContainer';
 import { GoogleButton } from './socialLogin/googleLogin';
+import { RegistrationErrorPopup } from './registration/errorsPopup';
 
 export const Login = ({navigation,status}) =>{
 
@@ -29,8 +28,18 @@ export const Login = ({navigation,status}) =>{
     const [email,setEmail] = useState("");
     const [psw,setPsw] = useState("");
 
+    //Error Popup
+    const [errors,setErrors] = useState([]);
+    const [errorModalVisible, setErrorModalVisible] = useState(false);
+
 	//TODO ADD A LOADING BARR (Unlogged -> loading -> Logged) so dosnt seem slow app
 	useEffect(()=>{
+        if(errors.length > 0){
+            if(loading== true){
+                console.log("Some Errors");//Avoid loop in waiting
+                setLoading(false);
+            }        
+        }
         console.log("STATUS: " + status);
 		if(status == loginStatus.unlogged){
 			console.log("BAR CHECK LOGIN");
@@ -41,7 +50,16 @@ export const Login = ({navigation,status}) =>{
 			navigation.navigate('BottomTab',{});
 		}
 		
-	},[status])
+	},[status,errors])
+
+    const errorFunction = (error) =>{
+        console.log(JSON.stringify(error));
+        setErrors(error);
+        if(JSON.stringify(error) != "[]") {
+            setErrorModalVisible(true);
+        }
+        
+    }
 
     // Handle user state changes
     function onAuthStateChanged(user) {
@@ -66,17 +84,24 @@ export const Login = ({navigation,status}) =>{
     }
 
     const tryLogin = async() =>{
-        setLoading(true);
+
+        try{
+            setLoading(true);
        
-        console.log(email + "->" + psw);
-        //TODO CHECK EMAIL AND PSW
-        dispatch(login(email,psw));
+            console.log(email + "->" + psw);
+            //TODO CHECK EMAIL AND PSW
+            dispatch(login(email,psw,errorFunction));
+        }catch{
+            
+        }
+        
        
     }
     
     return (
         
         <View style={styles.container}>
+            <RegistrationErrorPopup visibilityFlag={ [errorModalVisible, setErrorModalVisible]} errors={errors}/>
             <MarginContainer style={styles.container}>
                                 <View>
                     <Text style={styles.title}></Text>

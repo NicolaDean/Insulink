@@ -4,24 +4,17 @@ import Slick from 'react-native-slick';
 import styles from './style'
 
 //CUSTOM COMPONENTS
-import CustomButton from '../../customComponents/customButton'
 import CustomImageButton from '../../customComponents/customImageButton'
 import PopUp from '../../customComponents/PopUp';
 
 //REDUX
 import { connect, useDispatch } from 'react-redux';
-import { checkStateConsistency } from '../../stateManager/reduxStates/actions/rootAction';
 import GlycemiaChart from '../../customComponents/glycemiaChart';
 import { MacroChart } from '../../customComponents/macroChart';
-import { Food_API } from '../../utils/apiQuery';
-import { localStorage } from '../../utils/localStoreManager';
-import { loadUserLocalData } from '../../stateManager/reduxStates/actions/userAction';
-import Login from '../login/login';
 import { loginStatus } from '../../constants/states';
 import { WaitLoading } from '../../customComponents/containers/waitLoading';
   const marginOffset=10;
   const screenWidth = Dimensions.get("window").width-marginOffset;
-import { Scanner } from '../../customComponents/barcodeScanner';
 
 //CHART CONFIG AND STYLE
 const chartConfig = {
@@ -105,14 +98,14 @@ export const Home = ({ navigation,state,user,diary }) =>{
               alignItems: 'stretch',flexDirection:'column'}}>
         <View style={{justifyContent: 'space-evenly',
               alignItems: 'flex-start',flexDirection:'row',marginBottom:5,marginHorizontal:40}}>
-          <CustomImageButton
+          <CustomImageButton testID={"ScannerButton"}
           image='barcode'
-                onPress={() => navigation.navigate('ScannerPage') }
+                onPress={() => navigation.navigate('ScannerPage',{}) }
                 useDefaultStyle={false}
                 iconStyle={styles.icon}
                 
             />
-             <CustomImageButton
+             <CustomImageButton  testID={"DiaryButton"}
           image='defaultDiet'
                 onPress={() => navigation.navigate('MealDiary',{
                    openCalendar: false 
@@ -123,14 +116,14 @@ export const Home = ({ navigation,state,user,diary }) =>{
         </View>
         <View style={{justifyContent: 'space-evenly',
               alignItems: 'flex-start',flexDirection:'row',marginHorizontal:40}}>
-          <CustomImageButton
+          <CustomImageButton  testID={"CalendarButton"}
           image='calendar'
           onPress={() => navigation.navigate('MealDiary',{
             openCalendar:true
          }) }                useDefaultStyle={false}
                 iconStyle={styles.icon}
             />
-             <PopUp
+             <PopUp 
           customImage='glucose'
                 customStyle={styles.icon}
                 name_to_open='Dose' name_to_close='close'

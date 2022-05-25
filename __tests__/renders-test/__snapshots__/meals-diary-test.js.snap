@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TEST ON FOOD COMPONENT: Food SnapShot:  1`] = `
+exports[`TEST ON FOOD COMPONENT MEAL AND MEAL DIARY: Food SnapShot:  1`] = `
 <View>
   <RCTScrollView>
     <View>
@@ -59,7 +59,7 @@ exports[`TEST ON FOOD COMPONENT: Food SnapShot:  1`] = `
                   }
                 }
               >
-                24 May 2022
+                25 May 2022
               </Text>
               <Image
                 source={
@@ -1104,7 +1104,7 @@ exports[`TEST ON FOOD COMPONENT: Food SnapShot:  1`] = `
 </View>
 `;
 
-exports[`TEST ON FOOD COMPONENT: Test Meal Expansion 1`] = `
+exports[`TEST ON FOOD COMPONENT MEAL AND MEAL DIARY: Test Meal Expansion 1`] = `
 <View>
   <RCTScrollView>
     <View>
@@ -1163,7 +1163,7 @@ exports[`TEST ON FOOD COMPONENT: Test Meal Expansion 1`] = `
                   }
                 }
               >
-                24 May 2022
+                25 May 2022
               </Text>
               <Image
                 source={

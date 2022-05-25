@@ -1,0 +1,1527 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
+<View
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#285AA4",
+        "flex": 1,
+        "flexDirection": "column",
+      }
+    }
+  >
+    <RCTScrollView
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <View>
+        <View
+          style={
+            Object {
+              "backgroundColor": "white",
+              "flex": 2,
+            }
+          }
+        >
+          <Image
+            source={
+              Object {
+                "uri": "https://d2xdmhkmkbyw75.cloudfront.net/256_highres.jpg",
+              }
+            }
+            style={
+              Object {
+                "alignSelf": "center",
+                "height": 200,
+                "margin": 10,
+                "position": "absolute",
+                "width": 200,
+                "zIndex": -1,
+              }
+            }
+          />
+          <View
+            style={
+              Object {
+                "alignContent": "center",
+                "flexDirection": "row",
+                "marginTop": 200,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "alignSelf": "center",
+                  "color": "black",
+                  "fontSize": 50,
+                  "fontWeight": "600",
+                }
+              }
+            >
+               
+              chicken noodle soup
+            </Text>
+            <View
+              accessibilityState={
+                Object {
+                  "disabled": false,
+                }
+              }
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignSelf": "flex-end",
+                  "height": 75,
+                  "marginLeft": 20,
+                  "marginTop": 5,
+                  "opacity": 1,
+                  "resizeMode": "contain",
+                  "top": 0,
+                  "width": 75,
+                }
+              }
+              testID="ImageButton"
+            >
+              <View
+                style={null}
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/plus.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "alignSelf": "flex-end",
+                      "height": 75,
+                      "marginLeft": 20,
+                      "marginTop": 5,
+                      "resizeMode": "contain",
+                      "top": 0,
+                      "width": 75,
+                    }
+                  }
+                />
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "backgroundColor": "rgba(112,202,230, 0.30)",
+              "flex": 4,
+              "flexDirection": "column",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "white",
+                "borderRadius": 10,
+                "flex": 1.3,
+                "marginLeft": "5%",
+                "marginTop": 10,
+                "width": "90%",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                  "marginLeft": 10,
+                  "marginRight": 10,
+                  "marginTop": 10,
+                }
+              }
+            >
+              <TextInput
+                defaultValue="1"
+                editable={true}
+                keyboardType="numeric"
+                onChangeText={[Function]}
+                placeholder="amount"
+                style={
+                  Object {
+                    "backgroundColor": "white",
+                    "borderColor": "black",
+                    "borderWidth": 1,
+                    "width": "20%",
+                  }
+                }
+              />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "width": "100%",
+                    },
+                    Object {
+                      "zIndex": 1000,
+                    },
+                    Object {
+                      "zIndex": 20,
+                    },
+                    false,
+                  ]
+                }
+              >
+                <View
+                  accessibilityState={
+                    Object {
+                      "disabled": false,
+                    }
+                  }
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  forwardedRef={[Function]}
+                  onClick={[Function]}
+                  onLayout={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "#fff",
+                      "borderColor": "#000",
+                      "borderRadius": 8,
+                      "borderWidth": 1,
+                      "flexDirection": "row",
+                      "justifyContent": "space-between",
+                      "marginLeft": "10%",
+                      "minHeight": 50,
+                      "opacity": 1,
+                      "paddingHorizontal": 10,
+                      "paddingVertical": 3,
+                      "width": "70%",
+                      "zIndex": 1000,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "color": "#000",
+                          "flex": 1,
+                        },
+                        Object {},
+                        Object {},
+                        false,
+                      ]
+                    }
+                  >
+                    cup
+                  </Text>
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "marginLeft": 10,
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+                    <Image
+                      source={
+                        Object {
+                          "testUri": "../../react-native-dropdown-picker/src/themes/light/icons/arrow-down.png",
+                        }
+                      }
+                      style={
+                        Array [
+                          Object {
+                            "height": 20,
+                            "width": 20,
+                          },
+                          Object {},
+                        ]
+                      }
+                    />
+                  </View>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                  "marginLeft": "5%",
+                  "marginTop": 10,
+                  "width": "90%",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "fontSize": 28,
+                  }
+                }
+              >
+                 
+                62
+                 
+              </Text>
+              <Image
+                source={
+                  Object {
+                    "testUri": "../../../src/assets/calories.png",
+                  }
+                }
+                style={
+                  Object {
+                    "height": 30,
+                    "width": 30,
+                  }
+                }
+              />
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "white",
+                "borderRadius": 10,
+                "flex": 2,
+                "flexDirection": "row",
+                "marginLeft": "5%",
+                "marginTop": 10,
+                "width": "90%",
+                "zIndex": -1,
+              }
+            }
+          >
+            <View
+              className="VictoryContainer"
+              onMoveShouldSetResponder={[Function]}
+              onMoveShouldSetResponderCapture={[Function]}
+              onResponderEnd={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderReject={[Function]}
+              onResponderRelease={[Function]}
+              onResponderStart={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              onStartShouldSetResponderCapture={[Function]}
+              pointerEvents="box-none"
+              style={
+                Object {
+                  "position": "relative",
+                }
+              }
+            >
+              <RNSVGSvgView
+                align="xMidYMid"
+                bbHeight={200}
+                bbWidth={200}
+                focusable={false}
+                height={200}
+                meetOrSlice={0}
+                minX={0}
+                minY={0}
+                role="img"
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                      "borderWidth": 0,
+                    },
+                    Object {
+                      "height": "100%",
+                      "width": "100%",
+                    },
+                    Object {
+                      "flex": 0,
+                      "height": 200,
+                      "width": 200,
+                    },
+                  ]
+                }
+                vbHeight={200}
+                vbWidth={200}
+                width={200}
+              >
+                <RNSVGGroup>
+                  <RNSVGRect
+                    fill={null}
+                    height={200}
+                    propList={
+                      Array [
+                        "fill",
+                      ]
+                    }
+                    width={200}
+                    x={0}
+                    y={0}
+                  />
+                  <RNSVGGroup>
+                    <RNSVGPath
+                      d="M3.061616997868383e-15,-50A50,50,0,1,1,-21.44171824227326,45.169156720255096L-12.865030945363957,27.101494032153056A30,30,0,1,0,1.83697019872103e-15,-30Z"
+                      fill={4294927175}
+                      matrix={
+                        Array [
+                          1,
+                          0,
+                          0,
+                          1,
+                          100,
+                          100,
+                        ]
+                      }
+                      propList={
+                        Array [
+                          "fill",
+                        ]
+                      }
+                    />
+                    <RNSVGPath
+                      d="M-21.44171824227326,45.169156720255096A50,50,0,0,1,-49.980177728317216,-1.4077763479416756L-29.98810663699033,-0.8446658087650054A30,30,0,0,0,-12.865030945363957,27.101494032153056Z"
+                      fill={4294944000}
+                      matrix={
+                        Array [
+                          1,
+                          0,
+                          0,
+                          1,
+                          100,
+                          100,
+                        ]
+                      }
+                      propList={
+                        Array [
+                          "fill",
+                        ]
+                      }
+                    />
+                    <RNSVGPath
+                      d="M-49.980177728317216,-1.4077763479416756A50,50,0,0,1,-9.184850993605149e-15,-50L-5.510910596163089e-15,-30A30,30,0,0,0,-29.98810663699033,-0.8446658087650054Z"
+                      fill={4294956800}
+                      matrix={
+                        Array [
+                          1,
+                          0,
+                          0,
+                          1,
+                          100,
+                          100,
+                        ]
+                      }
+                      propList={
+                        Array [
+                          "fill",
+                        ]
+                      }
+                    />
+                    <RNSVGText
+                      content={null}
+                      dx={
+                        Array [
+                          0,
+                        ]
+                      }
+                      dy={Array []}
+                      font={Object {}}
+                      name="pie-labels-0"
+                      rotate={Array []}
+                      x={
+                        Array [
+                          156,
+                        ]
+                      }
+                      y={
+                        Array [
+                          120.1,
+                        ]
+                      }
+                    >
+                      <RNSVGTSpan
+                        content="Carb"
+                        dx={
+                          Array [
+                            0,
+                          ]
+                        }
+                        dy={
+                          Array [
+                            0,
+                          ]
+                        }
+                        fill={4286611584}
+                        font={
+                          Object {
+                            "fontFamily": "Gill Sans",
+                            "fontSize": 20,
+                            "letterSpacing": "normal",
+                            "textAnchor": "start",
+                          }
+                        }
+                        propList={
+                          Array [
+                            "fill",
+                          ]
+                        }
+                        rotate={Array []}
+                        x={
+                          Array [
+                            156,
+                          ]
+                        }
+                        y={Array []}
+                      />
+                    </RNSVGText>
+                    <RNSVGText
+                      content={null}
+                      dx={
+                        Array [
+                          0,
+                        ]
+                      }
+                      dy={Array []}
+                      font={Object {}}
+                      name="pie-labels-1"
+                      rotate={Array []}
+                      x={
+                        Array [
+                          51,
+                        ]
+                      }
+                      y={
+                        Array [
+                          137.1,
+                        ]
+                      }
+                    >
+                      <RNSVGTSpan
+                        content="Fat"
+                        dx={
+                          Array [
+                            0,
+                          ]
+                        }
+                        dy={
+                          Array [
+                            0,
+                          ]
+                        }
+                        fill={4286611584}
+                        font={
+                          Object {
+                            "fontFamily": "Gill Sans",
+                            "fontSize": 20,
+                            "letterSpacing": "normal",
+                            "textAnchor": "end",
+                          }
+                        }
+                        propList={
+                          Array [
+                            "fill",
+                          ]
+                        }
+                        rotate={Array []}
+                        x={
+                          Array [
+                            51,
+                          ]
+                        }
+                        y={Array []}
+                      />
+                    </RNSVGText>
+                    <RNSVGText
+                      content={null}
+                      dx={
+                        Array [
+                          0,
+                        ]
+                      }
+                      dy={Array []}
+                      font={Object {}}
+                      name="pie-labels-2"
+                      rotate={Array []}
+                      x={
+                        Array [
+                          60,
+                        ]
+                      }
+                      y={
+                        Array [
+                          56.1,
+                        ]
+                      }
+                    >
+                      <RNSVGTSpan
+                        content="Prot"
+                        dx={
+                          Array [
+                            0,
+                          ]
+                        }
+                        dy={
+                          Array [
+                            0,
+                          ]
+                        }
+                        fill={4286611584}
+                        font={
+                          Object {
+                            "fontFamily": "Gill Sans",
+                            "fontSize": 20,
+                            "letterSpacing": "normal",
+                            "textAnchor": "middle",
+                          }
+                        }
+                        propList={
+                          Array [
+                            "fill",
+                          ]
+                        }
+                        rotate={Array []}
+                        x={
+                          Array [
+                            60,
+                          ]
+                        }
+                        y={Array []}
+                      />
+                    </RNSVGText>
+                  </RNSVGGroup>
+                  <View
+                    pointerEvents="box-none"
+                    style={
+                      Object {
+                        "left": 0,
+                        "position": "absolute",
+                        "top": 0,
+                        "zIndex": 99,
+                      }
+                    }
+                  >
+                    <RNSVGSvgView
+                      align="xMidYMid"
+                      bbHeight={200}
+                      bbWidth={200}
+                      focusable={false}
+                      height={200}
+                      meetOrSlice={0}
+                      minX={0}
+                      minY={0}
+                      style={
+                        Array [
+                          Object {
+                            "backgroundColor": "transparent",
+                            "borderWidth": 0,
+                          },
+                          Object {
+                            "height": "100%",
+                            "overflow": "visible",
+                            "width": "100%",
+                          },
+                          Object {
+                            "flex": 0,
+                            "height": 200,
+                            "width": 200,
+                          },
+                        ]
+                      }
+                      vbHeight={200}
+                      vbWidth={200}
+                      width={200}
+                    >
+                      <RNSVGGroup />
+                    </RNSVGSvgView>
+                  </View>
+                </RNSVGGroup>
+              </RNSVGSvgView>
+            </View>
+            <View
+              style={Object {}}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/carbohydrates.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  CARB: 
+                  7.32
+                   g
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/fat.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  FAT: 
+                  2.36
+                   g
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/protein.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  PROT: 
+                  3.15
+                   g
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "white",
+                "borderRadius": 10,
+                "marginLeft": "5%",
+                "marginTop": 10,
+                "width": "90%",
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "alignSelf": "flex-start",
+                  "color": "black",
+                  "fontSize": 30,
+                  "fontWeight": "600",
+                }
+              }
+            >
+              Details
+            </Text>
+            <View
+              style={
+                Object {
+                  "borderColor": "black",
+                  "borderTopWidth": 2,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "fontSize": 20,
+                    "fontWeight": "bold",
+                    "marginLeft": "2%",
+                  }
+                }
+              >
+                total_fat
+                : 
+                2.36
+              </Text>
+              <View
+                style={
+                  Object {
+                    "borderBottomWidth": 1,
+                    "borderColor": "black",
+                    "marginLeft": "15%",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "gray",
+                      "fontSize": 15,
+                      "fontWeight": "bold",
+                      "marginLeft": "2%",
+                    }
+                  }
+                >
+                  saturated_fat
+                  :
+                  0.65
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "borderBottomWidth": 1,
+                    "borderColor": "black",
+                    "marginLeft": "15%",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "gray",
+                      "fontSize": 15,
+                      "fontWeight": "bold",
+                      "marginLeft": "2%",
+                    }
+                  }
+                >
+                  trans_fat
+                  :
+                  0.0074
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "borderBottomWidth": 1,
+                    "borderColor": "black",
+                    "marginLeft": "15%",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "gray",
+                      "fontSize": 15,
+                      "fontWeight": "bold",
+                      "marginLeft": "2%",
+                    }
+                  }
+                >
+                  polyunsaturated
+                  :
+                  0.6547
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "borderBottomWidth": 1,
+                    "borderColor": "black",
+                    "marginLeft": "15%",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "gray",
+                      "fontSize": 15,
+                      "fontWeight": "bold",
+                      "marginLeft": "2%",
+                    }
+                  }
+                >
+                  monounsaturated
+                  :
+                  1.0366
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "borderColor": "black",
+                  "borderTopWidth": 2,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "fontSize": 20,
+                    "fontWeight": "bold",
+                    "marginLeft": "2%",
+                  }
+                }
+              >
+                cholesterol
+                : 
+                12.4
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "borderColor": "black",
+                  "borderTopWidth": 2,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "fontSize": 20,
+                    "fontWeight": "bold",
+                    "marginLeft": "2%",
+                  }
+                }
+              >
+                sodium
+                : 
+                865.52
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "borderColor": "black",
+                  "borderTopWidth": 2,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "fontSize": 20,
+                    "fontWeight": "bold",
+                    "marginLeft": "2%",
+                  }
+                }
+              >
+                potassium
+                : 
+                54.56
+              </Text>
+            </View>
+            <View
+              style={
+                Object {
+                  "borderColor": "black",
+                  "borderTopWidth": 2,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "fontSize": 20,
+                    "fontWeight": "bold",
+                    "marginLeft": "2%",
+                  }
+                }
+              >
+                total_carbohydrate
+                : 
+                7.32
+              </Text>
+              <View
+                style={
+                  Object {
+                    "borderBottomWidth": 1,
+                    "borderColor": "black",
+                    "marginLeft": "15%",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "gray",
+                      "fontSize": 15,
+                      "fontWeight": "bold",
+                      "marginLeft": "2%",
+                    }
+                  }
+                >
+                  dietary_fiber
+                  :
+                  0.5
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "borderBottomWidth": 1,
+                    "borderColor": "black",
+                    "marginLeft": "15%",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "gray",
+                      "fontSize": 15,
+                      "fontWeight": "bold",
+                      "marginLeft": "2%",
+                    }
+                  }
+                >
+                  sugars
+                  :
+                  0.67
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "borderColor": "black",
+                  "borderTopWidth": 2,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "black",
+                    "fontSize": 20,
+                    "fontWeight": "bold",
+                    "marginLeft": "2%",
+                  }
+                }
+              >
+                protein
+                : 
+                3.15
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "marginLeft": "5%",
+                "marginTop": 10,
+                "width": "90%",
+              }
+            }
+          >
+            <View>
+              <View
+                accessibilityState={
+                  Object {
+                    "disabled": false,
+                  }
+                }
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "backgroundColor": "rgb(112,202,230)",
+                    "borderRadius": 10,
+                    "elevation": 0,
+                    "margin": 20,
+                    "opacity": 1,
+                    "paddingHorizontal": 12,
+                    "paddingVertical": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "alignSelf": "center",
+                        "color": "#fff",
+                        "fontSize": 18,
+                        "fontWeight": "bold",
+                        "textTransform": "uppercase",
+                      },
+                      null,
+                    ]
+                  }
+                >
+                  Add Food To Meal
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+</View>
+`;
+
+exports[`TEST ON Food Details Page: Test Edit Food 1`] = `
+Object {
+  "macroTracker": Object {
+    "activities": Object {
+      "breakfast": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "dinner": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "lunch": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "snack": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+    },
+    "activity_id": 1,
+    "currentDate": "25-05-2022",
+    "currentMeal": "breakfast",
+    "history": Object {
+      "activities": Object {
+        "breakfast": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+        "dinner": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+        "lunch": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+        "snack": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+      },
+      "empty": true,
+      "meals": Object {
+        "breakfast": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+        "dinner": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+        "lunch": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+        "snack": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+      },
+      "totMacro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "id": 3,
+    "meals": Object {
+      "breakfast": Object {
+        "foods": Array [
+          Object {
+            "cal": 62,
+            "carb": 7.32,
+            "fat": 2.36,
+            "id": Object {
+              "common_type": null,
+              "food_name": "apple pie",
+              "locale": "en_US",
+              "photo": Object {
+                "thumb": "https://nix-tag-images.s3.amazonaws.com/1291_thumb.jpg",
+              },
+              "serving_qty": 1,
+              "serving_unit": "piece (1/8 of 9\\" dia)",
+              "tag_id": "15060",
+              "tag_name": "Apple pie",
+            },
+            "identifier": 1,
+            "image": "https://d2xdmhkmkbyw75.cloudfront.net/256_highres.jpg",
+            "name": "chicken noodle soup",
+            "prot": 3.15,
+            "quantity": 1,
+            "unit": "cup",
+          },
+          Object {
+            "cal": 62,
+            "carb": 7.32,
+            "fat": 2.36,
+            "id": Object {
+              "common_type": null,
+              "food_name": "apple pie",
+              "locale": "en_US",
+              "photo": Object {
+                "thumb": "https://nix-tag-images.s3.amazonaws.com/1291_thumb.jpg",
+              },
+              "serving_qty": 1,
+              "serving_unit": "piece (1/8 of 9\\" dia)",
+              "tag_id": "15060",
+              "tag_name": "Apple pie",
+            },
+            "identifier": 2,
+            "image": "https://d2xdmhkmkbyw75.cloudfront.net/256_highres.jpg",
+            "name": "chicken noodle soup",
+            "prot": 3.15,
+            "quantity": 1,
+            "unit": "cup",
+          },
+        ],
+        "macro": Object {
+          "cal": 124,
+          "carb": 14.64,
+          "fat": 4.72,
+          "prot": 6.3,
+        },
+      },
+      "dinner": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "lunch": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "snack": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+    },
+    "totCalBurned": 0,
+    "totMacro": Object {
+      "cal": 124,
+      "carb": 14.64,
+      "fat": 4.72,
+      "prot": 6.3,
+    },
+  },
+  "userReducer": Object {
+    "mustCompleteReg": false,
+    "status": "UNLOGGED",
+    "userData": Object {
+      "birthday": Object {
+        "nanoseconds": 0,
+        "seconds": 0,
+      },
+      "choratio": 0,
+      "email": "",
+      "glicemy": Array [],
+      "height": 180,
+      "isf": 0,
+      "maxCarb": 200,
+      "maxFat": 100,
+      "maxProt": 40,
+      "name": "dummy",
+      "password": "",
+      "surname": "",
+      "weight": 80,
+    },
+    "userId": "nullId",
+  },
+}
+`;
+
+exports[`TEST ON Food Details Page: Test Error of  Add Food with No Parameter 1`] = `
+Object {
+  "macroTracker": Object {
+    "activities": Object {
+      "breakfast": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "dinner": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "lunch": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "snack": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+    },
+    "activity_id": 1,
+    "currentDate": "25-05-2022",
+    "currentMeal": "breakfast",
+    "history": Object {
+      "activities": Object {
+        "breakfast": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+        "dinner": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+        "lunch": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+        "snack": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+      },
+      "empty": true,
+      "meals": Object {
+        "breakfast": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+        "dinner": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+        "lunch": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+        "snack": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+      },
+      "totMacro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "id": 2,
+    "meals": Object {
+      "breakfast": Object {
+        "foods": Array [
+          Object {
+            "cal": 62,
+            "carb": 7.32,
+            "fat": 2.36,
+            "id": Object {
+              "common_type": null,
+              "food_name": "apple pie",
+              "locale": "en_US",
+              "photo": Object {
+                "thumb": "https://nix-tag-images.s3.amazonaws.com/1291_thumb.jpg",
+              },
+              "serving_qty": 1,
+              "serving_unit": "piece (1/8 of 9\\" dia)",
+              "tag_id": "15060",
+              "tag_name": "Apple pie",
+            },
+            "identifier": 1,
+            "image": "https://d2xdmhkmkbyw75.cloudfront.net/256_highres.jpg",
+            "name": "chicken noodle soup",
+            "prot": 3.15,
+            "quantity": 1,
+            "unit": "cup",
+          },
+        ],
+        "macro": Object {
+          "cal": 62,
+          "carb": 7.32,
+          "fat": 2.36,
+          "prot": 3.15,
+        },
+      },
+      "dinner": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "lunch": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "snack": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+    },
+    "totCalBurned": 0,
+    "totMacro": Object {
+      "cal": 62,
+      "carb": 7.32,
+      "fat": 2.36,
+      "prot": 3.15,
+    },
+  },
+  "userReducer": Object {
+    "mustCompleteReg": false,
+    "status": "UNLOGGED",
+    "userData": Object {
+      "birthday": Object {
+        "nanoseconds": 0,
+        "seconds": 0,
+      },
+      "choratio": 0,
+      "email": "",
+      "glicemy": Array [],
+      "height": 180,
+      "isf": 0,
+      "maxCarb": 200,
+      "maxFat": 100,
+      "maxProt": 40,
+      "name": "dummy",
+      "password": "",
+      "surname": "",
+      "weight": 80,
+    },
+    "userId": "nullId",
+  },
+}
+`;

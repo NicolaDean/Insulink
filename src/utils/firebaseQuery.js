@@ -33,8 +33,9 @@ class firebaseQuery{
         await (this.users.doc(id).set(userData));
     }
 
-    udpateUser = async (userData) =>{
+    editUserData = async (id,userData) =>{
         //TODO UPDATE USER DATA
+        await (this.users.doc(id).update(userData));
     }
     //------------------------------------------------------------------------------------
     //GLICEMY QUERY:----------------------------------------------------------------------
@@ -65,6 +66,7 @@ class firebaseQuery{
         return glicemy_records;
     }
 
+    
     /**
      * Add a new value of glicemy to user with userId
      * @param {*} userId identifier of user

@@ -78,6 +78,9 @@ export const Registration = ({navigation,route,mustCompleteReg}) =>{
     }
 
     const errorFunction = (error) =>{
+        if(waitRegConfirm){
+            setRegConfirmWait(false);
+        }
         setErrors(error);
         if(JSON.stringify(error) != "[]") {
             setErrorModalVisible(true);
@@ -90,7 +93,7 @@ export const Registration = ({navigation,route,mustCompleteReg}) =>{
             console.log("Try Creating account with " + userData.email + "->" +userData.password );
             setRegConfirmWait(true);
             
-            dispatch(register(userData,googleId));
+            dispatch(register(userData,googleId,errorFunction));
             
             setRegConfirmWait(false);
 
@@ -141,9 +144,10 @@ export const Registration = ({navigation,route,mustCompleteReg}) =>{
             default: return null;
         }
     }
-
+//            <CustomButton title='TEST' onPress={()=>{tryRegister()}}/>
     return (
         <View>
+
             <RegistrationErrorPopup visibilityFlag={ [errorModalVisible, setErrorModalVisible]} errors={errors}/>
             <View style={styles.container}>
                 <MarginContainer style={styles.container}>

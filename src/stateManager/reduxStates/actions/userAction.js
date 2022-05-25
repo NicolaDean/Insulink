@@ -6,6 +6,7 @@ import { localStorage } from "../../../utils/localStoreManager";
 import * as authSys from '../../../utils/auth'
 import { loginStatus } from "../../../constants/states";
 import { FirebaseQuery } from "../../../utils/firebaseQuery";
+import { registrationErrors } from "../../../constants/registrationSteps";
 
 /**
  * check all user inputs and try to register
@@ -14,15 +15,18 @@ import { FirebaseQuery } from "../../../utils/firebaseQuery";
  * @param {*} user user data to register
  * @returns error code
  */
-export const register = (user,googleId=null) => async dispatch =>{
+export const register = (user,googleId=null,errorFunc = (e)=>{}) => async dispatch =>{
     //ASYNC ACTION:
     //TODO CHECK USER INPUTS ARE OK (psw length, email not exist etc...)
 
-    
+    //errorFunc([registrationErrors.invalidChoratio])
     console.log("Reg Start:");
     let id;
     if(googleId==null){
-        id = (await authSys.register(user.email,user.password)).uid;
+        const usr = (await authSys.register(user.email,user.password,errorFunc));
+        if(usr == null) {return;}
+
+        id = usr.uid;
     }else{
         id = googleId
     }
@@ -33,18 +37,18 @@ export const register = (user,googleId=null) => async dispatch =>{
 
     let glicemyData = {};
     let date = FirebaseQuery.glicemyDateFormatter();
-    glicemyData[date] = [];
+    //glicemyData[date] = [{}];
 
-    user.glicemy = glicemyData;
+    user.glicemy = [];
 
-    //await localStorage.setDataAvailability(true);
     //SAVE DATA TO LOCAL STORAGE
-
-    //REDUX DISPATCH
+    await localStorage.saveUserData(usrData);
+    
     dispatch({
         type: userMethods.registerUser,
         payload: {user:user}
     });
+   
 } 
 
 /**
@@ -52,13 +56,16 @@ export const register = (user,googleId=null) => async dispatch =>{
  * @param {*} userData 
  * @returns 
  */
-export const editUserData = (userData) => async dispatch =>{
+export const editUserData = (userData) => async( dispatch, getState) =>{
 
-    //TODO:
-    //Save updated user data to local storage
-    //localStorage.saveUserData(userData);
-    //Firebase Update
-    //database.udpateUser(userData);
+    const userState = getState().userReducer;
+
+    await localStorage.saveUserData(userData);
+    await FirebaseQuery.editUserData(userState.userId,userData);
+
+        //TODO:
+        //Firebase Update
+        //database.udpateUser(userData);
 
     console.log("Edit Completed");
     //REDUX DISPATCH
@@ -110,13 +117,14 @@ const actualLogin = (usrData,uid,glicemy) => async dispatch =>{
  * @param {*} psw password for login
  * @returns true or false (false if login is not ok)
  */
-export const login = (email,psw) => async dispatch =>{
+export const login = (email,psw,errorFunc = (e) =>{}) => async dispatch =>{
 
+    //errorFunc([registrationErrors.invalidChoratio]);
     console.log("CIAO");
     //ASYNC ACTION (eg check values on DB)
 
     //CHECK LOGIN DATA
-    const user = await authSys.login(email,psw);
+    const user = await authSys.login(email,psw,errorFunc);
     if(user == null) {return null}; //BAD LOGIN (make return an error)
     //Get user data
     const usrData = (await FirebaseQuery.getUserData(user.uid));

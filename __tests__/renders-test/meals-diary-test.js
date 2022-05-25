@@ -12,6 +12,7 @@ import { mockedStore } from "../../testHelper/reduxMock";
 
 
 import * as rdx from 'react-redux';
+import { Food_API } from "../../src/utils/apiQuery";
 
 const mockDispatch = jest.fn((action) => console.log(action));
 const m = jest.spyOn(rdx,'useDispatch');
@@ -20,6 +21,7 @@ m.mockImplementation (()=>mockDispatch);
 
 const mock_firebase = new CustomFirestoreMock();
 FirebaseQuery.users = mock_firebase;
+
 
   const firebasee = () =>{
       return {
@@ -52,13 +54,13 @@ const tree = create(
     </Provider>
 );
 
-describe("TEST ON FOOD COMPONENT:",()=>{
+describe("TEST ON FOOD COMPONENT MEAL AND MEAL DIARY:",()=>{
 
     /**
      * Semplicemente snapshot
      */
     test("Food SnapShot: ",()=>{
-        console.log(mockedStore.getState());
+        
         expect(tree).toMatchSnapshot();
     });
 

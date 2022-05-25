@@ -51,6 +51,7 @@ export const EditPersonalData = ({ navigation,status }) =>{
     const prevStep = () =>{
         setStep(step => step -1);
     }
+    
     //TODO CREATE A GLOBAL STATE FOR ALL STEPS THAT CONTAIN USER DATA
     const renderStep = () =>{
         switch(step){
@@ -81,7 +82,7 @@ export const EditPersonalData = ({ navigation,status }) =>{
                         {step < 5 ? <CustomButton title='Next' onPress={nextStep}/> : null}
                     </View>
                     <MarginContainer style={{alignContent:'center',justifyContent:'center'}}>
-                        <CustomButton style={{width:'95%'}} title='Save Data'/>
+                        <CustomButton style={{width:'95%'}} onPress={()=>saveData()} title='Save Data'/>
                     </MarginContainer>
                 </MarginContainer>
             </View>

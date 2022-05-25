@@ -9,7 +9,7 @@ import { CustomImageButton } from '../../customComponents/customImageButton';
 
 const screenWidth = Dimensions.get("window").width;
 
-export const FoodSearch = ({ nav }) =>{
+export const FoodSearch = ({ navigation }) =>{
 
   const [foodData, setData] = useState([]);
   const [foodSelected, setFood] = useState("apple");
@@ -55,7 +55,7 @@ export const FoodSearch = ({ nav }) =>{
       data={foodData}
       numColumns={3}
       renderItem={({ item }) => (
-          <Food style={styles.food} data ={item} nav = {nav} api={apiSelected} deletable={false}></Food>
+          <Food style={styles.food} data ={item} nav = {navigation} api={apiSelected} deletable={false}></Food>
         )}
       />
     );
@@ -70,7 +70,7 @@ export const FoodSearch = ({ nav }) =>{
               onPress={() => getData()} />
            
             <CustomImageButton image='camera'   iconStyle={styles.LogoSize}
-              onPress={() => nav.navigate('ScannerPage',{}) }
+              onPress={() => navigation.navigate('ScannerPage',{}) }
             />
 
            </View>

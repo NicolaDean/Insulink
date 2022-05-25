@@ -9,10 +9,8 @@
 //NICO
 --. centrare nomi pagine sulla top bar
 --. Google login va su telefono ma non da emulatore (Solved?)
---. Popup Errori Login
---. Errore registrazione
 --. editUserData -> to be completed (manca localstorage e firebase!!!)
---. check macroReducer -> resetDiary.... dosnt work
+--.check logout redirect (eg use setInterval javascript)
 
 //GLOBAL
 --. Quando ci si logga non sempre carica i dati vecchi da firebase/localstorage
