@@ -9,10 +9,7 @@ import { dummyApple, dummyAppleDeletable } from "../../testHelper/dataForTest/fo
 import CustomFirestoreMock from "../../__mocks__/@react-native-firebase/firebase";
 import { Provider } from "react-redux";
 import { mockedStore } from "../../testHelper/reduxMock";
-
-
 import * as rdx from 'react-redux';
-import { Food_API } from "../../src/utils/apiQuery";
 
 const mockDispatch = jest.fn((action) => console.log(action));
 const m = jest.spyOn(rdx,'useDispatch');
@@ -39,7 +36,6 @@ jest.mock('@react-native-async-storage/async-storage');
 jest.mock('react-native-slick');
 
 jest.mock('victory-native');
-//jest.mock('../../src/pages/diary/meal',()=>"MEAL");
 
 const mock_navigation = {
     navigate:jest.fn((a,b)=>{console.log("NAV to " + a)})
@@ -59,7 +55,7 @@ describe("TEST ON FOOD COMPONENT MEAL AND MEAL DIARY:",()=>{
     /**
      * Semplicemente snapshot
      */
-    test("Food SnapShot: ",()=>{
+    test("Meal Diary SnapShot: ",()=>{
         
         expect(tree).toMatchSnapshot();
     });

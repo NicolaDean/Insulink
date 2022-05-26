@@ -70,7 +70,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
               }
             >
                
-              chicken noodle soup
+              apple pie
             </Text>
             <View
               accessibilityState={
@@ -239,7 +239,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                       ]
                     }
                   >
-                    cup
+                    piece (1/8 of 9" dia)
                   </Text>
                   <View
                     style={
@@ -290,7 +290,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                 }
               >
                  
-                62
+                60
                  
               </Text>
               <Image
@@ -389,7 +389,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                   />
                   <RNSVGGroup>
                     <RNSVGPath
-                      d="M3.061616997868383e-15,-50A50,50,0,1,1,-21.44171824227326,45.169156720255096L-12.865030945363957,27.101494032153056A30,30,0,1,0,1.83697019872103e-15,-30Z"
+                      d="M3.061616997868383e-15,-50A50,50,0,1,1,-26.3216081438678,42.51085678648071L-15.792964886320679,25.50651407188842A30,30,0,1,0,1.83697019872103e-15,-30Z"
                       fill={4294927175}
                       matrix={
                         Array [
@@ -408,7 +408,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                       }
                     />
                     <RNSVGPath
-                      d="M-21.44171824227326,45.169156720255096A50,50,0,0,1,-49.980177728317216,-1.4077763479416756L-29.98810663699033,-0.8446658087650054A30,30,0,0,0,-12.865030945363957,27.101494032153056Z"
+                      d="M-26.3216081438678,42.51085678648071A50,50,0,0,1,-49.78670881475173,-4.613417973165125L-29.872025288851034,-2.7680507838990747A30,30,0,0,0,-15.792964886320679,25.50651407188842Z"
                       fill={4294944000}
                       matrix={
                         Array [
@@ -427,7 +427,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                       }
                     />
                     <RNSVGPath
-                      d="M-49.980177728317216,-1.4077763479416756A50,50,0,0,1,-9.184850993605149e-15,-50L-5.510910596163089e-15,-30A30,30,0,0,0,-29.98810663699033,-0.8446658087650054Z"
+                      d="M-49.78670881475173,-4.613417973165125A50,50,0,0,1,3.522406999140111e-14,-50L2.1134441994840666e-14,-30A30,30,0,0,0,-29.872025288851034,-2.7680507838990747Z"
                       fill={4294956800}
                       matrix={
                         Array [
@@ -458,12 +458,12 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                       rotate={Array []}
                       x={
                         Array [
-                          156,
+                          155,
                         ]
                       }
                       y={
                         Array [
-                          120.1,
+                          123.1,
                         ]
                       }
                     >
@@ -496,7 +496,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                         rotate={Array []}
                         x={
                           Array [
-                            156,
+                            155,
                           ]
                         }
                         y={Array []}
@@ -515,12 +515,12 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                       rotate={Array []}
                       x={
                         Array [
-                          51,
+                          49,
                         ]
                       }
                       y={
                         Array [
-                          137.1,
+                          132.1,
                         ]
                       }
                     >
@@ -553,7 +553,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                         rotate={Array []}
                         x={
                           Array [
-                            51,
+                            49,
                           ]
                         }
                         y={Array []}
@@ -572,12 +572,12 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                       rotate={Array []}
                       x={
                         Array [
-                          60,
+                          62,
                         ]
                       }
                       y={
                         Array [
-                          56.1,
+                          55.1,
                         ]
                       }
                     >
@@ -610,7 +610,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                         rotate={Array []}
                         x={
                           Array [
-                            60,
+                            62,
                           ]
                         }
                         y={Array []}
@@ -694,7 +694,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                 />
                 <Text>
                   CARB: 
-                  7.32
+                  10
                    g
                 </Text>
               </View>
@@ -724,7 +724,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                 />
                 <Text>
                   FAT: 
-                  2.36
+                  3
                    g
                 </Text>
               </View>
@@ -754,7 +754,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                 />
                 <Text>
                   PROT: 
-                  3.15
+                  4
                    g
                 </Text>
               </View>
@@ -803,7 +803,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
               >
                 total_fat
                 : 
-                2.36
+                3
               </Text>
               <View
                 style={
@@ -991,7 +991,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
               >
                 total_carbohydrate
                 : 
-                7.32
+                10
               </Text>
               <View
                 style={
@@ -1062,7 +1062,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
               >
                 protein
                 : 
-                3.15
+                4
               </Text>
             </View>
           </View>
@@ -1153,216 +1153,7 @@ Object {
       },
     },
     "activity_id": 1,
-    "currentDate": "25-05-2022",
-    "currentMeal": "breakfast",
-    "history": Object {
-      "activities": Object {
-        "breakfast": Object {
-          "sports": Array [],
-          "totCal": 0,
-        },
-        "dinner": Object {
-          "sports": Array [],
-          "totCal": 0,
-        },
-        "lunch": Object {
-          "sports": Array [],
-          "totCal": 0,
-        },
-        "snack": Object {
-          "sports": Array [],
-          "totCal": 0,
-        },
-      },
-      "empty": true,
-      "meals": Object {
-        "breakfast": Object {
-          "foods": Array [],
-          "macro": Object {
-            "cal": 0,
-            "carb": 0,
-            "fat": 0,
-            "prot": 0,
-          },
-        },
-        "dinner": Object {
-          "foods": Array [],
-          "macro": Object {
-            "cal": 0,
-            "carb": 0,
-            "fat": 0,
-            "prot": 0,
-          },
-        },
-        "lunch": Object {
-          "foods": Array [],
-          "macro": Object {
-            "cal": 0,
-            "carb": 0,
-            "fat": 0,
-            "prot": 0,
-          },
-        },
-        "snack": Object {
-          "foods": Array [],
-          "macro": Object {
-            "cal": 0,
-            "carb": 0,
-            "fat": 0,
-            "prot": 0,
-          },
-        },
-      },
-      "totMacro": Object {
-        "cal": 0,
-        "carb": 0,
-        "fat": 0,
-        "prot": 0,
-      },
-    },
-    "id": 3,
-    "meals": Object {
-      "breakfast": Object {
-        "foods": Array [
-          Object {
-            "cal": 62,
-            "carb": 7.32,
-            "fat": 2.36,
-            "id": Object {
-              "common_type": null,
-              "food_name": "apple pie",
-              "locale": "en_US",
-              "photo": Object {
-                "thumb": "https://nix-tag-images.s3.amazonaws.com/1291_thumb.jpg",
-              },
-              "serving_qty": 1,
-              "serving_unit": "piece (1/8 of 9\\" dia)",
-              "tag_id": "15060",
-              "tag_name": "Apple pie",
-            },
-            "identifier": 1,
-            "image": "https://d2xdmhkmkbyw75.cloudfront.net/256_highres.jpg",
-            "name": "chicken noodle soup",
-            "prot": 3.15,
-            "quantity": 1,
-            "unit": "cup",
-          },
-          Object {
-            "cal": 62,
-            "carb": 7.32,
-            "fat": 2.36,
-            "id": Object {
-              "common_type": null,
-              "food_name": "apple pie",
-              "locale": "en_US",
-              "photo": Object {
-                "thumb": "https://nix-tag-images.s3.amazonaws.com/1291_thumb.jpg",
-              },
-              "serving_qty": 1,
-              "serving_unit": "piece (1/8 of 9\\" dia)",
-              "tag_id": "15060",
-              "tag_name": "Apple pie",
-            },
-            "identifier": 2,
-            "image": "https://d2xdmhkmkbyw75.cloudfront.net/256_highres.jpg",
-            "name": "chicken noodle soup",
-            "prot": 3.15,
-            "quantity": 1,
-            "unit": "cup",
-          },
-        ],
-        "macro": Object {
-          "cal": 124,
-          "carb": 14.64,
-          "fat": 4.72,
-          "prot": 6.3,
-        },
-      },
-      "dinner": Object {
-        "foods": Array [],
-        "macro": Object {
-          "cal": 0,
-          "carb": 0,
-          "fat": 0,
-          "prot": 0,
-        },
-      },
-      "lunch": Object {
-        "foods": Array [],
-        "macro": Object {
-          "cal": 0,
-          "carb": 0,
-          "fat": 0,
-          "prot": 0,
-        },
-      },
-      "snack": Object {
-        "foods": Array [],
-        "macro": Object {
-          "cal": 0,
-          "carb": 0,
-          "fat": 0,
-          "prot": 0,
-        },
-      },
-    },
-    "totCalBurned": 0,
-    "totMacro": Object {
-      "cal": 124,
-      "carb": 14.64,
-      "fat": 4.72,
-      "prot": 6.3,
-    },
-  },
-  "userReducer": Object {
-    "mustCompleteReg": false,
-    "status": "UNLOGGED",
-    "userData": Object {
-      "birthday": Object {
-        "nanoseconds": 0,
-        "seconds": 0,
-      },
-      "choratio": 0,
-      "email": "",
-      "glicemy": Array [],
-      "height": 180,
-      "isf": 0,
-      "maxCarb": 200,
-      "maxFat": 100,
-      "maxProt": 40,
-      "name": "dummy",
-      "password": "",
-      "surname": "",
-      "weight": 80,
-    },
-    "userId": "nullId",
-  },
-}
-`;
-
-exports[`TEST ON Food Details Page: Test Error of  Add Food with No Parameter 1`] = `
-Object {
-  "macroTracker": Object {
-    "activities": Object {
-      "breakfast": Object {
-        "sports": Array [],
-        "totCal": 0,
-      },
-      "dinner": Object {
-        "sports": Array [],
-        "totCal": 0,
-      },
-      "lunch": Object {
-        "sports": Array [],
-        "totCal": 0,
-      },
-      "snack": Object {
-        "sports": Array [],
-        "totCal": 0,
-      },
-    },
-    "activity_id": 1,
-    "currentDate": "25-05-2022",
+    "currentDate": "[DATE]",
     "currentMeal": "breakfast",
     "history": Object {
       "activities": Object {
@@ -1434,9 +1225,9 @@ Object {
       "breakfast": Object {
         "foods": Array [
           Object {
-            "cal": 62,
-            "carb": 7.32,
-            "fat": 2.36,
+            "cal": 120,
+            "carb": 20,
+            "fat": 6,
             "id": Object {
               "common_type": null,
               "food_name": "apple pie",
@@ -1451,17 +1242,17 @@ Object {
             },
             "identifier": 1,
             "image": "https://d2xdmhkmkbyw75.cloudfront.net/256_highres.jpg",
-            "name": "chicken noodle soup",
-            "prot": 3.15,
-            "quantity": 1,
-            "unit": "cup",
+            "name": "apple pie",
+            "prot": 8,
+            "quantity": 2,
+            "unit": "piece (1/8 of 9\\" dia)",
           },
         ],
         "macro": Object {
-          "cal": 62,
-          "carb": 7.32,
-          "fat": 2.36,
-          "prot": 3.15,
+          "cal": 120,
+          "carb": 20,
+          "fat": 6,
+          "prot": 8,
         },
       },
       "dinner": Object {
@@ -1494,10 +1285,358 @@ Object {
     },
     "totCalBurned": 0,
     "totMacro": Object {
-      "cal": 62,
-      "carb": 7.32,
-      "fat": 2.36,
-      "prot": 3.15,
+      "cal": 120,
+      "carb": 20,
+      "fat": 6,
+      "prot": 8,
+    },
+  },
+  "userReducer": Object {
+    "mustCompleteReg": false,
+    "status": "UNLOGGED",
+    "userData": Object {
+      "birthday": Object {
+        "nanoseconds": 0,
+        "seconds": 0,
+      },
+      "choratio": 0,
+      "email": "",
+      "glicemy": Array [],
+      "height": 180,
+      "isf": 0,
+      "maxCarb": 200,
+      "maxFat": 100,
+      "maxProt": 40,
+      "name": "dummy",
+      "password": "",
+      "surname": "",
+      "weight": 80,
+    },
+    "userId": "nullId",
+  },
+}
+`;
+
+exports[`TEST ON Food Details Page: Test Edit Food 2`] = `
+Object {
+  "macroTracker": Object {
+    "activities": Object {
+      "breakfast": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "dinner": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "lunch": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "snack": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+    },
+    "activity_id": 1,
+    "currentDate": "[DATE]",
+    "currentMeal": "breakfast",
+    "history": Object {
+      "activities": Object {
+        "breakfast": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+        "dinner": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+        "lunch": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+        "snack": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+      },
+      "empty": true,
+      "meals": Object {
+        "breakfast": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+        "dinner": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+        "lunch": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+        "snack": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+      },
+      "totMacro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "id": 2,
+    "meals": Object {
+      "breakfast": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "dinner": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "lunch": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "snack": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+    },
+    "totCalBurned": 0,
+    "totMacro": Object {
+      "cal": 0,
+      "carb": 0,
+      "fat": 0,
+      "prot": 0,
+    },
+  },
+  "userReducer": Object {
+    "mustCompleteReg": false,
+    "status": "UNLOGGED",
+    "userData": Object {
+      "birthday": Object {
+        "nanoseconds": 0,
+        "seconds": 0,
+      },
+      "choratio": 0,
+      "email": "",
+      "glicemy": Array [],
+      "height": 180,
+      "isf": 0,
+      "maxCarb": 200,
+      "maxFat": 100,
+      "maxProt": 40,
+      "name": "dummy",
+      "password": "",
+      "surname": "",
+      "weight": 80,
+    },
+    "userId": "nullId",
+  },
+}
+`;
+
+exports[`TEST ON Food Details Page: Test Error of  Add Food with No Parameter 1`] = `
+Object {
+  "macroTracker": Object {
+    "activities": Object {
+      "breakfast": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "dinner": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "lunch": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "snack": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+    },
+    "activity_id": 1,
+    "currentDate": "[DATE]",
+    "currentMeal": "breakfast",
+    "history": Object {
+      "activities": Object {
+        "breakfast": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+        "dinner": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+        "lunch": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+        "snack": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+      },
+      "empty": true,
+      "meals": Object {
+        "breakfast": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+        "dinner": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+        "lunch": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+        "snack": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+      },
+      "totMacro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "id": 2,
+    "meals": Object {
+      "breakfast": Object {
+        "foods": Array [
+          Object {
+            "cal": 60,
+            "carb": 10,
+            "fat": 3,
+            "id": Object {
+              "common_type": null,
+              "food_name": "apple pie",
+              "locale": "en_US",
+              "photo": Object {
+                "thumb": "https://nix-tag-images.s3.amazonaws.com/1291_thumb.jpg",
+              },
+              "serving_qty": 1,
+              "serving_unit": "piece (1/8 of 9\\" dia)",
+              "tag_id": "15060",
+              "tag_name": "Apple pie",
+            },
+            "identifier": 1,
+            "image": "https://d2xdmhkmkbyw75.cloudfront.net/256_highres.jpg",
+            "name": "apple pie",
+            "prot": 4,
+            "quantity": 1,
+            "unit": "piece (1/8 of 9\\" dia)",
+          },
+        ],
+        "macro": Object {
+          "cal": 60,
+          "carb": 10,
+          "fat": 3,
+          "prot": 4,
+        },
+      },
+      "dinner": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "lunch": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "snack": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+    },
+    "totCalBurned": 0,
+    "totMacro": Object {
+      "cal": 60,
+      "carb": 10,
+      "fat": 3,
+      "prot": 4,
     },
   },
   "userReducer": Object {

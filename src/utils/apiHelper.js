@@ -80,8 +80,8 @@ class Helper{
     makeProportion = (details,item,qty) => {
 
         const measure = details.units_dic[item];
-        console.log(JSON.stringify(measure));
-
+        console.log("Measure" +JSON.stringify(measure));
+        console.log(JSON.stringify(details.units_dic) + "->" + item);
         const proportion = {...details};
 
         const ratio = (measure.serving_weight*qty)/details.serving_weight_grams;

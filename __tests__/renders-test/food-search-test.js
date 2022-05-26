@@ -31,7 +31,7 @@ const mock_navigation = {
 
 const mockApi = jest.spyOn(Food_API,'getFoodListAlternative');
 mockApi.mockImplementation = (a) =>{console.log("METHOD" +  a)}
-const tree = create(<FoodSearch nav={mock_navigation}/>);
+const tree = create(<FoodSearch navigation={mock_navigation}/>);
 
 describe("TEST ON FOOD COMPONENT:",()=>{
 

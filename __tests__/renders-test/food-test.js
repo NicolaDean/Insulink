@@ -86,8 +86,4 @@ describe("TEST ON FOOD COMPONENT:",()=>{
         expect(removeFood).toBeCalledWith(dummyAppleDeletable); //Check if action called with right dataw
         
     })
-
-    test("Content Test", () =>{
-
-    });
 });

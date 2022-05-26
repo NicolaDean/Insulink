@@ -98,11 +98,13 @@ describe("Test the Home component",()=>{
     });
 
     test("Click Glucose Button",() =>{
-        const diary = tree.root.findByProps({testID:'GlucoseButton'}).props;//Added TestId to TouchableOpacity
-        
-        console.log(diary);
-        //Click The food
-        act(()=>diary.onPress());
-        
+        const x = create();
+        const diary = tree.root.findByProps({testID:'GlucoseButton'});//Added TestId to TouchableOpacity
+        const btn = diary.props;
+        //CLICK GLUCOSE BUTTON
+        act(()=>btn.onPress()); 
+        //CHECK IF POPUP OPENED (and the "put here your glicemy appeared")
+        const popup = diary.children[0].findAllByProps({testID:'PopupTextID'}).props;
+
     });
 });

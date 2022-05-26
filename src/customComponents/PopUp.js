@@ -117,7 +117,7 @@ export const PopUp = (
               />
               </View> 
     <View style={{margin:10,marginTop:'15%'}}>
-              <Text style={styles.modalText}>Place your</Text>
+              <Text style={styles.modalText} testID={'PopupTextID'} >Place your</Text>
               <Text style={styles.modalText}>Glycemia here:</Text>
 
               <TextInput style={styles.field}  keyboardType="numeric"   placeholder="mg/dL" onChangeText={setGlicemy}/>

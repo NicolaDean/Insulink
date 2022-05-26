@@ -2,7 +2,7 @@ import React from "react";
 //import {cleanup, fireEvent, render} from '@testing-library/react';
 import {create,act} from 'react-test-renderer';
 import * as actions from "../../src/stateManager/reduxStates/actions/macroTracker";
-import { dummyApple, dummyAppleDeletable } from "../../testHelper/dataForTest/foods";
+import { dummyApple, dummyAppleDeletable, dummyFootDetails } from "../../testHelper/dataForTest/foods";
 import CustomFirestoreMock from "../../__mocks__/@react-native-firebase/firebase";
 import { Provider } from "react-redux";
 import { mockedStore } from "../../testHelper/reduxMock";
@@ -35,7 +35,7 @@ api_mock.mockImplementation(async (a) => {
         console.log("API CALLED with " + a); 
         return new Promise((resolve,reject)=>{
                 console.log("Start API");
-                resolve(dummyDetails)
+                resolve(dummyFootDetails);
             })
         });
 
@@ -73,7 +73,7 @@ const food_test={
 }
 
 //DECLARE TREE VARIABLE
-const params = {data : dummyApple,foodInfo:dummyAppleDeletable,editable : false};
+var params = {data : dummyApple,foodInfo:dummyAppleDeletable,editable : false};
 let tree;
 
   
@@ -82,6 +82,7 @@ describe("TEST ON Food Details Page:",()=>{
     
     beforeAll(async ()=>{
         await act(async() => {
+            console.log("TEST NORMAL:")
             tree = create(<Provider store={mockedStore}>
                             <FoodDetails route={{params:params}} navigation={mock_navigation} currentDate="[DATE]"/>
                           </Provider>)
@@ -102,13 +103,6 @@ describe("TEST ON Food Details Page:",()=>{
         //Check API is called correctly
         expect(api_mock).toBeCalled(); //OK
         expect(api_mock).toBeCalledWith("apple pie");
-
-        //Check all variables have been  setted correctly
-        /*expect(setStateMock).toBeCalledTimes(4);
-        expect(setStateMock).toHaveBeenNthCalledWith(1,1);      //setAmount
-        expect(setStateMock).toHaveBeenNthCalledWith(2,"cup");  //chosen Unit  
-        expect(setStateMock.mock.calls[3]).toMatchSnapshot();   //setUnits
-        expect(setStateMock.mock.calls[4]).toMatchSnapshot();   //setDetails*/
     })
     /**
      * Test if clicking add food with no selected quantity/unit give error
@@ -151,13 +145,19 @@ describe("TEST ON Food Details Page:",()=>{
      */
     test("Test Edit Food", async () =>{
         let editTree;
+        dummyAppleDeletable.quantity=2;
+        params = {data : dummyApple,foodInfo:dummyAppleDeletable,editable : true};
         await act(async() => {
+            console.log("TEST EDITT:")
             editTree = create(<Provider store={mockedStore}>
-                            <FoodDetails route={{params:params}} navigation={mock_navigation} currentDate="[NotToday]"/>
-                          </Provider>)
+                                <FoodDetails route={{params:params}} navigation={mock_navigation} currentDate="[NotToday]"/>
+                            </Provider>)
           });
         
-          const addBtn = editTree.root.findByProps({testID:'AddButtonID'}).props;
+          const addBtn    = editTree.root.findByProps({testID:'AddButtonID'}).props;
+          const deleteBtn = editTree.root.findByProps({testID:'DeleteButtonID'}).props;
+        
+        ////EDIT A FOOD:
         //Click Button
         act(()=>addBtn.onPress());
         //Check if dispatch is called correctly
@@ -166,5 +166,16 @@ describe("TEST ON Food Details Page:",()=>{
         expect(mockedStore.getState()).toMatchSnapshot();
         //Check Navigation
         expect(mock_navigation.navigate).toBeCalledWith("MealDiary",{});
+        
+        ////DELETE A FOOD:
+        //Click Button
+        act(()=>deleteBtn.onPress());
+        //Check if dispatch is called correctly
+        expect(mockDispatch).toBeCalled();
+        //Check changed state
+        expect(mockedStore.getState()).toMatchSnapshot();
+        //Check Navigation
+        expect(mock_navigation.navigate).toBeCalledWith("MealDiary",{});
+
     });
 });

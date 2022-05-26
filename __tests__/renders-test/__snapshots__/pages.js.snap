@@ -89,7 +89,7 @@ exports[`Render our Food Related Components Render Food 1`] = `
         }
       />
       <Text>
-        1 - g
+        1 - piece (1/8 of 9" dia)
       </Text>
     </View>
   </View>

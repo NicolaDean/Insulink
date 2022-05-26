@@ -75,8 +75,9 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
         console.log('default serving unit '+JSON.stringify(res.serving_unit))
         setItems(res.units);
         //SET DETAILS VARIABLE
-    
+        console.log("QQQQ:" + foodInfo.quantity);
         if(editable){
+            console.log("IT WORKED");
             makeProportions(foodInfo.unit,foodInfo.quantity,res);
         }else{
             setDetails(res);
@@ -108,6 +109,7 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
         console.log("IL IDENTIFIER" + foodId);
         
         if(editable){
+            console.log("SEND EDITTT")
             dispatch(editFood(food));
         }else{
             dispatch(addFood(food));
@@ -141,16 +143,16 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
         if(res == null){
             proportion = ApiHelper.makeProportion(details,item,qty);
         }else{
+            console.log("ok")
             proportion = ApiHelper.makeProportion(res,item,qty);
         }
-        
         console.log("prop:" + proportion);
         setDetails(proportion);
     }
 
     const deleteButton = () =>{
         return(
-            <CustomImageButton disabled={notEditable} image={buttonIconsNames.bin} style={styles.addPlus} iconStyle={styles.addPlus} testID={"DeleteButtonId"} 
+            <CustomImageButton disabled={notEditable} image={buttonIconsNames.bin} style={styles.addPlus} iconStyle={styles.addPlus} testID={"DeleteButtonID"} 
             onPress={() =>{
                 dispatch(removeFood({
                     id:     data,

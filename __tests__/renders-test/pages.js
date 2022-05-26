@@ -53,22 +53,4 @@ describe('Render our Food Related Components',()=>{
         //Render Sport
         //TODO
       });
-
-     /* test('Render Food Details',()=>{
-
-        FirebaseQuery.getIngredientDetailsAlternative = jest.fn((a)=>{
-          console.log("BANANAA");
-          const res =  Promise.resolve(testDetails);
-
-          return res._W;
-        });
-
-        const res = FirebaseQuery.getIngredientDetailsAlternative("apple");
-        //console.log(JSON.stringify(res));
-        const params = {data : dummyApple,foodInfo:dummyAppleDeletable,editable : false}
-
-        const foodDetails = renderer.create(<FoodDetails route = {{params:params}}/>).toJSON();
-        expect(foodDetails).toMatchSnapshot();
-      })*/
-
 });//<Food data={dummyApple}/>

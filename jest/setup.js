@@ -29,3 +29,5 @@ jest.mock('@react-native-firebase/firestore',()=> firebasee);
 jest.mock('@react-native-async-storage/async-storage');
 jest.mock('react-native-slick');
 jest.useFakeTimers();//TO USE useEffects and other async requests
+FirebaseQuery.glicemyDateFormatter = (d) => {return "[DATE]"}
+FirebaseQuery.printFormattedDate = (a) =>{return "[FORMATTED DATE]"};
