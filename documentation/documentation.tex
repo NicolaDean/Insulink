@@ -519,9 +519,10 @@ The following provides a screenshot of the pages with a brief description of the
 	The technology used to make this app is react native \cite{React Native}.
 	\begin{center}
 
-	\includegraphics[scale=0.1]{RN}
+	\includegraphics[scale=0.4]{Architecture}
 \end{center}
 
+	\subsection{UML app structure}
 	\subsection{Folder Structure}
 	\begin{docCommand}{assets}{}
 		Contains all images and component with a proper mapping.
@@ -546,7 +547,6 @@ The following provides a screenshot of the pages with a brief description of the
 	\begin{docCommand}{utils}{}
 		Logic of API, authentication, Firebase and Insulin Calculator
 	\end{docCommand}
-
 
 
 
@@ -681,42 +681,47 @@ by decresing it.
 \vspace{10.5cm}
 
 To perform automated and personalized testing it was used Jest \cite{Jest} and React Test Renderer \cite{testRenderer}. It is a JavaScript Testing Framework that supports React Native.
-Tests were performed on:
+To do so it was used the mocking technique to check the behaviour of components.\\
+Tests were contained inside:
 \begin{docCommand}{__tests__}{}
-Where to overcome some technological barriers, mock objects were used instead of not supported libraries.
+	This folder is automaticaly detected by the jest configuration as the test folder
+\end{docCommand}
+\begin{docCommand}{__mock__}{}
+	This folder, combined with a setup.js file contribute to the mocking system of the app
 \end{docCommand}
 \subsection{Testing Strategy}
-The strategy chosen for testing combine different technique such as Snapshots, Render and trigger events, Unit Testing.\\
-Snapshotting have been used to capture the visual aspect of pages or the state of redux reducers,
-While Rendering and trigger events have been used to test all the navigation/button clicks event and consequences
-Lastly all the other components, such as firebaseQuery,ApiQuery,InputChecker have been tested using Unit Testing.
-\subsection{Folders}
+The testing strategy is composed on a mix of 3 main technique:
+\begin{itemize}
+	\item \textbf{Snapshots} to detect when static pages or redux states dosn't behave correctly
+ 	\item \textbf{Widget test} for buttons/events/redux actions
+  	\item \textbf{Unit Testing} for our helper classes
+\end{itemize}
+The next chapters will be dedicated on the description of this strategy.
 
+\subsection{Folder Structure}
 
 \begin{docCommand}{api-test}{}
-	Local storage and API calls from Firebase and Nutritionix.
+	Unit testing on all the components that access to \textbf{API,localstorage or firebase}.
 \end{docCommand}
 
 \begin{docCommand}{redux-test}{}
-	Redux and user actions such as: adding food to meal or removing it. 
+	Snapshot testing on the \textbf{reducers results}.
 \end{docCommand}
 
 \begin{docCommand}{renders-test}{}
-	Checks correct Pages rendering. Makes snapshots of all pages and compares them with expected result.
+	Widget and Snapshot testing on all the \textbf{main pages and components} (static screenshot).
 \end{docCommand}
 
 \begin{docCommand}{utils}{}
-   Checks User input and Insulin Calculator 
+   Unit testing on the most importants \textbf{utils classes}
 \end{docCommand}
 
-At the end were performed more than 50 successful tests on the app.
-
+\subsection{Test Suites}
+The tests are subdivided into 16 suites
+\subsubsection*{Utils class testing}
+As explained before, the app contain 2 important utilities class, this suit aim to apply Unit Testing on them
 \begin{center} 
-
-\subsection{Tests}
 \begin{tabular}{ |p{4cm}|p{5cm}|  }
-	\hline
-	\multicolumn{2}{|c|}{utils} \\
 	\hline
 	insuline-calculator & 
 	1. Check correct calculation \\
@@ -727,49 +732,92 @@ At the end were performed more than 50 successful tests on the app.
 	3. Physical Info Errors \newline     
 	  \\
 	\hline
-	\multicolumn{2}{|c|}{api-test} \\
-	\hline
-	firebase & 
-	1. Get User Data \newline    
-	2. Save User Data \newline    
-	3. Get Food Diary \newline   
-	4. Set Food Diary \newline  
-	5. Get Glicemy Data \newline  
-	6. Add Glicemy Data \newline  
-	\\
-	\hline
-	api-query &
-	1. Search for foods \newline    
-	2. Get Food Details \newline    
-	3. Get Food by barrcode \newline   
-	4. Get Activity calories \newline  
-	\\
-	\hline
-	local-storage &
-	1. Get User Data \newline    
-	2. Save User Data \newline    
-	3. Get Food Diary \newline   
-	4. Set Food Diary \newline  
-	5. Get Glicemy Data \newline  
-	6. Add Glicemy Data \newline    
-	\\
-	\hline
-	\multicolumn{2}{|c|}{redux-test} \\
-	\hline
-	local-storage &
-	1. Get User Data \newline    
-	2. Save User Data \newline    
-	3. Get Food Diary \newline   
-	4. Set Food Diary \newline  
-	5. Get Glicemy Data \newline  
-	6. Add Glicemy Data \newline    
-	\\
-	\hline
-	\multicolumn{2}{|c|}{renders-test} \\
-	\hline
-	\end{tabular}
+\end{tabular}
 \end{center}
+\subsubsection*{Firebase testing}
+An "Ad hock" class \textbf{CustomFirestoreMock} have been created to mock Firebase component.
+It contains a mock for doc,collection,get,set,data methods and allow to mock the return value of get() and data() functions.
+\begin{center} 
+	\begin{tabular}{ |p{4cm}|p{5cm}|  }
+		\hline
+		getters & 
+		1. Get User Data \newline    
+		2. Get Food Diary \newline
+		3. Add Glicemy Data \newline  
+		\\
+		\hline
+		setters &
+		1. Set Food Diary \newline  
+		2. Save User Data \newline
+		3. Get Glicemy Data \newline       
+		  \\
+		\hline
+	\end{tabular}
+	\end{center}
+\subsubsection*{Api Helper testing}
+Axios class have been mocked using an "ad hoc" jest.fn() that return a Promise.
+TODO put here CODE OF AXIOS MOCK
+\begin{center} 
+	\begin{tabular}{ |p{4cm}|p{5cm}|  }
+		\hline
+		Food related query &
+		1. Search for foods \newline    
+		2. Get Food Details \newline    
+		3. Get Food by barrcode \newline 
+		\\
+		\hline
+		Sport related query  &
+		1. Get Activity calories \newline  
+		\\
+		\hline
+	\end{tabular}
+	\end{center}
+\subsubsection*{Local Storage testing}
+As for the previous classes, also AsyncStorage needed mock but it comes already distributed with the original module.
+It is called \textbf{Async Storage Mock}, we stored an automatic import/mock inside the \textbf{mock folder}
 
+\begin{center} 
+	\begin{tabular}{ |p{4cm}|p{5cm}|  }
+		\hline
+		getters & 
+		1. Get User Data \newline    
+		2. Get Food Diary \newline
+		3. Add Glicemy Data \newline  
+		\\
+		\hline
+		setters &
+		1. Set Food Diary \newline  
+		2. Save User Data \newline
+		3. Get Glicemy Data \newline       
+		  \\
+		\hline
+	\end{tabular}
+	\end{center}
+\subsubsection*{Redux testing}
+The redux testing was done by snapshotting the reducer output uppon a certain input.\\
+Since reducers are \textbf{pure methods}, no mock was needed.
+\begin{center} 
+	\begin{tabular}{ |p{4cm}|p{5cm}|  }
+		\hline
+		macroReducer & 
+		1. Add,Edit,Remove Food \newline    
+		2. Add,Remove  Sport \newline
+		3. Select Meal\newline 
+		4. Reset Diary \newline  
+		\\
+		\hline
+		userReducer &
+		1. Login \newline  
+		2. Update Data \newline
+		3. Add Glicemy \newline   
+		4. Logout \newline 
+		  \\
+		\hline
+	\end{tabular}
+	\end{center}
+\subsubsection*{CustomComponents snapshots}
+
+\subsubsection*{Pages widgets and snapshots}
 
 \newpage
 \newgeometry{

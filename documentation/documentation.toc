@@ -21,7 +21,8 @@
 \contentsline {paragraph}{Delete Food}{8}{paragraph*.10}%
 \contentsline {paragraph}{Calculate Insulin}{8}{paragraph*.11}%
 \contentsline {section}{\numberline {4}Architecture}{9}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Folder Structure}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.1}UML app structure}{9}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Folder Structure}{9}{subsection.4.2}%
 \contentsline {section}{\numberline {5}API and Services}{11}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Nutritionix}{11}{subsection.5.1}%
 \contentsline {paragraph}{Methods}{12}{paragraph*.18}%
@@ -31,8 +32,8 @@
 \contentsline {subsection}{\numberline {7.1}Formulas}{16}{subsection.7.1}%
 \contentsline {section}{\numberline {8}Testing}{17}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Testing Strategy}{17}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Folders}{17}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Tests}{19}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.2}Folder Structure}{18}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Test Suites}{18}{subsection.8.3}%
 \contentsline {section}{\numberline {9}Future Implementations}{20}{section.9}%
 \contentsline {subsection}{\numberline {9.1}API}{20}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}Machine Learning and AI}{20}{subsection.9.2}%
