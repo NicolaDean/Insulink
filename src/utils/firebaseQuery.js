@@ -165,7 +165,7 @@ class firebaseQuery{
         console.log("TRY FIREBASE")
         console.log("USER : " + userId + "->" + date);
         //TAKE THE REFERENCE TO USER DIARY (without getting data())
-        const userDiary = await this.users.doc(userId).collection(tables.diaryTable).doc(date).get();
+        const userDiary = this.users.doc(userId).collection(tables.diaryTable).doc(date).get();
         //INGORE UNDEFINED VALUES
         firestore().settings({ ignoreUndefinedProperties: true }); //INGORE UNDEFINED FIELD
         const data = {
@@ -195,7 +195,11 @@ class firebaseQuery{
     getFoodDiary = async (userId,date) =>{
         const res = (await (this.users.doc(userId).collection(tables.diaryTable).doc(date).get())).data();
         
-        if(res == undefined) return [];
+        if(res == undefined || res == null){
+            console.log("RES UNDEFINED");
+            return [];
+        } 
+        console.log("RES:" + res);
 
         return res;
     }

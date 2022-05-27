@@ -680,12 +680,16 @@ by decresing it.
 \section{Testing}
 \vspace{10.5cm}
 
-To perform automated and personalized testing it was used Jest \cite{Jest}. It is a JavaScript Testing Framework that supports React Native.
+To perform automated and personalized testing it was used Jest \cite{Jest} and React Test Renderer \cite{testRenderer}. It is a JavaScript Testing Framework that supports React Native.
 Tests were performed on:
 \begin{docCommand}{__tests__}{}
 Where to overcome some technological barriers, mock objects were used instead of not supported libraries.
 \end{docCommand}
-
+\subsection{Testing Strategy}
+The strategy chosen for testing combine different technique such as Snapshots, Render and trigger events, Unit Testing.\\
+Snapshotting have been used to capture the visual aspect of pages or the state of redux reducers,
+While Rendering and trigger events have been used to test all the navigation/button clicks event and consequences
+Lastly all the other components, such as firebaseQuery,ApiQuery,InputChecker have been tested using Unit Testing.
 \subsection{Folders}
 
 
@@ -710,22 +714,58 @@ At the end were performed more than 50 successful tests on the app.
 \begin{center} 
 
 \subsection{Tests}
-\begin{tabular}{ |p{3cm}|p{5cm}|  }
+\begin{tabular}{ |p{4cm}|p{5cm}|  }
 	\hline
-	\multicolumn{2}{|c|}{Nome Test} \\
+	\multicolumn{2}{|c|}{utils} \\
 	\hline
-	Entry Conditions & ISO ALPHA 2 Code \\
+	insuline-calculator & 
+	1. Check correct calculation \\
 	\hline
-	Event Flows & 
-	1. Open application \newline    
-	2. Click on \newline    
-	3. ... \newline    
-	4.  
+	input-checker & 
+	1. Actual Registration Errors \newline    
+	2. Personal Info Errors \newline    
+	3. Physical Info Errors \newline     
 	  \\
 	\hline
-	Exit Conditions & AX  \\
+	\multicolumn{2}{|c|}{api-test} \\
 	\hline
-	Notes &AL\\
+	firebase & 
+	1. Get User Data \newline    
+	2. Save User Data \newline    
+	3. Get Food Diary \newline   
+	4. Set Food Diary \newline  
+	5. Get Glicemy Data \newline  
+	6. Add Glicemy Data \newline  
+	\\
+	\hline
+	api-query &
+	1. Search for foods \newline    
+	2. Get Food Details \newline    
+	3. Get Food by barrcode \newline   
+	4. Get Activity calories \newline  
+	\\
+	\hline
+	local-storage &
+	1. Get User Data \newline    
+	2. Save User Data \newline    
+	3. Get Food Diary \newline   
+	4. Set Food Diary \newline  
+	5. Get Glicemy Data \newline  
+	6. Add Glicemy Data \newline    
+	\\
+	\hline
+	\multicolumn{2}{|c|}{redux-test} \\
+	\hline
+	local-storage &
+	1. Get User Data \newline    
+	2. Save User Data \newline    
+	3. Get Food Diary \newline   
+	4. Set Food Diary \newline  
+	5. Get Glicemy Data \newline  
+	6. Add Glicemy Data \newline    
+	\\
+	\hline
+	\multicolumn{2}{|c|}{renders-test} \\
 	\hline
 	\end{tabular}
 \end{center}
@@ -784,7 +824,9 @@ glucose (and store it).
 				\url{https://redux.js.org}	
 		\bibitem{Insulin Dose} Source for Insulin Calculator\\
 				\url{https://dtc.ucsf.edu/types-of-diabetes/type1/treatment-of-type-1-diabetes/medications-and-therapies/type-1-insulin-therapy/calculating-insulin-dose/}
-	\end{thebibliography}
+		\bibitem{testRenderer} Source for React Test Renderer\\
+				\url{https://it.reactjs.org/docs/test-renderer.html}
+			\end{thebibliography}
 \addtocounter{section}{14}
 \addcontentsline{toc}{section}{\protect\numberline{\thesection}~~~ References}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

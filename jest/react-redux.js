@@ -36,3 +36,12 @@ export const reduxMock = {
 
 const setStateMock = jest.fn((a)=>{console.log("SET: "+a)});
 //jest.spyOn(React,'useState').mockImplementation(useState =>[useState,setStateMock]);
+
+
+import {Button} from 'react-native';
+
+export default MockGoogle = () =>{
+  return(
+    <Button/>
+  )
+}

@@ -42,7 +42,7 @@ export async function onGoogleButtonPress() {
     
   }
 
-export const GoogleButton = ({navigation,onSuccess}) =>{
+export default GoogleButton = ({navigation,onSuccess}) =>{
 
     const dispatch = useDispatch();
 

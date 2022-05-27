@@ -30,12 +30,13 @@
 \contentsline {section}{\numberline {7}Insulin Calculator}{15}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Formulas}{16}{subsection.7.1}%
 \contentsline {section}{\numberline {8}Testing}{17}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Folders}{17}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Tests}{18}{subsection.8.2}%
-\contentsline {section}{\numberline {9}Future Implementations}{19}{section.9}%
-\contentsline {subsection}{\numberline {9.1}API}{19}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Machine Learning and AI}{19}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}NFC Glucose Meter}{20}{subsection.9.3}%
-\contentsline {section}{\numberline {10}References}{21}{section.10}%
-\contentsline {section}{\numberline {24}~~~ References}{22}{section.10}%
+\contentsline {subsection}{\numberline {8.1}Testing Strategy}{17}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Folders}{17}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Tests}{19}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Future Implementations}{20}{section.9}%
+\contentsline {subsection}{\numberline {9.1}API}{20}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Machine Learning and AI}{20}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}NFC Glucose Meter}{21}{subsection.9.3}%
+\contentsline {section}{\numberline {10}References}{22}{section.10}%
+\contentsline {section}{\numberline {24}~~~ References}{23}{section.10}%
 \contentsfinish 

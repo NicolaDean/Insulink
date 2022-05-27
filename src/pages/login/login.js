@@ -15,7 +15,7 @@ import { colors } from '../../constants/appAspect';
 import { MarginContainer } from '../../customComponents/containers/marginContainer';
 import { InputBlock } from '../../customComponents/containers/inputsBlock';
 import { InputContainer } from '../../customComponents/containers/inputsContainer';
-import { GoogleButton } from './socialLogin/googleLogin';
+import  GoogleButton  from './socialLogin/googleLogin';
 import { RegistrationErrorPopup } from './registration/errorsPopup';
 
 export const Login = ({navigation,status}) =>{
@@ -25,9 +25,10 @@ export const Login = ({navigation,status}) =>{
     const [loading, setLoading] = useState(false);
     const [logged,setLogged] = useState(false);
 	
-    const [email,setEmail] = useState("");
-    const [psw,setPsw] = useState("");
+    const [email,setEmail] = React.useState("");
+    const [psw,setPsw] = React.useState("");
 
+    console.log("Email:" + email);
     //Error Popup
     const [errors,setErrors] = useState([]);
     const [errorModalVisible, setErrorModalVisible] = useState(false);
@@ -85,6 +86,7 @@ export const Login = ({navigation,status}) =>{
 
     const tryLogin = async() =>{
 
+        console.log("LOGIN IS IN ACTION");
         try{
             setLoading(true);
        
@@ -107,17 +109,17 @@ export const Login = ({navigation,status}) =>{
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Insert Your Credential:"}>
                         <InputContainer name={"Email: "}>
-                            <TextInput style={styles.textInput} keyboardType="email-address" onChangeText={setEmail}/>
+                            <TextInput style={styles.textInput} keyboardType="email-address" testID={"EmailID"}  onChangeText={setEmail}/>
                         </InputContainer>
                         <InputContainer name={"Password: "}>
-                            <TextInput style={styles.textInput} secureTextEntry={true} onChangeText={setPsw}/>
+                            <TextInput style={styles.textInput} secureTextEntry={true} testID={"PswID"} onChangeText={setPsw}/>
                         </InputContainer>
                     </InputBlock>
                 </View>
                 <CustomButton title='Fast Test Login' onPress={testLogin}/>
-                <CustomButton title='Login' onPress={tryLogin}/>
+                <CustomButton title='Login' testID={"LoginButtonID"} onPress={tryLogin}/>
           
-                <CustomButton title='Register' onPress={()=>{navigation.navigate('Registration',{})}}/>
+                <CustomButton title='Register' testID={"RegistrationButtonID"} onPress={()=>{navigation.navigate('Registration',{})}}/>
                 <GoogleButton navigation={navigation}/>
 
             </MarginContainer>

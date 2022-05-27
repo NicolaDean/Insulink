@@ -37,7 +37,12 @@ export class InsulineCalculator {
             this.totalInsulineDaily = 0.55 * weight; //base formula to predict
             this.CHORatio = 500 / this.totalInsulineDaily; //CHO Ratio from weight
         }else{
-            this.CHORatio=CHORatio;
+            if(CHORatio<1){
+                this.CHORatio =1;
+            }else{
+                this.CHORatio=CHORatio;
+            }
+            
         }
     }
 

@@ -58,13 +58,13 @@ export const RegStep4 = ({userData,setUserData}) =>{
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Fitness Objective:"}>
                         <InputContainer name={"Carbohydrates: "}>
-                            <Slider value={userData.maxCarb} onValueChange={(value)=>{changeMacro("Carb",value)}} minimumValue={0} maximumValue={600} step={1}/>
+                            <Slider testID={"CarbID"} value={userData.maxCarb} onValueChange={(value)=>{changeMacro("Carb",value)}} minimumValue={0} maximumValue={600} step={1}/>
                         </InputContainer>
                         <InputContainer name={"Fats: "}>
-                            <Slider value={userData.maxFat} onValueChange={(value)=>{changeMacro("Fat",value)}} minimumValue={0} maximumValue={600} step={1}/>
+                            <Slider testID={"FatID"} value={userData.maxFat} onValueChange={(value)=>{changeMacro("Fat",value)}} minimumValue={0} maximumValue={600} step={1}/>
                         </InputContainer>
                         <InputContainer name={"Proteins: "}>
-                            <Slider value={userData.maxProt} onValueChange={(value)=>{changeMacro("Prot",value)}} minimumValue={0} maximumValue={600} step={1}/>
+                            <Slider testID={"ProtID"} value={userData.maxProt} onValueChange={(value)=>{changeMacro("Prot",value)}} minimumValue={0} maximumValue={600} step={1}/>
                         </InputContainer>
                         <InputContainer style={{alignSelf:'center'}}>
                     

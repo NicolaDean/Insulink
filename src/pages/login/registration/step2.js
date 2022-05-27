@@ -49,10 +49,10 @@ export const RegStep2 = ({step,setStep,userData,setUserData}) =>{
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Personal Data:"}>
                         <InputContainer name={"Name "}>
-                            <TextInput value={userData.name} style={styles.textInput} onChangeText={val => setUserData(userDataTypes.name,val)}/>
+                            <TextInput value={userData.name} style={styles.textInput} onChangeText={val => setUserData(userDataTypes.name,val)} testID={"NameID"}/>
                         </InputContainer>
                         <InputContainer name={"Surname "}>
-                            <TextInput value={userData.surname} style={styles.textInput} onChangeText={val => setUserData(userDataTypes.surname,val)}/>
+                            <TextInput value={userData.surname} style={styles.textInput} onChangeText={val => setUserData(userDataTypes.surname,val)} testID={"SurnameID"}/>
                         </InputContainer>
                         <InputContainer name={"Gender "} childrenStyle={styles.genders}>
                             <Gender gender={buttonIconsNames.male} selected={userData.gender} setGender={setUserGender}/>

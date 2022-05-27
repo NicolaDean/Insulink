@@ -8,16 +8,23 @@ export default class CustomFirestoreMock {
     this.mockOrderBy = jest.fn(() => this)
     this.mockDoc = jest.fn(()=>this)
 
-
+    
     // data
-    this.mockData = jest.fn(()=> Promise.resolve(this._mockGetReturn));
+    this.mockData = jest.fn(()=> {console.log("DATAA");return new Promise (resolve => resolve(this._mockGetReturn))});
     // methods that return promises
     this.mockSet = jest.fn(() => Promise.resolve(this._mockAddReturn))
-    this.mockGet = jest.fn(() => {return {mockData:this.mockData}})
+    //this.mockGet = jest.fn(() => {return {data:this.mockData}})
 
+    this.mockGet = jest.fn(() => {return new Promise(r=>r({data:this.mockData}))});
     // methods that accepts callbacks
     this.mockOnSnaptshot = jest.fn((success, error) => success(this._mockOnSnaptshotSuccess))
 
+    this.virtualDb = {
+      data:this.mockData,
+      ref:{
+        update:jest.fn((a)=>{console.log("UPDATEE:" + a)})
+      }
+    }
     // return values
     this._mockAddReturn = null
     this._mockGetReturn = null
@@ -58,11 +65,11 @@ export default class CustomFirestoreMock {
     return this.mockOnSnaptshot(success, error)
   }
 
-  set mockAddReturn (val) {
+  mockAddReturn (val) {
     this._mockAddReturn = val
   }
 
-  set mockGetReturn (val) {
+  mockGetReturn (val) {
     this._mockGetReturn = val
   }
 

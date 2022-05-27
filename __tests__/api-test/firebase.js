@@ -57,9 +57,6 @@ describe("TESTING OUR FIREBASE API FUNCTIONS:", () =>{
 
     });
 
-    test("Update User Data ", ()=>{
-        //TODO
-    });
 
     test("Get Glicemy of a user in a specific date ", ()=>{
 
@@ -92,15 +89,14 @@ describe("TESTING OUR FIREBASE API FUNCTIONS:", () =>{
         //expect(mock_firebase.mockU).toBeCalledWith({data:[glicemy]}); ->TRY USING mockReturnValue
     })
 
-    test("Get Food Diary of a user in a date", ()=>{
+    test("Get Food Diary of a user in a date", async()=>{
         const id = "abcdefghi12345";
         const formattedDate = FirebaseQuery.glicemyDateFormatter();
 
         const wantedVal ={diary:"test"};
-        mock_firebase._mockGetReturn = (wantedVal);
+        mock_firebase.mockGetReturn(wantedVal);
 
-        
-        const res = FirebaseQuery.getFoodDiary(id,formattedDate);
+        const res = await FirebaseQuery.getFoodDiary(id,formattedDate);
 
         //select a specific user by id
         expect(mock_firebase.mockDoc).toBeCalledWith(id);
@@ -110,25 +106,25 @@ describe("TESTING OUR FIREBASE API FUNCTIONS:", () =>{
         expect(mock_firebase.mockDoc).toBeCalledWith(formattedDate);
         //Reach The file
         expect(mock_firebase.mockGet).toBeCalled();
+        expect(mock_firebase.mockData).toBeCalled();
 
         console.log(JSON.stringify(mock_firebase._mockGetReturn) + " -> " + JSON.stringify(res));
-
-        //DATA() function to retrive data: -> CANT MOCK DATA DUE TO PARENTHESIS
-        //expect(mock_firebase.mockData).toBeCalled();
-
         //CHECK RESULT
         expect(res).toBe(wantedVal);
-
-        //NOW TEST WITH NO RESULT
-        res = FirebaseQuery.getFoodDiary(id,formattedDate);
-
-        mock_firebase._mockAddReturn = (undefined);
-
-        expect(res).toBe([]);
 
 
     });
 
+    test("Get Food Diary, test empty Data", async()=>{
+        const id = "abcdefghi12345";
+        const formattedDate = FirebaseQuery.glicemyDateFormatter();
+
+        const wantedVal = null;
+        mock_firebase.mockGetReturn(wantedVal);
+
+        const res = await FirebaseQuery.getFoodDiary(id,formattedDate);
+        expect(res).toBe(wantedVal);
+    });
 
     test("Update Food Diary of a user in a date ", ()=>{
 
@@ -147,6 +143,7 @@ describe("TESTING OUR FIREBASE API FUNCTIONS:", () =>{
         //Reach The file
         expect(mock_firebase.mockGet).toBeCalled();
 
+        //expect(mock_firebase.virtualDb.ref.update).toBeCalled();
         //CANT TEST THE SET DUE TO IMPOSSIBILITY OF MOCK VARIABLE
         //eg:code like var x = firestore().collection(..);  x.ref.doc(..) -> cant mock x...
     });

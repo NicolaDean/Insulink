@@ -16,6 +16,7 @@ export const RegStep3 = ({userData,setUserData}) =>{
     console.log(JSON.stringify(userData));
     const [loading,setLoading] = useState(true);
 
+    console.log("IM IN STEP 3");
     return (
         
                 <View>
@@ -25,14 +26,14 @@ export const RegStep3 = ({userData,setUserData}) =>{
                         <View style={{marginVertical:'5%'}}>
 
                         <InputContainer name={"Weight  "}>
-                            <CustomNumberPicker style={styles.numberPicker} currVal={userData.weight} onChange={val => setUserData(userDataTypes.weight,val)}/>
+                            <CustomNumberPicker testID={"WeightID"} style={styles.numberPicker} currVal={userData.weight} onChange={val => setUserData(userDataTypes.weight,val)}/>
                         </InputContainer>
                         </View>
 
                         <View style={{marginVertical:'5%'}}>
 
                         <InputContainer name={"Height  "}>
-                            <CustomNumberPicker style={styles.numberPicker} currVal={userData.height} onChange={val => setUserData(userDataTypes.height,val)}/>
+                            <CustomNumberPicker testID={"HeightID"} style={styles.numberPicker} currVal={userData.height} onChange={val => setUserData(userDataTypes.height,val)}/>
                         </InputContainer>
                         </View>
 

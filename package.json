@@ -73,7 +73,7 @@
       "./jest/setup.js"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(?!victory|@react-native|react-native)"
+      "node_modules/(?!victory|@react-native|react-native|@miblanchard)"
     ],
     "moduleFileExtensions": [
       "ts",

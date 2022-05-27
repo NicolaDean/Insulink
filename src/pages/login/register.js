@@ -6,9 +6,7 @@ import { MarginContainer } from '../../customComponents/containers/marginContain
 import { WaitLoading } from '../../customComponents/containers/waitLoading';
 import CustomButton from '../../customComponents/customButton';
 import { register } from '../../stateManager/reduxStates/actions/userAction';
-import { FirebaseQuery } from '../../utils/firebaseQuery';
 import { inputChecker } from '../../utils/inputChecker';
-import login from './login';
 import { RegistrationErrorPopup } from './registration/errorsPopup';
 import { PageStepBar } from './registration/pageStepBar';
 import { RegStep1 } from './registration/step1';
@@ -42,8 +40,7 @@ const errors = {
     step4Error:"",
 }
 
-
-export const Registration = ({navigation,route,mustCompleteReg}) =>{
+export const Registration = ({navigation,route,mustCompleteReg,initStep=1}) =>{
 
     let x = false;
     let googleId = null;
@@ -54,10 +51,10 @@ export const Registration = ({navigation,route,mustCompleteReg}) =>{
     const [errors,setErrors] = useState([]);
     const [errorModalVisible, setErrorModalVisible] = useState(false);
 
-    const [step,setStep] = useState(1);
+    const [step,setStep] = useState(initStep);
     const [waitRegConfirm,setRegConfirmWait] = useState(false);
 
-
+console.log("STEPPP" + step);
     const dispatch = useDispatch();
 
     useEffect(()=>{
@@ -74,9 +71,12 @@ export const Registration = ({navigation,route,mustCompleteReg}) =>{
     },[waitRegConfirm]);
 
     const setInputField = (type,data) =>{
+        console.log("UPDATE:" + "("+type +"->" +data+")");
         setUserData(state =>({...state,[type]: data}));
-    }
 
+       
+    }
+    console.log("OK NOW NEW DATA: " + JSON.stringify(userData));
     const errorFunction = (error) =>{
         if(waitRegConfirm){
             setRegConfirmWait(false);
@@ -113,7 +113,9 @@ export const Registration = ({navigation,route,mustCompleteReg}) =>{
     }
 
     const nextStep = () =>{
+        console.log("NEXXXT")
         if(checkError()){
+            console.log("Step");
             setStep(step => step +1);
         } 
     }
@@ -156,8 +158,8 @@ export const Registration = ({navigation,route,mustCompleteReg}) =>{
                     {renderStep()}
             
                     <View style={{flexDirection:'row'}}>
-                        {step > 1 ? <CustomButton title='Prev' onPress={prevStep}/> : null}
-                        {step < 5 ? <CustomButton title='Next' onPress={nextStep}/> : null}
+                        {step > 1 ? <CustomButton title='Prev' onPress={prevStep} testID={"PrevID"}/> : null}
+                        {step < 5 ? <CustomButton title='Next' onPress={nextStep} testID={"NextID"}/> : null}
                     </View>
                     <PageStepBar step={step} style={styles.stepBar}/> 
                 </MarginContainer>

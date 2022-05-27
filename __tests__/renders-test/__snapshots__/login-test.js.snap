@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test the Login page: Loading of Page and Login Redirect 1`] = `
+Object {
+  "macroTracker": Object {
+    "activities": Object {
+      "breakfast": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "dinner": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "lunch": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+      "snack": Object {
+        "sports": Array [],
+        "totCal": 0,
+      },
+    },
+    "activity_id": 1,
+    "currentDate": "[DATE]",
+    "currentMeal": "breakfast",
+    "history": Object {
+      "activities": Object {
+        "breakfast": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+        "dinner": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+        "lunch": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+        "snack": Object {
+          "sports": Array [],
+          "totCal": 0,
+        },
+      },
+      "empty": true,
+      "meals": Object {
+        "breakfast": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+        "dinner": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+        "lunch": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+        "snack": Object {
+          "foods": Array [],
+          "macro": Object {
+            "cal": 0,
+            "carb": 0,
+            "fat": 0,
+            "prot": 0,
+          },
+        },
+      },
+      "totMacro": Object {
+        "cal": 0,
+        "carb": 0,
+        "fat": 0,
+        "prot": 0,
+      },
+    },
+    "id": 1,
+    "meals": Object {
+      "breakfast": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "dinner": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "lunch": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+      "snack": Object {
+        "foods": Array [],
+        "macro": Object {
+          "cal": 0,
+          "carb": 0,
+          "fat": 0,
+          "prot": 0,
+        },
+      },
+    },
+    "totCalBurned": 0,
+    "totMacro": Object {
+      "cal": 0,
+      "carb": 0,
+      "fat": 0,
+      "prot": 0,
+    },
+  },
+  "userReducer": Object {
+    "mustCompleteReg": false,
+    "status": "LOGGED",
+    "userData": Object {
+      "birthday": Object {
+        "nanoseconds": 0,
+        "seconds": 0,
+      },
+      "choratio": 0,
+      "email": "test@a.com",
+      "glicemy": Array [],
+      "height": 180,
+      "isf": 0,
+      "maxCarb": 200,
+      "maxFat": 100,
+      "maxProt": 40,
+      "name": "dummy",
+      "password": "22222",
+      "surname": "aaa",
+      "weight": 80,
+    },
+    "userId": "ABCD12345",
+  },
+}
+`;
+
+exports[`Test the Login page: Login Button Click 1`] = `
+Array [
+  "Test",
+  "Test",
+  [Function],
+]
+`;

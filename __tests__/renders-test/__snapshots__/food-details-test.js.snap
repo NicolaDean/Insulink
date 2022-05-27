@@ -1131,7 +1131,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
 </View>
 `;
 
-exports[`TEST ON Food Details Page: Test Edit Food 1`] = `
+exports[`TEST ON Food Details Page: Test Edit and Delete Food 1`] = `
 Object {
   "macroTracker": Object {
     "activities": Object {
@@ -1317,7 +1317,7 @@ Object {
 }
 `;
 
-exports[`TEST ON Food Details Page: Test Edit Food 2`] = `
+exports[`TEST ON Food Details Page: Test Edit and Delete Food 2`] = `
 Object {
   "macroTracker": Object {
     "activities": Object {

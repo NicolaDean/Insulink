@@ -120,30 +120,9 @@ describe("TEST ON Food Details Page:",()=>{
     });
 
     /**
-     * Test Clicking Add Food redirect to FoodSearch
-     */
-    test("Test Delete Food",async () => { 
-
-        let editTree;
-        await act(async() => {
-            editTree = create(<Provider store={mockedStore}>
-                                <FoodDetails route={{params:params}} navigation={mock_navigation} currentDate="[NotToday]"/>
-                              </Provider>)
-          });
-
-        //Click Button
-
-        //Check dispatch
-
-        //Check changed state
-
-        //Check navigation
-    })
-
-    /**
      * Check if the edit button
      */
-    test("Test Edit Food", async () =>{
+    test("Test Edit and Delete Food", async () =>{
         let editTree;
         dummyAppleDeletable.quantity=2;
         params = {data : dummyApple,foodInfo:dummyAppleDeletable,editable : true};

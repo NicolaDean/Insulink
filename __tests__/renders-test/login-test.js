@@ -1,17 +1,33 @@
 import React from "react";
 import {create,act} from 'react-test-renderer';
 import { userMethods } from "../../src/constants/reducers";
-import Home from "../../src/pages/home/home";
-import { login } from "../../src/stateManager/reduxStates/actions/userAction";
 import { mockedStore } from "../../testHelper/reduxMock";
 import CustomFirestoreMock from "../../__mocks__/@react-native-firebase/firebase";
 import { FirebaseQuery } from "../../src/utils/firebaseQuery";
 import { Provider } from "react-redux";
 import Login from "../../src/pages/login/login";
-import * as Google from "../../src/pages/login/socialLogin/googleLogin";
-import { configure } from "@testing-library/react";
-import { NativeModules } from 'react-native';
 import { GoogleSignin } from "@react-native-google-signin/google-signin";
+import * as userActions from "../../src/stateManager/reduxStates/actions/userAction";
+import { registrationErrors } from "../../src/constants/registrationSteps";
+
+
+const dummyUser ={
+  email:"test@a.com",
+  password:"22222",
+  name:"dummy",
+  surname:"aaa",
+  weight:80,
+  height:180,
+  birthday:{seconds:0,nanoseconds:0},
+  isf:0,
+  choratio:0,
+  glicemy:[],
+  maxCarb:200,
+  maxFat:100,
+  maxProt:40,
+}
+
+
 //FIREBASE MOCK
 const mock_firebase = new CustomFirestoreMock();
 FirebaseQuery.users = mock_firebase;
@@ -23,20 +39,16 @@ FirebaseQuery.users = mock_firebase;
       };
   }
 
-  
-  
-  const userData = {name:"test",height:77,glicemy: []}
-  const userId = "ABCDE123456";
-  const action ={
-      type:userMethods.login,
-      payload:{
-          usrData:userData,
-          userId:userId
-      }
-  }
-
 jest.mock('@react-native-firebase/firestore',()=> firebasee);
+jest.mock('@react-native-firebase/auth',()=>jest.fn((a)=>{}))
+const mockedChange = jest.fn((a)=>{console.log(a)});
+jest.mock("@react-native-firebase/auth",()=>jest.fn((a)=>{
+  return{
+    onAuthStateChanged:mockedChange
+  }
+}));
 jest.mock('invariant/invariant');
+
 
 //MOCK NAVIGATION
 const mock_navigation = {
@@ -44,83 +56,131 @@ const mock_navigation = {
 }
 
 //MOCK GOOGLE SINGIN
+  jest.mock("../../src/pages/login/socialLogin/googleLogin",()=>"[Gooogle Button]");
+  const mockLoadData = jest.spyOn(userActions,'loadUserLocalData');
 
-const googleMock = jest.spyOn(Google,'onGoogleButtonPress');
-googleMock.mockReturnValue = {
-    uid:"ABCDE12345"
+//LOGIN ACTION MOCK
+  class errorClassMock{
+    constructor(){
+      this.errors = [];
+      this.mock = jest.fn((e)=>{});
+    }
+
+    getError(){
+      this.mock(this.e);
+      return this.errors;
+    }
+
+    setError(e){
+      this.errors = e;
+    }
+  }
+  const mockLoginAction = jest.spyOn(userActions,'login');
+  const errorValue = new errorClassMock();
+  mockLoginAction.mockImplementation((a,b,e)=>{console.log("OK MOCK ANDATO");e(errorValue.getError());});
+
+
+//Test start here
+let tree = create();
+
+class myVar{
+  constructor(){
+    this.value = "Test";
+    this.useState = (a) => {return [this.value,this.mockSetState]}
+    this.mockSetState = jest.fn((a)=>{this.value = a;console.log("SET:" + a);console.log(this.value);});
+  }
+
+  getValue(){
+    return this.value;
+  }
 }
 
-//TREE DECLARATION
-var tree;
+const mockHook = new myVar();
+const mockUseState = jest.spyOn(React,'useState');
+mockUseState.mockImplementation(mockHook.useState);
 
-/*jest.mock("./AwesomeComponent", () => ({
-    AwesomeComponent: () => {
-      const MockName = "named-awesome-component-mock";
-      return <MockName />;
-    },
-  }));*/
-
-
-const mock_z = new yyyy();
-
-GoogleSignin.configure = jest.fn(()=>{});
-NativeModules.RNGoogleSignin = {
-    BUTTON_SIZE_ICON: 0,
-    BUTTON_SIZE_STANDARD: 0,
-    BUTTON_SIZE_WIDE: 0,
-    BUTTON_COLOR_AUTO: 0,
-    BUTTON_COLOR_LIGHT: 0,
-    BUTTON_COLOR_DARK: 0,
-    SIGN_IN_CANCELLED: '0',
-    IN_PROGRESS: '1',
-    PLAY_SERVICES_NOT_AVAILABLE: '2',
-    SIGN_IN_REQUIRED: '3',
-    configure: jest.fn(),
-    currentUserAsync: jest.fn(),
-  };
-
-  Google.GoogleSignin.hasPlayServices = () => Promise.resolve(true);
-  Google.GoogleSignin.configure = () => Promise.resolve();
-  Google.GoogleSignin.currentUserAsync = () => {
-    return Promise.resolve({
-      name: 'name',
-      email: 'test@example.com',
-      // .... other user data
-    });
-  };
-jest.mock('@react-native-google-signin/google-signin', () => {
-    const mockGoogleSignin = jest.requireActual('@react-native-google-signin/google-signin');
-  
-   
-  
-    // ... and other functions you want to mock
-  
-    return mockGoogleSignin;
-  });
-
-
- // jest.mock('@react-native-firebase/auth');
-  //jest.mock('@react-native-google-signin/google-signin');
-  //jest.mock('../../src/pages/login/socialLogin/googleLogin');
-  //jest.mock('@react-native-google-signin/google-signin', () => {});
- // jest.mock('node_modules/@react-native-google-signin/google-signin/');
 
 describe("Test the Login page:",()=>{
     
-    beforeAll(async ()=>{
+    beforeEach(async ()=>{
         await act(async() => {
             tree = create(<Provider store={mockedStore}>
                             <Login  navigation={mock_navigation}/>
                           </Provider>)
           });
-
-         
     });
 
     
+    test("Loading of Page and Login Redirect",()=>{
+      //CHECK IF PAGE TRYED TO LOAD DATA FROM LOCALSTORAGE
+      expect(mockLoadData).toBeCalled();
 
-    test("Error Display",()=>{
+      //fake a login action
+      act(()=>{mockedStore.dispatch({
+        type: userMethods.login,
+        payload: {
+            usrData: dummyUser,
+            userId:"ABCD12345",
+        }
+        })
+      });
+      //CHECK IF STATE CHANGED
+      expect(mockedStore.getState()).toMatchSnapshot();
+      //CHECK IF NAVIGATION TO HOME IS CALLED
+      expect(mock_navigation.navigate).toBeCalledWith("BottomTab", {});
 
-        expect(a).toHaveTextContent()
     })
+
+
+  
+    /**
+     * Test navigation To Reg Page after button click
+     */
+    test("Registration Button Click",async ()=>{
+      const regButton = tree.root.findByProps({testID:"RegistrationButtonID"}).props;
+      
+      //console.log("R:" + regButton);
+      act(()=>regButton.onPress());
+
+      expect(mock_navigation.navigate).toBeCalledWith('Registration',{});
+    });
+
+    /**
+     * Test correct rendering of error message to be printed on screen
+     */
+    test("Test wrong credential Error Message",async () =>{
+      const loginButton = tree.root.findByProps({testID:"LoginButtonID"}).props;
+      
+      //console.log("R:" + regButton);
+      await act(async ()=>loginButton.onPress());
+
+      //waitFor()
+      //Mock error Message to throw
+      errorValue.setError([registrationErrors.wrongPassword]);
+      //const errorMessage = tree.root.findByProps({testID:"ErrorID"}).props;
+
+      
+
+      
+    });
+
+    /**
+     * Check if after clicking Login button and inserted email and password it works correctly
+     */
+    test("Login Button Click",async ()=>{
+      const loginBtn = tree.root.findByProps({testID:"LoginButtonID"}).props;
+      
+      const email = tree.root.findByProps({testID:"EmailID"}).props;
+      const psw   = tree.root.findByProps({testID:"PswID"}).props;
+
+      //email.value = "NIcola";
+      act(()=>email.onChangeText("Tejst"));
+      act(()=>psw.onChangeText("Test"));
+     // errorValue.setError([registrationErrors.alreadyUserEmail]);
+     await act(() => loginBtn.onPress());
+     //Check that Login action is called after Click login
+     expect(mockLoginAction.mock.calls[0]).toMatchSnapshot();
+
+       
+    });
 })

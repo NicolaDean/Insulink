@@ -7,9 +7,10 @@ export const RegistrationErrorPopup = ({visibilityFlag = useState(false),errors 
     const [modalVisible, setModalVisible] = visibilityFlag;
 
     const errorBubble = (error,index) =>{
+      console.log("POPUP: " + JSON.stringify(error));
         return(
             <MarginContainer key ={ index}>
-                <Text style = {styles.errorTitle}>{error.title}</Text>
+                <Text  style = {styles.errorTitle} testID="ErrorID">{error.title}</Text>
                 <Text style = {styles.errorBody}>{error.body}</Text>
             </MarginContainer>
         );
