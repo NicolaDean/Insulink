@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.3.6)  28 MAY 2022 13:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.3.6)  28 MAY 2022 14:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1243,93 +1243,93 @@ Overfull \hbox (50.54451pt too wide) in paragraph at lines 488--489
 <./img/Search Food.png, id=230, 4544.98pt x 1561.835pt>
 File: ./img/Search Food.png Graphic file (type png)
 <use ./img/Search Food.png>
-Package pdftex.def Info: ./img/Search Food.png  used on input line 494.
+Package pdftex.def Info: ./img/Search Food.png  used on input line 502.
 (pdftex.def)             Requested size: 490.86441pt x 168.68044pt.
 
-Overfull \hbox (58.3825pt too wide) in paragraph at lines 494--495
+Overfull \hbox (58.3825pt too wide) in paragraph at lines 502--503
  [] 
  []
 
-<./img/Sport.png, id=231, 4189.6525pt x 1544.77126pt>
+[8 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Registration.png> </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Search Food.png>]
+<./img/Sport.png, id=245, 4189.6525pt x 1544.77126pt>
 File: ./img/Sport.png Graphic file (type png)
 <use ./img/Sport.png>
-Package pdftex.def Info: ./img/Sport.png  used on input line 499.
+Package pdftex.def Info: ./img/Sport.png  used on input line 515.
 (pdftex.def)             Requested size: 490.20656pt x 180.74458pt.
 
-Overfull \hbox (57.72466pt too wide) in paragraph at lines 499--500
+Overfull \hbox (57.72466pt too wide) in paragraph at lines 515--516
  [] 
  []
 
-[8 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Registration.png> </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Search Food.png> </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Sport.png>]
-<./img/Delete Food.png, id=242, 4394.4175pt x 1376.14125pt>
+<./img/Delete Food.png, id=246, 4394.4175pt x 1376.14125pt>
 File: ./img/Delete Food.png Graphic file (type png)
 <use ./img/Delete Food.png>
-Package pdftex.def Info: ./img/Delete Food.png  used on input line 506.
+Package pdftex.def Info: ./img/Delete Food.png  used on input line 528.
 (pdftex.def)             Requested size: 492.17142pt x 154.12677pt.
 
-Overfull \hbox (59.68951pt too wide) in paragraph at lines 506--507
+Overfull \hbox (59.68951pt too wide) in paragraph at lines 528--529
  [] 
  []
 
-<./img/Insulin Calculation.png, id=243, 4254.89626pt x 1468.48625pt>
+<./img/Insulin Calculation.png, id=247, 4254.89626pt x 1468.48625pt>
 File: ./img/Insulin Calculation.png Graphic file (type png)
 <use ./img/Insulin Calculation.png>
-Package pdftex.def Info: ./img/Insulin Calculation.png  used on input line 512.
+Package pdftex.def Info: ./img/Insulin Calculation.png  used on input line 539.
 (pdftex.def)             Requested size: 493.55533pt x 170.34004pt.
 
-Overfull \hbox (61.07343pt too wide) in paragraph at lines 512--513
+Overfull \hbox (61.07343pt too wide) in paragraph at lines 539--540
  [] 
  []
 
-[9 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Delete Food.png> </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Insulin Calculation.png>]
-<./img/Architecture.png, id=253, 633.36626pt x 323.2075pt>
+[9 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Sport.png> </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Delete Food.png>] [10 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Insulin Calculation.png>]
+<./img/Architecture.png, id=275, 633.36626pt x 323.2075pt>
 File: ./img/Architecture.png Graphic file (type png)
 <use ./img/Architecture.png>
-Package pdftex.def Info: ./img/Architecture.png  used on input line 523.
+Package pdftex.def Info: ./img/Architecture.png  used on input line 556.
 (pdftex.def)             Requested size: 253.34201pt x 129.2807pt.
-LaTeX Font Info:    Trying to load font information for TS1+futs on input line 528.
+LaTeX Font Info:    Trying to load font information for TS1+futs on input line 561.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/fourier/ts1futs.fd
 File: ts1futs.fd 2003/09/14 Fontinst v1.801 font definitions for TS1/futs.
-) [10 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Architecture.png>] [11]
-<./img/Nutritionix.jpg, id=271, 501.875pt x 250.9375pt>
+) [11 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Architecture.png>] [12]
+<./img/Nutritionix.jpg, id=294, 501.875pt x 250.9375pt>
 File: ./img/Nutritionix.jpg Graphic file (type jpg)
 <use ./img/Nutritionix.jpg>
-Package pdftex.def Info: ./img/Nutritionix.jpg  used on input line 584.
+Package pdftex.def Info: ./img/Nutritionix.jpg  used on input line 617.
 (pdftex.def)             Requested size: 175.65887pt x 87.82944pt.
-<./img/Nutritionix detail.png, id=272, 1315.91624pt x 370.38374pt>
+<./img/Nutritionix detail.png, id=295, 1315.91624pt x 370.38374pt>
 File: ./img/Nutritionix detail.png Graphic file (type png)
 <use ./img/Nutritionix detail.png>
-Package pdftex.def Info: ./img/Nutritionix detail.png  used on input line 590.
+Package pdftex.def Info: ./img/Nutritionix detail.png  used on input line 623.
 (pdftex.def)             Requested size: 394.77792pt x 111.11597pt.
- [12 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Nutritionix.jpg> </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Nutritionix detail.png>]
-<./img/Firebase.png, id=282, 1606.0pt x 823.075pt>
+ [13 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Nutritionix.jpg> </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Nutritionix detail.png>]
+<./img/Firebase.png, id=304, 1606.0pt x 823.075pt>
 File: ./img/Firebase.png Graphic file (type png)
 <use ./img/Firebase.png>
-Package pdftex.def Info: ./img/Firebase.png  used on input line 617.
+Package pdftex.def Info: ./img/Firebase.png  used on input line 650.
 (pdftex.def)             Requested size: 321.19432pt x 164.61208pt.
- [13 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Firebase.png>]
-<./img/redux-logo.png, id=296, 903.375pt x 451.6875pt>
+ [14 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Firebase.png>]
+<./img/redux-logo.png, id=319, 903.375pt x 451.6875pt>
 File: ./img/redux-logo.png Graphic file (type png)
 <use ./img/redux-logo.png>
-Package pdftex.def Info: ./img/redux-logo.png  used on input line 627.
+Package pdftex.def Info: ./img/redux-logo.png  used on input line 660.
 (pdftex.def)             Requested size: 180.6718pt x 90.33589pt.
-<./img/Redux-workflow.png, id=297, 1135.24126pt x 811.03pt>
+<./img/Redux-workflow.png, id=320, 1135.24126pt x 811.03pt>
 File: ./img/Redux-workflow.png Graphic file (type png)
 <use ./img/Redux-workflow.png>
-Package pdftex.def Info: ./img/Redux-workflow.png  used on input line 633.
+Package pdftex.def Info: ./img/Redux-workflow.png  used on input line 666.
 (pdftex.def)             Requested size: 283.80962pt x 202.757pt.
- [14 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/redux-logo.png> </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Redux-workflow.png>]
-<./img/userReduces.png, id=305, 570.13pt x 387.4475pt>
+ [15 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/redux-logo.png> </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/Redux-workflow.png>]
+<./img/userReduces.png, id=328, 570.13pt x 387.4475pt>
 File: ./img/userReduces.png Graphic file (type png)
 <use ./img/userReduces.png>
-Package pdftex.def Info: ./img/userReduces.png  used on input line 642.
+Package pdftex.def Info: ./img/userReduces.png  used on input line 675.
 (pdftex.def)             Requested size: 342.08064pt x 232.47029pt.
-<./img/macroTracker.png, id=306, 670.505pt x 519.9425pt>
+<./img/macroTracker.png, id=329, 670.505pt x 519.9425pt>
 File: ./img/macroTracker.png Graphic file (type png)
 <use ./img/macroTracker.png>
-Package pdftex.def Info: ./img/macroTracker.png  used on input line 653.
+Package pdftex.def Info: ./img/macroTracker.png  used on input line 686.
 (pdftex.def)             Requested size: 335.25168pt x 259.97061pt.
- [15 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/userReduces.png> </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/macroTracker.png>]
+ [16 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/userReduces.png> </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/macroTracker.png>]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1363,18 +1363,18 @@ Package pdftex.def Info: ./img/macroTracker.png  used on input line 653.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-Overfull \hbox (9.31003pt too wide) in paragraph at lines 666--667
+Overfull \hbox (9.31003pt too wide) in paragraph at lines 699--700
 []\T1/futs/m/n/12 Approximately 40-50 per-cent of the to-tal daily in-sulin dose is to re-place in-sulin overnight,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 672--675
+Underfull \hbox (badness 10000) in paragraph at lines 705--708
 
  []
 
-[16
+[17
 
-] [17]
+] [18]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1407,9 +1407,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 672--675
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
- [18
+ [19
 
-] [19] [20] [21]
+] [20] [21] [22]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1442,30 +1442,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 672--675
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
- [22
+ [23
 
 ]
-<./img/FreeStyle Libre.jpg, id=357, 903.375pt x 501.875pt>
+<./img/FreeStyle Libre.jpg, id=379, 903.375pt x 501.875pt>
 File: ./img/FreeStyle Libre.jpg Graphic file (type jpg)
 <use ./img/FreeStyle Libre.jpg>
-Package pdftex.def Info: ./img/FreeStyle Libre.jpg  used on input line 888.
+Package pdftex.def Info: ./img/FreeStyle Libre.jpg  used on input line 921.
 (pdftex.def)             Requested size: 406.515pt x 225.84166pt.
- [23 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/FreeStyle Libre.jpg>] [24]
-Overfull \hbox (29.58902pt too wide) in paragraph at lines 915--917
+ [24 </Users/fasa/Projects/DIMA-insuline-calculator/documentation/./img/FreeStyle Libre.jpg>] [25]
+Overfull \hbox (29.58902pt too wide) in paragraph at lines 948--950
 [][]$\T1/lmtt/m/n/12 https : / / dtc . ucsf . edu / types-[]of-[]diabetes / type1 / treatment-[]of-[]type-[]1-[]diabetes /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 915--917
+Underfull \hbox (badness 10000) in paragraph at lines 948--950
 \T1/lmtt/m/n/12 medications-[]and-[]therapies / type-[]1-[]insulin-[]therapy /
  []
 
-[25]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 923.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 923.
+[26]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 956.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 956.
  (/Users/fasa/Projects/DIMA-insuline-calculator/documentation/documentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 923.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 923.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 956.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 956.
 Package rerunfilecheck Info: File `documentation.out' has not changed.
 (rerunfilecheck)             Checksum: 46D8E555C66E877B03F32055964EC407;1935.
 
@@ -1474,18 +1474,18 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 32014 strings out of 480608
- 671166 string characters out of 5903631
+ 32033 strings out of 480608
+ 671290 string characters out of 5903631
  1065384 words of memory out of 5000000
  47199 multiletter control sequences out of 15000+600000
  638469 words of font info for 105 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  59i,8n,95p,897b,1021s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/fourier/fourier-ml.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtk10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/lm/lmtt12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putbi8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/adobe/utopia/putri8a.pfb>
-Output written on /Users/fasa/Projects/DIMA-insuline-calculator/documentation/documentation.pdf (26 pages, 10535811 bytes).
+Output written on /Users/fasa/Projects/DIMA-insuline-calculator/documentation/documentation.pdf (27 pages, 10537847 bytes).
 PDF statistics:
- 436 PDF objects out of 1000 (max. 8388607)
- 364 compressed objects within 4 object streams
- 98 named destinations out of 1000 (max. 500000)
+ 462 PDF objects out of 1000 (max. 8388607)
+ 389 compressed objects within 4 object streams
+ 117 named destinations out of 1000 (max. 500000)
  378 words of extra memory for PDF output out of 10000 (max. 10000000)
 

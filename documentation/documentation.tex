@@ -488,29 +488,62 @@ The following provides a screenshot of the pages with a brief description of the
 	\includegraphics[scale=0.085]{Registration}
 \end{center}
 
+\begin{enumerate}
+	\item Fill Email and Password for registration
+	\item Then insert name and surname, and select gender and birthday
+	\item Phiscal informations: choose weight and height
+ 	\item Fitness informations: daily macro slider selection and (optionally)\\ Insulin 
+     Sensitivity Factor and CHO Ratio
+  \end{enumerate}
+
 \paragraph{Search and Add Food}
 
 \begin{center}
 	\includegraphics[scale=0.108]{Search Food}
 \end{center}
+\begin{enumerate}
+	\item Starting from FoodSearch Page (Reachable following the yellow line or the red one 1a-1b-1c),
+ insert a food or recipe name and click on the food item.
+	\item In FoodDetails page, all informations about food nutrients will be shown. Click on the add button to
+    have the food inserted in the current meal
+  \end{enumerate}
+
+  \newpage
 
 \paragraph{Add Sport}
 \begin{center}
 	\includegraphics[scale=0.117]{Sport}
 \end{center}
 
-\newpage
+\begin{enumerate}
+	\item From Home page, click on Meal Diary navigation button
+	\item Expand the current meal and click on "Add Sport" button
+	\item Select a sport from default one and choose a duration (the user can also just write it on the bottom field)
+ 	\item Click on "Add Activity" button to insert it in current meal
+  \end{enumerate}
+
 \paragraph{Delete Food}
 
 \begin{center}
 	\includegraphics[scale=0.112]{Delete Food}
 \end{center}
-
+\begin{enumerate}
+	\item Click on Meal Diary navigation button
+    \item Expand the current meal
+	\item Long press on the food item to delete
+ 	\item Click on the delete button to remove the food from current meal
+  \end{enumerate}
 
 \paragraph{Calculate Insulin}
 \begin{center}
 	\includegraphics[scale=0.116]{Insulin Calculation}
 \end{center}
+\begin{enumerate}
+	\item Click on Meal Diary navigation button
+    \item Expand the current meal 
+	\item Click on Insulin Calculation PopUp button
+ 	\item Insert the current glycemia or skip this step and get the result
+  \end{enumerate}
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -667,7 +700,7 @@ To understand the algorithm behind the Insulin Calculator, here're some basics:
  \item  The other 50-60 percent of the total daily insulin dose is for carbohydrate coverage (food) and high blood sugar correction
  \item The bolus dose for food coverage is prescribed as an insulin to carbohydrate ratio. The insulin to carbohydrate ratio represents how many grams of carbohydrate are covered or disposed of by 1 unit of insulin.
  \item The bolus dose for high blood sugar correction is defined as how much one unit of rapid-acting insulin will drop the blood sugar.
- \item Sport Activity deeply influences the response to insuline and determine a less request of insulin in the patient.
+ \item Sport Activity deeply influences the response to insulin and determine a less request of insulin in the patient.
 \end{itemize}
 Not considering sport activity, may lead the patient to a low bloodsugar value. 
 Insulink checks if the user has done sport and suggests a new dose value with one unit less.
@@ -751,7 +784,7 @@ As explained before, the app contain 2 important utilities class, this suit aim 
 \begin{center} 
 \begin{tabular}{ |p{4cm}|p{5cm}|  }
 	\hline
-	insuline-calculator & 
+	insulin-calculator & 
 	1. Check correct calculation \\
 	\hline
 	input-checker & 
@@ -771,13 +804,13 @@ It contains a mock for doc,collection,get,set,data methods and allow to mock the
 		getters & 
 		1. Get User Data \newline    
 		2. Get Food Diary \newline
-		3. Add Glicemy Data \newline  
+		3. Add Glycemia Data \newline  
 		\\
 		\hline
 		setters &
 		1. Set Food Diary \newline  
 		2. Save User Data \newline
-		3. Get Glicemy Data \newline       
+		3. Get Glycemia Data \newline       
 		  \\
 		\hline
 	\end{tabular}
@@ -810,13 +843,13 @@ It is called \textbf{Async Storage Mock}, we stored an automatic import/mock ins
 		getters & 
 		1. Get User Data \newline    
 		2. Get Food Diary \newline
-		3. Add Glicemy Data \newline  
+		3. Add Glycemia Data \newline  
 		\\
 		\hline
 		setters &
 		1. Set Food Diary \newline  
 		2. Save User Data \newline
-		3. Get Glicemy Data \newline       
+		3. Get Glycemia Data \newline       
 		  \\
 		\hline
 	\end{tabular}
@@ -837,7 +870,7 @@ Since reducers are \textbf{pure methods}, no mock was needed.
 		userReducer &
 		1. Login \newline  
 		2. Update Data \newline
-		3. Add Glicemy \newline   
+		3. Add Glycemia \newline   
 		4. Logout \newline 
 		  \\
 		\hline
