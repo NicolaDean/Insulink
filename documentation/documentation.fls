@@ -456,6 +456,11 @@ INPUT ./img/Insulin Calculation.png
 INPUT /home/nicomane/Desktop/Programming/React/DIMA-insuline-calculator/documentation/./img/Architecture.png
 INPUT ./img/Architecture.png
 INPUT ./img/Architecture.png
+INPUT /usr/share/texlive/texmf-dist/tex/latex/fourier/ts1futs.fd
+INPUT /usr/share/texlive/texmf-dist/tex/latex/fourier/ts1futs.fd
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/fourier/futr8c.tfm
+INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/fourier/futr8c.vf
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/fourier/fourier-orns.tfm
 INPUT /home/nicomane/Desktop/Programming/React/DIMA-insuline-calculator/documentation/./img/Nutritionix.jpg
 INPUT ./img/Nutritionix.jpg
 INPUT ./img/Nutritionix.jpg
@@ -481,11 +486,6 @@ INPUT ./img/userReduces.png
 INPUT /home/nicomane/Desktop/Programming/React/DIMA-insuline-calculator/documentation/./img/macroTracker.png
 INPUT ./img/macroTracker.png
 INPUT ./img/macroTracker.png
-INPUT /usr/share/texlive/texmf-dist/tex/latex/fourier/ts1futs.fd
-INPUT /usr/share/texlive/texmf-dist/tex/latex/fourier/ts1futs.fd
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/fourier/futr8c.tfm
-INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/fourier/futr8c.vf
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/fourier/fourier-orns.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/fourier/futmi.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/fourier/fourier-ml.tfm
 INPUT /home/nicomane/Desktop/Programming/React/DIMA-insuline-calculator/documentation/./img/FreeStyle Libre.jpg

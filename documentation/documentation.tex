@@ -517,13 +517,33 @@ The following provides a screenshot of the pages with a brief description of the
 \section{Architecture}
 \vspace{10.5cm}
 	The technology used to make this app is react native \cite{React Native}.
-	\begin{center}
-
+	In this chapter will be discussed the architecture of the app at an higher level (more details will be shown on next chapters).
+\subsection{UML app structure}	
+\begin{center}
 	\includegraphics[scale=0.4]{Architecture}
 \end{center}
-
-	\subsection{UML app structure}
-	\subsection{Folder Structure}
+\subsection{Main components}
+The app is composed of 4 main internal components:
+\begin{itemize}
+	\item \textbf{Localstorage} manage  access of app to local memory
+	\item \textbf{FirebaseQuery} manage access of app to firebase database and auth
+	\item \textbf{ApiQuery} manage comunication of app with the API nutritionix
+	\item \textbf{Redux} manage the interaction of user with app state
+\end{itemize}
+Those 4 components together allow the app state to be persistent both localy and remotly if the user close the app.
+\subsection{Ideal App Flow}
+	\begin{itemize}
+		\item 1. User click on some buttons or search for something.
+		\item 2. This trigger some internal functions.
+		\item 3. Those function then can bring to 2 scenario (possibly mixed) :
+		\begin{itemize}
+			\item Api query for some food,activity
+   			\item Redux actions
+		\end{itemize}
+		\item 4. Redux action then change the \textbf{runtime state} of app and, at the same time, change the remote firebase/localstorage state.
+  		\item 5. Finaly usualy there is a navigation to other page or go back to \textbf{1.}
+	\end{itemize}
+\subsection{Folder Structure}
 	\begin{docCommand}{assets}{}
 		Contains all images and component with a proper mapping.
 	\end{docCommand}
@@ -549,6 +569,7 @@ The following provides a screenshot of the pages with a brief description of the
 	\end{docCommand}
 
 
+In the next 3 chapters all of those architectural components are explained more in details.
 
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -568,27 +589,34 @@ InsuLink uses different APIs to get all informations about food and storing user
 
 			\includegraphics[scale=0.3]{Nutritionix detail}
 		\end{center}
-		The API requests and responses are documentend in the \textbf{\emph{/utils/apiQuery.js}} class
-
-        \paragraph{Methods}
-     Using GET requests in \textbf{doRequest} method to \emph{trackapi.nutritionix.com/v2}
-		\begin{docCommand}{item}{}
+		Following section is dedicated to explain the API and our helper class \textbf{/utils/ApiQuery.js}
+		\subsubsection{Api requests}
+		\begin{docCommand}{search/item GET (barrcode)}{}
 			Given upc code (standard use for barcodes) returns the food packaging details.
-	\end{docCommand}
+		\end{docCommand}
 
-	\begin{docCommand}{instant}{}
-		Given a user query (Food Search page) returns a list of possible foods and recipes.
-\end{docCommand}
+		\begin{docCommand}{search/instant GET (food query)}{}
+			Given a user query (Food Search page) returns a list of possible foods and recipes.
+		\end{docCommand}
        
-       
+		\begin{docCommand}{natural/nutrients POST (food to search details)}{}
+			Given a food it retrive its details.
+		\end{docCommand}
 
+		\begin{docCommand}{natural/exercise POST (sport query)}{}
+			Given a sport query it retrive the estimated calory.
+		\end{docCommand}
+	\subsubsection{Helper class}
+		The technology used to execute API calls is \textbf{Axios}\cite{Axios} 
+		helped by a custom method \textit{doRequests(methods,path,parameter)} the used by other helper functions.
+		Following a list of the api class methods:TODO
 	\subsection{Firebase}
 	    Firebase \cite{Firebase} is a Google serverless platorm for application development. 
         It is a powerful tool to implement an app database and Google authentication, having many powerful tools to manage it.
 		\begin{center}
 			\includegraphics[scale=0.2]{Firebase}
 		\end{center}
-		All its requests and responses are well documented in the \textbf{\emph{src/utils/firebaseQuery.js}} and \textbf{\emph{src/utils/auth.js}} classes.
+		All its requests and responses are implemented in the \textbf{\emph{src/utils/firebaseQuery.js}} and \textbf{\emph{src/utils/auth.js}}, two custom helper class.
 		
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -815,9 +843,21 @@ Since reducers are \textbf{pure methods}, no mock was needed.
 		\hline
 	\end{tabular}
 	\end{center}
-\subsubsection*{CustomComponents snapshots}
-
 \subsubsection*{Pages widgets and snapshots}
+For all main pages of our app we have a snapshot test + UI events testing.
+TODO TODO
+\subsubsection*{CustomComponents snapshots}
+All the static custom components of the app have been tested with react-test-renderer + snapshot.
+The following list show the tested components:
+\begin{itemize}
+	\item WaitLoading
+	\item CustomButton
+	\item CustomImageButton
+	\item CustomCalendar
+	\item InputBlock
+	\item InputContainer
+\end{itemize} 
+
 
 \newpage
 \newgeometry{
@@ -862,7 +902,9 @@ glucose (and store it).
 				\url{https://reactnative.dev}
 		\bibitem{Nutritionix} Nutritionix\\
 				\url{https://www.nutritionix.com}
-		\bibitem{Jest} Jest\\
+		\bibitem{Axios} Axios\\
+			\url{https://axios-http.com/docs/intro}
+		\bibitem{Jest} Jest\\ 
 				\url{https://jestjs.io}
 		\bibitem{Firebase} Firebase\\
 				\url{https://firebase.google.com}
