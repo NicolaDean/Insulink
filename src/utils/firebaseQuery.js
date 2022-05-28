@@ -77,6 +77,7 @@ class firebaseQuery{
         const id = this.glicemyDateFormatter();
         const new_glicemy = await this.users.doc(userId).collection(tables.glicemyTable).doc(id).get();
         
+        try{
         if(new_glicemy && new_glicemy.exists)
         {
             await new_glicemy.ref.update({
@@ -84,6 +85,9 @@ class firebaseQuery{
             })
         }else{
             await new_glicemy.ref.set({data:[glicemyData]});
+        }
+        }catch(e){
+            console.log(e);
         }
         
     }
@@ -186,9 +190,12 @@ class firebaseQuery{
             }
             
         }else{
-            
-            await userDiary.ref.set(data)//TODO VEDERE CHE SUCCEDE QUI 
-            console.log("Saved on " + userId + "-> " + date);
+            try{
+                await userDiary.ref.set(data)//TODO VEDERE CHE SUCCEDE QUI 
+                console.log("Saved on " + userId + "-> " + date);
+            }catch(e){
+                console.log("ERRORE : " + e);
+            }
         }
     }
 
