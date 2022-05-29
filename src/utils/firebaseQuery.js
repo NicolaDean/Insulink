@@ -1,6 +1,7 @@
 
 import firestore from '@react-native-firebase/firestore'
 import { firebase } from "@react-native-firebase/firestore";
+import { networkErrors, registrationErrors } from '../constants/registrationSteps';
 //TABLES
 
 export const tables ={
@@ -22,20 +23,34 @@ class firebaseQuery{
      * @param {*} id email to query
      * @returns user data
      */
-    getUserData = async (id) =>{
-        const user = (await this.users.doc(id).get()).data();
-
+    getUserData = async (id,errorFunc=(e)=>{}) =>{
+        try{
+            const user = (await this.users.doc(id).get()).data();
+            return user;
+        }catch(e){
+            errorFunc([networkErrors.noInternet])
+        }
     // console.log("GLIC: " + JSON.stringify(glicemy))
-        return user;
+        
     }
 
-    registerUser = async (id,userData) =>{
-        await (this.users.doc(id).set(userData));
+    registerUser = async (id,userData,errorFunc=(e)=>{}) =>{
+        try{
+            await (this.users.doc(id).set(userData));
+        }catch(e){
+            errorFunc([networkErrors.noInternet])
+        }
+        
     }
 
-    editUserData = async (id,userData) =>{
+    editUserData = async (id,userData,errorFunc=(e)=>{}) =>{
         //TODO UPDATE USER DATA
-        await (this.users.doc(id).update(userData));
+        try{
+            await (this.users.doc(id).update(userData));
+        }catch(e){
+            errorFunc([networkErrors.noInternet])
+        }
+        
     }
     //------------------------------------------------------------------------------------
     //GLICEMY QUERY:----------------------------------------------------------------------
@@ -47,21 +62,28 @@ class firebaseQuery{
      * @param {*} email email that identify user
      * @returns an array containing the glicemy data
      */
-    getUserGlicemy = async (userId,date=new Date()) =>{
+    getUserGlicemy = async (userId,date=new Date(),errorFunc=(e)=>{}) =>{
 
         let glicemy_records = {};
-        date = this.glicemyDateFormatter(date);
-        glicemy_records[date] = [];
-        //const today = "27-02-2022";
-        const res = (await (this.users.doc(userId).collection(tables.glicemyTable).doc(date).get())).data();
+        try{
+            date = this.glicemyDateFormatter(date);
+            glicemy_records[date] = [];
+            //const today = "27-02-2022";
+            const res = (await (this.users.doc(userId).collection(tables.glicemyTable).doc(date).get())).data();
+            
+            if(res == undefined) return [];
+    
+            res.data.forEach(g => {
+                glicemy_records[date].push(this.changeGlicemyTimeFormat(g,false));
+            });
+    
+            console.log("->>>>" + JSON.stringify(glicemy_records));
+            return glicemy_records;
+        }catch(e){
+            errorFunc([networkErrors.noInternet])
+        }
+       
         
-        if(res == undefined) return [];
-
-        res.data.forEach(g => {
-            glicemy_records[date].push(this.changeGlicemyTimeFormat(g,false));
-        });
-
-        console.log("->>>>" + JSON.stringify(glicemy_records));
 
         return glicemy_records;
     }
@@ -72,22 +94,22 @@ class firebaseQuery{
      * @param {*} userId identifier of user
      * @param {*} glicemyData data to add
      */
-    addGlicemyValue = async (userId,glicemyData) =>{
-
+    addGlicemyValue = async (userId,glicemyData,errorFunc=(e)=>{}) =>{
         const id = this.glicemyDateFormatter();
         const new_glicemy = await this.users.doc(userId).collection(tables.glicemyTable).doc(id).get();
         
         try{
-        if(new_glicemy && new_glicemy.exists)
-        {
-            await new_glicemy.ref.update({
-                data:firebase.firestore.FieldValue.arrayUnion(tables.glicemyData)
-            })
-        }else{
-            await new_glicemy.ref.set({data:[glicemyData]});
-        }
+            if(new_glicemy && new_glicemy.exists)
+            {
+                await new_glicemy.ref.update({
+                    data:firebase.firestore.FieldValue.arrayUnion(glicemyData)
+                })
+            }else{
+                await new_glicemy.ref.set({data:[glicemyData]});
+            }
         }catch(e){
             console.log(e);
+            errorFunc([networkErrors.noInternet]);
         }
         
     }
@@ -165,7 +187,7 @@ class firebaseQuery{
         return glicemy;
     }
 
-    saveFoodDiary = async (userId,date,diary) =>{
+    saveFoodDiary = async (userId,date,diary,errorFunc =()=>{}) =>{
         console.log("TRY FIREBASE")
         console.log("USER : " + userId + "->" + date);
         //TAKE THE REFERENCE TO USER DIARY (without getting data())
@@ -187,6 +209,7 @@ class firebaseQuery{
                 await userDiary.ref.update(data); //UPDATE THE DIARY ONLY IN CHANGED FIELD
             }catch(e){
                 console.log("ERRORE : " + e);
+                errorFunc([networkErrors.noInternet]);
             }
             
         }else{
@@ -195,20 +218,26 @@ class firebaseQuery{
                 console.log("Saved on " + userId + "-> " + date);
             }catch(e){
                 console.log("ERRORE : " + e);
+                errorFunc([networkErrors.noInternet]);
             }
         }
     }
 
-    getFoodDiary = async (userId,date) =>{
-        const res = (await (this.users.doc(userId).collection(tables.diaryTable).doc(date).get())).data();
+    getFoodDiary = async (userId,date,errorFunc=(e)=>{}) =>{
+        try{
+            const res = (await (this.users.doc(userId).collection(tables.diaryTable).doc(date).get())).data();
         
-        if(res == undefined || res == null){
-            console.log("RES UNDEFINED");
-            return [];
-        } 
-        console.log("RES:" + res);
+            if(res == undefined || res == null){
+                console.log("RES UNDEFINED");
+                return [];
+            } 
+            console.log("RES:" + res);
+            return res
+        }catch(e){
+            errorFunc([networkErrors.noInternet]);
+        }
 
-        return res;
+        return null;
     }
 }
 

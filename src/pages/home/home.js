@@ -13,6 +13,10 @@ import GlycemiaChart from '../../customComponents/glycemiaChart';
 import { MacroChart } from '../../customComponents/macroChart';
 import { loginStatus } from '../../constants/states';
 import { WaitLoading } from '../../customComponents/containers/waitLoading';
+import { ErrorPopup } from '../../customComponents/errorPopup';
+import { registrationErrors } from '../../constants/registrationSteps';
+import { showError } from '../../stateManager/reduxStates/actions/errorAction';
+import CustomButton from '../../customComponents/customButton';
   const marginOffset=10;
   const screenWidth = Dimensions.get("window").width-marginOffset;
 
@@ -57,7 +61,7 @@ const chartProgressStyle ={
 
 };
 
-export const Home = ({ navigation,state,user,diary }) =>{
+export const Home = ({ navigation,state,user,diary,error }) =>{
 
   const dispatch = useDispatch();
 
@@ -73,6 +77,9 @@ export const Home = ({ navigation,state,user,diary }) =>{
     } else{
       setLoading(false);
     }
+    //error.errorFunc();
+
+    
     //console.log("U : " + u);
     //dispatch(checkStateConsistency(state.userReducer.status,navigation,[init,setInit]));
   },[logged]);
@@ -149,7 +156,7 @@ export const Home = ({ navigation,state,user,diary }) =>{
 
 
 const mapStateToProps = (state, ownProps = {}) => {
-  return{diary: state.macroTracker,user: state.userReducer,state:state};
+  return{error:state.errorReducer,diary: state.macroTracker,user: state.userReducer,state:state};
 }
 
 export default connect(mapStateToProps)(Home);

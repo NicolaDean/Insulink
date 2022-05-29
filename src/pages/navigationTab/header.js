@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet,Text,View,Image,Dimensions } from 'react-native';
 import { colors } from '../../constants/appAspect';
 import CustomImageButton from '../../customComponents/customImageButton';
+import { ErrorPopup } from '../../customComponents/errorPopup';
 import { localStorage } from '../../utils/localStoreManager';
 
 export const CustomHeader = (props) =>{
@@ -10,6 +11,7 @@ export const CustomHeader = (props) =>{
     return(
     <View style={{flexDirection:'column',alignItems:'center'}}>
         <Text style={{color:'black',fontSize:screenWidth/15,fontWeight:'bold',alignSelf:'center'}}>{props.children}</Text>
+        <ErrorPopup />
     </View>
     );
   }
