@@ -120,7 +120,7 @@ const actualLogin = (usrData,uid,glicemy) => async dispatch =>{
 export const login = (email,psw,errorFunc = (e) =>{}) => async dispatch =>{
 
     //errorFunc([registrationErrors.invalidChoratio]);
-    console.count("counter");
+    //console.count("counter");
     //ASYNC ACTION (eg check values on DB)
 
     //CHECK LOGIN DATA
