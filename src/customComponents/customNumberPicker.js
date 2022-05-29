@@ -33,7 +33,7 @@ export const CustomNumberPicker = ({
     const add =  () =>{
         console.log("ADD");
     
-        let newVal = (value + 0.1);
+        let newVal = (value + 1);
         //console.log("NEW VAL: " + newVal);
         //newVal = newVal.toFixed(1);
         setStringVal(newVal.toString());
@@ -43,7 +43,7 @@ export const CustomNumberPicker = ({
 
     const remove =  () =>{
 
-        let newVal = (value - 0.1);
+        let newVal = (value - 1);
         //console.log("NEW VAL: " + newVal);
         //newVal = newVal.toFixed(1);
         setStringVal(newVal.toString());
