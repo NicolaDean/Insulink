@@ -1,5 +1,5 @@
 import { StyleSheet} from 'react-native';
-import { Dimensions  } from 'react-native';
+import { Dimensions,Platform  } from 'react-native';
 import { colors, dim } from '../../constants/appAspect';
 
 const screenWidth = Dimensions.get("window")
@@ -46,8 +46,8 @@ export default StyleSheet.create({
               justifyContent: 'space-evenly',
               alignItems: 'stretch',
             },icon:{
-               width: Dimensions.get("window").width*0.18,
-                height:Dimensions.get("window").width*0.18,
+               width:Platform.isPad!=true? Dimensions.get("window").width*0.18:Dimensions.get("window").width*0.21,
+                height:Platform.isPad!=true? Dimensions.get("window").width*0.18:Dimensions.get("window").width*0.21,
                 position: 'relative',
                 top:0,
                 bottom:10}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Dimensions ,ScrollView,ActivityIndicator } from 'react-native';
+import { View, Dimensions ,ScrollView,ActivityIndicator,Platform } from 'react-native';
 import Slick from 'react-native-slick';
 import styles from './style'
 

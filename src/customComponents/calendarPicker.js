@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Text, Image,StyleSheet,TouchableOpacity, View,LayoutAnimation} from 'react-native';
+import { Text, Image,StyleSheet,TouchableOpacity, View,LayoutAnimation,Platform} from 'react-native';
 import { colors } from '../constants/appAspect';
 import CalendarPicker from 'react-native-calendar-picker';
 import { buttonIcons } from '../assets/buttonIcons';
@@ -52,7 +52,7 @@ export const Calendar = ({onChange = (date)=>{},openC =false}) => {
         <View style={{justifyContent:'center',alignContent:'center',alignSelf:'center',flexDirection:'column'}}>
             <TouchableOpacity onPress={expandCalendar}>
                 <View style={{justifyContent:'space-evenly',alignContent:'stretch',alignSelf:'center',flexDirection:'row',marginVertical:10}}>
-                <Text style={{alignSelf:'center',marginHorizontal:10}} >{currentDate.toString()}</Text>
+                <Text style={[{alignSelf:'center',marginHorizontal:10,},Platform.isPad==true?{fontSize:25,marginTop:5}:null]} >{currentDate.toString()}</Text>
                 <Image source={buttonIcons['calendar'].uri} style={styles.icon} /> 
                 </View>
                 {isexpanded ? expanded():notExpanded()}
@@ -63,8 +63,8 @@ export const Calendar = ({onChange = (date)=>{},openC =false}) => {
 
 const styles =  StyleSheet.create({
     icon:{
-         width: 32,
-         height: 32,
+         width: Platform.isPad!=true?32:64,
+         height: Platform.isPad!=true?32:64,
          position: 'relative',
          top:0,
          bottom:10,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet,Text,View,Image,Dimensions } from 'react-native';
+import { StyleSheet,Text,View,Image,Dimensions,Platform } from 'react-native';
 import { colors } from '../../constants/appAspect';
 import CustomImageButton from '../../customComponents/customImageButton';
 import { ErrorPopup } from '../../customComponents/errorPopup';
@@ -10,7 +10,9 @@ export const CustomHeader = (props) =>{
 
     return(
     <View style={{flexDirection:'column',alignItems:'center'}}>
-        <Text style={{color:'black',fontSize:screenWidth/15,fontWeight:'bold',alignSelf:'center'}}>{props.children}</Text>
+        {Platform.isPad!=true?<Text style={{color:'black',fontSize:screenWidth/15,fontWeight:'bold',alignSelf:'center'}}>{props.children}</Text>
+        :
+        <Text style={{color:'white',fontSize:screenWidth/20,fontWeight:'bold',top:'8%'}}>{props.children}</Text>}
         <ErrorPopup />
     </View>
     );
