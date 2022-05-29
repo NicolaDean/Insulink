@@ -10,7 +10,8 @@ export const CustomHeader = (props) =>{
 
     return(
     <View style={{flexDirection:'column',alignItems:'center'}}>
-        {Platform.isPad!=true?<Text style={{color:'black',fontSize:screenWidth/15,fontWeight:'bold',alignSelf:'center'}}>{props.children}</Text>
+        {Platform.isPad!=true?
+        <Text style={{color:'black',fontSize:screenWidth/14,fontWeight:'bold',alignSelf:'center',top:'18%'}}>{props.children}</Text>
         :
         <Text style={{color:'white',fontSize:screenWidth/20,fontWeight:'bold',top:'8%'}}>{props.children}</Text>}
         <ErrorPopup />
