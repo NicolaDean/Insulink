@@ -14,9 +14,9 @@ const saveState = () => async( dispatch, getState) =>{
     //Update LOCAL STORAGE
     localStorage.storeFoodDiary(today,state.macroTracker);
     //Update  FIREBASE
-
+    const displayError = (e) => {dispatch(showError(e))};
     console.log(JSON.stringify(state.userReducer));
-    FirebaseQuery.saveFoodDiary(state.userReducer.userId,today,state.macroTracker);
+    FirebaseQuery.saveFoodDiary(state.userReducer.userId,today,state.macroTracker,displayError);
     //TODO THINK HOW MANTAIN CONSINSTENCY
 }
 
@@ -74,11 +74,13 @@ export const loadHistory = (date) => async( dispatch,getState) =>{
         //Try LOADING FROM LOCAL STORAGE
         history = await localStorage.loadFoodDiary(date);
     
+        const displayError = (e) => {dispatch(showError(e))};
+
         //IF NULL Try LOADING FROM FIREBASE
         if(history == null){
             //Load from firebase
             console.log("load from firebase")
-            history = await  FirebaseQuery.getFoodDiary(state.userReducer.userId,date);
+            history = await  FirebaseQuery.getFoodDiary(state.userReducer.userId,date,displayError);
             console.log("HISTORY: -> " + JSON.stringify(history));
         }
     

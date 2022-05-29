@@ -573,7 +573,7 @@ Those 4 components together allow the app state to be persistent both localy and
 			\item Api query for some food,activity
    			\item Redux actions
 		\end{itemize}
-		\item 4. Redux action then change the \textbf{runtime state} of app and, at the same time, change the remote firebase/localstorage state.
+		\item 4. Redux action then change the \textbf{runtime state} of app and, at the same time, change \textbf{asynchronously} the remote firebase/localstorage state.
   		\item 5. Finaly usualy there is a navigation to other page or go back to \textbf{1.}
 	\end{itemize}
 \subsection{Folder Structure}
@@ -655,7 +655,7 @@ InsuLink uses different APIs to get all informations about food and storing user
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Redux States}
 \vspace{10.5cm}
-To manage app states we opted for Redux library \cite{Redux}.
+To manage app states we opted for Redux library \cite{Redux}. TODO ADD THUNK MIDDLEWARE
 \begin{center}
 	\includegraphics[scale=0.2]{redux-logo}
 \end{center}

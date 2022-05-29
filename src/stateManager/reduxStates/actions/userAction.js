@@ -7,6 +7,7 @@ import * as authSys from '../../../utils/auth'
 import { loginStatus } from "../../../constants/states";
 import { FirebaseQuery } from "../../../utils/firebaseQuery";
 import { registrationErrors } from "../../../constants/registrationSteps";
+import { resetError, showError } from "./errorAction";
 
 /**
  * check all user inputs and try to register
@@ -16,14 +17,15 @@ import { registrationErrors } from "../../../constants/registrationSteps";
  * @returns error code
  */
 export const register = (user,googleId=null,errorFunc = (e)=>{}) => async dispatch =>{
+    dispatch(resetError());
     //ASYNC ACTION:
     //TODO CHECK USER INPUTS ARE OK (psw length, email not exist etc...)
-
+    const displayError = (e) => {dispatch(showError(e))};
     //errorFunc([registrationErrors.invalidChoratio])
     console.log("Reg Start:");
     let id;
     if(googleId==null){
-        const usr = (await authSys.register(user.email,user.password,errorFunc));
+        const usr = (await authSys.register(user.email,user.password,displayError));
         if(usr == null) {return;}
 
         id = usr.uid;
@@ -32,7 +34,7 @@ export const register = (user,googleId=null,errorFunc = (e)=>{}) => async dispat
     }
     
     console.log("Reg END:" + id);
-    await FirebaseQuery.registerUser(id,user);
+    await FirebaseQuery.registerUser(id,user,displayError);
     console.log("REGISTER OK");
 
     let glicemyData = {};
@@ -57,11 +59,12 @@ export const register = (user,googleId=null,errorFunc = (e)=>{}) => async dispat
  * @returns 
  */
 export const editUserData = (userData) => async( dispatch, getState) =>{
-
+    dispatch(resetError());
+    const displayError = (e) => {dispatch(showError(e))};
     const userState = getState().userReducer;
 
     await localStorage.saveUserData(userData);
-    await FirebaseQuery.editUserData(userState.userId,userData);
+    await FirebaseQuery.editUserData(userState.userId,userData,displayError);
 
         //TODO:
         //Firebase Update
@@ -118,7 +121,7 @@ const actualLogin = (usrData,uid,glicemy) => async dispatch =>{
  * @returns true or false (false if login is not ok)
  */
 export const login = (email,psw,errorFunc = (e) =>{}) => async dispatch =>{
-
+    dispatch(resetError());
     //errorFunc([registrationErrors.invalidChoratio]);
     //console.count("counter");
     //ASYNC ACTION (eg check values on DB)
@@ -141,10 +144,11 @@ export const login = (email,psw,errorFunc = (e) =>{}) => async dispatch =>{
 
 
 export const googleLogin = (uid,errorFunc,navigation) => async dispatch =>{
-
+    dispatch(resetError());
+    const displayError = (e) => {dispatch(showError(e))};
     //Get user data
-    const usrData = (await FirebaseQuery.getUserData(uid));
-    const glicemy = (await FirebaseQuery.getUserGlicemy(uid));
+    const usrData = (await FirebaseQuery.getUserData(uid,displayError));
+    const glicemy = (await FirebaseQuery.getUserGlicemy(uid,displayError));
 
     if(usrData == null){
         console.log("This google account isnt registered yet");
@@ -229,15 +233,19 @@ export const logout = (email) => async dispatch =>{
  * @param {*} glicemyValue an integer representing the value of glicemy in this specific moment
  * @returns nothing
  */
+
+
+
 export const addGlicemy = (userId,glicemyValue) => async (dispatch,getState) =>{
 
     const date = new Date();
 
     //GET TIMESTAMP
     const glicemy = {value: glicemyValue,time:date};
+    dispatch(resetError());
+    const displayError = (e) => {dispatch(showError(e))};
 
-    //UPDATE FIREBASE IF POSSIBLE; IF NOT ADD A PENDING UPDATE (TODO)
-    FirebaseQuery.addGlicemyValue(userId,glicemy);//TODO PUT AWAIT?
+    FirebaseQuery.addGlicemyValue(userId,glicemy,displayError);//TODO PUT AWAIT?
     localStorage.storeGlicemyData(glicemy,date);
 
 

@@ -31,16 +31,16 @@
 \contentsline {subsubsection}{\numberline {5.1.2}Helper class}{14}{subsubsection.5.1.2}%
 \contentsline {subsection}{\numberline {5.2}Firebase}{14}{subsection.5.2}%
 \contentsline {section}{\numberline {6}Redux States}{15}{section.6}%
-\contentsline {section}{\numberline {7}Insulin Calculator}{17}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Formulas}{18}{subsection.7.1}%
-\contentsline {section}{\numberline {8}Testing}{19}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Testing Strategy}{19}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Folder Structure}{20}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Test Suites}{20}{subsection.8.3}%
-\contentsline {section}{\numberline {9}Future Implementations}{23}{section.9}%
-\contentsline {subsection}{\numberline {9.1}API}{23}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Machine Learning and AI}{23}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}NFC Glucose Meter}{24}{subsection.9.3}%
-\contentsline {section}{\numberline {10}References}{25}{section.10}%
-\contentsline {section}{\numberline {24}~~~ References}{26}{section.10}%
+\contentsline {section}{\numberline {7}Insulin Calculator}{18}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Formulas}{19}{subsection.7.1}%
+\contentsline {section}{\numberline {8}Testing}{20}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Testing Strategy}{20}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Folder Structure}{21}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Test Suites}{21}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Future Implementations}{24}{section.9}%
+\contentsline {subsection}{\numberline {9.1}API}{24}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Machine Learning and AI}{24}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}NFC Glucose Meter}{25}{subsection.9.3}%
+\contentsline {section}{\numberline {10}References}{26}{section.10}%
+\contentsline {section}{\numberline {24}~~~ References}{27}{section.10}%
 \contentsfinish 
