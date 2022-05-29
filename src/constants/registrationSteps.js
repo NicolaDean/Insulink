@@ -25,8 +25,6 @@ export const registrationErrors = {
 }
 
 export const networkErrors = {
-    wrongEmail      : {title:'Email Error: ',body:'This email is invalid or not exists'},
-    wrongPassword   : {title:'Password Error',body:'Wrong password inserted for this email'},
     noInternet      : {title:'Internet Error',body:'No internet present'},
     APIerror        : {title:'Food Service Error',body:'Our Food Service is temporarly offline'},
 }
