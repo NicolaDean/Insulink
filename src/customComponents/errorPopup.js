@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 import { useDispatch } from "react-redux";
 import { setError } from "../stateManager/reduxStates/actions/errorAction";
@@ -8,28 +8,33 @@ export const ErrorPopup = ({visibilityFlag = useState(false)}) => {
 
     const [errors,setErrors] = useState([]);
     const [modalVisible, setModalVisible] = visibilityFlag;
+    const isMounted = useRef(false)
 
     const dispatch = useDispatch();
 
     const showError = (e)=>{
-
-      if(e!=[]){
-        console.log("TRY SHOW ERRORRR");
-        console.log("SONO UN ERRORE");
-        setModalVisible(true);
-        setErrors(e);
-      }else{
-        console.log("Resetted error popup");
-      }
+      if(isMounted.current){
+        if(e!=[]){
+          console.log("TRY SHOW ERRORRR");
+          console.log("SONO UN ERRORE");
+          setModalVisible(true);
+          setErrors(e);
+        }else{
+          console.log("Resetted error popup");
+        }
+    }
         
     }
     const resetError = () =>{
       console.log("Try RESETTING");
       setErrors([]);
     }
+
     useEffect(()=>{
+        isMounted.current = true;
         console.log("INITIALIZE ERROR POPUP!!!");
         dispatch(setError(showError,resetError));
+        return () => { isMounted.current = false } //Return is given on unmount
     },[]);
 
     const errorBubble = (error,index) =>{
