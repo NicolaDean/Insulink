@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,FlatList,TextInput,Text,Switch,ActivityIndicator,Dimensions } from 'react-native';
+import {View,FlatList,TextInput,Text,Switch,ActivityIndicator,Dimensions ,Platform} from 'react-native';
 import { useState } from 'react';
 import styles from './style'
 import {Food} from './food'
@@ -67,7 +67,7 @@ export const ScannerPage = ({ navigation }) =>{
  const showErrors=(e)=>
 {
     return(
-      <View style={{    top:screenHeight*0.40,      }}>
+      <View style={Platform.isPad!=true?{top:screenHeight*0.40}:{top:screenHeight*0.50,}}>
               <View style={styles.errorContainer}>
        <Text style={styles.errorMessage}>
          Sorry! The food barcode <Text style={[styles.errorMessage,{fontWeight: '500',}]}>{errorMSG}</Text> is not available</Text>        

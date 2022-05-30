@@ -1,5 +1,5 @@
 import { StyleSheet} from 'react-native';
-import { Dimensions  } from 'react-native';
+import { Dimensions ,Platform } from 'react-native';
 import { colors, dim } from '../../constants/appAspect';
 
 /*
@@ -41,7 +41,7 @@ export default StyleSheet.create({
         flexDirection:'row'
       },
       mealName:{
-          fontSize:20,
+          fontSize:Platform.isPad!=true?20:30,
           fontWeight:"bold",
           marginLeft:5,
           alignSelf:'flex-start',
@@ -52,8 +52,8 @@ export default StyleSheet.create({
       mealImage:{
         alignSelf: 'center',
         marginLeft:10,
-        width: 20,
-        height: 20,
+        width: Platform.isPad!=true?20:50,
+        height: Platform.isPad!=true?20:50,
       },
       addBox:{
         flexShrink:1,
