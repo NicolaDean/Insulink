@@ -89,6 +89,11 @@ export const SportActivity = ({ navigation,diary,userData }) =>{
       
   }
 
+  const errorFunc = (e) =>{
+    dispatch(showError(e));
+ }
+  Food_API.errorFunc = errorFunc;
+  
 const addActivity = async() =>{
      if(sportString != "" || timeString!=''){
        

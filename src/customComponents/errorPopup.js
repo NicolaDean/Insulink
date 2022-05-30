@@ -12,6 +12,7 @@ export const ErrorPopup = ({visibilityFlag = useState(false)}) => {
     const dispatch = useDispatch();
 
     const showError = (e)=>{
+
       if(e!=[]){
         console.log("TRY SHOW ERRORRR");
         console.log("SONO UN ERRORE");

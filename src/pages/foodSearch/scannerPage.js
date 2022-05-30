@@ -9,6 +9,8 @@ import { RNCamera } from 'react-native-camera';
 import { colors } from '../../constants/appAspect';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import CustomImageButton from '../../customComponents/customImageButton';
+import { useDispatch } from 'react-redux';
+import { showError } from '../../stateManager/reduxStates/actions/errorAction';
 
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
@@ -31,6 +33,12 @@ export const ScannerPage = ({ navigation }) =>{
 
        }
    }
+   const dispatch = useDispatch();
+
+   const errorFunc = (e) =>{
+      dispatch(showError(e));
+   }
+   Food_API.errorFunc = errorFunc;
 
   const onSuccess = async(e) =>{
       /*
@@ -39,6 +47,7 @@ export const ScannerPage = ({ navigation }) =>{
       console.error('An error occured', err)
     );
     */
+    Food_API.errorFunc = errorFunc;
    const json = (await Food_API.getFoodListBarCode(e.data));  
    var data=json['foods'][0]
    //console.log(JSON.stringify(data))
@@ -55,7 +64,7 @@ export const ScannerPage = ({ navigation }) =>{
 };
 
 
- const showError=(e)=>
+ const showErrors=(e)=>
 {
     return(
       <View style={{    top:screenHeight*0.40,      }}>
@@ -87,7 +96,7 @@ export const ScannerPage = ({ navigation }) =>{
                                   <CustomImageButton image='flash' iconStyle={{width: 52, height: 52,position: 'relative',left:screenWidth/1.22}} onPress={()=>{changeFlash()}}/>
 
       <View >
-      {error==true? showError():null}
+      {error==true? showErrors():null}
       </View>
       </View>            
 

@@ -127,8 +127,6 @@ class Api{
             //this.errorFunc(networkErrors.APIerror);
             console.log(error);
             inputChecker.apiErrorHelper(error,this.errorFunc);
-
-            console.log("BANANA" + JSON.stringify(error));
             //console.log(JSON.stringify(error));
             /*if(error.status == 401) {
                 console.log("ENDED STUDENT LIMITS!!!!!!!!!!!!!!!!!!!!");

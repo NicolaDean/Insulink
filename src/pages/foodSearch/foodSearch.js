@@ -5,6 +5,8 @@ import styles from './style'
 import {Food} from './food'
 import {Food_API} from '../../utils/apiQuery';
 import { CustomImageButton } from '../../customComponents/customImageButton';
+import { useDispatch } from 'react-redux';
+import { showError } from '../../stateManager/reduxStates/actions/errorAction';
 
 
 const screenWidth = Dimensions.get("window").width;
@@ -18,16 +20,13 @@ export const FoodSearch = ({ navigation }) =>{
 
   const [error,setError] = useState("");
 
-  const errorFunc = (error) =>{
-    console.log("Error during food search: " + JSON.stringify(error));
+  const dispatch = useDispatch();
+  const errorFunc = (e) =>{
+    dispatch(showError(e));
+ }
+  Food_API.errorFunc = errorFunc;
 
-    setError(error);
-  }
-
-  Food_API.setErrorFunc(errorFunc);
-  const test = async () =>{
-    
-  }
+  
   //Define a function to retrive date from API
   const getData = async () => 
   {

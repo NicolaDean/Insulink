@@ -49,7 +49,7 @@ const logout = (state,payload) =>{
 
 const register = (state,payload) =>{
     const newstate ={...state};
-
+    newstate.userId = payload.userId;
     newstate.userData = payload.user;
     newstate.status = loginStatus.logged;
     newstate.mustCompleteReg = false;
@@ -67,7 +67,10 @@ const addGlicemy = (state,payload) =>{
     if(newstate.userData.glicemy[id] == undefined) newstate.userData.glicemy[id] = [];
 
     newstate.userData.glicemy[id].push(g);
-
+    console.log("THIS USER HAS : " +payload.userId )
+    newState.userId = payload.userId;
+    newState.status = loginStatus.logged;
+    newState.userData = usrData;
     //console.log(newstate.userData.glicemy[id]);
     return newstate;
 }

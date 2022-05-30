@@ -25,7 +25,7 @@ export const register = (user,googleId=null,errorFunc = (e)=>{}) => async dispat
     console.log("Reg Start:");
     let id;
     if(googleId==null){
-        const usr = (await authSys.register(user.email,user.password,displayError));
+        const usr = (await authSys.register(user.email,user.password,errorFunc));
         if(usr == null) {return;}
 
         id = usr.uid;
@@ -44,11 +44,11 @@ export const register = (user,googleId=null,errorFunc = (e)=>{}) => async dispat
     user.glicemy = [];
 
     //SAVE DATA TO LOCAL STORAGE
-    await localStorage.saveUserData(usrData);
+    await localStorage.saveUserData(user);
     
     dispatch({
         type: userMethods.registerUser,
-        payload: {user:user}
+        payload: {user:user,userId:id}
     });
    
 } 

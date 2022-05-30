@@ -21,6 +21,7 @@ import { CustomImageButton } from '../../customComponents/customImageButton';
 import { buttonIconsNames,buttonIcons } from '../../assets/buttonIcons';
 import { colors } from '../../constants/appAspect';
 import { FirebaseQuery } from '../../utils/firebaseQuery';
+import { showError } from '../../stateManager/reduxStates/actions/errorAction';
 
 
 const marginOffset=10;
@@ -54,6 +55,11 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
 
     console.log("MY IDENTIFIER IS: " + JSON.stringify(foodId));
     const foodInitialAmount = editable ? foodInfo.quantity : 1;
+
+    const errorFunc = (e) =>{
+        dispatch(showError(e));
+     }
+    Food_API.errorFunc = errorFunc;
 
     //Retrive API food details data
     const getData = async (data)=>

@@ -4,6 +4,7 @@ exports[`Test the Login page: Loading of Page and Login Redirect 1`] = `
 Object {
   "errorReducer": Object {
     "errorFunc": [Function],
+    "reset": [Function],
   },
   "macroTracker": Object {
     "activities": Object {

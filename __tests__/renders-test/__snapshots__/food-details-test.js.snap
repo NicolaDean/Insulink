@@ -1135,6 +1135,7 @@ exports[`TEST ON Food Details Page: Test Edit and Delete Food 1`] = `
 Object {
   "errorReducer": Object {
     "errorFunc": [Function],
+    "reset": [Function],
   },
   "macroTracker": Object {
     "activities": Object {
@@ -1324,6 +1325,7 @@ exports[`TEST ON Food Details Page: Test Edit and Delete Food 2`] = `
 Object {
   "errorReducer": Object {
     "errorFunc": [Function],
+    "reset": [Function],
   },
   "macroTracker": Object {
     "activities": Object {
@@ -1489,6 +1491,7 @@ exports[`TEST ON Food Details Page: Test Error of  Add Food with No Parameter 1`
 Object {
   "errorReducer": Object {
     "errorFunc": [Function],
+    "reset": [Function],
   },
   "macroTracker": Object {
     "activities": Object {

@@ -44,13 +44,14 @@ class firebaseQuery{
     }
 
     editUserData = async (id,userData,errorFunc=(e)=>{}) =>{
+        console.log("ID: " + JSON.stringify(userData));
         //TODO UPDATE USER DATA
         try{
             await (this.users.doc(id).update(userData));
         }catch(e){
+            console.log(e);
             errorFunc([networkErrors.noInternet])
         }
-        
     }
     //------------------------------------------------------------------------------------
     //GLICEMY QUERY:----------------------------------------------------------------------
@@ -191,7 +192,7 @@ class firebaseQuery{
         console.log("TRY FIREBASE")
         console.log("USER : " + userId + "->" + date);
         //TAKE THE REFERENCE TO USER DIARY (without getting data())
-        const userDiary = this.users.doc(userId).collection(tables.diaryTable).doc(date).get();
+        const userDiary = await this.users.doc(userId).collection(tables.diaryTable).doc(date).get();
         //INGORE UNDEFINED VALUES
         firestore().settings({ ignoreUndefinedProperties: true }); //INGORE UNDEFINED FIELD
         const data = {
@@ -199,8 +200,6 @@ class firebaseQuery{
             meals:diary.meals,
             activities:diary.activities
         }
-
-        
         //await users.doc(userId).collection(diaryTable).doc(date).set({data:diary},{merge: true});
        if(userDiary && userDiary.exists)
         {
@@ -214,6 +213,8 @@ class firebaseQuery{
             
         }else{
             try{
+                console.log("Siamo qui");
+                
                 await userDiary.ref.set(data)//TODO VEDERE CHE SUCCEDE QUI 
                 console.log("Saved on " + userId + "-> " + date);
             }catch(e){

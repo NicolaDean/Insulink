@@ -3,6 +3,7 @@ import { FirebaseQuery } from "../../../utils/firebaseQuery";
 
 import { localStorage } from "../../../utils/localStoreManager";
 import { initialDiaryState } from "../reducers/macroTracker";
+import { showError } from "./errorAction";
 
 
 const saveState = () => async( dispatch, getState) =>{
@@ -16,6 +17,7 @@ const saveState = () => async( dispatch, getState) =>{
     //Update  FIREBASE
     const displayError = (e) => {dispatch(showError(e))};
     console.log(JSON.stringify(state.userReducer));
+    console.log(state.userReducer.userId + " -> " + today)
     FirebaseQuery.saveFoodDiary(state.userReducer.userId,today,state.macroTracker,displayError);
     //TODO THINK HOW MANTAIN CONSINSTENCY
 }
