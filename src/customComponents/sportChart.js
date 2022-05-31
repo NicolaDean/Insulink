@@ -57,16 +57,20 @@ export const SportChart = ({
         let len=userData.length-1
 
         for (var k=0;k<7;k++){
-          dataReal.labels.push(daysArray[i%7])
+          dataReal.labels.unshift(daysArray[i%7])
           i++;
         }
         
-        for (var k=len;k>=0;k--){
-          console.log(k)
-          dataReal.datasets[0].data.push(userData[0].count)
-          if (len-k>7){
-            break
+        for (var k=len;len-k<7;k--){
+          //console.log('AAA' +userData[k].count)
+          if(userData[k]!=undefined){
+            dataReal.datasets[0].data.unshift(userData[k].count)
           }
+          else{
+            dataReal.datasets[0].data.unshift(0)
+
+          }
+        
         }
 
         console.log(JSON.stringify(dataReal))

@@ -105,6 +105,7 @@ const addActivity = async() =>{
         }
 
         //GET API DATA
+        console.log(timeString)
         const cal = (await Food_API.getSportCalories(timeString,userData))
         console.log(timeString)
         console.log(cal);
@@ -135,7 +136,7 @@ const addActivity = async() =>{
        'tennis',
        'soccer',
        'fitness',
-       'basket',
+       'basketball',
        'running',
        'swimming'
    ]}
