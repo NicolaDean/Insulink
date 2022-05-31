@@ -7,6 +7,11 @@ import { colors } from '../constants/appAspect';
 
 const marginOffset=10;
 
+const fakeData = {
+  labels: ["Carbo", "Pro", "Fat"], // optional
+  data: [0.4, 0.6, 0.8]
+};
+
 const screenWidth = Dimensions.get("window").width-marginOffset*3;
 
     const chartConfig = {
@@ -54,6 +59,8 @@ export const MacroChart = ({diary,user }) =>{
                maxValueCheck(diary.totMacro.fat,maxFat),
                maxValueCheck(diary.totMacro.carb,maxCarb)]
       }
+
+      
     return (
       
  <ProgressChart 

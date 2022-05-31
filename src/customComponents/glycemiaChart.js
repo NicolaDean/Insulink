@@ -9,7 +9,21 @@ import { FirebaseQuery } from '../utils/firebaseQuery';
 const marginOffset=10;
 
 const screenWidth = Dimensions.get("window").width-marginOffset*3;
-
+const fakeData={
+  labels: ["8:00", "12:00", "14:00", "16:00", "20:00", "22:00"],
+  datasets: [
+    {
+      data: [
+        100,
+        200,
+        150,
+        80,
+        100,
+        120
+      ]
+    }
+  ]
+}
 
 const chartConfig = {
     //General
