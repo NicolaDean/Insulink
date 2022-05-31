@@ -5,29 +5,30 @@
 \BOOKMARK [2][-]{subsection.2.2}{Glycemia}{section.2}% 5
 \BOOKMARK [2][-]{subsection.2.3}{Insulin Calculator}{section.2}% 6
 \BOOKMARK [2][-]{subsection.2.4}{Calendar}{section.2}% 7
-\BOOKMARK [1][-]{section.3}{Screens and Navigation}{}% 8
-\BOOKMARK [2][-]{subsection.3.1}{Screens}{section.3}% 9
-\BOOKMARK [2][-]{subsection.3.2}{Navigation}{section.3}% 10
-\BOOKMARK [1][-]{section.4}{Architecture}{}% 11
-\BOOKMARK [2][-]{subsection.4.1}{UML app structure}{section.4}% 12
-\BOOKMARK [2][-]{subsection.4.2}{Main components}{section.4}% 13
-\BOOKMARK [2][-]{subsection.4.3}{Ideal App Flow}{section.4}% 14
-\BOOKMARK [2][-]{subsection.4.4}{Folder Structure}{section.4}% 15
-\BOOKMARK [1][-]{section.5}{API and Services}{}% 16
-\BOOKMARK [2][-]{subsection.5.1}{Nutritionix}{section.5}% 17
-\BOOKMARK [3][-]{subsubsection.5.1.1}{Api requests}{subsection.5.1}% 18
-\BOOKMARK [3][-]{subsubsection.5.1.2}{Helper class}{subsection.5.1}% 19
-\BOOKMARK [2][-]{subsection.5.2}{Firebase}{section.5}% 20
-\BOOKMARK [1][-]{section.6}{Redux States}{}% 21
-\BOOKMARK [1][-]{section.7}{Insulin Calculator}{}% 22
-\BOOKMARK [2][-]{subsection.7.1}{Formulas}{section.7}% 23
-\BOOKMARK [1][-]{section.8}{Testing}{}% 24
-\BOOKMARK [2][-]{subsection.8.1}{Testing Strategy}{section.8}% 25
-\BOOKMARK [2][-]{subsection.8.2}{Folder Structure}{section.8}% 26
-\BOOKMARK [2][-]{subsection.8.3}{Test Suites}{section.8}% 27
-\BOOKMARK [1][-]{section.9}{Future Implementations}{}% 28
-\BOOKMARK [2][-]{subsection.9.1}{API}{section.9}% 29
-\BOOKMARK [2][-]{subsection.9.2}{Machine Learning and AI}{section.9}% 30
-\BOOKMARK [2][-]{subsection.9.3}{NFC Glucose Meter}{section.9}% 31
-\BOOKMARK [1][-]{section.10}{References}{}% 32
-\BOOKMARK [1][-]{section.10}{ \040 \040References}{}% 33
+\BOOKMARK [2][-]{subsection.2.5}{Charts}{section.2}% 8
+\BOOKMARK [1][-]{section.3}{Screens and Navigation}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{Screens}{section.3}% 10
+\BOOKMARK [2][-]{subsection.3.2}{Navigation}{section.3}% 11
+\BOOKMARK [1][-]{section.4}{Architecture}{}% 12
+\BOOKMARK [2][-]{subsection.4.1}{UML app structure}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.2}{Main components}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.3}{Ideal App Flow}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.4}{Folder Structure}{section.4}% 16
+\BOOKMARK [1][-]{section.5}{API and Services}{}% 17
+\BOOKMARK [2][-]{subsection.5.1}{Nutritionix}{section.5}% 18
+\BOOKMARK [3][-]{subsubsection.5.1.1}{Api requests}{subsection.5.1}% 19
+\BOOKMARK [3][-]{subsubsection.5.1.2}{Helper class}{subsection.5.1}% 20
+\BOOKMARK [2][-]{subsection.5.2}{Firebase}{section.5}% 21
+\BOOKMARK [1][-]{section.6}{Redux States}{}% 22
+\BOOKMARK [1][-]{section.7}{Insulin Calculator}{}% 23
+\BOOKMARK [2][-]{subsection.7.1}{Formulas}{section.7}% 24
+\BOOKMARK [1][-]{section.8}{Testing}{}% 25
+\BOOKMARK [2][-]{subsection.8.1}{Testing Strategy}{section.8}% 26
+\BOOKMARK [2][-]{subsection.8.2}{Folder Structure}{section.8}% 27
+\BOOKMARK [2][-]{subsection.8.3}{Test Suites}{section.8}% 28
+\BOOKMARK [1][-]{section.9}{Future Implementations}{}% 29
+\BOOKMARK [2][-]{subsection.9.1}{API}{section.9}% 30
+\BOOKMARK [2][-]{subsection.9.2}{Machine Learning and AI}{section.9}% 31
+\BOOKMARK [2][-]{subsection.9.3}{NFC Glucose Meter}{section.9}% 32
+\BOOKMARK [1][-]{section.10}{References}{}% 33
+\BOOKMARK [1][-]{section.10}{ \040 \040References}{}% 34
