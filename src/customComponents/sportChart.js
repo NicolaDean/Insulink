@@ -42,11 +42,18 @@ export const SportChart = ({
      diary,
      user }) =>{
 
-  
+      const getDayName = (dayIndex) =>{
+        let daysArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        return daysArray[dayIndex];
+    }
+    const dayName = getDayName(new Date().getDay());
+    console.log(dayName)
+
+
     //const data = glicemyChartFormatter(FirebaseQuery.getTodayGlicemy(user.userData.glicemy));
     //console.log(JSON.stringify(data));
     const data = {
-        labels: ["January", "February", "March", "April", "May", "June"],
+        labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
         datasets: [
           {
             data: [20, 45, 28, 80, 99, 43]
@@ -54,7 +61,7 @@ export const SportChart = ({
         ]
       };
 
-      
+
 
     return (
       
