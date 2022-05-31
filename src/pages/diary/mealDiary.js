@@ -52,7 +52,7 @@ const chartConfig = {
 
  
 
-export const MealDiary = ({ route,navigation,diary,user }) =>{
+export const MealDiary = ({ route,navigation,diary,user,userData }) =>{
 
   console.log("USER:" + JSON.stringify(user));
   var openCalendar=route.params.openCalendar
@@ -91,10 +91,10 @@ return (
         <MacroChart diary={diary} user={user}/>
         </View>
         <View style={styles.slide}>
-        <SportChart diary={diary} user={user}/>
+        <SportChart diary={diary} user={userData.activitys}/>
         </View>
         <View style={styles.slide}>
-        <ActivityChart diary={diary} user={user}/>
+        <ActivityChart diary={diary} user={userData.activitys}/>
         </View>
         <View style={styles.slide}>
         <GlycemiaChart diary={diary} user={user}/>
@@ -115,7 +115,7 @@ return (
 
 //export default Home;
 const mapStateToProps = (state, ownProps = {}) => {
-  return{diary: state.macroTracker,user: state.userReducer};
+  return{diary: state.macroTracker,user: state.userReducer,userData: state.userReducer.userData};
 }
 
 export default connect(mapStateToProps)(MealDiary);

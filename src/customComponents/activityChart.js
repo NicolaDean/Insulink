@@ -37,7 +37,7 @@ export const ActivityChart = ({
      diary,
      user }) =>{
 
-    
+    console.log('CALS ->'+JSON.stringify(user.activitys))
     //const data = glicemyChartFormatter(FirebaseQuery.getTodayGlicemy(user.userData.glicemy));
     //console.log(JSON.stringify(data));
     const commitsData = [
@@ -56,7 +56,7 @@ export const ActivityChart = ({
 
     return (
         <ContributionGraph
-        values={commitsData}
+        values={user}
         endDate={new Date()}
         numDays={90}
         width={screenWidth}
