@@ -79,20 +79,24 @@ export const SportChart = ({
         console.log(JSON.stringify(dataReal))
 
     }
-    initialize(new Date(userData[userData.length-1].date).getDay());
+
+    const data = {
+      labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      datasets: [
+        {
+          data: [20, 45, 28, 80, 99, 43]
+        }
+      ]
+    };
+
+    if(userData.length!=undefined){
+      initialize(new Date(userData[userData.length-1].date).getDay());
+    }
+    else{
+      dataReal=data
+    }
     
 
-
-    //const data = glicemyChartFormatter(FirebaseQuery.getTodayGlicemy(user.userData.glicemy));
-    //console.log(JSON.stringify(data));
-    const data = {
-        labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-        datasets: [
-          {
-            data: [20, 45, 28, 80, 99, 43]
-          }
-        ]
-      };
 
 
 

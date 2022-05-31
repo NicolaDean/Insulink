@@ -58,7 +58,7 @@ export const ActivityChart = ({
 <ContributionGraph
         values={userData}
         endDate={new Date()}
-        numDays={90}
+        numDays={84}
         width={screenWidth}
         height={Dimensions.get("window").height*0.3}
         chartConfig={chartConfig}
