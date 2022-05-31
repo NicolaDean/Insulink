@@ -29,11 +29,11 @@ const chartConfig = {
     
       //TODO fit better the chart 
     propsForDots: {
-      r: "6",
+      r: "4",
       strokeWidth: "2",
       stroke: "#ffa726"
     },
-      barPercentage: 0.5,
+      barPercentage: 0.4,
       useShadowColorFromDataset: false, // optional
 };
 
@@ -42,9 +42,36 @@ export const SportChart = ({
      diary,
      user }) =>{
 
+      var dataReal=  {
+        labels: [],
+        datasets: [
+          {
+            data: []
+          }
+        ]
+      };
       const getDayName = (dayIndex) =>{
-        let daysArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        let daysArray = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        let i=dayIndex;
+        let len=user.length-1
+
+        for (var k=0;k<7;k++){
+          dataReal.labels.push(daysArray[i%7])
+          i++;
+        }
+        
+        for (var k=len;k>=0;k--){
+          console.log(k)
+          dataReal.datasets[0].data.push(user[0].count)
+          if (len-k>7){
+            break
+          }
+        }
+
+        console.log(JSON.stringify(dataReal))
+      
         return daysArray[dayIndex];
+
     }
     const dayName = getDayName(new Date().getDay());
     console.log(dayName)
@@ -67,12 +94,12 @@ export const SportChart = ({
       
         <BarChart
         style={styles.chartStyle}
-        data={data}
+        data={dataReal}
         width={screenWidth}
         height={Dimensions.get("window").height*0.3}
         yAxisLabel="cal "
         chartConfig={chartConfig}
-        verticalLabelRotation={30}
+        verticalLabelRotation={0}
       />
     );
 }
