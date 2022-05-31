@@ -41,24 +41,24 @@ export const ActivityChart = ({
     //const data = glicemyChartFormatter(FirebaseQuery.getTodayGlicemy(user.userData.glicemy));
     //console.log(JSON.stringify(data));
     const commitsData = [
-        { date: "2017-01-02", count: 1 },
-        { date: "2017-01-03", count: 2 },
-        { date: "2017-01-04", count: 3 },
-        { date: "2017-01-05", count: 4 },
-        { date: "2017-01-06", count: 5 },
-        { date: "2017-01-30", count: 2 },
-        { date: "2017-01-31", count: 3 },
-        { date: "2017-03-01", count: 2 },
-        { date: "2017-04-02", count: 4 },
-        { date: "2017-03-05", count: 2 },
-        { date: "2017-02-30", count: 4 }
+        { date: "2022-05-02", count: 1 },
+        { date: "2022-05-03", count: 2 },
+        { date: "2022-05-04", count: 3 },
+        { date: "2022-05-05", count: 4 },
+        { date: "2022-05-06", count: 5 },
+        { date: "2022-05-09", count: 2 },
+        { date: "2022-05-10", count: 3 },
+        { date: "2022-05-13", count: 2 },
+        { date: "2022-05-16", count: 4 },
+        { date: "2022-05-17", count: 2 },
+        { date: "2022-05-30", count: 4 }
       ];
 
     return (
         <ContributionGraph
         values={commitsData}
-        endDate={new Date("2017-04-01")}
-        numDays={105}
+        endDate={new Date()}
+        numDays={90}
         width={screenWidth}
         height={Dimensions.get("window").height*0.3}
         chartConfig={chartConfig}

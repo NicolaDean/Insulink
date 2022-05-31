@@ -1,4 +1,4 @@
-import { foodMethods } from "../../../constants/reducers"
+import { foodMethods, userMethods } from "../../../constants/reducers"
 import { FirebaseQuery } from "../../../utils/firebaseQuery";
 
 import { localStorage } from "../../../utils/localStoreManager";
@@ -20,6 +20,14 @@ const saveState = () => async( dispatch, getState) =>{
     console.log(state.userReducer.userId + " -> " + today)
     FirebaseQuery.saveFoodDiary(state.userReducer.userId,today,state.macroTracker,displayError);
     //TODO THINK HOW MANTAIN CONSINSTENCY
+}
+
+const saveUserActivity = () => async( dispatch, getState) =>{
+    //Get updated state
+    const state = getState();
+    const displayError = (e) => {dispatch(showError(e))};
+    localStorage.saveUserData(state.userReducer.userData);
+    FirebaseQuery.editUserData(state.userReducer.userId,state.userReducer.userData,displayError);
 }
 
 export const addFood = (food,currentMeal) => async( dispatch, getState) =>{
@@ -45,7 +53,12 @@ export const removeActivity = (activity) => async( dispatch, getState) =>{
         type: foodMethods.removeActivity,
         payload: {activity:activity}
     })
+    dispatch({
+        type: userMethods.removeActivity,
+        payload: {activity:activity}
+    })
     dispatch(saveState());
+    dispatch(saveUserActivity());
 } 
 export const editFood = (food) => async( dispatch, getState) =>{
     dispatch({
@@ -107,5 +120,11 @@ export const addActivityToDiary = (activity) => async( dispatch, getState) =>{
         payload: {activity:activity}
     });
 
+    dispatch({
+        type: userMethods.addActivity,
+        payload: {activity:activity}
+    })
+    
     dispatch(saveState());
+    dispatch(saveUserActivity());
 }

@@ -115,11 +115,15 @@ class firebaseQuery{
         
     }
 
-    glicemyDateFormatter = (date = new Date()) =>
+    glicemyDateFormatter = (date = new Date(),inverted = false) =>
     {
         const today = date;
         let id = this.zeroPad(today.getDate(),2) +"-"+ this.zeroPad(today.getMonth()+1,2) +"-"+ today.getFullYear();
 
+        if(inverted){
+            id = today.getFullYear() +"-"+ this.zeroPad(today.getMonth()+1,2) +"-"+this.zeroPad(today.getDate(),2) ;
+
+        }
         return id;
     }
 

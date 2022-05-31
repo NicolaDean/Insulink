@@ -43,6 +43,19 @@ export const SportChart = ({
      user }) =>{
 
     
+      const commitsData = [
+        { date: "2022-05-02", count: 1 },
+        { date: "2022-05-03", count: 2 },
+        { date: "2022-05-04", count: 3 },
+        { date: "2022-05-05", count: 4 },
+        { date: "2022-05-06", count: 5 },
+        { date: "2022-05-09", count: 2 },
+        { date: "2022-05-10", count: 3 },
+        { date: "2022-05-13", count: 2 },
+        { date: "2022-05-16", count: 4 },
+        { date: "2022-05-17", count: 2 },
+        { date: "2022-05-30", count: 4 }
+      ];
     //const data = glicemyChartFormatter(FirebaseQuery.getTodayGlicemy(user.userData.glicemy));
     //console.log(JSON.stringify(data));
     const data = {

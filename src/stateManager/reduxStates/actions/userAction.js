@@ -42,7 +42,7 @@ export const register = (user,googleId=null,errorFunc = (e)=>{}) => async dispat
     //glicemyData[date] = [{}];
 
     user.glicemy = [];
-
+    user.activitys = [];
     //SAVE DATA TO LOCAL STORAGE
     await localStorage.saveUserData(user);
     
@@ -94,7 +94,7 @@ const actualLogin = (usrData,uid,glicemy) => async dispatch =>{
     //CHECK FOR EMPTY DATA:
     //usrData.age = 20; //TODO CALCULATE AGE FROM BIRTHDAY
     usrData.glicemy = glicemy;
-    
+    usrData.activitys = undefined;
     usrData.uid = uid;
     //CHECK FOR EMPTY DATA:
     //console.log(usrData.birthday);
@@ -268,5 +268,8 @@ const saveState = () => async( dispatch, getState) =>{
     const userState = (getState()).userReducer;
     console.log("DEBUG: " + JSON.stringify(userState.userData));
 
-    //localStorage.saveUserData(userState.userData)
+    //localStorage.saveUserData(userState.userData);
+
 }
+
+

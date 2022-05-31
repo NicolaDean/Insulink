@@ -18,6 +18,7 @@ import { connect, useDispatch } from 'react-redux';
 import { colors } from "../../constants/appAspect";
 import { ApiHelper } from "../../utils/apiHelper";
 import { addActivityToDiary } from "../../stateManager/reduxStates/actions/macroTracker";
+import { showError } from "../../stateManager/reduxStates/actions/errorAction";
 
 
 export const SportActivity = ({ navigation,diary,userData }) =>{

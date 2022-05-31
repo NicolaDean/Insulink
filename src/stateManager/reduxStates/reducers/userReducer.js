@@ -17,6 +17,7 @@ export const initialState = {
         isf:0,
         choratio:0,
         glicemy:[],
+        activitys:undefined,
         maxCarb:200,
         maxFat:100,
         maxProt:40,
@@ -92,6 +93,58 @@ const setId = (state,payload) =>{
     return newstate;
 }
 
+const addActivity = (state,payload) =>{
+    const newstate = {...state};
+
+    const cal = payload.activity.calories;
+    const today = FirebaseQuery.glicemyDateFormatter(new Date(),true);
+
+    let pos = -1;
+    let i = 0;
+    let x = [];
+
+    if(newstate.userData.activitys == undefined) newstate.userData.activitys = [];
+    console.log("ACTIV: " + JSON.stringify(newstate.userData.activitys));
+    newstate.userData.activitys.forEach(act=>{
+        if(act.date == today){
+            pos = i;
+        }
+        i++;
+    });
+
+    if(pos != -1){
+        newstate.userData.activitys[pos].count += cal;
+    }else{
+        newstate.userData.activitys.push({date: today, count: cal});
+    }
+
+    console.log("NEW STATE: " + JSON.stringify(newstate.userData.activitys));
+
+    return newstate;
+}
+
+const removeActivity = (state,payload) =>{
+    const newstate = {...state};
+    const today = FirebaseQuery.glicemyDateFormatter(new Date(),true);
+    const cal = payload.activity.calories;
+    let pos = -1;
+    let i = 0;
+    
+    if(newstate.userData.activitys == undefined) newstate.userData.activitys = [];
+    console.log("ACTIV: " + JSON.stringify(newstate.userData.activitys));
+    newstate.userData.activitys.forEach(act=>{
+        if(act.date == today){
+            pos = i;
+        }
+        i++;
+    });
+
+    if(pos != -1){
+        newstate.userData.activitys[pos].count -= cal;
+    }
+    return newstate;
+}
+
 const userReducer = (state = initialState, action) => {
     switch(action.type){
         case userMethods.login:
@@ -108,6 +161,10 @@ const userReducer = (state = initialState, action) => {
             return update(state,action.payload);
         case userMethods.addGlicemy:
             return addGlicemy(state,action.payload);
+        case userMethods.addActivity:
+            return addActivity(state,action.payload);
+        case userMethods.removeActivity:
+            return removeActivity(state,action.payload);
         case userMethods.logout:
             return initialState;
         default:

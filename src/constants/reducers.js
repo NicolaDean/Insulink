@@ -18,5 +18,7 @@ export const userMethods = {
     updateUser: 'UPDATE_USER',
     addGlicemy: 'ADD_GLICEMY',
     setId:'SET_USER_ID',
-    error:'ERRORS'
+    error:'ERRORS',
+    removeActivity:'REMOVE_ACTIVITY_USER',
+    addActivity:'ADD_ACTIVITY_USER',
 }
