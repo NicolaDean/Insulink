@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {  StyleSheet,Dimensions,TouchableOpacity, View, Image } from 'react-native';
+import {  StyleSheet,Dimensions,TouchableOpacity, View, Image,Platform } from 'react-native';
 import {ContributionGraph} from "react-native-chart-kit";
 import { connect, useDispatch } from 'react-redux';
 import { glicemyChartFormatter } from '../utils/chartDataFormatter';
@@ -54,7 +54,8 @@ export const ActivityChart = ({
 
      // const chartData = (user == undefined) ? commitsData : user;
     return (
-        <ContributionGraph
+      Platform.isPad!=true?
+<ContributionGraph
         values={userData}
         endDate={new Date()}
         numDays={90}
@@ -62,6 +63,21 @@ export const ActivityChart = ({
         height={Dimensions.get("window").height*0.3}
         chartConfig={chartConfig}
         style={styles.chartStyle}
+      
+
+      />
+      :
+        <ContributionGraph
+        values={userData}
+        endDate={new Date()}
+        numDays={125}
+        width={screenWidth}
+        height={Dimensions.get("window").height*0.30}
+        chartConfig={chartConfig}
+        style={styles.chartStyle}
+        gutterSize={15}
+        squareSize={25}
+
       />
     );
 }

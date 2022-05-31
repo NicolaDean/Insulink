@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {  StyleSheet,Dimensions,TouchableOpacity, View, Image } from 'react-native';
+import {  StyleSheet,Dimensions,Platform,TouchableOpacity, View, Image } from 'react-native';
 import {BarChart} from "react-native-chart-kit";
 import { connect, useDispatch } from 'react-redux';
 import { glicemyChartFormatter } from '../utils/chartDataFormatter';
@@ -27,7 +27,6 @@ const chartConfig = {
     color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
     labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
     
-      //TODO fit better the chart 
     propsForDots: {
       r: "4",
       strokeWidth: "2",
@@ -35,6 +34,7 @@ const chartConfig = {
     },
       barPercentage: 0.4,
       useShadowColorFromDataset: false, // optional
+
 };
 
 export const SportChart = ({
@@ -106,6 +106,7 @@ export const SportChart = ({
         yAxisLabel="cal "
         chartConfig={chartConfig}
         verticalLabelRotation={0}
+        pad
       />
     );
 }
@@ -115,9 +116,8 @@ const styles=StyleSheet.create({
         marginTop:8,
         marginBottom:8,
         marginLeft:15,
-        top: '5%',
+        top:'5%',
         borderRadius: 15,
-        
     }
 });
 
