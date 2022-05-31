@@ -58,7 +58,10 @@ export const SportChart = ({
 
         for (var k=0;k<7;k++){
           dataReal.labels.unshift(daysArray[i%7])
-          i++;
+          i--;
+          if(i<0){
+            i=i+7;
+          }
         }
         
         for (var k=len;len-k<7;k--){
@@ -76,7 +79,7 @@ export const SportChart = ({
         console.log(JSON.stringify(dataReal))
 
     }
-    initialize(new Date().getDay());
+    initialize(new Date(userData[userData.length-1].date).getDay());
     
 
 
