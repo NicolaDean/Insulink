@@ -91,10 +91,10 @@ return (
         <MacroChart diary={diary} user={user}/>
         </View>
         <View style={styles.slide}>
-        <SportChart diary={diary} user={userData.activitys}/>
+        <SportChart diary={diary} userData={userData.activitys}/>
         </View>
         <View style={styles.slide}>
-        <ActivityChart diary={diary} user={userData.activitys}/>
+        <ActivityChart diary={diary} userData={userData.activitys}/>
         </View>
         <View style={styles.slide}>
         <GlycemiaChart diary={diary} user={user}/>

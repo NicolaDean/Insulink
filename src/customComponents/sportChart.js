@@ -40,7 +40,7 @@ const chartConfig = {
 export const SportChart = ({
      navigation,
      diary,
-     user }) =>{
+     userData }) =>{
 
       var dataReal=  {
         labels: [],
@@ -50,10 +50,11 @@ export const SportChart = ({
           }
         ]
       };
-      const getDayName = (dayIndex) =>{
+
+      const initialize = (dayIndex) =>{
         let daysArray = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         let i=dayIndex;
-        let len=user.length-1
+        let len=userData.length-1
 
         for (var k=0;k<7;k++){
           dataReal.labels.push(daysArray[i%7])
@@ -62,19 +63,17 @@ export const SportChart = ({
         
         for (var k=len;k>=0;k--){
           console.log(k)
-          dataReal.datasets[0].data.push(user[0].count)
+          dataReal.datasets[0].data.push(userData[0].count)
           if (len-k>7){
             break
           }
         }
 
         console.log(JSON.stringify(dataReal))
-      
-        return daysArray[dayIndex];
 
     }
-    const dayName = getDayName(new Date().getDay());
-    console.log(dayName)
+    initialize(new Date().getDay());
+    
 
 
     //const data = glicemyChartFormatter(FirebaseQuery.getTodayGlicemy(user.userData.glicemy));

@@ -35,12 +35,10 @@ const chartConfig = {
 export const ActivityChart = ({
      navigation,
      diary,
-     user }) =>{
-
-    console.log('CALS ->'+JSON.stringify(user.activitys))
+     userData }) =>{
     //const data = glicemyChartFormatter(FirebaseQuery.getTodayGlicemy(user.userData.glicemy));
     //console.log(JSON.stringify(data));
-    const commitsData = [
+    const data = [
         { date: "2022-05-02", count: 1 },
         { date: "2022-05-03", count: 2 },
         { date: "2022-05-04", count: 3 },
@@ -57,7 +55,7 @@ export const ActivityChart = ({
      // const chartData = (user == undefined) ? commitsData : user;
     return (
         <ContributionGraph
-        values={user}
+        values={userData}
         endDate={new Date()}
         numDays={90}
         width={screenWidth}
