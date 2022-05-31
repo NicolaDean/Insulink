@@ -54,6 +54,7 @@ export const ActivityChart = ({
         { date: "2022-05-30", count: 4 }
       ];
 
+     // const chartData = (user == undefined) ? commitsData : user;
     return (
         <ContributionGraph
         values={user}

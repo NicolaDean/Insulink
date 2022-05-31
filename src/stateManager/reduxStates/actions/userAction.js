@@ -94,7 +94,8 @@ const actualLogin = (usrData,uid,glicemy) => async dispatch =>{
     //CHECK FOR EMPTY DATA:
     //usrData.age = 20; //TODO CALCULATE AGE FROM BIRTHDAY
     usrData.glicemy = glicemy;
-    usrData.activitys = undefined;
+    if(usrData.activitys == undefined) usrData.activitys = undefined;
+    //usrData.activitys = undefined;
     usrData.uid = uid;
     //CHECK FOR EMPTY DATA:
     //console.log(usrData.birthday);
