@@ -74,7 +74,7 @@ export const Login = ({navigation,status}) =>{
         return subscriber; // unsubscribe on unmount
     }, []);
 
-    if (loading) return null;
+   // if (loading) return null;
 
     const testLogin = async() =>
     {

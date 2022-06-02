@@ -8,7 +8,6 @@
 
 //GLOBAL
 
---. il chart dei macro in food detail (esempio mela) si sovrappongno
 
 ----
 FIREBASE

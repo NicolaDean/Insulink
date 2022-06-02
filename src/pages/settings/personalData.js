@@ -108,11 +108,8 @@ export const PersonalData = ({ navigation, route, userData}) =>{
             </Row>
             </MarginContainer>
             <CustomButton onPress={()=>navigation.navigate('EditPersonalData',{})} title='Edit Personal Data'/>
-            <Row style={{alignSelf:'center'}}>
                     
-            <CustomButton onPress={()=>navigation.navigate('Registration',{})} title='Register'/>
             <CustomButton onPress={() => logout_call()} title='Logout'/>
-            </Row>
         </MarginContainer>  
         </ScrollView> 
     );

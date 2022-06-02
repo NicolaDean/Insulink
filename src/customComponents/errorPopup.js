@@ -26,8 +26,9 @@ export const ErrorPopup = ({visibilityFlag = useState(false)}) => {
         
     }
     const resetError = () =>{
+      if(isMounted.current){
       console.log("Try RESETTING");
-      setErrors([]);
+      setErrors([]);}
     }
 
     useEffect(()=>{
