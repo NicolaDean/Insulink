@@ -89,7 +89,7 @@ export const SportChart = ({
       ]
     };
 
-    if(userData.length!=undefined){
+    if(userData!=undefined){
       initialize(new Date(userData[userData.length-1].date).getDay());
     }
     else{

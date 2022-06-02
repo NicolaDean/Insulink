@@ -17,6 +17,9 @@ import { ErrorPopup } from '../../customComponents/errorPopup';
 import { registrationErrors } from '../../constants/registrationSteps';
 import { showError } from '../../stateManager/reduxStates/actions/errorAction';
 import CustomButton from '../../customComponents/customButton';
+import {ActivityChart} from '../../customComponents/activityChart';
+import {SportChart} from '../../customComponents/sportChart';
+
   const marginOffset=10;
   const screenWidth = Dimensions.get("window").width-marginOffset;
 
@@ -61,7 +64,7 @@ const chartProgressStyle ={
 
 };
 
-export const Home = ({ navigation,state,user,diary,error }) =>{
+export const Home = ({ navigation,state,user,diary,error,userData }) =>{
 
   const dispatch = useDispatch();
 
@@ -99,6 +102,12 @@ export const Home = ({ navigation,state,user,diary,error }) =>{
           <View style={styles.slide}>
             <MacroChart diary={diary} user={user}/>
           </View>
+          <View style={styles.slide}>
+        <SportChart diary={diary} userData={userData.activitys}/>
+        </View>
+        <View style={styles.slide}>
+        <ActivityChart diary={diary} userData={userData.activitys}/>
+        </View>
         
         </Slick>
         <View style={{justifyContent: 'space-between',
@@ -156,7 +165,7 @@ export const Home = ({ navigation,state,user,diary,error }) =>{
 
 
 const mapStateToProps = (state, ownProps = {}) => {
-  return{error:state.errorReducer,diary: state.macroTracker,user: state.userReducer,state:state};
+  return{error:state.errorReducer,diary: state.macroTracker,user: state.userReducer,state:state,userData: state.userReducer.userData};
 }
 
 export default connect(mapStateToProps)(Home);
