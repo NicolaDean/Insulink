@@ -1,19 +1,13 @@
 # DIMA-insuline-calculator
 
-//MARCO
---. 
-
-//ipad
---. Heatmap-Grafico glicemia piccola
-
 //NICO
---. Google login va su telefono ma non da emulatore (Solved?)
---. editUserData -> to be completed (manca localstorage e firebase!!!)
+--. Scrivere error Reducer nella doc
+
+
 --.check logout redirect (eg use setInterval javascript)
 
 //GLOBAL
---. Quando ci si logga non sempre carica i dati vecchi da firebase/localstorage
---. Login da ipad non viene completato
+
 --. il chart dei macro in food detail (esempio mela) si sovrappongno
 
 ----

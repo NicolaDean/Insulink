@@ -14,7 +14,7 @@ const screenWidth = Dimensions.get("window").width;
 export const FoodSearch = ({ navigation }) =>{
 
   const [foodData, setData] = useState([]);
-  const [foodSelected, setFood] = useState("apple");
+  const [foodSelected, setFood] = useState("pizza");
   const [apiSelected, setApi] = useState(false);
   const [loading,setLoading] = useState(false);
 

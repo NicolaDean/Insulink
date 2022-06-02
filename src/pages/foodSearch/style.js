@@ -139,6 +139,12 @@ export default StyleSheet.create({
         width:screenWidth*0.85,
         borderRadius:8
          
+      },
+      legend:{
+        borderRadius:8,
+        paddingHorizontal:10,
+        marginTop:5,
+        fontWeight:'bold'
       }
 
   });

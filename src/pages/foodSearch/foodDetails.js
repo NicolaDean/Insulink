@@ -221,31 +221,29 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
                         <Text style={{fontSize:28,color:'black'}}> {details.current_calories} </Text><Image source={mealIcons['cal'].uri} style={styles.macroImage} />
                     </View>
                 </View>
-                <View style={{zIndex:-1,flex:2,flexDirection:'row',width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white',borderRadius:10}}>
+                <View style={{zIndex:-1,paddingVertical:10,flex:2,flexDirection:'row',width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white',borderRadius:10}}>
                 {console.log("Update:" + JSON.stringify(details.chartData))}
                 <VictoryPie 
                         colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
                         data={details.chartData}
                         width={200}
                         height={200}
-                        innerRadius={30}
-                        style={{
-                            labels: {
-                            fill: 'gray', fontSize: 20, padding: 7,
-                        }, }}
-                    /> 
+                        innerRadius={0}
+                        cornerRadius={5}
+                        radius={70}
+                        style={{labels: { display: "none" } }}                    /> 
                     <View style={styles.graphLegend}> 
                         <View style={styles.macroContainer}>
                             <Image source={mealIcons['carbo'].uri} style={styles.macroImage} />
-                            <Text>CARB: {details.current_total_carbohydrate} g</Text>
+                            <Text style={[styles.legend,{backgroundColor:'tomato'}]}>CARB: {details.current_total_carbohydrate} g</Text>
                         </View>
                         <View style={styles.macroContainer}>
                             <Image source={mealIcons['fat'].uri} style={styles.macroImage} />
-                            <Text>FAT: {details.current_total_fat} g</Text>
+                            <Text style={[styles.legend,{backgroundColor:'gold'}]}>FAT: {details.current_total_fat} g</Text>
                         </View>
                         <View style={styles.macroContainer}>
                             <Image source={mealIcons['protein'].uri} style={styles.macroImage} />
-                            <Text>PROT: {details.current_protein} g</Text>
+                            <Text style={[styles.legend,{backgroundColor:'orange'}]}>PROT: {details.current_protein} g</Text>
                         </View>
                     </View>
                 </View>
