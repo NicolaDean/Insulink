@@ -1,5 +1,5 @@
 import React from 'react';
-import {ActivityIndicator,Image, Text, View, ScrollView, TextInput, Dimensions,Alert  } from 'react-native';
+import {ActivityIndicator,Platform,Image, Text, View, ScrollView, TextInput, Dimensions,Alert  } from 'react-native';
 import { useState,useEffect} from 'react';
 import { VictoryPie } from 'victory-native';
 
@@ -221,7 +221,7 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
                         <Text style={{fontSize:28,color:'black'}}> {details.current_calories} </Text><Image source={mealIcons['cal'].uri} style={styles.macroImage} />
                     </View>
                 </View>
-                <View style={{zIndex:-1,paddingVertical:10,flex:2,flexDirection:'row',width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white',borderRadius:10}}>
+                <View style={[{zIndex:-1,paddingVertical:10,flex:2,flexDirection:'row',width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white',borderRadius:10},Platform.isPad==true?{alignItems:'center',paddingLeft:'23%'}:null]}>
                 {console.log("Update:" + JSON.stringify(details.chartData))}
                 <VictoryPie 
                         colorScale={["tomato", "orange", "gold", "cyan", "navy" ]}
@@ -231,7 +231,7 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
                         innerRadius={0}
                         cornerRadius={5}
                         radius={70}
-                        style={{labels: { display: "none" } }}                    /> 
+                        style={{labels: { display: "none" }}}                    /> 
                     <View style={styles.graphLegend}> 
                         <View style={styles.macroContainer}>
                             <Image source={mealIcons['carbo'].uri} style={styles.macroImage} />
