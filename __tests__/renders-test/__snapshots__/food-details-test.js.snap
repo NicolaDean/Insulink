@@ -310,16 +310,20 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
           </View>
           <View
             style={
-              Object {
-                "backgroundColor": "white",
-                "borderRadius": 10,
-                "flex": 2,
-                "flexDirection": "row",
-                "marginLeft": "5%",
-                "marginTop": 10,
-                "width": "90%",
-                "zIndex": -1,
-              }
+              Array [
+                Object {
+                  "backgroundColor": "white",
+                  "borderRadius": 10,
+                  "flex": 2,
+                  "flexDirection": "row",
+                  "marginLeft": "5%",
+                  "marginTop": 10,
+                  "paddingVertical": 10,
+                  "width": "90%",
+                  "zIndex": -1,
+                },
+                null,
+              ]
             }
           >
             <View
@@ -389,7 +393,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                   />
                   <RNSVGGroup>
                     <RNSVGPath
-                      d="M3.061616997868383e-15,-50A50,50,0,1,1,-26.3216081438678,42.51085678648071L-15.792964886320679,25.50651407188842A30,30,0,1,0,1.83697019872103e-15,-30Z"
+                      d="M4.440892098500626e-15,-64.8074069840786A5,5,0,0,1,5.3846153846153895,-69.79259213670002A70,70,0,1,1,-32.16297296202685,62.173492504796044A5,5,0,0,1,-34.116703429101555,55.10036794006668L0,0Z"
                       fill={4294927175}
                       matrix={
                         Array [
@@ -408,7 +412,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                       }
                     />
                     <RNSVGPath
-                      d="M-26.3216081438678,42.51085678648071A50,50,0,0,1,-49.78670881475173,-4.613417973165125L-29.872025288851034,-2.7680507838990747A30,30,0,0,0,-15.792964886320679,25.50651407188842Z"
+                      d="M-34.11670342910156,55.10036794006669A5,5,0,0,1,-41.319157500653446,56.50422305842452A70,70,0,0,1,-69.99169887061163,-1.0780024144791305A5,5,0,0,1,-64.53095001110857,-5.979673123491505L0,0Z"
                       fill={4294944000}
                       matrix={
                         Array [
@@ -427,7 +431,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                       }
                     />
                     <RNSVGPath
-                      d="M-49.78670881475173,-4.613417973165125A50,50,0,0,1,3.522406999140111e-14,-50L2.1134441994840666e-14,-30A30,30,0,0,0,-29.872025288851034,-2.7680507838990747Z"
+                      d="M-64.53095001110856,-5.979673123491502A5,5,0,0,1,-68.99803961485298,-11.801293543810266A70,70,0,0,1,-5.384615384615348,-69.79259213670004A5,5,0,0,1,4.618527782440651e-14,-64.8074069840786L0,0Z"
                       fill={4294956800}
                       matrix={
                         Array [
@@ -458,17 +462,18 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                       rotate={Array []}
                       x={
                         Array [
-                          155,
+                          187,
                         ]
                       }
                       y={
                         Array [
-                          123.1,
+                          129.97,
                         ]
                       }
                     >
                       <RNSVGTSpan
                         content="Carb"
+                        display="none"
                         dx={
                           Array [
                             0,
@@ -479,11 +484,11 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                             0,
                           ]
                         }
-                        fill={4286611584}
+                        fill={4280624421}
                         font={
                           Object {
                             "fontFamily": "Gill Sans",
-                            "fontSize": 20,
+                            "fontSize": 14,
                             "letterSpacing": "normal",
                             "textAnchor": "start",
                           }
@@ -496,7 +501,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                         rotate={Array []}
                         x={
                           Array [
-                            155,
+                            187,
                           ]
                         }
                         y={Array []}
@@ -515,17 +520,18 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                       rotate={Array []}
                       x={
                         Array [
-                          49,
+                          19,
                         ]
                       }
                       y={
                         Array [
-                          132.1,
+                          144.97,
                         ]
                       }
                     >
                       <RNSVGTSpan
                         content="Fat"
+                        display="none"
                         dx={
                           Array [
                             0,
@@ -536,11 +542,11 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                             0,
                           ]
                         }
-                        fill={4286611584}
+                        fill={4280624421}
                         font={
                           Object {
                             "fontFamily": "Gill Sans",
-                            "fontSize": 20,
+                            "fontSize": 14,
                             "letterSpacing": "normal",
                             "textAnchor": "end",
                           }
@@ -553,7 +559,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                         rotate={Array []}
                         x={
                           Array [
-                            49,
+                            19,
                           ]
                         }
                         y={Array []}
@@ -572,17 +578,18 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                       rotate={Array []}
                       x={
                         Array [
-                          62,
+                          39,
                         ]
                       }
                       y={
                         Array [
-                          55.1,
+                          30.97,
                         ]
                       }
                     >
                       <RNSVGTSpan
                         content="Prot"
+                        display="none"
                         dx={
                           Array [
                             0,
@@ -593,11 +600,11 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                             0,
                           ]
                         }
-                        fill={4286611584}
+                        fill={4280624421}
                         font={
                           Object {
                             "fontFamily": "Gill Sans",
-                            "fontSize": 20,
+                            "fontSize": 14,
                             "letterSpacing": "normal",
                             "textAnchor": "middle",
                           }
@@ -610,7 +617,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                         rotate={Array []}
                         x={
                           Array [
-                            62,
+                            39,
                           ]
                         }
                         y={Array []}
@@ -692,7 +699,21 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                     }
                   }
                 />
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "borderRadius": 8,
+                        "fontWeight": "bold",
+                        "marginTop": 5,
+                        "paddingHorizontal": 10,
+                      },
+                      Object {
+                        "backgroundColor": "tomato",
+                      },
+                    ]
+                  }
+                >
                   CARB: 
                   10
                    g
@@ -722,7 +743,21 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                     }
                   }
                 />
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "borderRadius": 8,
+                        "fontWeight": "bold",
+                        "marginTop": 5,
+                        "paddingHorizontal": 10,
+                      },
+                      Object {
+                        "backgroundColor": "gold",
+                      },
+                    ]
+                  }
+                >
                   FAT: 
                   3
                    g
@@ -752,7 +787,21 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                     }
                   }
                 />
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "borderRadius": 8,
+                        "fontWeight": "bold",
+                        "marginTop": 5,
+                        "paddingHorizontal": 10,
+                      },
+                      Object {
+                        "backgroundColor": "orange",
+                      },
+                    ]
+                  }
+                >
                   PROT: 
                   4
                    g
@@ -1299,6 +1348,7 @@ Object {
     "mustCompleteReg": false,
     "status": "UNLOGGED",
     "userData": Object {
+      "activitys": undefined,
       "birthday": Object {
         "nanoseconds": 0,
         "seconds": 0,
@@ -1465,6 +1515,7 @@ Object {
     "mustCompleteReg": false,
     "status": "UNLOGGED",
     "userData": Object {
+      "activitys": undefined,
       "birthday": Object {
         "nanoseconds": 0,
         "seconds": 0,
@@ -1655,6 +1706,7 @@ Object {
     "mustCompleteReg": false,
     "status": "UNLOGGED",
     "userData": Object {
+      "activitys": undefined,
       "birthday": Object {
         "nanoseconds": 0,
         "seconds": 0,

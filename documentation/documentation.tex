@@ -77,6 +77,64 @@
 \definecolor{whitesmoke}{rgb}{0.96, 0.96, 0.96}
 \definecolor{lightgray}{rgb}{0.92, 0.92, 0.92}
 \definecolor{floralwhite}{rgb}{1.0, 0.98, 0.94}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+
+
+
+\lstset{style=mystyle}
+
 % ========= Part Format ==========
 \titleformat{\section}
 {\normalfont\huge\filleft}
@@ -664,7 +722,17 @@ InsuLink uses different APIs to get all informations about food and storing user
 	\subsubsection{Helper class}
 		The technology used to execute API calls is \textbf{Axios}\cite{Axios} 
 		helped by a custom method \textit{doRequests(methods,path,parameter)} the used by other helper functions.
-		Following a list of the api class methods:TODO
+		Following a list of the api class methods:
+
+		\begin{lstlisting}[language=Python, caption=Api Helper]
+			class Api{
+				getSportCalories(userInput);
+				getFoodList(userInput);
+				getFoodListBarCode(barrcode);
+				getIngredientDetails(foodName)
+				doRequest(method,path,params);
+			}
+		\end{lstlisting}
 	\subsection{Firebase}
 	    Firebase \cite{Firebase} is a Google serverless platorm for application development. 
         It is a powerful tool to implement an app database and Google authentication, having many powerful tools to manage it.
@@ -672,12 +740,22 @@ InsuLink uses different APIs to get all informations about food and storing user
 			\includegraphics[scale=0.2]{Firebase}
 		\end{center}
 		All its requests and responses are implemented in the \textbf{\emph{src/utils/firebaseQuery.js}} and \textbf{\emph{src/utils/auth.js}}, two custom helper class.
-		
+		\begin{lstlisting}[language=Python, caption=Firebase Helper]
+			class FirebaseQuery{
+				this.users = firestore().collection(userTable);
+				getUser(uid);
+				editUser(uid,data);
+				getGlicemy(uid,date);
+				addGlicemy(uid,date,glicemy);
+				getDiary(uid,date);
+				saveDiary(uid,date,diary);
+			}
+		\end{lstlisting}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Redux States}
 \vspace{10.5cm}
-To manage app states we opted for Redux library \cite{Redux}. TODO ADD THUNK MIDDLEWARE
+To manage app states we opted for Redux library \cite{Redux} affiancated with Redux Thunk Middleware \cite{Thunk}
 \begin{center}
 	\includegraphics[scale=0.2]{redux-logo}
 \end{center}
@@ -692,10 +770,31 @@ The main two reducers of the app are:
     Contains all data about the user, including some additional fields such as
 	Insulin Sensitivity Factor or CHO Ratio.\\
 	If not inserted these values will be calculated considering the patient weight.
-
-	\begin{center}
-		\includegraphics[scale=0.6]{userReduces}
-	\end{center}
+	\begin{lstlisting}[language=Python, caption=UserReducer]
+		const initialState = {
+		status:loginStatus.unlogged,
+		userId:"nullId",
+		mustCompleteReg:false,
+		userData:{
+			email:"",
+			password:"",
+			name:"dummy",
+			surname:"",
+			weight:80,
+			height:180,
+			birthday:{seconds:0,nanoseconds:0},
+			isf:0,
+			choratio:0,
+			glicemy:[],
+			activitys:undefined,
+			maxCarb:200,
+			maxFat:100,
+			maxProt:40,
+		}
+	\end{lstlisting}
+	%\begin{center}
+	%	\includegraphics[scale=0.6]{userReduces}
+	%\end{center}
 
 \end{docCommand}
 
@@ -704,10 +803,38 @@ The main two reducers of the app are:
 \begin{docCommand}{macroTracker}{}
 	Stores informations about each meal and sport activity of the user. Additionally, cointains 
 	the sum of total macros and calories spent during the day. 
-	\begin{center}
-		\includegraphics[scale=0.5]{macroTracker}
-	\end{center}
+	\begin{lstlisting}[language=Python, caption=MacroReducer]
+		const initialDiaryState = {
+    currentMeal:"breakfast",
+    currentDate:FirebaseQuery.glicemyDateFormatter(new Date()),
+    totMacro:{cal:0,carb:0,fat:0,prot:0},
+    id:1,
+    activity_id:1,
+    meals:{
+        breakfast:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
+        lunch:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
+        dinner:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}},
+        snack:{foods:[],macro:{cal:0,carb:0,fat:0,prot:0}}
+    },
+    history:{
+       ....
+    },
+    totCalBurned:0,
+    activities:{
+        breakfast:{sports:[],totCal:0},
+        lunch:{sports:[],totCal:0},
+        dinner:{sports:[],totCal:0},
+        snack:{sports:[],totCal:0}
+    }
+}
+	\end{lstlisting}
+	%\begin{center}
+	%	\includegraphics[scale=0.5]{macroTracker}
+	%\end{center}
 
+\end{docCommand}
+\begin{docCommand}{errorReducer}{}
+	Simpy store a lambda function that a custom "<ErrorPopup>" component subscribe
 \end{docCommand}
 \newpage
 \newgeometry{
@@ -900,7 +1027,53 @@ Since reducers are \textbf{pure methods}, no mock was needed.
 	\end{center}
 \subsubsection*{Pages widgets and snapshots}
 For all main pages of our app we have a snapshot test + UI events testing.
-TODO TODO
+To make tests the mocking of firebase/ApiHelper and other components was neded.
+A mocked version of redux was provided to a "<Provider>" components to emulate state changing behaviour.
+\begin{center} 
+	\begin{tabular}{ |p{4cm}|p{5cm}|  }
+		\hline
+		Food & 
+		1. Snapshot \newline    
+		2. Snapshot for deletable version \newline
+		3. OnPress navigation\newline 
+		\\
+		\hline
+		Food Details &
+		1. Snapshot \newline  
+		2. Add Food \newline
+		3. Edit Food \newline   
+		4. Delete Food \newline 
+		(Checked both redux state and navigation)
+		\\
+		\hline
+		Meal Diary &
+		1. Snapshot \newline  
+		2. Click on meal(navigation) \newline
+		3. Click on AddFood/Sport \newline    
+		(Checked navigation)
+		\\
+		\hline
+		Home & 
+		1. Snapshot \newline    
+		2. Click on the 4 Buttons \newline
+		(check navigation to correct page)
+		\\
+		\hline
+		Login & 
+		1. Snapshot \newline    
+		2. Click on login button \newline
+		3. Check if "notLogged" status is redirected to Login Page \newline
+		(check redux state changed)
+		\\
+		\hline
+		Registration & 
+		1. Snapshot \newline    
+		2. Click on Reg button \newline
+		3. Check on Errors wrong inputs \newline
+		\\
+		\hline
+	\end{tabular}
+	\end{center}
 \subsubsection*{CustomComponents snapshots}
 All the static custom components of the app have been tested with react-test-renderer + snapshot.
 The following list show the tested components:
@@ -968,6 +1141,8 @@ glucose (and store it).
 		\bibitem{FreeStyle} FreeStyle Libre\\
 				\url{https://www.freestyle.abbott/us-en/home.html}
 		\bibitem{Redux} Redux\\
+				\url{https://redux.js.org}	
+		\bibitem{Thunk} Redux\\
 				\url{https://redux.js.org}	
 		\bibitem{Insulin Dose} Source for Insulin Calculator\\
 				\url{https://dtc.ucsf.edu/types-of-diabetes/type1/treatment-of-type-1-diabetes/medications-and-therapies/type-1-insulin-therapy/calculating-insulin-dose/}

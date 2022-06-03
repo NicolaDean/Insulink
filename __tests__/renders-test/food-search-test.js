@@ -8,8 +8,11 @@ import { Food_API } from "../../src/utils/apiQuery";
 import { FirebaseQuery } from "../../src/utils/firebaseQuery";
 import { dummyApple, dummyAppleDeletable } from "../../testHelper/dataForTest/foods";
 import CustomFirestoreMock from "../../__mocks__/@react-native-firebase/firebase";
+import * as rdx from 'react-redux';
 jest.useFakeTimers();
 const mock_firebase = new CustomFirestoreMock();
+const mockDispatch = jest.spyOn(rdx,'useDispatch');
+mockDispatch.mockImplementation(jest.fn(()=>{}));
 
 const firebasee = () =>{
     return {
@@ -28,6 +31,7 @@ jest.mock('react-native/Libraries/Animated/animations/TimingAnimation');
 const mock_navigation = {
     navigate:jest.fn((a,b)=>{console.log("NAV to " + a)})
 }
+
 
 const mockApi = jest.spyOn(Food_API,'getFoodListAlternative');
 mockApi.mockImplementation = (a) =>{console.log("METHOD" +  a)}

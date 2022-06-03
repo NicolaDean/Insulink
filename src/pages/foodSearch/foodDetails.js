@@ -180,6 +180,9 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
     
     console.log("AMMOUNT: " + JSON.stringify(amount));
 
+    const windowWidth = useWindowDimensions().width;
+    const windowHeight = useWindowDimensions().height;
+
     const renderDetails = () =>{
         return (
             

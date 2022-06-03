@@ -53,10 +53,13 @@ exports[`TEST ON FOOD COMPONENT MEAL AND MEAL DIARY: Meal Diary SnapShot:  1`] =
             >
               <Text
                 style={
-                  Object {
-                    "alignSelf": "center",
-                    "marginHorizontal": 10,
-                  }
+                  Array [
+                    Object {
+                      "alignSelf": "center",
+                      "marginHorizontal": 10,
+                    },
+                    null,
+                  ]
                 }
               >
                 [FORMATTED DATE]
@@ -1157,10 +1160,13 @@ exports[`TEST ON FOOD COMPONENT MEAL AND MEAL DIARY: Test Meal Expansion 1`] = `
             >
               <Text
                 style={
-                  Object {
-                    "alignSelf": "center",
-                    "marginHorizontal": 10,
-                  }
+                  Array [
+                    Object {
+                      "alignSelf": "center",
+                      "marginHorizontal": 10,
+                    },
+                    null,
+                  ]
                 }
               >
                 [FORMATTED DATE]

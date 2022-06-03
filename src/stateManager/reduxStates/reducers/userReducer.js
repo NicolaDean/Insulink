@@ -69,9 +69,9 @@ const addGlicemy = (state,payload) =>{
 
     newstate.userData.glicemy[id].push(g);
     console.log("THIS USER HAS : " +payload.userId )
-    newState.userId = payload.userId;
-    newState.status = loginStatus.logged;
-    newState.userData = usrData;
+    newstate.userId = payload.userId;
+    newstate.status = loginStatus.logged;
+    newstate.userData = usrData;
     //console.log(newstate.userData.glicemy[id]);
     return newstate;
 }

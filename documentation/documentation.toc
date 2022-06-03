@@ -31,17 +31,17 @@
 \contentsline {subsubsection}{\numberline {5.1.1}Api requests}{16}{subsubsection.5.1.1}%
 \contentsline {subsubsection}{\numberline {5.1.2}Helper class}{16}{subsubsection.5.1.2}%
 \contentsline {subsection}{\numberline {5.2}Firebase}{16}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Redux States}{17}{section.6}%
-\contentsline {section}{\numberline {7}Insulin Calculator}{20}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Formulas}{21}{subsection.7.1}%
-\contentsline {section}{\numberline {8}Testing}{22}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Testing Strategy}{22}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Folder Structure}{23}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}Test Suites}{23}{subsection.8.3}%
-\contentsline {section}{\numberline {9}Future Implementations}{26}{section.9}%
-\contentsline {subsection}{\numberline {9.1}API}{26}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Machine Learning and AI}{26}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}NFC Glucose Meter}{27}{subsection.9.3}%
-\contentsline {section}{\numberline {10}References}{28}{section.10}%
-\contentsline {section}{\numberline {24}~~~ References}{29}{section.10}%
+\contentsline {section}{\numberline {6}Redux States}{18}{section.6}%
+\contentsline {section}{\numberline {7}Insulin Calculator}{21}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Formulas}{22}{subsection.7.1}%
+\contentsline {section}{\numberline {8}Testing}{23}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Testing Strategy}{23}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Folder Structure}{24}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Test Suites}{24}{subsection.8.3}%
+\contentsline {section}{\numberline {9}Future Implementations}{28}{section.9}%
+\contentsline {subsection}{\numberline {9.1}API}{28}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Machine Learning and AI}{28}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}NFC Glucose Meter}{29}{subsection.9.3}%
+\contentsline {section}{\numberline {10}References}{30}{section.10}%
+\contentsline {section}{\numberline {24}~~~ References}{31}{section.10}%
 \contentsfinish 
