@@ -104,10 +104,10 @@ export const SportChart = ({
     return (
       
         <BarChart
-        style={styles.chartStyle}
+        style={Platform.isPad!=true?styles.chartStyleAndroid:styles.chartStyle}
         data={dataReal}
-        width={windowWidth < windowHeight ?screenWidth:windowWidth/2}
-        height={windowWidth < windowHeight ?windowHeight*0.27:windowHeight*0.30}
+        width={Platform.isPad!=true?windowWidth*0.95:windowWidth < windowHeight ?screenWidth:windowWidth/2}
+        height={Platform.isPad!=true?windowHeight*0.28:windowWidth < windowHeight ?windowHeight*0.27:windowHeight*0.30}
         yAxisLabel="cal "
         chartConfig={chartConfig}
         verticalLabelRotation={0}
@@ -123,6 +123,13 @@ const styles=StyleSheet.create({
         marginTop:8,
         marginBottom:8,
         marginLeft:15,
+        top:'5%',
+        borderRadius: 15,
+    },chartStyleAndroid:{
+      alignSelf:'center',
+
+        marginTop:8,
+        marginBottom:8,
         top:'5%',
         borderRadius: 15,
     }

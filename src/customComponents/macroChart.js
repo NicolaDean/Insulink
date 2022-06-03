@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {  StyleSheet,Dimensions,TouchableOpacity, View, Image,useWindowDimensions } from 'react-native';
+import {  StyleSheet,Dimensions,Platform,TouchableOpacity, View, Image,useWindowDimensions } from 'react-native';
 import {ProgressChart} from "react-native-chart-kit";
 import { connect, useDispatch } from 'react-redux';
 import { colors } from '../constants/appAspect';
@@ -66,8 +66,8 @@ export const MacroChart = ({diary,user }) =>{
       <View style={{alignSelf:'center'}}>
  <ProgressChart 
             data={graph}
-            width={windowWidth < windowHeight ?windowWidth:windowWidth/2}
-            height={windowWidth < windowHeight ?windowHeight*0.27:windowHeight*0.30}
+            width={Platform.isPad!=true?windowWidth*0.98:windowWidth < windowHeight ?windowWidth:windowWidth/2}
+            height={Platform.isPad!=true?windowHeight*0.28:windowWidth < windowHeight ?windowHeight*0.27:windowHeight*0.30}
             strokeWidth={15}
              radius={32}
             chartConfig={chartConfig}
