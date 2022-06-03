@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,FlatList,TextInput,Text,Switch,ActivityIndicator,Dimensions ,Platform} from 'react-native';
+import {View,FlatList,TextInput,Text,Switch,ActivityIndicator,Dimensions ,Platform,useWindowDimensions } from 'react-native';
 import { useState } from 'react';
 import styles from './style'
 import {Food} from './food'
@@ -17,7 +17,8 @@ const screenHeight = Dimensions.get("window").height;
 
 export const ScannerPage = ({ navigation }) =>{
     var s=screenWidth*0.8;
-
+    const windowWidth = useWindowDimensions().width;
+    const windowHeight = useWindowDimensions().height;
   const [error,setError]=useState(false)
   const [errorMSG,setErrorMSG]=useState('')
   const[flash,setFlash]=useState(RNCamera.Constants.FlashMode.off)
@@ -67,7 +68,7 @@ export const ScannerPage = ({ navigation }) =>{
  const showErrors=(e)=>
 {
     return(
-      <View style={Platform.isPad!=true?{top:screenHeight*0.40}:{top:screenHeight*0.50,}}>
+      <View style={Platform.isPad!=true?{top:screenHeight*0.40}:{top:windowWidth < windowHeight ?windowHeight*0.50:windowHeight*0.35}}>
               <View style={styles.errorContainer}>
        <Text style={styles.errorMessage}>
          Sorry! The food barcode <Text style={[styles.errorMessage,{fontWeight: '500',}]}>{errorMSG}</Text> is not available</Text>        
@@ -85,7 +86,7 @@ export const ScannerPage = ({ navigation }) =>{
             <View style={{flexDirection:'column'}}>
                 
       <QRCodeScanner
-      cameraStyle={{borderStyle: 'solid',borderWidth: 8,borderColor:colors.primary,overflow: 'hidden',alignSelf:'center',height:screenWidth*0.7,width:screenWidth*0.7,borderRadius:10,right:screenWidth/15}}
+      cameraStyle={{borderStyle: 'solid',borderWidth: 8,borderColor:colors.primary,overflow: 'hidden',alignSelf:'center',height:windowWidth < windowHeight ?windowWidth *0.7:windowWidth *0.3,width:windowWidth < windowHeight ?windowWidth *0.7:windowWidth *0.5,right:screenWidth/15}}
         onRead={onSuccess}
         flashMode={flash}
         reactivate={true}
@@ -93,7 +94,7 @@ export const ScannerPage = ({ navigation }) =>{
         containerStyle={{justifyContent:'space-evenly'}}
        
       />
-                                  <CustomImageButton image='flash' iconStyle={{width: 52, height: 52,position: 'relative',left:screenWidth/1.22}} onPress={()=>{changeFlash()}}/>
+                                  <CustomImageButton image='flash' iconStyle={{width: 52, height: 52,position: 'relative',left:windowWidth < windowHeight ?windowWidth/1.22:windowWidth/1.4}} onPress={()=>{changeFlash()}}/>
 
       <View >
       {error==true? showErrors():null}

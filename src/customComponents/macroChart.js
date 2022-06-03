@@ -48,7 +48,7 @@ const maxValueCheck = (val,max) =>{
 }
 
 export const MacroChart = ({diary,user }) =>{
-  const windowWidth = useWindowDimensions().width;
+  const windowWidth = useWindowDimensions().width-marginOffset;
   const windowHeight = useWindowDimensions().height;
     const maxCarb = user.maxCarb != undefined ? user.maxCarb : 200;
     const maxProt = user.maxCarb != undefined ? user.maxCarb : 100;
@@ -67,7 +67,7 @@ export const MacroChart = ({diary,user }) =>{
  <ProgressChart 
             data={graph}
             width={windowWidth < windowHeight ?windowWidth:windowWidth/2}
-            height={Dimensions.get("window").height*0.3}
+            height={windowWidth < windowHeight ?windowHeight*0.27:windowHeight*0.30}
             strokeWidth={15}
              radius={32}
             chartConfig={chartConfig}

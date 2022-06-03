@@ -59,25 +59,32 @@ export const GlycemiaChart = ({
     const data = glicemyChartFormatter(FirebaseQuery.getTodayGlicemy(userData.glicemy));
 
     return (
-      <View style={{alignSelf:'center'}}>
         <LineChart
         data={data}
         width={windowWidth < windowHeight ?screenWidth:windowWidth/2}
-        height={Dimensions.get("window").height*0.3}
+        height={windowWidth < windowHeight ?windowHeight*0.27:windowHeight*0.30}
         yAxisSuffix=" mg/dL"
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={chartConfig}
-        style={styles.chartStyle}
+        style={windowWidth < windowHeight ?styles.chartStyle:styles.chartStyleLandscape}
         bezier
       />
-      </View>
     );
 }
 
 const styles=StyleSheet.create({
     chartStyle:{
-      paddingRight:screenWidth*0.075,
-      paddingLeft:screenWidth*0.075,
+           paddingRight:screenWidth*0.15,
+
+      paddingLeft:screenWidth*0.01,
+        marginTop:8,
+        marginBottom:8,
+        borderRadius: 15,
+        top: '5%',
+        
+    },chartStyleLandscape:{
+      paddingRight:screenWidth*0.085,
+      paddingLeft:screenWidth*0.055,
         marginTop:8,
         marginBottom:8,
         borderRadius: 15,
@@ -85,6 +92,7 @@ const styles=StyleSheet.create({
         borderRadius: 15,
         
     }
+
 });
 
   

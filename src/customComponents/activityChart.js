@@ -72,13 +72,13 @@ export const ActivityChart = ({
         <ContributionGraph
         values={userData}
         endDate={new Date()}
-        numDays={windowWidth < windowHeight ?125:80}
+        numDays={windowWidth < windowHeight ?135:80}
         width={windowWidth < windowHeight ?screenWidth:windowWidth/2}
-        height={windowHeight*0.30}
+        height={windowWidth < windowHeight ?windowHeight*0.27:windowHeight*0.30}
         chartConfig={chartConfig}
         style={styles.chartStyle}
         gutterSize={15}
-        squareSize={25}
+        squareSize={20}
 
       />
     );
