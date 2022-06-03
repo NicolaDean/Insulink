@@ -1,5 +1,5 @@
 import React from "react";
-import {ScrollView, View,Dimensions} from 'react-native';
+import {ScrollView, View,Dimensions,useWindowDimensions} from 'react-native';
 import Slick from 'react-native-slick';
 import { MacroChart } from '../../customComponents/macroChart';
 import { GlycemiaChart } from '../../customComponents/glycemiaChart';
@@ -77,12 +77,15 @@ export const MealDiary = ({ route,navigation,diary,user,userData }) =>{
   }
 
 
+  const windowWidth = useWindowDimensions().width;
+  const windowHeight = useWindowDimensions().height;
 
 return (
  //TODO ADD THE TOTAL MEALS MACRO GRAPH
  ///Now calendar can be picked only of passing openCalendar true in navigator
  <View>
 <ScrollView >
+<View style={{flex:1,flexDirection:windowWidth < windowHeight ? 'column' : 'row'}}>
 <View style={{justifyContent:'space-around',alignContent:'center',flexDirection:'column'}}>
       <Calendar  onChange={changeDay} openC={openCalendar}></Calendar>
 </View>
@@ -100,7 +103,7 @@ return (
         <Meal navigation = {navigation} name ="Lunch"      icon ="lunch"       id="lunch"/>
         <Meal navigation = {navigation} name ="Dinner"        icon ="dinner"      id="dinner"/>
         <Meal navigation = {navigation} name ="Snack"       icon ="snack"       id="snack"/>
-        
+</View> 
 </ScrollView>
 </View>
     );

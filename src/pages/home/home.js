@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Dimensions ,ScrollView,ActivityIndicator,Platform } from 'react-native';
+import { View, Dimensions ,ScrollView,ActivityIndicator,Platform ,useWindowDimensions} from 'react-native';
 import Slick from 'react-native-slick';
 import styles from './style'
 
@@ -87,12 +87,15 @@ export const Home = ({ navigation,state,user,diary,error,userData }) =>{
     //dispatch(checkStateConsistency(state.userReducer.status,navigation,[init,setInit]));
   },[logged]);
 
+  const windowWidth = useWindowDimensions().width;
+  const windowHeight = useWindowDimensions().height;
+
   const renderHome = () =>{
     return (
       <WaitLoading loadingState={[loading,setLoading]}>
 
       <ScrollView>
-
+        <View style={{flex:1,flexDirection:windowWidth < windowHeight ? 'column' : 'row'}}>
         <Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
 
           <View style={styles.slide}>
@@ -146,6 +149,7 @@ export const Home = ({ navigation,state,user,diary,error,userData }) =>{
                 useDefaultStyle={false}
                 defaultLogic={false}
             />
+        </View>
         </View>
         </View>
     </ScrollView>   

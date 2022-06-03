@@ -1,5 +1,5 @@
 import React from 'react';
-import {ActivityIndicator,Platform,Image, Text, View, ScrollView, TextInput, Dimensions,Alert  } from 'react-native';
+import {ActivityIndicator,Platform,Image, Text, View, ScrollView, TextInput, Dimensions,Alert,useWindowDimensions  } from 'react-native';
 import { useState,useEffect} from 'react';
 import { VictoryPie } from 'victory-native';
 
@@ -189,6 +189,7 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
         <View style={{flex: 1,flexDirection: 'column',backgroundColor:colors.secondary}}>
             
             <ScrollView style={{flex:1}}>
+            <View style={{flex:1,flexDirection:windowWidth < windowHeight ? 'column' : 'row'}}>
             <View style={{flex: 2,backgroundColor: 'white'}}>
                 <Image style={styles.foodImage} source={details.image!=null?{uri:details.image}:buttonIcons['defaultDiet'].uri}/>
                 <View style={{marginTop:200,flexDirection:'row',alignContent:'center'}}>
@@ -256,6 +257,7 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
                     <CustomButton disabled={notEditable} style={styles.addButton} title={addButtonText} onPress={()=>{addItem()} }/>
                 </View>
                 
+            </View>
             </View>
             </ScrollView>
         </View>
