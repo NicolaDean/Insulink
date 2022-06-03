@@ -63,18 +63,16 @@ export const MacroChart = ({diary,user }) =>{
 
       
     return (
-      <View style={{alignSelf:'center'}}>
  <ProgressChart 
             data={graph}
             width={Platform.isPad!=true?windowWidth*0.98:windowWidth < windowHeight ?windowWidth:windowWidth/2}
-            height={Platform.isPad!=true?windowHeight*0.28:windowWidth < windowHeight ?windowHeight*0.27:windowHeight*0.30}
-            strokeWidth={15}
+            height={Platform.isPad!=true?windowHeight*0.3:windowWidth < windowHeight ?windowHeight*0.27:windowHeight*0.30}
+            strokeWidth={13}
              radius={32}
             chartConfig={chartConfig}
             hideLegend={false}
             style={styles.chartStyle}
           />
-          </View>
     );
 }
 
@@ -82,7 +80,6 @@ const styles=StyleSheet.create({
     chartStyle: {
       alignSelf:'center',
         top: '5%',
-        borderRadius: 15,
         marginVertical: 8,
         borderRadius: 15,
         },

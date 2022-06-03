@@ -107,7 +107,7 @@ export const SportChart = ({
         style={Platform.isPad!=true?styles.chartStyleAndroid:styles.chartStyle}
         data={dataReal}
         width={Platform.isPad!=true?windowWidth*0.95:windowWidth < windowHeight ?screenWidth:windowWidth/2}
-        height={Platform.isPad!=true?windowHeight*0.28:windowWidth < windowHeight ?windowHeight*0.27:windowHeight*0.30}
+        height={Platform.isPad!=true?windowHeight*0.3:windowWidth < windowHeight ?windowHeight*0.27:windowHeight*0.30}
         yAxisLabel="cal "
         chartConfig={chartConfig}
         verticalLabelRotation={0}

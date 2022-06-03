@@ -12,7 +12,7 @@ export default StyleSheet.create({
       paddingHorizontal: 25,
       
     }, wrapper: {
-      height:Dimensions.get("window").width<Dimensions.get("window").height?Dimensions.get("window").height*0.37:Dimensions.get("window").height*0.45,
+      height:Dimensions.get("window").width<Dimensions.get("window").height?Dimensions.get("window").height*0.4:Dimensions.get("window").height*0.45,
     },
     sectionTitle: {
       fontSize: 24,

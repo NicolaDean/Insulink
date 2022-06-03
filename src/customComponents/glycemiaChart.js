@@ -62,7 +62,7 @@ export const GlycemiaChart = ({
         <LineChart
         data={data}
         width={Platform.isPad!=true?windowWidth*0.95:windowWidth < windowHeight ?screenWidth:windowWidth/2}
-        height={Platform.isPad!=true?windowHeight*0.28:windowWidth < windowHeight ?windowHeight*0.27:windowHeight*0.30}
+        height={Platform.isPad!=true?windowHeight*0.3:windowWidth < windowHeight ?windowHeight*0.27:windowHeight*0.30}
         yAxisSuffix=" mg/dL"
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={chartConfig}
@@ -92,7 +92,7 @@ const styles=StyleSheet.create({
         borderRadius: 15,
         
     },chartStyleAndroid:{
-      paddingRight:screenWidth*0.2,
+      paddingRight:screenWidth*0.22,
 
  paddingLeft:screenWidth*0.03,
    marginTop:8,
