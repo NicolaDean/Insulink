@@ -95,7 +95,7 @@ export const Home = ({ navigation,state,user,diary,error,userData }) =>{
       <WaitLoading loadingState={[loading,setLoading]}>
 
       <ScrollView>
-        <View style={{flex:1,flexDirection:windowWidth < windowHeight ? 'column' : 'row'}}>
+        <View style={{flex:1,flexDirection:windowWidth < windowHeight ? 'column' :Platform.isPad? 'row':null,marginTop:windowWidth < windowHeight ?0:'13%'}}>
         <Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
 
           <View style={styles.slide}>
@@ -116,7 +116,7 @@ export const Home = ({ navigation,state,user,diary,error,userData }) =>{
         <View style={{justifyContent: 'space-between',
               alignItems: 'stretch',flexDirection:'column'}}>
         <View style={{justifyContent: 'space-evenly',
-              alignItems: 'flex-start',flexDirection:'row',marginBottom:5,marginHorizontal:40}}>
+              alignItems: 'flex-start',flexDirection:'row',marginBottom:5,marginHorizontal:windowWidth < windowHeight ?40:5}}>
           <CustomImageButton testID={"ScannerButton"}
           image='barcode'
                 onPress={() => navigation.navigate('ScannerPage',{}) }
@@ -134,7 +134,7 @@ export const Home = ({ navigation,state,user,diary,error,userData }) =>{
             />
         </View>
         <View style={{justifyContent: 'space-evenly',
-              alignItems: 'flex-start',flexDirection:'row',marginHorizontal:40}}>
+              alignItems: 'flex-start',flexDirection:'row',marginBottom:5,marginHorizontal:windowWidth < windowHeight ?40:5}}>
           <CustomImageButton  testID={"CalendarButton"}
           image='calendar'
           onPress={() => navigation.navigate('MealDiary',{

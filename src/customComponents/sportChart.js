@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {  StyleSheet,Dimensions,Platform,TouchableOpacity, View, Image } from 'react-native';
+import {  StyleSheet,Dimensions,Platform,TouchableOpacity, View, Image ,useWindowDimensions } from 'react-native';
 import {BarChart} from "react-native-chart-kit";
 import { connect, useDispatch } from 'react-redux';
 import { glicemyChartFormatter } from '../utils/chartDataFormatter';
@@ -98,14 +98,15 @@ export const SportChart = ({
     
 
 
-
+    const windowWidth = useWindowDimensions().width;
+    const windowHeight = useWindowDimensions().height;
 
     return (
       
         <BarChart
         style={styles.chartStyle}
         data={dataReal}
-        width={screenWidth}
+        width={windowWidth < windowHeight ?screenWidth:windowWidth/2}
         height={Dimensions.get("window").height*0.3}
         yAxisLabel="cal "
         chartConfig={chartConfig}
@@ -117,6 +118,8 @@ export const SportChart = ({
 
 const styles=StyleSheet.create({
     chartStyle:{
+      alignSelf:'center',
+
         marginTop:8,
         marginBottom:8,
         marginLeft:15,

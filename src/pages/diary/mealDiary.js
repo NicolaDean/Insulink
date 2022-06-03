@@ -85,7 +85,7 @@ return (
  ///Now calendar can be picked only of passing openCalendar true in navigator
  <View>
 <ScrollView >
-<View style={{flex:1,flexDirection:windowWidth < windowHeight ? 'column' : 'row'}}>
+<View style={{flex:1}}>
 <View style={{justifyContent:'space-around',alignContent:'center',flexDirection:'column'}}>
       <Calendar  onChange={changeDay} openC={openCalendar}></Calendar>
 </View>
