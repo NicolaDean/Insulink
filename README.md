@@ -1,7 +1,8 @@
 # DIMA-insuline-calculator
 
 //NICO
---. Scrivere error Reducer nella doc
+--. localstorage per lo Sport vedi se lo salva
+
 //GLOBAL
 --.Un test faila
 ----------------------

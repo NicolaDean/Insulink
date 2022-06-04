@@ -195,7 +195,7 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
             <View style={{flex: 2,backgroundColor: 'white'}}>
                 <Image style={styles.foodImage} source={details.image!=null?{uri:details.image}:buttonIcons['defaultDiet'].uri}/>
                 <View style={{marginTop:200,flexDirection:'row',alignContent:'center'}}>
-                    <Text style ={[styles.sectionTitle,{fontSize:screenWidth/20}]}> {details.name}</Text>
+                    <Text style ={[styles.sectionTitle,Platform.isPad!=true?{fontSize:screenWidth/12,fontWeight:'600'}:{fontSize:screenWidth/20}]}> {details.name}</Text>
                     <View style={{flex:1,flexDirection:windowWidth < windowHeight ?'row':'column'}}>
                     <CustomImageButton disabled={notEditable} image={iconSelector} style={styles.addPlus} iconStyle={styles.addPlus} onPress={addItem} testID={"AddButtonID"}/>
                     {editable?deleteButton():null}</View>
