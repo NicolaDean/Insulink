@@ -116,7 +116,7 @@ export const Home = ({ navigation,state,user,diary,error,userData }) =>{
         <View style={{justifyContent: 'space-between',
               alignItems: 'stretch',flexDirection:'column'}}>
         <View style={{justifyContent: 'space-evenly',
-              alignItems: 'flex-start',flexDirection:'row',marginBottom:5,marginHorizontal:windowWidth < windowHeight ?40:5}}>
+              alignItems: 'flex-start',flexDirection:'row',marginBottom:windowWidth < windowHeight ?5:0,marginHorizontal:windowWidth < windowHeight ?40:0,marginHorizontal:windowWidth > windowHeight ?20:null}}>
           <CustomImageButton testID={"ScannerButton"}
           image='barcode'
                 onPress={() => navigation.navigate('ScannerPage',{}) }
@@ -134,7 +134,7 @@ export const Home = ({ navigation,state,user,diary,error,userData }) =>{
             />
         </View>
         <View style={{justifyContent: 'space-evenly',
-              alignItems: 'flex-start',flexDirection:'row',marginBottom:5,marginHorizontal:windowWidth < windowHeight ?40:5}}>
+              alignItems: 'flex-start',flexDirection:'row',marginBottom:5,marginHorizontal:windowWidth < windowHeight ?40:0,marginHorizontal:windowWidth > windowHeight ?20:0}}>
           <CustomImageButton  testID={"CalendarButton"}
           image='calendar'
           onPress={() => navigation.navigate('MealDiary',{

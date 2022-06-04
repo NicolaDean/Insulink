@@ -55,7 +55,9 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
 
     console.log("MY IDENTIFIER IS: " + JSON.stringify(foodId));
     const foodInitialAmount = editable ? foodInfo.quantity : 1;
-
+    const vertical=()=>{
+       return windowWidth < windowHeight 
+    }
     const errorFunc = (e) =>{
         dispatch(showError(e));
      }
@@ -189,16 +191,18 @@ export const FoodDetails = ({route,navigation,currentDate}) =>{
         <View style={{flex: 1,flexDirection: 'column',backgroundColor:colors.secondary}}>
             
             <ScrollView style={{flex:1}}>
-            <View style={{flex:1,flexDirection:windowWidth < windowHeight ? 'column' : 'row'}}>
+            <View style={{flex:1,flexDirection:windowWidth < windowHeight ? 'column' : 'row',minWidth:windowWidth*0.5}}>
             <View style={{flex: 2,backgroundColor: 'white'}}>
                 <Image style={styles.foodImage} source={details.image!=null?{uri:details.image}:buttonIcons['defaultDiet'].uri}/>
                 <View style={{marginTop:200,flexDirection:'row',alignContent:'center'}}>
-                    <Text style ={styles.sectionTitle}> {details.name}</Text>
+                    <Text style ={[styles.sectionTitle,{fontSize:screenWidth/20}]}> {details.name}</Text>
+                    <View style={{flex:1,flexDirection:windowWidth < windowHeight ?'row':'column'}}>
                     <CustomImageButton disabled={notEditable} image={iconSelector} style={styles.addPlus} iconStyle={styles.addPlus} onPress={addItem} testID={"AddButtonID"}/>
-                    {editable?deleteButton():null}
+                    {editable?deleteButton():null}</View>
                 </View>
              </View>
-            <View style={{flex: 4,backgroundColor: 'rgba(112,202,230, 0.30)',flexDirection:'column'}}>
+
+            <View style={{flex: 3,backgroundColor: 'rgba(112,202,230, 0.30)',flexDirection:'column',maxWidth:vertical()==true?null:windowWidth*0.7}}>
                 
                 <View style={{flex:1.3,width:'90%',marginLeft:'5%',marginTop:10,backgroundColor:'white',borderRadius:10}}>
                     <View style={{marginLeft:10,marginRight:10,marginTop:10,flexDirection:'row'}}>
