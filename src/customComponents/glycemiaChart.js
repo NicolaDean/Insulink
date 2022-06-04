@@ -89,9 +89,8 @@ export const GlycemiaChart = ({
 
 const styles=StyleSheet.create({
     chartStyle:{
-           paddingRight:screenWidth*0.15,
-
-      paddingLeft:screenWidth*0.01,
+           paddingRight:screenWidth*0.025,
+      paddingLeft:screenWidth*0.015,
         marginTop:8,
         marginBottom:8,
         borderRadius: 15,
