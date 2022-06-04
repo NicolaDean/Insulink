@@ -95,7 +95,7 @@ export const Home = ({ navigation,state,user,diary,error,userData }) =>{
       <WaitLoading loadingState={[loading,setLoading]}>
 
       <ScrollView>
-        <View style={{flex:1,flexDirection:windowWidth < windowHeight ? 'column' :Platform.isPad? 'row':null,marginTop:windowWidth < windowHeight ?0:'13%'}}>
+        <View style={{flex:1,flexDirection:windowWidth < windowHeight ? 'column' :Platform.isPad? 'row':null,marginTop:windowWidth < windowHeight ?0:'13%',maxWidth:windowWidth*0.99,alignSelf:'center'}}>
         <Slick style={styles.wrapper} showsButtons={false} autoplay={false}>
 
           <View style={styles.slide}>
