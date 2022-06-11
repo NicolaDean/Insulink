@@ -10,17 +10,17 @@
 \contentsline {subsection}{\numberline {2.5}Charts}{5}{subsection.2.5}%
 \contentsline {section}{\numberline {3}Screens and Navigation}{7}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Screens}{7}{subsection.3.1}%
-\contentsline {paragraph}{Home}{7}{paragraph*.2}%
-\contentsline {paragraph}{Search}{8}{paragraph*.3}%
-\contentsline {paragraph}{Glycemia PopUp}{8}{paragraph*.4}%
-\contentsline {paragraph}{Meal Diary}{8}{paragraph*.5}%
-\contentsline {paragraph}{Calendar}{9}{paragraph*.6}%
+\contentsline {paragraph}{Home}{7}{paragraph*.1}%
+\contentsline {paragraph}{Search}{8}{paragraph*.2}%
+\contentsline {paragraph}{Glycemia PopUp}{8}{paragraph*.3}%
+\contentsline {paragraph}{Meal Diary}{8}{paragraph*.4}%
+\contentsline {paragraph}{Calendar}{9}{paragraph*.5}%
 \contentsline {subsection}{\numberline {3.2}Navigation}{10}{subsection.3.2}%
-\contentsline {paragraph}{Registration}{10}{paragraph*.7}%
-\contentsline {paragraph}{Search and Add Food}{10}{paragraph*.8}%
-\contentsline {paragraph}{Add Sport}{11}{paragraph*.9}%
-\contentsline {paragraph}{Delete Food}{11}{paragraph*.10}%
-\contentsline {paragraph}{Calculate Insulin}{12}{paragraph*.11}%
+\contentsline {paragraph}{Registration}{10}{paragraph*.6}%
+\contentsline {paragraph}{Search and Add Food}{10}{paragraph*.7}%
+\contentsline {paragraph}{Add Sport}{11}{paragraph*.8}%
+\contentsline {paragraph}{Delete Food}{11}{paragraph*.9}%
+\contentsline {paragraph}{Calculate Insulin}{12}{paragraph*.10}%
 \contentsline {section}{\numberline {4}Architecture}{13}{section.4}%
 \contentsline {subsection}{\numberline {4.1}UML app structure}{13}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Main components}{13}{subsection.4.2}%

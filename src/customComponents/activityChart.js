@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {  StyleSheet,Dimensions,TouchableOpacity, View, Image,Platform } from 'react-native';
+import {  StyleSheet,Dimensions,TouchableOpacity, View, Image,Platform,useWindowDimensions } from 'react-native';
 import {ContributionGraph} from "react-native-chart-kit";
 import { connect, useDispatch } from 'react-redux';
 import { glicemyChartFormatter } from '../utils/chartDataFormatter';
@@ -51,6 +51,8 @@ export const ActivityChart = ({
         { date: "2022-05-17", count: 2 },
         { date: "2022-05-30", count: 4 }
       ];
+      const windowWidth = useWindowDimensions().width;
+      const windowHeight = useWindowDimensions().height;
 
      // const chartData = (user == undefined) ? commitsData : user;
     return (
@@ -58,25 +60,26 @@ export const ActivityChart = ({
 <ContributionGraph
         values={userData}
         endDate={new Date()}
-        numDays={84}
-        width={screenWidth}
-        height={Dimensions.get("window").height*0.3}
+        numDays={100}
+        width={windowWidth*0.95}
+        height={windowHeight*0.3}
         chartConfig={chartConfig}
         style={styles.chartStyle}
-      
+        gutterSize={5}
+        squareSize={15}
 
       />
       :
         <ContributionGraph
         values={userData}
         endDate={new Date()}
-        numDays={125}
-        width={screenWidth}
-        height={Dimensions.get("window").height*0.30}
+        numDays={windowWidth < windowHeight ?135:80}
+        width={windowWidth < windowHeight ?screenWidth:windowWidth/2}
+        height={windowWidth < windowHeight ?windowHeight*0.27:windowHeight*0.30}
         chartConfig={chartConfig}
         style={styles.chartStyle}
         gutterSize={15}
-        squareSize={25}
+        squareSize={20}
 
       />
     );
@@ -84,9 +87,9 @@ export const ActivityChart = ({
 
 const styles=StyleSheet.create({
     chartStyle:{
+      alignSelf:'center',
         marginTop:8,
         marginBottom:8,
-        marginLeft:15,
         top: '5%',
         borderRadius: 15,
     }

@@ -49,7 +49,11 @@ export default StyleSheet.create({
     sectionTitle: {
       alignSelf:'center',
       color:"black",
-      fontSize: screenWidth/15,
+      fontWeight: '600',
+    },sectionTitlePad: {
+      alignSelf:'center',
+      color:"black",
+      
       fontWeight: '600',
     },
     addPlus:{
@@ -77,6 +81,13 @@ export default StyleSheet.create({
     foodImage: {
       margin:10,
       position:'absolute',
+      zIndex:-1,
+      width: 200,
+      height:200,
+      alignSelf:'center'
+    
+     }, foodImagePad:{
+      margin:10,
       zIndex:-1,
       width: 200,
       height:200,

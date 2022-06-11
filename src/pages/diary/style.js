@@ -46,7 +46,7 @@ export default StyleSheet.create({
           marginLeft:5,
           alignSelf:'flex-start',
           justifyContent:'flex-start',
-          marginVertical:"14%",
+          marginVertical:Platform.isPad!=true?"14%":'3%',
           marginRight:10,
       },
       mealImage:{

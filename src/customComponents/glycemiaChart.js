@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {  StyleSheet,Dimensions,TouchableOpacity, View, Image } from 'react-native';
+import {  StyleSheet,Platform,Dimensions,TouchableOpacity, View, Image,useWindowDimensions } from 'react-native';
 import {LineChart} from "react-native-chart-kit";
 import { connect, useDispatch } from 'react-redux';
 import { glicemyChartFormatter } from '../utils/chartDataFormatter';
@@ -50,40 +50,70 @@ export const GlycemiaChart = ({
      navigation,
      diary,
      user }) =>{
-
+      const windowWidth = useWindowDimensions().width;
+      const windowHeight = useWindowDimensions().height;
     let userData=user.userData;
     //console.log(JSON.stringify(userData.glicemy));
     //console.log(JSON.stringify(FirebaseQuery.getTodayGlicemy(userData.glicemy)));
 
     const data = glicemyChartFormatter(FirebaseQuery.getTodayGlicemy(userData.glicemy));
-
+    if(Platform.isPad!=true){
     return (
-      
         <LineChart
         data={data}
-        width={screenWidth} // from react-native
-        height={Dimensions.get("window").height*0.3}
+        width={windowWidth*0.95}
+        height={windowHeight*0.3}
         yAxisSuffix=" mg/dL"
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={chartConfig}
-        style={styles.chartStyle}
+        style={styles.chartStyleAndroid}
         bezier
       />
+    );}
+    else{
+      return (
+        <View style={{alignSelf:'center'}}>
+        <LineChart
+        data={data}
+        width={windowWidth < windowHeight ?screenWidth:windowWidth/2}
+        height={windowWidth < windowHeight ?windowHeight*0.27:windowHeight*0.30}
+        yAxisSuffix=" mg/dL"
+        yAxisInterval={1} // optional, defaults to 1
+        chartConfig={chartConfig}
+        style={windowWidth < windowHeight ?styles.chartStyle:styles.chartStyleLandscape}
+        bezier
+      /></View>
     );
+    }
 }
 
 const styles=StyleSheet.create({
     chartStyle:{
-        paddingRight:screenWidth*0.25,
+           paddingRight:screenWidth*0.025,
+      paddingLeft:screenWidth*0.015,
         marginTop:8,
         marginBottom:8,
         borderRadius: 15,
-        marginLeft:15,
         top: '5%',
-        borderRadius: 15,
-        borderRadius: 15,
         
-    }
+    },chartStyleLandscape:{
+      paddingRight:screenWidth*0.075,
+      paddingLeft:screenWidth*0.055,
+        marginTop:8,
+        marginBottom:8,
+        borderRadius: 15,
+        top: '5%',
+    },chartStyleAndroid:{
+      paddingRight:screenWidth*0.22,
+
+ paddingLeft:screenWidth*0.03,
+   marginTop:8,
+   marginBottom:8,
+   borderRadius: 15,
+   top: '5%',
+   
+},
+
 });
 
   

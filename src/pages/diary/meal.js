@@ -1,6 +1,6 @@
 
 import React,{ useState,useEffect, useContext } from 'react';
-import {ScrollView,Image,FlatList,Text, SafeAreaView,View,TouchableOpacity,LayoutAnimation} from 'react-native';
+import {ScrollView,Image,FlatList,Text, SafeAreaView,View,TouchableOpacity,LayoutAnimation,useWindowDimensions} from 'react-native';
 import InsulineCalculator from '../../utils/insulineCalculator'
 
 //CUSTOM COMPONENTS
@@ -34,7 +34,8 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
 
     const dropViewHeight=100
     const ic = new InsulineCalculator(10,120);//Insted of arguments -->UserData.CHORatio
-    
+    const windowWidth = useWindowDimensions().width;
+    const windowHeight = useWindowDimensions().height;
     //const [currentMealType,setMealType] = useContext(MealDataContext);
     //setMealType("PASTOO CASUALE");
 
@@ -145,6 +146,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
     return (
      
 <SafeAreaView  style={styles.mealView}>
+    <View style={{}}>
     <View style={{width:'100%',flexDirection:'row'}}>
         <View activeOpacity={0.2} style={{flex:1,flexDirection:'column'}} > 
             <TouchableOpacity testID='MealID' style={{flexDirection:'row'}} onPress = {expandMeal}>
@@ -184,7 +186,8 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
             //SHOW THE LIST OF FOODS ONLY IF EXPANDED IS TRUE
             expanded ? (showExpansion()):null
         }
-        
+
+</View>
 </SafeAreaView>
        
     );//

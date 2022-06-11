@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {  StyleSheet,Dimensions,TouchableOpacity, View, Image } from 'react-native';
+import {  StyleSheet,Dimensions,Platform,TouchableOpacity, View, Image,useWindowDimensions } from 'react-native';
 import {ProgressChart} from "react-native-chart-kit";
 import { connect, useDispatch } from 'react-redux';
 import { colors } from '../constants/appAspect';
@@ -48,7 +48,8 @@ const maxValueCheck = (val,max) =>{
 }
 
 export const MacroChart = ({diary,user }) =>{
-
+  const windowWidth = useWindowDimensions().width-marginOffset;
+  const windowHeight = useWindowDimensions().height;
     const maxCarb = user.maxCarb != undefined ? user.maxCarb : 200;
     const maxProt = user.maxCarb != undefined ? user.maxCarb : 100;
     const maxFat  = user.maxCarb != undefined ? user.maxCarb : 100;
@@ -62,12 +63,11 @@ export const MacroChart = ({diary,user }) =>{
 
       
     return (
-      
  <ProgressChart 
             data={graph}
-            width={screenWidth}
-            height={Dimensions.get("window").height*0.3}
-            strokeWidth={15}
+            width={Platform.isPad!=true?windowWidth*0.98:windowWidth < windowHeight ?windowWidth:windowWidth/2}
+            height={Platform.isPad!=true?windowHeight*0.3:windowWidth < windowHeight ?windowHeight*0.27:windowHeight*0.30}
+            strokeWidth={13}
              radius={32}
             chartConfig={chartConfig}
             hideLegend={false}
@@ -78,9 +78,8 @@ export const MacroChart = ({diary,user }) =>{
 
 const styles=StyleSheet.create({
     chartStyle: {
-        marginLeft:15,
+      alignSelf:'center',
         top: '5%',
-        borderRadius: 15,
         marginVertical: 8,
         borderRadius: 15,
         },
