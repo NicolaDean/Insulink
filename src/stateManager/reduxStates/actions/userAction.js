@@ -89,8 +89,9 @@ export const del = (user) =>{
 } 
 
 
-const actualLogin = (usrData,uid,glicemy) => async dispatch =>{
-
+const actualLogin = (usrData,uid,glicemy) =>async( dispatch, getState) =>{
+    dispatch(resetError());
+    const displayError = (e) => {dispatch(showError(e))};
     //CHECK FOR EMPTY DATA:
     //usrData.age = 20; //TODO CALCULATE AGE FROM BIRTHDAY
     usrData.glicemy = glicemy;
@@ -105,14 +106,29 @@ const actualLogin = (usrData,uid,glicemy) => async dispatch =>{
     //SAVE DATA TO LOCAL STORAGE
     await localStorage.saveUserData(usrData);
 
-    //REDUX DISPATCH
-    dispatch({
-        type: userMethods.login,
-        payload: {
-            usrData: usrData,
-            userId:uid,
+     //TRY LOADING FROM FIREBASE
+     const mealDiary = await FirebaseQuery.getFoodDiary(usrData.uid,FirebaseQuery.glicemyDateFormatter(),displayError);
+
+       
+        if(mealDiary!=null){
+            dispatch({
+                type: foodMethods.loadFoodDiary,
+                payload:{
+                    diary:mealDiary
+                }
+            })
         }
-    });
+
+                //REDUX DISPATCH LOGIN
+                dispatch({
+                    type: userMethods.login,
+                    payload: {
+                        usrData: usrData,
+                        userId:uid,
+                    }
+                });
+        const x = getState();
+        console.log("NEEEEW DATA : " + JSON.stringify(x));
 }
 /**
  * retrive user data from firebase, check correctness of login
@@ -121,7 +137,7 @@ const actualLogin = (usrData,uid,glicemy) => async dispatch =>{
  * @param {*} psw password for login
  * @returns true or false (false if login is not ok)
  */
-export const login = (email,psw,errorFunc = (e) =>{}) => async dispatch =>{
+export const login = (email,psw,errorFunc = (e) =>{})=>async( dispatch, getState) =>{
     dispatch(resetError());
     //errorFunc([registrationErrors.invalidChoratio]);
     //console.count("counter");
@@ -144,7 +160,7 @@ export const login = (email,psw,errorFunc = (e) =>{}) => async dispatch =>{
 } 
 
 
-export const googleLogin = (uid,errorFunc,navigation) => async dispatch =>{
+export const googleLogin = (uid,errorFunc,navigation) =>async( dispatch, getState) =>{
     dispatch(resetError());
     const displayError = (e) => {dispatch(showError(e))};
     //Get user data

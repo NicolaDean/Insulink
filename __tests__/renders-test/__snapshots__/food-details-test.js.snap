@@ -30,6 +30,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
             Object {
               "flex": 1,
               "flexDirection": "column",
+              "minWidth": 375,
             }
           }
         >
@@ -69,68 +70,82 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
             >
               <Text
                 style={
-                  Object {
-                    "alignSelf": "center",
-                    "color": "black",
-                    "fontSize": 50,
-                    "fontWeight": "600",
-                  }
+                  Array [
+                    Object {
+                      "alignSelf": "center",
+                      "color": "black",
+                      "fontWeight": "600",
+                    },
+                    Object {
+                      "fontSize": 61.666666666666664,
+                      "fontWeight": "600",
+                    },
+                  ]
                 }
               >
                  
                 apple pie
               </Text>
               <View
-                accessibilityState={
-                  Object {
-                    "disabled": false,
-                  }
-                }
-                accessible={true}
-                collapsable={false}
-                focusable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
                 style={
                   Object {
-                    "alignSelf": "flex-end",
-                    "height": 75,
-                    "marginLeft": 20,
-                    "marginTop": 5,
-                    "opacity": 1,
-                    "resizeMode": "contain",
-                    "top": 0,
-                    "width": 75,
+                    "flex": 1,
+                    "flexDirection": "row",
                   }
                 }
-                testID="ImageButton"
               >
                 <View
-                  style={null}
+                  accessibilityState={
+                    Object {
+                      "disabled": false,
+                    }
+                  }
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignSelf": "flex-end",
+                      "height": 75,
+                      "marginLeft": 20,
+                      "marginTop": 5,
+                      "opacity": 1,
+                      "resizeMode": "contain",
+                      "top": 0,
+                      "width": 75,
+                    }
+                  }
+                  testID="ImageButton"
                 >
-                  <Image
-                    source={
-                      Object {
-                        "testUri": "../../../src/assets/plus.png",
+                  <View
+                    style={null}
+                  >
+                    <Image
+                      source={
+                        Object {
+                          "testUri": "../../../src/assets/plus.png",
+                        }
                       }
-                    }
-                    style={
-                      Object {
-                        "alignSelf": "flex-end",
-                        "height": 75,
-                        "marginLeft": 20,
-                        "marginTop": 5,
-                        "resizeMode": "contain",
-                        "top": 0,
-                        "width": 75,
+                      style={
+                        Object {
+                          "alignSelf": "flex-end",
+                          "height": 75,
+                          "marginLeft": 20,
+                          "marginTop": 5,
+                          "resizeMode": "contain",
+                          "top": 0,
+                          "width": 75,
+                        }
                       }
-                    }
-                  />
+                    />
+                  </View>
                 </View>
               </View>
             </View>
@@ -139,8 +154,9 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
             style={
               Object {
                 "backgroundColor": "rgba(112,202,230, 0.30)",
-                "flex": 4,
+                "flex": 3,
                 "flexDirection": "column",
+                "maxWidth": null,
               }
             }
           >

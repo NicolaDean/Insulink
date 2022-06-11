@@ -4,6 +4,8 @@ import {  StyleSheet,Dimensions,Platform,TouchableOpacity, View, Image,useWindow
 import {ProgressChart} from "react-native-chart-kit";
 import { connect, useDispatch } from 'react-redux';
 import { colors } from '../constants/appAspect';
+import { initialDiaryState } from '../stateManager/reduxStates/reducers/macroTracker';
+import { FirebaseQuery } from '../utils/firebaseQuery';
 
 const marginOffset=10;
 
@@ -54,13 +56,37 @@ export const MacroChart = ({diary,user }) =>{
     const maxProt = user.maxCarb != undefined ? user.maxCarb : 100;
     const maxFat  = user.maxCarb != undefined ? user.maxCarb : 100;
     
-    const graph = {
+
+    let graph = {
         labels: ["Carbo", "Fat", "Pro"], // optional
         data: [maxValueCheck(diary.totMacro.prot,maxProt),
                maxValueCheck(diary.totMacro.fat,maxFat),
                maxValueCheck(diary.totMacro.carb,maxCarb)]
       }
 
+      const loadInfo = () =>{
+        if(diary.currentDate!= undefined && diary.currentDate != FirebaseQuery.glicemyDateFormatter()){
+          console.log("DIIIFERENT DAY NOT TODAY " + diary.currentDate)
+            try{
+              graph = {
+                labels: ["Carbo", "Fat", "Pro"], // optional
+                data: [maxValueCheck(diary.history.totMacro.prot,maxProt),
+                       maxValueCheck(diary.history.totMacro.fat,maxFat),
+                       maxValueCheck(diary.history.totMacro.carb,maxCarb)]
+              }
+            }catch(e){    
+                console.log("DATA NOT READY");
+                graph = {
+                  labels: ["Carbo", "Fat", "Pro"], // optional
+                  data: [maxValueCheck(initialDiaryState.history.totMacro.prot,maxProt),
+                         maxValueCheck(initialDiaryState.history.totMacro.fat,maxFat),
+                         maxValueCheck(initialDiaryState.history.totMacro.carb,maxCarb)]
+                }
+            }
+        }
+    }
+    
+    loadInfo();
       
     return (
  <ProgressChart 

@@ -273,7 +273,13 @@ const removeActivity = (state,data) =>{
  * @returns 
  */
 const loadMeals = (state,payload) =>{
-    return payload.diary;
+
+    let tmp = payload.diary;
+    if(payload.diary.history == undefined){
+        tmp.history = initialDiaryState.history;
+    }
+    tmp.currentDate = FirebaseQuery.glicemyDateFormatter();
+    return tmp;
 }
 
 /**
@@ -302,6 +308,8 @@ const loadHistory = (state,payload) => {
             newState.history = payload.history;
         }
     }
+
+   // if (newState.history == undefined) newState.history = initialDiaryState.history;
     
     return newState;
 }

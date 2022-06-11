@@ -33,7 +33,6 @@ const login = (state,payload) =>{
     newState.userId = payload.userId;
     newState.status = loginStatus.logged;
     newState.userData = usrData;
-
     return newState;
 }
 

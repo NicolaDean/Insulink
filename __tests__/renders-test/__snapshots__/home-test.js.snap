@@ -8,8 +8,11 @@ exports[`Test the Home component Initial Checks and Snapshot 1`] = `
         <View
           style={
             Object {
+              "alignSelf": "center",
               "flex": 1,
               "flexDirection": "column",
+              "marginTop": 0,
+              "maxWidth": 742.5,
             }
           }
         >
@@ -29,7 +32,7 @@ exports[`Test the Home component Initial Checks and Snapshot 1`] = `
                   "flexDirection": "row",
                   "justifyContent": "space-evenly",
                   "marginBottom": 5,
-                  "marginHorizontal": 40,
+                  "marginHorizontal": null,
                 }
               }
             >
@@ -142,7 +145,8 @@ exports[`Test the Home component Initial Checks and Snapshot 1`] = `
                   "alignItems": "flex-start",
                   "flexDirection": "row",
                   "justifyContent": "space-evenly",
-                  "marginHorizontal": 40,
+                  "marginBottom": 5,
+                  "marginHorizontal": 0,
                 }
               }
             >

@@ -231,12 +231,10 @@ class firebaseQuery{
     getFoodDiary = async (userId,date,errorFunc=(e)=>{}) =>{
         try{
             const res = (await (this.users.doc(userId).collection(tables.diaryTable).doc(date).get())).data();
-        
             if(res == undefined || res == null){
                 console.log("RES UNDEFINED");
                 return [];
             } 
-            console.log("RES:" + res);
             return res
         }catch(e){
             errorFunc([networkErrors.noInternet]);
