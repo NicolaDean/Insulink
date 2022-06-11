@@ -7,9 +7,8 @@ exports[`TEST ON FOOD COMPONENT MEAL AND MEAL DIARY: Meal Diary SnapShot:  1`] =
       <View
         style={
           Object {
-            "alignContent": "center",
+            "flex": 1,
             "flexDirection": "column",
-            "justifyContent": "space-around",
           }
         }
       >
@@ -17,1091 +16,1101 @@ exports[`TEST ON FOOD COMPONENT MEAL AND MEAL DIARY: Meal Diary SnapShot:  1`] =
           style={
             Object {
               "alignContent": "center",
-              "alignSelf": "center",
+              "flexDirection": "column",
+              "justifyContent": "space-around",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignContent": "center",
+                "alignSelf": "center",
+                "flexDirection": "column",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignContent": "stretch",
+                    "alignSelf": "center",
+                    "flexDirection": "row",
+                    "justifyContent": "space-evenly",
+                    "marginVertical": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "alignSelf": "center",
+                        "marginHorizontal": 10,
+                      },
+                      null,
+                    ]
+                  }
+                >
+                  [FORMATTED DATE]
+                </Text>
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/calendar.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "bottom": 10,
+                      "height": 32,
+                      "position": "relative",
+                      "top": 0,
+                      "width": 32,
+                    }
+                  }
+                />
+              </View>
+              <View />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignContent": "center",
+              "flexDirection": "column",
+              "justifyContent": "space-around",
+            }
+          }
+        />
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 15,
+              "elevation": 4,
               "flexDirection": "column",
               "justifyContent": "center",
+              "marginBottom": 20,
+              "marginLeft": "5%",
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.23,
+              "shadowRadius": 2.62,
+              "width": "90%",
             }
           }
         >
           <View
-            accessible={true}
-            collapsable={false}
-            focusable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "opacity": 1,
+                "flexDirection": "row",
+                "width": "100%",
               }
             }
           >
             <View
+              activeOpacity={0.2}
               style={
                 Object {
-                  "alignContent": "stretch",
-                  "alignSelf": "center",
-                  "flexDirection": "row",
-                  "justifyContent": "space-evenly",
-                  "marginVertical": 10,
+                  "flex": 1,
+                  "flexDirection": "column",
                 }
               }
             >
-              <Text
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
                 style={
-                  Array [
+                  Object {
+                    "flexDirection": "row",
+                    "opacity": 1,
+                  }
+                }
+                testID="MealID"
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/breakfast.png",
+                    }
+                  }
+                  style={
                     Object {
                       "alignSelf": "center",
-                      "marginHorizontal": 10,
-                    },
-                    null,
-                  ]
-                }
-              >
-                [FORMATTED DATE]
-              </Text>
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/calendar.png",
+                      "height": 20,
+                      "marginLeft": 10,
+                      "width": 20,
+                    }
                   }
+                />
+                <Text
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "fontSize": 20,
+                      "fontWeight": "bold",
+                      "justifyContent": "flex-start",
+                      "marginLeft": 5,
+                      "marginRight": 10,
+                      "marginVertical": "14%",
+                    }
+                  }
+                >
+                  Breakfast
+                </Text>
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                      "flexShrink": 1,
+                      "justifyContent": "flex-end",
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "baseline",
+                  "flexDirection": "row",
+                  "flexShrink": 1,
+                  "justifyContent": "flex-end",
                 }
+              }
+            >
+              <View
                 style={
                   Object {
-                    "bottom": 10,
-                    "height": 32,
-                    "position": "relative",
-                    "top": 0,
-                    "width": 32,
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
                   }
                 }
-              />
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/insuline.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/calories.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/carbohydrates.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/fat.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/protein.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
             </View>
-            <View />
           </View>
-        </View>
+        </RCTSafeAreaView>
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 15,
+              "elevation": 4,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "marginBottom": 20,
+              "marginLeft": "5%",
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.23,
+              "shadowRadius": 2.62,
+              "width": "90%",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              activeOpacity={0.2}
+              style={
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "flexDirection": "row",
+                    "opacity": 1,
+                  }
+                }
+                testID="MealID"
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/lunch.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "alignSelf": "center",
+                      "height": 20,
+                      "marginLeft": 10,
+                      "width": 20,
+                    }
+                  }
+                />
+                <Text
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "fontSize": 20,
+                      "fontWeight": "bold",
+                      "justifyContent": "flex-start",
+                      "marginLeft": 5,
+                      "marginRight": 10,
+                      "marginVertical": "14%",
+                    }
+                  }
+                >
+                  Lunch
+                </Text>
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                      "flexShrink": 1,
+                      "justifyContent": "flex-end",
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "baseline",
+                  "flexDirection": "row",
+                  "flexShrink": 1,
+                  "justifyContent": "flex-end",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/insuline.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/calories.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/carbohydrates.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/fat.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/protein.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+            </View>
+          </View>
+        </RCTSafeAreaView>
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 15,
+              "elevation": 4,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "marginBottom": 20,
+              "marginLeft": "5%",
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.23,
+              "shadowRadius": 2.62,
+              "width": "90%",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              activeOpacity={0.2}
+              style={
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "flexDirection": "row",
+                    "opacity": 1,
+                  }
+                }
+                testID="MealID"
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/dinner.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "alignSelf": "center",
+                      "height": 20,
+                      "marginLeft": 10,
+                      "width": 20,
+                    }
+                  }
+                />
+                <Text
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "fontSize": 20,
+                      "fontWeight": "bold",
+                      "justifyContent": "flex-start",
+                      "marginLeft": 5,
+                      "marginRight": 10,
+                      "marginVertical": "14%",
+                    }
+                  }
+                >
+                  Dinner
+                </Text>
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                      "flexShrink": 1,
+                      "justifyContent": "flex-end",
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "baseline",
+                  "flexDirection": "row",
+                  "flexShrink": 1,
+                  "justifyContent": "flex-end",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/insuline.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/calories.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/carbohydrates.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/fat.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/protein.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+            </View>
+          </View>
+        </RCTSafeAreaView>
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 15,
+              "elevation": 4,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "marginBottom": 20,
+              "marginLeft": "5%",
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.23,
+              "shadowRadius": 2.62,
+              "width": "90%",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              activeOpacity={0.2}
+              style={
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "flexDirection": "row",
+                    "opacity": 1,
+                  }
+                }
+                testID="MealID"
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/snack.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "alignSelf": "center",
+                      "height": 20,
+                      "marginLeft": 10,
+                      "width": 20,
+                    }
+                  }
+                />
+                <Text
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "fontSize": 20,
+                      "fontWeight": "bold",
+                      "justifyContent": "flex-start",
+                      "marginLeft": 5,
+                      "marginRight": 10,
+                      "marginVertical": "14%",
+                    }
+                  }
+                >
+                  Snack
+                </Text>
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                      "flexShrink": 1,
+                      "justifyContent": "flex-end",
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "baseline",
+                  "flexDirection": "row",
+                  "flexShrink": 1,
+                  "justifyContent": "flex-end",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/insuline.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/calories.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/carbohydrates.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/fat.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/protein.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+            </View>
+          </View>
+        </RCTSafeAreaView>
       </View>
-      <View
-        style={
-          Object {
-            "alignContent": "center",
-            "flexDirection": "column",
-            "justifyContent": "space-around",
-          }
-        }
-      />
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-        style={
-          Object {
-            "backgroundColor": "#fff",
-            "borderRadius": 15,
-            "elevation": 4,
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "marginBottom": 20,
-            "marginLeft": "5%",
-            "shadowColor": "#000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
-            },
-            "shadowOpacity": 0.23,
-            "shadowRadius": 2.62,
-            "width": "90%",
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-              "width": "100%",
-            }
-          }
-        >
-          <View
-            activeOpacity={0.2}
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "column",
-              }
-            }
-          >
-            <View
-              accessible={true}
-              collapsable={false}
-              focusable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "flexDirection": "row",
-                  "opacity": 1,
-                }
-              }
-              testID="MealID"
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/breakfast.png",
-                  }
-                }
-                style={
-                  Object {
-                    "alignSelf": "center",
-                    "height": 20,
-                    "marginLeft": 10,
-                    "width": 20,
-                  }
-                }
-              />
-              <Text
-                style={
-                  Object {
-                    "alignSelf": "flex-start",
-                    "fontSize": 20,
-                    "fontWeight": "bold",
-                    "justifyContent": "flex-start",
-                    "marginLeft": 5,
-                    "marginRight": 10,
-                    "marginVertical": "14%",
-                  }
-                }
-              >
-                Breakfast
-              </Text>
-              <View
-                style={
-                  Object {
-                    "flexDirection": "row",
-                    "flexShrink": 1,
-                    "justifyContent": "flex-end",
-                  }
-                }
-              />
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "alignItems": "baseline",
-                "flexDirection": "row",
-                "flexShrink": 1,
-                "justifyContent": "flex-end",
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/insuline.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/calories.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/carbohydrates.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/fat.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/protein.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-          </View>
-        </View>
-      </RCTSafeAreaView>
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-        style={
-          Object {
-            "backgroundColor": "#fff",
-            "borderRadius": 15,
-            "elevation": 4,
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "marginBottom": 20,
-            "marginLeft": "5%",
-            "shadowColor": "#000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
-            },
-            "shadowOpacity": 0.23,
-            "shadowRadius": 2.62,
-            "width": "90%",
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-              "width": "100%",
-            }
-          }
-        >
-          <View
-            activeOpacity={0.2}
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "column",
-              }
-            }
-          >
-            <View
-              accessible={true}
-              collapsable={false}
-              focusable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "flexDirection": "row",
-                  "opacity": 1,
-                }
-              }
-              testID="MealID"
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/lunch.png",
-                  }
-                }
-                style={
-                  Object {
-                    "alignSelf": "center",
-                    "height": 20,
-                    "marginLeft": 10,
-                    "width": 20,
-                  }
-                }
-              />
-              <Text
-                style={
-                  Object {
-                    "alignSelf": "flex-start",
-                    "fontSize": 20,
-                    "fontWeight": "bold",
-                    "justifyContent": "flex-start",
-                    "marginLeft": 5,
-                    "marginRight": 10,
-                    "marginVertical": "14%",
-                  }
-                }
-              >
-                Lunch
-              </Text>
-              <View
-                style={
-                  Object {
-                    "flexDirection": "row",
-                    "flexShrink": 1,
-                    "justifyContent": "flex-end",
-                  }
-                }
-              />
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "alignItems": "baseline",
-                "flexDirection": "row",
-                "flexShrink": 1,
-                "justifyContent": "flex-end",
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/insuline.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/calories.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/carbohydrates.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/fat.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/protein.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-          </View>
-        </View>
-      </RCTSafeAreaView>
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-        style={
-          Object {
-            "backgroundColor": "#fff",
-            "borderRadius": 15,
-            "elevation": 4,
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "marginBottom": 20,
-            "marginLeft": "5%",
-            "shadowColor": "#000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
-            },
-            "shadowOpacity": 0.23,
-            "shadowRadius": 2.62,
-            "width": "90%",
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-              "width": "100%",
-            }
-          }
-        >
-          <View
-            activeOpacity={0.2}
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "column",
-              }
-            }
-          >
-            <View
-              accessible={true}
-              collapsable={false}
-              focusable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "flexDirection": "row",
-                  "opacity": 1,
-                }
-              }
-              testID="MealID"
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/dinner.png",
-                  }
-                }
-                style={
-                  Object {
-                    "alignSelf": "center",
-                    "height": 20,
-                    "marginLeft": 10,
-                    "width": 20,
-                  }
-                }
-              />
-              <Text
-                style={
-                  Object {
-                    "alignSelf": "flex-start",
-                    "fontSize": 20,
-                    "fontWeight": "bold",
-                    "justifyContent": "flex-start",
-                    "marginLeft": 5,
-                    "marginRight": 10,
-                    "marginVertical": "14%",
-                  }
-                }
-              >
-                Dinner
-              </Text>
-              <View
-                style={
-                  Object {
-                    "flexDirection": "row",
-                    "flexShrink": 1,
-                    "justifyContent": "flex-end",
-                  }
-                }
-              />
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "alignItems": "baseline",
-                "flexDirection": "row",
-                "flexShrink": 1,
-                "justifyContent": "flex-end",
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/insuline.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/calories.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/carbohydrates.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/fat.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/protein.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-          </View>
-        </View>
-      </RCTSafeAreaView>
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-        style={
-          Object {
-            "backgroundColor": "#fff",
-            "borderRadius": 15,
-            "elevation": 4,
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "marginBottom": 20,
-            "marginLeft": "5%",
-            "shadowColor": "#000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
-            },
-            "shadowOpacity": 0.23,
-            "shadowRadius": 2.62,
-            "width": "90%",
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-              "width": "100%",
-            }
-          }
-        >
-          <View
-            activeOpacity={0.2}
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "column",
-              }
-            }
-          >
-            <View
-              accessible={true}
-              collapsable={false}
-              focusable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "flexDirection": "row",
-                  "opacity": 1,
-                }
-              }
-              testID="MealID"
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/snack.png",
-                  }
-                }
-                style={
-                  Object {
-                    "alignSelf": "center",
-                    "height": 20,
-                    "marginLeft": 10,
-                    "width": 20,
-                  }
-                }
-              />
-              <Text
-                style={
-                  Object {
-                    "alignSelf": "flex-start",
-                    "fontSize": 20,
-                    "fontWeight": "bold",
-                    "justifyContent": "flex-start",
-                    "marginLeft": 5,
-                    "marginRight": 10,
-                    "marginVertical": "14%",
-                  }
-                }
-              >
-                Snack
-              </Text>
-              <View
-                style={
-                  Object {
-                    "flexDirection": "row",
-                    "flexShrink": 1,
-                    "justifyContent": "flex-end",
-                  }
-                }
-              />
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "alignItems": "baseline",
-                "flexDirection": "row",
-                "flexShrink": 1,
-                "justifyContent": "flex-end",
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/insuline.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/calories.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/carbohydrates.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/fat.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/protein.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-          </View>
-        </View>
-      </RCTSafeAreaView>
     </View>
   </RCTScrollView>
 </View>
@@ -1114,9 +1123,8 @@ exports[`TEST ON FOOD COMPONENT MEAL AND MEAL DIARY: Test Meal Expansion 1`] = `
       <View
         style={
           Object {
-            "alignContent": "center",
+            "flex": 1,
             "flexDirection": "column",
-            "justifyContent": "space-around",
           }
         }
       >
@@ -1124,428 +1132,46 @@ exports[`TEST ON FOOD COMPONENT MEAL AND MEAL DIARY: Test Meal Expansion 1`] = `
           style={
             Object {
               "alignContent": "center",
-              "alignSelf": "center",
               "flexDirection": "column",
-              "justifyContent": "center",
+              "justifyContent": "space-around",
             }
           }
         >
-          <View
-            accessible={true}
-            collapsable={false}
-            focusable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignContent": "stretch",
-                  "alignSelf": "center",
-                  "flexDirection": "row",
-                  "justifyContent": "space-evenly",
-                  "marginVertical": 10,
-                }
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "alignSelf": "center",
-                      "marginHorizontal": 10,
-                    },
-                    null,
-                  ]
-                }
-              >
-                [FORMATTED DATE]
-              </Text>
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/calendar.png",
-                  }
-                }
-                style={
-                  Object {
-                    "bottom": 10,
-                    "height": 32,
-                    "position": "relative",
-                    "top": 0,
-                    "width": 32,
-                  }
-                }
-              />
-            </View>
-            <View />
-          </View>
-        </View>
-      </View>
-      <View
-        style={
-          Object {
-            "alignContent": "center",
-            "flexDirection": "column",
-            "justifyContent": "space-around",
-          }
-        }
-      />
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-        style={
-          Object {
-            "backgroundColor": "#fff",
-            "borderRadius": 15,
-            "elevation": 4,
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "marginBottom": 20,
-            "marginLeft": "5%",
-            "shadowColor": "#000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
-            },
-            "shadowOpacity": 0.23,
-            "shadowRadius": 2.62,
-            "width": "90%",
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-              "width": "100%",
-            }
-          }
-        >
-          <View
-            activeOpacity={0.2}
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "column",
-              }
-            }
-          >
-            <View
-              accessible={true}
-              collapsable={false}
-              focusable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "flexDirection": "row",
-                  "opacity": 1,
-                }
-              }
-              testID="MealID"
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/breakfast.png",
-                  }
-                }
-                style={
-                  Object {
-                    "alignSelf": "center",
-                    "height": 20,
-                    "marginLeft": 10,
-                    "width": 20,
-                  }
-                }
-              />
-              <Text
-                style={
-                  Object {
-                    "alignSelf": "flex-start",
-                    "fontSize": 20,
-                    "fontWeight": "bold",
-                    "justifyContent": "flex-start",
-                    "marginLeft": 5,
-                    "marginRight": 10,
-                    "marginVertical": "14%",
-                  }
-                }
-              >
-                Breakfast
-              </Text>
-              <View
-                style={
-                  Object {
-                    "flexDirection": "row",
-                    "flexShrink": 1,
-                    "justifyContent": "flex-end",
-                  }
-                }
-              />
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "alignItems": "baseline",
-                "flexDirection": "row",
-                "flexShrink": 1,
-                "justifyContent": "flex-end",
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/insuline.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/calories.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/carbohydrates.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/fat.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/protein.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-          </View>
-        </View>
-        <View>
-          <RCTScrollView>
-            <View>
-              <RCTScrollView
-                data={Array []}
-                getItem={[Function]}
-                getItemCount={[Function]}
-                horizontal={true}
-                keyExtractor={[Function]}
-                onContentSizeChange={[Function]}
-                onLayout={[Function]}
-                onMomentumScrollBegin={[Function]}
-                onMomentumScrollEnd={[Function]}
-                onScroll={[Function]}
-                onScrollBeginDrag={[Function]}
-                onScrollEndDrag={[Function]}
-                removeClippedSubviews={false}
-                renderItem={[Function]}
-                scrollEventThrottle={50}
-                stickyHeaderIndices={Array []}
-                style={Object {}}
-                viewabilityConfigCallbackPairs={Array []}
-              >
-                <View />
-              </RCTScrollView>
-              <RCTScrollView
-                data={Array []}
-                getItem={[Function]}
-                getItemCount={[Function]}
-                horizontal={true}
-                keyExtractor={[Function]}
-                onContentSizeChange={[Function]}
-                onLayout={[Function]}
-                onMomentumScrollBegin={[Function]}
-                onMomentumScrollEnd={[Function]}
-                onScroll={[Function]}
-                onScrollBeginDrag={[Function]}
-                onScrollEndDrag={[Function]}
-                removeClippedSubviews={false}
-                renderItem={[Function]}
-                scrollEventThrottle={50}
-                stickyHeaderIndices={Array []}
-                style={Object {}}
-                viewabilityConfigCallbackPairs={Array []}
-              >
-                <View />
-              </RCTScrollView>
-            </View>
-          </RCTScrollView>
           <View
             style={
               Object {
                 "alignContent": "center",
-                "backgroundColor": "rgb(112,202,230)",
-                "borderBottomEndRadius": 10,
-                "borderBottomLeftRadius": 10,
-                "flexDirection": "row",
+                "alignSelf": "center",
+                "flexDirection": "column",
                 "justifyContent": "center",
               }
             }
           >
             <View
+              accessible={true}
+              collapsable={false}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
                 Object {
-                  "alignSelf": "center",
-                  "backgroundColor": "rgb(112,202,230)",
-                  "borderRadius": 10,
-                  "marginHorizontal": 5,
+                  "opacity": 1,
                 }
               }
             >
               <View
-                accessibilityState={
-                  Object {
-                    "disabled": false,
-                  }
-                }
-                accessible={true}
-                collapsable={false}
-                focusable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
                 style={
                   Object {
+                    "alignContent": "stretch",
                     "alignSelf": "center",
-                    "backgroundColor": "rgb(112,202,230)",
-                    "borderRadius": 10,
-                    "marginHorizontal": 5,
-                    "opacity": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "space-evenly",
+                    "marginVertical": 10,
                   }
                 }
               >
@@ -1554,33 +1180,84 @@ exports[`TEST ON FOOD COMPONENT MEAL AND MEAL DIARY: Test Meal Expansion 1`] = `
                     Array [
                       Object {
                         "alignSelf": "center",
-                        "color": "#fff",
-                        "fontSize": 18,
-                        "fontWeight": "bold",
-                        "textTransform": "uppercase",
+                        "marginHorizontal": 10,
                       },
                       null,
                     ]
                   }
                 >
-                  Add Sport
+                  [FORMATTED DATE]
                 </Text>
-              </View>
-            </View>
-            <View>
-              <Modal
-                animationType="fade"
-                hardwareAccelerated={false}
-                onRequestClose={[Function]}
-                transparent={true}
-                visible={false}
-              />
-              <View
-                accessibilityState={
-                  Object {
-                    "disabled": false,
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/calendar.png",
+                    }
                   }
+                  style={
+                    Object {
+                      "bottom": 10,
+                      "height": 32,
+                      "position": "relative",
+                      "top": 0,
+                      "width": 32,
+                    }
+                  }
+                />
+              </View>
+              <View />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignContent": "center",
+              "flexDirection": "column",
+              "justifyContent": "space-around",
+            }
+          }
+        />
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 15,
+              "elevation": 4,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "marginBottom": 20,
+              "marginLeft": "5%",
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.23,
+              "shadowRadius": 2.62,
+              "width": "90%",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              activeOpacity={0.2}
+              style={
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
                 }
+              }
+            >
+              <View
                 accessible={true}
                 collapsable={false}
                 focusable={true}
@@ -1593,57 +1270,478 @@ exports[`TEST ON FOOD COMPONENT MEAL AND MEAL DIARY: Test Meal Expansion 1`] = `
                 onStartShouldSetResponder={[Function]}
                 style={
                   Object {
+                    "flexDirection": "row",
                     "opacity": 1,
                   }
                 }
-                testID="ImageButton"
+                testID="MealID"
               >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/breakfast.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "alignSelf": "center",
+                      "height": 20,
+                      "marginLeft": 10,
+                      "width": 20,
+                    }
+                  }
+                />
+                <Text
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "fontSize": 20,
+                      "fontWeight": "bold",
+                      "justifyContent": "flex-start",
+                      "marginLeft": 5,
+                      "marginRight": 10,
+                      "marginVertical": "14%",
+                    }
+                  }
+                >
+                  Breakfast
+                </Text>
                 <View
                   style={
                     Object {
-                      "backgroundColor": "rgb(112,202,230)",
-                      "borderRadius": 100,
-                      "elevation": 8,
-                      "height": 64,
-                      "marginRight": 7,
-                      "paddingHorizontal": 12,
-                      "paddingVertical": 12,
-                      "width": 64,
+                      "flexDirection": "row",
+                      "flexShrink": 1,
+                      "justifyContent": "flex-end",
                     }
                   }
-                >
-                  <Image
-                    source={
-                      Object {
-                        "testUri": "../../../src/assets/dose.png",
-                      }
-                    }
-                    style={
-                      Object {
-                        "height": 40,
-                        "width": 40,
-                      }
-                    }
-                  />
-                </View>
+                />
               </View>
             </View>
             <View
               style={
                 Object {
-                  "alignSelf": "center",
-                  "backgroundColor": "rgb(112,202,230)",
-                  "borderRadius": 10,
-                  "marginHorizontal": 5,
+                  "alignItems": "baseline",
+                  "flexDirection": "row",
+                  "flexShrink": 1,
+                  "justifyContent": "flex-end",
                 }
               }
             >
               <View
-                accessibilityState={
+                style={
                   Object {
-                    "disabled": false,
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
                   }
                 }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/insuline.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/calories.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/carbohydrates.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/fat.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/protein.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View>
+            <RCTScrollView>
+              <View>
+                <RCTScrollView
+                  data={Array []}
+                  getItem={[Function]}
+                  getItemCount={[Function]}
+                  horizontal={true}
+                  keyExtractor={[Function]}
+                  onContentSizeChange={[Function]}
+                  onLayout={[Function]}
+                  onMomentumScrollBegin={[Function]}
+                  onMomentumScrollEnd={[Function]}
+                  onScroll={[Function]}
+                  onScrollBeginDrag={[Function]}
+                  onScrollEndDrag={[Function]}
+                  removeClippedSubviews={false}
+                  renderItem={[Function]}
+                  scrollEventThrottle={50}
+                  stickyHeaderIndices={Array []}
+                  style={Object {}}
+                  viewabilityConfigCallbackPairs={Array []}
+                >
+                  <View />
+                </RCTScrollView>
+                <RCTScrollView
+                  data={Array []}
+                  getItem={[Function]}
+                  getItemCount={[Function]}
+                  horizontal={true}
+                  keyExtractor={[Function]}
+                  onContentSizeChange={[Function]}
+                  onLayout={[Function]}
+                  onMomentumScrollBegin={[Function]}
+                  onMomentumScrollEnd={[Function]}
+                  onScroll={[Function]}
+                  onScrollBeginDrag={[Function]}
+                  onScrollEndDrag={[Function]}
+                  removeClippedSubviews={false}
+                  renderItem={[Function]}
+                  scrollEventThrottle={50}
+                  stickyHeaderIndices={Array []}
+                  style={Object {}}
+                  viewabilityConfigCallbackPairs={Array []}
+                >
+                  <View />
+                </RCTScrollView>
+              </View>
+            </RCTScrollView>
+            <View
+              style={
+                Object {
+                  "alignContent": "center",
+                  "backgroundColor": "rgb(112,202,230)",
+                  "borderBottomEndRadius": 10,
+                  "borderBottomLeftRadius": 10,
+                  "flexDirection": "row",
+                  "justifyContent": "center",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignSelf": "center",
+                    "backgroundColor": "rgb(112,202,230)",
+                    "borderRadius": 10,
+                    "marginHorizontal": 5,
+                  }
+                }
+              >
+                <View
+                  accessibilityState={
+                    Object {
+                      "disabled": false,
+                    }
+                  }
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignSelf": "center",
+                      "backgroundColor": "rgb(112,202,230)",
+                      "borderRadius": 10,
+                      "marginHorizontal": 5,
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "alignSelf": "center",
+                          "color": "#fff",
+                          "fontSize": 18,
+                          "fontWeight": "bold",
+                          "textTransform": "uppercase",
+                        },
+                        null,
+                      ]
+                    }
+                  >
+                    Add Sport
+                  </Text>
+                </View>
+              </View>
+              <View>
+                <Modal
+                  animationType="fade"
+                  hardwareAccelerated={false}
+                  onRequestClose={[Function]}
+                  transparent={true}
+                  visible={false}
+                />
+                <View
+                  accessibilityState={
+                    Object {
+                      "disabled": false,
+                    }
+                  }
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID="ImageButton"
+                >
+                  <View
+                    style={
+                      Object {
+                        "backgroundColor": "rgb(112,202,230)",
+                        "borderRadius": 100,
+                        "elevation": 8,
+                        "height": 64,
+                        "marginRight": 7,
+                        "paddingHorizontal": 12,
+                        "paddingVertical": 12,
+                        "width": 64,
+                      }
+                    }
+                  >
+                    <Image
+                      source={
+                        Object {
+                          "testUri": "../../../src/assets/dose.png",
+                        }
+                      }
+                      style={
+                        Object {
+                          "height": 40,
+                          "width": 40,
+                        }
+                      }
+                    />
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignSelf": "center",
+                    "backgroundColor": "rgb(112,202,230)",
+                    "borderRadius": 10,
+                    "marginHorizontal": 5,
+                  }
+                }
+              >
+                <View
+                  accessibilityState={
+                    Object {
+                      "disabled": false,
+                    }
+                  }
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "alignSelf": "center",
+                      "backgroundColor": "rgb(112,202,230)",
+                      "borderRadius": 10,
+                      "marginHorizontal": 5,
+                      "opacity": 1,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "alignSelf": "center",
+                          "color": "#fff",
+                          "fontSize": 18,
+                          "fontWeight": "bold",
+                          "textTransform": "uppercase",
+                        },
+                        null,
+                      ]
+                    }
+                  >
+                    Add Food
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </RCTSafeAreaView>
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
+          style={
+            Object {
+              "backgroundColor": "#fff",
+              "borderRadius": 15,
+              "elevation": 4,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "marginBottom": 20,
+              "marginLeft": "5%",
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.23,
+              "shadowRadius": 2.62,
+              "width": "90%",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "width": "100%",
+              }
+            }
+          >
+            <View
+              activeOpacity={0.2}
+              style={
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                }
+              }
+            >
+              <View
                 accessible={true}
                 collapsable={false}
                 focusable={true}
@@ -1656,791 +1754,711 @@ exports[`TEST ON FOOD COMPONENT MEAL AND MEAL DIARY: Test Meal Expansion 1`] = `
                 onStartShouldSetResponder={[Function]}
                 style={
                   Object {
-                    "alignSelf": "center",
-                    "backgroundColor": "rgb(112,202,230)",
-                    "borderRadius": 10,
-                    "marginHorizontal": 5,
+                    "flexDirection": "row",
                     "opacity": 1,
                   }
                 }
+                testID="MealID"
               >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/lunch.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "alignSelf": "center",
+                      "height": 20,
+                      "marginLeft": 10,
+                      "width": 20,
+                    }
+                  }
+                />
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "alignSelf": "center",
-                        "color": "#fff",
-                        "fontSize": 18,
-                        "fontWeight": "bold",
-                        "textTransform": "uppercase",
-                      },
-                      null,
-                    ]
+                    Object {
+                      "alignSelf": "flex-start",
+                      "fontSize": 20,
+                      "fontWeight": "bold",
+                      "justifyContent": "flex-start",
+                      "marginLeft": 5,
+                      "marginRight": 10,
+                      "marginVertical": "14%",
+                    }
                   }
                 >
-                  Add Food
+                  Lunch
+                </Text>
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                      "flexShrink": 1,
+                      "justifyContent": "flex-end",
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "baseline",
+                  "flexDirection": "row",
+                  "flexShrink": 1,
+                  "justifyContent": "flex-end",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/insuline.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/calories.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/carbohydrates.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/fat.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/protein.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
                 </Text>
               </View>
             </View>
           </View>
-        </View>
-      </RCTSafeAreaView>
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-        style={
-          Object {
-            "backgroundColor": "#fff",
-            "borderRadius": 15,
-            "elevation": 4,
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "marginBottom": 20,
-            "marginLeft": "5%",
-            "shadowColor": "#000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
-            },
-            "shadowOpacity": 0.23,
-            "shadowRadius": 2.62,
-            "width": "90%",
-          }
-        }
-      >
-        <View
+        </RCTSafeAreaView>
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
           style={
             Object {
-              "flexDirection": "row",
-              "width": "100%",
+              "backgroundColor": "#fff",
+              "borderRadius": 15,
+              "elevation": 4,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "marginBottom": 20,
+              "marginLeft": "5%",
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.23,
+              "shadowRadius": 2.62,
+              "width": "90%",
             }
           }
         >
           <View
-            activeOpacity={0.2}
             style={
               Object {
-                "flex": 1,
-                "flexDirection": "column",
+                "flexDirection": "row",
+                "width": "100%",
               }
             }
           >
             <View
-              accessible={true}
-              collapsable={false}
-              focusable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
+              activeOpacity={0.2}
               style={
                 Object {
-                  "flexDirection": "row",
-                  "opacity": 1,
+                  "flex": 1,
+                  "flexDirection": "column",
                 }
               }
-              testID="MealID"
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/lunch.png",
-                  }
-                }
-                style={
-                  Object {
-                    "alignSelf": "center",
-                    "height": 20,
-                    "marginLeft": 10,
-                    "width": 20,
-                  }
-                }
-              />
-              <Text
-                style={
-                  Object {
-                    "alignSelf": "flex-start",
-                    "fontSize": 20,
-                    "fontWeight": "bold",
-                    "justifyContent": "flex-start",
-                    "marginLeft": 5,
-                    "marginRight": 10,
-                    "marginVertical": "14%",
-                  }
-                }
-              >
-                Lunch
-              </Text>
               <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
                 style={
                   Object {
                     "flexDirection": "row",
-                    "flexShrink": 1,
-                    "justifyContent": "flex-end",
+                    "opacity": 1,
                   }
                 }
-              />
+                testID="MealID"
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/dinner.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "alignSelf": "center",
+                      "height": 20,
+                      "marginLeft": 10,
+                      "width": 20,
+                    }
+                  }
+                />
+                <Text
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "fontSize": 20,
+                      "fontWeight": "bold",
+                      "justifyContent": "flex-start",
+                      "marginLeft": 5,
+                      "marginRight": 10,
+                      "marginVertical": "14%",
+                    }
+                  }
+                >
+                  Dinner
+                </Text>
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                      "flexShrink": 1,
+                      "justifyContent": "flex-end",
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "baseline",
+                  "flexDirection": "row",
+                  "flexShrink": 1,
+                  "justifyContent": "flex-end",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/insuline.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/calories.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/carbohydrates.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/fat.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/protein.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
             </View>
           </View>
-          <View
-            style={
-              Object {
-                "alignItems": "baseline",
-                "flexDirection": "row",
-                "flexShrink": 1,
-                "justifyContent": "flex-end",
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/insuline.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/calories.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/carbohydrates.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/fat.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/protein.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-          </View>
-        </View>
-      </RCTSafeAreaView>
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-        style={
-          Object {
-            "backgroundColor": "#fff",
-            "borderRadius": 15,
-            "elevation": 4,
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "marginBottom": 20,
-            "marginLeft": "5%",
-            "shadowColor": "#000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
-            },
-            "shadowOpacity": 0.23,
-            "shadowRadius": 2.62,
-            "width": "90%",
-          }
-        }
-      >
-        <View
+        </RCTSafeAreaView>
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
           style={
             Object {
-              "flexDirection": "row",
-              "width": "100%",
+              "backgroundColor": "#fff",
+              "borderRadius": 15,
+              "elevation": 4,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "marginBottom": 20,
+              "marginLeft": "5%",
+              "shadowColor": "#000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.23,
+              "shadowRadius": 2.62,
+              "width": "90%",
             }
           }
         >
           <View
-            activeOpacity={0.2}
             style={
               Object {
-                "flex": 1,
-                "flexDirection": "column",
+                "flexDirection": "row",
+                "width": "100%",
               }
             }
           >
             <View
-              accessible={true}
-              collapsable={false}
-              focusable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
+              activeOpacity={0.2}
               style={
                 Object {
-                  "flexDirection": "row",
-                  "opacity": 1,
+                  "flex": 1,
+                  "flexDirection": "column",
                 }
               }
-              testID="MealID"
             >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/dinner.png",
-                  }
-                }
-                style={
-                  Object {
-                    "alignSelf": "center",
-                    "height": 20,
-                    "marginLeft": 10,
-                    "width": 20,
-                  }
-                }
-              />
-              <Text
-                style={
-                  Object {
-                    "alignSelf": "flex-start",
-                    "fontSize": 20,
-                    "fontWeight": "bold",
-                    "justifyContent": "flex-start",
-                    "marginLeft": 5,
-                    "marginRight": 10,
-                    "marginVertical": "14%",
-                  }
-                }
-              >
-                Dinner
-              </Text>
               <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
                 style={
                   Object {
                     "flexDirection": "row",
-                    "flexShrink": 1,
-                    "justifyContent": "flex-end",
+                    "opacity": 1,
                   }
                 }
-              />
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "alignItems": "baseline",
-                "flexDirection": "row",
-                "flexShrink": 1,
-                "justifyContent": "flex-end",
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/insuline.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/calories.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/carbohydrates.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/fat.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/protein.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-          </View>
-        </View>
-      </RCTSafeAreaView>
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-        style={
-          Object {
-            "backgroundColor": "#fff",
-            "borderRadius": 15,
-            "elevation": 4,
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "marginBottom": 20,
-            "marginLeft": "5%",
-            "shadowColor": "#000",
-            "shadowOffset": Object {
-              "height": 2,
-              "width": 0,
-            },
-            "shadowOpacity": 0.23,
-            "shadowRadius": 2.62,
-            "width": "90%",
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-              "width": "100%",
-            }
-          }
-        >
-          <View
-            activeOpacity={0.2}
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "column",
-              }
-            }
-          >
-            <View
-              accessible={true}
-              collapsable={false}
-              focusable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "flexDirection": "row",
-                  "opacity": 1,
-                }
-              }
-              testID="MealID"
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/snack.png",
-                  }
-                }
-                style={
-                  Object {
-                    "alignSelf": "center",
-                    "height": 20,
-                    "marginLeft": 10,
-                    "width": 20,
-                  }
-                }
-              />
-              <Text
-                style={
-                  Object {
-                    "alignSelf": "flex-start",
-                    "fontSize": 20,
-                    "fontWeight": "bold",
-                    "justifyContent": "flex-start",
-                    "marginLeft": 5,
-                    "marginRight": 10,
-                    "marginVertical": "14%",
-                  }
-                }
+                testID="MealID"
               >
-                Snack
-              </Text>
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/snack.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "alignSelf": "center",
+                      "height": 20,
+                      "marginLeft": 10,
+                      "width": 20,
+                    }
+                  }
+                />
+                <Text
+                  style={
+                    Object {
+                      "alignSelf": "flex-start",
+                      "fontSize": 20,
+                      "fontWeight": "bold",
+                      "justifyContent": "flex-start",
+                      "marginLeft": 5,
+                      "marginRight": 10,
+                      "marginVertical": "14%",
+                    }
+                  }
+                >
+                  Snack
+                </Text>
+                <View
+                  style={
+                    Object {
+                      "flexDirection": "row",
+                      "flexShrink": 1,
+                      "justifyContent": "flex-end",
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "alignItems": "baseline",
+                  "flexDirection": "row",
+                  "flexShrink": 1,
+                  "justifyContent": "flex-end",
+                }
+              }
+            >
               <View
                 style={
                   Object {
-                    "flexDirection": "row",
-                    "flexShrink": 1,
-                    "justifyContent": "flex-end",
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
                   }
                 }
-              />
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/insuline.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/calories.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/carbohydrates.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/fat.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "margin": 3,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/protein.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+                <Text>
+                  0.0
+                </Text>
+              </View>
             </View>
           </View>
-          <View
-            style={
-              Object {
-                "alignItems": "baseline",
-                "flexDirection": "row",
-                "flexShrink": 1,
-                "justifyContent": "flex-end",
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/insuline.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/calories.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/carbohydrates.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/fat.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "margin": 3,
-                  "marginTop": 10,
-                }
-              }
-            >
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/protein.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-              <Text>
-                0.0
-              </Text>
-            </View>
-          </View>
-        </View>
-      </RCTSafeAreaView>
+        </RCTSafeAreaView>
+      </View>
     </View>
   </RCTScrollView>
 </View>

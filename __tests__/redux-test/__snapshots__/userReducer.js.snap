@@ -44,6 +44,7 @@ Object {
   "mustCompleteReg": false,
   "status": "UNLOGGED",
   "userData": Object {
+    "activitys": undefined,
     "birthday": Object {
       "nanoseconds": 0,
       "seconds": 0,

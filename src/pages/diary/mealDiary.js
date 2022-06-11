@@ -13,6 +13,7 @@ import styles from './style'
 import { connect, useDispatch } from 'react-redux';
 import { Calendar } from "../../customComponents/calendarPicker";
 import { loadHistory } from "../../stateManager/reduxStates/actions/macroTracker";
+import { initialDiaryState } from "../../stateManager/reduxStates/reducers/macroTracker";
 
 
 
@@ -63,12 +64,29 @@ export const MealDiary = ({ route,navigation,diary,user,userData }) =>{
   const maxProt = 100;
   const maxFat  = 100;
  
-  //console.log("DIARIO BABBANO: " + JSON.stringify(diary));
-  
-  const graph = {
+  let graph = {
     labels: ["Carbo", "Fat", "Pro"], // optional
     data: [(((diary.totMacro.prot.toFixed(2)/maxProt)<1) ? (diary.totMacro.prot.toFixed(2)/maxProt) : 1),(((diary.totMacro.fat.toFixed(2)/maxFat)<1) ? (diary.totMacro.fat.toFixed(2)/maxFat) : 1),(((diary.totMacro.carb.toFixed(2)/maxCarb)<1) ? (diary.totMacro.carb.toFixed(2)/maxCarb) : 1)]
   }
+
+  const loadInfo = () =>{
+    if(diary.currentDate != FirebaseQuery.glicemyDateFormatter()){
+        try{
+            graph = {
+              labels: ["Carbo", "Fat", "Pro"], // optional
+              data: [(((diary.history.totMacro.prot.toFixed(2)/maxProt)<1) ? (diary.history.totMacro.prot.toFixed(2)/maxProt) : 1),(((diary.history.totMacro.fat.toFixed(2)/maxFat)<1) ? (diary.history.totMacro.fat.toFixed(2)/maxFat) : 1),(((diary.history.totMacro.carb.toFixed(2)/maxCarb)<1) ? (diary.history.totMacro.carb.toFixed(2)/maxCarb) : 1)]
+            }
+        }catch(e){    
+            console.log("DATA NOT READY");
+        }
+    }
+}
+
+loadInfo();
+
+  //console.log("DIARIO BABBANO: " + JSON.stringify(diary));
+  
+
   
   const changeDay = (date) => {
     //TODO CHANGE currDate

@@ -68,10 +68,6 @@ const addGlicemy = (state,payload) =>{
     if(newstate.userData.glicemy[id] == undefined) newstate.userData.glicemy[id] = [];
 
     newstate.userData.glicemy[id].push(g);
-    console.log("THIS USER HAS : " +payload.userId )
-    newstate.userId = payload.userId;
-    newstate.status = loginStatus.logged;
-    newstate.userData = usrData;
     //console.log(newstate.userData.glicemy[id]);
     return newstate;
 }

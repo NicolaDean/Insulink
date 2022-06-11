@@ -28,110 +28,7 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
         <View
           style={
             Object {
-              "backgroundColor": "white",
-              "flex": 2,
-            }
-          }
-        >
-          <Image
-            source={
-              Object {
-                "uri": "https://d2xdmhkmkbyw75.cloudfront.net/256_highres.jpg",
-              }
-            }
-            style={
-              Object {
-                "alignSelf": "center",
-                "height": 200,
-                "margin": 10,
-                "position": "absolute",
-                "width": 200,
-                "zIndex": -1,
-              }
-            }
-          />
-          <View
-            style={
-              Object {
-                "alignContent": "center",
-                "flexDirection": "row",
-                "marginTop": 200,
-              }
-            }
-          >
-            <Text
-              style={
-                Object {
-                  "alignSelf": "center",
-                  "color": "black",
-                  "fontSize": 50,
-                  "fontWeight": "600",
-                }
-              }
-            >
-               
-              apple pie
-            </Text>
-            <View
-              accessibilityState={
-                Object {
-                  "disabled": false,
-                }
-              }
-              accessible={true}
-              collapsable={false}
-              focusable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "alignSelf": "flex-end",
-                  "height": 75,
-                  "marginLeft": 20,
-                  "marginTop": 5,
-                  "opacity": 1,
-                  "resizeMode": "contain",
-                  "top": 0,
-                  "width": 75,
-                }
-              }
-              testID="ImageButton"
-            >
-              <View
-                style={null}
-              >
-                <Image
-                  source={
-                    Object {
-                      "testUri": "../../../src/assets/plus.png",
-                    }
-                  }
-                  style={
-                    Object {
-                      "alignSelf": "flex-end",
-                      "height": 75,
-                      "marginLeft": 20,
-                      "marginTop": 5,
-                      "resizeMode": "contain",
-                      "top": 0,
-                      "width": 75,
-                    }
-                  }
-                />
-              </View>
-            </View>
-          </View>
-        </View>
-        <View
-          style={
-            Object {
-              "backgroundColor": "rgba(112,202,230, 0.30)",
-              "flex": 4,
+              "flex": 1,
               "flexDirection": "column",
             }
           }
@@ -140,992 +37,49 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
             style={
               Object {
                 "backgroundColor": "white",
-                "borderRadius": 10,
-                "flex": 1.3,
-                "marginLeft": "5%",
-                "marginTop": 10,
-                "width": "90%",
+                "flex": 2,
               }
             }
           >
-            <View
-              style={
+            <Image
+              source={
                 Object {
-                  "flexDirection": "row",
-                  "marginLeft": 10,
-                  "marginRight": 10,
-                  "marginTop": 10,
+                  "uri": "https://d2xdmhkmkbyw75.cloudfront.net/256_highres.jpg",
                 }
               }
-            >
-              <TextInput
-                defaultValue="1"
-                editable={true}
-                keyboardType="numeric"
-                onChangeText={[Function]}
-                placeholder="amount"
-                style={
-                  Object {
-                    "backgroundColor": "white",
-                    "borderColor": "black",
-                    "borderWidth": 1,
-                    "width": "20%",
-                  }
-                }
-              />
-              <View
-                style={
-                  Array [
-                    Object {
-                      "width": "100%",
-                    },
-                    Object {
-                      "zIndex": 1000,
-                    },
-                    Object {
-                      "zIndex": 20,
-                    },
-                    false,
-                  ]
-                }
-              >
-                <View
-                  accessibilityState={
-                    Object {
-                      "disabled": false,
-                    }
-                  }
-                  accessible={true}
-                  collapsable={false}
-                  focusable={true}
-                  forwardedRef={[Function]}
-                  onClick={[Function]}
-                  onLayout={[Function]}
-                  onResponderGrant={[Function]}
-                  onResponderMove={[Function]}
-                  onResponderRelease={[Function]}
-                  onResponderTerminate={[Function]}
-                  onResponderTerminationRequest={[Function]}
-                  onStartShouldSetResponder={[Function]}
-                  style={
-                    Object {
-                      "alignItems": "center",
-                      "backgroundColor": "#fff",
-                      "borderColor": "#000",
-                      "borderRadius": 8,
-                      "borderWidth": 1,
-                      "flexDirection": "row",
-                      "justifyContent": "space-between",
-                      "marginLeft": "10%",
-                      "minHeight": 50,
-                      "opacity": 1,
-                      "paddingHorizontal": 10,
-                      "paddingVertical": 3,
-                      "width": "70%",
-                      "zIndex": 1000,
-                    }
-                  }
-                >
-                  <Text
-                    style={
-                      Array [
-                        Object {
-                          "color": "#000",
-                          "flex": 1,
-                        },
-                        Object {},
-                        Object {},
-                        false,
-                      ]
-                    }
-                  >
-                    piece (1/8 of 9" dia)
-                  </Text>
-                  <View
-                    style={
-                      Array [
-                        Object {
-                          "marginLeft": 10,
-                        },
-                        Object {},
-                      ]
-                    }
-                  >
-                    <Image
-                      source={
-                        Object {
-                          "testUri": "../../react-native-dropdown-picker/src/themes/light/icons/arrow-down.png",
-                        }
-                      }
-                      style={
-                        Array [
-                          Object {
-                            "height": 20,
-                            "width": 20,
-                          },
-                          Object {},
-                        ]
-                      }
-                    />
-                  </View>
-                </View>
-              </View>
-            </View>
-            <View
               style={
                 Object {
-                  "flexDirection": "row",
-                  "marginLeft": "5%",
-                  "marginTop": 10,
-                  "width": "90%",
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "black",
-                    "fontSize": 28,
-                  }
-                }
-              >
-                 
-                60
-                 
-              </Text>
-              <Image
-                source={
-                  Object {
-                    "testUri": "../../../src/assets/calories.png",
-                  }
-                }
-                style={
-                  Object {
-                    "height": 30,
-                    "width": 30,
-                  }
-                }
-              />
-            </View>
-          </View>
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "white",
-                  "borderRadius": 10,
-                  "flex": 2,
-                  "flexDirection": "row",
-                  "marginLeft": "5%",
-                  "marginTop": 10,
-                  "paddingVertical": 10,
-                  "width": "90%",
+                  "alignSelf": "center",
+                  "height": 200,
+                  "margin": 10,
+                  "position": "absolute",
+                  "width": 200,
                   "zIndex": -1,
-                },
-                null,
-              ]
-            }
-          >
-            <View
-              className="VictoryContainer"
-              onMoveShouldSetResponder={[Function]}
-              onMoveShouldSetResponderCapture={[Function]}
-              onResponderEnd={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderReject={[Function]}
-              onResponderRelease={[Function]}
-              onResponderStart={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              onStartShouldSetResponderCapture={[Function]}
-              pointerEvents="box-none"
-              style={
-                Object {
-                  "position": "relative",
                 }
               }
-            >
-              <RNSVGSvgView
-                align="xMidYMid"
-                bbHeight={200}
-                bbWidth={200}
-                focusable={false}
-                height={200}
-                meetOrSlice={0}
-                minX={0}
-                minY={0}
-                role="img"
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                      "borderWidth": 0,
-                    },
-                    Object {
-                      "height": "100%",
-                      "width": "100%",
-                    },
-                    Object {
-                      "flex": 0,
-                      "height": 200,
-                      "width": 200,
-                    },
-                  ]
-                }
-                vbHeight={200}
-                vbWidth={200}
-                width={200}
-              >
-                <RNSVGGroup>
-                  <RNSVGRect
-                    fill={null}
-                    height={200}
-                    propList={
-                      Array [
-                        "fill",
-                      ]
-                    }
-                    width={200}
-                    x={0}
-                    y={0}
-                  />
-                  <RNSVGGroup>
-                    <RNSVGPath
-                      d="M4.440892098500626e-15,-64.8074069840786A5,5,0,0,1,5.3846153846153895,-69.79259213670002A70,70,0,1,1,-32.16297296202685,62.173492504796044A5,5,0,0,1,-34.116703429101555,55.10036794006668L0,0Z"
-                      fill={4294927175}
-                      matrix={
-                        Array [
-                          1,
-                          0,
-                          0,
-                          1,
-                          100,
-                          100,
-                        ]
-                      }
-                      propList={
-                        Array [
-                          "fill",
-                        ]
-                      }
-                    />
-                    <RNSVGPath
-                      d="M-34.11670342910156,55.10036794006669A5,5,0,0,1,-41.319157500653446,56.50422305842452A70,70,0,0,1,-69.99169887061163,-1.0780024144791305A5,5,0,0,1,-64.53095001110857,-5.979673123491505L0,0Z"
-                      fill={4294944000}
-                      matrix={
-                        Array [
-                          1,
-                          0,
-                          0,
-                          1,
-                          100,
-                          100,
-                        ]
-                      }
-                      propList={
-                        Array [
-                          "fill",
-                        ]
-                      }
-                    />
-                    <RNSVGPath
-                      d="M-64.53095001110856,-5.979673123491502A5,5,0,0,1,-68.99803961485298,-11.801293543810266A70,70,0,0,1,-5.384615384615348,-69.79259213670004A5,5,0,0,1,4.618527782440651e-14,-64.8074069840786L0,0Z"
-                      fill={4294956800}
-                      matrix={
-                        Array [
-                          1,
-                          0,
-                          0,
-                          1,
-                          100,
-                          100,
-                        ]
-                      }
-                      propList={
-                        Array [
-                          "fill",
-                        ]
-                      }
-                    />
-                    <RNSVGText
-                      content={null}
-                      dx={
-                        Array [
-                          0,
-                        ]
-                      }
-                      dy={Array []}
-                      font={Object {}}
-                      name="pie-labels-0"
-                      rotate={Array []}
-                      x={
-                        Array [
-                          187,
-                        ]
-                      }
-                      y={
-                        Array [
-                          129.97,
-                        ]
-                      }
-                    >
-                      <RNSVGTSpan
-                        content="Carb"
-                        display="none"
-                        dx={
-                          Array [
-                            0,
-                          ]
-                        }
-                        dy={
-                          Array [
-                            0,
-                          ]
-                        }
-                        fill={4280624421}
-                        font={
-                          Object {
-                            "fontFamily": "Gill Sans",
-                            "fontSize": 14,
-                            "letterSpacing": "normal",
-                            "textAnchor": "start",
-                          }
-                        }
-                        propList={
-                          Array [
-                            "fill",
-                          ]
-                        }
-                        rotate={Array []}
-                        x={
-                          Array [
-                            187,
-                          ]
-                        }
-                        y={Array []}
-                      />
-                    </RNSVGText>
-                    <RNSVGText
-                      content={null}
-                      dx={
-                        Array [
-                          0,
-                        ]
-                      }
-                      dy={Array []}
-                      font={Object {}}
-                      name="pie-labels-1"
-                      rotate={Array []}
-                      x={
-                        Array [
-                          19,
-                        ]
-                      }
-                      y={
-                        Array [
-                          144.97,
-                        ]
-                      }
-                    >
-                      <RNSVGTSpan
-                        content="Fat"
-                        display="none"
-                        dx={
-                          Array [
-                            0,
-                          ]
-                        }
-                        dy={
-                          Array [
-                            0,
-                          ]
-                        }
-                        fill={4280624421}
-                        font={
-                          Object {
-                            "fontFamily": "Gill Sans",
-                            "fontSize": 14,
-                            "letterSpacing": "normal",
-                            "textAnchor": "end",
-                          }
-                        }
-                        propList={
-                          Array [
-                            "fill",
-                          ]
-                        }
-                        rotate={Array []}
-                        x={
-                          Array [
-                            19,
-                          ]
-                        }
-                        y={Array []}
-                      />
-                    </RNSVGText>
-                    <RNSVGText
-                      content={null}
-                      dx={
-                        Array [
-                          0,
-                        ]
-                      }
-                      dy={Array []}
-                      font={Object {}}
-                      name="pie-labels-2"
-                      rotate={Array []}
-                      x={
-                        Array [
-                          39,
-                        ]
-                      }
-                      y={
-                        Array [
-                          30.97,
-                        ]
-                      }
-                    >
-                      <RNSVGTSpan
-                        content="Prot"
-                        display="none"
-                        dx={
-                          Array [
-                            0,
-                          ]
-                        }
-                        dy={
-                          Array [
-                            0,
-                          ]
-                        }
-                        fill={4280624421}
-                        font={
-                          Object {
-                            "fontFamily": "Gill Sans",
-                            "fontSize": 14,
-                            "letterSpacing": "normal",
-                            "textAnchor": "middle",
-                          }
-                        }
-                        propList={
-                          Array [
-                            "fill",
-                          ]
-                        }
-                        rotate={Array []}
-                        x={
-                          Array [
-                            39,
-                          ]
-                        }
-                        y={Array []}
-                      />
-                    </RNSVGText>
-                  </RNSVGGroup>
-                  <View
-                    pointerEvents="box-none"
-                    style={
-                      Object {
-                        "left": 0,
-                        "position": "absolute",
-                        "top": 0,
-                        "zIndex": 99,
-                      }
-                    }
-                  >
-                    <RNSVGSvgView
-                      align="xMidYMid"
-                      bbHeight={200}
-                      bbWidth={200}
-                      focusable={false}
-                      height={200}
-                      meetOrSlice={0}
-                      minX={0}
-                      minY={0}
-                      style={
-                        Array [
-                          Object {
-                            "backgroundColor": "transparent",
-                            "borderWidth": 0,
-                          },
-                          Object {
-                            "height": "100%",
-                            "overflow": "visible",
-                            "width": "100%",
-                          },
-                          Object {
-                            "flex": 0,
-                            "height": 200,
-                            "width": 200,
-                          },
-                        ]
-                      }
-                      vbHeight={200}
-                      vbWidth={200}
-                      width={200}
-                    >
-                      <RNSVGGroup />
-                    </RNSVGSvgView>
-                  </View>
-                </RNSVGGroup>
-              </RNSVGSvgView>
-            </View>
-            <View
-              style={Object {}}
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "margin": 3,
-                    "marginTop": 10,
-                  }
-                }
-              >
-                <Image
-                  source={
-                    Object {
-                      "testUri": "../../../src/assets/carbohydrates.png",
-                    }
-                  }
-                  style={
-                    Object {
-                      "height": 30,
-                      "width": 30,
-                    }
-                  }
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "borderRadius": 8,
-                        "fontWeight": "bold",
-                        "marginTop": 5,
-                        "paddingHorizontal": 10,
-                      },
-                      Object {
-                        "backgroundColor": "tomato",
-                      },
-                    ]
-                  }
-                >
-                  CARB: 
-                  10
-                   g
-                </Text>
-              </View>
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "margin": 3,
-                    "marginTop": 10,
-                  }
-                }
-              >
-                <Image
-                  source={
-                    Object {
-                      "testUri": "../../../src/assets/fat.png",
-                    }
-                  }
-                  style={
-                    Object {
-                      "height": 30,
-                      "width": 30,
-                    }
-                  }
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "borderRadius": 8,
-                        "fontWeight": "bold",
-                        "marginTop": 5,
-                        "paddingHorizontal": 10,
-                      },
-                      Object {
-                        "backgroundColor": "gold",
-                      },
-                    ]
-                  }
-                >
-                  FAT: 
-                  3
-                   g
-                </Text>
-              </View>
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "column",
-                    "justifyContent": "center",
-                    "margin": 3,
-                    "marginTop": 10,
-                  }
-                }
-              >
-                <Image
-                  source={
-                    Object {
-                      "testUri": "../../../src/assets/protein.png",
-                    }
-                  }
-                  style={
-                    Object {
-                      "height": 30,
-                      "width": 30,
-                    }
-                  }
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "borderRadius": 8,
-                        "fontWeight": "bold",
-                        "marginTop": 5,
-                        "paddingHorizontal": 10,
-                      },
-                      Object {
-                        "backgroundColor": "orange",
-                      },
-                    ]
-                  }
-                >
-                  PROT: 
-                  4
-                   g
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "backgroundColor": "white",
-                "borderRadius": 10,
-                "marginLeft": "5%",
-                "marginTop": 10,
-                "width": "90%",
-              }
-            }
-          >
-            <Text
-              style={
-                Object {
-                  "alignSelf": "flex-start",
-                  "color": "black",
-                  "fontSize": 30,
-                  "fontWeight": "600",
-                }
-              }
-            >
-              Details
-            </Text>
+            />
             <View
               style={
                 Object {
-                  "borderColor": "black",
-                  "borderTopWidth": 2,
+                  "alignContent": "center",
+                  "flexDirection": "row",
+                  "marginTop": 200,
                 }
               }
             >
               <Text
                 style={
                   Object {
+                    "alignSelf": "center",
                     "color": "black",
-                    "fontSize": 20,
-                    "fontWeight": "bold",
-                    "marginLeft": "2%",
+                    "fontSize": 50,
+                    "fontWeight": "600",
                   }
                 }
               >
-                total_fat
-                : 
-                3
+                 
+                apple pie
               </Text>
-              <View
-                style={
-                  Object {
-                    "borderBottomWidth": 1,
-                    "borderColor": "black",
-                    "marginLeft": "15%",
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "color": "gray",
-                      "fontSize": 15,
-                      "fontWeight": "bold",
-                      "marginLeft": "2%",
-                    }
-                  }
-                >
-                  saturated_fat
-                  :
-                  0.65
-                </Text>
-              </View>
-              <View
-                style={
-                  Object {
-                    "borderBottomWidth": 1,
-                    "borderColor": "black",
-                    "marginLeft": "15%",
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "color": "gray",
-                      "fontSize": 15,
-                      "fontWeight": "bold",
-                      "marginLeft": "2%",
-                    }
-                  }
-                >
-                  trans_fat
-                  :
-                  0.0074
-                </Text>
-              </View>
-              <View
-                style={
-                  Object {
-                    "borderBottomWidth": 1,
-                    "borderColor": "black",
-                    "marginLeft": "15%",
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "color": "gray",
-                      "fontSize": 15,
-                      "fontWeight": "bold",
-                      "marginLeft": "2%",
-                    }
-                  }
-                >
-                  polyunsaturated
-                  :
-                  0.6547
-                </Text>
-              </View>
-              <View
-                style={
-                  Object {
-                    "borderBottomWidth": 1,
-                    "borderColor": "black",
-                    "marginLeft": "15%",
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "color": "gray",
-                      "fontSize": 15,
-                      "fontWeight": "bold",
-                      "marginLeft": "2%",
-                    }
-                  }
-                >
-                  monounsaturated
-                  :
-                  1.0366
-                </Text>
-              </View>
-            </View>
-            <View
-              style={
-                Object {
-                  "borderColor": "black",
-                  "borderTopWidth": 2,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "black",
-                    "fontSize": 20,
-                    "fontWeight": "bold",
-                    "marginLeft": "2%",
-                  }
-                }
-              >
-                cholesterol
-                : 
-                12.4
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "borderColor": "black",
-                  "borderTopWidth": 2,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "black",
-                    "fontSize": 20,
-                    "fontWeight": "bold",
-                    "marginLeft": "2%",
-                  }
-                }
-              >
-                sodium
-                : 
-                865.52
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "borderColor": "black",
-                  "borderTopWidth": 2,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "black",
-                    "fontSize": 20,
-                    "fontWeight": "bold",
-                    "marginLeft": "2%",
-                  }
-                }
-              >
-                potassium
-                : 
-                54.56
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "borderColor": "black",
-                  "borderTopWidth": 2,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "black",
-                    "fontSize": 20,
-                    "fontWeight": "bold",
-                    "marginLeft": "2%",
-                  }
-                }
-              >
-                total_carbohydrate
-                : 
-                10
-              </Text>
-              <View
-                style={
-                  Object {
-                    "borderBottomWidth": 1,
-                    "borderColor": "black",
-                    "marginLeft": "15%",
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "color": "gray",
-                      "fontSize": 15,
-                      "fontWeight": "bold",
-                      "marginLeft": "2%",
-                    }
-                  }
-                >
-                  dietary_fiber
-                  :
-                  0.5
-                </Text>
-              </View>
-              <View
-                style={
-                  Object {
-                    "borderBottomWidth": 1,
-                    "borderColor": "black",
-                    "marginLeft": "15%",
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Object {
-                      "color": "gray",
-                      "fontSize": 15,
-                      "fontWeight": "bold",
-                      "marginLeft": "2%",
-                    }
-                  }
-                >
-                  sugars
-                  :
-                  0.67
-                </Text>
-              </View>
-            </View>
-            <View
-              style={
-                Object {
-                  "borderColor": "black",
-                  "borderTopWidth": 2,
-                }
-              }
-            >
-              <Text
-                style={
-                  Object {
-                    "color": "black",
-                    "fontSize": 20,
-                    "fontWeight": "bold",
-                    "marginLeft": "2%",
-                  }
-                }
-              >
-                protein
-                : 
-                4
-              </Text>
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "flex": 1,
-                "marginLeft": "5%",
-                "marginTop": 10,
-                "width": "90%",
-              }
-            }
-          >
-            <View>
               <View
                 accessibilityState={
                   Object {
@@ -1144,32 +98,1087 @@ exports[`TEST ON Food Details Page: Food Details SnapShot:  1`] = `
                 onStartShouldSetResponder={[Function]}
                 style={
                   Object {
-                    "backgroundColor": "rgb(112,202,230)",
-                    "borderRadius": 10,
-                    "elevation": 0,
-                    "margin": 20,
+                    "alignSelf": "flex-end",
+                    "height": 75,
+                    "marginLeft": 20,
+                    "marginTop": 5,
                     "opacity": 1,
-                    "paddingHorizontal": 12,
-                    "paddingVertical": 10,
+                    "resizeMode": "contain",
+                    "top": 0,
+                    "width": 75,
+                  }
+                }
+                testID="ImageButton"
+              >
+                <View
+                  style={null}
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../src/assets/plus.png",
+                      }
+                    }
+                    style={
+                      Object {
+                        "alignSelf": "flex-end",
+                        "height": 75,
+                        "marginLeft": 20,
+                        "marginTop": 5,
+                        "resizeMode": "contain",
+                        "top": 0,
+                        "width": 75,
+                      }
+                    }
+                  />
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "backgroundColor": "rgba(112,202,230, 0.30)",
+                "flex": 4,
+                "flexDirection": "column",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "backgroundColor": "white",
+                  "borderRadius": 10,
+                  "flex": 1.3,
+                  "marginLeft": "5%",
+                  "marginTop": 10,
+                  "width": "90%",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "flexDirection": "row",
+                    "marginLeft": 10,
+                    "marginRight": 10,
+                    "marginTop": 10,
+                  }
+                }
+              >
+                <TextInput
+                  defaultValue="1"
+                  editable={true}
+                  keyboardType="numeric"
+                  onChangeText={[Function]}
+                  placeholder="amount"
+                  style={
+                    Object {
+                      "backgroundColor": "white",
+                      "borderColor": "black",
+                      "borderWidth": 1,
+                      "width": "20%",
+                    }
+                  }
+                />
+                <View
+                  style={
+                    Array [
+                      Object {
+                        "width": "100%",
+                      },
+                      Object {
+                        "zIndex": 1000,
+                      },
+                      Object {
+                        "zIndex": 20,
+                      },
+                      false,
+                    ]
+                  }
+                >
+                  <View
+                    accessibilityState={
+                      Object {
+                        "disabled": false,
+                      }
+                    }
+                    accessible={true}
+                    collapsable={false}
+                    focusable={true}
+                    forwardedRef={[Function]}
+                    onClick={[Function]}
+                    onLayout={[Function]}
+                    onResponderGrant={[Function]}
+                    onResponderMove={[Function]}
+                    onResponderRelease={[Function]}
+                    onResponderTerminate={[Function]}
+                    onResponderTerminationRequest={[Function]}
+                    onStartShouldSetResponder={[Function]}
+                    style={
+                      Object {
+                        "alignItems": "center",
+                        "backgroundColor": "#fff",
+                        "borderColor": "#000",
+                        "borderRadius": 8,
+                        "borderWidth": 1,
+                        "flexDirection": "row",
+                        "justifyContent": "space-between",
+                        "marginLeft": "10%",
+                        "minHeight": 50,
+                        "opacity": 1,
+                        "paddingHorizontal": 10,
+                        "paddingVertical": 3,
+                        "width": "70%",
+                        "zIndex": 1000,
+                      }
+                    }
+                  >
+                    <Text
+                      style={
+                        Array [
+                          Object {
+                            "color": "#000",
+                            "flex": 1,
+                          },
+                          Object {},
+                          Object {},
+                          false,
+                        ]
+                      }
+                    >
+                      piece (1/8 of 9" dia)
+                    </Text>
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "marginLeft": 10,
+                          },
+                          Object {},
+                        ]
+                      }
+                    >
+                      <Image
+                        source={
+                          Object {
+                            "testUri": "../../react-native-dropdown-picker/src/themes/light/icons/arrow-down.png",
+                          }
+                        }
+                        style={
+                          Array [
+                            Object {
+                              "height": 20,
+                              "width": 20,
+                            },
+                            Object {},
+                          ]
+                        }
+                      />
+                    </View>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "flexDirection": "row",
+                    "marginLeft": "5%",
+                    "marginTop": 10,
+                    "width": "90%",
                   }
                 }
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "alignSelf": "center",
-                        "color": "#fff",
-                        "fontSize": 18,
-                        "fontWeight": "bold",
-                        "textTransform": "uppercase",
-                      },
-                      null,
-                    ]
+                    Object {
+                      "color": "black",
+                      "fontSize": 28,
+                    }
                   }
                 >
-                  Add Food To Meal
+                   
+                  60
+                   
                 </Text>
+                <Image
+                  source={
+                    Object {
+                      "testUri": "../../../src/assets/calories.png",
+                    }
+                  }
+                  style={
+                    Object {
+                      "height": 30,
+                      "width": 30,
+                    }
+                  }
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "white",
+                    "borderRadius": 10,
+                    "flex": 2,
+                    "flexDirection": "row",
+                    "marginLeft": "5%",
+                    "marginTop": 10,
+                    "paddingVertical": 10,
+                    "width": "90%",
+                    "zIndex": -1,
+                  },
+                  null,
+                ]
+              }
+            >
+              <View
+                className="VictoryContainer"
+                onMoveShouldSetResponder={[Function]}
+                onMoveShouldSetResponderCapture={[Function]}
+                onResponderEnd={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderReject={[Function]}
+                onResponderRelease={[Function]}
+                onResponderStart={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                onStartShouldSetResponderCapture={[Function]}
+                pointerEvents="box-none"
+                style={
+                  Object {
+                    "position": "relative",
+                  }
+                }
+              >
+                <RNSVGSvgView
+                  align="xMidYMid"
+                  bbHeight={200}
+                  bbWidth={200}
+                  focusable={false}
+                  height={200}
+                  meetOrSlice={0}
+                  minX={0}
+                  minY={0}
+                  role="img"
+                  style={
+                    Array [
+                      Object {
+                        "backgroundColor": "transparent",
+                        "borderWidth": 0,
+                      },
+                      Object {
+                        "height": "100%",
+                        "width": "100%",
+                      },
+                      Object {
+                        "flex": 0,
+                        "height": 200,
+                        "width": 200,
+                      },
+                    ]
+                  }
+                  vbHeight={200}
+                  vbWidth={200}
+                  width={200}
+                >
+                  <RNSVGGroup>
+                    <RNSVGRect
+                      fill={null}
+                      height={200}
+                      propList={
+                        Array [
+                          "fill",
+                        ]
+                      }
+                      width={200}
+                      x={0}
+                      y={0}
+                    />
+                    <RNSVGGroup>
+                      <RNSVGPath
+                        d="M4.440892098500626e-15,-64.8074069840786A5,5,0,0,1,5.3846153846153895,-69.79259213670002A70,70,0,1,1,-32.16297296202685,62.173492504796044A5,5,0,0,1,-34.116703429101555,55.10036794006668L0,0Z"
+                        fill={4294927175}
+                        matrix={
+                          Array [
+                            1,
+                            0,
+                            0,
+                            1,
+                            100,
+                            100,
+                          ]
+                        }
+                        propList={
+                          Array [
+                            "fill",
+                          ]
+                        }
+                      />
+                      <RNSVGPath
+                        d="M-34.11670342910156,55.10036794006669A5,5,0,0,1,-41.319157500653446,56.50422305842452A70,70,0,0,1,-69.99169887061163,-1.0780024144791305A5,5,0,0,1,-64.53095001110857,-5.979673123491505L0,0Z"
+                        fill={4294944000}
+                        matrix={
+                          Array [
+                            1,
+                            0,
+                            0,
+                            1,
+                            100,
+                            100,
+                          ]
+                        }
+                        propList={
+                          Array [
+                            "fill",
+                          ]
+                        }
+                      />
+                      <RNSVGPath
+                        d="M-64.53095001110856,-5.979673123491502A5,5,0,0,1,-68.99803961485298,-11.801293543810266A70,70,0,0,1,-5.384615384615348,-69.79259213670004A5,5,0,0,1,4.618527782440651e-14,-64.8074069840786L0,0Z"
+                        fill={4294956800}
+                        matrix={
+                          Array [
+                            1,
+                            0,
+                            0,
+                            1,
+                            100,
+                            100,
+                          ]
+                        }
+                        propList={
+                          Array [
+                            "fill",
+                          ]
+                        }
+                      />
+                      <RNSVGText
+                        content={null}
+                        dx={
+                          Array [
+                            0,
+                          ]
+                        }
+                        dy={Array []}
+                        font={Object {}}
+                        name="pie-labels-0"
+                        rotate={Array []}
+                        x={
+                          Array [
+                            187,
+                          ]
+                        }
+                        y={
+                          Array [
+                            129.97,
+                          ]
+                        }
+                      >
+                        <RNSVGTSpan
+                          content="Carb"
+                          display="none"
+                          dx={
+                            Array [
+                              0,
+                            ]
+                          }
+                          dy={
+                            Array [
+                              0,
+                            ]
+                          }
+                          fill={4280624421}
+                          font={
+                            Object {
+                              "fontFamily": "Gill Sans",
+                              "fontSize": 14,
+                              "letterSpacing": "normal",
+                              "textAnchor": "start",
+                            }
+                          }
+                          propList={
+                            Array [
+                              "fill",
+                            ]
+                          }
+                          rotate={Array []}
+                          x={
+                            Array [
+                              187,
+                            ]
+                          }
+                          y={Array []}
+                        />
+                      </RNSVGText>
+                      <RNSVGText
+                        content={null}
+                        dx={
+                          Array [
+                            0,
+                          ]
+                        }
+                        dy={Array []}
+                        font={Object {}}
+                        name="pie-labels-1"
+                        rotate={Array []}
+                        x={
+                          Array [
+                            19,
+                          ]
+                        }
+                        y={
+                          Array [
+                            144.97,
+                          ]
+                        }
+                      >
+                        <RNSVGTSpan
+                          content="Fat"
+                          display="none"
+                          dx={
+                            Array [
+                              0,
+                            ]
+                          }
+                          dy={
+                            Array [
+                              0,
+                            ]
+                          }
+                          fill={4280624421}
+                          font={
+                            Object {
+                              "fontFamily": "Gill Sans",
+                              "fontSize": 14,
+                              "letterSpacing": "normal",
+                              "textAnchor": "end",
+                            }
+                          }
+                          propList={
+                            Array [
+                              "fill",
+                            ]
+                          }
+                          rotate={Array []}
+                          x={
+                            Array [
+                              19,
+                            ]
+                          }
+                          y={Array []}
+                        />
+                      </RNSVGText>
+                      <RNSVGText
+                        content={null}
+                        dx={
+                          Array [
+                            0,
+                          ]
+                        }
+                        dy={Array []}
+                        font={Object {}}
+                        name="pie-labels-2"
+                        rotate={Array []}
+                        x={
+                          Array [
+                            39,
+                          ]
+                        }
+                        y={
+                          Array [
+                            30.97,
+                          ]
+                        }
+                      >
+                        <RNSVGTSpan
+                          content="Prot"
+                          display="none"
+                          dx={
+                            Array [
+                              0,
+                            ]
+                          }
+                          dy={
+                            Array [
+                              0,
+                            ]
+                          }
+                          fill={4280624421}
+                          font={
+                            Object {
+                              "fontFamily": "Gill Sans",
+                              "fontSize": 14,
+                              "letterSpacing": "normal",
+                              "textAnchor": "middle",
+                            }
+                          }
+                          propList={
+                            Array [
+                              "fill",
+                            ]
+                          }
+                          rotate={Array []}
+                          x={
+                            Array [
+                              39,
+                            ]
+                          }
+                          y={Array []}
+                        />
+                      </RNSVGText>
+                    </RNSVGGroup>
+                    <View
+                      pointerEvents="box-none"
+                      style={
+                        Object {
+                          "left": 0,
+                          "position": "absolute",
+                          "top": 0,
+                          "zIndex": 99,
+                        }
+                      }
+                    >
+                      <RNSVGSvgView
+                        align="xMidYMid"
+                        bbHeight={200}
+                        bbWidth={200}
+                        focusable={false}
+                        height={200}
+                        meetOrSlice={0}
+                        minX={0}
+                        minY={0}
+                        style={
+                          Array [
+                            Object {
+                              "backgroundColor": "transparent",
+                              "borderWidth": 0,
+                            },
+                            Object {
+                              "height": "100%",
+                              "overflow": "visible",
+                              "width": "100%",
+                            },
+                            Object {
+                              "flex": 0,
+                              "height": 200,
+                              "width": 200,
+                            },
+                          ]
+                        }
+                        vbHeight={200}
+                        vbWidth={200}
+                        width={200}
+                      >
+                        <RNSVGGroup />
+                      </RNSVGSvgView>
+                    </View>
+                  </RNSVGGroup>
+                </RNSVGSvgView>
+              </View>
+              <View
+                style={Object {}}
+              >
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                      "margin": 3,
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../src/assets/carbohydrates.png",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 30,
+                        "width": 30,
+                      }
+                    }
+                  />
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "borderRadius": 8,
+                          "fontWeight": "bold",
+                          "marginTop": 5,
+                          "paddingHorizontal": 10,
+                        },
+                        Object {
+                          "backgroundColor": "tomato",
+                        },
+                      ]
+                    }
+                  >
+                    CARB: 
+                    10
+                     g
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                      "margin": 3,
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../src/assets/fat.png",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 30,
+                        "width": 30,
+                      }
+                    }
+                  />
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "borderRadius": 8,
+                          "fontWeight": "bold",
+                          "marginTop": 5,
+                          "paddingHorizontal": 10,
+                        },
+                        Object {
+                          "backgroundColor": "gold",
+                        },
+                      ]
+                    }
+                  >
+                    FAT: 
+                    3
+                     g
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                      "margin": 3,
+                      "marginTop": 10,
+                    }
+                  }
+                >
+                  <Image
+                    source={
+                      Object {
+                        "testUri": "../../../src/assets/protein.png",
+                      }
+                    }
+                    style={
+                      Object {
+                        "height": 30,
+                        "width": 30,
+                      }
+                    }
+                  />
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "borderRadius": 8,
+                          "fontWeight": "bold",
+                          "marginTop": 5,
+                          "paddingHorizontal": 10,
+                        },
+                        Object {
+                          "backgroundColor": "orange",
+                        },
+                      ]
+                    }
+                  >
+                    PROT: 
+                    4
+                     g
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "backgroundColor": "white",
+                  "borderRadius": 10,
+                  "marginLeft": "5%",
+                  "marginTop": 10,
+                  "width": "90%",
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "alignSelf": "flex-start",
+                    "color": "black",
+                    "fontSize": 30,
+                    "fontWeight": "600",
+                  }
+                }
+              >
+                Details
+              </Text>
+              <View
+                style={
+                  Object {
+                    "borderColor": "black",
+                    "borderTopWidth": 2,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "black",
+                      "fontSize": 20,
+                      "fontWeight": "bold",
+                      "marginLeft": "2%",
+                    }
+                  }
+                >
+                  total_fat
+                  : 
+                  3
+                </Text>
+                <View
+                  style={
+                    Object {
+                      "borderBottomWidth": 1,
+                      "borderColor": "black",
+                      "marginLeft": "15%",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "gray",
+                        "fontSize": 15,
+                        "fontWeight": "bold",
+                        "marginLeft": "2%",
+                      }
+                    }
+                  >
+                    saturated_fat
+                    :
+                    0.65
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "borderBottomWidth": 1,
+                      "borderColor": "black",
+                      "marginLeft": "15%",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "gray",
+                        "fontSize": 15,
+                        "fontWeight": "bold",
+                        "marginLeft": "2%",
+                      }
+                    }
+                  >
+                    trans_fat
+                    :
+                    0.0074
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "borderBottomWidth": 1,
+                      "borderColor": "black",
+                      "marginLeft": "15%",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "gray",
+                        "fontSize": 15,
+                        "fontWeight": "bold",
+                        "marginLeft": "2%",
+                      }
+                    }
+                  >
+                    polyunsaturated
+                    :
+                    0.6547
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "borderBottomWidth": 1,
+                      "borderColor": "black",
+                      "marginLeft": "15%",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "gray",
+                        "fontSize": 15,
+                        "fontWeight": "bold",
+                        "marginLeft": "2%",
+                      }
+                    }
+                  >
+                    monounsaturated
+                    :
+                    1.0366
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "borderColor": "black",
+                    "borderTopWidth": 2,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "black",
+                      "fontSize": 20,
+                      "fontWeight": "bold",
+                      "marginLeft": "2%",
+                    }
+                  }
+                >
+                  cholesterol
+                  : 
+                  12.4
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "borderColor": "black",
+                    "borderTopWidth": 2,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "black",
+                      "fontSize": 20,
+                      "fontWeight": "bold",
+                      "marginLeft": "2%",
+                    }
+                  }
+                >
+                  sodium
+                  : 
+                  865.52
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "borderColor": "black",
+                    "borderTopWidth": 2,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "black",
+                      "fontSize": 20,
+                      "fontWeight": "bold",
+                      "marginLeft": "2%",
+                    }
+                  }
+                >
+                  potassium
+                  : 
+                  54.56
+                </Text>
+              </View>
+              <View
+                style={
+                  Object {
+                    "borderColor": "black",
+                    "borderTopWidth": 2,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "black",
+                      "fontSize": 20,
+                      "fontWeight": "bold",
+                      "marginLeft": "2%",
+                    }
+                  }
+                >
+                  total_carbohydrate
+                  : 
+                  10
+                </Text>
+                <View
+                  style={
+                    Object {
+                      "borderBottomWidth": 1,
+                      "borderColor": "black",
+                      "marginLeft": "15%",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "gray",
+                        "fontSize": 15,
+                        "fontWeight": "bold",
+                        "marginLeft": "2%",
+                      }
+                    }
+                  >
+                    dietary_fiber
+                    :
+                    0.5
+                  </Text>
+                </View>
+                <View
+                  style={
+                    Object {
+                      "borderBottomWidth": 1,
+                      "borderColor": "black",
+                      "marginLeft": "15%",
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "gray",
+                        "fontSize": 15,
+                        "fontWeight": "bold",
+                        "marginLeft": "2%",
+                      }
+                    }
+                  >
+                    sugars
+                    :
+                    0.67
+                  </Text>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "borderColor": "black",
+                    "borderTopWidth": 2,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "black",
+                      "fontSize": 20,
+                      "fontWeight": "bold",
+                      "marginLeft": "2%",
+                    }
+                  }
+                >
+                  protein
+                  : 
+                  4
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+                Object {
+                  "flex": 1,
+                  "marginLeft": "5%",
+                  "marginTop": 10,
+                  "width": "90%",
+                }
+              }
+            >
+              <View>
+                <View
+                  accessibilityState={
+                    Object {
+                      "disabled": false,
+                    }
+                  }
+                  accessible={true}
+                  collapsable={false}
+                  focusable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "backgroundColor": "rgb(112,202,230)",
+                      "borderRadius": 10,
+                      "elevation": 0,
+                      "margin": 20,
+                      "opacity": 1,
+                      "paddingHorizontal": 12,
+                      "paddingVertical": 10,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Array [
+                        Object {
+                          "alignSelf": "center",
+                          "color": "#fff",
+                          "fontSize": 18,
+                          "fontWeight": "bold",
+                          "textTransform": "uppercase",
+                        },
+                        null,
+                      ]
+                    }
+                  >
+                    Add Food To Meal
+                  </Text>
+                </View>
               </View>
             </View>
           </View>
