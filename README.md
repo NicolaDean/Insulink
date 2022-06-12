@@ -11,9 +11,13 @@ Emulators commands:
 
 npx react-native start
 npx react-native run-android
+npx react-native run-android --device "SM-G960F - 10"
 cd ios && pod install
 npx react-native run-ios --device "Marco’s iPad"
 
+
+Build commands:
+cd android && ./gradlew assembleRelease     
 SLIDE:
 https://docs.google.com/presentation/d/1b-Rr0jK8Sc6tSviaiHIciBBTXETeNHYzBfHymhFxCGc/edit#slide=id.g85d32b42a5_0_559
     //LINK TO TEST UPC 
