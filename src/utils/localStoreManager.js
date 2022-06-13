@@ -105,6 +105,8 @@ class LocalStorage {
 
     reset = async () =>{
       AsyncStorage.clear();
+      AsyncStorage.removeItem(storageKeys.userData);
+      AsyncStorage.removeItem(storageKeys.foodDiary + FirebaseQuery.glicemyDateFormatter());
     }
     /**
      * Save into local Storage new glicemy value

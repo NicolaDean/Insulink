@@ -109,8 +109,8 @@ const actualLogin = (usrData,uid,glicemy) =>async( dispatch, getState) =>{
      //TRY LOADING FROM FIREBASE
      const mealDiary = await FirebaseQuery.getFoodDiary(usrData.uid,FirebaseQuery.glicemyDateFormatter(),displayError);
 
-       
-        if(mealDiary!=null){
+        console.log("PORTAAAA: " + JSON.stringify(mealDiary));
+        if(mealDiary!=null && mealDiary.meals != undefined){
             dispatch({
                 type: foodMethods.loadFoodDiary,
                 payload:{
@@ -119,14 +119,14 @@ const actualLogin = (usrData,uid,glicemy) =>async( dispatch, getState) =>{
             })
         }
 
-                //REDUX DISPATCH LOGIN
-                dispatch({
-                    type: userMethods.login,
-                    payload: {
-                        usrData: usrData,
-                        userId:uid,
-                    }
-                });
+        //REDUX DISPATCH LOGIN
+        dispatch({
+            type: userMethods.login,
+            payload: {
+                usrData: usrData,
+                userId:uid,
+            }
+        });
         const x = getState();
         console.log("NEEEEW DATA : " + JSON.stringify(x));
 }

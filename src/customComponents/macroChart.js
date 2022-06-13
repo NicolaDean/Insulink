@@ -57,7 +57,7 @@ export const MacroChart = ({diary,user }) =>{
     const maxFat  = user.maxCarb != undefined ? user.maxCarb : 100;
     
 
-    console.log("BANANA: " + JSON.stringify(diary.length));
+    console.log("BANANA: " + JSON.stringify(diary));
 
     let graph;
 

@@ -54,11 +54,13 @@ export const ActivityChart = ({
       const windowWidth = useWindowDimensions().width;
       const windowHeight = useWindowDimensions().height;
 
-     // const chartData = (user == undefined) ? commitsData : user;
+      console.log("FOTTUTI DATI " + JSON.stringify(userData));
+      const chartData = (userData == undefined) ? data : userData;
+      
     return (
       Platform.isPad!=true?
 <ContributionGraph
-        values={userData}
+        values={chartData}
         endDate={new Date()}
         numDays={100}
         width={windowWidth*0.95}
@@ -71,7 +73,7 @@ export const ActivityChart = ({
       />
       :
         <ContributionGraph
-        values={userData}
+        values={chartData}
         endDate={new Date()}
         numDays={windowWidth < windowHeight ?135:80}
         width={windowWidth < windowHeight ?screenWidth:windowWidth/2}

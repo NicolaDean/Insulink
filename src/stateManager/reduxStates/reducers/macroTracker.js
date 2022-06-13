@@ -113,6 +113,7 @@ const addFood = (state,data)=>{
     newstate.id = newstate.id + 1;
     //PUSH FOOD
 
+    console.log("BUG:" + JSON.stringify(newstate));
     newstate.meals[state.currentMeal].foods.push(data.food);
     //CALCULATE TOT MACRO
     let m = state.meals[state.currentMeal].macro;
@@ -275,8 +276,9 @@ const removeActivity = (state,data) =>{
 const loadMeals = (state,payload) =>{
 
     let tmp = payload.diary;
+    console.log("FAKE FAKE FAKE: " + JSON.stringify(tmp));
     if(payload.diary.history == undefined){
-        tmp.history = initialDiaryState.history;
+        console.log("QUESTO E UN BUG DEL CAZZO");
     }
     tmp.currentDate = FirebaseQuery.glicemyDateFormatter();
     return tmp;

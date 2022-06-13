@@ -18,6 +18,8 @@ const data = {
     }
   ]
 };
+
+
 const chartConfig = {
     //General
     backgroundColor: "#e26a00",
@@ -50,7 +52,6 @@ export const SportChart = ({
           }
         ]
       };
-
       const initialize = (dayIndex) =>{
         let daysArray = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         let i=dayIndex;
@@ -89,12 +90,14 @@ export const SportChart = ({
       ]
     };
 
-    if(userData!=undefined){
+  
+    /*if(userData!=undefined){
+      console.log(userData);
       initialize(new Date(userData[userData.length-1].date).getDay());
     }
     else{
       dataReal=data
-    }
+    }*/
     
 
 

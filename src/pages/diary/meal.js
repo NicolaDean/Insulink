@@ -57,6 +57,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                 macro = initialDiaryState.history.meals[id].macro;
                 food =  initialDiaryState.history.meals[id].foods;
                 sport =  initialDiaryState.history.activities[id].sports;
+                diary = initialDiaryState;
             }
            
  
@@ -74,6 +75,8 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
                 macro = initialDiaryState.history.meals[id].macro;
                 food =  initialDiaryState.history.meals[id].foods;
                 sport =  initialDiaryState.history.activities[id].sports;
+
+                diary = initialDiaryState;
             }
         }
     }
