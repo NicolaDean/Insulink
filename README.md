@@ -6,6 +6,9 @@
 
 //GLOBAL
 --.Un test faila
+
+--.esplode quando provi ad accedere
+
 ----------------------
 Emulators commands:
 

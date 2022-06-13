@@ -107,6 +107,13 @@ console.log("STEPPP" + step);
 
         return(
             <WaitLoading loadingState={[waitRegConfirm,setRegConfirmWait]}>
+                <View style={{backgroundColor:'#FFD447',borderRadius:8,marginVertical:10}}>
+                    <Text style={{fontSize:15,
+    marginBottom: 10,
+    textAlign: "center",fontWeight:'bold',padding:10}}>
+                        Consult your doctor before using the functionalities of the app!
+                    </Text>
+                </View>
                 <CustomButton title='Complete Registration' onPress={tryRegister}/>
             </WaitLoading>
         );
