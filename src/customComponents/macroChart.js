@@ -57,12 +57,11 @@ export const MacroChart = ({diary,user }) =>{
     const maxFat  = user.maxCarb != undefined ? user.maxCarb : 100;
     
 
-    let graph = {
-        labels: ["Carbo", "Fat", "Pro"], // optional
-        data: [maxValueCheck(diary.totMacro.prot,maxProt),
-               maxValueCheck(diary.totMacro.fat,maxFat),
-               maxValueCheck(diary.totMacro.carb,maxCarb)]
-      }
+    console.log("BANANA: " + JSON.stringify(diary.length));
+
+    let graph;
+
+   
 
       const loadInfo = () =>{
         if(diary.currentDate!= undefined && diary.currentDate != FirebaseQuery.glicemyDateFormatter()){
@@ -83,6 +82,24 @@ export const MacroChart = ({diary,user }) =>{
                          maxValueCheck(initialDiaryState.history.totMacro.carb,maxCarb)]
                 }
             }
+        }else{
+          try{
+            graph = {
+              labels: ["Carbo", "Fat", "Pro"], // optional
+              data: [maxValueCheck(diary.totMacro.prot,maxProt),
+                     maxValueCheck(diary.totMacro.fat,maxFat),
+                     maxValueCheck(diary.totMacro.carb,maxCarb)]
+            }
+          }catch(e){
+              console.log("NOT READY DATA");
+
+              graph = {
+                labels: ["Carbo", "Fat", "Pro"], // optional
+                data: [maxValueCheck(initialDiaryState.history.totMacro.prot,maxProt),
+                       maxValueCheck(initialDiaryState.history.totMacro.fat,maxFat),
+                       maxValueCheck(initialDiaryState.history.totMacro.carb,maxCarb)]
+              }
+          }
         }
     }
     
