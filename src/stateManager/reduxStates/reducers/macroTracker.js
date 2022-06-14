@@ -2,6 +2,7 @@
 import { macroConstants } from "../../../constants/states";
 import { foodMethods } from "../../../constants/reducers"
 import { FirebaseQuery } from "../../../utils/firebaseQuery";
+import { logout } from "../actions/userAction";
 
 const macro = macroConstants;
 
@@ -296,11 +297,15 @@ const resetDiary = (state,payload) =>{
 
     console.log("UFF: " + JSON.stringify(newState))
 
-    newState.currentDate = payload.currentDate;
+    newState.currentDate = FirebaseQuery.glicemyDateFormatter();
 
     return newState;
 }
+const reset = (state,payload) =>{
+    const newState = {...initialDiaryState};
 
+    return newState;
+}
 const loadHistory = (state,payload) => {
     const newState = {...state};
 
@@ -337,6 +342,8 @@ const macroReducer = (state = initialDiaryState, action) => {
             return removeActivity(state,action.payload);
         case foodMethods.loadHistory:
             return loadHistory(state,action.payload);
+        case foodMethods.logout:
+            return reset(state,action.payload);
         default:
             return state;
         }

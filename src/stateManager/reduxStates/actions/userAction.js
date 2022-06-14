@@ -242,6 +242,10 @@ export const logout = (email) => async dispatch =>{
     dispatch({
         type: userMethods.logout
     });
+    //RESET DIARY
+    dispatch({
+        type: foodMethods.logout
+    });
 }
 
 /**

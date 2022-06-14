@@ -159,7 +159,7 @@ const userReducer = (state = initialState, action) => {
         case userMethods.removeActivity:
             return removeActivity(state,action.payload);
         case userMethods.logout:
-            return initialState;
+            return logout(state,action.payload);
         default:
             return state;
     }
