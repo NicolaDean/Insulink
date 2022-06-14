@@ -23,17 +23,18 @@ import { initialDiaryState } from '../../stateManager/reduxStates/reducers/macro
 
 
 
-export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
+export const Meal = ({navigation,name = "", icon = "breakfast", id,diary,status})  => {
     
     //This variable keep track of the expansios status of meal (can be shrinked or growed by click)
     const [expanded,setExpanded] = useState( false )
     const [apiSelected, setApi] = useState(false);
     const available = diary.currentDate == FirebaseQuery.glicemyDateFormatter();
+    const userData = status.userData;
 
     const dispatch = useDispatch();
 
     const dropViewHeight=100
-    const ic = new InsulineCalculator(10,120);//Insted of arguments -->UserData.CHORatio
+    const ic = new InsulineCalculator(userData.choratio,userData.isf,userData.weight);
     const windowWidth = useWindowDimensions().width;
     const windowHeight = useWindowDimensions().height;
     //const [currentMealType,setMealType] = useContext(MealDataContext);
@@ -210,7 +211,7 @@ export const Meal = ({navigation,name = "", icon = "breakfast", id,diary})  => {
 //export default Home;
 const mapStateToProps = (state, ownProps = {}) => {
     
-    return{diary: state.macroTracker};
+    return{status: state.userReducer,diary: state.macroTracker};
   }
   
   export default connect(mapStateToProps)(Meal);

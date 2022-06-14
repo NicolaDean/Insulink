@@ -80,7 +80,7 @@ export const GlycemiaChart = ({
         yAxisSuffix=" mg/dL"
         yAxisInterval={1} // optional, defaults to 1
         chartConfig={chartConfig}
-        style={windowWidth < windowHeight ?styles.chartStyle:styles.chartStyleLandscape}
+        style={windowWidth < windowHeight?styles.chartStyle :styles.chartStyleLandscape}
         bezier
       /></View>
     );
@@ -89,23 +89,22 @@ export const GlycemiaChart = ({
 
 const styles=StyleSheet.create({
     chartStyle:{
-           paddingRight:screenWidth*0.025,
-      paddingLeft:screenWidth*0.015,
+      paddingLeft:75,
+      paddingRight:80,
         marginTop:8,
         marginBottom:8,
         borderRadius: 15,
         top: '5%',
         
     },chartStyleLandscape:{
-      paddingRight:screenWidth*0.075,
-      paddingLeft:screenWidth*0.055,
+      paddingLeft:70,
+      paddingRight:80,
         marginTop:8,
         marginBottom:8,
         borderRadius: 15,
         top: '5%',
     },chartStyleAndroid:{
       paddingRight:screenWidth*0.22,
-
  paddingLeft:screenWidth*0.03,
    marginTop:8,
    marginBottom:8,

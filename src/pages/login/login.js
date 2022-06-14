@@ -1,5 +1,5 @@
 import React, { useState,useEffect }  from 'react'
-import { View,StyleSheet,Text,TextInput  } from 'react-native';
+import { View,StyleSheet,Text,TextInput,ScrollView  } from 'react-native';
 
 //CUSTOM COMPONENTS
 import CustomButton from '../../customComponents/customButton';
@@ -102,9 +102,9 @@ export const Login = ({navigation,status}) =>{
     
     return (
         
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <RegistrationErrorPopup visibilityFlag={ [errorModalVisible, setErrorModalVisible]} errors={errors}/>
-            <MarginContainer style={styles.container}>
+            <MarginContainer>
                                 <View>
                     <Text style={styles.title}></Text>
                     <InputBlock name={"Insert Your Credential:"}>
@@ -116,21 +116,21 @@ export const Login = ({navigation,status}) =>{
                         </InputContainer>
                     </InputBlock>
                 </View>
+                <View>
                 <CustomButton title='Fast Test Login' onPress={testLogin}/>
                 <CustomButton title='Login' testID={"LoginButtonID"} onPress={tryLogin}/>
           
                 <CustomButton title='Register' testID={"RegistrationButtonID"} onPress={()=>{navigation.navigate('Registration',{})}}/>
                 <GoogleButton navigation={navigation}/>
-
+                </View>
             </MarginContainer>
-        </View>
+        </ScrollView>
         
         
     );
 }
 const styles = StyleSheet.create({
     container:{
-        height:'100%',
         backgroundColor:colors.light_orange,
     },
     textInput:{

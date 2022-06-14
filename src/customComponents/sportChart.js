@@ -91,13 +91,13 @@ export const SportChart = ({
     };
 
   
-    /*if(userData!=undefined){
+    if(userData!=undefined){
       console.log(userData);
       initialize(new Date(userData[userData.length-1].date).getDay());
     }
     else{
       dataReal=data
-    }*/
+    }
     
 
 

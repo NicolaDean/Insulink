@@ -7,8 +7,6 @@
 //GLOBAL
 --.Un test faila
 
---.esplode quando provi ad accedere
-
 //cd android
 //keytool -list -v -keystore app/my-release-key.keystore  -alias my-key-alias
 //Copy key on
