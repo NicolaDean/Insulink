@@ -11,7 +11,7 @@ const marginOffset=10;
 
 const fakeData = {
   labels: ["Carbo", "Pro", "Fat"], // optional
-  data: [0.4, 0.6, 0.8]
+  data: [0.0, 0.0, 0.0]
 };
 
 const screenWidth = Dimensions.get("window").width-marginOffset*3;

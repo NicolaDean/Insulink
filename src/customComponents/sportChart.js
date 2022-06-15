@@ -10,15 +10,6 @@ const marginOffset=10;
 
 const screenWidth = Dimensions.get("window").width-marginOffset*3;
 
-const data = {
-  labels: ["January", "February", "March", "April", "May", "June"],
-  datasets: [
-    {
-      data: [20, 45, 28, 80, 99, 43]
-    }
-  ]
-};
-
 
 const chartConfig = {
     //General
@@ -82,17 +73,17 @@ export const SportChart = ({
     }
 
     const data = {
-      labels: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+      labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
       datasets: [
         {
-          data: [20, 45, 28, 80, 99, 43]
+          data: [0, 0,0, 0, 0, 0]
         }
       ]
     };
 
-  
-    if(userData!=undefined){
-      console.log(userData);
+    if(userData.length!=0){
+      //console.log('LEN' + userData.length)
+      //console.log(userData);
       initialize(new Date(userData[userData.length-1].date).getDay());
     }
     else{
