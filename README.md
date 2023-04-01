@@ -1,16 +1,19 @@
-# DIMA-insuline-calculator
+# Insulink
+An App to help diabetic people!
+## Features:
+1. Keep track of blood sugar level (With diary chart)
+2. Keep track of meals in times.
+3. Keep track of sport activity.
+4. Allow user to approximatly compute how much insuline unit to assume after a meal.
+5. Bar Code scanner (Support only US foods)
 
-//NICO
---. localstorage per lo Sport vedi se lo salva
---. check loading from firebase
+## App Screens:
 
-//GLOBAL
---.Un test faila
 
-//cd android
-//keytool -list -v -keystore app/my-release-key.keystore  -alias my-key-alias
-//Copy key on
-----------------------
+# HOW TO RUN 
+
+(SECTION TODO, WORK IN PROGRESS)
+
 Emulators commands:
 
 npx react-native start
