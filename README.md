@@ -1,5 +1,7 @@
 # Insulink
 An App to help diabetic people!
+
+> :warning: **WARNING: This app is for accademic purpose only**, always contact a doctor since our calculation could be inprecise)
 ## Features:
 1. Keep track of blood sugar level (With diary chart)
 2. Keep track of meals in times.
@@ -8,11 +10,22 @@ An App to help diabetic people!
 5. Bar Code scanner (Support only US foods)
 
 ## App Screens:
+<img align="left" src="documentation/img/screenshot1.jpeg" alt= “” width="200" height="350">
+<img align="left" src="documentation/img/screenshot3.jpeg" alt= “” width="200" height="350">
+<img align="left" src="documentation/img/screenshot4.jpeg" alt= “” width="200" height="350">
+<img src="documentation/img/screenshot5.jpeg" alt= “” width="200" height="350">
 
+## Charts availables on Home Page:
+<img align="left"   src="documentation/img/screenshotA.png" alt= “” width="300" height="200">
+<img                src="documentation/img/screenshotB.png" alt= “” width="300" height="200">
+<img align="left"   src="documentation/img/screenshotC.png" alt= “” width="300" height="200">
+<img                src="documentation/img/screenshotD.png" alt= “” width="300" height="200">
 
-# HOW TO RUN 
+## Documentation
+You can find our documentation both in [summarized slides](documentation/Presentation%20Slides%20.pdf) or in a more [tecnical report](documentation/documentation.pdf).
+### HOW TO RUN 
 
-(SECTION TODO, WORK IN PROGRESS)
+> :warning: **SECTION TODO, WORK IN PROGRESS**
 
 Emulators commands:
 
